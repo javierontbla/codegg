@@ -1,0 +1,24 @@
+import styled, { createGlobalStyle } from "styled-components";
+
+export const Global = createGlobalStyle`
+  blockquote {
+    color: #666;
+    margin: 0;
+    padding-left: 3em;
+    border-left: 0.5em solid black;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
+
+`;
+
+export const NavBarContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
