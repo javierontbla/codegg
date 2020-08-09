@@ -2,7 +2,7 @@ import React from "react";
 
 import Post from "./components/Post";
 
-const HomePage = () => {
+const PostPage = () => {
   return (
     <>
       <Post />
@@ -10,4 +10,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default PostPage;

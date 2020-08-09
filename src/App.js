@@ -2,7 +2,7 @@ import React from "react";
 
 import { NavBarContainer, Global } from "./App.styles.js";
 import NavBar from "./components/navbar.component/NavBar";
-import HomePage from "./pages/home.page/Home.Page.jsx";
+import PostPage from "./pages/post.page/Post.Page.jsx";
 import Footer from "./components/footer.component/Footer";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
         <NavBar />
       </NavBarContainer>
       <div className="container">
-        <HomePage />
+        <PostPage />
       </div>
       <Footer />
     </>

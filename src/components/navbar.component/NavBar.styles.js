@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { colors } from "../../colors/colors";
+
+const { darkGreen, black } = colors;
+
 const Center = css`
   display: flex;
   flex-direction: row;
@@ -42,18 +46,17 @@ export const Space = styled.div`
 // buttons
 export const Section = styled.button`
   display: inline-block;
-  position: relative;
-  margin: 0;
   background: transparent;
   border: none;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  font-family: "Times New Roman", Times, serif;
+  color: ${black};
 
   &:after {
     display: block;
     content: "";
-    border-bottom: solid 4px black;
+    border-bottom: solid 4px ${black};
     transform: scaleX(0);
     transition: transform 0.5s ease-in-out;
   }
@@ -72,10 +75,12 @@ export const Section = styled.button`
 `;
 
 export const MediaIcon = styled(FontAwesomeIcon)`
-  font-size: 1.5rem;
-  color: black;
+  font-size: 1.9rem;
+  color: ${darkGreen};
+  opacity: 0.95;
 
   &:hover {
     cursor: pointer;
+    opacity: 0.9;
   }
 `;
