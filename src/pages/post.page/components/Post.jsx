@@ -2,6 +2,7 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 
 import {
+  Container,
   Title,
   Author,
   Date,
@@ -29,17 +30,19 @@ const Post = () => {
 
   return (
     <>
-      <Title>Por que Amazon es una mala inversión</Title>
-      <AuthorContainer>
-        <Author>Website Name</Author>
-      </AuthorContainer>
-      <InfoContainer>
-        <Date>09 de agosto de 2020</Date>
-        <ReadTime>10 minutos</ReadTime>
-      </InfoContainer>
-      <Body className="mark">
-        <ReactMarkdown source={test} />
-      </Body>
+      <Container>
+        <Title>Por que Amazon es una mala inversión</Title>
+        <AuthorContainer>
+          <Author>Website Name</Author>
+        </AuthorContainer>
+        <InfoContainer>
+          <Date>09 de agosto de 2020</Date>
+          <ReadTime>10 minutos</ReadTime>
+        </InfoContainer>
+        <Body className="mark">
+          <ReactMarkdown source={test} />
+        </Body>
+      </Container>
     </>
   );
 };

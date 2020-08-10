@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "../../colors/colors";
 
-const { black, grey } = colors;
+const { black } = colors;
 
 export const Container = styled.div`
   display: grid;

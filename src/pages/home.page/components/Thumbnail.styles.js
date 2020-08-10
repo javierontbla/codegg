@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { colors } from "../../../colors/colors";
 
 const { black, darkGreen, white, grey } = colors;
 
 export const Container = styled.div`
-  min-width: 15vw;
+  min-width: 20vw;
   padding: 0.2rem;
   border: 2px solid black;
   box-shadow: 0.4rem 0.4rem ${black};
@@ -48,7 +49,7 @@ export const Span = styled.span`
   margin-left: 0.4rem;
 `;
 
-export const ReadMore = styled.a`
+export const ReadMore = styled(Link)`
   font-family: "Abril Fatface", cursive;
   color: ${darkGreen};
   opacity: 0.9;

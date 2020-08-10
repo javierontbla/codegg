@@ -31,7 +31,7 @@ const Thumbnail = () => {
           <BodyPreview>
             {test}...
             <Span>
-              <ReadMore>leer más</ReadMore>
+              <ReadMore to="/post">leer más</ReadMore>
             </Span>
           </BodyPreview>
         </Text>

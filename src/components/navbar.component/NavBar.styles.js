@@ -19,6 +19,9 @@ export const Navbar = styled.div`
   width: 100vw;
   height: 8vh;
   margin-top: 2.5vh;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
 `;
 
 // containers
@@ -84,3 +87,10 @@ export const MediaIcon = styled(FontAwesomeIcon)`
     opacity: 0.8;
   }
 `;
+
+/*
+
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+  */

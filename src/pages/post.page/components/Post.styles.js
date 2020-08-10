@@ -6,24 +6,28 @@ const { darkGreen, black } = colors;
 
 const TextAnimation = keyframes`
   0% {
-    margin-top: 12vh;
+    margin-top: 16vh;
   }
 
   25% {
-    margin-top: 9vh;
+    margin-top: 12vh;
   }
 
   50% {
-    margin-top: 6vh;
+    margin-top: 8vh;
   }
 
   75% {
-    margin-top: 3vh;
+    margin-top: 4vh;
   }
 
   100% {
-    margin-top: 1vh;
+    margin-top: 0vh;
   }
+`;
+
+export const Container = styled.div`
+  animation: ${TextAnimation} 1.1s linear;
 `;
 
 export const Title = styled.div`
@@ -41,8 +45,9 @@ export const AuthorContainer = styled.div`
   width: 100%;
   padding-left: 0.4rem;
   border-left: 0.5rem solid ${darkGreen};
+  opacity: 0.9;
   letter-spacing: 0.5px;
-  color: ${black};
+  color: ${darkGreen};
   font-family: "Roboto", sans-serif;
 `;
 
@@ -80,6 +85,5 @@ export const Body = styled.div`
   letter-spacing: 0.5px;
   text-align: justify;
   margin-top: 1vh;
-  margin-bottom: 10vh;
-  animation: ${TextAnimation} 1.2s linear;
+  margin-bottom: 8vh;
 `;

@@ -18,26 +18,35 @@ export const Content = styled.div`
   font-family: "Roboto", sans-serif;
   background-color: transparent;
   text-align: center;
+  letter-spacing: 0.5px;
+  padding: 0.4rem;
 `;
 
 export const CompanyName = styled.div`
-  margin-top: 2vh;
+  margin-top: 1vh;
+  letter-spacing: 0.5px;
 `;
 
 export const Buttons = styled.div`
-  width: 26.5%;
-  margin-top: 2vh;
+  width: 29%;
+  margin-top: 1vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `;
-export const PrivacyPolicy = styled.div``;
+export const PrivacyPolicy = styled.div`
+  letter-spacing: 0.5px;
+`;
 
-export const TermsUse = styled.div``;
+export const TermsUse = styled.div`
+  letter-spacing: 0.5px;
+`;
 
 export const Data = styled.div`
   font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-top: 2px solid ${grey};
+  color: ${grey};
 `;
