@@ -1,8 +1,10 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 
 import { NavBarContainer, Global } from "./App.styles.js";
 import NavBar from "./components/navbar.component/NavBar";
-import PostPage from "./pages/post.page/Post.Page.jsx";
+import HomePage from "./pages/home.page/Home.Page";
+import PostPage from "./pages/post.page/Post.Page";
 import Footer from "./components/footer.component/Footer";
 
 const App = () => {
@@ -12,9 +14,12 @@ const App = () => {
       <NavBarContainer>
         <NavBar />
       </NavBarContainer>
-      <div className="container">
-        <PostPage />
-      </div>
+      <Switch>
+        <div className="container">
+          <Route exact path="/" component={HomePage} />
+          <Route path="/post" component={PostPage} />
+        </div>
+      </Switch>
       <Footer />
     </>
   );

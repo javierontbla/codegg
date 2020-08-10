@@ -77,10 +77,10 @@ export const Section = styled.button`
 export const MediaIcon = styled(FontAwesomeIcon)`
   font-size: 1.9rem;
   color: ${darkGreen};
-  opacity: 0.95;
+  opacity: 0.9;
 
   &:hover {
     cursor: pointer;
-    opacity: 0.9;
+    opacity: 0.85;
   }
 `;

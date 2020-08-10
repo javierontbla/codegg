@@ -5,9 +5,7 @@ import { FooterContainer } from "./Footer.styles";
 const Footer = () => {
   return (
     <>
-      <div className="container">
-        <FooterContainer>footer</FooterContainer>
-      </div>
+      <FooterContainer>footer</FooterContainer>
     </>
   );
 };

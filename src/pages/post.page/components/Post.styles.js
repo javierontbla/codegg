@@ -53,7 +53,7 @@ export const InfoContainer = styled.div`
   margin-top: 0.8vh;
   justify-content: flex-start;
   letter-spacing: 0.5px;
-  opacity: 0.95;
+  opacity: 0.9;
   color: ${darkGreen};
 `;
 

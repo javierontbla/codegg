@@ -4,12 +4,11 @@ import { colors } from "../../colors/colors";
 
 const { darkGreen, white } = colors;
 
-export const FooterContainer = styled.div`
-  margin-bottom: 0;
+export const FooterContainer = styled.footer`
+  position: fixed;
   width: 100%;
   background: ${darkGreen};
-  height: 30vh;
-  opacity: 0.95;
+  opacity: 0.9;
   color: ${white};
   margin: 0 auto;
 `;
