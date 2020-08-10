@@ -48,15 +48,15 @@ export const Section = styled.button`
   display: inline-block;
   background: transparent;
   border: none;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   letter-spacing: 0.5px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Roboto", sans-serif;
   color: ${black};
 
   &:after {
     display: block;
     content: "";
-    border-bottom: solid 4px ${black};
+    border-bottom: solid 2px ${black};
     transform: scaleX(0);
     transition: transform 0.5s ease-in-out;
   }
@@ -81,6 +81,6 @@ export const MediaIcon = styled(FontAwesomeIcon)`
 
   &:hover {
     cursor: pointer;
-    opacity: 0.85;
+    opacity: 0.8;
   }
 `;

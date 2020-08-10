@@ -14,12 +14,12 @@ const App = () => {
       <NavBarContainer>
         <NavBar />
       </NavBarContainer>
-      <Switch>
-        <div className="container">
+      <div className="container">
+        <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/post" component={PostPage} />
-        </div>
-      </Switch>
+        </Switch>
+      </div>
       <Footer />
     </>
   );

@@ -33,15 +33,17 @@ export const Title = styled.div`
   font-family: "Abril Fatface", cursive;
   text-align: center;
   margin-top: 2vh;
+  letter-spacing: 0.5px;
 `;
 
 export const AuthorContainer = styled.div`
   margin-top: 1vh;
   width: 100%;
   padding-left: 0.4rem;
-  border-left: 0.5rem solid ${black};
+  border-left: 0.5rem solid ${darkGreen};
   letter-spacing: 0.5px;
   color: ${black};
+  font-family: "Roboto", sans-serif;
 `;
 
 export const InfoContainer = styled.div`
@@ -54,20 +56,18 @@ export const InfoContainer = styled.div`
   justify-content: flex-start;
   letter-spacing: 0.5px;
   opacity: 0.9;
-  color: ${darkGreen};
+  color: ${black};
+  font-family: "Abril Fatface", cursive;
 `;
 
 export const Author = styled.div`
-  font-size: 1.4rem;
-  font-family: "Times New Roman", Times, serif;
+  font-size: 1.3rem;
 `;
 export const Date = styled.div`
-  font-family: "Abril Fatface", cursive;
   font-size: 1.1rem;
 `;
 
 export const ReadTime = styled.div`
-  font-family: "Abril Fatface", cursive;
   font-size: 1.1rem;
   margin-left: 1.6vw;
 `;
@@ -75,10 +75,11 @@ export const ReadTime = styled.div`
 export const Body = styled.div`
   background: transparent;
   padding: 1.7rem;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 1.9rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.7rem;
   letter-spacing: 0.5px;
   text-align: justify;
   margin-top: 1vh;
+  margin-bottom: 10vh;
   animation: ${TextAnimation} 1.2s linear;
 `;

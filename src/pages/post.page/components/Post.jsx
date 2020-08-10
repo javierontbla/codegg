@@ -25,10 +25,6 @@ const Post = () => {
   nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea 
   voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat 
   quo voluptas nulla pariatur?
-
-  \n
-
-  ![imagen] (https://lh3.googleusercontent.com/proxy/CWOVjm-_kI8VG1Y-p6UKtyXhhhnOP9lryl931LVo9R3oUwa3u8K6W2dOaStBis7hOWJSIbWVwkP2DVWhRbYUd74PmpCaJEc3E8-NdMPfKgA0dQC_CLKtE5vfkFgNQJJ8CdQtVCfzD4dXg-jBrABkVyVhmwnqHTQ)
   `;
 
   return (

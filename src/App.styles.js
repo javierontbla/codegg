@@ -1,6 +1,13 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const Global = createGlobalStyle`
+body {
+  background-color: #faf9f9;
+  opacity: 0.95;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
   blockquote {
     color: #666;
     margin: 0;
