@@ -26,9 +26,8 @@ const TextAnimation = keyframes`
   }
 `;
 
-export const Container = styled.div`
-  animation: ${TextAnimation} 1.1s linear;
-`;
+//   animation: ${TextAnimation} 1.1s linear;
+export const Container = styled.div``;
 
 export const Title = styled.div`
   color: black;

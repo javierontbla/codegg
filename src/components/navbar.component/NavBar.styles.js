@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../colors/colors";
 
-const { darkGreen, black } = colors;
+const { darkGreen, black, white } = colors;
 
 const Center = css`
   display: flex;
@@ -19,9 +19,10 @@ export const Navbar = styled.div`
   width: 100vw;
   height: 8vh;
   margin-top: 2.5vh;
-  -webkit-box-shadow: 0 8px 6px -6px #999;
-  -moz-box-shadow: 0 8px 6px -6px #999;
-  box-shadow: 0 8px 6px -6px #999;
+  background: ${white};
+  box-shadow: 0.4rem 0.4rem ${darkGreen};
+  border-radius: 0.2rem;
+  border: 2px solid ${darkGreen};
 `;
 
 // containers
@@ -51,25 +52,17 @@ export const Section = styled.button`
   display: inline-block;
   background: transparent;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   letter-spacing: 0.5px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Abril Fatface", cursive;
+  text-transform: uppercase;
   color: ${black};
-
-  &:after {
-    display: block;
-    content: "";
-    border-bottom: solid 2px ${black};
-    transform: scaleX(0);
-    transition: transform 0.5s ease-in-out;
-  }
-
-  &:hover:after {
-    transform: scaleX(1);
-  }
+  transition: color 0.5s linear;
 
   &:hover {
     cursor: pointer;
+    color: ${darkGreen};
+    opacity: 0.9;
   }
 
   &:focus {
@@ -93,4 +86,19 @@ export const MediaIcon = styled(FontAwesomeIcon)`
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
+  */
+
+/* 
+    &:after {
+    display: block;
+    content: "";
+    border-left: solid 5px ${black};
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+  }
+
   */

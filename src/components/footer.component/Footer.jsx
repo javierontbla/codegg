@@ -1,4 +1,5 @@
 import React from "react";
+import { faAddressBook, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 import { FooterContainer } from "./Footer.styles";
 
@@ -9,6 +10,9 @@ import {
   PrivacyPolicy,
   TermsUse,
   Data,
+  Directory,
+  Button,
+  Icon,
 } from "./Footer.styles";
 
 const Footer = () => {
@@ -16,6 +20,20 @@ const Footer = () => {
     <>
       <FooterContainer>
         <div className="container">
+          <Directory>
+            <Button>
+              <span>
+                <Icon icon={faAddressBook} />
+              </span>
+              Contacto
+            </Button>
+            <Button we={"true"}>
+              <span>
+                <Icon icon={faUsers} />
+              </span>
+              Nosotros
+            </Button>
+          </Directory>
           <Data>
             <CompanyName>© 2019 - 2020, Compañia</CompanyName>
             <Buttons>

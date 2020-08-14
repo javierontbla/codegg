@@ -3,7 +3,7 @@ import moment from "moment";
 import "moment/locale/es";
 
 import Thumbnail from "./components/Thumbnail";
-import { Container, Time } from "./Home.Page.styles";
+import { Container, Time, LoadMore, ButtonContainer } from "./Home.Page.styles";
 
 const HomePage = () => {
   moment.locale("es");
@@ -18,6 +18,9 @@ const HomePage = () => {
         <Thumbnail />
         <Thumbnail />
       </Container>
+      <ButtonContainer>
+        <LoadMore>cargar más</LoadMore>
+      </ButtonContainer>
     </>
   );
 };
