@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 import { colors } from "../../../colors/colors";
 
-const { darkGreen, black } = colors;
+const { darkBlue, white } = colors;
 
 const TextAnimation = keyframes`
   0% {
@@ -30,7 +30,7 @@ const TextAnimation = keyframes`
 export const Container = styled.div``;
 
 export const Title = styled.div`
-  color: black;
+  color: ${white};
   font-size: 4rem;
   text-transform: uppercase;
   font-family: "Abril Fatface", cursive;
@@ -43,10 +43,10 @@ export const AuthorContainer = styled.div`
   margin-top: 1vh;
   width: 100%;
   padding-left: 0.4rem;
-  border-left: 0.5rem solid ${darkGreen};
+  border-left: 0.5rem solid ${darkBlue};
   opacity: 0.9;
   letter-spacing: 0.5px;
-  color: ${darkGreen};
+  color: ${darkBlue};
   font-family: "Roboto", sans-serif;
 `;
 
@@ -60,8 +60,9 @@ export const InfoContainer = styled.div`
   justify-content: flex-start;
   letter-spacing: 0.5px;
   opacity: 0.9;
-  color: ${black};
+  color: ${white};
   font-family: "Abril Fatface", cursive;
+  opacity: 0.9;
 `;
 
 export const Author = styled.div`
@@ -85,4 +86,6 @@ export const Body = styled.div`
   text-align: justify;
   margin-top: 1vh;
   margin-bottom: 8vh;
+  color: ${white};
+  opacity: 0.9;
 `;

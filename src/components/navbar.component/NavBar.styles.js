@@ -1,9 +1,10 @@
 import styled, { css } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from 'react-router-dom'
 
 import { colors } from "../../colors/colors";
 
-const { darkGreen, black, white } = colors;
+const { darkBlack, lightBlack, darkBlue, white } = colors;
 
 const Center = css`
   display: flex;
@@ -19,86 +20,80 @@ export const Navbar = styled.div`
   width: 100vw;
   height: 8vh;
   margin-top: 2.5vh;
-  background: ${white};
-  box-shadow: 0.4rem 0.4rem ${darkGreen};
+  margin-right: 2.5vh;
+  margin-left: 2.5vh;
+  background: ${lightBlack};
+  box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
-  border: 2px solid ${darkGreen};
+  border: 2px solid ${darkBlack};
 `;
 
 // containers
 export const Logo = styled.div`
   ${Center};
-  width: 22.5vw;
-  font-family: "Roboto", sans-serif;
-  justify-content: flex-start;
-  padding-left: 1rem;
-`;
-export const Sections = styled.div`
-  ${Center};
-  width: 30vw;
-`;
-
-export const SocialMedia = styled.div`
-  ${Center};
-  width: 12.5vw;
-`;
-
-export const Space = styled.div`
-  width: 10vw;
-`;
-
-// buttons
-export const Section = styled.button`
-  display: inline-block;
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  letter-spacing: 0.5px;
+  width: 27.5vw;
   font-family: "Abril Fatface", cursive;
   text-transform: uppercase;
-  color: ${black};
-  transition: color 0.5s linear;
-
-  &:hover {
-    cursor: pointer;
-    color: ${darkGreen};
-    opacity: 0.9;
-  }
-
-  &:focus {
-    outline: none;
-  }
-`;
-
-export const MediaIcon = styled(FontAwesomeIcon)`
-  font-size: 1.9rem;
-  color: ${darkGreen};
+  justify-content: flex-start;
+  padding-left: 0.2rem;
+  font-size: 2rem;
   opacity: 0.9;
+  padding-left: 2rem;
 
   &:hover {
     cursor: pointer;
     opacity: 0.8;
   }
 `;
+export const SearchContainer = styled.div`
+  ${Center};
+  width: 40vw;
+  justify-content: center;
+`;
 
-/*
+export const SocialMedia = styled.div`
+  ${Center};
+  justify-content: flex-end;
+  width: 27.5vw;
+  padding-right: 2rem;
+`;
 
-  -webkit-box-shadow: 0 8px 6px -6px #999;
-  -moz-box-shadow: 0 8px 6px -6px #999;
-  box-shadow: 0 8px 6px -6px #999;
-  */
+// buttons
+export const MediaIcon = styled(FontAwesomeIcon)`
+  font-size: 1.9rem;
+  color: ${darkBlue};
 
-/* 
-    &:after {
-    display: block;
-    content: "";
-    border-left: solid 5px ${black};
-    transform: scaleX(0);
-    transition: transform 0.5s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+`;
+
+export const LinkText = styled(Link)`
+  color: ${darkBlue};
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    text-decoration: none;
+    color: ${darkBlue};
   }
 
-  &:hover:after {
-    transform: scaleX(1);
-  }
+`
 
-  */
+// search box
+export const SearchBox = styled.input`
+    background: ${lightBlack};
+    border: 2px solid ${darkBlack};
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    width: 100%;
+    height: 80%;
+    padding-left: 0.8rem;
+    color: ${white};
+    opacity: 0.9;
+
+    &:focus {
+      outline: none;
+    }
+`

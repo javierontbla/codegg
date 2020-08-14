@@ -31,9 +31,9 @@ const Post = () => {
   return (
     <>
       <Container>
-        <Title>Por que Amazon es una mala inversión</Title>
+        <Title>Por que React Js es el mejor framework</Title>
         <AuthorContainer>
-          <Author>Website Name</Author>
+          <Author>Avgguido</Author>
         </AuthorContainer>
         <InfoContainer>
           <Date>09 de agosto de 2020</Date>

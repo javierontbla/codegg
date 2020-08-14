@@ -1,14 +1,12 @@
 import React from "react";
-import { faAddressBook, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faAddressBook, faUsers, faUserSecret } from "@fortawesome/free-solid-svg-icons";
 
 import { FooterContainer } from "./Footer.styles";
 
 import {
-  Content,
   CompanyName,
   Buttons,
   PrivacyPolicy,
-  TermsUse,
   Data,
   Directory,
   Button,
@@ -21,7 +19,8 @@ const Footer = () => {
       <FooterContainer>
         <div className="container">
           <Directory>
-            <Button>
+          <Buttons>
+          <Button>
               <span>
                 <Icon icon={faAddressBook} />
               </span>
@@ -33,18 +32,18 @@ const Footer = () => {
               </span>
               Nosotros
             </Button>
+          </Buttons>
+              <PrivacyPolicy>
+                <Button>
+                <span>
+                <Icon icon={faUserSecret} />
+              </span>
+                Política de Privacidad</Button>
+              </PrivacyPolicy>
           </Directory>
           <Data>
-            <CompanyName>© 2019 - 2020, Compañia</CompanyName>
-            <Buttons>
-              <PrivacyPolicy>Política de Privacidad</PrivacyPolicy>
-              <TermsUse>Términos de Uso</TermsUse>
-            </Buttons>
+            <CompanyName>© 2019 - 2020, Avgguido</CompanyName>
           </Data>
-          <Content>
-            Bajo ninguna circunstancia la información mostrada en esta página
-            debe ser sustituida por asesoría profesional.
-          </Content>
         </div>
       </FooterContainer>
     </>

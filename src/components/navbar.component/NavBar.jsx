@@ -5,28 +5,23 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   Navbar,
   Logo,
-  Sections,
-  Section,
-  Space,
+  SearchContainer,
+  SearchBox,
   SocialMedia,
   MediaIcon,
+  LinkText,
 } from "./NavBar.styles";
 
 const NavBar = () => {
   return (
     <>
-      <Navbar className="container">
-        <Logo>Logo</Logo>
-        <Sections>
-          <Section>Acciones</Section>
-          <Section>Ingresos Pasivos</Section>
-          <Section>Invertir</Section>
-        </Sections>
-        <Space />
+      <Navbar>
+        <Logo><LinkText to='/'>Avgguido</LinkText></Logo>
+        <SearchContainer>
+        <SearchBox type="text" placeholder="busca tags" />
+        </SearchContainer>
         <SocialMedia>
-          <MediaIcon icon={faFacebook} />
           <MediaIcon icon={faTwitter} />
-          <MediaIcon icon={faEnvelope} />
         </SocialMedia>
       </Navbar>
     </>

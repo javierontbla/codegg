@@ -37,7 +37,7 @@ const Thumbnail = () => {
         </Text>
         <Time>11 minutos</Time>
         <Hashtags>
-          <Hashtag>#invertir</Hashtag>
+          <Hashtag>#react</Hashtag>
         </Hashtags>
       </Container>
     </>

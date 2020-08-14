@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 
 import { colors } from "../../../colors/colors";
 
-const { black, darkGreen, white, grey } = colors;
+const { darkBlue, darkGreen, white, grey, darkBlack, lightBlack } = colors;
 
 export const Container = styled.div`
   min-width: 20vw;
-  padding: 0.2rem;
-  border: 2px solid black;
-  box-shadow: 0.4rem 0.4rem ${black};
+  border: 2px solid ${darkBlack};
+  box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
 `;
 
@@ -25,13 +24,14 @@ export const Img = styled.div`
 `;
 
 export const Text = styled.div`
-  padding: 0.4rem;
-  border-top: 2px solid ${grey};
+  padding: 0.6rem;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   letter-spacing: 0.5px;
   text-align: justify;
   margin-top: 1vh;
+  color: ${white};
+  opacity: 0.9;
 `;
 
 export const Title = styled.div`
@@ -39,6 +39,7 @@ export const Title = styled.div`
   text-transform: uppercase;
   font-size: 1.6rem;
   letter-spacing: 0.5px;
+  color: ${white};
 `;
 
 export const BodyPreview = styled.div`
@@ -51,23 +52,22 @@ export const Span = styled.span`
 
 export const ReadMore = styled(Link)`
   font-family: "Abril Fatface", cursive;
-  color: ${darkGreen};
-  opacity: 0.9;
+  color: ${darkBlue};
 
   &:hover {
-    color: ${darkGreen};
-    opacity: 0.8;
+    color: ${darkBlue};
+    opacity: 0.9;
     text-decoration: none;
     cursor: pointer;
   }
 `;
 
 export const Time = styled.div`
-  padding: 0.4rem;
-  color: black;
+  padding: 0.6rem;
+  color: ${darkBlue};
   font-size: 0.8rem;
   font-family: "Abril Fatface", cursive;
-  border-bottom: 2px solid ${grey};
+  border-bottom: 2px solid ${darkBlack};
   letter-spacing: 0.5px;
 `;
 
@@ -76,7 +76,7 @@ export const Hashtags = styled.div`
 `;
 export const Hashtag = styled.div`
   width: fit-content;
-  background: ${darkGreen};
+  background: ${darkBlue};
   color: ${white};
   border-radius: 0.2rem;
   padding: 0.3rem;

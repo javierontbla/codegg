@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../colors/colors";
 
-const { grey, black, darkGreen } = colors;
+const { grey, black, darkGreen, white } = colors;
 
 export const FooterContainer = styled.footer`
   position: relative;
@@ -13,79 +13,76 @@ export const FooterContainer = styled.footer`
   background-color: transparent;
 `;
 
-export const Content = styled.div`
-  margin-top: 1vh;
-  color: ${grey};
-  font-family: "Abril Fatface", cursive;
-  background-color: transparent;
-  text-align: center;
-  letter-spacing: 1px;
-  padding: 0.4rem;
-  font-size: 0.9rem;
-`;
-
 export const CompanyName = styled.div`
   margin-top: 1vh;
   letter-spacing: 0.5px;
   opacity: 0.9;
+  padding-left: 0.2rem;
+  opacity: 0.9;
 `;
 
 export const Buttons = styled.div`
-  width: 29%;
+display: flex;
+  width: 19%;
   margin-top: 1vh;
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
-  color: ${black};
-  margin-right: 5px;
+  color: ${white};
+  margin-right: 6px;
+  opacity: 0.9;
 `;
 
 export const Button = styled.a`
-  color: ${black};
+  color: ${white};
   padding: 0.2rem;
-  margin-left: ${(props) => (props.we ? "0.5rem" : "0.1rem")};
+  opacity: 0.9;
 
   &:hover {
-    color: ${darkGreen};
+    opacity: 0.8;
     text-decoration: none;
     cursor: pointer;
+    color: ${white};
   }
 
   &:hover ${Icon} {
-    color: ${darkGreen};
+    opacity: 0.8;
   }
 `;
 
 export const PrivacyPolicy = styled.div`
+display: flex;
+justify-content: flex-end;
+align-items: center;
   letter-spacing: 0.5px;
   opacity: 0.9;
+  padding-right: 0.2rem;
+  color: ${white};
+  width: 81%;
+
   &:hover ${Icon} {
     cursor: pointer;
   }
 `;
 
-export const TermsUse = styled.div`
-  letter-spacing: 0.5px;
-  opacity: 0.9;
-`;
 
 export const Data = styled.div`
   font-family: "Abril Fatface", cursive;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   border-top: 2px solid ${black};
-  color: ${black};
+  color: ${white};
   margin-top: 0.5vh;
   font-size: 1rem;
 `;
 
 export const Directory = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   font-family: "Abril Fatface", cursive;
   font-size: 1rem;
