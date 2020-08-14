@@ -3,7 +3,9 @@ export const colors = {
   black: "#242423",
   darkGreen: "#183a37",
   grey: "#d9d9d9",
-  darkBlack: '#21252b',
-  lightBlack: '#282C35',
-  darkBlue: '#0353a4',
+  darkBlack: "#21252b",
+  lightBlack: "#3a3d45",
+  darkBlue: "#076bcf",
 };
+
+//'#282C35'

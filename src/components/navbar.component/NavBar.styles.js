@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
 
@@ -36,9 +36,10 @@ export const Logo = styled.div`
   text-transform: uppercase;
   justify-content: flex-start;
   padding-left: 0.2rem;
-  font-size: 2rem;
+  font-size: 2.2rem;
   opacity: 0.9;
   padding-left: 2rem;
+  letter-spacing: 0.5px;
 
   &:hover {
     cursor: pointer;
@@ -78,22 +79,21 @@ export const LinkText = styled(Link)`
     text-decoration: none;
     color: ${darkBlue};
   }
-
-`
+`;
 
 // search box
 export const SearchBox = styled.input`
-    background: ${lightBlack};
-    border: 2px solid ${darkBlack};
-    padding: 0.4rem;
-    border-radius: 0.2rem;
-    width: 100%;
-    height: 80%;
-    padding-left: 0.8rem;
-    color: ${white};
-    opacity: 0.9;
+  background: ${lightBlack};
+  border: 2px solid ${darkBlack};
+  padding: 0.4rem;
+  border-radius: 0.2rem;
+  width: 100%;
+  height: 80%;
+  padding-left: 0.8rem;
+  color: ${white};
+  opacity: 0.9;
 
-    &:focus {
-      outline: none;
-    }
-`
+  &:focus {
+    outline: none;
+  }
+`;

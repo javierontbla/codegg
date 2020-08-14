@@ -53,6 +53,7 @@ export const Span = styled.span`
 export const ReadMore = styled(Link)`
   font-family: "Abril Fatface", cursive;
   color: ${darkBlue};
+  opacity: 0.9;
 
   &:hover {
     color: ${darkBlue};
@@ -65,10 +66,11 @@ export const ReadMore = styled(Link)`
 export const Time = styled.div`
   padding: 0.6rem;
   color: ${darkBlue};
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-family: "Abril Fatface", cursive;
   border-bottom: 2px solid ${darkBlack};
   letter-spacing: 0.5px;
+  opacity: 0.9;
 `;
 
 export const Hashtags = styled.div`
@@ -89,4 +91,13 @@ export const Hashtag = styled.div`
     cursor: pointer;
     opacity: 0.8;
   }
+`;
+
+export const Date = styled.div`
+  color: ${white};
+  opacity: 0.9;
+  font-size: 0.8rem;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.5px;
+  text-decoration: underline;
 `;
