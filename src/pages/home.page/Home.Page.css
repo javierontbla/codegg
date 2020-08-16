@@ -1,0 +1,13 @@
+.mansonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.mansonry-grid-column {
+  background-clip: padding-box;
+}
+
+.mansonry-grid-column > div {
+  background: transparent;
+}

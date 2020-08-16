@@ -6,9 +6,7 @@ export const colors = {
   darkBlack: "#21252b",
   lightBlack: "#3a3d45",
   darkBlue: "#076bcf",
-  react: '#54cff4',
-  redux: '#764abd',
-  javascript: '#f7e018',
+  react: "#54cff4",
+  redux: "#764abd",
+  javascript: "#f2d814",
 };
-
-//'#282C35'

@@ -13,10 +13,12 @@ export const LinkArticle = styled(Link)`
 `;
 
 export const Container = styled.div`
-  min-width: 20vw;
+  width: 95%;
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
+  margin: 0.5rem;
+  margin-top: 1rem;
 
   &:hover {
     opacity: 0.95;
@@ -26,7 +28,7 @@ export const Container = styled.div`
 
 export const Img = styled.div`
   width: 100%;
-  height: 30vh;
+  min-height: 30vh;
   border-top-left-radius: 0.2rem;
   border-top-right-radius: 0.2rem;
   background-size: cover;
@@ -95,8 +97,7 @@ export const Hashtag = styled.div`
   font-size: 1rem;
   letter-spacing: 1px;
   margin-left: 0.4rem;
-  font-weight: bold;
-  opacity: 0.9;
+  opacity: 1;
 
   &:first-child {
     margin-left: 0;
@@ -118,7 +119,7 @@ export const Date = styled.div`
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
-  margin-right: 0.6rem;
+  margin-right: 0.4rem;
   font-size: 0.75rem;
   color: ${white};
   opacity: 0.9;

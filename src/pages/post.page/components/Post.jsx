@@ -15,8 +15,6 @@ import {
 } from "./Post.styles";
 
 const Post = ({ post }) => {
-  const markdown = "# This is a header\n\nAnd this is a paragraph";
-
   return (
     <>
       <Container>
@@ -33,8 +31,12 @@ const Post = ({ post }) => {
             {post.tiempo}
           </ReadTime>
         </InfoContainer>
-        <Body className="mark">
-          <ReactMarkdown source={post.texto} escapeHtml={false} />
+        <Body>
+          <ReactMarkdown
+            className="markdown"
+            escapeHtml={false}
+            source={post.texto}
+          />
         </Body>
       </Container>
     </>

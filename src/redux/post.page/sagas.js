@@ -1,7 +1,7 @@
-import { takeLatest, put } from "redux-saga/effects";
+import { takeLatest, put, call } from "redux-saga/effects";
 
 import { postPageTypes } from "./types";
-import { db } from "../../_firebase/firebase.config";
+import { db, storage } from "../../_firebase/firebase.config";
 import { fetchPostSuccess, fetchPostFailure } from "./actions";
 
 function* fetchPostAsync(action) {

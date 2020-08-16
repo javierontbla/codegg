@@ -4,13 +4,7 @@ import { colors } from "../../colors/colors";
 
 const { white, lightBlack, darkBlack } = colors;
 
-export const Container = styled.div`
-  display: grid;
-  grid-auto-flow: row;
-  grid-gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-top: 1.5vh;
-`;
+export const Container = styled.div``;
 
 export const Time = styled.div`
   color: ${white};
@@ -46,6 +40,10 @@ export const LoadMore = styled.button`
   &:focus {
     outline: none;
   }
+
+  @media (max-width: 768px) {
+    width: 32vw;
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -53,3 +51,11 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   width: 100%;
 `;
+
+/*
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: max-content;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  */
