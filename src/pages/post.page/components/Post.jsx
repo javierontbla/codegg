@@ -1,5 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 import {
   Container,
@@ -10,37 +11,30 @@ import {
   InfoContainer,
   ReadTime,
   Body,
+  Icon,
 } from "./Post.styles";
 
-const Post = () => {
-  const test = `
-  Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
-  accusantium doloremque laudantium, totam rem aperiam, eaque ipsa 
-  quae ab illo inventore veritatis et quasi architecto beatae vitae 
-  dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit 
-  aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
-  qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem 
-  ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam 
-  eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-  Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, 
-  nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea 
-  voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat 
-  quo voluptas nulla pariatur?
-  `;
+const Post = ({ post }) => {
+  const markdown = "# This is a header\n\nAnd this is a paragraph";
 
   return (
     <>
       <Container>
-        <Title>Por que React Js es el mejor framework</Title>
+        <Title>{post.titulo}</Title>
         <AuthorContainer>
-          <Author>Avgguido</Author>
+          <Author>{post.autor}</Author>
         </AuthorContainer>
         <InfoContainer>
-          <Date>09 de agosto de 2020</Date>
-          <ReadTime>10 minutos</ReadTime>
+          <Date>{post.fecha}</Date>
+          <ReadTime>
+            <span>
+              <Icon icon={faClock} />
+            </span>
+            {post.tiempo}
+          </ReadTime>
         </InfoContainer>
         <Body className="mark">
-          <ReactMarkdown source={test} />
+          <ReactMarkdown source={post.texto} escapeHtml={false} />
         </Body>
       </Container>
     </>

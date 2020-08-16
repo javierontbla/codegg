@@ -18,7 +18,9 @@ const HomePage = ({ loading, getArticles, articles }) => {
       {!loading ? (
         <>
           <Container>
-            <Thumbnail article={articles[0][0]} />
+            {articles.map((article) => {
+              return <Thumbnail data={article[0]} id={article[1]} />;
+            })}
           </Container>
           <ButtonContainer>
             <LoadMore>cargar más</LoadMore>

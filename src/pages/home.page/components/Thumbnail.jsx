@@ -1,4 +1,5 @@
 import React from "react";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 import {
   Container,
@@ -11,28 +12,32 @@ import {
   Hashtags,
   Hashtag,
   Span,
-  ReadMore,
+  Icon,
+  LinkArticle,
 } from "./Thumbnail.styles";
 
-const Thumbnail = ({ article }) => {
-  console.log(article);
+const Thumbnail = ({ data, id }) => {
   return (
     <>
       <Container>
-        <Img source={article.thumbnail} />
-        <Text>
-          <Title>{article.titulo}</Title>
-          <Date>{article.fecha}</Date>
-          <BodyPreview>
-            {article.texto}...
+        <LinkArticle to={`/${id}`}>
+          <Img source={data.imagen} />
+          <Text>
+            <Title>{data.titulo}</Title>
+            <Date>{data.fecha}</Date>
+            <BodyPreview>{data.texto}...</BodyPreview>
+          </Text>
+          <Time>
             <Span>
-              <ReadMore to="/post">leer más</ReadMore>
+              <Icon icon={faClock} />
             </Span>
-          </BodyPreview>
-        </Text>
-        <Time>{article.tiempo}</Time>
+            {data.tiempo}
+          </Time>
+        </LinkArticle>
         <Hashtags>
-          <Hashtag></Hashtag>
+          {data.tags.map((tag) => {
+            return <Hashtag type={tag}>#{tag}</Hashtag>;
+          })}
         </Hashtags>
       </Container>
     </>

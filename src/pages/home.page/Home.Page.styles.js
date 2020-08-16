@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "../../colors/colors";
 
-const { black, white, lightBlack, darkBlack } = colors;
+const { white, lightBlack, darkBlack } = colors;
 
 export const Container = styled.div`
   display: grid;
@@ -30,7 +30,7 @@ export const LoadMore = styled.button`
   background: ${lightBlack};
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
-  margin-top: 2vh;
+  margin-top: 2.5vh;
   margin-bottom: 7vh;
   font-size: 1rem;
   letter-spacing: 0.5px;

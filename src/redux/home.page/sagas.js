@@ -10,7 +10,7 @@ function* fetchHomePageArticlesAsync() {
   try {
     const res = yield articlesRef.get().then((snapshot) => {
       const articles = [];
-      snapshot.forEach((article) => articles.push([article.data()]));
+      snapshot.forEach((article) => articles.push([article.data(), article.id]));
 
       return articles;
     });

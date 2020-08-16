@@ -1,32 +1,10 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../../colors/colors";
 
-const { darkBlue, white } = colors;
+const { darkBlack, darkBlue, white, grey } = colors;
 
-const TextAnimation = keyframes`
-  0% {
-    margin-top: 16vh;
-  }
-
-  25% {
-    margin-top: 12vh;
-  }
-
-  50% {
-    margin-top: 8vh;
-  }
-
-  75% {
-    margin-top: 4vh;
-  }
-
-  100% {
-    margin-top: 0vh;
-  }
-`;
-
-//   animation: ${TextAnimation} 1.1s linear;
 export const Container = styled.div``;
 
 export const Title = styled.div`
@@ -37,44 +15,59 @@ export const Title = styled.div`
   text-align: center;
   margin-top: 2vh;
   letter-spacing: 0.5px;
+  opacity: 0.9;
 `;
 
 export const AuthorContainer = styled.div`
   margin-top: 1vh;
-  width: 100%;
-  padding-left: 0.4rem;
-  border-left: 0.5rem solid ${darkBlue};
+  width: fit-content;
+  border: 2px solid ${darkBlack};
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+  box-shadow: 0.4rem 0.4rem ${darkBlack};
   opacity: 0.9;
   letter-spacing: 0.5px;
   color: ${darkBlue};
-  font-family: "Roboto", sans-serif;
+  font-family: "Abril Fatface", cursive;
+  text-transform: uppercase;
+  margin-left: 0.9rem;
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   padding-left: 0.9rem;
-  margin-top: 0.8vh;
-  justify-content: flex-start;
+  margin-top: 2vh;
   letter-spacing: 0.5px;
   opacity: 0.9;
   color: ${white};
   font-family: "Abril Fatface", cursive;
-  opacity: 0.9;
 `;
 
 export const Author = styled.div`
   font-size: 1.3rem;
 `;
 export const Date = styled.div`
-  font-size: 1.1rem;
+  color: ${grey};
+  opacity: 0.9;
+  font-size: 0.8rem;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.5px;
+  text-decoration: underline;
 `;
 
 export const ReadTime = styled.div`
-  font-size: 1.1rem;
-  margin-left: 1.6vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: ${white};
+  font-size: 0.9rem;
+  font-family: "Abril Fatface", cursive;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+  margin-top: 0.4rem;
 `;
 
 export const Body = styled.div`
@@ -86,6 +79,13 @@ export const Body = styled.div`
   text-align: justify;
   margin-top: 1vh;
   margin-bottom: 8vh;
+  color: ${white};
+  opacity: 0.9;
+`;
+
+export const Icon = styled(FontAwesomeIcon)`
+  margin-right: 0.4rem;
+  font-size: 0.75rem;
   color: ${white};
   opacity: 0.9;
 `;
