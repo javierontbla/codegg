@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
 
-const { darkBlack, lightBlack, darkBlue, white } = colors;
+const { darkBlack, lightBlack, darkBlue, yellow } = colors;
 
 const Center = css`
   display: flex;
@@ -46,10 +46,16 @@ export const Logo = styled.div`
     opacity: 0.8;
   }
 `;
-export const SearchContainer = styled.div`
+
+export const PhraseContainer = styled.div`
   ${Center};
+  height: 100%;
   width: 40vw;
   justify-content: center;
+  font-family: "Reenie Beanie", cursive;
+  font-size: 2.4rem;
+  color: ${yellow};
+  padding-top: 0.5rem;
 `;
 
 export const SocialMedia = styled.div`
@@ -78,22 +84,5 @@ export const LinkText = styled(Link)`
     opacity: 0.9;
     text-decoration: none;
     color: ${darkBlue};
-  }
-`;
-
-// search box
-export const SearchBox = styled.input`
-  background: ${lightBlack};
-  border: 2px solid ${darkBlack};
-  padding: 0.4rem;
-  border-radius: 0.2rem;
-  width: 100%;
-  height: 80%;
-  padding-left: 0.8rem;
-  color: ${white};
-  opacity: 0.9;
-
-  &:focus {
-    outline: none;
   }
 `;

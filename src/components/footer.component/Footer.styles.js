@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../colors/colors";
 
-const { grey, black, darkGreen, white } = colors;
+const { black, white } = colors;
 
 export const FooterContainer = styled.footer`
   position: relative;
@@ -22,7 +22,7 @@ export const CompanyName = styled.div`
 `;
 
 export const Buttons = styled.div`
-display: flex;
+  display: flex;
   width: 19%;
   margin-top: 1vh;
   flex-direction: row;
@@ -54,9 +54,9 @@ export const Button = styled.a`
 `;
 
 export const PrivacyPolicy = styled.div`
-display: flex;
-justify-content: flex-end;
-align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   letter-spacing: 0.5px;
   opacity: 0.9;
   padding-right: 0.2rem;
@@ -67,7 +67,6 @@ align-items: center;
     cursor: pointer;
   }
 `;
-
 
 export const Data = styled.div`
   font-family: "Abril Fatface", cursive;

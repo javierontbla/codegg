@@ -1,11 +1,10 @@
 import React from "react";
-import { faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import {
   Navbar,
   Logo,
-  SearchContainer,
-  SearchBox,
+  PhraseContainer,
   SocialMedia,
   MediaIcon,
   LinkText,
@@ -15,10 +14,10 @@ const NavBar = () => {
   return (
     <>
       <Navbar>
-        <Logo><LinkText to='/'>Avgguido</LinkText></Logo>
-        <SearchContainer>
-        <SearchBox type="text" placeholder="busca tags" />
-        </SearchContainer>
+        <Logo>
+          <LinkText to="/">Avgguido</LinkText>
+        </Logo>
+        <PhraseContainer>desarrollo web para todos</PhraseContainer>
         <SocialMedia>
           <MediaIcon icon={faTwitter} />
         </SocialMedia>

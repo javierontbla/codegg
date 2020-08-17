@@ -52,10 +52,20 @@ export const ButtonContainer = styled.div`
   width: 100%;
 `;
 
-/*
-  display: grid;
-  grid-auto-flow: row;
-  grid-auto-rows: max-content;
-  grid-gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  */
+// search box
+export const SearchBox = styled.input`
+  background: ${lightBlack};
+  border: 2px solid ${darkBlack};
+  padding: 0.4rem;
+  border-radius: 0.2rem;
+  width: 100%;
+  height: 6.5vh;
+  padding-left: 0.8rem;
+  color: ${white};
+  opacity: 0.9;
+  margin-top: 0.5rem;
+
+  &:focus {
+    outline: none;
+  }
+`;

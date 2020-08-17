@@ -80,7 +80,6 @@ export const Body = styled.div`
   margin-top: 1vh;
   margin-bottom: 8vh;
   color: ${white};
-  opacity: 0.9;
 `;
 
 export const Icon = styled(FontAwesomeIcon)`

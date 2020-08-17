@@ -1,5 +1,5 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
+import parse from "html-react-parser";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -31,13 +31,7 @@ const Post = ({ post }) => {
             {post.tiempo}
           </ReadTime>
         </InfoContainer>
-        <Body>
-          <ReactMarkdown
-            className="markdown"
-            escapeHtml={false}
-            source={post.texto}
-          />
-        </Body>
+        <Body>{parse(post.texto)}</Body>
       </Container>
     </>
   );

@@ -17,8 +17,7 @@ export const Container = styled.div`
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
-  margin: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 0.7rem;
 
   &:hover {
     opacity: 0.95;
