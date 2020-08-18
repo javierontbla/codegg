@@ -13,11 +13,12 @@ export const LinkArticle = styled(Link)`
 `;
 
 export const Container = styled.div`
-  width: 95%;
+  width: 96%;
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
   margin-top: 0.7rem;
+  margin-left: 0.25rem;
 
   &:hover {
     opacity: 0.95;

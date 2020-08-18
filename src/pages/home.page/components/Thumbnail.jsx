@@ -25,7 +25,7 @@ const Thumbnail = ({ data, id }) => {
           <Text>
             <Title>{data.titulo}</Title>
             <Date>{data.fecha}</Date>
-            <BodyPreview>{data.texto}...</BodyPreview>
+            <BodyPreview>{data.previo}...</BodyPreview>
           </Text>
           <Time>
             <Span>

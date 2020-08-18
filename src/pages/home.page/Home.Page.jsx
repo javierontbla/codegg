@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import "moment/locale/es";
 import Masonry from "react-masonry-css";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import Thumbnail from "./components/Thumbnail";
 import {
@@ -15,6 +16,8 @@ import {
   LoadMore,
   ButtonContainer,
   SearchBox,
+  SearchContainer,
+  Icon,
 } from "./Home.Page.styles";
 import "./Home.Page.css";
 
@@ -45,18 +48,25 @@ const HomePage = ({
   const sendQuery = (e) => {
     if (e.key === "Enter" && searchValue !== "") {
       getSearchedArticles(searchValue);
+      setSearchValue("");
+    } else if (e === "click" && searchValue !== "") {
+      getSearchedArticles(searchValue);
+      setSearchValue("");
     }
   };
 
   return (
     <>
       <Time>{moment().format("LL")}</Time>
-      <SearchBox
-        type="text"
-        placeholder="buscar por tag - p. ej. react, redux, javascript"
-        onChange={(e) => handleInput(e.target.value)}
-        onKeyDown={(e) => sendQuery(e)}
-      />
+      <SearchContainer>
+        <SearchBox
+          type="text"
+          placeholder="buscar por tag - p. ej. react, redux, javascript"
+          onChange={(e) => handleInput(e.target.value)}
+          onKeyDown={(e) => sendQuery(e)}
+        />
+        <Icon icon={faSearch} onClick={() => sendQuery("click")} />
+      </SearchContainer>
       {!loading && searchedArticles.length === 0 ? (
         <>
           <Container>
