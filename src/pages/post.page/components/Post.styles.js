@@ -19,7 +19,7 @@ export const Title = styled.div`
 `;
 
 export const AuthorContainer = styled.div`
-  margin-top: 1vh;
+  margin-top: 2vh;
   width: fit-content;
   border: 2px solid ${darkBlack};
   border-radius: 0.2rem;
@@ -72,7 +72,7 @@ export const ReadTime = styled.div`
 
 export const Body = styled.div`
   background: transparent;
-  padding: 1.7rem;
+  padding: 0.9rem;
   font-family: "Roboto", sans-serif;
   font-size: 1.7rem;
   letter-spacing: 0.5px;

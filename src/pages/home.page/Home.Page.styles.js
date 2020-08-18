@@ -78,7 +78,7 @@ export const SearchContainer = styled.div`
   border-radius: 0.2rem;
   width: 100%;
   height: 6.5vh;
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
   padding-right: 1.2rem;
 `;
 
