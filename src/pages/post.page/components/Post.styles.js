@@ -51,7 +51,6 @@ export const Author = styled.div`
 `;
 export const Date = styled.div`
   color: ${grey};
-  opacity: 0.9;
   font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.5px;
@@ -66,7 +65,6 @@ export const ReadTime = styled.div`
   font-size: 0.9rem;
   font-family: "Abril Fatface", cursive;
   letter-spacing: 0.5px;
-  opacity: 0.9;
   margin-top: 0.4rem;
 `;
 

@@ -3,12 +3,13 @@ import { connect } from "react-redux";
 import moment from "moment";
 import "moment/locale/es";
 import Masonry from "react-masonry-css";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Thumbnail from "./components/Thumbnail";
 import {
   fetchArticlesStart,
   fetchCollectionStart,
+  fetchCollectionSuccess,
   fetchMoreArticlesStart,
 } from "../../redux/home.page/actions";
 import {
@@ -19,6 +20,9 @@ import {
   SearchBox,
   SearchContainer,
   Icon,
+  IconContainer,
+  Tags,
+  Tag,
 } from "./Home.Page.styles";
 import "./Home.Page.css";
 
@@ -29,8 +33,10 @@ const HomePage = ({
   getSearchedArticles,
   searchedArticles,
   getMoreArticles,
+  resetArticles,
 }) => {
   const [searchValue, setSearchValue] = useState("");
+  const [searchedTags, setSearchedTags] = useState([]);
 
   useEffect(() => {
     getArticles();
@@ -48,24 +54,48 @@ const HomePage = ({
   };
 
   const sendQuery = (e) => {
+    if (searchedTags.includes(searchValue)) {
+      setSearchValue("");
+      return;
+    }
     if (e.key === "Enter" && searchValue !== "") {
-      getSearchedArticles(searchValue);
+      getSearchedArticles({
+        input: searchValue,
+        previousArr: searchedArticles,
+      });
+      setSearchedTags((prev) => [...prev, searchValue]);
       setSearchValue("");
     } else if (e === "click" && searchValue !== "") {
-      getSearchedArticles(searchValue);
+      getSearchedArticles({
+        input: searchValue,
+        previousArr: searchedArticles,
+      });
+      setSearchedTags((prev) => [...prev, searchValue]);
       setSearchValue("");
     }
+  };
+
+  const sendQueryBtn = (tag) => {
+    getSearchedArticles({ input: tag, previousArr: searchedArticles });
+    setSearchedTags((prev) => [...prev, tag]);
   };
 
   const loadMoreArticles = () => {
     getMoreArticles({ lastArticle: articles[1], oldArticles: articles[0] });
   };
 
+  const resetSearch = (tag) => {
+    resetArticles([]);
+    setSearchedTags((prev) => prev.filter((t) => t !== tag));
+  };
+
   return (
     <>
+      {console.log(searchedArticles)}
       <Time>{moment().format("LL")}</Time>
       <SearchContainer>
         <SearchBox
+          value={searchValue}
           type="text"
           placeholder="buscar por tag - p. ej. react, redux, javascript"
           onChange={(e) => handleInput(e.target.value)}
@@ -73,6 +103,24 @@ const HomePage = ({
         />
         <Icon icon={faSearch} onClick={() => sendQuery("click")} />
       </SearchContainer>
+      {searchedTags.length > 0 ? (
+        <Tags>
+          {searchedTags.map((tag) => {
+            return (
+              <Tag type={tag}>
+                #{tag}
+                <IconContainer>
+                  <Icon
+                    icon={faTimes}
+                    cross={"true"}
+                    onClick={() => resetSearch(tag)}
+                  />
+                </IconContainer>
+              </Tag>
+            );
+          })}
+        </Tags>
+      ) : null}
       {!loading && searchedArticles.length === 0 ? (
         <>
           <Container>
@@ -84,6 +132,7 @@ const HomePage = ({
               {articles[0].map((article) => {
                 return (
                   <Thumbnail
+                    search={(tag) => sendQueryBtn(tag)}
                     key={article[1]}
                     data={article[0]}
                     id={article[1]}
@@ -107,6 +156,7 @@ const HomePage = ({
               {searchedArticles.map((article) => {
                 return (
                   <Thumbnail
+                    search={(tag) => sendQueryBtn(tag)}
                     key={article[1]}
                     data={article[0]}
                     id={article[1]}
@@ -137,6 +187,7 @@ const mapDispatchToProps = (dispatch) => ({
   getArticles: () => dispatch(fetchArticlesStart()),
   getSearchedArticles: (input) => dispatch(fetchCollectionStart(input)),
   getMoreArticles: (obj) => dispatch(fetchMoreArticlesStart(obj)),
+  resetArticles: (empty) => dispatch(fetchCollectionSuccess(empty)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

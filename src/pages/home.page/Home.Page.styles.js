@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../colors/colors";
 
-const { white, lightBlack, darkBlack } = colors;
+const { white, lightBlack, darkBlack, react, javascript, redux, node } = colors;
 
 export const Container = styled.div``;
 
@@ -84,11 +84,53 @@ export const SearchContainer = styled.div`
 
 export const Icon = styled(FontAwesomeIcon)`
   color: ${white};
-  font-size: 1.5rem;
+  font-size: ${(props) => (props.cross ? "1rem" : "1.5rem")};
   opacity: 0.3;
 
   &:hover {
     cursor: pointer;
     opacity: 0.2;
+  }
+`;
+
+export const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-left: 0.4rem;
+`;
+
+export const Tags = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 5vh;
+  margin-top: 0.7rem;
+`;
+export const Tag = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  background: ${(props) =>
+    props.type === "react"
+      ? `${react}`
+      : props.type === "redux"
+      ? `${redux}`
+      : props.type === "javascript"
+      ? `${javascript}`
+      : `${node}`};
+  color: ${white};
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-left: 0.4rem;
+  height: fit-content;
+
+  &:first-child {
+    margin-left: 0;
   }
 `;

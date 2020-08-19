@@ -12,15 +12,18 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
     case homePageTypes.FETCH_ARTICLES_START:
       return {
         ...state,
+        loading: true,
       };
     case homePageTypes.FETCH_COLLECTION_START:
       return {
         ...state,
+        loading: true,
       };
 
     case homePageTypes.FETCH_MORE_ARTICLES_START:
       return {
         ...state,
+        loading: true,
       };
 
     case homePageTypes.FETCH_ARTICLES_SUCCESS:

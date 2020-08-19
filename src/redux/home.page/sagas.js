@@ -33,21 +33,20 @@ function* fetchHomePageArticlesAsync() {
 }
 
 function* fetchCollectionAsync(action) {
+  const { input, previousArr } = action.payload;
   const inputRef = db.collection(`articulos_septiembre`);
 
   try {
-    const res = yield inputRef
-      .where("tags", "array-contains", `${action.payload}`)
+    yield inputRef
+      .where("tags", "array-contains", `${input}`)
       .get()
       .then((snapshot) => {
-        const searchedArticles = [];
         snapshot.forEach((article) =>
-          searchedArticles.push([article.data(), article.id])
+          previousArr.push([article.data(), article.id])
         );
-        return searchedArticles;
       });
 
-    yield put(fetchCollectionSuccess(res));
+    yield put(fetchCollectionSuccess(previousArr));
   } catch (error) {
     yield put(fetchCollectionFailure(error));
   }

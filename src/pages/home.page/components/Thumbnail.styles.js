@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { colors } from "../../../colors/colors";
 
-const { white, darkBlack, react, javascript, redux, grey } = colors;
+const { white, darkBlack, react, javascript, redux, grey, node } = colors;
 
 export const LinkArticle = styled(Link)`
   &:hover {
@@ -21,7 +21,6 @@ export const Container = styled.div`
   margin-left: 0.25rem;
 
   &:hover {
-    opacity: 0.95;
     cursor: pointer;
   }
 `;
@@ -35,6 +34,10 @@ export const Img = styled.div`
   background-position: center;
   background-image: url(${(props) => props.source});
   background-repeat: no-repeat;
+
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const Text = styled.div`
@@ -48,6 +51,10 @@ export const Text = styled.div`
   margin-top: 1vh;
   color: ${white};
   opacity: 0.9;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export const Title = styled.div`
@@ -80,7 +87,7 @@ export const Time = styled.div`
 export const Hashtags = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 0.4rem;
+  margin: 0.4rem;
 `;
 
 export const Hashtag = styled.div`
@@ -90,15 +97,16 @@ export const Hashtag = styled.div`
       ? `${react}`
       : props.type === "redux"
       ? `${redux}`
-      : `${javascript}`};
+      : props.type === "javascript"
+      ? `${javascript}`
+      : `${node}`};
   color: ${white};
   border-radius: 0.2rem;
-  padding: 0.3rem;
+  padding: 0.4rem;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   letter-spacing: 1px;
   margin-left: 0.4rem;
-  opacity: 1;
 
   &:first-child {
     margin-left: 0;

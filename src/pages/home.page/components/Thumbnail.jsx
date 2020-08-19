@@ -16,7 +16,7 @@ import {
   LinkArticle,
 } from "./Thumbnail.styles";
 
-const Thumbnail = ({ data, id }) => {
+const Thumbnail = ({ data, id, search }) => {
   return (
     <>
       <Container>
@@ -36,7 +36,11 @@ const Thumbnail = ({ data, id }) => {
         </LinkArticle>
         <Hashtags>
           {data.tags.map((tag) => {
-            return <Hashtag type={tag}>#{tag}</Hashtag>;
+            return (
+              <Hashtag onClick={() => search(tag)} type={tag}>
+                #{tag}
+              </Hashtag>
+            );
           })}
         </Hashtags>
       </Container>

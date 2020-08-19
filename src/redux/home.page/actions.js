@@ -14,9 +14,9 @@ export const fetchArticlesFailure = (error) => ({
   payload: error,
 });
 
-export const fetchCollectionStart = (input) => ({
+export const fetchCollectionStart = (obj) => ({
   type: homePageTypes.FETCH_COLLECTION_START,
-  payload: input,
+  payload: obj,
 });
 
 export const fetchCollectionSuccess = (articles) => ({
