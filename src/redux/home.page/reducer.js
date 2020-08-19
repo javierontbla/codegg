@@ -18,6 +18,11 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
         ...state,
       };
 
+    case homePageTypes.FETCH_MORE_ARTICLES_START:
+      return {
+        ...state,
+      };
+
     case homePageTypes.FETCH_ARTICLES_SUCCESS:
       return {
         ...state,
@@ -25,6 +30,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
         error: null,
         articles: action.payload,
       };
+
     case homePageTypes.FETCH_COLLECTION_SUCCESS:
       return {
         ...state,
@@ -46,6 +52,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
         loading: false,
         error: action.payload,
       };
+
     default:
       return state;
   }

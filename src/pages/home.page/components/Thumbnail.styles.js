@@ -59,7 +59,7 @@ export const Title = styled.div`
 `;
 
 export const BodyPreview = styled.div`
-  margin-top: 0.6rem;
+  padding-top: 0.6rem;
 `;
 
 export const Span = styled.span``;
@@ -67,7 +67,8 @@ export const Span = styled.span``;
 export const Time = styled.div`
   padding-left: 0.6rem;
   padding-bottom: 0.6rem;
-  padding-top: 0.6rem;
+  padding-top: 0.3rem;
+  margin-bottom: 0.3rem;
   color: ${white};
   font-size: 0.9rem;
   font-family: "Abril Fatface", cursive;
@@ -116,6 +117,7 @@ export const Date = styled.div`
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.5px;
   text-decoration: underline;
+  padding-top: 0.3rem;
 `;
 
 export const Icon = styled(FontAwesomeIcon)`

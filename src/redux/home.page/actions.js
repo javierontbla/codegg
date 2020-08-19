@@ -28,3 +28,8 @@ export const fetchCollectionFailure = (error) => ({
   type: homePageTypes.FETCH_COLLECTION_FAILURE,
   payload: error,
 });
+
+export const fetchMoreArticlesStart = (obj) => ({
+  type: homePageTypes.FETCH_MORE_ARTICLES_START,
+  payload: obj,
+});

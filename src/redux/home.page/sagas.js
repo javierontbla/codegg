@@ -10,16 +10,20 @@ import {
 } from "./actions";
 
 function* fetchHomePageArticlesAsync() {
-  const articlesRef = db.collection(`articulos_septiembre`);
+  const articlesRef = db
+    .collection(`articulos_septiembre`)
+    .orderBy("fecha_db")
+    .limit(1);
 
   try {
     const res = yield articlesRef.get().then((snapshot) => {
+      const lastRef = snapshot.docs[snapshot.docs.length - 1];
       const articles = [];
       snapshot.forEach((article) =>
         articles.push([article.data(), article.id])
       );
 
-      return articles;
+      return [articles, lastRef];
     });
 
     yield put(fetchArticlesSuccess(res));
@@ -47,6 +51,34 @@ function* fetchCollectionAsync(action) {
   } catch (error) {
     yield put(fetchCollectionFailure(error));
   }
+}
+
+function* fetchMoreArticlesAsync(action) {
+  const { oldArticles, lastArticle } = action.payload;
+  const articlesRef = db
+    .collection(`articulos_septiembre`)
+    .orderBy("fecha_db")
+    .startAfter(lastArticle)
+    .limit(1);
+
+  try {
+    const res = yield articlesRef.get().then((snapshot) => {
+      const lastRef = snapshot.docs[snapshot.docs.length - 1];
+      snapshot.forEach((doc) => oldArticles.push([doc.data(), doc.id]));
+      return lastRef;
+    });
+
+    yield put(fetchArticlesSuccess([oldArticles, res]));
+  } catch (error) {
+    yield put(fetchArticlesFailure(error));
+  }
+}
+
+export function* fetchMoreArticles() {
+  yield takeLatest(
+    homePageTypes.FETCH_MORE_ARTICLES_START,
+    fetchMoreArticlesAsync
+  );
 }
 
 export function* fetchCollection() {

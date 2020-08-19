@@ -9,6 +9,7 @@ import Thumbnail from "./components/Thumbnail";
 import {
   fetchArticlesStart,
   fetchCollectionStart,
+  fetchMoreArticlesStart,
 } from "../../redux/home.page/actions";
 import {
   Container,
@@ -27,6 +28,7 @@ const HomePage = ({
   articles,
   getSearchedArticles,
   searchedArticles,
+  getMoreArticles,
 }) => {
   const [searchValue, setSearchValue] = useState("");
 
@@ -55,6 +57,10 @@ const HomePage = ({
     }
   };
 
+  const loadMoreArticles = () => {
+    getMoreArticles({ lastArticle: articles[1], oldArticles: articles[0] });
+  };
+
   return (
     <>
       <Time>{moment().format("LL")}</Time>
@@ -75,7 +81,7 @@ const HomePage = ({
               className="mansonry-grid"
               columnClassName="mansonry-grid-column"
             >
-              {articles.map((article) => {
+              {articles[0].map((article) => {
                 return (
                   <Thumbnail
                     key={article[1]}
@@ -87,7 +93,7 @@ const HomePage = ({
             </Masonry>
           </Container>
           <ButtonContainer>
-            <LoadMore>cargar más</LoadMore>
+            <LoadMore onClick={() => loadMoreArticles()}>cargar más</LoadMore>
           </ButtonContainer>
         </>
       ) : !loading && searchedArticles.length > 0 ? (
@@ -130,6 +136,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = (dispatch) => ({
   getArticles: () => dispatch(fetchArticlesStart()),
   getSearchedArticles: (input) => dispatch(fetchCollectionStart(input)),
+  getMoreArticles: (obj) => dispatch(fetchMoreArticlesStart(obj)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
