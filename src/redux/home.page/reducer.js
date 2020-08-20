@@ -2,54 +2,54 @@ import { homePageTypes } from "./types";
 
 const INITIAL_STATE = {
   loading: true,
-  articles: null,
-  searchedArticles: [],
+  unfilteredArticles: [],
+  filteredArticles: [],
   error: null,
 };
 
 export const homePageReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case homePageTypes.FETCH_ARTICLES_START:
+    case homePageTypes.FETCH_UNFILTERED_ARTICLES_START:
       return {
         ...state,
         loading: true,
       };
-    case homePageTypes.FETCH_COLLECTION_START:
-      return {
-        ...state,
-        loading: true,
-      };
-
-    case homePageTypes.FETCH_MORE_ARTICLES_START:
+    case homePageTypes.FETCH_FILTERED_ARTICLES_START:
       return {
         ...state,
         loading: true,
       };
 
-    case homePageTypes.FETCH_ARTICLES_SUCCESS:
+    case homePageTypes.FETCH_MORE_UNFILTERED_ARTICLES_START:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case homePageTypes.FETCH_UNFILTERED_ARTICLES_SUCCESS:
       return {
         ...state,
         loading: false,
         error: null,
-        articles: action.payload,
+        unfilteredArticles: action.payload,
       };
 
-    case homePageTypes.FETCH_COLLECTION_SUCCESS:
+    case homePageTypes.FETCH_FILTERED_ARTICLES_SUCCESS:
       return {
         ...state,
         loading: false,
         error: null,
-        searchedArticles: action.payload,
+        filteredArticles: action.payload,
       };
 
-    case homePageTypes.FETCH_ARTICLES_FAILURE:
+    case homePageTypes.FETCH_UNFILTERED_ARTICLES_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
 
-    case homePageTypes.FETCH_COLLECTION_FAILURE:
+    case homePageTypes.FETCH_FILTERED_ARTICLES_FAILURE:
       return {
         ...state,
         loading: false,

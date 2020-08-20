@@ -1,17 +1,19 @@
 import { all, call } from "redux-saga/effects";
 
 import {
-  fetchHomePageArticles,
-  fetchCollection,
-  fetchMoreArticles,
+  fetchUnfiltered,
+  fetchFiltered,
+  fetchMoreUnfiltered,
+  fetchMoreFiltered,
 } from "./home.page/sagas";
 import { fetchPost } from "./post.page/sagas";
 
 export function* rootSaga() {
   yield all([
-    call(fetchHomePageArticles),
+    call(fetchUnfiltered),
+    call(fetchFiltered),
+    call(fetchMoreUnfiltered),
+    call(fetchMoreFiltered),
     call(fetchPost),
-    call(fetchCollection),
-    call(fetchMoreArticles),
   ]);
 }

@@ -7,10 +7,11 @@ import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Thumbnail from "./components/Thumbnail";
 import {
-  fetchArticlesStart,
-  fetchCollectionStart,
-  fetchCollectionSuccess,
-  fetchMoreArticlesStart,
+  fetchUnfilteredArticlesStart,
+  fetchFilteredArticlesStart,
+  fetchMoreUnfilteredArticles,
+  fetchMoreFilteredArticles,
+  fetchFilteredArticlesSuccess,
 } from "../../redux/home.page/actions";
 import {
   Container,
@@ -28,20 +29,20 @@ import "./Home.Page.css";
 
 const HomePage = ({
   loading,
-  getArticles,
-  articles,
-  getSearchedArticles,
-  searchedArticles,
-  getMoreArticles,
-  resetArticles,
+  getUnfilteredArticles,
+  getFilteredArticles,
+  getMoreUnfilteredArticles,
+  unfilteredArticles,
+  filteredArticles,
+  updateArticles,
 }) => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchInput, setSearchInput] = useState("");
   const [searchedTags, setSearchedTags] = useState([]);
 
   useEffect(() => {
-    getArticles();
+    getUnfilteredArticles();
+    moment.locale("es");
   }, []);
-  moment.locale("es");
 
   const breakpoints = {
     default: 3,
@@ -49,56 +50,67 @@ const HomePage = ({
     700: 1,
   };
 
-  const handleInput = (input) => {
-    setSearchValue(input);
+  const handleSearchInput = (input) => {
+    setSearchInput(input);
   };
 
   const sendQuery = (e) => {
-    if (searchedTags.includes(searchValue)) {
-      setSearchValue("");
+    if (searchedTags.includes(searchInput)) {
+      setSearchInput("");
       return;
-    }
-    if (e.key === "Enter" && searchValue !== "") {
-      getSearchedArticles({
-        input: searchValue,
-        previousArr: searchedArticles,
-      });
-      setSearchedTags((prev) => [...prev, searchValue]);
-      setSearchValue("");
-    } else if (e === "click" && searchValue !== "") {
-      getSearchedArticles({
-        input: searchValue,
-        previousArr: searchedArticles,
-      });
-      setSearchedTags((prev) => [...prev, searchValue]);
-      setSearchValue("");
+    } else {
+      if (e.key === "Enter" && searchInput !== "") {
+        getFilteredArticles({
+          input: searchInput,
+          previousArticles: filteredArticles,
+        });
+        setSearchedTags((prev) => [...prev, searchInput]);
+        setSearchInput("");
+      } else if (e === "click" && searchInput !== "") {
+        getFilteredArticles({
+          input: searchInput,
+          previousArticles: filteredArticles,
+        });
+        setSearchedTags((prev) => [...prev, searchInput]);
+        setSearchInput("");
+      }
     }
   };
 
   const sendQueryBtn = (tag) => {
-    getSearchedArticles({ input: tag, previousArr: searchedArticles });
+    getFilteredArticles({ input: tag, previousArticles: filteredArticles });
     setSearchedTags((prev) => [...prev, tag]);
   };
 
-  const loadMoreArticles = () => {
-    getMoreArticles({ lastArticle: articles[1], oldArticles: articles[0] });
+  const loadMoreUnfilteredArticles = () => {
+    getMoreUnfilteredArticles({
+      lastArticle: unfilteredArticles[1],
+      previousArticles: unfilteredArticles[0],
+    });
   };
 
-  const resetSearch = (tag) => {
-    resetArticles([]);
+  const loadMoreFilteredArticles = () => {
+    console.log("FILTERED");
+  };
+
+  const removeTag = (tag) => {
+    // function to remove articles from main array when tag clicked
+    const updatedTags = filteredArticles.filter(
+      (element) => !element[0]["tags"].includes(tag)
+    );
+    updateArticles(updatedTags);
     setSearchedTags((prev) => prev.filter((t) => t !== tag));
   };
 
   return (
     <>
-      {console.log(searchedArticles)}
       <Time>{moment().format("LL")}</Time>
       <SearchContainer>
         <SearchBox
-          value={searchValue}
+          value={searchInput}
           type="text"
           placeholder="buscar por tag - p. ej. react, redux, javascript"
-          onChange={(e) => handleInput(e.target.value)}
+          onChange={(e) => handleSearchInput(e.target.value)}
           onKeyDown={(e) => sendQuery(e)}
         />
         <Icon icon={faSearch} onClick={() => sendQuery("click")} />
@@ -113,7 +125,7 @@ const HomePage = ({
                   <Icon
                     icon={faTimes}
                     cross={"true"}
-                    onClick={() => resetSearch(tag)}
+                    onClick={() => removeTag(tag)}
                   />
                 </IconContainer>
               </Tag>
@@ -121,7 +133,7 @@ const HomePage = ({
           })}
         </Tags>
       ) : null}
-      {!loading && searchedArticles.length === 0 ? (
+      {!loading && filteredArticles.length === 0 ? (
         <>
           <Container>
             <Masonry
@@ -129,7 +141,7 @@ const HomePage = ({
               className="mansonry-grid"
               columnClassName="mansonry-grid-column"
             >
-              {articles[0].map((article) => {
+              {unfilteredArticles[0].map((article) => {
                 return (
                   <Thumbnail
                     search={(tag) => sendQueryBtn(tag)}
@@ -142,10 +154,12 @@ const HomePage = ({
             </Masonry>
           </Container>
           <ButtonContainer>
-            <LoadMore onClick={() => loadMoreArticles()}>cargar más</LoadMore>
+            <LoadMore onClick={() => loadMoreUnfilteredArticles()}>
+              cargar más
+            </LoadMore>
           </ButtonContainer>
         </>
-      ) : !loading && searchedArticles.length > 0 ? (
+      ) : !loading && filteredArticles.length > 0 ? (
         <>
           <Container>
             <Masonry
@@ -153,7 +167,7 @@ const HomePage = ({
               className="mansonry-grid"
               columnClassName="mansonry-grid-column"
             >
-              {searchedArticles.map((article) => {
+              {filteredArticles.map((article) => {
                 return (
                   <Thumbnail
                     search={(tag) => sendQueryBtn(tag)}
@@ -166,7 +180,9 @@ const HomePage = ({
             </Masonry>
           </Container>
           <ButtonContainer>
-            <LoadMore>cargar más</LoadMore>
+            <LoadMore onClick={() => loadMoreFilteredArticles()}>
+              cargar más
+            </LoadMore>
           </ButtonContainer>
         </>
       ) : null}
@@ -176,18 +192,20 @@ const HomePage = ({
 
 // redux
 const mapStateToProps = ({
-  homePageReducer: { loading, articles, searchedArticles },
+  homePageReducer: { loading, unfilteredArticles, filteredArticles },
 }) => ({
   loading,
-  articles,
-  searchedArticles,
+  unfilteredArticles,
+  filteredArticles,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getArticles: () => dispatch(fetchArticlesStart()),
-  getSearchedArticles: (input) => dispatch(fetchCollectionStart(input)),
-  getMoreArticles: (obj) => dispatch(fetchMoreArticlesStart(obj)),
-  resetArticles: (empty) => dispatch(fetchCollectionSuccess(empty)),
+  getUnfilteredArticles: () => dispatch(fetchUnfilteredArticlesStart()),
+  getFilteredArticles: (input) => dispatch(fetchFilteredArticlesStart(input)),
+  getMoreUnfilteredArticles: (obj) =>
+    dispatch(fetchMoreUnfilteredArticles(obj)),
+  getMoreFilteredArticles: (obj) => dispatch(fetchMoreFilteredArticles(obj)),
+  updateArticles: (arr) => dispatch(fetchFilteredArticlesSuccess(arr)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

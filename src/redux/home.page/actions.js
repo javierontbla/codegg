@@ -1,35 +1,40 @@
 import { homePageTypes } from "./types";
 
-export const fetchArticlesStart = () => ({
-  type: homePageTypes.FETCH_ARTICLES_START,
+export const fetchUnfilteredArticlesStart = () => ({
+  type: homePageTypes.FETCH_UNFILTERED_ARTICLES_START,
 });
 
-export const fetchArticlesSuccess = (articles) => ({
-  type: homePageTypes.FETCH_ARTICLES_SUCCESS,
+export const fetchUnfilteredArticlesSuccess = (articles) => ({
+  type: homePageTypes.FETCH_UNFILTERED_ARTICLES_SUCCESS,
   payload: articles,
 });
 
-export const fetchArticlesFailure = (error) => ({
-  type: homePageTypes.FETCH_ARTICLES_FAILURE,
+export const fetchUnfilteredArticlesFailure = (error) => ({
+  type: homePageTypes.FETCH_UNFILTERED_ARTICLES_FAILURE,
   payload: error,
 });
 
-export const fetchCollectionStart = (obj) => ({
-  type: homePageTypes.FETCH_COLLECTION_START,
+export const fetchFilteredArticlesStart = (obj) => ({
+  type: homePageTypes.FETCH_FILTERED_ARTICLES_START,
   payload: obj,
 });
 
-export const fetchCollectionSuccess = (articles) => ({
-  type: homePageTypes.FETCH_COLLECTION_SUCCESS,
+export const fetchFilteredArticlesSuccess = (articles) => ({
+  type: homePageTypes.FETCH_FILTERED_ARTICLES_SUCCESS,
   payload: articles,
 });
 
-export const fetchCollectionFailure = (error) => ({
-  type: homePageTypes.FETCH_COLLECTION_FAILURE,
+export const fetchFilteredArticlesFailure = (error) => ({
+  type: homePageTypes.FETCH_FILTERED_ARTICLES_FAILURE,
   payload: error,
 });
 
-export const fetchMoreArticlesStart = (obj) => ({
-  type: homePageTypes.FETCH_MORE_ARTICLES_START,
+export const fetchMoreUnfilteredArticles = (obj) => ({
+  type: homePageTypes.FETCH_MORE_UNFILTERED_ARTICLES_START,
+  payload: obj,
+});
+
+export const fetchMoreFilteredArticles = (obj) => ({
+  type: homePageTypes.FETCH_MORE_FILTERED_ARTICLES_START,
   payload: obj,
 });

@@ -3,13 +3,14 @@ import { takeLatest, put } from "redux-saga/effects";
 import { homePageTypes } from "./types";
 import { db } from "../../_firebase/firebase.config";
 import {
-  fetchArticlesSuccess,
-  fetchArticlesFailure,
-  fetchCollectionSuccess,
-  fetchCollectionFailure,
+  fetchUnfilteredArticlesSuccess,
+  fetchUnfilteredArticlesFailure,
+  fetchFilteredArticlesSuccess,
+  fetchFilteredArticlesFailure,
 } from "./actions";
 
-function* fetchHomePageArticlesAsync() {
+// async functions
+function* fetchUnfilteredAsync() {
   const articlesRef = db
     .collection(`articulos_septiembre`)
     .orderBy("fecha_db")
@@ -26,14 +27,14 @@ function* fetchHomePageArticlesAsync() {
       return [articles, lastRef];
     });
 
-    yield put(fetchArticlesSuccess(res));
+    yield put(fetchUnfilteredArticlesSuccess(res));
   } catch (error) {
-    yield put(fetchArticlesFailure(error));
+    yield put(fetchUnfilteredArticlesFailure(error));
   }
 }
 
-function* fetchCollectionAsync(action) {
-  const { input, previousArr } = action.payload;
+function* fetchFilteredAsync(action) {
+  const { previousArticles, input } = action.payload;
   const inputRef = db.collection(`articulos_septiembre`);
 
   try {
@@ -42,18 +43,18 @@ function* fetchCollectionAsync(action) {
       .get()
       .then((snapshot) => {
         snapshot.forEach((article) =>
-          previousArr.push([article.data(), article.id])
+          previousArticles.push([article.data(), article.id])
         );
       });
 
-    yield put(fetchCollectionSuccess(previousArr));
+    yield put(fetchFilteredArticlesSuccess(previousArticles));
   } catch (error) {
-    yield put(fetchCollectionFailure(error));
+    yield put(fetchFilteredArticlesFailure(error));
   }
 }
 
-function* fetchMoreArticlesAsync(action) {
-  const { oldArticles, lastArticle } = action.payload;
+function* fetchMoreUnfilteredAsync(action) {
+  const { previousArticles, lastArticle } = action.payload;
   const articlesRef = db
     .collection(`articulos_septiembre`)
     .orderBy("fecha_db")
@@ -63,30 +64,43 @@ function* fetchMoreArticlesAsync(action) {
   try {
     const res = yield articlesRef.get().then((snapshot) => {
       const lastRef = snapshot.docs[snapshot.docs.length - 1];
-      snapshot.forEach((doc) => oldArticles.push([doc.data(), doc.id]));
+      snapshot.forEach((doc) => previousArticles.push([doc.data(), doc.id]));
       return lastRef;
     });
 
-    yield put(fetchArticlesSuccess([oldArticles, res]));
+    yield put(fetchUnfilteredArticlesSuccess([previousArticles, res]));
   } catch (error) {
-    yield put(fetchArticlesFailure(error));
+    yield put(fetchUnfilteredArticlesFailure(error));
   }
 }
 
-export function* fetchMoreArticles() {
+function* fetchMoreFilteredAsync() {}
+
+// sagas functions
+export function* fetchUnfiltered() {
   yield takeLatest(
-    homePageTypes.FETCH_MORE_ARTICLES_START,
-    fetchMoreArticlesAsync
+    homePageTypes.FETCH_UNFILTERED_ARTICLES_START,
+    fetchUnfilteredAsync
   );
 }
 
-export function* fetchCollection() {
-  yield takeLatest(homePageTypes.FETCH_COLLECTION_START, fetchCollectionAsync);
+export function* fetchFiltered() {
+  yield takeLatest(
+    homePageTypes.FETCH_FILTERED_ARTICLES_START,
+    fetchFilteredAsync
+  );
 }
 
-export function* fetchHomePageArticles() {
+export function* fetchMoreUnfiltered() {
   yield takeLatest(
-    homePageTypes.FETCH_ARTICLES_START,
-    fetchHomePageArticlesAsync
+    homePageTypes.FETCH_MORE_UNFILTERED_ARTICLES_START,
+    fetchMoreUnfilteredAsync
+  );
+}
+
+export function* fetchMoreFiltered() {
+  yield takeLatest(
+    homePageTypes.FETCH_MORE_FILTERED_ARTICLES_START,
+    fetchMoreFilteredAsync
   );
 }
