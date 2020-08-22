@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SyntaxHighlighter from "react-syntax-highlighter";
 
 import { colors } from "../../../colors/colors";
 

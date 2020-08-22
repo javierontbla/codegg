@@ -32,9 +32,10 @@ const HomePage = ({
   getUnfilteredArticles,
   getFilteredArticles,
   getMoreUnfilteredArticles,
+  getMoreFilteredArticles,
   unfilteredArticles,
   filteredArticles,
-  updateArticles,
+  lastFiltered,
 }) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchedTags, setSearchedTags] = useState([]);
@@ -91,7 +92,11 @@ const HomePage = ({
   };
 
   const loadMoreFilteredArticles = () => {
-    console.log("FILTERED");
+    getMoreFilteredArticles({
+      previousArticles: filteredArticles,
+      lastElement: lastFiltered,
+      tags: searchedTags,
+    });
   };
 
   const removeTag = (tag) => {
@@ -194,11 +199,17 @@ const HomePage = ({
 
 // redux
 const mapStateToProps = ({
-  homePageReducer: { loading, unfilteredArticles, filteredArticles },
+  homePageReducer: {
+    loading,
+    unfilteredArticles,
+    filteredArticles,
+    lastFiltered,
+  },
 }) => ({
   loading,
   unfilteredArticles,
   filteredArticles,
+  lastFiltered,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -207,7 +218,6 @@ const mapDispatchToProps = (dispatch) => ({
   getMoreUnfilteredArticles: (obj) =>
     dispatch(fetchMoreUnfilteredArticles(obj)),
   getMoreFilteredArticles: (obj) => dispatch(fetchMoreFilteredArticles(obj)),
-  updateArticles: (arr) => dispatch(fetchFilteredArticlesSuccess(arr)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

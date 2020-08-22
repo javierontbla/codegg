@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   loading: true,
   unfilteredArticles: [],
   filteredArticles: {},
+  lastFiltered: null,
   error: null,
 };
 
@@ -56,6 +57,11 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
         error: action.payload,
       };
 
+    case homePageTypes.STORE_LAST_FILTERED_ELEMENT:
+      return {
+        ...state,
+        lastFiltered: action.payload,
+      };
     default:
       return state;
   }

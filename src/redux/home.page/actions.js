@@ -38,3 +38,9 @@ export const fetchMoreFilteredArticles = (obj) => ({
   type: homePageTypes.FETCH_MORE_FILTERED_ARTICLES_START,
   payload: obj,
 });
+
+// store last element from filtered arr to fetch more objects from firebase
+export const storeLastFilteredElement = (last) => ({
+  type: homePageTypes.STORE_LAST_FILTERED_ELEMENT,
+  payload: last,
+});

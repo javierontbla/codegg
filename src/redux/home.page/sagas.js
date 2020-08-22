@@ -7,6 +7,7 @@ import {
   fetchUnfilteredArticlesFailure,
   fetchFilteredArticlesSuccess,
   fetchFilteredArticlesFailure,
+  storeLastFilteredElement,
 } from "./actions";
 
 // async functions
@@ -38,16 +39,23 @@ function* fetchFilteredAsync(action) {
   const inputRef = db.collection(`articulos_septiembre`);
 
   try {
-    yield inputRef
+    const lastElement = yield inputRef
       .where("tags", "array-contains", `${input}`)
+      .orderBy("fecha_db")
+      .limit(1)
       .get()
       .then((snapshot) => {
+        const lastRef = snapshot.docs[snapshot.docs.length - 1];
         snapshot.forEach(
           (article) => (previousArticles[article.id] = article.data())
         );
+        return lastRef;
       });
+
+    yield put(storeLastFilteredElement(lastElement));
     yield put(fetchFilteredArticlesSuccess(previousArticles));
   } catch (error) {
+    yield console.log(error);
     yield put(fetchFilteredArticlesFailure(error));
   }
 }
@@ -73,7 +81,29 @@ function* fetchMoreUnfilteredAsync(action) {
   }
 }
 
-function* fetchMoreFilteredAsync() {}
+function* fetchMoreFilteredAsync(action) {
+  const { previousArticles, lastElement, tags } = action.payload;
+
+  const filteredRef = db
+    .collection(`articulos_septiembre`)
+    .where("tags", "array-contains-any", tags)
+    .orderBy("fecha_db")
+    .startAfter(lastElement)
+    .limit(1);
+  try {
+    const res = yield filteredRef.get().then((snapshot) => {
+      const lastRef = snapshot.docs[snapshot.docs.length - 1];
+      snapshot.forEach((doc) => (previousArticles[doc.id] = doc.data()));
+      return lastRef;
+    });
+
+    yield put(storeLastFilteredElement(res));
+    yield put(fetchFilteredArticlesSuccess(previousArticles));
+  } catch (error) {
+    yield console.log(error);
+    yield put(fetchFilteredArticlesFailure(error));
+  }
+}
 
 // sagas functions
 export function* fetchUnfiltered() {

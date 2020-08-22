@@ -41,18 +41,6 @@ export const Global = createGlobalStyle`
     max-width: 95%;
   }
 
-  code {
-    display: flex; 
-    width: 100%;
-    border: 2px solid #21252b;
-    box-shadow: 0.4rem 0.4rem #21252b;
-    padding: 0.6rem;
-    border-radius: 0.2rem;
-    font-family: Consolas,monaco,monospace; 
-    font-size: 1.2rem;
-    color: #ffa630;
-  }
-
   h1 {
     color: #faf9f9;
     text-transform: uppercase;
