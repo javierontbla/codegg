@@ -3,7 +3,7 @@ import { homePageTypes } from "./types";
 const INITIAL_STATE = {
   loading: true,
   unfilteredArticles: [],
-  filteredArticles: [],
+  filteredArticles: {},
   error: null,
 };
 

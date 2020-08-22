@@ -78,6 +78,7 @@ const HomePage = ({
   };
 
   const sendQueryBtn = (tag) => {
+    if (searchedTags.includes(tag)) return;
     getFilteredArticles({ input: tag, previousArticles: filteredArticles });
     setSearchedTags((prev) => [...prev, tag]);
   };
@@ -95,10 +96,11 @@ const HomePage = ({
 
   const removeTag = (tag) => {
     // function to remove articles from main array when tag clicked
-    const updatedTags = filteredArticles.filter(
-      (element) => !element[0]["tags"].includes(tag)
-    );
-    updateArticles(updatedTags);
+    for (const article in filteredArticles) {
+      if (filteredArticles[article]["tags"].includes(tag)) {
+        delete filteredArticles[article];
+      }
+    }
     setSearchedTags((prev) => prev.filter((t) => t !== tag));
   };
 
@@ -133,7 +135,7 @@ const HomePage = ({
           })}
         </Tags>
       ) : null}
-      {!loading && filteredArticles.length === 0 ? (
+      {!loading && Object.entries(filteredArticles).length === 0 ? (
         <>
           <Container>
             <Masonry
@@ -159,7 +161,7 @@ const HomePage = ({
             </LoadMore>
           </ButtonContainer>
         </>
-      ) : !loading && filteredArticles.length > 0 ? (
+      ) : !loading && Object.entries(filteredArticles).length > 0 ? (
         <>
           <Container>
             <Masonry
@@ -167,13 +169,13 @@ const HomePage = ({
               className="mansonry-grid"
               columnClassName="mansonry-grid-column"
             >
-              {filteredArticles.map((article) => {
+              {Object.entries(filteredArticles).map((article) => {
                 return (
                   <Thumbnail
                     search={(tag) => sendQueryBtn(tag)}
-                    key={article[1]}
-                    data={article[0]}
-                    id={article[1]}
+                    key={article[0]}
+                    data={article[1]}
+                    id={article[0]}
                   />
                 );
               })}

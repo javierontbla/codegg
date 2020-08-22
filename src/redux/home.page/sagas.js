@@ -42,11 +42,10 @@ function* fetchFilteredAsync(action) {
       .where("tags", "array-contains", `${input}`)
       .get()
       .then((snapshot) => {
-        snapshot.forEach((article) =>
-          previousArticles.push([article.data(), article.id])
+        snapshot.forEach(
+          (article) => (previousArticles[article.id] = article.data())
         );
       });
-
     yield put(fetchFilteredArticlesSuccess(previousArticles));
   } catch (error) {
     yield put(fetchFilteredArticlesFailure(error));

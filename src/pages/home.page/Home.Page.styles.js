@@ -85,11 +85,11 @@ export const SearchContainer = styled.div`
 export const Icon = styled(FontAwesomeIcon)`
   color: ${white};
   font-size: ${(props) => (props.cross ? "1rem" : "1.5rem")};
-  opacity: 0.3;
+  opacity: ${(props) => (props.cross ? "0.4" : "0.3")};
 
   &:hover {
     cursor: pointer;
-    opacity: 0.2;
+    opacity: ${(props) => (props.cross ? "0.3" : "0.2")};
   }
 `;
 
