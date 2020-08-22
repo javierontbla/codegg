@@ -14,17 +14,20 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: true,
+        error: null,
       };
     case homePageTypes.FETCH_FILTERED_ARTICLES_START:
       return {
         ...state,
         loading: true,
+        error: null,
       };
 
     case homePageTypes.FETCH_MORE_UNFILTERED_ARTICLES_START:
       return {
         ...state,
         loading: true,
+        error: null,
       };
 
     case homePageTypes.FETCH_UNFILTERED_ARTICLES_SUCCESS:

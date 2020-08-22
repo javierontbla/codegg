@@ -61,11 +61,11 @@ function* fetchFilteredAsync(action) {
 }
 
 function* fetchMoreUnfilteredAsync(action) {
-  const { previousArticles, lastArticle } = action.payload;
+  const { previousArticles, lastElement } = action.payload;
   const articlesRef = db
     .collection(`articulos_septiembre`)
     .orderBy("fecha_db")
-    .startAfter(lastArticle)
+    .startAfter(lastElement)
     .limit(1);
 
   try {

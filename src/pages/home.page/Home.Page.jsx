@@ -6,12 +6,12 @@ import Masonry from "react-masonry-css";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Thumbnail from "./components/Thumbnail";
+import Skeleton from "./components/Skeleton";
 import {
   fetchUnfilteredArticlesStart,
   fetchFilteredArticlesStart,
   fetchMoreUnfilteredArticles,
   fetchMoreFilteredArticles,
-  fetchFilteredArticlesSuccess,
 } from "../../redux/home.page/actions";
 import {
   Container,
@@ -86,8 +86,8 @@ const HomePage = ({
 
   const loadMoreUnfilteredArticles = () => {
     getMoreUnfilteredArticles({
-      lastArticle: unfilteredArticles[1],
       previousArticles: unfilteredArticles[0],
+      lastElement: unfilteredArticles[1],
     });
   };
 
@@ -140,59 +140,63 @@ const HomePage = ({
           })}
         </Tags>
       ) : null}
-      {!loading && Object.entries(filteredArticles).length === 0 ? (
-        <>
-          <Container>
-            <Masonry
-              breakpointCols={breakpoints}
-              className="mansonry-grid"
-              columnClassName="mansonry-grid-column"
-            >
-              {unfilteredArticles[0].map((article) => {
-                return (
-                  <Thumbnail
-                    search={(tag) => sendQueryBtn(tag)}
-                    key={article[1]}
-                    data={article[0]}
-                    id={article[1]}
-                  />
-                );
-              })}
-            </Masonry>
-          </Container>
-          <ButtonContainer>
-            <LoadMore onClick={() => loadMoreUnfilteredArticles()}>
-              cargar más
-            </LoadMore>
-          </ButtonContainer>
-        </>
-      ) : !loading && Object.entries(filteredArticles).length > 0 ? (
-        <>
-          <Container>
-            <Masonry
-              breakpointCols={breakpoints}
-              className="mansonry-grid"
-              columnClassName="mansonry-grid-column"
-            >
-              {Object.entries(filteredArticles).map((article) => {
-                return (
-                  <Thumbnail
-                    search={(tag) => sendQueryBtn(tag)}
-                    key={article[0]}
-                    data={article[1]}
-                    id={article[0]}
-                  />
-                );
-              })}
-            </Masonry>
-          </Container>
-          <ButtonContainer>
-            <LoadMore onClick={() => loadMoreFilteredArticles()}>
-              cargar más
-            </LoadMore>
-          </ButtonContainer>
-        </>
-      ) : null}
+      {!loading ? (
+        Object.entries(filteredArticles).length === 0 ? (
+          <>
+            <Container>
+              <Masonry
+                breakpointCols={breakpoints}
+                className="mansonry-grid"
+                columnClassName="mansonry-grid-column"
+              >
+                {unfilteredArticles[0].map((article) => {
+                  return (
+                    <Thumbnail
+                      search={(tag) => sendQueryBtn(tag)}
+                      key={article[1]}
+                      data={article[0]}
+                      id={article[1]}
+                    />
+                  );
+                })}
+              </Masonry>
+            </Container>
+            <ButtonContainer>
+              <LoadMore onClick={() => loadMoreUnfilteredArticles()}>
+                cargar más
+              </LoadMore>
+            </ButtonContainer>
+          </>
+        ) : Object.entries(filteredArticles).length > 0 ? (
+          <>
+            <Container>
+              <Masonry
+                breakpointCols={breakpoints}
+                className="mansonry-grid"
+                columnClassName="mansonry-grid-column"
+              >
+                {Object.entries(filteredArticles).map((article) => {
+                  return (
+                    <Thumbnail
+                      search={(tag) => sendQueryBtn(tag)}
+                      key={article[0]}
+                      data={article[1]}
+                      id={article[0]}
+                    />
+                  );
+                })}
+              </Masonry>
+            </Container>
+            <ButtonContainer>
+              <LoadMore onClick={() => loadMoreFilteredArticles()}>
+                cargar más
+              </LoadMore>
+            </ButtonContainer>
+          </>
+        ) : null
+      ) : (
+        <Skeleton />
+      )}
     </>
   );
 };

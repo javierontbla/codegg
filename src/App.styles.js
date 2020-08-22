@@ -38,7 +38,7 @@ export const Global = createGlobalStyle`
     margin-top: 1vh;
     margin-bottom: 1vh;
     border-radius: 0.2rem;
-    max-width: 95%;
+    max-width: 100%;
   }
 
   h1 {
