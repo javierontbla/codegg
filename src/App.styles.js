@@ -23,19 +23,18 @@ export const Global = createGlobalStyle`
   }
   
   blockquote {
-    color: #076bcf;
-    margin: 0;
+    color: #faf9f9;
     padding: 0.6rem;
     font-family: "Roboto", sans-serif;
     font-size: 1.6rem;
     border-radius: 0.2rem;
-    border: 2px solid #21252b;
-    opacity: 0.9;
+    border: none;
     text-transform: lowercase;
     letter-spacing: 0.5px;
     background: #21252b; 
     width: 100%;
-    opacity: 0.9;
+    margin-bottom: 2vh;
+    opacity: 0.85;
 
     @media (max-width: 768px) {
       font-size: 1.3rem;
@@ -45,10 +44,10 @@ export const Global = createGlobalStyle`
   img {
     display: block;
     margin: 0 auto;
-    margin-top: 0.7vh;
-    margin-bottom: 0.7vh;
+    margin-bottom: 2vh;
     border-radius: 0.2rem;
     max-width: 100%;
+    opacity: 1;
   }
 
   h1 {
@@ -58,9 +57,10 @@ export const Global = createGlobalStyle`
     font-size: 2.4rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
+    text-decoration: underline;
 
     @media (max-width: 768px) {
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       text-align: left;
     }
   }
@@ -69,12 +69,13 @@ export const Global = createGlobalStyle`
     color: #faf9f9;
     text-transform: uppercase;
     font-family: "Abril Fatface", cursive;
-    font-size: 2rem;
+    font-size: 1.8rem;
     letter-spacing: 0.5px;
-    margin-bottom: 3vh;
+    margin-bottom: 1vh;
+    text-decoration: underline;
 
     @media (max-width: 768px) {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       text-align: left;
     }
   }
@@ -83,12 +84,13 @@ export const Global = createGlobalStyle`
     color: #faf9f9;
     text-transform: uppercase;
     font-family: "Abril Fatface", cursive;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     letter-spacing: 0.5px;
-    margin-bottom: 3vh;
+    margin-bottom: 1vh;
+    text-decoration: underline;
 
     @media (max-width: 768px) {
-      font-size: 1.1rem;
+      font-size: 0.8rem;
       text-align: left;
     }
   }
@@ -99,6 +101,7 @@ export const Global = createGlobalStyle`
     letter-spacing: 0.5px;
     text-align: left;
     color: #faf9f9;
+    margin-bottom: 2vh;
 
     @media (max-width: 768px) {
       font-size: 1.3rem;
@@ -110,7 +113,6 @@ export const Global = createGlobalStyle`
     letter-spacing: 0.5px;
     font-family: "Roboto", sans-serif;
     color: #faf9f9;
-    font-weight: bold;
     background: #076bcf;
     border-radius: 0.2rem;
     padding: 0.2rem;
@@ -121,17 +123,20 @@ export const Global = createGlobalStyle`
   } 
 
   li {
-    font-family: "Roboto", sans-serif;
     color: #faf9f9;
+    font-family: "Roboto", sans-serif;
     font-size: 1.6rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.2vh;
     text-transform: lowercase;
     letter-spacing: 0.5px;
-    margin-left: 1rem;
 
     @media (max-width: 768px) {
       font-size: 1.3rem;
     }
+  }
+
+  ul {
+    margin-bottom: 2vh;
   }
 `;
 

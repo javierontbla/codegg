@@ -8,6 +8,7 @@ import {
   fetchFilteredArticlesSuccess,
   fetchFilteredArticlesFailure,
   storeLastFilteredElement,
+  storeAvailableTagsSuccess,
 } from "./actions";
 
 // async functions
@@ -55,7 +56,6 @@ function* fetchFilteredAsync(action) {
     yield put(storeLastFilteredElement(lastElement));
     yield put(fetchFilteredArticlesSuccess(previousArticles));
   } catch (error) {
-    yield console.log(error);
     yield put(fetchFilteredArticlesFailure(error));
   }
 }
@@ -100,8 +100,21 @@ function* fetchMoreFilteredAsync(action) {
     yield put(storeLastFilteredElement(res));
     yield put(fetchFilteredArticlesSuccess(previousArticles));
   } catch (error) {
-    yield console.log(error);
     yield put(fetchFilteredArticlesFailure(error));
+  }
+}
+
+function* storeAvailableTagsAsync() {
+  const tagsRef = db.doc(`available_tags/wAAVxYZYRYjqdLGXa1kn`);
+
+  try {
+    const res = yield tagsRef.get().then((doc) => {
+      return doc.data().available_tags;
+    });
+
+    yield put(storeAvailableTagsSuccess(res));
+  } catch (error) {
+    yield console.log(error);
   }
 }
 
@@ -131,5 +144,12 @@ export function* fetchMoreFiltered() {
   yield takeLatest(
     homePageTypes.FETCH_MORE_FILTERED_ARTICLES_START,
     fetchMoreFilteredAsync
+  );
+}
+
+export function* storeAvailableTags() {
+  yield takeLatest(
+    homePageTypes.STORE_AVAILABLE_TAGS_START,
+    storeAvailableTagsAsync
   );
 }

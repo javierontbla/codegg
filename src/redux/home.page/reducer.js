@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   unfilteredArticles: [],
   filteredArticles: {},
   lastFiltered: null,
+  availableTags: [],
   error: null,
 };
 
@@ -30,6 +31,18 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
         error: null,
       };
 
+    case homePageTypes.FETCH_MORE_FILTERED_ARTICLES_START:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+
+    case homePageTypes.STORE_AVAILABLE_TAGS_START:
+      return {
+        ...state,
+      };
+
     case homePageTypes.FETCH_UNFILTERED_ARTICLES_SUCCESS:
       return {
         ...state,
@@ -44,6 +57,12 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
         loading: false,
         error: null,
         filteredArticles: action.payload,
+      };
+
+    case homePageTypes.STORE_AVAILABLE_TAGS_SUCESS:
+      return {
+        ...state,
+        availableTags: action.payload,
       };
 
     case homePageTypes.FETCH_UNFILTERED_ARTICLES_FAILURE:
@@ -65,6 +84,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
         ...state,
         lastFiltered: action.payload,
       };
+
     default:
       return state;
   }

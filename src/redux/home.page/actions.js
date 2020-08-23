@@ -44,3 +44,12 @@ export const storeLastFilteredElement = (last) => ({
   type: homePageTypes.STORE_LAST_FILTERED_ELEMENT,
   payload: last,
 });
+
+export const storeAvailableTagsStart = () => ({
+  type: homePageTypes.STORE_AVAILABLE_TAGS_START,
+});
+
+export const storeAvailableTagsSuccess = (tags) => ({
+  type: homePageTypes.STORE_AVAILABLE_TAGS_SUCESS,
+  payload: tags,
+});

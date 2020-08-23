@@ -7,11 +7,13 @@ import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Thumbnail from "./components/Thumbnail";
 import Skeleton from "./components/Skeleton";
+import Error from "../../components/error.component/Error";
 import {
   fetchUnfilteredArticlesStart,
   fetchFilteredArticlesStart,
   fetchMoreUnfilteredArticles,
   fetchMoreFilteredArticles,
+  storeAvailableTagsStart,
 } from "../../redux/home.page/actions";
 import {
   Container,
@@ -36,12 +38,16 @@ const HomePage = ({
   unfilteredArticles,
   filteredArticles,
   lastFiltered,
+  error,
+  storeAvailableTags,
+  availableTags,
 }) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchedTags, setSearchedTags] = useState([]);
 
   useEffect(() => {
     getUnfilteredArticles();
+    storeAvailableTags();
     moment.locale("es");
   }, []);
 
@@ -56,18 +62,14 @@ const HomePage = ({
   };
 
   const sendQuery = (e) => {
-    if (searchedTags.includes(searchInput)) {
-      setSearchInput("");
-      return;
-    } else {
-      if (e.key === "Enter" && searchInput !== "") {
-        getFilteredArticles({
-          input: searchInput,
-          previousArticles: filteredArticles,
-        });
-        setSearchedTags((prev) => [...prev, searchInput]);
+    if ((e.key === "Enter" || e.key === "click") && searchInput !== "") {
+      if (!availableTags.includes(searchInput)) {
         setSearchInput("");
-      } else if (e === "click" && searchInput !== "") {
+        return;
+      } else if (searchedTags.includes(searchInput)) {
+        setSearchInput("");
+        return;
+      } else {
         getFilteredArticles({
           input: searchInput,
           previousArticles: filteredArticles,
@@ -79,12 +81,18 @@ const HomePage = ({
   };
 
   const sendQueryBtn = (tag) => {
-    if (searchedTags.includes(tag)) return;
-    getFilteredArticles({
-      input: tag.toLowerCase(),
-      previousArticles: filteredArticles,
-    });
-    setSearchedTags((prev) => [...prev, tag.toLowerCase()]);
+    if (!availableTags.includes(tag)) {
+      setSearchInput("");
+      return;
+    } else if (searchedTags.includes(tag)) {
+      return;
+    } else {
+      getFilteredArticles({
+        input: tag.toLowerCase(),
+        previousArticles: filteredArticles,
+      });
+      setSearchedTags((prev) => [...prev, tag.toLowerCase()]);
+    }
   };
 
   const loadMoreUnfilteredArticles = () => {
@@ -119,7 +127,7 @@ const HomePage = ({
         <SearchBox
           value={searchInput}
           type="text"
-          placeholder="buscar por tag - p. ej. react, redux, javascript"
+          placeholder="buscar por tag - p. ej. react, redux, node"
           onChange={(e) => handleSearchInput(e.target.value)}
           onKeyDown={(e) => sendQuery(e)}
         />
@@ -143,7 +151,7 @@ const HomePage = ({
           })}
         </Tags>
       ) : null}
-      {!loading ? (
+      {!loading && !error ? (
         Object.entries(filteredArticles).length === 0 ? (
           <>
             <Container>
@@ -197,6 +205,8 @@ const HomePage = ({
             </ButtonContainer>
           </>
         ) : null
+      ) : error ? (
+        <Error />
       ) : (
         <Skeleton />
       )}
@@ -211,12 +221,16 @@ const mapStateToProps = ({
     unfilteredArticles,
     filteredArticles,
     lastFiltered,
+    error,
+    availableTags,
   },
 }) => ({
   loading,
   unfilteredArticles,
   filteredArticles,
   lastFiltered,
+  error,
+  availableTags,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -225,6 +239,7 @@ const mapDispatchToProps = (dispatch) => ({
   getMoreUnfilteredArticles: (obj) =>
     dispatch(fetchMoreUnfilteredArticles(obj)),
   getMoreFilteredArticles: (obj) => dispatch(fetchMoreFilteredArticles(obj)),
+  storeAvailableTags: () => dispatch(storeAvailableTagsStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

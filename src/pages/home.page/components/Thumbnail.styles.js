@@ -19,6 +19,7 @@ export const Container = styled.div`
   border-radius: 0.2rem;
   margin-top: 1rem;
   margin-left: 0.25rem;
+  opacity: 0.9;
 
   &:hover {
     cursor: pointer;
@@ -36,7 +37,7 @@ export const Img = styled.div`
   background-repeat: no-repeat;
 
   &:hover {
-    opacity: 0.9;
+    opacity: 0.8;
   }
 `;
 
@@ -50,7 +51,6 @@ export const Text = styled.div`
   text-align: left;
   margin-top: 1vh;
   color: ${white};
-  opacity: 0.9;
 
   &:hover {
     opacity: 0.8;
@@ -66,7 +66,9 @@ export const Title = styled.div`
 `;
 
 export const BodyPreview = styled.div`
+  font-family: "Roboto", sans-serif;
   padding-top: 0.6rem;
+  font-size: 1rem;
 `;
 
 export const Span = styled.span``;
@@ -81,7 +83,6 @@ export const Time = styled.div`
   font-family: "Abril Fatface", cursive;
   border-bottom: 2px solid ${darkBlack};
   letter-spacing: 0.5px;
-  opacity: 0.9;
 `;
 
 export const Hashtags = styled.div`
@@ -120,7 +121,6 @@ export const Hashtag = styled.div`
 
 export const Date = styled.div`
   color: ${grey};
-  opacity: 0.9;
   font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.5px;
@@ -132,5 +132,4 @@ export const Icon = styled(FontAwesomeIcon)`
   margin-right: 0.4rem;
   font-size: 0.75rem;
   color: ${white};
-  opacity: 0.9;
 `;

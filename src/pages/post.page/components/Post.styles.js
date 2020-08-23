@@ -5,17 +5,18 @@ import { colors } from "../../../colors/colors";
 
 const { darkBlack, darkBlue, white, grey } = colors;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  opacity: 0.9;
+`;
 
 export const Title = styled.div`
   color: ${white};
-  font-size: 4.4rem;
+  font-size: 4.5rem;
   text-transform: uppercase;
   font-family: "Abril Fatface", cursive;
   text-align: center;
   margin-top: 4vh;
   letter-spacing: 0.5px;
-  opacity: 0.9;
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -29,7 +30,6 @@ export const AuthorContainer = styled.div`
   border-radius: 0.2rem;
   padding: 0.4rem;
   box-shadow: 0.4rem 0.4rem ${darkBlack};
-  opacity: 0.9;
   letter-spacing: 0.5px;
   color: ${darkBlue};
   font-family: "Abril Fatface", cursive;
@@ -49,7 +49,6 @@ export const InfoContainer = styled.div`
   padding-left: 0.9rem;
   margin-top: 2vh;
   letter-spacing: 0.5px;
-  opacity: 0.9;
   color: ${white};
   font-family: "Abril Fatface", cursive;
 
@@ -89,7 +88,7 @@ export const Body = styled.div`
   background: transparent;
   padding: 0.9rem;
   margin-top: 4vh;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
 
   @media (max-width: 768px) {
     padding: 0.1rem;
@@ -100,5 +99,4 @@ export const Icon = styled(FontAwesomeIcon)`
   margin-right: 0.4rem;
   font-size: 0.75rem;
   color: ${white};
-  opacity: 0.9;
 `;

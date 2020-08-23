@@ -5,6 +5,7 @@ import {
   fetchFiltered,
   fetchMoreUnfiltered,
   fetchMoreFiltered,
+  storeAvailableTags,
 } from "./home.page/sagas";
 import { fetchPost } from "./post.page/sagas";
 
@@ -15,5 +16,6 @@ export function* rootSaga() {
     call(fetchMoreUnfiltered),
     call(fetchMoreFiltered),
     call(fetchPost),
+    call(storeAvailableTags),
   ]);
 }

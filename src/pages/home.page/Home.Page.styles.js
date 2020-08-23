@@ -115,7 +115,7 @@ export const Tags = styled.div`
   flex-direction: row;
   width: 100%;
   height: 5vh;
-  margin-top: 0.7rem;
+  margin-top: 1rem;
 `;
 export const Tag = styled.div`
   display: flex;
