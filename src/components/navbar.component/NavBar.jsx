@@ -17,7 +17,7 @@ const NavBar = () => {
         <Logo>
           <LinkText to="/">Avgguido</LinkText>
         </Logo>
-        <PhraseContainer>desarrollo web para todos</PhraseContainer>
+        <PhraseContainer>cualquiera puede programar</PhraseContainer>
         <SocialMedia>
           <MediaIcon icon={faTwitter} />
         </SocialMedia>

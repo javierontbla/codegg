@@ -15,6 +15,7 @@ export const Time = styled.div`
   font-family: "Abril Fatface", cursive;
   font-size: 1rem;
   opacity: 0.9;
+  letter-spacing: 0.5px;
 `;
 
 export const LoadMore = styled.button`
@@ -25,8 +26,8 @@ export const LoadMore = styled.button`
   background: ${lightBlack};
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
-  margin-top: 2.5vh;
-  margin-bottom: 7vh;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
   font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${white};
@@ -44,6 +45,8 @@ export const LoadMore = styled.button`
 
   @media (max-width: 768px) {
     width: 32vw;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -63,9 +66,14 @@ export const SearchBox = styled.input`
   padding-left: 0.8rem;
   opacity: 0.9;
   color: ${white};
+  font-size: 1.2rem;
 
   &:focus {
     outline: none;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
   }
 `;
 
@@ -78,7 +86,7 @@ export const SearchContainer = styled.div`
   border-radius: 0.2rem;
   width: 100%;
   height: 6.5vh;
-  margin-top: 0.7rem;
+  margin-top: 1rem;
   padding-right: 1.2rem;
 `;
 
@@ -103,6 +111,7 @@ export const IconContainer = styled.div`
 
 export const Tags = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
   height: 5vh;

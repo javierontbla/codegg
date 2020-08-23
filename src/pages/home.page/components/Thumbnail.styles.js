@@ -17,7 +17,7 @@ export const Container = styled.div`
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
-  margin-top: 0.7rem;
+  margin-top: 1rem;
   margin-left: 0.25rem;
 
   &:hover {
@@ -47,7 +47,7 @@ export const Text = styled.div`
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   letter-spacing: 0.5px;
-  text-align: justify;
+  text-align: left;
   margin-top: 1vh;
   color: ${white};
   opacity: 0.9;

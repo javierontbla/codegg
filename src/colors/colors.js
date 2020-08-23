@@ -9,7 +9,6 @@ export const colors = {
   react: "#54cff4",
   redux: "#764abd",
   javascript: "#f2d814",
-  node: "#7cbd27",
+  node: "#448834",
   yellow: "#ffa630",
-  magenta: "#ba0066",
 };

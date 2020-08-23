@@ -17,10 +17,15 @@ const GradientAnimation = keyframes`
 export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 550px 550px;
+  grid-template-rows: 580px 580px;
   gap: 15px 15px;
   margin: 0.25rem;
   margin-top: 0.45rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 580px;
+  }
 `;
 
 export const Element = styled.div`

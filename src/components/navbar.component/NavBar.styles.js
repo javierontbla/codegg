@@ -19,13 +19,17 @@ export const Navbar = styled.div`
   justify-content: space-around;
   width: 100vw;
   height: 8vh;
-  margin-top: 2.5vh;
-  margin-right: 2.5vh;
-  margin-left: 2.5vh;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
   background: ${lightBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
   border: 2px solid ${darkBlack};
+
+  @media (max-width: 768px) {
+    margin-top: 0.5rem;
+  }
 `;
 
 // containers
@@ -35,7 +39,6 @@ export const Logo = styled.div`
   font-family: "Abril Fatface", cursive;
   text-transform: uppercase;
   justify-content: flex-start;
-  padding-left: 0.2rem;
   font-size: 2.2rem;
   opacity: 0.9;
   padding-left: 2rem;
@@ -44,6 +47,10 @@ export const Logo = styled.div`
   &:hover {
     cursor: pointer;
     opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    padding-left: 1rem;
   }
 `;
 
@@ -56,6 +63,10 @@ export const PhraseContainer = styled.div`
   font-size: 2.4rem;
   color: ${yellow};
   padding-top: 0.5rem;
+
+  @media (max-width: 768px) {
+    opacity: 0;
+  }
 `;
 
 export const SocialMedia = styled.div`
@@ -63,6 +74,11 @@ export const SocialMedia = styled.div`
   justify-content: flex-end;
   width: 27.5vw;
   padding-right: 2rem;
+  opacity: 0.9;
+
+  @media (max-width: 768px) {
+    padding-right: 1.5rem;
+  }
 `;
 
 // buttons
@@ -72,7 +88,7 @@ export const MediaIcon = styled(FontAwesomeIcon)`
 
   &:hover {
     cursor: pointer;
-    opacity: 0.9;
+    opacity: 0.8;
   }
 `;
 
@@ -81,7 +97,6 @@ export const LinkText = styled(Link)`
 
   &:hover {
     cursor: pointer;
-    opacity: 0.9;
     text-decoration: none;
     color: ${darkBlue};
   }

@@ -52,7 +52,7 @@ const HomePage = ({
   };
 
   const handleSearchInput = (input) => {
-    setSearchInput(input);
+    setSearchInput(input.toLowerCase());
   };
 
   const sendQuery = (e) => {
@@ -80,8 +80,11 @@ const HomePage = ({
 
   const sendQueryBtn = (tag) => {
     if (searchedTags.includes(tag)) return;
-    getFilteredArticles({ input: tag, previousArticles: filteredArticles });
-    setSearchedTags((prev) => [...prev, tag]);
+    getFilteredArticles({
+      input: tag.toLowerCase(),
+      previousArticles: filteredArticles,
+    });
+    setSearchedTags((prev) => [...prev, tag.toLowerCase()]);
   };
 
   const loadMoreUnfilteredArticles = () => {
@@ -102,11 +105,11 @@ const HomePage = ({
   const removeTag = (tag) => {
     // function to remove articles from main array when tag clicked
     for (const article in filteredArticles) {
-      if (filteredArticles[article]["tags"].includes(tag)) {
+      if (filteredArticles[article]["tags"].includes(tag.toLowerCase())) {
         delete filteredArticles[article];
       }
     }
-    setSearchedTags((prev) => prev.filter((t) => t !== tag));
+    setSearchedTags((prev) => prev.filter((t) => t !== tag.toLowerCase()));
   };
 
   return (

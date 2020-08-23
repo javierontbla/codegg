@@ -13,7 +13,8 @@ const PostPage = ({
   post,
 }) => {
   useEffect(() => {
-    getPost(postId);
+    const link = postId.split("-");
+    getPost(link[link.length - 1]);
   }, []);
 
   return <>{!loading ? <Post post={post} /> : null}</>;

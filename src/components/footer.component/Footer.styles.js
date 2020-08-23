@@ -9,7 +9,7 @@ export const FooterContainer = styled.footer`
   position: relative;
   bottom: 0;
   width: 100%;
-  height: 20vh;
+  height: 10vh;
   background-color: transparent;
 `;
 
@@ -19,15 +19,23 @@ export const CompanyName = styled.div`
   opacity: 0.9;
   padding-left: 0.2rem;
   opacity: 0.9;
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+  }
 `;
 
 export const Buttons = styled.div`
   display: flex;
   width: 19%;
-  margin-top: 1vh;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 50%;
+    justify-content: left;
+  }
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
@@ -51,6 +59,10 @@ export const Button = styled.a`
   &:hover ${Icon} {
     opacity: 0.8;
   }
+
+  @media (max-width: 768px) {
+    margin-left: ${(props) => (props.we ? "6px" : "0px")};
+  }
 `;
 
 export const PrivacyPolicy = styled.div`
@@ -65,6 +77,10 @@ export const PrivacyPolicy = styled.div`
 
   &:hover ${Icon} {
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    width: 50%;
   }
 `;
 
@@ -89,4 +105,8 @@ export const Directory = styled.div`
   width: 100%;
   margin-bottom: 0.5vh;
   letter-spacing: 0.5px;
+
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
 `;

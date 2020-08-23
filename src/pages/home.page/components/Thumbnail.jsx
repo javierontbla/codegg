@@ -17,10 +17,11 @@ import {
 } from "./Thumbnail.styles";
 
 const Thumbnail = ({ data, id, search }) => {
+  const linkTitle = data.titulo.split(" ").join("-").toLowerCase();
   return (
     <>
       <Container>
-        <LinkArticle to={`/${id}`}>
+        <LinkArticle to={`/${linkTitle}-${id}`}>
           <Img source={data.imagen} />
           <Text>
             <Title>{data.titulo}</Title>
