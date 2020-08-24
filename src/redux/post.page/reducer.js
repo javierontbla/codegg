@@ -11,6 +11,7 @@ export const postPageReducer = (state = INITIAL_STATE, action) => {
     case postPageTypes.FETCH_POST_START:
       return {
         ...state,
+        loading: true,
       };
     case postPageTypes.FETCH_POST_SUCCESS:
       return {

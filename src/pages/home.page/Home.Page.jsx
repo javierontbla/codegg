@@ -6,14 +6,12 @@ import Masonry from "react-masonry-css";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Thumbnail from "./components/Thumbnail";
-import Skeleton from "./components/Skeleton";
+import Loading from "./components/Loading";
 import Error from "../../components/error.component/Error";
 import {
-  fetchUnfilteredArticlesStart,
   fetchFilteredArticlesStart,
   fetchMoreUnfilteredArticles,
   fetchMoreFilteredArticles,
-  storeAvailableTagsStart,
 } from "../../redux/home.page/actions";
 import {
   Container,
@@ -31,7 +29,6 @@ import "./Home.Page.css";
 
 const HomePage = ({
   loading,
-  getUnfilteredArticles,
   getFilteredArticles,
   getMoreUnfilteredArticles,
   getMoreFilteredArticles,
@@ -39,15 +36,12 @@ const HomePage = ({
   filteredArticles,
   lastFiltered,
   error,
-  storeAvailableTags,
   availableTags,
 }) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchedTags, setSearchedTags] = useState([]);
 
   useEffect(() => {
-    getUnfilteredArticles();
-    storeAvailableTags();
     moment.locale("es");
   }, []);
 
@@ -208,7 +202,7 @@ const HomePage = ({
       ) : error ? (
         <Error />
       ) : (
-        <Skeleton />
+        <Loading />
       )}
     </>
   );
@@ -216,30 +210,19 @@ const HomePage = ({
 
 // redux
 const mapStateToProps = ({
-  homePageReducer: {
-    loading,
-    unfilteredArticles,
-    filteredArticles,
-    lastFiltered,
-    error,
-    availableTags,
-  },
+  homePageReducer: { loading, filteredArticles, lastFiltered, error },
 }) => ({
   loading,
-  unfilteredArticles,
   filteredArticles,
   lastFiltered,
   error,
-  availableTags,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getUnfilteredArticles: () => dispatch(fetchUnfilteredArticlesStart()),
   getFilteredArticles: (input) => dispatch(fetchFilteredArticlesStart(input)),
+  getMoreFilteredArticles: (obj) => dispatch(fetchMoreFilteredArticles(obj)),
   getMoreUnfilteredArticles: (obj) =>
     dispatch(fetchMoreUnfilteredArticles(obj)),
-  getMoreFilteredArticles: (obj) => dispatch(fetchMoreFilteredArticles(obj)),
-  storeAvailableTags: () => dispatch(storeAvailableTagsStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

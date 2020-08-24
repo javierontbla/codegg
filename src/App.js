@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { NavBarContainer, Global } from "./App.styles.js";
 import NavBar from "./components/navbar.component/NavBar";
 import HomePage from "./pages/home.page/Home.Page";
 import PostPage from "./pages/post.page/Post.Page";
 import Footer from "./components/footer.component/Footer";
+import {
+  fetchUnfilteredArticlesStart,
+  storeAvailableTagsStart,
+} from "./redux/home.page/actions";
 
-const App = () => {
+const App = ({
+  getUnfilteredArticles,
+  unfilteredArticles,
+  storeAvailableTags,
+  availableTags,
+}) => {
+  useEffect(() => {
+    getUnfilteredArticles();
+    storeAvailableTags();
+  }, []);
+
   return (
     <>
       <Global />
@@ -16,7 +31,16 @@ const App = () => {
       </NavBarContainer>
       <div className="container">
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <HomePage
+                unfilteredArticles={unfilteredArticles}
+                availableTags={availableTags}
+              />
+            )}
+          />
           <Route path="/:postId" component={PostPage} />
         </Switch>
       </div>
@@ -25,4 +49,17 @@ const App = () => {
   );
 };
 
-export default App;
+// redux
+const mapStateToProps = ({
+  homePageReducer: { unfilteredArticles, availableTags },
+}) => ({
+  unfilteredArticles,
+  availableTags,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getUnfilteredArticles: () => dispatch(fetchUnfilteredArticlesStart()),
+  storeAvailableTags: () => dispatch(storeAvailableTagsStart()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

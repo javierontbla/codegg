@@ -9,6 +9,7 @@ import {
   fetchFilteredArticlesFailure,
   storeLastFilteredElement,
   storeAvailableTagsSuccess,
+  storeAvailableTagsFailure,
 } from "./actions";
 
 // async functions
@@ -114,7 +115,7 @@ function* storeAvailableTagsAsync() {
 
     yield put(storeAvailableTagsSuccess(res));
   } catch (error) {
-    yield console.log(error);
+    yield put(storeAvailableTagsFailure(error));
   }
 }
 

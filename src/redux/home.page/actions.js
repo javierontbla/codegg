@@ -1,4 +1,5 @@
 import { homePageTypes } from "./types";
+import { bindActionCreators } from "redux";
 
 export const fetchUnfilteredArticlesStart = () => ({
   type: homePageTypes.FETCH_UNFILTERED_ARTICLES_START,
@@ -50,6 +51,11 @@ export const storeAvailableTagsStart = () => ({
 });
 
 export const storeAvailableTagsSuccess = (tags) => ({
-  type: homePageTypes.STORE_AVAILABLE_TAGS_SUCESS,
+  type: homePageTypes.STORE_AVAILABLE_TAGS_SUCCESS,
   payload: tags,
+});
+
+export const storeAvailableTagsFailure = (error) => ({
+  type: homePageTypes.STORE_AVAILABLE_TAGS_FAILURE,
+  payload: error,
 });

@@ -41,28 +41,30 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
     case homePageTypes.STORE_AVAILABLE_TAGS_START:
       return {
         ...state,
+        error: null,
       };
 
     case homePageTypes.FETCH_UNFILTERED_ARTICLES_SUCCESS:
       return {
         ...state,
+        unfilteredArticles: action.payload,
         loading: false,
         error: null,
-        unfilteredArticles: action.payload,
       };
 
     case homePageTypes.FETCH_FILTERED_ARTICLES_SUCCESS:
       return {
         ...state,
+        filteredArticles: action.payload,
         loading: false,
         error: null,
-        filteredArticles: action.payload,
       };
 
-    case homePageTypes.STORE_AVAILABLE_TAGS_SUCESS:
+    case homePageTypes.STORE_AVAILABLE_TAGS_SUCCESS:
       return {
         ...state,
         availableTags: action.payload,
+        error: null,
       };
 
     case homePageTypes.FETCH_UNFILTERED_ARTICLES_FAILURE:
@@ -76,6 +78,12 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
+        error: action.payload,
+      };
+
+    case homePageTypes.STORE_AVAILABLE_TAGS_FAILURE:
+      return {
+        ...state,
         error: action.payload,
       };
 
