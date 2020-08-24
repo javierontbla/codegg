@@ -17,7 +17,7 @@ export const Container = styled.div`
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   margin-left: 0.25rem;
   opacity: 0.9;
 
@@ -115,7 +115,7 @@ export const Hashtag = styled.div`
 
   &:hover {
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.9;
   }
 `;
 

@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-import { colors } from "../../../colors/colors";
+import { colors } from "../../colors/colors";
 
 const { darkBlack, yellow, darkBlue } = colors;
 
@@ -19,8 +19,8 @@ export const Container = styled.div`
   position: relative;
   animation: ${Circular} 2s linear infinite;
   margin: 0 auto;
-  margin-top: 8vh;
-  margin-bottom: 8vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 
   &::before,
   &::after {

@@ -7,6 +7,7 @@ import {
   fetchUnfilteredArticlesFailure,
   fetchFilteredArticlesSuccess,
   fetchFilteredArticlesFailure,
+  storeLastUnfilteredElement,
   storeLastFilteredElement,
   storeAvailableTagsSuccess,
   storeAvailableTagsFailure,
@@ -14,23 +15,25 @@ import {
 
 // async functions
 function* fetchUnfilteredAsync() {
-  const articlesRef = db
-    .collection(`articulos_septiembre`)
-    .orderBy("fecha_db")
-    .limit(1);
+  const articlesRef = db.collection(`articulos_septiembre`);
 
   try {
-    const res = yield articlesRef.get().then((snapshot) => {
-      const lastRef = snapshot.docs[snapshot.docs.length - 1];
-      const articles = [];
-      snapshot.forEach((article) =>
-        articles.push([article.data(), article.id])
-      );
+    const res = yield articlesRef
+      .orderBy("fecha_db")
+      .limit(1)
+      .get()
+      .then((snapshot) => {
+        const lastRef = snapshot.docs[snapshot.docs.length - 1];
+        const articles = [];
+        snapshot.forEach((article) =>
+          articles.push([article.data(), article.id])
+        );
 
-      return [articles, lastRef];
-    });
+        return [articles, lastRef];
+      });
 
-    yield put(fetchUnfilteredArticlesSuccess(res));
+    yield put(fetchUnfilteredArticlesSuccess(res[0]));
+    yield put(storeLastUnfilteredElement(res[1]));
   } catch (error) {
     yield put(fetchUnfilteredArticlesFailure(error));
   }
@@ -76,7 +79,8 @@ function* fetchMoreUnfilteredAsync(action) {
       return lastRef;
     });
 
-    yield put(fetchUnfilteredArticlesSuccess([previousArticles, res]));
+    yield put(fetchUnfilteredArticlesSuccess(previousArticles));
+    yield put(storeLastUnfilteredElement(res));
   } catch (error) {
     yield put(fetchUnfilteredArticlesFailure(error));
   }
@@ -91,6 +95,8 @@ function* fetchMoreFilteredAsync(action) {
     .orderBy("fecha_db")
     .startAfter(lastElement)
     .limit(1);
+
+  yield console.log(lastElement);
   try {
     const res = yield filteredRef.get().then((snapshot) => {
       const lastRef = snapshot.docs[snapshot.docs.length - 1];

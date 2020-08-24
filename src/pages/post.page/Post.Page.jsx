@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import Post from "./components/Post";
-import Loading from "../home.page/components/Loading";
+import Loading from "../../components/loading.component/Loading";
 import { fetchPostStart } from "../../redux/post.page/actions";
 
 const PostPage = ({

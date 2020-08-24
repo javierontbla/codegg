@@ -1,29 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import "moment/locale/es";
 import Masonry from "react-masonry-css";
-import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Thumbnail from "./components/Thumbnail";
-import Loading from "./components/Loading";
+import Loading from "../../components/loading.component/Loading";
 import Error from "../../components/error.component/Error";
 import {
   fetchFilteredArticlesStart,
   fetchMoreUnfilteredArticles,
   fetchMoreFilteredArticles,
+  insertTagRedux,
+  deleteTagRedux,
+  noMorePostsStart,
 } from "../../redux/home.page/actions";
 import {
   Container,
   Time,
   LoadMore,
   ButtonContainer,
-  SearchBox,
-  SearchContainer,
+  AvailableTagsContainer,
   Icon,
   IconContainer,
   Tags,
   Tag,
+  Message,
 } from "./Home.Page.styles";
 import "./Home.Page.css";
 
@@ -34,13 +37,16 @@ const HomePage = ({
   getMoreFilteredArticles,
   unfilteredArticles,
   filteredArticles,
+  lastUnfiltered,
   lastFiltered,
   error,
   availableTags,
+  currentTags,
+  insertTag,
+  deleteTag,
+  stopFetching,
+  noMorePosts,
 }) => {
-  const [searchInput, setSearchInput] = useState("");
-  const [searchedTags, setSearchedTags] = useState([]);
-
   useEffect(() => {
     moment.locale("es");
   }, []);
@@ -51,85 +57,65 @@ const HomePage = ({
     700: 1,
   };
 
-  const handleSearchInput = (input) => {
-    setSearchInput(input.toLowerCase());
-  };
-
-  const sendQuery = (e) => {
-    if ((e.key === "Enter" || e.key === "click") && searchInput !== "") {
-      if (!availableTags.includes(searchInput)) {
-        setSearchInput("");
-        return;
-      } else if (searchedTags.includes(searchInput)) {
-        setSearchInput("");
-        return;
-      } else {
-        getFilteredArticles({
-          input: searchInput,
-          previousArticles: filteredArticles,
-        });
-        setSearchedTags((prev) => [...prev, searchInput]);
-        setSearchInput("");
-      }
-    }
-  };
-
   const sendQueryBtn = (tag) => {
-    if (!availableTags.includes(tag)) {
-      setSearchInput("");
-      return;
-    } else if (searchedTags.includes(tag)) {
+    if (currentTags.includes(tag)) {
       return;
     } else {
       getFilteredArticles({
-        input: tag.toLowerCase(),
+        input: tag,
         previousArticles: filteredArticles,
       });
-      setSearchedTags((prev) => [...prev, tag.toLowerCase()]);
+      insertTag(tag);
     }
   };
 
   const loadMoreUnfilteredArticles = () => {
+    if (!lastUnfiltered) {
+      stopFetching();
+      return;
+    }
     getMoreUnfilteredArticles({
-      previousArticles: unfilteredArticles[0],
-      lastElement: unfilteredArticles[1],
+      previousArticles: unfilteredArticles,
+      lastElement: lastUnfiltered,
     });
   };
 
   const loadMoreFilteredArticles = () => {
+    if (!lastFiltered) {
+      stopFetching();
+      return;
+    }
     getMoreFilteredArticles({
       previousArticles: filteredArticles,
       lastElement: lastFiltered,
-      tags: searchedTags,
+      tags: currentTags,
     });
   };
 
   const removeTag = (tag) => {
     // function to remove articles from main array when tag clicked
-    for (const article in filteredArticles) {
-      if (filteredArticles[article]["tags"].includes(tag.toLowerCase())) {
-        delete filteredArticles[article];
-      }
-    }
-    setSearchedTags((prev) => prev.filter((t) => t !== tag.toLowerCase()));
+    deleteTag(tag);
   };
 
   return (
     <>
       <Time>{moment().format("LL")}</Time>
-      <SearchContainer>
-        <SearchBox
-          value={searchInput}
-          type="text"
-          placeholder="buscar por tag - p. ej. react, redux, node"
-          onChange={(e) => handleSearchInput(e.target.value)}
-          onKeyDown={(e) => sendQuery(e)}
-        />
-        <Icon icon={faSearch} onClick={() => sendQuery("click")} />
-      </SearchContainer>
-      {searchedTags.length > 0 ? (
+      <AvailableTagsContainer>
+        {availableTags.map((tag) => {
+          return (
+            <Tag
+              type={tag.toLowerCase()}
+              onClick={() => sendQueryBtn(tag.toLowerCase())}
+              search={"true"}
+            >
+              #{tag.toLowerCase()}
+            </Tag>
+          );
+        })}
+      </AvailableTagsContainer>
+      {currentTags.length > 0 ? (
         <Tags>
-          {searchedTags.map((tag) => {
+          {currentTags.map((tag) => {
             return (
               <Tag type={tag}>
                 #{tag}
@@ -154,7 +140,7 @@ const HomePage = ({
                 className="mansonry-grid"
                 columnClassName="mansonry-grid-column"
               >
-                {unfilteredArticles[0].map((article) => {
+                {unfilteredArticles.map((article) => {
                   return (
                     <Thumbnail
                       search={(tag) => sendQueryBtn(tag)}
@@ -167,9 +153,13 @@ const HomePage = ({
               </Masonry>
             </Container>
             <ButtonContainer>
-              <LoadMore onClick={() => loadMoreUnfilteredArticles()}>
-                cargar más
-              </LoadMore>
+              {!noMorePosts ? (
+                <LoadMore onClick={() => loadMoreUnfilteredArticles()}>
+                  cargar más
+                </LoadMore>
+              ) : (
+                <Message>no hay más artículos :(</Message>
+              )}
             </ButtonContainer>
           </>
         ) : Object.entries(filteredArticles).length > 0 ? (
@@ -193,9 +183,13 @@ const HomePage = ({
               </Masonry>
             </Container>
             <ButtonContainer>
-              <LoadMore onClick={() => loadMoreFilteredArticles()}>
-                cargar más
-              </LoadMore>
+              {!noMorePosts ? (
+                <LoadMore onClick={() => loadMoreFilteredArticles()}>
+                  cargar más
+                </LoadMore>
+              ) : (
+                <Message>no hay más artículos :(</Message>
+              )}
             </ButtonContainer>
           </>
         ) : null
@@ -210,12 +204,23 @@ const HomePage = ({
 
 // redux
 const mapStateToProps = ({
-  homePageReducer: { loading, filteredArticles, lastFiltered, error },
+  homePageReducer: {
+    loading,
+    filteredArticles,
+    lastUnfiltered,
+    lastFiltered,
+    error,
+    currentTags,
+    noMorePosts,
+  },
 }) => ({
   loading,
   filteredArticles,
+  lastUnfiltered,
   lastFiltered,
+  currentTags,
   error,
+  noMorePosts,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -223,6 +228,9 @@ const mapDispatchToProps = (dispatch) => ({
   getMoreFilteredArticles: (obj) => dispatch(fetchMoreFilteredArticles(obj)),
   getMoreUnfilteredArticles: (obj) =>
     dispatch(fetchMoreUnfilteredArticles(obj)),
+  insertTag: (tag) => dispatch(insertTagRedux(tag)),
+  deleteTag: (tag) => dispatch(deleteTagRedux(tag)),
+  stopFetching: () => dispatch(noMorePostsStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

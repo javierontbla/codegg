@@ -2,10 +2,13 @@ import { homePageTypes } from "./types";
 
 const INITIAL_STATE = {
   loading: true,
+  noMorePosts: false,
   unfilteredArticles: [],
   filteredArticles: {},
-  lastFiltered: null,
+  currentTags: [],
   availableTags: [],
+  lastFiltered: null,
+  lastUnfiltered: null,
   error: null,
 };
 
@@ -50,6 +53,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
         unfilteredArticles: action.payload,
         loading: false,
         error: null,
+        noMorePosts: false,
       };
 
     case homePageTypes.FETCH_FILTERED_ARTICLES_SUCCESS:
@@ -58,6 +62,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
         filteredArticles: action.payload,
         loading: false,
         error: null,
+        noMorePosts: false,
       };
 
     case homePageTypes.STORE_AVAILABLE_TAGS_SUCCESS:
@@ -91,6 +96,31 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         lastFiltered: action.payload,
+      };
+
+    case homePageTypes.STORE_LAST_UNFILTERED_ELEMENT:
+      return {
+        ...state,
+        lastUnfiltered: action.payload,
+      };
+
+    case homePageTypes.INSERT_TAG:
+      state.currentTags.push(action.payload);
+      return {
+        ...state,
+      };
+
+    case homePageTypes.REMOVE_TAG:
+      const update = state.currentTags.filter((tag) => tag !== action.payload);
+      return {
+        ...state,
+        currentTags: update,
+      };
+
+    case homePageTypes.NO_MORE_POSTS:
+      return {
+        ...state,
+        noMorePosts: true,
       };
 
     default:

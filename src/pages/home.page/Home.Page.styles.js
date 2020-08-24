@@ -3,7 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../colors/colors";
 
-const { white, lightBlack, darkBlack, react, javascript, redux, node } = colors;
+const {
+  white,
+  lightBlack,
+  darkBlack,
+  yellow,
+  react,
+  javascript,
+  redux,
+  node,
+} = colors;
 
 export const Container = styled.div``;
 
@@ -56,44 +65,23 @@ export const ButtonContainer = styled.div`
   width: 100%;
 `;
 
-// search box
-export const SearchBox = styled.input`
-  background: transparent;
-  border: none;
-  padding: 0.4rem;
-  width: 95%;
-  height: 100%;
-  padding-left: 0.8rem;
-  opacity: 0.9;
-  color: ${white};
-  font-size: 1.2rem;
-
-  &:focus {
-    outline: none;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 0.85rem;
-  }
-`;
-
-export const SearchContainer = styled.div`
+export const AvailableTagsContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   background: ${lightBlack};
-  border: 2px solid ${darkBlack};
-  border-radius: 0.2rem;
+  border-bottom: 2px solid ${darkBlack};
   width: 100%;
-  height: 6.5vh;
-  margin-top: 1rem;
-  padding-right: 1.2rem;
+  height: fit-content;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
   color: ${white};
   font-size: ${(props) => (props.cross ? "1rem" : "1.5rem")};
   opacity: ${(props) => (props.cross ? "0.4" : "0.3")};
+  margin-top: 0.1rem;
 
   &:hover {
     cursor: pointer;
@@ -107,6 +95,8 @@ export const IconContainer = styled.div`
   align-items: center;
   height: 100%;
   margin-left: 0.4rem;
+  width: fit-content;
+  height: fit-content;
 `;
 
 export const Tags = styled.div`
@@ -114,9 +104,10 @@ export const Tags = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  height: 5vh;
-  margin-top: 1rem;
+  height: fit-content;
+  margin-top: 0.8rem;
 `;
+
 export const Tag = styled.div`
   display: flex;
   flex-direction: row;
@@ -136,10 +127,35 @@ export const Tag = styled.div`
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   letter-spacing: 1px;
-  margin-left: 0.4rem;
+  margin-left: 0.6rem;
   height: fit-content;
 
   &:first-child {
-    margin-left: 0;
+    margin-left: 0.2rem;
+  }
+
+  &:hover {
+    cursor: ${(props) => (props.search ? "pointer" : "auto")};
+    opacity: ${(props) => (props.search ? "0.9" : "1")};
+  }
+`;
+
+export const Message = styled.div`
+  width: fit-content;
+  background: none;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  font-size: 2.4rem;
+  letter-spacing: 0.5px;
+  color: ${yellow};
+  font-family: "Reenie Beanie", cursive;
+
+
+  @media (max-width: 768px) {
+    width: width: fit-content;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
   }
 `;

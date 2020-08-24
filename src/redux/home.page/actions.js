@@ -1,5 +1,4 @@
 import { homePageTypes } from "./types";
-import { bindActionCreators } from "redux";
 
 export const fetchUnfilteredArticlesStart = () => ({
   type: homePageTypes.FETCH_UNFILTERED_ARTICLES_START,
@@ -46,6 +45,11 @@ export const storeLastFilteredElement = (last) => ({
   payload: last,
 });
 
+export const storeLastUnfilteredElement = (last) => ({
+  type: homePageTypes.STORE_LAST_UNFILTERED_ELEMENT,
+  payload: last,
+});
+
 export const storeAvailableTagsStart = () => ({
   type: homePageTypes.STORE_AVAILABLE_TAGS_START,
 });
@@ -58,4 +62,18 @@ export const storeAvailableTagsSuccess = (tags) => ({
 export const storeAvailableTagsFailure = (error) => ({
   type: homePageTypes.STORE_AVAILABLE_TAGS_FAILURE,
   payload: error,
+});
+
+export const insertTagRedux = (tag) => ({
+  type: homePageTypes.INSERT_TAG,
+  payload: tag,
+});
+
+export const deleteTagRedux = (tag) => ({
+  type: homePageTypes.REMOVE_TAG,
+  payload: tag,
+});
+
+export const noMorePostsStart = () => ({
+  type: homePageTypes.NO_MORE_POSTS,
 });
