@@ -67,7 +67,6 @@ const HomePage = ({
         previousArticles: filteredArticles,
       });
     } else {
-      console.log("WORKING");
       removeTag(currentTag[0]);
       insertTag(tag);
       getFilteredArticles({

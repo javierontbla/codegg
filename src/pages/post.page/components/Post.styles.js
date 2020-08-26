@@ -98,3 +98,8 @@ export const Icon = styled(FontAwesomeIcon)`
   font-size: 0.75rem;
   color: ${white};
 `;
+
+export const Test = styled.a`
+  color: green;
+  background: white;
+`;

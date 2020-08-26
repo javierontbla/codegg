@@ -6,7 +6,7 @@ import { colors } from "../../colors/colors";
 const { black, white } = colors;
 
 export const FooterContainer = styled.footer`
-  position: relative;
+  position: ${(props) => (props.error ? "absolute" : "relative")};
   bottom: 0;
   width: 100%;
   height: 10vh;
@@ -45,42 +45,44 @@ export const Icon = styled(FontAwesomeIcon)`
 `;
 
 export const Button = styled.a`
-  color: ${white};
-  padding: 0.2rem;
-  opacity: 0.9;
+  color: ${white} !important;
+  padding: 0.2rem !important;
+  opacity: 0.9 !important;
+  background: transparent !important;
 
   &:hover {
-    opacity: 0.8;
-    text-decoration: none;
-    cursor: pointer;
-    color: ${white};
+    opacity: 0.8 !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    color: ${white} !important;
   }
 
   &:hover ${Icon} {
-    opacity: 0.8;
+    opacity: 0.8 !important;
   }
 
   @media (max-width: 768px) {
-    margin-left: ${(props) => (props.we ? "6px" : "0px")};
+    margin-left: ${(props) => (props.we ? "6px" : "0px")} !important;
   }
 `;
 
 export const PrivacyPolicy = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  letter-spacing: 0.5px;
-  opacity: 0.9;
-  padding-right: 0.2rem;
-  color: ${white};
-  width: 81%;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  letter-spacing: 0.5px !important;
+  opacity: 0.9 !important;
+  padding-right: 0.2rem !important;
+  color: ${white} !important;
+  width: 81% !important;
+  background: transparent !important;
 
   &:hover ${Icon} {
-    cursor: pointer;
+    cursor: pointer !important;
   }
 
   @media (max-width: 768px) {
-    width: 50%;
+    width: 50% !important;
   }
 `;
 

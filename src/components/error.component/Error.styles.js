@@ -13,9 +13,10 @@ export const Container = styled.div`
   height: 20vh;
   color: ${yellow};
   font-family: "Reenie Beanie", cursive;
-  font-size: 4.8rem;
+  font-size: 3.8rem;
   margin-top: 8vh;
   text-align: center;
+  margin-bottom: 16vh;
 
   @media (max-width: 768px) {
     font-size: 2.8rem;

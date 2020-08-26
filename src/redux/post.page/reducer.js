@@ -1,7 +1,7 @@
 import { postPageTypes } from "./types";
 
 const INITIAL_STATE = {
-  loading: true,
+  postLoading: true,
   error: null,
   post: null,
 };
@@ -11,19 +11,20 @@ export const postPageReducer = (state = INITIAL_STATE, action) => {
     case postPageTypes.FETCH_POST_START:
       return {
         ...state,
-        loading: true,
+        postLoading: true,
+        error: null,
       };
     case postPageTypes.FETCH_POST_SUCCESS:
       return {
         ...state,
-        loading: false,
+        postLoading: false,
         error: null,
         post: action.payload,
       };
     case postPageTypes.FETCH_POST_FAILURE:
       return {
         ...state,
-        loading: false,
+        postLoading: false,
         error: action.payload,
       };
 

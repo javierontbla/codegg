@@ -93,7 +93,8 @@ export const MediaIcon = styled(FontAwesomeIcon)`
 `;
 
 export const LinkText = styled(Link)`
-  color: ${darkBlue};
+  color: ${darkBlue} !important;
+  background: transparent !important;
 
   &:hover {
     cursor: pointer;

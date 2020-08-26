@@ -60,7 +60,7 @@ export const Global = createGlobalStyle`
     text-decoration: underline;
 
     @media (max-width: 768px) {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       text-align: left;
     }
   }
@@ -75,7 +75,7 @@ export const Global = createGlobalStyle`
     text-decoration: underline;
 
     @media (max-width: 768px) {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       text-align: left;
     }
   }
@@ -90,7 +90,7 @@ export const Global = createGlobalStyle`
     text-decoration: underline;
 
     @media (max-width: 768px) {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       text-align: left;
     }
   }
@@ -107,7 +107,7 @@ export const Global = createGlobalStyle`
       font-size: 1.3rem;
     }
   }
-
+  
   strong {
     font-size: 1.7rem;
     letter-spacing: 0.5px;
@@ -116,6 +116,7 @@ export const Global = createGlobalStyle`
     background: #076bcf;
     border-radius: 0.2rem;
     padding: 0.2rem;
+    font-weight: 600;
 
     @media (max-width: 768px) {
       font-size: 1.4rem;

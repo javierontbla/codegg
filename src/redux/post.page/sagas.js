@@ -12,8 +12,8 @@ function* fetchPostAsync(action) {
     const res = yield postRef.get().then((snapshot) => {
       return snapshot.data();
     });
-    yield put(fetchPostSuccess(res));
 
+    yield put(fetchPostSuccess(res));
     yield put(fetchPostSuccess(res));
   } catch (error) {
     yield put(fetchPostFailure(error));
