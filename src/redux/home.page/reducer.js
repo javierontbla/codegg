@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   noMorePosts: false,
   unfilteredArticles: [],
   filteredArticles: {},
-  currentTags: [],
+  currentTag: [],
   availableTags: [],
   lastFiltered: null,
   lastUnfiltered: null,
@@ -106,16 +106,16 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
       };
 
     case homePageTypes.INSERT_TAG:
-      state.currentTags.push(action.payload);
+      state.currentTag.push(action.payload);
       return {
         ...state,
       };
 
     case homePageTypes.REMOVE_TAG:
-      const update = state.currentTags.filter((tag) => tag !== action.payload);
+      const update = [];
       return {
         ...state,
-        currentTags: update,
+        currentTag: update,
       };
 
     case homePageTypes.NO_MORE_POSTS:

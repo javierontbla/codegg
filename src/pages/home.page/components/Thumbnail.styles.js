@@ -19,7 +19,6 @@ export const Container = styled.div`
   border-radius: 0.2rem;
   margin-top: 0.8rem;
   margin-left: 0.25rem;
-  opacity: 0.9;
 
   &:hover {
     cursor: pointer;
@@ -37,7 +36,7 @@ export const Img = styled.div`
   background-repeat: no-repeat;
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.9;
   }
 `;
 
@@ -53,7 +52,7 @@ export const Text = styled.div`
   color: ${white};
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.9;
   }
 `;
 

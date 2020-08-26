@@ -41,7 +41,7 @@ const HomePage = ({
   lastFiltered,
   error,
   availableTags,
-  currentTags,
+  currentTag,
   insertTag,
   deleteTag,
   stopFetching,
@@ -58,14 +58,22 @@ const HomePage = ({
   };
 
   const sendQueryBtn = (tag) => {
-    if (currentTags.includes(tag)) {
+    if (currentTag[0] === tag) {
       return;
-    } else {
+    } else if (!currentTag[0]) {
+      insertTag(tag);
       getFilteredArticles({
         input: tag,
         previousArticles: filteredArticles,
       });
+    } else {
+      console.log("WORKING");
+      removeTag(currentTag[0]);
       insertTag(tag);
+      getFilteredArticles({
+        input: tag,
+        previousArticles: filteredArticles,
+      });
     }
   };
 
@@ -85,18 +93,16 @@ const HomePage = ({
       stopFetching();
       return;
     }
-    console.log(currentTags);
     getMoreFilteredArticles({
       previousArticles: filteredArticles,
       lastElement: lastFiltered,
-      tags: currentTags,
+      tag: currentTag[0],
     });
   };
 
   const removeTag = (tag) => {
     // function to remove articles from main array when tag clicked
     deleteTag(tag);
-
     for (const article in filteredArticles) {
       if (filteredArticles[article].tags.includes(tag)) {
         delete filteredArticles[article];
@@ -107,22 +113,24 @@ const HomePage = ({
   return (
     <>
       <Time>{moment().format("LL")}</Time>
-      <AvailableTagsContainer>
-        {availableTags.map((tag) => {
-          return (
-            <Tag
-              type={tag.toLowerCase()}
-              onClick={() => sendQueryBtn(tag.toLowerCase())}
-              search={"true"}
-            >
-              #{tag.toLowerCase()}
-            </Tag>
-          );
-        })}
-      </AvailableTagsContainer>
-      {currentTags.length > 0 ? (
+      {!loading ? (
+        <AvailableTagsContainer>
+          {availableTags.map((tag) => {
+            return (
+              <Tag
+                type={tag.toLowerCase()}
+                onClick={() => sendQueryBtn(tag.toLowerCase())}
+                search={"true"}
+              >
+                #{tag.toLowerCase()}
+              </Tag>
+            );
+          })}
+        </AvailableTagsContainer>
+      ) : null}
+      {currentTag[0] ? (
         <Tags>
-          {currentTags.map((tag) => {
+          {currentTag.map((tag) => {
             return (
               <Tag type={tag}>
                 #{tag}
@@ -165,7 +173,7 @@ const HomePage = ({
                   cargar más
                 </LoadMore>
               ) : (
-                <Message>no hay más artículos :(</Message>
+                <Message>no hay más artículos</Message>
               )}
             </ButtonContainer>
           </>
@@ -195,7 +203,7 @@ const HomePage = ({
                   cargar más
                 </LoadMore>
               ) : (
-                <Message>no hay más artículos :(</Message>
+                <Message>no hay más artículos</Message>
               )}
             </ButtonContainer>
           </>
@@ -217,7 +225,7 @@ const mapStateToProps = ({
     lastUnfiltered,
     lastFiltered,
     error,
-    currentTags,
+    currentTag,
     noMorePosts,
   },
 }) => ({
@@ -225,7 +233,7 @@ const mapStateToProps = ({
   filteredArticles,
   lastUnfiltered,
   lastFiltered,
-  currentTags,
+  currentTag,
   error,
   noMorePosts,
 });

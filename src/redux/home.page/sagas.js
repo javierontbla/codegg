@@ -87,11 +87,11 @@ function* fetchMoreUnfilteredAsync(action) {
 }
 
 function* fetchMoreFilteredAsync(action) {
-  const { previousArticles, lastElement, tags } = action.payload;
+  const { previousArticles, lastElement, tag } = action.payload;
 
   const filteredRef = db
     .collection(`articulos_septiembre`)
-    .where("tags", "array-contains-any", tags)
+    .where("tags", "array-contains", `${tag}`)
     .orderBy("fecha_db", "desc")
     .startAfter(lastElement)
     .limit(1);
@@ -99,7 +99,6 @@ function* fetchMoreFilteredAsync(action) {
   try {
     const res = yield filteredRef.get().then((snapshot) => {
       const lastRef = snapshot.docs[snapshot.docs.length - 1];
-      console.log(lastRef);
       snapshot.forEach((doc) => (previousArticles[doc.id] = doc.data()));
       return lastRef;
     });

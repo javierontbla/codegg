@@ -5,9 +5,7 @@ import { colors } from "../../../colors/colors";
 
 const { darkBlack, darkBlue, white, grey } = colors;
 
-export const Container = styled.div`
-  opacity: 0.9;
-`;
+export const Container = styled.div``;
 
 export const Title = styled.div`
   color: ${white};
