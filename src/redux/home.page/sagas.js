@@ -28,7 +28,6 @@ function* fetchUnfilteredAsync() {
         snapshot.forEach((article) =>
           articles.push([article.data(), article.id])
         );
-
         return [articles, lastRef];
       });
 
@@ -46,7 +45,7 @@ function* fetchFilteredAsync(action) {
   try {
     const lastElement = yield inputRef
       .where("tags", "array-contains", `${input}`)
-      .orderBy("fecha_db")
+      .orderBy("fecha_db", "desc")
       .limit(1)
       .get()
       .then((snapshot) => {
@@ -60,6 +59,7 @@ function* fetchFilteredAsync(action) {
     yield put(storeLastFilteredElement(lastElement));
     yield put(fetchFilteredArticlesSuccess(previousArticles));
   } catch (error) {
+    yield console.log(error);
     yield put(fetchFilteredArticlesFailure(error));
   }
 }
@@ -92,14 +92,14 @@ function* fetchMoreFilteredAsync(action) {
   const filteredRef = db
     .collection(`articulos_septiembre`)
     .where("tags", "array-contains-any", tags)
-    .orderBy("fecha_db")
+    .orderBy("fecha_db", "desc")
     .startAfter(lastElement)
     .limit(1);
 
-  yield console.log(lastElement);
   try {
     const res = yield filteredRef.get().then((snapshot) => {
       const lastRef = snapshot.docs[snapshot.docs.length - 1];
+      console.log(lastRef);
       snapshot.forEach((doc) => (previousArticles[doc.id] = doc.data()));
       return lastRef;
     });
@@ -112,9 +112,8 @@ function* fetchMoreFilteredAsync(action) {
 }
 
 function* storeAvailableTagsAsync() {
-  const tagsRef = db.doc(`available_tags/wAAVxYZYRYjqdLGXa1kn`);
-
   try {
+    const tagsRef = db.doc(`available_tags/wAAVxYZYRYjqdLGXa1kn`);
     const res = yield tagsRef.get().then((doc) => {
       return doc.data().available_tags;
     });

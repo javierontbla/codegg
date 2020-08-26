@@ -85,6 +85,7 @@ const HomePage = ({
       stopFetching();
       return;
     }
+    console.log(currentTags);
     getMoreFilteredArticles({
       previousArticles: filteredArticles,
       lastElement: lastFiltered,
@@ -95,6 +96,12 @@ const HomePage = ({
   const removeTag = (tag) => {
     // function to remove articles from main array when tag clicked
     deleteTag(tag);
+
+    for (const article in filteredArticles) {
+      if (filteredArticles[article].tags.includes(tag)) {
+        delete filteredArticles[article];
+      }
+    }
   };
 
   return (

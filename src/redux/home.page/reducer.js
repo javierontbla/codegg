@@ -9,6 +9,7 @@ const INITIAL_STATE = {
   availableTags: [],
   lastFiltered: null,
   lastUnfiltered: null,
+  store_error: null,
   error: null,
 };
 
@@ -44,7 +45,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
     case homePageTypes.STORE_AVAILABLE_TAGS_START:
       return {
         ...state,
-        error: null,
+        store_error: null,
       };
 
     case homePageTypes.FETCH_UNFILTERED_ARTICLES_SUCCESS:
@@ -69,7 +70,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         availableTags: action.payload,
-        error: null,
+        store_error: action.payload,
       };
 
     case homePageTypes.FETCH_UNFILTERED_ARTICLES_FAILURE:

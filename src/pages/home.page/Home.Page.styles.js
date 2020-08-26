@@ -81,7 +81,7 @@ export const Icon = styled(FontAwesomeIcon)`
   color: ${white};
   font-size: ${(props) => (props.cross ? "1rem" : "1.5rem")};
   opacity: ${(props) => (props.cross ? "0.4" : "0.3")};
-  margin-top: 0.1rem;
+  margin-top: 0.05rem;
 
   &:hover {
     cursor: pointer;
@@ -151,9 +151,8 @@ export const Message = styled.div`
   color: ${yellow};
   font-family: "Reenie Beanie", cursive;
 
-
   @media (max-width: 768px) {
-    width: width: fit-content;
+    width: fit-content;
     font-size: 2rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
