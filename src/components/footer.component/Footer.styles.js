@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 
 const { black, white } = colors;
@@ -44,7 +44,7 @@ export const Icon = styled(FontAwesomeIcon)`
   opacity: 0.9;
 `;
 
-export const Button = styled.a`
+export const Button = styled(Link)`
   color: ${white} !important;
   padding: 0.2rem !important;
   opacity: 0.9 !important;

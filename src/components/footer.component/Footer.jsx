@@ -19,6 +19,7 @@ import {
 } from "./Footer.styles";
 
 const Footer = ({ error, homeLoading, postLoading }) => {
+  console.log(error, homeLoading, postLoading);
   return (
     <>
       {!error && !homeLoading && !postLoading ? (
@@ -40,7 +41,7 @@ const Footer = ({ error, homeLoading, postLoading }) => {
                 </Button>
               </Buttons>
               <PrivacyPolicy>
-                <Button>
+                <Button to="/politica-de-privacidad">
                   <span>
                     <Icon icon={faUserSecret} />
                   </span>

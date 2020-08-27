@@ -6,6 +6,7 @@ import { NavBarContainer, Global } from "./App.styles.js";
 import NavBar from "./components/navbar.component/NavBar";
 import HomePage from "./pages/home.page/Home.Page";
 import PostPage from "./pages/post.page/Post.Page";
+import PrivacyPolicy from "./pages/privacy.policy.page/PrivacyPolicy";
 import Footer from "./components/footer.component/Footer";
 import {
   fetchUnfilteredArticlesStart,
@@ -41,6 +42,7 @@ const App = ({
               />
             )}
           />
+          <Route path="/politica-de-privacidad" component={PrivacyPolicy} />
           <Route path="/:postId" component={PostPage} />
         </Switch>
       </div>

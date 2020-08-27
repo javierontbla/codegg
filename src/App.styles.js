@@ -25,19 +25,21 @@ export const Global = createGlobalStyle`
   blockquote {
     color: #faf9f9;
     padding: 0.6rem;
+    padding-left: 0.8rem;
     font-family: "Roboto", sans-serif;
     font-size: 1.6rem;
     border-radius: 0.2rem;
-    border: none;
+    border-left: 1rem solid #076bcf;
     text-transform: lowercase;
     letter-spacing: 0.5px;
     background: #21252b; 
     width: 100%;
     margin-bottom: 2vh;
-    opacity: 0.85;
+    opacity: 0.9;
 
     @media (max-width: 768px) {
       font-size: 1.3rem;
+      border-left: 0.8rem solid #076bcf;
     }
   }
 
