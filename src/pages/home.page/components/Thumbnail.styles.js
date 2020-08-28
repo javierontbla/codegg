@@ -4,7 +4,20 @@ import { Link } from "react-router-dom";
 
 import { colors } from "../../../colors/colors";
 
-const { white, darkBlack, react, javascript, redux, grey, node } = colors;
+const {
+  white,
+  darkBlack,
+  react,
+  javascript,
+  redux,
+  node,
+  graphql,
+  html,
+  css,
+  algo,
+  firebase,
+  grey,
+} = colors;
 
 export const LinkArticle = styled(Link)`
   &:hover {
@@ -84,37 +97,94 @@ export const Time = styled.div`
   letter-spacing: 0.5px;
 `;
 
-export const Hashtags = styled.div`
+export const Tags = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 0.4rem;
+  flex-wrap: wrap;
+  padding: ${(props) => (props.post ? "0rem" : "0.6rem")};
+  padding-top: ${(props) => (props.post ? "0.8rem" : "0.4rem")};
+  padding-bottom: ${(props) => (props.post ? "0.4rem" : "0.4rem")};
+  padding-left: ${(props) => (props.post ? "0.9rem" : "")};
 `;
 
-export const Hashtag = styled.div`
+export const Tag = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: fit-content;
-  background: ${(props) =>
+  color: ${(props) =>
     props.type === "react"
       ? `${react}`
       : props.type === "redux"
       ? `${redux}`
       : props.type === "javascript"
       ? `${javascript}`
-      : `${node}`};
-  color: ${white};
+      : props.type === "node"
+      ? `${node}`
+      : props.type === "graphql"
+      ? `${graphql}`
+      : props.type === "html5"
+      ? `${html}`
+      : props.type === "css3"
+      ? `${css}`
+      : props.type === "firebase"
+      ? `${firebase}`
+      : `${algo}`};
   border-radius: 0.2rem;
   padding: 0.4rem;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   letter-spacing: 1px;
-  margin-left: 0.4rem;
+  margin-left: 1rem;
+  height: fit-content;
+  box-shadow: 0.4rem 0.4rem
+    ${(props) =>
+      props.type === "react"
+        ? `${react}`
+        : props.type === "redux"
+        ? `${redux}`
+        : props.type === "javascript"
+        ? `${javascript}`
+        : props.type === "node"
+        ? `${node}`
+        : props.type === "graphql"
+        ? `${graphql}`
+        : props.type === "html5"
+        ? `${html}`
+        : props.type === "css3"
+        ? `${css}`
+        : props.type === "firebase"
+        ? `${firebase}`
+        : `${algo}`};
+  border: 2px solid
+    ${(props) =>
+      props.type === "react"
+        ? `${react}`
+        : props.type === "redux"
+        ? `${redux}`
+        : props.type === "javascript"
+        ? `${javascript}`
+        : props.type === "node"
+        ? `${node}`
+        : props.type === "graphql"
+        ? `${graphql}`
+        : props.type === "html5"
+        ? `${html}`
+        : props.type === "css3"
+        ? `${css}`
+        : props.type === "firebase"
+        ? `${firebase}`
+        : `${algo}`};
+  margin-bottom: ${(props) => (props.post ? "0rem" : "0.4rem")};
+  margin-top: ${(props) => (props.post ? "0.4rem" : "0rem")};
 
   &:first-child {
     margin-left: 0;
   }
 
   &:hover {
-    cursor: pointer;
-    opacity: 0.9;
+    cursor: ${(props) => (props.post ? "" : "pointer")};
+    opacity: ${(props) => (props.post ? "1" : "0.9")};
   }
 `;
 

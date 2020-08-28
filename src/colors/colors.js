@@ -10,5 +10,10 @@ export const colors = {
   redux: "#764abd",
   javascript: "#f2d814",
   node: "#448834",
+  graphql: "#e535ab",
+  html: "#e44c25",
+  css: "#1a73ba",
+  algo: "#02c39a",
+  firebase: "#ffa714",
   yellow: "#ffa630",
 };

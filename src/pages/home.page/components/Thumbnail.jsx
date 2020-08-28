@@ -9,8 +9,8 @@ import {
   BodyPreview,
   Date,
   Time,
-  Hashtags,
-  Hashtag,
+  Tags,
+  Tag,
   Span,
   Icon,
   LinkArticle,
@@ -35,15 +35,15 @@ const Thumbnail = ({ data, id, search }) => {
             {data.tiempo}
           </Time>
         </LinkArticle>
-        <Hashtags>
+        <Tags>
           {data.tags.map((tag) => {
             return (
-              <Hashtag onClick={() => search(tag)} type={tag}>
+              <Tag onClick={() => search(tag)} type={tag}>
                 #{tag}
-              </Hashtag>
+              </Tag>
             );
           })}
-        </Hashtags>
+        </Tags>
       </Container>
     </>
   );

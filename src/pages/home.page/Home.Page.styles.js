@@ -12,6 +12,11 @@ const {
   javascript,
   redux,
   node,
+  graphql,
+  html,
+  css,
+  algo,
+  firebase,
 } = colors;
 
 export const Container = styled.div``;
@@ -74,14 +79,35 @@ export const AvailableTagsContainer = styled.div`
   width: 100%;
   height: fit-content;
   padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
+  padding-bottom: 1.2rem;
+  justify-content: left;
+
+  @media (max-width: 768px) {
+    padding-top: 0rem;
+    padding-bottom: 0.7rem;
+  }
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
-  color: ${white};
-  font-size: ${(props) => (props.cross ? "1rem" : "1.5rem")};
-  opacity: ${(props) => (props.cross ? "0.4" : "0.3")};
-  margin-top: 0.05rem;
+  color: ${(props) =>
+    props.type === "react"
+      ? `${react}`
+      : props.type === "redux"
+      ? `${redux}`
+      : props.type === "javascript"
+      ? `${javascript}`
+      : props.type === "node"
+      ? `${node}`
+      : props.type === "graphql"
+      ? `${graphql}`
+      : props.type === "html5"
+      ? `${html}`
+      : props.type === "css3"
+      ? `${css}`
+      : props.type === "firebase"
+      ? `${firebase}`
+      : `${algo}`};
+  font-size: ${(props) => (props.cross ? "1.1rem" : "1.5rem")};
 
   &:hover {
     cursor: pointer;
@@ -95,6 +121,7 @@ export const IconContainer = styled.div`
   align-items: center;
   height: 100%;
   margin-left: 0.4rem;
+  margin-right: 0.2rem;
   width: fit-content;
   height: fit-content;
 `;
@@ -113,22 +140,70 @@ export const Tag = styled.div`
   flex-direction: row;
   align-items: center;
   width: fit-content;
-  background: ${(props) =>
+  color: ${(props) =>
     props.type === "react"
       ? `${react}`
       : props.type === "redux"
       ? `${redux}`
       : props.type === "javascript"
       ? `${javascript}`
-      : `${node}`};
-  color: ${white};
+      : props.type === "node"
+      ? `${node}`
+      : props.type === "graphql"
+      ? `${graphql}`
+      : props.type === "html5"
+      ? `${html}`
+      : props.type === "css3"
+      ? `${css}`
+      : props.type === "firebase"
+      ? `${firebase}`
+      : `${algo}`};
   border-radius: 0.2rem;
   padding: 0.4rem;
   font-family: "Roboto", sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 1px;
-  margin-left: 0.6rem;
+  margin-left: 1rem;
   height: fit-content;
+  box-shadow: 0.4rem 0.4rem
+    ${(props) =>
+      props.type === "react"
+        ? `${react}`
+        : props.type === "redux"
+        ? `${redux}`
+        : props.type === "javascript"
+        ? `${javascript}`
+        : props.type === "node"
+        ? `${node}`
+        : props.type === "graphql"
+        ? `${graphql}`
+        : props.type === "html5"
+        ? `${html}`
+        : props.type === "css3"
+        ? `${css}`
+        : props.type === "firebase"
+        ? `${firebase}`
+        : `${algo}`};
+  border: 2px solid
+    ${(props) =>
+      props.type === "react"
+        ? `${react}`
+        : props.type === "redux"
+        ? `${redux}`
+        : props.type === "javascript"
+        ? `${javascript}`
+        : props.type === "node"
+        ? `${node}`
+        : props.type === "graphql"
+        ? `${graphql}`
+        : props.type === "html5"
+        ? `${html}`
+        : props.type === "css3"
+        ? `${css}`
+        : props.type === "firebase"
+        ? `${firebase}`
+        : `${algo}`};
+  margin-bottom: ${(props) => (props.filter ? "0.8rem" : "none")};
 
   &:first-child {
     margin-left: 0.2rem;
@@ -137,6 +212,14 @@ export const Tag = styled.div`
   &:hover {
     cursor: ${(props) => (props.search ? "pointer" : "auto")};
     opacity: ${(props) => (props.search ? "0.9" : "1")};
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.8rem;
+    font-size: 1.1rem;
   }
 `;
 

@@ -56,13 +56,12 @@ export const Global = createGlobalStyle`
     color: #faf9f9;
     text-transform: uppercase;
     font-family: "Abril Fatface", cursive;
-    font-size: 2.4rem;
+    font-size: 2.3rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
-    text-decoration: underline;
 
     @media (max-width: 768px) {
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       text-align: left;
     }
   }
@@ -99,14 +98,14 @@ export const Global = createGlobalStyle`
 
   p {
     font-family: "Roboto", sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     letter-spacing: 0.5px;
     text-align: left;
     color: #faf9f9;
     margin-bottom: 2vh;
 
     @media (max-width: 768px) {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
   }
   

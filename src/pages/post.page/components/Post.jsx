@@ -13,6 +13,7 @@ import {
   Body,
   Icon,
 } from "./Post.styles";
+import { Tags, Tag } from "../../home.page/components/Thumbnail.styles";
 
 const Post = ({ post }) => {
   return (
@@ -22,6 +23,15 @@ const Post = ({ post }) => {
         <AuthorContainer>
           <Author>{post.autor}</Author>
         </AuthorContainer>
+        <Tags post={"true"}>
+          {post.tags.map((tag) => {
+            return (
+              <Tag type={tag} post={"true"}>
+                #{tag}
+              </Tag>
+            );
+          })}
+        </Tags>
         <InfoContainer>
           <Date>{post.fecha}</Date>
           <ReadTime>

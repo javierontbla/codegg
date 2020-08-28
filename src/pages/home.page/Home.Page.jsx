@@ -131,13 +131,14 @@ const HomePage = ({
         <Tags>
           {currentTag.map((tag) => {
             return (
-              <Tag type={tag}>
+              <Tag type={tag} filter={"true"}>
                 #{tag}
                 <IconContainer>
                   <Icon
                     icon={faTimes}
                     cross={"true"}
                     onClick={() => removeTag(tag)}
+                    type={tag}
                   />
                 </IconContainer>
               </Tag>

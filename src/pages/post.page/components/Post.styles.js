@@ -9,7 +9,7 @@ export const Container = styled.div``;
 
 export const Title = styled.div`
   color: ${white};
-  font-size: 4.5rem;
+  font-size: 4.2rem;
   text-transform: uppercase;
   font-family: "Abril Fatface", cursive;
   text-align: center;
@@ -17,7 +17,7 @@ export const Title = styled.div`
   letter-spacing: 0.5px;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
   }
 `;
 
@@ -49,6 +49,7 @@ export const InfoContainer = styled.div`
   letter-spacing: 0.5px;
   color: ${white};
   font-family: "Abril Fatface", cursive;
+  margin-bottom: 0.4rem;
 
   @media (max-width: 768px) {
     padding-left: 0.1rem;
