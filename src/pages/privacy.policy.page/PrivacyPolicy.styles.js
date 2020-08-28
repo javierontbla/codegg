@@ -10,7 +10,7 @@ export const Title = styled.div`
   color: ${white};
   margin-top: 4vh;
   letter-spacing: 0.5px;
-  text-align: center;
+  text-align: left;
   width: 100%;
 `;
 
@@ -27,7 +27,7 @@ export const Author = styled.div`
   font-family: "Abril Fatface", cursive;
   text-transform: uppercase;
   font-size: 1.4rem;
-  margin-left: 0.4rem;
+  margin-left: 0.8rem;
 
   @media (max-width: 768px) {
   }
@@ -38,8 +38,9 @@ export const DateContainer = styled.div`
   text-decoration: underline;
   color: ${grey};
   font-size: 1rem;
-  padding: 0.4rem;
+  padding: 0.8rem;
   margin-bottom: 2vh;
+  width: 100%;
 `;
 
 export const Subtitle = styled.div`

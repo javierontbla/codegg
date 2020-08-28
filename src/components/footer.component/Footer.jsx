@@ -18,11 +18,10 @@ import {
   Icon,
 } from "./Footer.styles";
 
-const Footer = ({ error, homeLoading, postLoading }) => {
-  console.log(error, homeLoading, postLoading);
+const Footer = ({ error, homeLoading }) => {
   return (
     <>
-      {!error && !homeLoading && !postLoading ? (
+      {!error && !homeLoading ? (
         <FooterContainer>
           <div className="container">
             <Directory>
@@ -60,13 +59,9 @@ const Footer = ({ error, homeLoading, postLoading }) => {
 };
 
 // redux
-const mapStateToProps = ({
-  homePageReducer: { loading, error },
-  postPageReducer: { postLoading },
-}) => ({
+const mapStateToProps = ({ homePageReducer: { loading, error } }) => ({
   error,
   homeLoading: loading,
-  postLoading,
 });
 
 export default connect(mapStateToProps)(Footer);

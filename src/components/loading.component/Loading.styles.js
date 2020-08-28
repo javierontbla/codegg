@@ -20,7 +20,7 @@ export const Container = styled.div`
   animation: ${Circular} 2s linear infinite;
   margin: 0 auto;
   margin-top: 10vh;
-  margin-bottom: 10vh;
+  margin-bottom: 100vh;
 
   &::before,
   &::after {
