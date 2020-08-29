@@ -101,22 +101,37 @@ export const Tags = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: ${(props) => (props.post ? "0rem" : "0.6rem")};
-  padding-top: ${(props) => (props.post ? "0.8rem" : "0rem")};
-  padding-bottom: ${(props) => (props.post ? "0.4rem" : "0.4rem")};
   padding-left: ${(props) => (props.post ? "0.9rem" : "")};
-  margin-bottom: ${(props) => (props.post ? "2vh" : "")};
+  margin-bottom: ${(props) => (props.post ? "1vh" : "")};
+  padding-top: ${(props) => (props.post ? "0.8rem" : "0rem")};
+  padding-bottom: ${(props) => (props.post ? "0.4rem" : "0.6rem")};
+  padding-left: ${(props) => (props.post ? "0.5rem" : "0.2rem")};
+  padding-right: 0.2rem;
 
   @media (max-width: 768px) {
-    padding-left: ${(props) => (props.post ? "0.2rem" : "")};
+    padding-left: ${(props) => (props.post ? "0rem" : "")};
+    margin-left: ${(props) => (props.post ? "-0.2rem" : "")};
   }
 `;
+
+/*
+  margin-bottom: ${(props) => (props.post ? "0rem" : "0.6rem")};
+  margin-top: ${(props) => (props.post ? "0.4rem" : "0.4rem")};
+*/
 
 export const Tag = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   width: fit-content;
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  height: fit-content;
+  margin: 0.4rem;
+  margin-bottom: 0.6rem;
   color: ${(props) =>
     props.type === "react"
       ? `${react}`
@@ -135,13 +150,6 @@ export const Tag = styled.div`
       : props.type === "firebase"
       ? `${firebase}`
       : `${algo}`};
-  border-radius: 0.2rem;
-  padding: 0.4rem;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  margin-left: 1rem;
-  height: fit-content;
   box-shadow: 0.4rem 0.4rem
     ${(props) =>
       props.type === "react"
@@ -180,12 +188,6 @@ export const Tag = styled.div`
         : props.type === "firebase"
         ? `${firebase}`
         : `${algo}`};
-  margin-bottom: ${(props) => (props.post ? "0rem" : "0.6rem")};
-  margin-top: ${(props) => (props.post ? "0.4rem" : "0.4rem")};
-
-  &:first-child {
-    margin-left: 0;
-  }
 
   &:hover {
     cursor: ${(props) => (props.post ? "" : "pointer")};

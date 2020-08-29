@@ -41,7 +41,7 @@ export const DateContainer = styled.div`
   font-family: "Roboto", sans-serif;
   text-decoration: underline;
   color: ${grey};
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin-bottom: 4vh;
   width: 100%;
 `;

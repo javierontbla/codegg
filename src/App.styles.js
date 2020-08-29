@@ -125,7 +125,6 @@ export const Global = createGlobalStyle`
     font-family: "Roboto", sans-serif;
     font-size: 1.5rem;
     margin-bottom: 0.2vh;
-    text-transform: lowercase;
     letter-spacing: 0.5px;
 
     @media (max-width: 768px) {

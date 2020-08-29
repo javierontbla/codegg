@@ -40,7 +40,7 @@ const Footer = ({ error, homeLoading }) => {
                 </Button>
               </Buttons>
               <PrivacyPolicy>
-                <Button to="/politica-de-privacidad">
+                <Button to="/privacidad">
                   <span>
                     <Icon icon={faUserSecret} />
                   </span>

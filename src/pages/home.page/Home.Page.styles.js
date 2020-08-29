@@ -220,6 +220,9 @@ export const Tag = styled.div`
     margin-bottom: 0.5rem;
     margin-top: 0.8rem;
     font-size: 1.1rem;
+    &:first-child {
+      margin-left: 0.5rem;
+    }
   }
 `;
 

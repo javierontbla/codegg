@@ -42,7 +42,7 @@ const App = ({
               />
             )}
           />
-          <Route path="/politica-de-privacidad" component={PrivacyPolicy} />
+          <Route path="/privacidad" component={PrivacyPolicy} />
           <Route path="/:postId" component={PostPage} />
         </Switch>
       </div>

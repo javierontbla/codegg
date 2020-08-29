@@ -64,7 +64,7 @@ export const Author = styled.div`
 
 export const Date = styled.div`
   color: ${grey};
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.5px;
   text-decoration: underline;
