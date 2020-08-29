@@ -102,9 +102,14 @@ export const Tags = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   padding: ${(props) => (props.post ? "0rem" : "0.6rem")};
-  padding-top: ${(props) => (props.post ? "0.8rem" : "0.4rem")};
+  padding-top: ${(props) => (props.post ? "0.8rem" : "0rem")};
   padding-bottom: ${(props) => (props.post ? "0.4rem" : "0.4rem")};
   padding-left: ${(props) => (props.post ? "0.9rem" : "")};
+  margin-bottom: ${(props) => (props.post ? "2vh" : "")};
+
+  @media (max-width: 768px) {
+    padding-left: ${(props) => (props.post ? "0.2rem" : "")};
+  }
 `;
 
 export const Tag = styled.div`
@@ -175,8 +180,8 @@ export const Tag = styled.div`
         : props.type === "firebase"
         ? `${firebase}`
         : `${algo}`};
-  margin-bottom: ${(props) => (props.post ? "0rem" : "0.4rem")};
-  margin-top: ${(props) => (props.post ? "0.4rem" : "0rem")};
+  margin-bottom: ${(props) => (props.post ? "0rem" : "0.6rem")};
+  margin-top: ${(props) => (props.post ? "0.4rem" : "0.4rem")};
 
   &:first-child {
     margin-left: 0;

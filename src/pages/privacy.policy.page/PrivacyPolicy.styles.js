@@ -10,8 +10,12 @@ export const Title = styled.div`
   color: ${white};
   margin-top: 4vh;
   letter-spacing: 0.5px;
-  text-align: left;
+  text-align: center;
   width: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 2.4rem;
+  }
 `;
 
 export const Author = styled.div`
@@ -27,9 +31,9 @@ export const Author = styled.div`
   font-family: "Abril Fatface", cursive;
   text-transform: uppercase;
   font-size: 1.4rem;
-  margin-left: 0.8rem;
 
   @media (max-width: 768px) {
+    font-size: 1.3rem;
   }
 `;
 
@@ -37,30 +41,41 @@ export const DateContainer = styled.div`
   font-family: "Roboto", sans-serif;
   text-decoration: underline;
   color: ${grey};
-  font-size: 1rem;
-  padding: 0.8rem;
-  margin-bottom: 2vh;
+  font-size: 0.8rem;
+  margin-bottom: 4vh;
   width: 100%;
 `;
 
 export const Subtitle = styled.div`
   font-family: "Abril Fatface", cursive;
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   color: ${white};
   letter-spacing: 0.5px;
   margin-bottom: 0.5vh;
   margin-top: 2vh;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+  }
 `;
 
 export const Content = styled.div`
   color: ${white};
   letter-spacing: 0.5px;
   margin-bottom: 4vh;
-  padding: 0.4rem;
   font-family: "Roboto", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  line-height: 200%;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const Bold = styled.strong`
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;

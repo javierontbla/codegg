@@ -111,7 +111,7 @@ export const Icon = styled(FontAwesomeIcon)`
 
   &:hover {
     cursor: pointer;
-    opacity: ${(props) => (props.cross ? "0.3" : "0.2")};
+    opacity: ${(props) => (props.cross ? "0.9" : "0.8")};
   }
 `;
 
@@ -203,7 +203,7 @@ export const Tag = styled.div`
         : props.type === "firebase"
         ? `${firebase}`
         : `${algo}`};
-  margin-bottom: ${(props) => (props.filter ? "0.8rem" : "none")};
+  margin-bottom: ${(props) => (props.filter ? "0.6rem" : "none")};
 
   &:first-child {
     margin-left: 0.2rem;
