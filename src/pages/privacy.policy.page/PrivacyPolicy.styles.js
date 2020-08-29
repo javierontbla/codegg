@@ -8,7 +8,8 @@ export const Title = styled.div`
   font-family: "Abril Fatface", cursive;
   font-size: 4.2rem;
   color: ${white};
-  margin-top: 4vh;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
   letter-spacing: 0.5px;
   text-align: center;
   width: 100%;
@@ -19,7 +20,6 @@ export const Title = styled.div`
 `;
 
 export const Author = styled.div`
-  margin-top: 4vh;
   margin-bottom: 2vh;
   width: fit-content;
   border: 2px solid ${darkBlack};
