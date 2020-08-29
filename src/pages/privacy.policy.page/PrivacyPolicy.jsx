@@ -25,7 +25,7 @@ const PrivacyPolicy = () => (
     <Subtitle>Recolección de Información Personal</Subtitle>
     <Content>
       En <Bold>avgguido.com</Bold> la recolección de sus datos personales se
-      genera a partir de sus interacciones con la plataforma y la información
+      genera a partir de sus interacciones con el sitio web y la información
       recolectada se limita a:
       <ul>
         <li>
@@ -44,31 +44,31 @@ const PrivacyPolicy = () => (
       <Bold>No compartimos, vendemos, rentamos o intercambiamos</Bold> su
       información personal recolectada en este sitio web con terceros para fines
       comerciales. La información obtenida es empleada para análisis interno y
-      mejora continua de la plataforma.
+      mejora continua del sitio web.
     </Content>
     <Subtitle>Monitoreo del Sitio Web</Subtitle>
     <Content>
-      El sitio web <Bold>avgguido.com</Bold> hace uso de servicios de terceros
-      para hardware, infraestructura de redes, almacenamiento, alojamiento web y
-      otras tecnologías empleadas para una ejecución óptima de la plataforma. Al
-      hacer uso la plataforma, usted autoriza a <Bold>avgguido.com</Bold> de
-      transferir, almacenar y usar su información en México y cualquier otro
-      país donde operemos.
+      El sitio web <Bold>avgguido.com</Bold> hace uso de servicios de hardware,
+      infraestructura de redes, almacenamiento, alojamiento web y otras
+      tecnologías de terceros empleadas para ofrecer una experiencia óptima
+      dentro del sitio web. Al hacer uso de la plataforma, usted autoriza a{" "}
+      <Bold>avgguido.com</Bold> de transferir, almacenar y hacer uso de su
+      información recolectada en México y cualquier otro país donde operemos.
     </Content>
     <Subtitle>Seguridad</Subtitle>
     <Content>
-      En la plataforma <Bold>avgguido.com</Bold> utilizamos encriptación{" "}
-      <Bold>(HTTPS)</Bold> para protección durante la transferencia de
-      información sensible, sin embargo, la transferencia de información cien
-      por ciento segura no puede ser garantizada. Usted utiliza esta plataforma
-      bajo su propio riesgo y es usted responsable de tomar las medidas de
-      seguridad necesarias para asegurar su cuenta de navegación.
+      En el sitio web <Bold>avgguido.com</Bold> utilizamos encriptación{" "}
+      <Bold>(HTTPS/SSL)</Bold> para proteger la transferencia de información
+      sensible, sin embargo, la transferencia de información cien por ciento
+      segura no puede ser garantizada. Usted utiliza esta plataforma bajo su
+      propio riesgo y usted es responsable de tomar las medidas de seguridad
+      necesarias para asegurar su cuenta de navegación.
     </Content>
     <Subtitle>Cambios en la Política de Privacidad</Subtitle>
     <Content>
-      En caso de generar algún cambio futuro en nuestra política de privacidad,
-      estos serán publicados y <Bold>la fecha efectiva será actualizada</Bold>{" "}
-      para reflejar la entrada en vigor de las nuevas cláusulas propuestas.
+      En caso de efectuar algún cambio en nuestra política de privacidad, estos
+      serán publicados y <Bold>la fecha efectiva será actualizada</Bold> para
+      reflejar la entrada en vigor de las nuevas cláusulas propuestas.
     </Content>
   </>
 );

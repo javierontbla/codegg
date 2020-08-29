@@ -26,13 +26,13 @@ const Footer = ({ error, homeLoading }) => {
           <div className="container">
             <Directory>
               <Buttons>
-                <Button>
+                <Button to="/contacto">
                   <span>
                     <Icon icon={faAddressBook} />
                   </span>
                   Contacto
                 </Button>
-                <Button we={"true"}>
+                <Button we={"true"} to="/nosotros">
                   <span>
                     <Icon icon={faUsers} />
                   </span>

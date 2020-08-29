@@ -26,17 +26,15 @@ export const Global = createGlobalStyle`
     color: #faf9f9;
     padding: 0.4rem;
     padding-left: 0.6rem;
+    padding-right: 0.6rem;
     font-family: "Roboto", sans-serif;
     font-size: 1.5rem;
     border-radius: 0.2rem;
-    border: 2px solid #21252b;
-    border-left: 1.5rem solid #21252b;
-    text-transform: lowercase;
+    box-shadow: 0.4rem 0.4rem #076bcf;
     letter-spacing: 0.5px;
-    background: transparent; 
-    width: 100%;
-    margin-bottom: 2vh;
-    opacity: 0.9;
+    background: #21252b; 
+    width: 95%;
+    margin: 2vh auto;
 
     @media (max-width: 768px) {
       font-size: 1.2rem;

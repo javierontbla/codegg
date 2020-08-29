@@ -116,6 +116,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentTag: update,
+        noMorePosts: false,
       };
 
     case homePageTypes.NO_MORE_POSTS:
