@@ -7,6 +7,8 @@ import NavBar from "./components/navbar.component/NavBar";
 import HomePage from "./pages/home.page/Home.Page";
 import PostPage from "./pages/post.page/Post.Page";
 import PrivacyPolicy from "./pages/privacy.policy.page/PrivacyPolicy";
+import TeamPage from "./pages/team.page/TeamPage";
+import ContactPage from "./pages/contact.page/ContactPage";
 import Footer from "./components/footer.component/Footer";
 import {
   fetchUnfilteredArticlesStart,
@@ -43,6 +45,8 @@ const App = ({
             )}
           />
           <Route path="/privacidad" component={PrivacyPolicy} />
+          <Route path="/nosotros" component={TeamPage} />
+          <Route path="/contacto" component={ContactPage} />
           <Route path="/:postId" component={PostPage} />
         </Switch>
       </div>
