@@ -23,22 +23,22 @@ export const Global = createGlobalStyle`
   }
   
   blockquote {
-    color: #faf9f9;
-    padding: 0.4rem;
-    padding-left: 0.6rem;
-    padding-right: 0.6rem;
+    color: #d9d9d9;
+    padding: 0.8rem;
     font-family: "Roboto", sans-serif;
     font-size: 1.5rem;
-    border-radius: 0.2rem;
-    box-shadow: 0.4rem 0.4rem #076bcf;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
     letter-spacing: 0.5px;
     background: #21252b; 
-    width: 95%;
+    width: 100%;
     margin: 2vh auto;
 
     @media (max-width: 768px) {
       font-size: 1.2rem;
-      border-left: 1.2rem solid #21252b;
+      width: 100%;
     }
   }
 
@@ -59,6 +59,7 @@ export const Global = createGlobalStyle`
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
     text-align: left;
+    width: 100%;
 
     @media (max-width: 768px) {
       font-size: 1.6rem;
@@ -103,6 +104,7 @@ export const Global = createGlobalStyle`
     color: #faf9f9;
     margin-bottom: 2vh;
     line-height: 200%;
+    width: 100%;
 
     @media (max-width: 768px) {
       font-size: 1.2rem;
@@ -132,6 +134,26 @@ export const Global = createGlobalStyle`
 
   ul {
     margin-bottom: 2vh;
+  }
+
+  pre {
+    color: #faf9f9;
+    padding: 0.6rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    font-size: 1.2rem;
+    border-radius: 0.2rem;
+    letter-spacing: 0.5px;
+    background: #21252b; 
+    margin-bottom: 2vh;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  code {
+    font-family: Consolas, monaco, monospace; 
   }
 `;
 

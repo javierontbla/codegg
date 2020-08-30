@@ -19,7 +19,7 @@ export const Title = styled.div`
   opacity: 0.95;
 
   @media (max-width: 768px) {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
 `;
 
@@ -86,7 +86,6 @@ export const Body = styled.div`
   background: transparent;
   padding: 0.9rem;
   margin-bottom: 2vh;
-  opacity: 0.95;
 
   @media (max-width: 768px) {
     padding: 0.1rem;
