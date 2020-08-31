@@ -7,7 +7,6 @@ import NavBar from "./components/navbar.component/NavBar";
 import HomePage from "./pages/home.page/Home.Page";
 import PostPage from "./pages/post.page/Post.Page";
 import PrivacyPolicy from "./pages/privacy.policy.page/PrivacyPolicy";
-import TeamPage from "./pages/team.page/TeamPage";
 import ContactPage from "./pages/contact.page/ContactPage";
 import Footer from "./components/footer.component/Footer";
 import {
@@ -15,13 +14,9 @@ import {
   storeAvailableTagsStart,
 } from "./redux/home.page/actions";
 
-const App = ({
-  getUnfilteredArticles,
-  unfilteredArticles,
-  storeAvailableTags,
-  availableTags,
-}) => {
+const App = ({ getUnfilteredArticles, storeAvailableTags }) => {
   useEffect(() => {
+    console.log("FETCHING");
     getUnfilteredArticles();
     storeAvailableTags();
   }, []);
@@ -34,18 +29,8 @@ const App = ({
       </NavBarContainer>
       <div className="container">
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <HomePage
-                unfilteredArticles={unfilteredArticles}
-                availableTags={availableTags}
-              />
-            )}
-          />
+          <Route exact path="/" component={HomePage} />
           <Route path="/privacidad" component={PrivacyPolicy} />
-          <Route path="/nosotros" component={TeamPage} />
           <Route path="/contacto" component={ContactPage} />
           <Route path="/:postId" component={PostPage} />
         </Switch>
@@ -56,16 +41,9 @@ const App = ({
 };
 
 // redux
-const mapStateToProps = ({
-  homePageReducer: { unfilteredArticles, availableTags },
-}) => ({
-  unfilteredArticles,
-  availableTags,
-});
-
 const mapDispatchToProps = (dispatch) => ({
   getUnfilteredArticles: () => dispatch(fetchUnfilteredArticlesStart()),
   storeAvailableTags: () => dispatch(storeAvailableTagsStart()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

@@ -6,7 +6,7 @@ const { darkBlack, darkBlue, white, grey } = colors;
 
 export const Title = styled.div`
   font-family: "Abril Fatface", cursive;
-  font-size: 4.2rem;
+  font-size: 4.3rem;
   color: ${white};
   margin-top: 2vh;
   margin-bottom: 4vh;
@@ -15,7 +15,7 @@ export const Title = styled.div`
   width: 100%;
 
   @media (max-width: 768px) {
-    font-size: 2.4rem;
+    font-size: 2.3rem;
   }
 `;
 

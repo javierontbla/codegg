@@ -221,18 +221,22 @@ const HomePage = ({
 const mapStateToProps = ({
   homePageReducer: {
     loading,
+    unfilteredArticles,
     filteredArticles,
     lastUnfiltered,
     lastFiltered,
-    error,
+    availableTags,
     currentTag,
+    error,
     noMorePosts,
   },
 }) => ({
   loading,
+  unfilteredArticles,
   filteredArticles,
   lastUnfiltered,
   lastFiltered,
+  availableTags,
   currentTag,
   error,
   noMorePosts,

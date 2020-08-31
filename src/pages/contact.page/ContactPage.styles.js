@@ -44,7 +44,7 @@ export const ContactBlock = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 23vw;
+  width: 26vw;
   height: fit-content;
   border: 2px solid ${darkBlue};
   box-shadow: 0.4rem 0.4rem ${darkBlue};
@@ -128,6 +128,8 @@ export const Comment = styled.textarea`
   resize: none;
   color: ${white};
   transition: border 1s;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
 
   &:focus {
     outline: none;

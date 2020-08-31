@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  faAddressBook,
-  faUsers,
-  faUserSecret,
-} from "@fortawesome/free-solid-svg-icons";
+import { faComment, faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 
 import { FooterContainer } from "./Footer.styles";
@@ -28,15 +24,9 @@ const Footer = ({ error, homeLoading }) => {
               <Buttons>
                 <Button to="/contacto">
                   <span>
-                    <Icon icon={faAddressBook} />
+                    <Icon icon={faComment} />
                   </span>
-                  Contacto
-                </Button>
-                <Button we={"true"} to="/nosotros">
-                  <span>
-                    <Icon icon={faUsers} />
-                  </span>
-                  Nosotros
+                  Feedback
                 </Button>
               </Buttons>
               <PrivacyPolicy>

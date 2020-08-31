@@ -31,6 +31,7 @@ function* fetchUnfilteredAsync() {
         return [articles, lastRef];
       });
 
+    yield console.log("TAGS");
     yield put(fetchUnfilteredArticlesSuccess(res[0]));
     yield put(storeLastUnfilteredElement(res[1]));
   } catch (error) {
@@ -116,7 +117,7 @@ function* storeAvailableTagsAsync() {
     const res = yield tagsRef.get().then((doc) => {
       return doc.data().available_tags;
     });
-
+    yield console.log("TAGS");
     yield put(storeAvailableTagsSuccess(res));
   } catch (error) {
     yield put(storeAvailableTagsFailure(error));

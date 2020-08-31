@@ -27,8 +27,13 @@ export const Navbar = styled.div`
   border-radius: 0.2rem;
   border: 2px solid ${darkBlack};
 
+  @media (max-width: 1100px) {
+    height: 5.5vh;
+  }
+
   @media (max-width: 768px) {
     margin-top: 0.5rem;
+    height: 8vh;
   }
 `;
 

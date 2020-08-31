@@ -9,7 +9,7 @@ export const Global = createGlobalStyle`
   }
 
   body::-webkit-scrollbar {
-    width: 1em;
+    width: 0.5em;
   }
 
   body::-webkit-scrollbar-track {
@@ -34,7 +34,7 @@ export const Global = createGlobalStyle`
     letter-spacing: 0.5px;
     background: #21252b; 
     width: 100%;
-    margin: 2vh auto;
+    margin-bottom: 2vh;
 
     @media (max-width: 768px) {
       font-size: 1.2rem;
@@ -62,7 +62,7 @@ export const Global = createGlobalStyle`
     width: 100%;
 
     @media (max-width: 768px) {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
     }
   }
 
@@ -133,6 +133,8 @@ export const Global = createGlobalStyle`
   }
 
   ul {
+    width: 100%;
+    margin: 0;
     margin-bottom: 2vh;
   }
 

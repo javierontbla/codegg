@@ -16,7 +16,7 @@ const ContactPage = () => {
     <>
       <Wrapper>
         <ContactBlock>
-          <Title>Contacto</Title>
+          <Title>Feedback</Title>
           <Subtitle>Nombre</Subtitle>
           <Input></Input>
           <Subtitle>Apellido</Subtitle>

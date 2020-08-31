@@ -21,7 +21,7 @@ export const CompanyName = styled.div`
   opacity: 0.9;
 
   @media (max-width: 768px) {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 `;
 
@@ -33,7 +33,7 @@ export const Buttons = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-    width: 50%;
+    width: 40%;
     justify-content: left;
   }
 `;
@@ -82,7 +82,7 @@ export const PrivacyPolicy = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 50% !important;
+    width: 60% !important;
   }
 `;
 
@@ -109,6 +109,6 @@ export const Directory = styled.div`
   letter-spacing: 0.5px;
 
   @media (max-width: 768px) {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
 `;
