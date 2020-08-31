@@ -10,6 +10,7 @@ import {
   Input,
   Comment,
   Button,
+  Img,
 } from "./ContactPage.styles";
 const ContactPage = () => {
   return (
@@ -27,7 +28,13 @@ const ContactPage = () => {
           <Button>Enviar</Button>
         </ContactBlock>
         <ParentContainer />
-        <ChildContainer />
+        <ChildContainer>
+          <Img
+            src={
+              "https://firebasestorage.googleapis.com/v0/b/avgguido.appspot.com/o/varios%2Fmountains.svg?alt=media&token=a478ed74-30ae-4b56-b41b-7eb91250dd85"
+            }
+          />
+        </ChildContainer>
       </Wrapper>
     </>
   );

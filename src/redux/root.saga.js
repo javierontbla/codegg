@@ -7,7 +7,7 @@ import {
   fetchMoreFiltered,
   storeAvailableTags,
 } from "./home.page/sagas";
-import { fetchPost } from "./post.page/sagas";
+import { fetchArticle } from "./article.page/sagas";
 
 export function* rootSaga() {
   yield all([
@@ -15,7 +15,7 @@ export function* rootSaga() {
     call(fetchFiltered),
     call(fetchMoreUnfiltered),
     call(fetchMoreFiltered),
-    call(fetchPost),
+    call(fetchArticle),
     call(storeAvailableTags),
   ]);
 }

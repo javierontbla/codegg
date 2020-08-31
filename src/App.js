@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { NavBarContainer, Global } from "./App.styles.js";
 import NavBar from "./components/navbar.component/NavBar";
 import HomePage from "./pages/home.page/Home.Page";
-import PostPage from "./pages/post.page/Post.Page";
+import ArticlePage from "./pages/article.page/Article.Page";
 import PrivacyPolicy from "./pages/privacy.policy.page/PrivacyPolicy";
 import ContactPage from "./pages/contact.page/ContactPage";
 import Footer from "./components/footer.component/Footer";
@@ -16,8 +16,10 @@ import {
 
 const App = ({ getUnfilteredArticles, storeAvailableTags }) => {
   useEffect(() => {
-    console.log("FETCHING");
+    // functions that fire redux-saga actions
+    // get intial posts
     getUnfilteredArticles();
+    // get tags that can be searched
     storeAvailableTags();
   }, []);
 
@@ -32,7 +34,7 @@ const App = ({ getUnfilteredArticles, storeAvailableTags }) => {
           <Route exact path="/" component={HomePage} />
           <Route path="/privacidad" component={PrivacyPolicy} />
           <Route path="/contacto" component={ContactPage} />
-          <Route path="/:postId" component={PostPage} />
+          <Route path="/:postId" component={ArticlePage} />
         </Switch>
       </div>
       <Footer />

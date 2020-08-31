@@ -26,6 +26,8 @@ export const ParentContainer = styled.div`
 `;
 
 export const ChildContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
   height: 20vh;
   background: ${darkBlack};
   width: 100%;
@@ -33,9 +35,13 @@ export const ChildContainer = styled.div`
   margin-bottom: 0.9rem;
   border-bottom-right-radius: 0.2rem;
   border-bottom-left-radius: 0.2rem;
+  overflow: hidden;
+
   @media (max-width: 768px) {
-    height: 30vh;
+    height: 32vh;
     margin-bottom: 0.6rem;
+    align-items: flex-end;
+    justify-content: center;
   }
 `;
 
@@ -166,5 +172,22 @@ export const Button = styled.button`
 
   @media (max-width: 768px) {
     font-size: 1rem;
+  }
+`;
+
+export const Img = styled.div`
+  position: relative;
+  width: 350px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${(props) => props.src});
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.9;
+
+  @media (max-width: 768px) {
+    width: 280px;
+    height: 130px;
   }
 `;

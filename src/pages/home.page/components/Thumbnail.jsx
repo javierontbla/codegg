@@ -38,7 +38,7 @@ const Thumbnail = ({ data, id, search }) => {
         <Tags>
           {data.tags.map((tag) => {
             return (
-              <Tag onClick={() => search(tag)} type={tag}>
+              <Tag onClick={() => search(tag)} type={tag} key={tag}>
                 #{tag}
               </Tag>
             );

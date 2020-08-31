@@ -12,19 +12,19 @@ import {
   ReadTime,
   Body,
   Icon,
-} from "./Post.styles";
+} from "./Article.styles";
 import { Tags, Tag } from "../../home.page/components/Thumbnail.styles";
 
-const Post = ({ post }) => {
+const Article = ({ article }) => {
   return (
     <>
       <Container>
-        <Title>{post.titulo}</Title>
+        <Title>{article.titulo}</Title>
         <AuthorContainer>
-          <Author>{post.autor}</Author>
+          <Author>{article.autor}</Author>
         </AuthorContainer>
         <Tags post={"true"}>
-          {post.tags.map((tag) => {
+          {article.tags.map((tag) => {
             return (
               <Tag type={tag} post={"true"}>
                 #{tag}
@@ -33,18 +33,18 @@ const Post = ({ post }) => {
           })}
         </Tags>
         <InfoContainer>
-          <Date>{post.fecha}</Date>
+          <Date>{article.fecha}</Date>
           <ReadTime>
             <span>
               <Icon icon={faClock} />
             </span>
-            {post.tiempo}
+            {article.tiempo}
           </ReadTime>
         </InfoContainer>
-        <Body>{parse(post.texto)}</Body>
+        <Body>{parse(article.texto)}</Body>
       </Container>
     </>
   );
 };
 
-export default Post;
+export default Article;

@@ -16,13 +16,15 @@ import {
 // async functions
 function* fetchUnfilteredAsync() {
   const articlesRef = db.collection(`articulos_septiembre`);
-
+  // inital fetch from firebase
   try {
     const res = yield articlesRef
       .orderBy("fecha_db")
       .limit(1)
       .get()
       .then((snapshot) => {
+        // we get the last doc from the collection, for future fetching
+        // in case user wants to load more posts
         const lastRef = snapshot.docs[snapshot.docs.length - 1];
         const articles = [];
         snapshot.forEach((article) =>
@@ -31,7 +33,7 @@ function* fetchUnfilteredAsync() {
         return [articles, lastRef];
       });
 
-    yield console.log("TAGS");
+    // firing succesful actions to store data on reducer
     yield put(fetchUnfilteredArticlesSuccess(res[0]));
     yield put(storeLastUnfilteredElement(res[1]));
   } catch (error) {
@@ -40,6 +42,7 @@ function* fetchUnfilteredAsync() {
 }
 
 function* fetchFilteredAsync(action) {
+  // geting the input from the button the user clicked
   const { previousArticles, input } = action.payload;
   const inputRef = db.collection(`articulos_septiembre`);
 
@@ -50,6 +53,8 @@ function* fetchFilteredAsync(action) {
       .limit(1)
       .get()
       .then((snapshot) => {
+        // we get the last doc from the collection, for future fetching
+        // in case user wants to load more posts
         const lastRef = snapshot.docs[snapshot.docs.length - 1];
         snapshot.forEach(
           (article) => (previousArticles[article.id] = article.data())
@@ -57,10 +62,10 @@ function* fetchFilteredAsync(action) {
         return lastRef;
       });
 
+    // firing succesful actions to store data on reducer
     yield put(storeLastFilteredElement(lastElement));
     yield put(fetchFilteredArticlesSuccess(previousArticles));
   } catch (error) {
-    yield console.log(error);
     yield put(fetchFilteredArticlesFailure(error));
   }
 }
@@ -75,11 +80,13 @@ function* fetchMoreUnfilteredAsync(action) {
 
   try {
     const res = yield articlesRef.get().then((snapshot) => {
+      // getting last element again for load more button
       const lastRef = snapshot.docs[snapshot.docs.length - 1];
       snapshot.forEach((doc) => previousArticles.push([doc.data(), doc.id]));
       return lastRef;
     });
 
+    // firing succesful actions to store data on reducer
     yield put(fetchUnfilteredArticlesSuccess(previousArticles));
     yield put(storeLastUnfilteredElement(res));
   } catch (error) {
@@ -88,6 +95,7 @@ function* fetchMoreUnfilteredAsync(action) {
 }
 
 function* fetchMoreFilteredAsync(action) {
+  // getting tag from redux reducer
   const { previousArticles, lastElement, tag } = action.payload;
 
   const filteredRef = db
@@ -99,6 +107,7 @@ function* fetchMoreFilteredAsync(action) {
 
   try {
     const res = yield filteredRef.get().then((snapshot) => {
+      // getting last element again for load more button
       const lastRef = snapshot.docs[snapshot.docs.length - 1];
       snapshot.forEach((doc) => (previousArticles[doc.id] = doc.data()));
       return lastRef;
@@ -112,12 +121,13 @@ function* fetchMoreFilteredAsync(action) {
 }
 
 function* storeAvailableTagsAsync() {
+  // get all available tags from firebase
   try {
     const tagsRef = db.doc(`available_tags/wAAVxYZYRYjqdLGXa1kn`);
     const res = yield tagsRef.get().then((doc) => {
       return doc.data().available_tags;
     });
-    yield console.log("TAGS");
+
     yield put(storeAvailableTagsSuccess(res));
   } catch (error) {
     yield put(storeAvailableTagsFailure(error));

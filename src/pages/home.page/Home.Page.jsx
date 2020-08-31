@@ -120,6 +120,7 @@ const HomePage = ({
                 type={tag.toLowerCase()}
                 onClick={() => sendQueryBtn(tag.toLowerCase())}
                 search={"true"}
+                key={tag}
               >
                 #{tag.toLowerCase()}
               </Tag>
