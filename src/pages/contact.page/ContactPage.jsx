@@ -19,11 +19,11 @@ const ContactPage = () => {
         <ContactBlock>
           <Title>Feedback</Title>
           <Subtitle>Nombre</Subtitle>
-          <Input></Input>
+          <Input />
           <Subtitle>Apellido</Subtitle>
-          <Input></Input>
+          <Input />
           <Subtitle>Correo</Subtitle>
-          <Input></Input>
+          <Input placeholder="ejemplo@gmail.com" />
           <Comment></Comment>
           <Button>Enviar</Button>
         </ContactBlock>

@@ -34,7 +34,7 @@ const App = ({ getUnfilteredArticles, storeAvailableTags }) => {
           <Route exact path="/" component={HomePage} />
           <Route path="/privacidad" component={PrivacyPolicy} />
           <Route path="/contacto" component={ContactPage} />
-          <Route path="/:postId" component={ArticlePage} />
+          <Route path="/:articleId" component={ArticlePage} />
         </Switch>
       </div>
       <Footer />

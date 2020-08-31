@@ -26,7 +26,7 @@ const Article = ({ article }) => {
         <Tags post={"true"}>
           {article.tags.map((tag) => {
             return (
-              <Tag type={tag} post={"true"}>
+              <Tag type={tag} post={"true"} key={tag}>
                 #{tag}
               </Tag>
             );

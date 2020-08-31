@@ -110,6 +110,7 @@ export const Input = styled.input`
   transition: border-bottom 1s;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
+  letter-spacing: 0.5px;
 
   @media (max-width: 768px) {
     font-size: 0.8rem;

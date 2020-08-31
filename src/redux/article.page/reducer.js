@@ -8,20 +8,20 @@ const INITIAL_STATE = {
 
 export const articlePageReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case articlePageTypes.FETCH_POST_START:
+    case articlePageTypes.FETCH_ARTICLE_START:
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case articlePageTypes.FETCH_POST_SUCCESS:
+    case articlePageTypes.FETCH_ARTICLE_SUCCESS:
       return {
         ...state,
         loading: false,
         error: null,
         article: action.payload,
       };
-    case articlePageTypes.FETCH_POST_FAILURE:
+    case articlePageTypes.FETCH_ARTICLE_FAILURE:
       return {
         ...state,
         loading: false,

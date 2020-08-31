@@ -12,7 +12,7 @@ function* fetchArticleAsync(action) {
     const res = yield articleRef.get().then((snapshot) => {
       return snapshot.data();
     });
-    yield console.log("SAGAS");
+
     yield put(fetchArticleSuccess(res));
   } catch (error) {
     yield put(fetchArticleFailure(error));
