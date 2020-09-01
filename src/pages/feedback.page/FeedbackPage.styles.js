@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "../../colors/colors";
 
-const { darkBlack, darkBlue, white, yellow, lightBlack } = colors;
+const { darkBlack, darkBlue, white, yellow } = colors;
 
 export const Wrapper = styled.div`
   @media (max-width: 768px) {

@@ -13,7 +13,10 @@ import {
   Body,
   Icon,
 } from "./Article.styles";
-import { Tags, Tag } from "../../home.page/components/Thumbnail.styles";
+import {
+  Tags,
+  Tag,
+} from "../../home.page/components/thumbnail.component/Thumbnail.styles";
 
 const Article = ({ article }) => {
   return (

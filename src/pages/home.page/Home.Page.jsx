@@ -5,7 +5,7 @@ import "moment/locale/es";
 import Masonry from "react-masonry-css";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import Thumbnail from "./components/Thumbnail";
+import Thumbnail from "./components/thumbnail.component/Thumbnail";
 import Loading from "../../components/loading.component/Loading";
 import Error from "../../components/error.component/Error";
 import {

@@ -15,23 +15,22 @@ import {
 
 // async functions
 function* fetchUnfilteredAsync() {
-  const articlesRef = db.collection(`articulos_septiembre`);
+  const articlesRef = db
+    .collection(`articulos_septiembre`)
+    .orderBy("fecha_db", "desc")
+    .limit(1);
   // inital fetch from firebase
   try {
-    const res = yield articlesRef
-      .orderBy("fecha_db")
-      .limit(1)
-      .get()
-      .then((snapshot) => {
-        // we get the last doc from the collection, for future fetching
-        // in case user wants to load more posts
-        const lastRef = snapshot.docs[snapshot.docs.length - 1];
-        const articles = [];
-        snapshot.forEach((article) =>
-          articles.push([article.data(), article.id])
-        );
-        return [articles, lastRef];
-      });
+    const res = yield articlesRef.get({ source: "server" }).then((snapshot) => {
+      // we get the last doc from the collection, for future fetching
+      // in case user wants to load more posts
+      const lastRef = snapshot.docs[snapshot.docs.length - 1];
+      const articles = [];
+      snapshot.forEach((article) =>
+        articles.push([article.data(), article.id])
+      );
+      return [articles, lastRef];
+    });
     // firing succesful actions to store data on reducer
     yield put(fetchUnfilteredArticlesSuccess(res[0]));
     yield put(storeLastUnfilteredElement(res[1]));
@@ -43,14 +42,15 @@ function* fetchUnfilteredAsync() {
 function* fetchFilteredAsync(action) {
   // geting the input from the button the user clicked
   const { previousArticles, input } = action.payload;
-  const inputRef = db.collection(`articulos_septiembre`);
+  const inputRef = db
+    .collection(`articulos_septiembre`)
+    .where("tags", "array-contains", `${input}`)
+    .orderBy("fecha_db", "desc")
+    .limit(1);
 
   try {
     const lastElement = yield inputRef
-      .where("tags", "array-contains", `${input}`)
-      .orderBy("fecha_db", "desc")
-      .limit(1)
-      .get()
+      .get({ source: "server" })
       .then((snapshot) => {
         // we get the last doc from the collection, for future fetching
         // in case user wants to load more posts
@@ -73,12 +73,12 @@ function* fetchMoreUnfilteredAsync(action) {
   const { previousArticles, lastElement } = action.payload;
   const articlesRef = db
     .collection(`articulos_septiembre`)
-    .orderBy("fecha_db")
+    .orderBy("fecha_db", "desc")
     .startAfter(lastElement)
     .limit(1);
 
   try {
-    const res = yield articlesRef.get().then((snapshot) => {
+    const res = yield articlesRef.get({ source: "server" }).then((snapshot) => {
       // getting last element again for load more button
       const lastRef = snapshot.docs[snapshot.docs.length - 1];
       snapshot.forEach((doc) => previousArticles.push([doc.data(), doc.id]));
@@ -87,6 +87,7 @@ function* fetchMoreUnfilteredAsync(action) {
 
     // firing succesful actions to store data on reducer
     yield put(fetchUnfilteredArticlesSuccess(previousArticles));
+    // storing last element from collection for next fetch
     yield put(storeLastUnfilteredElement(res));
   } catch (error) {
     yield put(fetchUnfilteredArticlesFailure(error));
@@ -105,15 +106,16 @@ function* fetchMoreFilteredAsync(action) {
     .limit(1);
 
   try {
-    const res = yield filteredRef.get().then((snapshot) => {
+    const res = yield filteredRef.get({ source: "server" }).then((snapshot) => {
       // getting last element again for load more button
       const lastRef = snapshot.docs[snapshot.docs.length - 1];
       snapshot.forEach((doc) => (previousArticles[doc.id] = doc.data()));
       return lastRef;
     });
 
-    yield put(storeLastFilteredElement(res));
     yield put(fetchFilteredArticlesSuccess(previousArticles));
+    // storing last element from collection for next fetch
+    yield put(storeLastFilteredElement(res));
   } catch (error) {
     yield put(fetchFilteredArticlesFailure(error));
   }
@@ -121,9 +123,10 @@ function* fetchMoreFilteredAsync(action) {
 
 function* storeAvailableTagsAsync() {
   // get all available tags from firebase
+  const tagsRef = db.doc(`available_tags/wAAVxYZYRYjqdLGXa1kn`);
+
   try {
-    const tagsRef = db.doc(`available_tags/wAAVxYZYRYjqdLGXa1kn`);
-    const res = yield tagsRef.get().then((doc) => {
+    const res = yield tagsRef.get({ source: "server" }).then((doc) => {
       return doc.data().available_tags;
     });
 

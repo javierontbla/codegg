@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
-import { colors } from "../../../colors/colors";
+import { colors } from "../../../../colors/colors";
 
 const {
   white,
@@ -113,11 +113,6 @@ export const Tags = styled.div`
     margin-left: ${(props) => (props.post ? "-0.2rem" : "")};
   }
 `;
-
-/*
-  margin-bottom: ${(props) => (props.post ? "0rem" : "0.6rem")};
-  margin-top: ${(props) => (props.post ? "0.4rem" : "0.4rem")};
-*/
 
 export const Tag = styled.div`
   display: flex;

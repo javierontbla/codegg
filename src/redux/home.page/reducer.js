@@ -70,7 +70,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         availableTags: action.payload,
-        store_error: action.payload,
+        store_error: null,
       };
 
     case homePageTypes.FETCH_UNFILTERED_ARTICLES_FAILURE:
@@ -90,7 +90,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
     case homePageTypes.STORE_AVAILABLE_TAGS_FAILURE:
       return {
         ...state,
-        error: action.payload,
+        store_error: action.payload,
       };
 
     case homePageTypes.STORE_LAST_FILTERED_ELEMENT:

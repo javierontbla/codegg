@@ -9,7 +9,7 @@ export const Global = createGlobalStyle`
   }
 
   body::-webkit-scrollbar {
-    width: 0.5em;
+    width: 0.6em;
   }
 
   body::-webkit-scrollbar-track {
