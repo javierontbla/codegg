@@ -22,7 +22,7 @@ const Footer = ({ error, homeLoading }) => {
           <div className="container">
             <Directory>
               <Buttons>
-                <Button to="/contacto">
+                <Button to="/feedback">
                   <span>
                     <Icon icon={faComment} />
                   </span>

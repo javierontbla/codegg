@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "../../colors/colors";
 
-const { darkBlack, darkBlue, white, yellow } = colors;
+const { darkBlack, darkBlue, white, yellow, lightBlack } = colors;
 
 export const Wrapper = styled.div`
   @media (max-width: 768px) {
@@ -50,7 +50,7 @@ export const ContactBlock = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 26vw;
+  width: 25vw;
   height: fit-content;
   border: 2px solid ${darkBlue};
   box-shadow: 0.4rem 0.4rem ${darkBlue};
@@ -190,5 +190,29 @@ export const Img = styled.div`
   @media (max-width: 768px) {
     width: 280px;
     height: 130px;
+  }
+`;
+
+export const Buttons = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: fit-content;
+`;
+
+export const Alert = styled.div`
+  display: flex;
+  font-size: 1rem;
+  color: ${white};
+  width: 100%;
+  justify-content: center;
+  opacity: ${(props) => (props.alert ? "1" : "0")};
+  transition: opacity 0.5s, opacity 0.5s linear;
+  letter-spacing: 0.5px;
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
   }
 `;

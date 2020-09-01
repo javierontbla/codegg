@@ -9,12 +9,14 @@ import Thumbnail from "./components/Thumbnail";
 import Loading from "../../components/loading.component/Loading";
 import Error from "../../components/error.component/Error";
 import {
+  fetchUnfilteredArticlesStart,
   fetchFilteredArticlesStart,
   fetchMoreUnfilteredArticles,
   fetchMoreFilteredArticles,
   insertTagRedux,
   deleteTagRedux,
   noMorePostsStart,
+  storeAvailableTagsStart,
 } from "../../redux/home.page/actions";
 import {
   Container,
@@ -32,6 +34,7 @@ import "./Home.Page.css";
 
 const HomePage = ({
   loading,
+  getUnfilteredArticles,
   getFilteredArticles,
   getMoreUnfilteredArticles,
   getMoreFilteredArticles,
@@ -46,10 +49,13 @@ const HomePage = ({
   deleteTag,
   stopFetching,
   noMorePosts,
+  storeAvailableTags,
 }) => {
   useEffect(() => {
+    if (unfilteredArticles.length === 0) getUnfilteredArticles();
+    if (availableTags.length === 0) storeAvailableTags();
     moment.locale("es");
-  }, []);
+  }, [getUnfilteredArticles, storeAvailableTags]);
 
   const breakpoints = {
     default: 3,
@@ -244,6 +250,7 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  getUnfilteredArticles: () => dispatch(fetchUnfilteredArticlesStart()),
   getFilteredArticles: (input) => dispatch(fetchFilteredArticlesStart(input)),
   getMoreFilteredArticles: (obj) => dispatch(fetchMoreFilteredArticles(obj)),
   getMoreUnfilteredArticles: (obj) =>
@@ -251,6 +258,7 @@ const mapDispatchToProps = (dispatch) => ({
   insertTag: (tag) => dispatch(insertTagRedux(tag)),
   deleteTag: (tag) => dispatch(deleteTagRedux(tag)),
   stopFetching: () => dispatch(noMorePostsStart()),
+  storeAvailableTags: () => dispatch(storeAvailableTagsStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

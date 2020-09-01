@@ -32,7 +32,6 @@ function* fetchUnfilteredAsync() {
         );
         return [articles, lastRef];
       });
-
     // firing succesful actions to store data on reducer
     yield put(fetchUnfilteredArticlesSuccess(res[0]));
     yield put(storeLastUnfilteredElement(res[1]));

@@ -19,7 +19,7 @@ const ArticlePage = ({
     // getting id doc from the url, using react router
     const url = articleId.split("-");
     getArticle(url[url.length - 1]);
-  }, []);
+  }, [getArticle, articleId]);
 
   return (
     <>
