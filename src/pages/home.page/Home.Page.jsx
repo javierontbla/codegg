@@ -16,7 +16,6 @@ import {
   insertTagRedux,
   deleteTagRedux,
   noMorePostsStart,
-  storeAvailableTagsStart,
 } from "../../redux/home.page/actions";
 import {
   Container,
@@ -49,13 +48,13 @@ const HomePage = ({
   deleteTag,
   stopFetching,
   noMorePosts,
-  storeAvailableTags,
 }) => {
+  console.log("RENDER");
   useEffect(() => {
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
-    if (availableTags.length === 0) storeAvailableTags();
+    //eslint-disable-next-line import/no-extraneous-dependencies
     moment.locale("es");
-  }, [getUnfilteredArticles, storeAvailableTags]);
+  }, []);
 
   const breakpoints = {
     default: 3,
@@ -258,7 +257,6 @@ const mapDispatchToProps = (dispatch) => ({
   insertTag: (tag) => dispatch(insertTagRedux(tag)),
   deleteTag: (tag) => dispatch(deleteTagRedux(tag)),
   stopFetching: () => dispatch(noMorePostsStart()),
-  storeAvailableTags: () => dispatch(storeAvailableTagsStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

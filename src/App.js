@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
 import { NavBarContainer, Global } from "./App.styles.js";
@@ -8,8 +9,13 @@ import ArticlePage from "./pages/article.page/Article.Page";
 import PrivacyPolicy from "./pages/privacy.policy.page/PrivacyPolicy";
 import FeedbackPage from "./pages/feedback.page/FeedbackPage";
 import Footer from "./components/footer.component/Footer";
+import { storeAvailableTagsStart } from "./redux/home.page/actions";
 
-const App = () => {
+const App = ({ storeAvailableTags }) => {
+  useEffect(() => {
+    storeAvailableTags();
+  }, []);
+  console.log("APP JS RENDER");
   return (
     <>
       <Global />
@@ -29,4 +35,8 @@ const App = () => {
   );
 };
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  storeAvailableTags: () => dispatch(storeAvailableTagsStart()),
+});
+
+export default connect(null, mapDispatchToProps)(App);

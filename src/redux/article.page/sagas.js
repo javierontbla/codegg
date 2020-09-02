@@ -1,7 +1,7 @@
 import { takeLatest, put } from "redux-saga/effects";
 
 import { articlePageTypes } from "./types";
-import { db } from "../../_firebase/firebase.config";
+import { db } from "../../firebase";
 import { fetchArticleSuccess, fetchArticleFailure } from "./actions";
 
 function* fetchArticleAsync(action) {

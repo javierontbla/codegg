@@ -1,7 +1,7 @@
 import { takeLatest, put } from "redux-saga/effects";
 
 import { homePageTypes } from "./types";
-import { db } from "../../_firebase/firebase.config";
+import { db } from "../../firebase";
 import {
   fetchUnfilteredArticlesSuccess,
   fetchUnfilteredArticlesFailure,
@@ -138,6 +138,7 @@ function* storeAvailableTagsAsync() {
 
 // sagas functions
 export function* fetchUnfiltered() {
+  yield console.log("CATCH ACTION 1");
   yield takeLatest(
     homePageTypes.FETCH_UNFILTERED_ARTICLES_START,
     fetchUnfilteredAsync
@@ -166,6 +167,7 @@ export function* fetchMoreFiltered() {
 }
 
 export function* storeAvailableTags() {
+  yield console.log("CATCH ACTION 2");
   yield takeLatest(
     homePageTypes.STORE_AVAILABLE_TAGS_START,
     storeAvailableTagsAsync

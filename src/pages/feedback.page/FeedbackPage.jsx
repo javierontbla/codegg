@@ -14,7 +14,7 @@ import {
   Alert,
   Img,
 } from "./FeedbackPage.styles";
-import { db } from "../../_firebase/firebase.config";
+import { db } from "../../firebase";
 
 const FeedbackPage = () => {
   const [name, setName] = useState("");
