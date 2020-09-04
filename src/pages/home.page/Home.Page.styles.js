@@ -33,20 +33,22 @@ export const Time = styled.div`
 `;
 
 export const LoadMore = styled.button`
-  width: 10vw;
+  width: fit-content;
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
   background: ${lightBlack};
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 3.4rem;
   font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${white};
-  opacity: 0.9;
-  padding: 0.4rem;
+  padding-right: 0.55rem;
+  padding-left: 0.55rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
 
   &:hover {
     opacity: 0.8;
@@ -58,9 +60,8 @@ export const LoadMore = styled.button`
   }
 
   @media (max-width: 768px) {
-    width: 32vw;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.4rem;
   }
 `;
 
@@ -79,13 +80,8 @@ export const AvailableTagsContainer = styled.div`
   width: 100%;
   height: fit-content;
   padding-top: 0.3rem;
-  padding-bottom: 0.7rem;
+  padding-bottom: 0.8rem;
   justify-content: left;
-
-  @media (max-width: 768px) {
-    padding-top: 0.3rem;
-    padding-bottom: 0.7rem;
-  }
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
@@ -148,7 +144,6 @@ export const Tag = styled.div`
   height: fit-content;
   box-shadow: 0.4rem 0.4rem;
   margin: 0.5rem;
-  margin-bottom: ${(props) => (props.filter ? "0.6rem" : "")};
   color: ${(props) =>
     props.type === "react"
       ? `${react}`
@@ -219,17 +214,21 @@ export const Message = styled.div`
   width: fit-content;
   background: none;
   margin: 0 auto;
-  margin-top: 2rem;
-  margin-bottom: 4rem;
-  font-size: 2.4rem;
+  margin-top: 3rem;
+  margin-bottom: 3.4rem;
+  font-size: 1rem;
   letter-spacing: 0.5px;
-  color: ${yellow};
-  font-family: "Reenie Beanie", cursive;
+  font-family: "Abril Fatface", cursive;
+  color: ${white};
+  opacity: 0.9;
+  padding-right: 0.55rem;
+  padding-left: 0.55rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
 
   @media (max-width: 768px) {
     width: fit-content;
-    font-size: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2.4rem;
   }
 `;

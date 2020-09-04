@@ -75,25 +75,32 @@ export const PhraseContainer = styled.div`
 `;
 
 export const SocialMedia = styled.div`
+  display: flex;
   ${Center};
   justify-content: flex-end;
+  align-items: center;
   width: 27.5vw;
   padding-right: 2rem;
   opacity: 0.9;
 
   @media (max-width: 768px) {
-    padding-right: 1.5rem;
+    padding-right: 1rem;
   }
 `;
 
 // buttons
 export const MediaIcon = styled(FontAwesomeIcon)`
-  font-size: 1.9rem;
+  font-size: ${(props) => (props.comment ? "1.6rem" : "1.9rem")};
   color: ${darkBlue};
+  margin-right: ${(props) => (props.comment ? "1rem" : "")};
 
   &:hover {
     cursor: pointer;
     opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    margin-right: ${(props) => (props.comment ? "0.8rem" : "")};
   }
 `;
 

@@ -49,17 +49,15 @@ const HomePage = ({
   stopFetching,
   noMorePosts,
 }) => {
-  console.log("RENDER");
   useEffect(() => {
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
-    //eslint-disable-next-line import/no-extraneous-dependencies
     moment.locale("es");
   }, []);
 
   const breakpoints = {
     default: 3,
     1100: 2,
-    700: 1,
+    500: 1,
   };
 
   const sendQueryBtn = (tag) => {

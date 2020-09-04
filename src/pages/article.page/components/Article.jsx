@@ -1,5 +1,7 @@
 import React from "react";
 import parse from "html-react-parser";
+import moment from "moment";
+import "moment/locale/es";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -36,7 +38,7 @@ const Article = ({ article }) => {
           })}
         </Tags>
         <InfoContainer>
-          <Date>{article.fecha}</Date>
+          <Date>{moment(article.fecha_db.toDate()).format("LL")}</Date>
           <ReadTime>
             <span>
               <Icon icon={faClock} />

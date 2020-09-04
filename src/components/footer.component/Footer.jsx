@@ -1,40 +1,21 @@
 import React from "react";
-import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 
 import { FooterContainer } from "./Footer.styles";
 
-import {
-  CompanyName,
-  Feedback,
-  PrivacyPolicy,
-  Data,
-  Directory,
-  Button,
-  Icon,
-} from "./Footer.styles";
+import { CompanyName, PrivacyPolicy, Data, Button } from "./Footer.styles";
 
-const Footer = ({ error, homeLoading }) => {
+const Footer = ({ error }) => {
   return (
     <>
-      {!error && !homeLoading ? (
+      {!error ? (
         <div className="container">
           <FooterContainer>
             <Data>
               <CompanyName>© 2019-2020 Avgguido.com</CompanyName>
-              <Directory>
-                <Feedback>
-                  <Button to="/feedback">
-                    <span>
-                      <Icon icon={faComment} />
-                    </span>
-                    Feedback
-                  </Button>
-                </Feedback>
-                <PrivacyPolicy>
-                  <Button to="/privacidad">Política de Privacidad</Button>
-                </PrivacyPolicy>
-              </Directory>
+              <PrivacyPolicy>
+                <Button to="/privacidad">Política de Privacidad</Button>
+              </PrivacyPolicy>
             </Data>
           </FooterContainer>
         </div>
@@ -44,9 +25,8 @@ const Footer = ({ error, homeLoading }) => {
 };
 
 // redux
-const mapStateToProps = ({ homePageReducer: { loading, error } }) => ({
+const mapStateToProps = ({ homePageReducer: { error } }) => ({
   error,
-  homeLoading: loading,
 });
 
 export default connect(mapStateToProps)(Footer);

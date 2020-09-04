@@ -16,6 +16,8 @@ const ArticlePage = ({
   error,
 }) => {
   useEffect(() => {
+    // getting to the top of the page when component renders
+    window.scrollTo(0, 0);
     // getting id doc from the url, using react router
     const url = articleId.split("-");
     getArticle(url[url.length - 1]);

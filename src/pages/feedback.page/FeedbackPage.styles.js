@@ -52,8 +52,8 @@ export const ContactBlock = styled.div`
   position: relative;
   width: 25vw;
   height: fit-content;
-  border: 2px solid ${darkBlue};
-  box-shadow: 0.4rem 0.4rem ${darkBlue};
+  border: 2px solid ${white};
+  box-shadow: 0.4rem 0.4rem ${white};
   margin-top: 6vh;
   border-radius: 0.2rem;
   margin-bottom: -42vh;
@@ -68,13 +68,14 @@ export const ContactBlock = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: "Abril Fatface", cursive;
+  font-family: "Roboto", sans-serif;
   color: ${white};
   font-size: 2.2rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 1vh;
   margin-top: 0.5vh;
+  font-weight: bold;
 
   @media (max-width: 768px) {
     font-size: 1.6rem;
@@ -101,7 +102,7 @@ export const Input = styled.input`
   margin-bottom: 2vh;
   background: transparent;
   border: none;
-  border-bottom: 2px solid ${darkBlue};
+  border-bottom: 2px solid ${white};
   padding: 0.2rem;
   padding-bottom: 0.2rem;
   padding-left: 0.2rem;
@@ -128,7 +129,7 @@ export const Comment = styled.textarea`
   border-radius: 0.2rem;
   margin-bottom: 2vh;
   background: transparent;
-  border: 2px solid ${darkBlue};
+  border: 2px solid ${white};
   padding: 0.2rem;
   padding-left: 0.4rem;
   padding-right: 0.4rem;
@@ -154,7 +155,7 @@ export const Button = styled.button`
   margin-bottom: 2vh;
   align-self: flex-start;
   margin-left: 5%;
-  border: 2px solid ${darkBlue};
+  border: 2px solid ${white};
   background: transparent;
   border-radius: 0.2rem;
   font-family: "Roboto", sans-serif;
@@ -178,8 +179,8 @@ export const Button = styled.button`
 
 export const Img = styled.div`
   position: relative;
-  width: 350px;
-  height: 200px;
+  width: 360px;
+  height: 210px;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.src});

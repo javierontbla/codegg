@@ -15,7 +15,6 @@ const App = ({ storeAvailableTags }) => {
   useEffect(() => {
     storeAvailableTags();
   }, []);
-  console.log("APP JS RENDER");
   return (
     <>
       <Global />
