@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 import { colors } from "../../colors/colors";
 
-const { darkBlack, yellow, darkBlue } = colors;
+const { darkBlack, yellow, darkBlue, white } = colors;
 
 const Circular = keyframes`
     to {
@@ -35,7 +35,7 @@ export const Container = styled.div`
   }
 
   &::before {
-    border-top: 10px solid ${yellow};
+    border-top: 10px solid ${darkBlue};
     transform: rotate(120deg);
   }
 

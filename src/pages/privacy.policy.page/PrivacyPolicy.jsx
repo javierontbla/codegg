@@ -24,7 +24,7 @@ const PrivacyPolicy = () => {
       <Content>
         Al utilizar <Bold>avgguido.com</Bold> usted está aceptando nuestra
         política de privacidad expuesta en este sitio web. Nuestra política de
-        privacidad explica de manera explícita la forma en la que efectuamos la
+        privacidad detalla de manera explícita la forma en la que efectuamos la
         recolección de sus datos personales dentro del sitio web. Esto nos
         permite otorgarle una mejor experiencia de usuario.
       </Content>

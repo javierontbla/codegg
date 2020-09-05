@@ -128,7 +128,7 @@ export const Tags = styled.div`
   flex-direction: row;
   width: 100%;
   height: fit-content;
-  margin-top: 0.3rem;
+  margin-top: 0.4rem;
 `;
 
 export const Tag = styled.div`
@@ -142,27 +142,27 @@ export const Tag = styled.div`
   font-size: 1.2rem;
   letter-spacing: 1px;
   height: fit-content;
-  box-shadow: 0.4rem 0.4rem;
   margin: 0.5rem;
+  box-shadow: 0.4rem 0.4rem
+    ${(props) =>
+      props.type === "react"
+        ? `${react}`
+        : props.type === "redux"
+        ? `${redux}`
+        : props.type === "javascript"
+        ? `${javascript}`
+        : props.type === "node"
+        ? `${node}`
+        : props.type === "graphql"
+        ? `${graphql}`
+        : props.type === "html5"
+        ? `${html}`
+        : props.type === "css3"
+        ? `${css}`
+        : props.type === "firebase"
+        ? `${firebase}`
+        : `${algo}`};
   color: ${(props) =>
-    props.type === "react"
-      ? `${react}`
-      : props.type === "redux"
-      ? `${redux}`
-      : props.type === "javascript"
-      ? `${javascript}`
-      : props.type === "node"
-      ? `${node}`
-      : props.type === "graphql"
-      ? `${graphql}`
-      : props.type === "html5"
-      ? `${html}`
-      : props.type === "css3"
-      ? `${css}`
-      : props.type === "firebase"
-      ? `${firebase}`
-      : `${algo}`};
-  ${(props) =>
     props.type === "react"
       ? `${react}`
       : props.type === "redux"

@@ -30,8 +30,8 @@ export const Container = styled.div`
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
-  margin-top: 0.8rem;
   margin-left: 0.25rem;
+  margin-top: 0.9rem;
 
   &:hover {
     cursor: pointer;
@@ -102,9 +102,8 @@ export const Tags = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   padding-left: ${(props) => (props.post ? "0.9rem" : "")};
-  margin-bottom: ${(props) => (props.post ? "1vh" : "")};
-  padding-top: ${(props) => (props.post ? "0.8rem" : "0rem")};
-  padding-bottom: ${(props) => (props.post ? "0.4rem" : "0.6rem")};
+  padding-top: ${(props) => (props.post ? "1rem" : "0rem")};
+  padding-bottom: ${(props) => (props.post ? "1rem" : "0.6rem")};
   padding-left: ${(props) => (props.post ? "0.5rem" : "0.2rem")};
   padding-right: 0.2rem;
 
@@ -126,7 +125,7 @@ export const Tag = styled.div`
   letter-spacing: 1px;
   height: fit-content;
   margin: 0.4rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: ${(props) => (props.post ? "" : "0.6rem")};
   color: ${(props) =>
     props.type === "react"
       ? `${react}`

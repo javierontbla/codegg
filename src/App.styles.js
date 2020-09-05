@@ -103,7 +103,7 @@ export const Global = createGlobalStyle`
     text-align: left;
     color: #faf9f9;
     margin-bottom: 2vh;
-    line-height: 200%;
+    line-height: 150%;
     width: 100%;
 
     @media (max-width: 768px) {
