@@ -71,16 +71,23 @@ export const Text = styled.div`
 
 export const Title = styled.div`
   font-family: "Abril Fatface", cursive;
-  text-transform: uppercase;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   letter-spacing: 0.5px;
   color: ${white};
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const BodyPreview = styled.div`
   font-family: "Roboto", sans-serif;
   padding-top: 0.6rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const Span = styled.span``;

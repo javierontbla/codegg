@@ -44,10 +44,9 @@ export const LoadMore = styled.button`
   font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${white};
-  padding-right: 0.55rem;
-  padding-left: 0.55rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
+  padding: 0.4rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
 
   &:hover {
     opacity: 0.8;
@@ -215,7 +214,7 @@ export const Message = styled.div`
   margin: 0 auto;
   margin-top: 3rem;
   margin-bottom: 3.4rem;
-  font-size: 1rem;
+  font-size: 1.7rem;
   letter-spacing: 0.5px;
   font-family: "Abril Fatface", cursive;
   color: ${white};

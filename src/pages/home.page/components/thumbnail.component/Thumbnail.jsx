@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
+import moment from "moment";
+import "moment/locale/es";
 
 import {
   Container,
@@ -17,6 +19,9 @@ import {
 } from "./Thumbnail.styles";
 
 const Thumbnail = ({ data, id, search }) => {
+  useEffect(() => {
+    moment.locale("es");
+  }, []);
   const linkTitle = data.titulo.split(" ").join("-").toLowerCase();
   return (
     <>
@@ -25,7 +30,7 @@ const Thumbnail = ({ data, id, search }) => {
           <Img source={data.imagen} />
           <Text>
             <Title>{data.titulo}</Title>
-            <Date>{data.fecha}</Date>
+            <Date>{moment(data.fecha.toDate()).format("LL")}</Date>
             <BodyPreview>{data.previo}...</BodyPreview>
           </Text>
           <Time>

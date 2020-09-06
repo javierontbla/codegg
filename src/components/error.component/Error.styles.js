@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "../../colors/colors";
 
-const { yellow, darkBlack, white, lightBlack } = colors;
+const { darkBlack, white, lightBlack } = colors;
 
 export const Container = styled.div`
   display: flex;
@@ -11,16 +11,12 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 20vh;
-  color: ${yellow};
-  font-family: "Reenie Beanie", cursive;
-  font-size: 3.8rem;
+  color: ${white};
+  font-family: "Abril Fatface", cursive;
+  font-size: 1.7rem;
   margin-top: 8vh;
   text-align: center;
   margin-bottom: 16vh;
-
-  @media (max-width: 768px) {
-    font-size: 2.8rem;
-  }
 `;
 
 export const LoadAgain = styled.button`

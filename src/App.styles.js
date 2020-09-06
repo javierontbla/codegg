@@ -53,7 +53,6 @@ export const Global = createGlobalStyle`
 
   h1 {
     color: #faf9f9;
-    text-transform: uppercase;
     font-family: "Abril Fatface", cursive;
     font-size: 2.3rem;
     letter-spacing: 0.5px;
@@ -68,30 +67,26 @@ export const Global = createGlobalStyle`
 
   h2 {
     color: #faf9f9;
-    text-transform: uppercase;
     font-family: "Abril Fatface", cursive;
-    font-size: 1.8rem;
+    font-size: 2rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
-    text-decoration: underline;
 
     @media (max-width: 768px) {
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       text-align: left;
     }
   }
 
   h3 {
     color: #faf9f9;
-    text-transform: uppercase;
     font-family: "Abril Fatface", cursive;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
-    text-decoration: underline;
 
     @media (max-width: 768px) {
-      font-size: 0.7rem;
+      font-size: 1.1rem;
       text-align: left;
     }
   }

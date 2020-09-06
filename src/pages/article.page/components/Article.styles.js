@@ -10,13 +10,16 @@ export const Container = styled.div``;
 export const Title = styled.div`
   color: ${white};
   font-size: 4.3rem;
-  text-transform: uppercase;
   font-family: "Abril Fatface", cursive;
   text-align: center;
   margin-top: 2vh;
   letter-spacing: 0.5px;
   margin-bottom: 4vh;
   opacity: 0.95;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 
   @media (max-width: 768px) {
     font-size: 2.3rem;

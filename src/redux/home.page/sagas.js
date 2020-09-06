@@ -17,7 +17,7 @@ import {
 function* fetchUnfilteredAsync() {
   const articlesRef = db
     .collection(`articulos_septiembre`)
-    .orderBy("fecha_db", "desc")
+    .orderBy("fecha", "desc")
     .limit(1);
   // inital fetch from firebase
   try {
@@ -45,7 +45,7 @@ function* fetchFilteredAsync(action) {
   const inputRef = db
     .collection(`articulos_septiembre`)
     .where("tags", "array-contains", `${input}`)
-    .orderBy("fecha_db", "desc")
+    .orderBy("fecha", "desc")
     .limit(1);
 
   try {
@@ -65,6 +65,7 @@ function* fetchFilteredAsync(action) {
     yield put(storeLastFilteredElement(lastElement));
     yield put(fetchFilteredArticlesSuccess(previousArticles));
   } catch (error) {
+    yield console.log(error);
     yield put(fetchFilteredArticlesFailure(error));
   }
 }
@@ -73,7 +74,7 @@ function* fetchMoreUnfilteredAsync(action) {
   const { previousArticles, lastElement } = action.payload;
   const articlesRef = db
     .collection(`articulos_septiembre`)
-    .orderBy("fecha_db", "desc")
+    .orderBy("fecha", "desc")
     .startAfter(lastElement)
     .limit(1);
 
@@ -101,7 +102,7 @@ function* fetchMoreFilteredAsync(action) {
   const filteredRef = db
     .collection(`articulos_septiembre`)
     .where("tags", "array-contains", `${tag}`)
-    .orderBy("fecha_db", "desc")
+    .orderBy("fecha", "desc")
     .startAfter(lastElement)
     .limit(1);
 

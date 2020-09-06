@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import parse from "html-react-parser";
 import moment from "moment";
 import "moment/locale/es";
@@ -21,6 +21,9 @@ import {
 } from "../../home.page/components/thumbnail.component/Thumbnail.styles";
 
 const Article = ({ article }) => {
+  useEffect(() => {
+    moment.locale("es");
+  }, []);
   return (
     <>
       <Container>
@@ -38,7 +41,7 @@ const Article = ({ article }) => {
           })}
         </Tags>
         <InfoContainer>
-          <Date>{moment(article.fecha_db.toDate()).format("LL")}</Date>
+          <Date>{moment(article.fecha.toDate()).format("LL")}</Date>
           <ReadTime>
             <span>
               <Icon icon={faClock} />
@@ -46,7 +49,7 @@ const Article = ({ article }) => {
             {article.tiempo}
           </ReadTime>
         </InfoContainer>
-        <Body>{parse(article.texto)}</Body>
+        <Body>{parse(article.contenido)}</Body>
       </Container>
     </>
   );
