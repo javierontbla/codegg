@@ -132,7 +132,7 @@ export const Button = styled.button`
   width: fit-content;
   align-self: flex-start;
   border: none;
-  border-bottom: 2px solid ${darkBlack};
+  border: 2px solid ${darkBlack};
   background: transparent;
   font-family: "Abril Fatface", cursive;
   font-size: 1.2rem;
@@ -141,14 +141,15 @@ export const Button = styled.button`
   transition: border 0.5s;
   padding: 0.4rem;
   padding-bottom: 0.2rem;
-  padding-top: 0rem;
+  padding-top: 0.2rem;
+  border-radius: 0.2rem;
 
   &:focus {
     outline: none;
   }
 
   &:hover {
-    border-bottom: 2px solid ${white};
+    border: 2px solid ${white};
   }
 
   @media (max-width: 768px) {
@@ -169,6 +170,7 @@ export const Img = styled.div`
   @media (max-width: 768px) {
     width: 280px;
     height: 130px;
+    margin-left: 0;
   }
 `;
 

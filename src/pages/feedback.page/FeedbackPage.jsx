@@ -37,7 +37,7 @@ const FeedbackPage = ({ sendForm }) => {
       // catch a real email
       if (!email.includes("@")) {
         setIcon(faExclamationCircle);
-        setMessage("Correo Inválido");
+        setMessage("Correo inválido");
         setDisplay(true);
         return;
       } else {
