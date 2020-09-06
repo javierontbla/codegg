@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 import { colors } from "../../colors/colors";
 
-const { darkBlack, yellow, darkBlue, white } = colors;
+const { darkBlack, darkBlue } = colors;
 
 const Circular = keyframes`
     to {

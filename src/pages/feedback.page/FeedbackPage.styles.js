@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../colors/colors";
 
-const { darkBlack, darkBlue, white, grey, lightBlack } = colors;
+const { darkBlack, white, lightBlack } = colors;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -21,19 +22,19 @@ export const Wrapper = styled.div`
 export const ContactBlock = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 30vw;
-  height: 60vh;
+  width: 28vw;
+  height: fit-content;
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
   background: ${lightBlack};
-  padding: 0.5rem;
+  padding: 1.5rem;
   z-index: 1;
 
   @media (max-width: 768px) {
-    width: 85%;
-    margin-left: 0vh;
+    width: 96%;
+    padding: 1rem;
+    margin-bottom: 4vh;
   }
 `;
 
@@ -43,27 +44,31 @@ export const RightContainer = styled.div`
   justify-content: center;
   width: fit-content;
   height: 60vh;
+  @media (max-width: 768px) {
+    height: fit-content;
+  }
 `;
 
 export const Title = styled.div`
   font-family: "Abril Fatface", cursive;
   color: ${white};
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  height: fit-content;
+  width: 100%;
   margin-bottom: 4vh;
-  margin-top: 1vh;
+  padding: 0;
 
   @media (max-width: 768px) {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 `;
 
 export const Subtitle = styled.div`
-  width: 90%;
   height: fit-content;
   color: ${white};
-  font-family: "Roboto", sans-serif;
+  font-family: "Abril Fatface", cursive;
   font-size: 1.2rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -74,20 +79,17 @@ export const Subtitle = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 90%;
-  margin-bottom: 4vh;
   background: transparent;
   border: none;
   border-bottom: 2px solid ${darkBlack};
-  padding: 0.2rem;
   padding-bottom: 0.2rem;
-  padding-left: 0.2rem;
   color: ${white};
   overflow: hidden;
   transition: border-bottom 0.5s;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   letter-spacing: 0.5px;
+  margin-bottom: 4vh;
 
   @media (max-width: 768px) {
     font-size: 0.8rem;
@@ -100,10 +102,8 @@ export const Input = styled.input`
 `;
 
 export const Comment = styled.textarea`
-  width: 90%;
   height: 200px;
   border-radius: 0.2rem;
-  margin-bottom: 4vh;
   background: transparent;
   border: 2px solid ${darkBlack};
   padding: 0.2rem;
@@ -123,6 +123,7 @@ export const Comment = styled.textarea`
 
   @media (max-width: 768px) {
     height: 150px;
+    font-size: 0.8rem;
   }
 `;
 
@@ -130,15 +131,17 @@ export const Button = styled.button`
   height: fit-content;
   width: fit-content;
   align-self: flex-start;
-  margin-left: 5%;
   border: none;
   border-bottom: 2px solid ${darkBlack};
   background: transparent;
-  font-family: "Roboto", sans-serif;
+  font-family: "Abril Fatface", cursive;
   font-size: 1.2rem;
   color: ${white};
   text-transform: uppercase;
   transition: border 0.5s;
+  padding: 0.4rem;
+  padding-bottom: 0.2rem;
+  padding-top: 0rem;
 
   &:focus {
     outline: none;
@@ -174,8 +177,9 @@ export const Buttons = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   height: fit-content;
+  margin-top: 4vh;
 `;
 
 export const Alert = styled.div`
@@ -184,11 +188,26 @@ export const Alert = styled.div`
   color: ${white};
   width: 100%;
   justify-content: center;
-  opacity: ${(props) => (props.alert ? "1" : "0")};
   transition: opacity 0.5s, opacity 0.5s linear;
   letter-spacing: 0.5px;
 
   @media (max-width: 768px) {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
+`;
+
+export const Icon = styled(FontAwesomeIcon)`
+  font-size: 0.9rem;
+  color: ${white};
+  margin-right: 0.3rem;
+`;
+
+export const MessageWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
 `;

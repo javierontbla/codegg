@@ -7,7 +7,6 @@ const {
   white,
   lightBlack,
   darkBlack,
-  yellow,
   react,
   javascript,
   redux,

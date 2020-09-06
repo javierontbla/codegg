@@ -55,7 +55,7 @@ export const Subtitle = styled.div`
   margin-top: 2vh;
 
   @media (max-width: 768px) {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 `;
 

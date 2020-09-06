@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import {
+  faExclamationCircle,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
+import { connect } from "react-redux";
 
 import {
   Wrapper,
@@ -12,35 +17,42 @@ import {
   Button,
   Alert,
   Img,
+  Icon,
+  MessageWrapper,
 } from "./FeedbackPage.styles";
-import { db } from "../../firebase";
+import { sendFormStart } from "../../redux/feedback.page/actions";
 
-const FeedbackPage = () => {
+const FeedbackPage = ({ sendForm }) => {
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
-  const [alert, setAlert] = useState(false);
-  const [message, setMessage] = useState("*llene los campos faltantes");
+  const [display, setDisplay] = useState(false);
+  const [message, setMessage] = useState("");
+  const [icon, setIcon] = useState(null);
 
   const handleEmail = (e) => setEmail(e);
   const handleComment = (e) => setComment(e);
 
   const submitForm = () => {
     if (email && comment) {
+      // catch a real email
       if (!email.includes("@")) {
-        setMessage("*correo inválido");
-        setAlert(true);
+        setIcon(faExclamationCircle);
+        setMessage("Correo Inválido");
+        setDisplay(true);
         return;
       } else {
-        db.collection("formularios_feedback").add({
-          email: email,
-          comentario: comment,
-        });
-        setMessage("enviado");
+        // saga action start
+        sendForm({ email, comment });
         setEmail("");
         setComment("");
+        setIcon(faEnvelope);
+        setMessage("Enviado");
+        setDisplay(true);
       }
     } else {
-      setAlert(true);
+      setIcon(faExclamationCircle);
+      setMessage("Llena los campos");
+      setDisplay(true);
     }
   };
 
@@ -53,14 +65,21 @@ const FeedbackPage = () => {
           <Input
             onChange={(e) => handleEmail(e.target.value)}
             placeholder="ejemplo@gmail.com"
+            value={email}
           />
           <Comment
             onChange={(e) => handleComment(e.target.value)}
-            placeholder="¿Qué podemos mejorar en la plataforma?"
+            placeholder="¿Qué podemos mejorar de la plataforma?"
+            value={comment}
           />
           <Buttons>
             <Button onClick={() => submitForm()}>Enviar</Button>
-            <Alert alert={alert}>{message}</Alert>
+            {display ? (
+              <MessageWrapper>
+                <Icon icon={icon} />
+                <Alert>{message}</Alert>
+              </MessageWrapper>
+            ) : null}
           </Buttons>
         </ContactBlock>
         <RightContainer>
@@ -75,4 +94,8 @@ const FeedbackPage = () => {
   );
 };
 
-export default FeedbackPage;
+const mapDispatchToProps = (dispatch) => ({
+  sendForm: (data) => dispatch(sendFormStart(data)),
+});
+
+export default connect(null, mapDispatchToProps)(FeedbackPage);

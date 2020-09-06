@@ -8,6 +8,7 @@ import {
   storeAvailableTags,
 } from "./home.page/sagas";
 import { fetchArticle } from "./article.page/sagas";
+import { sendForm } from "./feedback.page/sagas";
 
 export function* rootSaga() {
   yield all([
@@ -17,5 +18,6 @@ export function* rootSaga() {
     call(fetchMoreFiltered),
     call(fetchArticle),
     call(storeAvailableTags),
+    call(sendForm),
   ]);
 }
