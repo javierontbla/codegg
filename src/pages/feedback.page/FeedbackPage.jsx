@@ -22,7 +22,7 @@ import {
 } from "./FeedbackPage.styles";
 import { sendFormStart } from "../../redux/feedback.page/actions";
 
-const FeedbackPage = ({ sendForm }) => {
+const FeedbackPage = ({ sendForm, error }) => {
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
   const [display, setDisplay] = useState(false);
@@ -75,10 +75,17 @@ const FeedbackPage = ({ sendForm }) => {
           <Buttons>
             <Button onClick={() => submitForm()}>Enviar</Button>
             {display ? (
-              <MessageWrapper>
-                <Icon icon={icon} />
-                <Alert>{message}</Alert>
-              </MessageWrapper>
+              !error ? (
+                <MessageWrapper>
+                  <Icon icon={icon} />
+                  <Alert>{message}</Alert>
+                </MessageWrapper>
+              ) : (
+                <MessageWrapper>
+                  <Icon icon={icon} />
+                  <Alert>hubo un error</Alert>
+                </MessageWrapper>
+              )
             ) : null}
           </Buttons>
         </ContactBlock>
@@ -93,9 +100,11 @@ const FeedbackPage = ({ sendForm }) => {
     </>
   );
 };
-
+const mapStateToProps = ({ feedbackPageReducer: { error } }) => ({
+  error,
+});
 const mapDispatchToProps = (dispatch) => ({
   sendForm: (data) => dispatch(sendFormStart(data)),
 });
 
-export default connect(null, mapDispatchToProps)(FeedbackPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FeedbackPage);

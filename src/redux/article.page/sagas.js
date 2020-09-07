@@ -6,7 +6,7 @@ import { fetchArticleSuccess, fetchArticleFailure } from "./actions";
 
 function* fetchArticleAsync(action) {
   const id = action.payload;
-  const articleRef = db.doc(`articulos_septiembre/${id}`);
+  const articleRef = db.doc(`articulos/${id}`);
 
   try {
     const res = yield articleRef.get().then((snapshot) => {

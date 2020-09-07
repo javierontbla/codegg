@@ -74,10 +74,7 @@ export const Title = styled.div`
   font-size: 1.7rem;
   letter-spacing: 0.5px;
   color: ${white};
-
-  &::first-letter {
-    text-transform: uppercase;
-  }
+  text-transform: uppercase;
 `;
 
 export const BodyPreview = styled.div`

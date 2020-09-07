@@ -6,12 +6,13 @@ import { db } from "../../firebase";
 
 function* sendFormAsync(action) {
   const { email, comment } = action.payload;
-  const formRef = db.collection("formularios_feedback");
+  const formRef = db.collection("formularios");
 
   try {
     formRef.add({
       email: email,
       comentario: comment,
+      fecha: new Date(),
     });
   } catch (error) {
     yield put(sendFormFailure(error));

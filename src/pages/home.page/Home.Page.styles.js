@@ -228,5 +228,6 @@ export const Message = styled.div`
     width: fit-content;
     margin-top: 2rem;
     margin-bottom: 2.4rem;
+    font-size: 1.2rem;
   }
 `;

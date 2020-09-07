@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 export const ContactBlock = styled.div`
   display: flex;
   flex-direction: column;
-  width: 28vw;
+  width: 24vw;
   height: fit-content;
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
@@ -32,7 +32,7 @@ export const ContactBlock = styled.div`
   z-index: 1;
 
   @media (max-width: 768px) {
-    width: 96%;
+    width: 90%;
     padding: 1rem;
     margin-bottom: 4vh;
   }

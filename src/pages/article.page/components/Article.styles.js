@@ -16,10 +16,7 @@ export const Title = styled.div`
   letter-spacing: 0.5px;
   margin-bottom: 4vh;
   opacity: 0.95;
-
-  &::first-letter {
-    text-transform: uppercase;
-  }
+  text-transform: uppercase;
 
   @media (max-width: 768px) {
     font-size: 2.3rem;

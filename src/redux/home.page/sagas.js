@@ -16,7 +16,7 @@ import {
 // async functions
 function* fetchUnfilteredAsync() {
   const articlesRef = db
-    .collection(`articulos_septiembre`)
+    .collection(`articulos`)
     .orderBy("fecha", "desc")
     .limit(1);
   // inital fetch from firebase
@@ -43,7 +43,7 @@ function* fetchFilteredAsync(action) {
   // geting the input from the button the user clicked
   const { previousArticles, input } = action.payload;
   const inputRef = db
-    .collection(`articulos_septiembre`)
+    .collection(`articulos`)
     .where("tags", "array-contains", `${input}`)
     .orderBy("fecha", "desc")
     .limit(1);
@@ -73,7 +73,7 @@ function* fetchFilteredAsync(action) {
 function* fetchMoreUnfilteredAsync(action) {
   const { previousArticles, lastElement } = action.payload;
   const articlesRef = db
-    .collection(`articulos_septiembre`)
+    .collection(`articulos`)
     .orderBy("fecha", "desc")
     .startAfter(lastElement)
     .limit(1);
@@ -100,7 +100,7 @@ function* fetchMoreFilteredAsync(action) {
   const { previousArticles, lastElement, tag } = action.payload;
 
   const filteredRef = db
-    .collection(`articulos_septiembre`)
+    .collection(`articulos`)
     .where("tags", "array-contains", `${tag}`)
     .orderBy("fecha", "desc")
     .startAfter(lastElement)
@@ -124,11 +124,11 @@ function* fetchMoreFilteredAsync(action) {
 
 function* storeAvailableTagsAsync() {
   // get all available tags from firebase
-  const tagsRef = db.doc(`available_tags/wAAVxYZYRYjqdLGXa1kn`);
+  const tagsRef = db.doc(`categorias/NAsurinyFbWcpWKeUnId`);
 
   try {
     const res = yield tagsRef.get({ source: "server" }).then((doc) => {
-      return doc.data().available_tags;
+      return doc.data().categorias;
     });
 
     yield put(storeAvailableTagsSuccess(res));
