@@ -12,7 +12,7 @@ const Footer = ({ error }) => {
         <div className="container">
           <FooterContainer>
             <Data>
-              <CompanyName>© 2019-2020 Avgguido.com</CompanyName>
+              <CompanyName>© 2019-2020 avgguido.com</CompanyName>
               <PrivacyPolicy>
                 <Button to="/privacidad">Política de Privacidad</Button>
               </PrivacyPolicy>

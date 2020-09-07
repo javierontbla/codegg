@@ -12,17 +12,16 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 86vh;
+
   @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 `;
 
 export const ContactBlock = styled.div`
   display: flex;
   flex-direction: column;
-  width: 24vw;
+  width: 40vw;
   height: fit-content;
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
@@ -32,20 +31,9 @@ export const ContactBlock = styled.div`
   z-index: 1;
 
   @media (max-width: 768px) {
-    width: 90%;
+    width: 95%;
     padding: 1rem;
-    margin-bottom: 4vh;
-  }
-`;
-
-export const RightContainer = styled.div`
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  width: fit-content;
-  height: 60vh;
-  @media (max-width: 768px) {
-    height: fit-content;
+    margin-top: 8vh;
   }
 `;
 
@@ -82,7 +70,7 @@ export const Input = styled.input`
   background: transparent;
   border: none;
   border-bottom: 2px solid ${darkBlack};
-  padding-bottom: 0.2rem;
+  padding: 0.4rem;
   color: ${white};
   overflow: hidden;
   transition: border-bottom 0.5s;
@@ -106,9 +94,7 @@ export const Comment = styled.textarea`
   border-radius: 0.2rem;
   background: transparent;
   border: 2px solid ${darkBlack};
-  padding: 0.2rem;
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
+  padding: 0.4rem;
   resize: none;
   color: ${white};
   transition: border 0.5s;
@@ -137,12 +123,12 @@ export const Button = styled.button`
   font-family: "Abril Fatface", cursive;
   font-size: 1.2rem;
   color: ${white};
-  text-transform: uppercase;
   transition: border 0.5s;
   padding: 0.4rem;
   padding-bottom: 0.2rem;
   padding-top: 0.2rem;
   border-radius: 0.2rem;
+  letter-spacing: 0.5px;
 
   &:focus {
     outline: none;
@@ -150,10 +136,6 @@ export const Button = styled.button`
 
   &:hover {
     border: 2px solid ${white};
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
   }
 `;
 
@@ -211,5 +193,10 @@ export const MessageWrapper = styled.div`
   align-items: center;
   width: fit-content;
   height: fit-content;
-  margin: 0 auto;
+  margin-left: 1.5rem;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin: 0 auto;
+  }
 `;

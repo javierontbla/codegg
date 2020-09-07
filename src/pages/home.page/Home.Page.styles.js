@@ -210,24 +210,24 @@ export const Tag = styled.div`
 
 export const Message = styled.div`
   width: fit-content;
-  background: none;
+  border: 2px solid ${darkBlack};
+  box-shadow: 0.4rem 0.4rem ${darkBlack};
+  border-radius: 0.2rem;
+  background: ${lightBlack};
   margin: 0 auto;
+  font-family: "Roboto", sans-serif;
   margin-top: 3rem;
   margin-bottom: 3.4rem;
-  font-size: 1.7rem;
+  font-size: 1rem;
   letter-spacing: 0.5px;
-  font-family: "Abril Fatface", cursive;
   color: ${white};
-  opacity: 0.9;
-  padding-right: 0.55rem;
-  padding-left: 0.55rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
+  padding: 0.4rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
 
   @media (max-width: 768px) {
     width: fit-content;
     margin-top: 2rem;
     margin-bottom: 2.4rem;
-    font-size: 1.2rem;
   }
 `;

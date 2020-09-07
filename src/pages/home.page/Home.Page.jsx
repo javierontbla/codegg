@@ -135,7 +135,7 @@ const HomePage = ({
         <Tags>
           {currentTag.map((tag) => {
             return (
-              <Tag type={tag} filter={"true"}>
+              <Tag type={tag} filter={"true"} key={tag}>
                 #{tag}
                 <IconContainer>
                   <Icon

@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 import {
   Wrapper,
   ContactBlock,
-  RightContainer,
   Title,
   Subtitle,
   Input,
@@ -73,7 +72,7 @@ const FeedbackPage = ({ sendForm, error }) => {
             value={comment}
           />
           <Buttons>
-            <Button onClick={() => submitForm()}>Enviar</Button>
+            <Button onClick={() => submitForm()}>ENVIAR</Button>
             {display ? (
               !error ? (
                 <MessageWrapper>
@@ -89,13 +88,6 @@ const FeedbackPage = ({ sendForm, error }) => {
             ) : null}
           </Buttons>
         </ContactBlock>
-        <RightContainer>
-          <Img
-            src={
-              "https://firebasestorage.googleapis.com/v0/b/avgguido.appspot.com/o/varios%2Fmountains.svg?alt=media&token=a478ed74-30ae-4b56-b41b-7eb91250dd85"
-            }
-          />
-        </RightContainer>
       </Wrapper>
     </>
   );

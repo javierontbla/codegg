@@ -23,7 +23,9 @@ const NavBar = () => {
           <LinkText to="/feedback">
             <MediaIcon icon={faComments} comment={"true"} />
           </LinkText>
-          <MediaIcon icon={faTwitter} />
+          <a href="https://twitter.com/avgguido">
+            <MediaIcon icon={faTwitter} />
+          </a>
         </SocialMedia>
       </Navbar>
     </>

@@ -60,7 +60,6 @@ function* fetchFilteredAsync(action) {
         );
         return lastRef;
       });
-
     // firing succesful actions to store data on reducer
     yield put(storeLastFilteredElement(lastElement));
     yield put(fetchFilteredArticlesSuccess(previousArticles));
