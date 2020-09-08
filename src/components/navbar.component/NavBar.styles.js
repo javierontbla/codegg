@@ -10,7 +10,6 @@ const Center = css`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
 `;
 
 export const Navbar = styled.div`
@@ -34,6 +33,7 @@ export const Navbar = styled.div`
   @media (max-width: 768px) {
     margin-top: 0.5rem;
     height: 8vh;
+    width: 100%;
   }
 `;
 
@@ -41,10 +41,7 @@ export const Navbar = styled.div`
 export const Logo = styled.div`
   ${Center};
   width: 27.5vw;
-  font-family: "Abril Fatface", cursive;
-  text-transform: uppercase;
   justify-content: flex-start;
-  font-size: 2.2rem;
   opacity: 0.9;
   padding-left: 2rem;
   letter-spacing: 0.5px;
@@ -56,6 +53,7 @@ export const Logo = styled.div`
 
   @media (max-width: 768px) {
     padding-left: 1rem;
+    width: 70%;
   }
 `;
 
@@ -71,6 +69,7 @@ export const PhraseContainer = styled.div`
 
   @media (max-width: 768px) {
     opacity: 0;
+    width: 0%;
   }
 `;
 
@@ -85,6 +84,7 @@ export const SocialMedia = styled.div`
 
   @media (max-width: 768px) {
     padding-right: 1rem;
+    width: 30%;
   }
 `;
 
@@ -104,13 +104,30 @@ export const MediaIcon = styled(FontAwesomeIcon)`
   }
 `;
 
-export const LinkText = styled(Link)`
-  color: ${darkBlue} !important;
-  background: transparent !important;
-
+export const LinkContainer = styled(Link)`
   &:hover {
     cursor: pointer;
     text-decoration: none;
     color: ${darkBlue};
   }
+`;
+
+export const Img = styled.img`
+  margin: 0;
+  margin-right: 0.3rem;
+  width: 50px;
+  height: 50px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const Text = styled.div`
+  font-family: "Abril Fatface", cursive;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+  color: ${darkBlue} !important;
+  background: transparent !important;
+  letter-spacing: 0.5px;
 `;

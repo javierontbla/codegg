@@ -2,13 +2,17 @@ import React from "react";
 import { faComments } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
+import icon from "./logo.icon.svg";
+
 import {
   Navbar,
   Logo,
   PhraseContainer,
   SocialMedia,
   MediaIcon,
-  LinkText,
+  LinkContainer,
+  Text,
+  Img,
 } from "./NavBar.styles";
 
 const NavBar = () => {
@@ -16,13 +20,18 @@ const NavBar = () => {
     <>
       <Navbar>
         <Logo>
-          <LinkText to="/">Avgguido</LinkText>
+          <LinkContainer to="/">
+            <Img src={icon} />{" "}
+          </LinkContainer>
+          <LinkContainer to="/">
+            <Text>avgguido</Text>
+          </LinkContainer>
         </Logo>
         <PhraseContainer />
         <SocialMedia>
-          <LinkText to="/feedback">
+          <LinkContainer to="/feedback">
             <MediaIcon icon={faComments} comment={"true"} />
-          </LinkText>
+          </LinkContainer>
           <a href="https://twitter.com/avgguido">
             <MediaIcon icon={faTwitter} />
           </a>
