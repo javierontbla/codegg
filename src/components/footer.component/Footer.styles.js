@@ -34,6 +34,8 @@ export const Data = styled.div`
 
   @media (max-width: 768px) {
     font-size: 0.7rem;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
   }
 `;
 
@@ -49,9 +51,26 @@ export const PrivacyPolicy = styled.div`
 `;
 
 export const Button = styled(Link)`
-  color: ${white} !important;
-  opacity: 0.9 !important;
-  background: transparent !important;
+  color: ${white};
+  opacity: 0.9;
+
+  &&& {
+    font-size: 1rem;
+    &::after {
+      background-color: transparent;
+      content: " ";
+      height: 40%;
+      position: absolute;
+      left: 0;
+      top: 65%;
+      width: calc(100%);
+      z-index: -1;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 0.7rem;
+    }
+  }
 
   &:hover {
     opacity: 0.8 !important;

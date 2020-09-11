@@ -26,15 +26,22 @@ export const LinkArticle = styled(Link)`
 `;
 
 export const Container = styled.div`
-  width: 96%;
+  width: 95%;
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
-  margin-left: 0.25rem;
-  margin-top: 0.9rem;
+  margin-top: 0.4rem;
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 500px) {
+    &:first-child {
+      margin-top: 0.5rem;
+    }
+    margin-top: 1rem;
+    width: 100%;
   }
 `;
 
@@ -71,10 +78,14 @@ export const Text = styled.div`
 
 export const Title = styled.div`
   font-family: "Abril Fatface", cursive;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   letter-spacing: 0.5px;
   color: ${white};
   text-transform: uppercase;
+
+  @media (max-width: 500px) {
+    font-size: 1.3rem;
+  }
 `;
 
 export const BodyPreview = styled.div`
@@ -84,6 +95,10 @@ export const BodyPreview = styled.div`
 
   &::first-letter {
     text-transform: uppercase;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1rem;
   }
 `;
 
@@ -99,6 +114,10 @@ export const Time = styled.div`
   font-family: "Abril Fatface", cursive;
   border-bottom: 2px solid ${darkBlack};
   letter-spacing: 0.5px;
+
+  @media (max-width: 500px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const Tags = styled.div`

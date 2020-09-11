@@ -18,7 +18,7 @@ export const Global = createGlobalStyle`
 
   body::-webkit-scrollbar-thumb {
     background-color: #21252b;
-    border-radius: 0.2rem;
+    border-radius: 0.4rem;
     overflow: auto;
   }
   
@@ -54,26 +54,26 @@ export const Global = createGlobalStyle`
   h1 {
     color: #faf9f9;
     font-family: "Abril Fatface", cursive;
-    font-size: 2.3rem;
+    font-size: 2rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
     text-align: left;
     width: 100%;
 
     @media (max-width: 768px) {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
     }
   }
 
   h2 {
     color: #faf9f9;
     font-family: "Abril Fatface", cursive;
-    font-size: 2rem;
+    font-size: 1.5rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
 
     @media (max-width: 768px) {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       text-align: left;
     }
   }
@@ -151,6 +151,43 @@ export const Global = createGlobalStyle`
 
   code {
     font-family: Consolas, monaco, monospace; 
+  }
+
+  a {
+    position: relative;
+    color: #faf9f9;
+    font-size: 1.5rem;
+
+    &::after {
+      background-color: #21252b;
+      content: ' ';
+      height: 45%;
+      position: absolute;
+      left: 0;
+      top: 65%;
+      width: calc(100%);
+      z-index:-1;
+    }
+
+    &:hover {
+      color: #faf9f9;
+      text-decoration: none;
+
+      &::after {
+      background-color: #076bcf;
+      content: ' ';
+      height: 45%;
+      position: absolute;
+      left: 0;
+      top: 65%;
+      width: calc(100%);
+      z-index:-1;
+    }
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
   }
 `;
 

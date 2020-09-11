@@ -13,6 +13,7 @@ import {
   LinkContainer,
   Text,
   Img,
+  External,
 } from "./NavBar.styles";
 
 const NavBar = () => {
@@ -32,9 +33,9 @@ const NavBar = () => {
           <LinkContainer to="/feedback">
             <MediaIcon icon={faComments} comment={"true"} />
           </LinkContainer>
-          <a href="https://twitter.com/avgguido">
+          <External href="https://twitter.com/avgguido">
             <MediaIcon icon={faTwitter} />
-          </a>
+          </External>
         </SocialMedia>
       </Navbar>
     </>

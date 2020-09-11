@@ -19,19 +19,21 @@ export const Navbar = styled.div`
   width: 100vw;
   height: 8vh;
   margin-top: 1rem;
-  margin-right: 1rem;
+  margin-right: 1.4rem;
   margin-left: 1rem;
   background: ${lightBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
   border: 2px solid ${darkBlack};
 
-  @media (max-width: 1100px) {
+  @media (max-width: 768px) {
     height: 5.5vh;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     margin-top: 0.5rem;
+    margin-right: 0.9rem;
+    margin-left: 0.5rem;
     height: 8vh;
     width: 100%;
   }
@@ -43,7 +45,7 @@ export const Logo = styled.div`
   width: 27.5vw;
   justify-content: flex-start;
   opacity: 0.9;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
   letter-spacing: 0.5px;
 
   &:hover {
@@ -79,7 +81,7 @@ export const SocialMedia = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 27.5vw;
-  padding-right: 2rem;
+  padding-right: 1.5rem;
   opacity: 0.9;
 
   @media (max-width: 768px) {
@@ -105,6 +107,18 @@ export const MediaIcon = styled(FontAwesomeIcon)`
 `;
 
 export const LinkContainer = styled(Link)`
+  &&& {
+    &::after {
+      background-color: transparent;
+      content: " ";
+      height: 40%;
+      position: absolute;
+      left: 0;
+      top: 65%;
+      width: calc(100%);
+      z-index: -1;
+    }
+  }
   &:hover {
     cursor: pointer;
     text-decoration: none;
@@ -118,6 +132,10 @@ export const Img = styled.img`
   width: 50px;
   height: 50px;
 
+  &:hover {
+    text-decoration: none;
+  }
+
   @media (max-width: 768px) {
     display: none;
   }
@@ -130,4 +148,25 @@ export const Text = styled.div`
   color: ${darkBlue} !important;
   background: transparent !important;
   letter-spacing: 0.5px;
+`;
+
+export const External = styled.a`
+  color: ${darkBlue};
+  &&& {
+    &::after {
+      background-color: transparent;
+      content: " ";
+      height: 40%;
+      position: absolute;
+      left: 0;
+      top: 65%;
+      width: calc(100%);
+      z-index: -1;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: ${darkBlue};
+  }
 `;
