@@ -9,17 +9,23 @@ export const Container = styled.div``;
 
 export const Title = styled.div`
   color: ${white};
-  font-size: 4rem;
-  font-family: "Abril Fatface", cursive;
+  font-size: 4.6rem;
+  font-family: "Bebas Neue", cursive;
   text-align: center;
   margin-top: 2vh;
   letter-spacing: 0.5px;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
   opacity: 0.95;
-  text-transform: uppercase;
+  text-transform: normal;
+  padding: 1rem;
+  height: fit-content;
+  line-height: 120%;
 
-  @media (max-width: 768px) {
-    font-size: 2rem;
+  @media (max-width: 500px) {
+    padding: 0.4rem;
+    text-align: left;
+    font-size: 2.6rem;
+    text-transform: none;
   }
 `;
 

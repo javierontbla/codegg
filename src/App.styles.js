@@ -53,15 +53,16 @@ export const Global = createGlobalStyle`
 
   h1 {
     color: #faf9f9;
-    font-family: "Abril Fatface", cursive;
-    font-size: 2rem;
+    font-family: "Bebas Neue", cursive;
+    font-size: 2.6rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
     text-align: left;
     width: 100%;
 
-    @media (max-width: 768px) {
-      font-size: 1.5rem;
+    @media (max-width: 500px) {
+      font-size: 2rem;
+      margin-bottom: 1vh;
     }
   }
 

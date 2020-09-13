@@ -27,7 +27,7 @@ const Article = ({ article }) => {
   return (
     <>
       <Container>
-        <Title>{article.titulo}</Title>
+        <Title>{article.tituloArticulo}</Title>
         <AuthorContainer>
           <Author>{article.autor}</Author>
         </AuthorContainer>

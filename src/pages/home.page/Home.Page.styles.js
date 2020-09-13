@@ -24,11 +24,15 @@ export const Time = styled.div`
   color: ${white};
   border-bottom: 2px solid ${darkBlack};
   margin-top: 3.5vh;
-  padding: 0.4rem;
-  font-family: "Abril Fatface", cursive;
-  font-size: 1rem;
+  padding: 0.2rem;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.4rem;
   opacity: 0.9;
   letter-spacing: 0.5px;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const LoadMore = styled.button`
@@ -40,7 +44,7 @@ export const LoadMore = styled.button`
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
   margin-top: 3rem;
-  margin-bottom: 3.4rem;
+  margin-bottom: 3.9rem;
   font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${white};
@@ -59,7 +63,7 @@ export const LoadMore = styled.button`
 
   @media (max-width: 768px) {
     margin-top: 2rem;
-    margin-bottom: 2.4rem;
+    margin-bottom: 2.9rem;
   }
 `;
 
@@ -217,7 +221,7 @@ export const Message = styled.div`
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
   margin-top: 3rem;
-  margin-bottom: 3.4rem;
+  margin-bottom: 3.9rem;
   font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${white};
@@ -228,6 +232,6 @@ export const Message = styled.div`
   @media (max-width: 768px) {
     width: fit-content;
     margin-top: 2rem;
-    margin-bottom: 2.4rem;
+    margin-bottom: 2.9rem;
   }
 `;

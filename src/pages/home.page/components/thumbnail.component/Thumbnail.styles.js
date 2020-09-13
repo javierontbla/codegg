@@ -26,11 +26,11 @@ export const LinkArticle = styled(Link)`
 `;
 
 export const Container = styled.div`
-  width: 95%;
+  width: 100%;
   border: 2px solid ${darkBlack};
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
 
   &:hover {
     cursor: pointer;
@@ -41,7 +41,6 @@ export const Container = styled.div`
       margin-top: 0.5rem;
     }
     margin-top: 1rem;
-    width: 100%;
   }
 `;
 
@@ -77,14 +76,14 @@ export const Text = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: "Abril Fatface", cursive;
-  font-size: 1.6rem;
+  font-family: "Bebas Neue", cursive;
+  font-size: 2.6rem;
   letter-spacing: 0.5px;
   color: ${white};
-  text-transform: uppercase;
+  line-height: 120%;
 
   @media (max-width: 500px) {
-    font-size: 1.3rem;
+    font-size: 2rem;
   }
 `;
 

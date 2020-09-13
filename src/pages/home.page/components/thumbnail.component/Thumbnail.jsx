@@ -29,7 +29,7 @@ const Thumbnail = ({ data, id, search }) => {
         <LinkArticle to={`/${linkTitle}-${id}`}>
           <Img source={data.imagen} />
           <Text>
-            <Title>{data.titulo}</Title>
+            <Title>{data.tituloArticulo}</Title>
             <Date>{moment(data.fecha.toDate()).format("LL")}</Date>
             <BodyPreview>{data.previo}...</BodyPreview>
           </Text>
