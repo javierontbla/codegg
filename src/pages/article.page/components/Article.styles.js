@@ -12,9 +12,9 @@ export const Title = styled.div`
   font-size: 4.6rem;
   font-family: "Bebas Neue", cursive;
   text-align: center;
-  margin-top: 2vh;
+  margin-top: 4.4vh;
   letter-spacing: 0.5px;
-  margin-bottom: 2vh;
+  margin-bottom: 4vh;
   opacity: 0.95;
   text-transform: normal;
   padding: 1rem;
@@ -25,7 +25,8 @@ export const Title = styled.div`
     padding: 0.4rem;
     text-align: left;
     font-size: 2.6rem;
-    text-transform: none;
+    margin-top: 2.4vh;
+    margin-bottom: 2vh;
   }
 `;
 

@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const Global = createGlobalStyle`
   body {
-    background-color: #3a3d45;
+    background-color: #20272e;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -13,11 +13,11 @@ export const Global = createGlobalStyle`
   }
 
   body::-webkit-scrollbar-track {
-    background-color: #3a3d45;
+    background-color: #20272e;
   }
 
   body::-webkit-scrollbar-thumb {
-    background-color: #21252b;
+    background-color: #13171F;
     border-radius: 0.4rem;
     overflow: auto;
   }
@@ -108,7 +108,7 @@ export const Global = createGlobalStyle`
   }
 
   strong {
-    background: #21252b;
+    background: #13171F;
     border-radius: 0.2rem;
     padding-left: 0.3rem;
     padding-right: 0.3rem;
@@ -142,9 +142,10 @@ export const Global = createGlobalStyle`
     font-size: 1.2rem;
     border-radius: 0.2rem;
     letter-spacing: 0.5px;
-    background: #21252b; 
+    background: #13171F; 
     margin-bottom: 2vh;
-
+    width: 100%;
+    
     @media (max-width: 768px) {
       font-size: 1rem;
     }
@@ -160,7 +161,7 @@ export const Global = createGlobalStyle`
     font-size: 1.5rem;
 
     &::after {
-      background-color: #21252b;
+      background-color: #13171F;
       content: ' ';
       height: 45%;
       position: absolute;
