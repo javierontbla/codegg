@@ -18,7 +18,9 @@ const {
   firebase,
 } = colors;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  margin-top: -0.5rem;
+`;
 
 export const Time = styled.div`
   color: ${white};

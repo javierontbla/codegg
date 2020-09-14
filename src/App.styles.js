@@ -21,9 +21,13 @@ export const Global = createGlobalStyle`
     border-radius: 0.4rem;
     overflow: auto;
   }
+
+  b {
+    color: green;
+  }
   
   blockquote {
-    color: #d9d9d9;
+    color: #faf9f9;
     padding: 0.8rem;
     font-family: "Roboto", sans-serif;
     font-size: 1.5rem;
@@ -58,6 +62,7 @@ export const Global = createGlobalStyle`
     margin-bottom: 1vh;
     text-align: left;
     width: 100%;
+    line-height: 120%;
 
     @media (max-width: 500px) {
       font-size: 2rem;
@@ -107,7 +112,7 @@ export const Global = createGlobalStyle`
   }
 
   strong {
-    background: #13171F;
+    background: #10131a;
     border-radius: 0.2rem;
     padding-left: 0.3rem;
     padding-right: 0.3rem;
@@ -160,7 +165,7 @@ export const Global = createGlobalStyle`
     font-size: 1.5rem;
 
     &::after {
-      background-color: #13171F;
+      background-color: #10131a;
       content: ' ';
       height: 45%;
       position: absolute;

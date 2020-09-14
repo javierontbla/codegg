@@ -5,8 +5,8 @@ import { colors } from "../../colors/colors";
 const { darkBlack, darkBlue, white, grey } = colors;
 
 export const Title = styled.div`
-  font-family: "Abril Fatface", cursive;
-  font-size: 4.3rem;
+  font-family: "Bebas Neue", cursive;
+  font-size: 5.2rem;
   color: ${white};
   margin-top: 2vh;
   margin-bottom: 4vh;
@@ -14,9 +14,12 @@ export const Title = styled.div`
   text-align: center;
   width: 100%;
   text-transform: uppercase;
+  line-height: 120%;
 
   @media (max-width: 768px) {
-    font-size: 2.3rem;
+    font-size: 3.2rem;
+    text-align: left;
+    padding: 0.2rem;
   }
 `;
 
@@ -45,18 +48,20 @@ export const DateContainer = styled.div`
   font-size: 0.85rem;
   margin-bottom: 4vh;
   width: 100%;
+  padding-left: 0.2rem;
 `;
 
 export const Subtitle = styled.div`
-  font-family: "Abril Fatface", cursive;
-  font-size: 2.3rem;
+  font-family: "Bebas Neue", cursive;
+  font-size: 2.6rem;
   color: ${white};
   letter-spacing: 0.5px;
-  margin-bottom: 0.5vh;
   margin-top: 2vh;
+  margin-bottom: 1vh;
+  line-height: 120%;
 
   @media (max-width: 768px) {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
 `;
 
@@ -66,7 +71,7 @@ export const Content = styled.div`
   margin-bottom: 4vh;
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
-  line-height: 200%;
+  line-height: 150%;
 
   @media (max-width: 768px) {
     font-size: 1.2rem;

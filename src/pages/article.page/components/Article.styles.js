@@ -82,7 +82,7 @@ export const ReadTime = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: ${grey};
+  color: ${white};
   font-size: 0.95rem;
   font-family: "Abril Fatface", cursive;
   letter-spacing: 0.5px;

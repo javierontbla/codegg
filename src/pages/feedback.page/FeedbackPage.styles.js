@@ -38,9 +38,9 @@ export const ContactBlock = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: "Abril Fatface", cursive;
+  font-family: "Bebas Neue", cursive;
   color: ${white};
-  font-size: 2.3rem;
+  font-size: 3.4rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   height: fit-content;
@@ -49,14 +49,14 @@ export const Title = styled.div`
   padding: 0;
 
   @media (max-width: 768px) {
-    font-size: 1.7rem;
+    font-size: 2.4rem;
   }
 `;
 
 export const Subtitle = styled.div`
   height: fit-content;
   color: ${white};
-  font-family: "Abril Fatface", cursive;
+  font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -120,7 +120,7 @@ export const Button = styled.button`
   border: none;
   border: 2px solid ${darkBlack};
   background: transparent;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   color: ${white};
   transition: border 0.5s;
@@ -136,6 +136,10 @@ export const Button = styled.button`
 
   &:hover {
     border: 2px solid ${white};
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
   }
 `;
 
