@@ -9,7 +9,7 @@ export const Container = styled.div``;
 
 export const Title = styled.div`
   color: ${white};
-  font-size: 4.6rem;
+  font-size: 5.2rem;
   font-family: "Bebas Neue", cursive;
   text-align: center;
   margin-top: 4.4vh;
@@ -24,7 +24,7 @@ export const Title = styled.div`
   @media (max-width: 500px) {
     padding: 0.4rem;
     text-align: left;
-    font-size: 2.6rem;
+    font-size: 3.2rem;
     margin-top: 2.4vh;
     margin-bottom: 2vh;
   }

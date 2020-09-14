@@ -32,13 +32,12 @@ export const Global = createGlobalStyle`
     border-top-left-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
     letter-spacing: 0.5px;
-    background: #21252b; 
+    background: #13171F; 
     width: 100%;
     margin-bottom: 2vh;
 
     @media (max-width: 768px) {
       font-size: 1.2rem;
-      width: 100%;
     }
   }
 
