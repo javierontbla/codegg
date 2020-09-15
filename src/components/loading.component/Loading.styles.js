@@ -35,12 +35,12 @@ export const Container = styled.div`
   }
 
   &::before {
-    border-top: 10px solid ${darkBlue};
+    border-top: 10px solid ${darkBlack};
     transform: rotate(120deg);
   }
 
   &::after {
-    border-top: 10px solid ${darkBlue};
+    border-top: 10px solid ${darkBlack};
     transform: rotate(240deg);
   }
 `;

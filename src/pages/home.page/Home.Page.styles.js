@@ -46,7 +46,7 @@ export const LoadMore = styled.button`
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
   margin-top: 3rem;
-  margin-bottom: 3.9rem;
+  margin-bottom: 3.4rem;
   font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${white};
@@ -65,7 +65,7 @@ export const LoadMore = styled.button`
 
   @media (max-width: 768px) {
     margin-top: 2rem;
-    margin-bottom: 2.9rem;
+    margin-bottom: 2.4rem;
   }
 `;
 
