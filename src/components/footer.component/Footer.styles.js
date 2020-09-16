@@ -23,17 +23,17 @@ export const CompanyName = styled.div`
 `;
 
 export const Data = styled.div`
-  font-family: "Bebas Neue", cursive;
+  font-family: "Abril Fatface", cursive;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-top: 2px solid ${darkBlack};
   color: ${white};
   padding: 0.2rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.75rem;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
   }
@@ -55,7 +55,7 @@ export const Button = styled(Link)`
   opacity: 0.9;
 
   &&& {
-    font-size: 1.2rem;
+    font-size: 1rem;
     &::after {
       background-color: transparent;
       content: " ";
@@ -68,7 +68,7 @@ export const Button = styled(Link)`
     }
 
     @media (max-width: 768px) {
-      font-size: 1rem;
+      font-size: 0.75rem;
     }
   }
 

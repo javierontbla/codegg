@@ -68,8 +68,8 @@ export const Text = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: "Bebas Neue", cursive;
-  font-size: 2.6rem;
+  font-family: "VT323", monospace;
+  font-size: 2.3rem;
   letter-spacing: 0.5px;
   color: ${white};
   line-height: 120%;
@@ -103,7 +103,7 @@ export const Time = styled.div`
   color: ${white};
   font-size: 0.9rem;
   font-family: "Abril Fatface", cursive;
-  border-bottom: 2px solid ${darkBlack};
+  border-bottom: 2px solid #000000;
   letter-spacing: 0.5px;
 
   @media (max-width: 500px) {

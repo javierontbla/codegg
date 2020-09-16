@@ -9,24 +9,25 @@ export const Container = styled.div``;
 
 export const Title = styled.div`
   color: ${white};
-  font-size: 5.2rem;
-  font-family: "Bebas Neue", cursive;
+  font-size: 4.5rem;
+  font-family: "VT323", monospace;
   text-align: center;
-  margin-top: 4.4vh;
-  letter-spacing: 0.5px;
-  margin-bottom: 4vh;
+  margin: 0 auto;
+  margin-top: 2vh;
+  margin-bottom: 6vh;
   opacity: 0.95;
   text-transform: normal;
   padding: 1rem;
   height: fit-content;
   line-height: 120%;
+  width: 60%;
+  letter-spacing: 0.5px;
 
   @media (max-width: 500px) {
     padding: 0.4rem;
     text-align: left;
-    font-size: 3.2rem;
-    margin-top: 2.4vh;
-    margin-bottom: 2vh;
+    font-size: 3.5rem;
+    width: 100%;
   }
 `;
 
@@ -35,6 +36,8 @@ export const AuthorContainer = styled.div`
   border: 2px solid ${darkBlack};
   border-radius: 0.2rem;
   padding: 0.4rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   letter-spacing: 0.5px;
   color: ${darkBlue};
@@ -65,6 +68,7 @@ export const InfoContainer = styled.div`
 
 export const Author = styled.div`
   font-size: 1.4rem;
+  letter-spacing: 0.5px;
   @media (max-width: 768px) {
     font-size: 1.3rem;
   }

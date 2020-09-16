@@ -44,13 +44,12 @@ export const Logo = styled.div`
   ${Center};
   width: 27.5vw;
   justify-content: flex-start;
-  opacity: 0.9;
   padding-left: 1.5rem;
   letter-spacing: 0.5px;
 
   &:hover {
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.9;
   }
 
   @media (max-width: 768px) {
@@ -82,7 +81,6 @@ export const SocialMedia = styled.div`
   align-items: center;
   width: 27.5vw;
   padding-right: 1.5rem;
-  opacity: 0.9;
 
   @media (max-width: 768px) {
     padding-right: 1rem;
@@ -98,7 +96,7 @@ export const MediaIcon = styled(FontAwesomeIcon)`
 
   &:hover {
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.9;
   }
 
   @media (max-width: 768px) {
@@ -143,11 +141,11 @@ export const Img = styled.img`
 
 export const Text = styled.div`
   font-family: "Abril Fatface", cursive;
-  text-transform: uppercase;
   font-size: 2.2rem;
   color: ${darkBlue} !important;
   background: transparent !important;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
 `;
 
 export const External = styled.a`

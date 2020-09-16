@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const Global = createGlobalStyle`
   body {
-    background-color: #20272e;
+    background-color: #1e232b;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -36,7 +36,7 @@ export const Global = createGlobalStyle`
     border-top-left-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
     letter-spacing: 0.5px;
-    background: #13171F; 
+    background: #000000; 
     width: 100%;
     margin-bottom: 2vh;
 
@@ -56,8 +56,8 @@ export const Global = createGlobalStyle`
 
   h1 {
     color: #faf9f9;
-    font-family: "Bebas Neue", cursive;
-    font-size: 2.6rem;
+    font-family: "VT323", monospace;
+    font-size: 2.8rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
     text-align: left;
@@ -65,7 +65,7 @@ export const Global = createGlobalStyle`
     line-height: 120%;
 
     @media (max-width: 500px) {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 1vh;
     }
   }
@@ -112,11 +112,11 @@ export const Global = createGlobalStyle`
   }
 
   strong {
-    background: #10131a;
+    background: #ffd933;
     border-radius: 0.2rem;
     padding-left: 0.3rem;
     padding-right: 0.3rem;
-    color: #faf9f9;
+    color: #000000;
     font-weight: normal;
   }
 
@@ -146,7 +146,7 @@ export const Global = createGlobalStyle`
     font-size: 1.2rem;
     border-radius: 0.2rem;
     letter-spacing: 0.5px;
-    background: #13171F; 
+    background: #000000; 
     margin-bottom: 2vh;
     width: 100%;
     
@@ -165,29 +165,31 @@ export const Global = createGlobalStyle`
     font-size: 1.5rem;
 
     &::after {
-      background-color: #10131a;
+      background: #fad530;
       content: ' ';
-      height: 45%;
+      height: 30%;
       position: absolute;
       left: 0;
-      top: 65%;
+      top: 90%;
       width: calc(100%);
       z-index:-1;
+      transition: top 0.25s, height 0.25s;
+      border-radius: 0.2rem;
     }
 
     &:hover {
-      color: #faf9f9;
+      color: #000000;
       text-decoration: none;
-
+      
       &::after {
-      background-color: #076bcf;
+      background-color: #fad530;
       content: ' ';
-      height: 45%;
+      height: 100%;
       position: absolute;
       left: 0;
-      top: 65%;
+      top: 0%;
       width: calc(100%);
-      z-index:-1;
+      z-index: -1;
     }
     }
 

@@ -27,13 +27,13 @@ export const Time = styled.div`
   border-bottom: 2px solid ${darkBlack};
   margin-top: 3.5vh;
   padding: 0.2rem;
-  font-family: "Bebas Neue", cursive;
-  font-size: 1.4rem;
+  font-family: "Abril Fatface", cursive;
+  font-size: 1rem;
   opacity: 0.9;
   letter-spacing: 0.5px;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
 `;
 
