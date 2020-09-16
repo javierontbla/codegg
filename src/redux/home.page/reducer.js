@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   loading: true,
   noMorePosts: false,
   unfilteredArticles: [],
-  filteredArticles: {},
+  filteredArticles: [],
   currentTag: [],
   availableTags: [],
   lastFiltered: null,

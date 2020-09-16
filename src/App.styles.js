@@ -17,7 +17,7 @@ export const Global = createGlobalStyle`
   }
 
   body::-webkit-scrollbar-thumb {
-    background-color: #13171F;
+    background-color: #10131a;
     border-radius: 0.4rem;
     overflow: auto;
   }

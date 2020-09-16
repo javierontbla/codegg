@@ -16,6 +16,7 @@ import {
   insertTagRedux,
   deleteTagRedux,
   noMorePostsStart,
+  fetchFilteredArticlesSuccess,
 } from "../../redux/home.page/actions";
 import {
   Container,
@@ -48,6 +49,7 @@ const HomePage = ({
   deleteTag,
   stopFetching,
   noMorePosts,
+  emptyFilteredArticles,
 }) => {
   useEffect(() => {
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
@@ -105,11 +107,7 @@ const HomePage = ({
   const removeTag = (tag) => {
     // function to remove articles from main array when tag clicked
     deleteTag(tag);
-    for (const article in filteredArticles) {
-      if (filteredArticles[article].tags.includes(tag)) {
-        delete filteredArticles[article];
-      }
-    }
+    emptyFilteredArticles([]);
   };
 
   return (
@@ -151,7 +149,7 @@ const HomePage = ({
         </Tags>
       ) : null}
       {!loading && !error ? (
-        Object.entries(filteredArticles).length === 0 ? (
+        filteredArticles.length === 0 ? (
           <>
             <Container>
               <Masonry
@@ -181,7 +179,7 @@ const HomePage = ({
               )}
             </ButtonContainer>
           </>
-        ) : Object.entries(filteredArticles).length > 0 ? (
+        ) : filteredArticles.length > 0 ? (
           <>
             <Container>
               <Masonry
@@ -189,13 +187,13 @@ const HomePage = ({
                 className="mansonry-grid"
                 columnClassName="mansonry-grid-column"
               >
-                {Object.entries(filteredArticles).map((article) => {
+                {filteredArticles.map((article) => {
                   return (
                     <Thumbnail
                       search={(tag) => sendQueryBtn(tag)}
                       key={article[0]}
-                      data={article[1]}
-                      id={article[0]}
+                      data={article[0]}
+                      id={article[1]}
                     />
                   );
                 })}
@@ -255,6 +253,7 @@ const mapDispatchToProps = (dispatch) => ({
   insertTag: (tag) => dispatch(insertTagRedux(tag)),
   deleteTag: (tag) => dispatch(deleteTagRedux(tag)),
   stopFetching: () => dispatch(noMorePostsStart()),
+  emptyFilteredArticles: (arr) => dispatch(fetchFilteredArticlesSuccess(arr)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

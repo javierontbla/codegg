@@ -143,23 +143,6 @@ export const Button = styled.button`
   }
 `;
 
-export const Img = styled.div`
-  width: 380px;
-  height: 225px;
-  background-size: cover;
-  background-position: center;
-  background-image: url(${(props) => props.src});
-  background-repeat: no-repeat;
-  opacity: 0.9;
-  margin-left: -1vw;
-
-  @media (max-width: 768px) {
-    width: 280px;
-    height: 130px;
-    margin-left: 0;
-  }
-`;
-
 export const Buttons = styled.div`
   width: 100%;
   display: flex;

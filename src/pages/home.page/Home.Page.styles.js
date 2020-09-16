@@ -19,7 +19,7 @@ const {
 } = colors;
 
 export const Container = styled.div`
-  margin-top: -0.5rem;
+  margin-top: -0.4rem;
 `;
 
 export const Time = styled.div`

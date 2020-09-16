@@ -15,7 +15,6 @@ import {
   Buttons,
   Button,
   Alert,
-  Img,
   Icon,
   MessageWrapper,
 } from "./FeedbackPage.styles";

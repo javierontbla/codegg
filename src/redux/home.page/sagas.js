@@ -18,7 +18,7 @@ function* fetchUnfilteredAsync() {
   const articlesRef = db
     .collection(`articulos`)
     .orderBy("fecha", "desc")
-    .limit(1);
+    .limit(6);
   // inital fetch from firebase
   try {
     const res = yield articlesRef.get({ source: "server" }).then((snapshot) => {
@@ -43,7 +43,7 @@ function* fetchFilteredAsync(action) {
   // geting the input from the button the user clicked
   const { previousArticles, input } = action.payload;
   const inputRef = db
-    .collection(`articulos`)
+    .collection("articulos")
     .where("tags", "array-contains", `${input}`)
     .orderBy("fecha", "desc")
     .limit(1);
@@ -55,16 +55,15 @@ function* fetchFilteredAsync(action) {
         // we get the last doc from the collection, for future fetching
         // in case user wants to load more posts
         const lastRef = snapshot.docs[snapshot.docs.length - 1];
-        snapshot.forEach(
-          (article) => (previousArticles[article.id] = article.data())
-        );
+
+        snapshot.forEach((doc) => previousArticles.push([doc.data(), doc.id]));
         return lastRef;
       });
+    yield console.log(previousArticles);
     // firing succesful actions to store data on reducer
     yield put(storeLastFilteredElement(lastElement));
     yield put(fetchFilteredArticlesSuccess(previousArticles));
   } catch (error) {
-    yield console.log(error);
     yield put(fetchFilteredArticlesFailure(error));
   }
 }
@@ -75,7 +74,7 @@ function* fetchMoreUnfilteredAsync(action) {
     .collection(`articulos`)
     .orderBy("fecha", "desc")
     .startAfter(lastElement)
-    .limit(1);
+    .limit(3);
 
   try {
     const res = yield articlesRef.get({ source: "server" }).then((snapshot) => {
@@ -109,7 +108,7 @@ function* fetchMoreFilteredAsync(action) {
     const res = yield filteredRef.get({ source: "server" }).then((snapshot) => {
       // getting last element again for load more button
       const lastRef = snapshot.docs[snapshot.docs.length - 1];
-      snapshot.forEach((doc) => (previousArticles[doc.id] = doc.data()));
+      snapshot.forEach((doc) => previousArticles.push([doc.data(), doc.id]));
       return lastRef;
     });
 
