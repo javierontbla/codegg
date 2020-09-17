@@ -9,15 +9,15 @@ export const Global = createGlobalStyle`
   }
 
   body::-webkit-scrollbar {
-    width: 0.6em;
+    width: 0.6rem;
   }
 
   body::-webkit-scrollbar-track {
-    background-color: #20272e;
+    background-color: #1e232b;
   }
 
   body::-webkit-scrollbar-thumb {
-    background-color: #10131a;
+    background-color: #000000;
     border-radius: 0.4rem;
     overflow: auto;
   }

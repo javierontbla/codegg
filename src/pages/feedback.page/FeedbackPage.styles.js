@@ -38,9 +38,9 @@ export const ContactBlock = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: "Bebas Neue", cursive;
+  font-family: "VT323", monospace;
   color: ${white};
-  font-size: 3.4rem;
+  font-size: 4.4rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   height: fit-content;

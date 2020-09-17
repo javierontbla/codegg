@@ -127,8 +127,8 @@ export const LinkContainer = styled(Link)`
 export const Img = styled.img`
   margin: 0;
   margin-right: 0.3rem;
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
 
   &:hover {
     text-decoration: none;
