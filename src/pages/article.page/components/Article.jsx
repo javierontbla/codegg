@@ -24,6 +24,7 @@ const Article = ({ article }) => {
   useEffect(() => {
     moment.locale("es");
   }, []);
+
   return (
     <>
       <Container>

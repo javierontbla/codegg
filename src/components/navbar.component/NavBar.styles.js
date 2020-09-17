@@ -127,14 +127,14 @@ export const LinkContainer = styled(Link)`
 export const Img = styled.img`
   margin: 0;
   margin-right: 0.3rem;
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
 
   &:hover {
     text-decoration: none;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     display: none;
   }
 `;

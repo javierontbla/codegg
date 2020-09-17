@@ -5,11 +5,11 @@ import { colors } from "../../colors/colors";
 const { darkBlack, darkBlue, white, grey } = colors;
 
 export const Title = styled.div`
-  font-family: "Bebas Neue", cursive;
-  font-size: 5.2rem;
+  font-family: "VT323", monospace;
+  font-size: 4.5rem;
   color: ${white};
   margin-top: 2vh;
-  margin-bottom: 4vh;
+  margin-bottom: 6vh;
   letter-spacing: 0.5px;
   text-align: center;
   width: 100%;
@@ -17,7 +17,7 @@ export const Title = styled.div`
   line-height: 120%;
 
   @media (max-width: 768px) {
-    font-size: 3.2rem;
+    font-size: 3.5rem;
     text-align: left;
     padding: 0.2rem;
   }
@@ -52,8 +52,8 @@ export const DateContainer = styled.div`
 `;
 
 export const Subtitle = styled.div`
-  font-family: "Bebas Neue", cursive;
-  font-size: 2.6rem;
+  font-family: "VT323", monospace;
+  font-size: 2.8rem;
   color: ${white};
   letter-spacing: 0.5px;
   margin-top: 2vh;
@@ -61,7 +61,7 @@ export const Subtitle = styled.div`
   line-height: 120%;
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 `;
 

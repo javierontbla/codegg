@@ -65,7 +65,7 @@ export const Global = createGlobalStyle`
     line-height: 120%;
 
     @media (max-width: 500px) {
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       margin-bottom: 1vh;
     }
   }

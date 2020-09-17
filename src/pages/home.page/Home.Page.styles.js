@@ -31,10 +31,6 @@ export const Time = styled.div`
   font-size: 1rem;
   opacity: 0.9;
   letter-spacing: 0.5px;
-
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
-  }
 `;
 
 export const LoadMore = styled.button`
@@ -223,7 +219,7 @@ export const Message = styled.div`
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
   margin-top: 3rem;
-  margin-bottom: 3.9rem;
+  margin-bottom: 3.4rem;
   font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${white};
@@ -234,6 +230,6 @@ export const Message = styled.div`
   @media (max-width: 768px) {
     width: fit-content;
     margin-top: 2rem;
-    margin-bottom: 2.9rem;
+    margin-bottom: 2.4rem;
   }
 `;
