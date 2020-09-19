@@ -4,6 +4,11 @@ import { colors } from "../../colors/colors";
 
 const { darkBlack, darkBlue, white, grey } = colors;
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4vh;
+`;
 export const Title = styled.div`
   font-family: "VT323", monospace;
   font-size: 4.5rem;
@@ -13,7 +18,6 @@ export const Title = styled.div`
   letter-spacing: 0.5px;
   text-align: center;
   width: 100%;
-  text-transform: uppercase;
   line-height: 120%;
 
   @media (max-width: 768px) {

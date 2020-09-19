@@ -5,7 +5,9 @@ import { colors } from "../../../colors/colors";
 
 const { darkBlack, darkBlue, white, grey } = colors;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  margin-bottom: 6vh;
+`;
 
 export const Title = styled.div`
   color: ${white};

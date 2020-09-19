@@ -1,5 +1,5 @@
 import React from "react";
-import { faComments } from "@fortawesome/free-solid-svg-icons";
+import { faCommentAlt } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import icon from "./logo.icon.svg";
@@ -31,7 +31,7 @@ const NavBar = () => {
         <PhraseContainer />
         <SocialMedia>
           <LinkContainer to="/feedback">
-            <MediaIcon icon={faComments} comment={"true"} />
+            <MediaIcon icon={faCommentAlt} comment={"true"} />
           </LinkContainer>
           <External href="https://twitter.com/avgguido">
             <MediaIcon icon={faTwitter} />

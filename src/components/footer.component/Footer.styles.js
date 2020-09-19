@@ -23,17 +23,17 @@ export const CompanyName = styled.div`
 `;
 
 export const Data = styled.div`
-  font-family: "Abril Fatface", cursive;
+  font-family: "VT323", monospace;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-top: 2px solid ${darkBlack};
   color: ${white};
   padding: 0.2rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
 
-  @media (max-width: 768px) {
-    font-size: 0.75rem;
+  @media (max-width: 500px) {
+    font-size: 0.9rem;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
   }
@@ -55,7 +55,7 @@ export const Button = styled(Link)`
   opacity: 0.9;
 
   &&& {
-    font-size: 1rem;
+    font-size: 1.5rem;
     &::after {
       background-color: transparent;
       content: " ";
@@ -67,8 +67,8 @@ export const Button = styled(Link)`
       z-index: -1;
     }
 
-    @media (max-width: 768px) {
-      font-size: 0.75rem;
+    @media (max-width: 500px) {
+      font-size: 0.9rem;
     }
   }
 
@@ -77,5 +77,18 @@ export const Button = styled(Link)`
     text-decoration: none !important;
     cursor: pointer !important;
     color: ${white} !important;
+  }
+`;
+
+export const Copyright = styled.div`
+  width: fit-content;
+  height: fit-content;
+  font-size: 1.1rem;
+  font-family: "Roboto", sans-serif;
+  margin-right: 0.3rem;
+
+  @media (max-width: 500px) {
+    margin-right: 0.2rem;
+    font-size: 0.8rem;
   }
 `;

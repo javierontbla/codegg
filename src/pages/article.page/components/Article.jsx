@@ -23,6 +23,7 @@ import {
 const Article = ({ article }) => {
   useEffect(() => {
     moment.locale("es");
+    document.title = `${article.tituloArticulo}`;
   }, []);
 
   return (

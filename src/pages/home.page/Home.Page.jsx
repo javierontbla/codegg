@@ -53,6 +53,7 @@ const HomePage = ({
 }) => {
   useEffect(() => {
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
+    document.title = `avgguido`;
     moment.locale("es");
   }, []);
 

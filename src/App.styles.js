@@ -174,7 +174,6 @@ export const Global = createGlobalStyle`
       width: calc(100%);
       z-index:-1;
       transition: top 0.25s, height 0.25s;
-      border-radius: 0.2rem;
     }
 
     &:hover {
@@ -190,7 +189,7 @@ export const Global = createGlobalStyle`
       top: 0%;
       width: calc(100%);
       z-index: -1;
-    }
+      }
     }
 
     @media (max-width: 768px) {

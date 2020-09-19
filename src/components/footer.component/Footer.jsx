@@ -3,7 +3,13 @@ import { connect } from "react-redux";
 
 import { FooterContainer } from "./Footer.styles";
 
-import { CompanyName, PrivacyPolicy, Data, Button } from "./Footer.styles";
+import {
+  CompanyName,
+  PrivacyPolicy,
+  Data,
+  Button,
+  Copyright,
+} from "./Footer.styles";
 
 const Footer = ({ error }) => {
   return (
@@ -12,7 +18,9 @@ const Footer = ({ error }) => {
         <div className="container">
           <FooterContainer>
             <Data>
-              <CompanyName>© 2019-2020 avgguido.com</CompanyName>
+              <CompanyName>
+                <Copyright>©</Copyright> 2019-2020 avgguido.com
+              </CompanyName>
               <PrivacyPolicy>
                 <Button to="/privacidad">Política de Privacidad</Button>
               </PrivacyPolicy>

@@ -92,15 +92,17 @@ export const SocialMedia = styled.div`
 export const MediaIcon = styled(FontAwesomeIcon)`
   font-size: ${(props) => (props.comment ? "1.6rem" : "1.9rem")};
   color: ${darkBlue};
-  margin-right: ${(props) => (props.comment ? "1rem" : "")};
+  margin-right: ${(props) => (props.comment ? "1.2rem" : "")};
+  margin-top: ${(props) => (props.comment ? "0.2rem" : "")};
 
   &:hover {
     cursor: pointer;
     opacity: 0.9;
   }
 
-  @media (max-width: 768px) {
-    margin-right: ${(props) => (props.comment ? "0.8rem" : "")};
+  @media (max-width: 500px) {
+    margin-right: ${(props) => (props.comment ? "0.9rem" : "")};
+    margin-top: ${(props) => (props.comment ? "0.2rem" : "")};
   }
 `;
 
@@ -126,9 +128,9 @@ export const LinkContainer = styled(Link)`
 
 export const Img = styled.img`
   margin: 0;
-  margin-right: 0.3rem;
-  width: 60px;
-  height: 60px;
+  margin-right: 0.4rem;
+  width: 56px;
+  height: 56px;
 
   &:hover {
     text-decoration: none;

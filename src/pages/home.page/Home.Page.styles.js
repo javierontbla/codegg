@@ -27,8 +27,8 @@ export const Time = styled.div`
   border-bottom: 2px solid ${darkBlack};
   margin-top: 3.5vh;
   padding: 0.2rem;
-  font-family: "Abril Fatface", cursive;
-  font-size: 1rem;
+  font-family: "VT323", monospace;
+  font-size: 1.5rem;
   opacity: 0.9;
   letter-spacing: 0.5px;
 `;
@@ -59,7 +59,7 @@ export const LoadMore = styled.button`
     outline: none;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     margin-top: 2rem;
     margin-bottom: 2.4rem;
   }
@@ -205,7 +205,7 @@ export const Tag = styled.div`
     opacity: ${(props) => (props.search ? "0.9" : "1")};
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     font-size: 1.1rem;
   }
 `;

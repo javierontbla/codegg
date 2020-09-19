@@ -1,8 +1,5 @@
-import React, { useState } from "react";
-import {
-  faExclamationCircle,
-  faEnvelope,
-} from "@fortawesome/free-solid-svg-icons";
+import React, { useState, useEffect } from "react";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 
 import {
@@ -27,6 +24,10 @@ const FeedbackPage = ({ sendForm, error }) => {
   const [message, setMessage] = useState("");
   const [icon, setIcon] = useState(null);
 
+  useEffect(() => {
+    document.title = `Feedback`;
+  }, []);
+
   const handleEmail = (e) => setEmail(e);
   const handleComment = (e) => setComment(e);
 
@@ -43,8 +44,8 @@ const FeedbackPage = ({ sendForm, error }) => {
         sendForm({ email, comment });
         setEmail("");
         setComment("");
-        setIcon(faEnvelope);
-        setMessage("Enviado");
+        setIcon(null);
+        setMessage("¡Enviado!");
         setDisplay(true);
       }
     } else {
@@ -71,7 +72,7 @@ const FeedbackPage = ({ sendForm, error }) => {
             value={comment}
           />
           <Buttons>
-            <Button onClick={() => submitForm()}>ENVIAR</Button>
+            <Button onClick={() => submitForm()}>Enviar</Button>
             {display ? (
               !error ? (
                 <MessageWrapper>
