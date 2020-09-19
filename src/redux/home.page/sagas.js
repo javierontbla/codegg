@@ -59,7 +59,6 @@ function* fetchFilteredAsync(action) {
         snapshot.forEach((doc) => previousArticles.push([doc.data(), doc.id]));
         return lastRef;
       });
-    yield console.log(previousArticles);
     // firing succesful actions to store data on reducer
     yield put(storeLastFilteredElement(lastElement));
     yield put(fetchFilteredArticlesSuccess(previousArticles));
