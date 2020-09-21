@@ -53,7 +53,7 @@ const HomePage = ({
 }) => {
   useEffect(() => {
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
-    document.title = `avgguido`;
+    document.title = `codegg.tech | Código Simplificado`;
     moment.locale("es");
   }, []);
 

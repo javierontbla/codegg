@@ -36,12 +36,12 @@ export const Author = styled.div`
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   letter-spacing: 0.5px;
   color: ${darkBlue};
-  font-family: "Abril Fatface", cursive;
+  font-family: "Space Mono", monospace;
   text-transform: uppercase;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 
   @media (max-width: 768px) {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 `;
 

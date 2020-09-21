@@ -19,13 +19,13 @@ const PrivacyPolicy = () => {
     <>
       <Wrapper>
         <Title>Política de Privacidad</Title>
-        <Author>avgguido</Author>
+        <Author>codegg</Author>
         <DateContainer>Fecha Efectiva: 1 de septiembre de 2020</DateContainer>
         <Subtitle>
           Lea cuidadosamente antes de utilizar nuestro sitio web
         </Subtitle>
         <Content>
-          Al utilizar <Bold>avgguido.com</Bold> usted está aceptando nuestra
+          Al utilizar <Bold>codegg.tech</Bold> usted está aceptando nuestra
           política de privacidad expuesta en este sitio web. Nuestra política de
           privacidad detalla de manera explícita la forma en la que efectuamos
           la recolección de sus datos personales dentro del sitio web. Esto nos
@@ -33,7 +33,7 @@ const PrivacyPolicy = () => {
         </Content>
         <Subtitle>Recolección de Información Personal</Subtitle>
         <Content>
-          En <Bold>avgguido.com</Bold> la recolección de sus datos personales se
+          En <Bold>codegg.tech</Bold> la recolección de sus datos personales se
           genera a partir de sus interacciones con el sitio web y la información
           recolectada se limita a:
           <ul>
@@ -57,17 +57,17 @@ const PrivacyPolicy = () => {
         </Content>
         <Subtitle>Monitoreo del Sitio Web</Subtitle>
         <Content>
-          El sitio web <Bold>avgguido.com</Bold> hace uso de servicios de
+          El sitio web <Bold>codegg.tech</Bold> hace uso de servicios de
           hardware, infraestructura de redes, almacenamiento, alojamiento web y
           otras tecnologías de terceros empleadas para ofrecer una experiencia
           óptima dentro del sitio web. Al hacer uso de la plataforma, usted
-          autoriza a <Bold>avgguido.com</Bold> de transferir, almacenar y hacer
+          autoriza a <Bold>codegg.tech</Bold> de transferir, almacenar y hacer
           uso de su información recolectada en México y cualquier otro país
           donde operemos.
         </Content>
         <Subtitle>Seguridad</Subtitle>
         <Content>
-          En el sitio web <Bold>avgguido.com</Bold> utilizamos encriptación{" "}
+          En el sitio web <Bold>codegg.tech</Bold> utilizamos encriptación{" "}
           <Bold>(HTTPS/SSL)</Bold> para proteger la transferencia de información
           sensible, sin embargo, la transferencia de información cien por ciento
           segura no puede ser garantizada. Usted utiliza esta plataforma bajo su

@@ -19,7 +19,7 @@ const Footer = ({ error }) => {
           <FooterContainer>
             <Data>
               <CompanyName>
-                <Copyright>©</Copyright> 2019-2020 avgguido.com
+                <Copyright>©</Copyright>2019-2020 codegg.tech
               </CompanyName>
               <PrivacyPolicy>
                 <Button to="/privacidad">Política de Privacidad</Button>

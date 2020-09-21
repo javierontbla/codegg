@@ -2,7 +2,7 @@ import React from "react";
 import { faCommentAlt } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-import icon from "./logo.icon.svg";
+import icon from "./codegg.logo.svg";
 
 import {
   Navbar,
@@ -25,7 +25,7 @@ const NavBar = () => {
             <Img src={icon} />{" "}
           </LinkContainer>
           <LinkContainer to="/">
-            <Text>avgguido</Text>
+            <Text>codegg</Text>
           </LinkContainer>
         </Logo>
         <PhraseContainer />
@@ -33,7 +33,7 @@ const NavBar = () => {
           <LinkContainer to="/feedback">
             <MediaIcon icon={faCommentAlt} comment={"true"} />
           </LinkContainer>
-          <External href="https://twitter.com/avgguido">
+          <External href="https://twitter.com/codegg_official">
             <MediaIcon icon={faTwitter} />
           </External>
         </SocialMedia>

@@ -63,7 +63,6 @@ export const PhraseContainer = styled.div`
   height: 100%;
   width: 40vw;
   justify-content: center;
-  font-family: "Reenie Beanie", cursive;
   font-size: 2.4rem;
   color: ${yellow};
   padding-top: 0.5rem;
@@ -128,9 +127,9 @@ export const LinkContainer = styled(Link)`
 
 export const Img = styled.img`
   margin: 0;
-  margin-right: 0.4rem;
-  width: 56px;
-  height: 56px;
+  margin-right: 0.6rem;
+  width: 50px;
+  height: 50px;
 
   &:hover {
     text-decoration: none;
@@ -142,8 +141,8 @@ export const Img = styled.img`
 `;
 
 export const Text = styled.div`
-  font-family: "Abril Fatface", cursive;
-  font-size: 2.2rem;
+  font-family: "Space Mono", monospace;
+  font-size: 2.4rem;
   color: ${darkBlue} !important;
   background: transparent !important;
   letter-spacing: 0.5px;

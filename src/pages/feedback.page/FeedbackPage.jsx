@@ -68,7 +68,7 @@ const FeedbackPage = ({ sendForm, error }) => {
           />
           <Comment
             onChange={(e) => handleComment(e.target.value)}
-            placeholder="¿Qué podemos mejorar de la plataforma?"
+            placeholder="¿Qué podemos mejorar en codegg.tech?"
             value={comment}
           />
           <Buttons>

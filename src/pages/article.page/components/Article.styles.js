@@ -43,7 +43,7 @@ export const AuthorContainer = styled.div`
   box-shadow: 0.4rem 0.4rem ${darkBlack};
   letter-spacing: 0.5px;
   color: ${darkBlue};
-  font-family: "Abril Fatface", cursive;
+  font-family: "Space Mono", monospace;
   text-transform: uppercase;
   margin-left: 0.9rem;
 
@@ -61,7 +61,6 @@ export const InfoContainer = styled.div`
   margin-bottom: 4vh;
   letter-spacing: 0.5px;
   color: ${white};
-  font-family: "Abril Fatface", cursive;
 
   @media (max-width: 768px) {
     padding-left: 0.25rem;
@@ -69,10 +68,10 @@ export const InfoContainer = styled.div`
 `;
 
 export const Author = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   letter-spacing: 0.5px;
   @media (max-width: 768px) {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -82,6 +81,7 @@ export const Date = styled.div`
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.5px;
   text-decoration: underline;
+  margin-bottom: 0.8rem;
 `;
 
 export const ReadTime = styled.div`
@@ -89,10 +89,9 @@ export const ReadTime = styled.div`
   flex-direction: row;
   align-items: center;
   color: ${white};
-  font-size: 0.95rem;
-  font-family: "Abril Fatface", cursive;
+  font-size: 0.9rem;
+  font-family: "Space Mono", monospace;
   letter-spacing: 0.5px;
-  margin-top: 0.4rem;
 `;
 
 export const Body = styled.div`
@@ -106,12 +105,7 @@ export const Body = styled.div`
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
-  margin-right: 0.4rem;
+  margin-right: 0.6rem;
   font-size: 0.75rem;
   color: ${white};
-`;
-
-export const Test = styled.a`
-  color: green;
-  background: white;
 `;

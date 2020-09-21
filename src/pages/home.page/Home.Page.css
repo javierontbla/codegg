@@ -6,18 +6,28 @@
 }
 .mansonry-grid-column {
   background-clip: padding-box;
-  margin-left: 0.7rem;
-  margin-right: 0.7rem;
+  margin-left: 0.8rem;
+  margin-right: 1.2rem;
 }
 
 .mansonry-grid-column > div {
   background: transparent;
-  margin-top: 1.4rem;
+  margin-top: 1.6rem;
 }
 
 @media (max-width: 500px) {
   .mansonry-grid-column {
     margin-left: 0.4rem;
-    margin-right: 0.4rem;
+    margin-right: 0.8rem;
+  }
+
+  .mansonry-grid-column > div:first-child {
+    background: transparent;
+    margin-top: 0.9rem;
+  }
+
+  .mansonry-grid-column > div {
+    background: transparent;
+    margin-top: 1.6rem;
   }
 }

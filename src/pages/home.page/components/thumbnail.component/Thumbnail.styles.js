@@ -102,7 +102,7 @@ export const Time = styled.div`
   margin-bottom: 0.3rem;
   color: ${white};
   font-size: 0.9rem;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Space Mono", monospace;
   border-bottom: 2px solid #000000;
   letter-spacing: 0.5px;
 
@@ -120,8 +120,9 @@ export const Tags = styled.div`
   padding-bottom: ${(props) => (props.post ? "1rem" : "0.6rem")};
   padding-left: ${(props) => (props.post ? "0.5rem" : "0.2rem")};
   padding-right: 0.2rem;
+  margin-left: ${(props) => (props.post ? "0.1rem" : "")};
 
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     padding-left: ${(props) => (props.post ? "0rem" : "")};
     margin-left: ${(props) => (props.post ? "-0.2rem" : "")};
   }
@@ -213,7 +214,8 @@ export const Date = styled.div`
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
-  margin-right: 0.4rem;
+  margin-right: 0.6rem;
   font-size: 0.75rem;
+  margin-bottom: 0.05rem;
   color: ${white};
 `;

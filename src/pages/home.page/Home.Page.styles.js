@@ -18,19 +18,21 @@ const {
   firebase,
 } = colors;
 
-export const Container = styled.div`
-  margin-top: -0.4rem;
-`;
+export const Container = styled.div``;
 
 export const Time = styled.div`
   color: ${white};
   border-bottom: 2px solid ${darkBlack};
   margin-top: 3.5vh;
-  padding: 0.2rem;
-  font-family: "VT323", monospace;
-  font-size: 1.5rem;
+  padding: 0.4rem;
+  font-family: "Space Mono", monospace;
+  font-size: 1.1rem;
   opacity: 0.9;
   letter-spacing: 0.5px;
+
+  @media (max-width: 500px) {
+    font-size: 1rem;
+  }
 `;
 
 export const LoadMore = styled.button`

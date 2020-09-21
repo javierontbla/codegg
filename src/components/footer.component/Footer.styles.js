@@ -23,17 +23,17 @@ export const CompanyName = styled.div`
 `;
 
 export const Data = styled.div`
-  font-family: "VT323", monospace;
+  font-family: "Space Mono", monospace;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-top: 2px solid ${darkBlack};
   color: ${white};
   padding: 0.2rem;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 
   @media (max-width: 500px) {
-    font-size: 0.9rem;
+    font-size: 0.65rem;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
   }
@@ -55,7 +55,7 @@ export const Button = styled(Link)`
   opacity: 0.9;
 
   &&& {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     &::after {
       background-color: transparent;
       content: " ";
@@ -68,7 +68,7 @@ export const Button = styled(Link)`
     }
 
     @media (max-width: 500px) {
-      font-size: 0.9rem;
+      font-size: 0.65rem;
     }
   }
 
@@ -83,9 +83,10 @@ export const Button = styled(Link)`
 export const Copyright = styled.div`
   width: fit-content;
   height: fit-content;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: "Roboto", sans-serif;
   margin-right: 0.3rem;
+  padding-top: 0.1rem;
 
   @media (max-width: 500px) {
     margin-right: 0.2rem;
