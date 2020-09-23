@@ -25,7 +25,7 @@ const FeedbackPage = ({ sendForm, error }) => {
   const [icon, setIcon] = useState(null);
 
   useEffect(() => {
-    document.title = `Feedback`;
+    document.title = `codegg.tech | Feedback`;
   }, []);
 
   const handleEmail = (e) => setEmail(e);

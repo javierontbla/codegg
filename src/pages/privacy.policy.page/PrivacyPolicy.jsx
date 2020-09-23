@@ -13,7 +13,7 @@ import {
 const PrivacyPolicy = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = `Política de Privacidad`;
+    document.title = `codegg.tech | Política de Privacidad`;
   }, []);
   return (
     <>
