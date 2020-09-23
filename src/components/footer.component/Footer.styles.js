@@ -91,5 +91,6 @@ export const Copyright = styled.div`
   @media (max-width: 500px) {
     margin-right: 0.2rem;
     font-size: 0.8rem;
+    padding-top: 0rem;
   }
 `;
