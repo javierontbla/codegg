@@ -25,7 +25,7 @@ const NavBar = () => {
             <Img src={icon} />{" "}
           </LinkContainer>
           <LinkContainer to="/">
-            <Text>codegg</Text>
+            <Text>codegg.</Text>
           </LinkContainer>
         </Logo>
         <PhraseContainer />
