@@ -65,7 +65,7 @@ export const Subtitle = styled.div`
   line-height: 120%;
 
   @media (max-width: 768px) {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
   }
 `;
 
