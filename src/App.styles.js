@@ -40,7 +40,7 @@ export const Global = createGlobalStyle`
     width: 100%;
     margin-bottom: 2vh;
 
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
       font-size: 1.2rem;
     }
   }
@@ -50,8 +50,12 @@ export const Global = createGlobalStyle`
     margin: 0 auto;
     margin-bottom: 2vh;
     border-radius: 0.2rem;
-    max-width: 100%;
+    max-width: 90%;
     opacity: 1;
+
+    @media (max-width: 500px) {
+      max-width: 100%;
+    }
   }
 
   h1 {

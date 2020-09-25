@@ -58,7 +58,7 @@ export const InfoContainer = styled.div`
   justify-content: center;
   width: 100%;
   padding-left: 1rem;
-  margin-bottom: 4vh;
+  margin-bottom: 6vh;
   letter-spacing: 0.5px;
   color: ${white};
 
@@ -97,10 +97,13 @@ export const ReadTime = styled.div`
 export const Body = styled.div`
   background: transparent;
   padding: 0.9rem;
+  margin: 0 auto;
   margin-bottom: 2vh;
+  width: 70%;
 
   @media (max-width: 768px) {
     padding: 0.1rem;
+    width: 100%;
   }
 `;
 
