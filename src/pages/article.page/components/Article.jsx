@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import parse from "html-react-parser";
 import moment from "moment";
 import "moment/locale/es";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { faReadme } from "@fortawesome/free-brands-svg-icons";
 
 import {
   Container,
@@ -23,6 +23,7 @@ import {
 const Article = ({ article }) => {
   useEffect(() => {
     moment.locale("es");
+    window.scrollTo(0, 0);
     document.title = `${article.tituloArticulo}`;
   }, []);
 
@@ -33,6 +34,15 @@ const Article = ({ article }) => {
         <AuthorContainer>
           <Author>{article.autor}</Author>
         </AuthorContainer>
+        <InfoContainer>
+          <Date>{moment(article.fecha.toDate()).format("LL")}</Date>
+          <ReadTime>
+            <span>
+              <Icon icon={faReadme} />
+            </span>
+            {article.tiempo}
+          </ReadTime>
+        </InfoContainer>
         <Tags post={"true"}>
           {article.tags.map((tag) => {
             return (
@@ -42,15 +52,6 @@ const Article = ({ article }) => {
             );
           })}
         </Tags>
-        <InfoContainer>
-          <Date>{moment(article.fecha.toDate()).format("LL")}</Date>
-          <ReadTime>
-            <span>
-              <Icon icon={faClock} />
-            </span>
-            {article.tiempo}
-          </ReadTime>
-        </InfoContainer>
         <Body>{parse(article.contenido)}</Body>
       </Container>
     </>

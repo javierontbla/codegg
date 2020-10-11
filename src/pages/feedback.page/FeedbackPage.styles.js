@@ -3,22 +3,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../colors/colors";
 
-const { darkBlack, white, darkBlue } = colors;
+const { darkBlack, white, yellow } = colors;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: left;
+  justify-content: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     align-items: flex-start;
+    padding: 0.2rem;
   }
 `;
 
 export const ContactBlock = styled.div`
   display: flex;
-  width: 100%;
+  width: 65%;
   flex-direction: column;
   height: fit-content;
   background: transparent;
@@ -31,40 +32,39 @@ export const ContactBlock = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: "VT323", monospace;
   color: ${white};
-  font-size: 4.5rem;
+  font-size: 3.5rem;
+  font-family: "Space Mono", monospace;
   letter-spacing: 0.5px;
   height: fit-content;
   width: 100%;
-  margin-top: 2vh;
-  margin-bottom: 6vh;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
   text-align: center;
 
   @media (max-width: 500px) {
-    font-size: 3.5rem;
+    font-size: 2.2rem;
     text-align: left;
-    margin-bottom: 3vh;
   }
 `;
 
 export const Subtitle = styled.div`
   height: fit-content;
   color: ${white};
-  font-family: "VT323", monospace;
-  font-size: 2.8rem;
+  font-size: 2rem;
+  font-family: "Space Mono", monospace;
   letter-spacing: 0.5px;
-  margin-bottom: 1vh;
+  margin-bottom: 1rem;
 
   @media (max-width: 500px) {
-    font-size: 2.3rem;
+    font-size: 1.6rem;
   }
 `;
 
 export const Input = styled.input`
-  height: 3.5rem;
+  height: 3rem;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   background: ${darkBlack};
   border: none;
   border-radius: 0.2rem;
@@ -83,7 +83,7 @@ export const Input = styled.input`
   }
 
   @media (max-width: 500px) {
-    font-size: 1.2rem;
+    font-size: 1rem;
     height: 3rem;
     padding-left: 0.6rem;
     padding-right: 0.6rem;
@@ -91,7 +91,7 @@ export const Input = styled.input`
 `;
 
 export const Comment = styled.textarea`
-  height: 200px;
+  height: 12rem;
   width: 100%;
   border-radius: 0.2rem;
   border: none;
@@ -102,7 +102,7 @@ export const Comment = styled.textarea`
   resize: none;
   color: ${white};
   font-family: "Roboto", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   letter-spacing: 0.5px;
   margin-bottom: 4vh;
 
@@ -111,7 +111,7 @@ export const Comment = styled.textarea`
   }
 
   @media (max-width: 500px) {
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding-left: 0.6rem;
     padding-right: 0.6rem;
   }
@@ -125,15 +125,14 @@ export const Button = styled.div`
   justify-content: center;
   position: relative;
   border: none;
-  background: ${darkBlue};
-  font-family: "VT323", monospace;
-  font-size: 2.8rem;
+  background: ${yellow};
+  font-family: "Space Mono", monospace;
+  font-size: 2rem;
   color: ${darkBlack};
   letter-spacing: 0.5px;
   border-radius: 0.2rem;
   text-align: center;
   transition: background 0.25s;
-  margin-bottom: 2vh;
 
   &:focus {
     outline: none;
@@ -144,12 +143,12 @@ export const Button = styled.div`
     color: ${darkBlack};
     cursor: pointer;
     background: ${darkBlack};
-    color: ${darkBlue};
+    color: ${yellow};
   }
 
   @media (max-width: 500px) {
     margin-bottom: 1vh;
-    font-size: 2.3rem;
+    font-size: 1.6rem;
     height: 3rem;
   }
 `;
@@ -166,23 +165,27 @@ export const Buttons = styled.div`
 
 export const Alert = styled.div`
   display: flex;
-  font-size: 2rem;
+  font-size: 1.2rem;
   color: ${white};
   width: 100%;
   justify-content: center;
   transition: opacity 0.5s linear;
   letter-spacing: 0.5px;
-  font-family: "VT323", monospace;
+  font-family: "Space Mono", monospace;
 
   @media (max-width: 500px) {
-    font-size: 1.7rem;
+    font-size: 1.1rem;
   }
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: ${white};
   margin-right: 0.5rem;
+
+  @media (max-width: 500px) {
+    margin-top: 0.2rem;
+  }
 `;
 
 export const MessageWrapper = styled.div`
@@ -192,4 +195,5 @@ export const MessageWrapper = styled.div`
   align-items: center;
   width: fit-content;
   height: fit-content;
+  margin-top: 1rem;
 `;

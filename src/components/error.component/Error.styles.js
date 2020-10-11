@@ -12,8 +12,8 @@ export const Container = styled.div`
   width: 100%;
   height: 20vh;
   color: ${white};
-  font-family: "Abril Fatface", cursive;
-  font-size: 1.7rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
   margin-top: 8vh;
   text-align: center;
   margin-bottom: 16vh;

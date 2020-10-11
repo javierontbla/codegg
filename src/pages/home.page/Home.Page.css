@@ -22,8 +22,7 @@
   }
 
   .mansonry-grid-column > div:first-child {
-    background: transparent;
-    margin-top: 0.9rem;
+    margin-top: 1rem;
   }
 
   .mansonry-grid-column > div {

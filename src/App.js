@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
-import { NavBarContainer, Global } from "./App.styles.js";
+import {
+  NavBarContainer,
+  Global,
+  FullContainer,
+  Container,
+} from "./App.styles.js";
 import NavBar from "./components/navbar.component/NavBar";
 import HomePage from "./pages/home.page/Home.Page";
 import ArticlePage from "./pages/article.page/Article.Page";
@@ -24,18 +29,20 @@ const App = ({ storeAvailableTags }) => {
   return (
     <>
       <Global />
-      <NavBarContainer>
-        <NavBar />
-      </NavBarContainer>
-      <div className="container">
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/privacidad" component={PrivacyPolicy} />
-          <Route path="/feedback" component={FeedbackPage} />
-          <Route path="/:articleId" component={ArticlePage} />
-        </Switch>
-      </div>
-      <Footer />
+      <FullContainer>
+        <NavBarContainer>
+          <NavBar />
+        </NavBarContainer>
+        <Container>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/privacidad" component={PrivacyPolicy} />
+            <Route path="/feedback" component={FeedbackPage} />
+            <Route path="/:articleId" component={ArticlePage} />
+          </Switch>
+          <Footer />
+        </Container>
+      </FullContainer>
     </>
   );
 };

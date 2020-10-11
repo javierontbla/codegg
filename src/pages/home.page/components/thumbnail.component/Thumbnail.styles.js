@@ -7,15 +7,12 @@ import { colors } from "../../../../colors/colors";
 const {
   white,
   darkBlack,
-  react,
-  javascript,
-  redux,
-  node,
-  graphql,
-  html,
-  css,
+  machine_learning,
+  deep_learning,
+  redes_neuronales,
+  python,
+  modelos,
   algo,
-  firebase,
   grey,
 } = colors;
 
@@ -28,11 +25,15 @@ export const LinkArticle = styled(Link)`
 export const Container = styled.div`
   width: 100%;
   border: 2px solid ${darkBlack};
-  box-shadow: 0.4rem 0.4rem ${darkBlack};
   border-radius: 0.2rem;
+  -webkit-box-shadow: 0.4rem 0.4rem 0.4rem 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0.4rem 0.4rem 0.4rem 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0.4rem 0.4rem 0.4rem 0px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s;
 
   &:hover {
     cursor: pointer;
+    transform: translateY(-0.8%);
   }
 `;
 
@@ -45,10 +46,6 @@ export const Img = styled.div`
   background-position: center;
   background-image: url(${(props) => props.source});
   background-repeat: no-repeat;
-
-  &:hover {
-    opacity: 0.9;
-  }
 `;
 
 export const Text = styled.div`
@@ -61,28 +58,25 @@ export const Text = styled.div`
   text-align: left;
   margin-top: 1vh;
   color: ${white};
-
-  &:hover {
-    opacity: 0.9;
-  }
 `;
 
 export const Title = styled.div`
-  font-family: "VT323", monospace;
-  font-size: 2.3rem;
+  font-family: "Space Mono", monospace;
+  font-size: 1.6rem;
   letter-spacing: 0.5px;
   color: ${white};
-  line-height: 120%;
+  line-height: 150%;
 
   @media (max-width: 500px) {
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
 `;
 
 export const BodyPreview = styled.div`
   font-family: "Roboto", sans-serif;
-  padding-top: 0.6rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  line-height: 180%;
+  padding-bottom: 1.2rem;
 
   &::first-letter {
     text-transform: uppercase;
@@ -96,18 +90,16 @@ export const BodyPreview = styled.div`
 export const Span = styled.span``;
 
 export const Time = styled.div`
-  padding-left: 0.6rem;
-  padding-bottom: 0.6rem;
-  padding-top: 0.3rem;
-  margin-bottom: 0.3rem;
-  color: ${white};
-  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  color: ${grey};
+  font-size: 0.75rem;
   font-family: "Space Mono", monospace;
-  border-bottom: 2px solid #000000;
   letter-spacing: 0.5px;
+  padding-left: 0.6rem;
 
   @media (max-width: 500px) {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 `;
 
@@ -115,16 +107,18 @@ export const Tags = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-left: ${(props) => (props.post ? "0.9rem" : "")};
-  padding-top: ${(props) => (props.post ? "1rem" : "0rem")};
-  padding-bottom: ${(props) => (props.post ? "1rem" : "0.6rem")};
+  padding-bottom: ${(props) => (props.post ? "3.4rem" : "0.6rem")};
   padding-left: ${(props) => (props.post ? "0.5rem" : "0.2rem")};
   padding-right: 0.2rem;
+  padding-top: ${(props) => (props.post ? "" : "0.2rem")};
   margin-left: ${(props) => (props.post ? "0.1rem" : "")};
+  width: ${(props) => (props.post ? "65%" : "")};
+  border-top: ${(props) => (props.post ? "" : `2px solid ${darkBlack}`)};
 
   @media (max-width: 500px) {
     padding-left: ${(props) => (props.post ? "0rem" : "")};
     margin-left: ${(props) => (props.post ? "-0.2rem" : "")};
+    width: ${(props) => (props.post ? "100%" : "")};
   }
 `;
 
@@ -142,60 +136,42 @@ export const Tag = styled.div`
   margin: 0.4rem;
   margin-bottom: ${(props) => (props.post ? "" : "0.6rem")};
   color: ${(props) =>
-    props.type === "react"
-      ? `${react}`
-      : props.type === "redux"
-      ? `${redux}`
-      : props.type === "javascript"
-      ? `${javascript}`
-      : props.type === "node"
-      ? `${node}`
-      : props.type === "graphql"
-      ? `${graphql}`
-      : props.type === "html5"
-      ? `${html}`
-      : props.type === "css3"
-      ? `${css}`
-      : props.type === "firebase"
-      ? `${firebase}`
+    props.type === "machine learning"
+      ? `${machine_learning}`
+      : props.type === "deep learning"
+      ? `${deep_learning}`
+      : props.type === "redes neuronales"
+      ? `${redes_neuronales}`
+      : props.type === "python"
+      ? `${python}`
+      : props.type === "modelos"
+      ? `${modelos}`
       : `${algo}`};
   box-shadow: 0.4rem 0.4rem
     ${(props) =>
-      props.type === "react"
-        ? `${react}`
-        : props.type === "redux"
-        ? `${redux}`
-        : props.type === "javascript"
-        ? `${javascript}`
-        : props.type === "node"
-        ? `${node}`
-        : props.type === "graphql"
-        ? `${graphql}`
-        : props.type === "html5"
-        ? `${html}`
-        : props.type === "css3"
-        ? `${css}`
-        : props.type === "firebase"
-        ? `${firebase}`
+      props.type === "machine learning"
+        ? `${machine_learning}`
+        : props.type === "deep learning"
+        ? `${deep_learning}`
+        : props.type === "redes neuronales"
+        ? `${redes_neuronales}`
+        : props.type === "python"
+        ? `${python}`
+        : props.type === "modelos"
+        ? `${modelos}`
         : `${algo}`};
   border: 2px solid
     ${(props) =>
-      props.type === "react"
-        ? `${react}`
-        : props.type === "redux"
-        ? `${redux}`
-        : props.type === "javascript"
-        ? `${javascript}`
-        : props.type === "node"
-        ? `${node}`
-        : props.type === "graphql"
-        ? `${graphql}`
-        : props.type === "html5"
-        ? `${html}`
-        : props.type === "css3"
-        ? `${css}`
-        : props.type === "firebase"
-        ? `${firebase}`
+      props.type === "machine learning"
+        ? `${machine_learning}`
+        : props.type === "deep learning"
+        ? `${deep_learning}`
+        : props.type === "redes neuronales"
+        ? `${redes_neuronales}`
+        : props.type === "python"
+        ? `${python}`
+        : props.type === "modelos"
+        ? `${modelos}`
         : `${algo}`};
 
   &:hover {
@@ -206,16 +182,25 @@ export const Tag = styled.div`
 
 export const Date = styled.div`
   color: ${grey};
-  font-size: 0.8rem;
-  font-family: "Roboto", sans-serif;
+  font-size: 0.75rem;
+  font-family: "Space Mono", monospace;
   letter-spacing: 0.5px;
-  text-decoration: underline;
-  padding-top: 0.3rem;
+  border-right: 2px solid ${grey};
+  padding-right: 0.6rem;
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
   margin-right: 0.6rem;
-  font-size: 0.75rem;
-  margin-bottom: 0.05rem;
+  font-size: 0.7rem;
+  margin-top: 0.25rem;
   color: ${white};
+`;
+
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 0.8rem;
+  padding-bottom: 1.2rem;
+  padding-left: 0.1rem;
 `;

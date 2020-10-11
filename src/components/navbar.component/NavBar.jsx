@@ -7,13 +7,12 @@ import icon from "./codegg.logo.svg";
 import {
   Navbar,
   Logo,
-  PhraseContainer,
   SocialMedia,
   MediaIcon,
   LinkContainer,
-  Text,
   Img,
   External,
+  Text,
 } from "./NavBar.styles";
 
 const NavBar = () => {
@@ -22,13 +21,12 @@ const NavBar = () => {
       <Navbar>
         <Logo>
           <LinkContainer to="/">
-            <Img src={icon} />{" "}
+            <Img src={icon} />
           </LinkContainer>
           <LinkContainer to="/">
             <Text>codegg</Text>
           </LinkContainer>
         </Logo>
-        <PhraseContainer />
         <SocialMedia>
           <LinkContainer to="/feedback">
             <MediaIcon icon={faCommentAlt} comment={"true"} />

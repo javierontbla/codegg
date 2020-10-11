@@ -17,7 +17,6 @@ export const CompanyName = styled.div`
   justify-content: flex-start;
   align-items: center;
   letter-spacing: 0.5px;
-  opacity: 0.9;
   width: fit-content;
   padding-left: 0.2rem;
 `;
@@ -29,8 +28,8 @@ export const Data = styled.div`
   justify-content: space-between;
   border-top: 2px solid ${darkBlack};
   color: ${white};
-  padding: 0.2rem;
-  font-size: 1.1rem;
+  padding: 0.4rem;
+  font-size: 1rem;
 
   @media (max-width: 500px) {
     font-size: 0.65rem;
@@ -52,10 +51,9 @@ export const PrivacyPolicy = styled.div`
 
 export const Button = styled(Link)`
   color: ${white};
-  opacity: 0.9;
 
   &&& {
-    font-size: 1.1rem;
+    font-size: 1rem;
     &::after {
       background-color: transparent;
       content: " ";
@@ -73,7 +71,7 @@ export const Button = styled(Link)`
   }
 
   &:hover {
-    opacity: 0.8 !important;
+    opacity: 0.9 !important;
     text-decoration: none !important;
     cursor: pointer !important;
     color: ${white} !important;

@@ -4,47 +4,45 @@ import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
 
-const { darkBlack, lightBlack, darkBlue, yellow } = colors;
+const { darkBlack, lightBlack, yellow } = colors;
 
 const Center = css`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 `;
 
 export const Navbar = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100vw;
-  height: 8vh;
-  margin-top: 1rem;
-  margin-right: 1.4rem;
-  margin-left: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
   background: ${lightBlack};
-  box-shadow: 0.4rem 0.4rem ${darkBlack};
-  border-radius: 0.2rem;
-  border: 2px solid ${darkBlack};
-
-  @media (max-width: 768px) {
-    height: 5.5vh;
-  }
+  position: sticky;
+  top: 0;
+  -webkit-box-shadow: 0.4rem 0px 0.4rem 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0.4rem 0px 0.4rem 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0.4rem 0px 0.4rem 0px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 500px) {
-    margin-top: 0.5rem;
-    margin-right: 0.9rem;
-    margin-left: 0.5rem;
-    height: 8vh;
+    flex-direction: row;
+    height: 100%;
     width: 100%;
+    position: "";
+    -webkit-box-shadow: 0.4rem 0.4rem 0.4rem 0.1rem rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0.4rem 0.4rem 0.4rem 0.1rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0.4rem 0.4rem 0.4rem 0.1rem rgba(0, 0, 0, 0.5);
   }
 `;
 
 // containers
 export const Logo = styled.div`
-  ${Center};
-  width: 27.5vw;
-  justify-content: flex-start;
-  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   letter-spacing: 0.5px;
 
   &:hover {
@@ -52,47 +50,37 @@ export const Logo = styled.div`
     opacity: 0.9;
   }
 
-  @media (max-width: 768px) {
-    padding-left: 1rem;
-    width: 70%;
-  }
-`;
-
-export const PhraseContainer = styled.div`
-  ${Center};
-  height: 100%;
-  width: 40vw;
-  justify-content: center;
-  font-size: 2.4rem;
-  color: ${yellow};
-  padding-top: 0.5rem;
-
-  @media (max-width: 768px) {
-    opacity: 0;
-    width: 0%;
+  @media (max-width: 500px) {
+    width: fit-content;
+    height: 100%;
+    justify-content: center;
+    flex-direction: row;
+    padding-left: 1.2rem;
   }
 `;
 
 export const SocialMedia = styled.div`
-  display: flex;
   ${Center};
-  justify-content: flex-end;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  width: 27.5vw;
-  padding-right: 1.5rem;
+  width: 100%;
+  margin-bottom: 1.2rem;
 
-  @media (max-width: 768px) {
-    padding-right: 1rem;
+  @media (max-width: 500px) {
+    flex-direction: row;
     width: 30%;
+    height: 100%;
+    margin-bottom: 0rem;
   }
 `;
 
 // buttons
 export const MediaIcon = styled(FontAwesomeIcon)`
   font-size: ${(props) => (props.comment ? "1.6rem" : "1.9rem")};
-  color: ${darkBlue};
-  margin-right: ${(props) => (props.comment ? "1.2rem" : "")};
-  margin-top: ${(props) => (props.comment ? "0.2rem" : "")};
+  color: ${yellow};
+  margin: 0;
+  margin-bottom: ${(props) => (props.comment ? "0.6rem" : "")};
 
   &:hover {
     cursor: pointer;
@@ -100,8 +88,9 @@ export const MediaIcon = styled(FontAwesomeIcon)`
   }
 
   @media (max-width: 500px) {
-    margin-right: ${(props) => (props.comment ? "0.9rem" : "")};
-    margin-top: ${(props) => (props.comment ? "0.2rem" : "")};
+    margin-bottom: 0rem;
+    margin-top: ${(props) => (props.comment ? "0.6rem" : "0.4rem")};
+    margin-right: ${(props) => (props.comment ? "1rem" : "0.2rem")};
   }
 `;
 
@@ -121,15 +110,14 @@ export const LinkContainer = styled(Link)`
   &:hover {
     cursor: pointer;
     text-decoration: none;
-    color: ${darkBlue};
+    color: ${yellow};
   }
 `;
 
 export const Img = styled.img`
-  margin: 0;
-  margin-right: 0.6rem;
-  width: 50px;
-  height: 50px;
+  margin-top: 0.8rem;
+  width: 4.2rem;
+  height: 4.2rem;
 
   &:hover {
     text-decoration: none;
@@ -140,17 +128,8 @@ export const Img = styled.img`
   }
 `;
 
-export const Text = styled.div`
-  font-family: "Space Mono", monospace;
-  font-size: 2.4rem;
-  color: ${darkBlue} !important;
-  background: transparent !important;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-`;
-
 export const External = styled.a`
-  color: ${darkBlue};
+  color: ${yellow};
   &&& {
     &::after {
       background-color: transparent;
@@ -166,6 +145,20 @@ export const External = styled.a`
   &:hover {
     cursor: pointer;
     text-decoration: none;
-    color: ${darkBlue};
+    color: ${yellow};
+  }
+`;
+
+export const Text = styled.div`
+  display: none;
+
+  @media (max-width: 500px) {
+    display: inline;
+    font-family: "Space Mono", monospace;
+    color: ${yellow};
+    letter-spacing: 0.5px;
+    width: fit-content;
+    height: 100%;
+    font-size: 2.4rem;
   }
 `;

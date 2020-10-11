@@ -20,7 +20,7 @@ import {
 } from "../../redux/home.page/actions";
 import {
   Container,
-  Time,
+  Des,
   LoadMore,
   ButtonContainer,
   AvailableTagsContainer,
@@ -53,7 +53,7 @@ const HomePage = ({
 }) => {
   useEffect(() => {
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
-    document.title = `codegg.tech | Código Simplificado`;
+    document.title = `codegg.tech | Todo sobre I.A.`;
     moment.locale("es");
   }, []);
 
@@ -113,7 +113,7 @@ const HomePage = ({
 
   return (
     <>
-      <Time>{moment().format("LL")}</Time>
+      <Des>codegg.tech | Todo sobre I.A.</Des>
       {!loading ? (
         <AvailableTagsContainer>
           {availableTags.map((tag) => {

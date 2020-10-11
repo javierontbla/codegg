@@ -25,6 +25,7 @@ const FeedbackPage = ({ sendForm, error }) => {
   const [icon, setIcon] = useState(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = `codegg.tech | Feedback`;
   }, []);
 

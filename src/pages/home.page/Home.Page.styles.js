@@ -7,31 +7,29 @@ const {
   white,
   lightBlack,
   darkBlack,
-  react,
-  javascript,
-  redux,
-  node,
-  graphql,
-  html,
-  css,
+  machine_learning,
+  deep_learning,
+  redes_neuronales,
+  python,
+  modelos,
   algo,
-  firebase,
 } = colors;
 
 export const Container = styled.div``;
 
-export const Time = styled.div`
+export const Des = styled.div`
   color: ${white};
   border-bottom: 2px solid ${darkBlack};
-  margin-top: 3.5vh;
-  padding: 0.4rem;
+  padding-bottom: 0.4rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
   font-family: "Space Mono", monospace;
-  font-size: 1.1rem;
+  font-size: 1rem;
   opacity: 0.9;
   letter-spacing: 0.5px;
 
   @media (max-width: 500px) {
-    font-size: 1rem;
+    margin-top: 3rem;
   }
 `;
 
@@ -42,29 +40,24 @@ export const LoadMore = styled.button`
   border-radius: 0.2rem;
   background: ${lightBlack};
   margin: 0 auto;
-  font-family: "Roboto", sans-serif;
+  font-family: "Space Mono", monospace;
   margin-top: 3rem;
   margin-bottom: 3.4rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${white};
   padding: 0.4rem;
   padding-left: 0.6rem;
   padding-right: 0.6rem;
+  padding-bottom: 0.6rem;
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.9;
     cursor: pointer;
   }
 
   &:focus {
     outline: none;
-  }
-
-  @media (max-width: 500px) {
-    margin-top: 2rem;
-    margin-bottom: 2.4rem;
-    font-size: 1rem;
   }
 `;
 
@@ -85,28 +78,27 @@ export const AvailableTagsContainer = styled.div`
   padding-top: 0.3rem;
   padding-bottom: 0.8rem;
   justify-content: left;
+
+  @media (max-width: 500px) {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+  }
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
   color: ${(props) =>
-    props.type === "react"
-      ? `${react}`
-      : props.type === "redux"
-      ? `${redux}`
-      : props.type === "javascript"
-      ? `${javascript}`
-      : props.type === "node"
-      ? `${node}`
-      : props.type === "graphql"
-      ? `${graphql}`
-      : props.type === "html5"
-      ? `${html}`
-      : props.type === "css3"
-      ? `${css}`
-      : props.type === "firebase"
-      ? `${firebase}`
+    props.type === "machine learning"
+      ? `${machine_learning}`
+      : props.type === "deep learning"
+      ? `${deep_learning}`
+      : props.type === "redes neuronales"
+      ? `${redes_neuronales}`
+      : props.type === "python"
+      ? `${python}`
+      : props.type === "modelos"
+      ? `${modelos}`
       : `${algo}`};
-  font-size: ${(props) => (props.cross ? "1.1rem" : "1.5rem")};
+  font-size: ${(props) => (props.cross ? "1rem" : "1.5rem")};
 
   &:hover {
     cursor: pointer;
@@ -142,74 +134,52 @@ export const Tag = styled.div`
   border-radius: 0.2rem;
   padding: 0.4rem;
   font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   letter-spacing: 1px;
   height: fit-content;
   margin: 0.5rem;
   box-shadow: 0.4rem 0.4rem
     ${(props) =>
-      props.type === "react"
-        ? `${react}`
-        : props.type === "redux"
-        ? `${redux}`
-        : props.type === "javascript"
-        ? `${javascript}`
-        : props.type === "node"
-        ? `${node}`
-        : props.type === "graphql"
-        ? `${graphql}`
-        : props.type === "html5"
-        ? `${html}`
-        : props.type === "css3"
-        ? `${css}`
-        : props.type === "firebase"
-        ? `${firebase}`
+      props.type === "machine learning"
+        ? `${machine_learning}`
+        : props.type === "deep learning"
+        ? `${deep_learning}`
+        : props.type === "redes neuronales"
+        ? `${redes_neuronales}`
+        : props.type === "python"
+        ? `${python}`
+        : props.type === "modelos"
+        ? `${modelos}`
         : `${algo}`};
   color: ${(props) =>
-    props.type === "react"
-      ? `${react}`
-      : props.type === "redux"
-      ? `${redux}`
-      : props.type === "javascript"
-      ? `${javascript}`
-      : props.type === "node"
-      ? `${node}`
-      : props.type === "graphql"
-      ? `${graphql}`
-      : props.type === "html5"
-      ? `${html}`
-      : props.type === "css3"
-      ? `${css}`
-      : props.type === "firebase"
-      ? `${firebase}`
+    props.type === "machine learning"
+      ? `${machine_learning}`
+      : props.type === "deep learning"
+      ? `${deep_learning}`
+      : props.type === "redes neuronales"
+      ? `${redes_neuronales}`
+      : props.type === "python"
+      ? `${python}`
+      : props.type === "modelos"
+      ? `${modelos}`
       : `${algo}`};
   border: 2px solid
     ${(props) =>
-      props.type === "react"
-        ? `${react}`
-        : props.type === "redux"
-        ? `${redux}`
-        : props.type === "javascript"
-        ? `${javascript}`
-        : props.type === "node"
-        ? `${node}`
-        : props.type === "graphql"
-        ? `${graphql}`
-        : props.type === "html5"
-        ? `${html}`
-        : props.type === "css3"
-        ? `${css}`
-        : props.type === "firebase"
-        ? `${firebase}`
+      props.type === "machine learning"
+        ? `${machine_learning}`
+        : props.type === "deep learning"
+        ? `${deep_learning}`
+        : props.type === "redes neuronales"
+        ? `${redes_neuronales}`
+        : props.type === "python"
+        ? `${python}`
+        : props.type === "modelos"
+        ? `${modelos}`
         : `${algo}`};
 
   &:hover {
     cursor: ${(props) => (props.search ? "pointer" : "auto")};
     opacity: ${(props) => (props.search ? "0.9" : "1")};
-  }
-
-  @media (max-width: 500px) {
-    font-size: 1.1rem;
   }
 `;
 
@@ -220,7 +190,7 @@ export const Message = styled.div`
   border-radius: 0.2rem;
   background: ${lightBlack};
   margin: 0 auto;
-  font-family: "Roboto", sans-serif;
+  font-family: "Space Mono", monospace;
   margin-top: 3rem;
   margin-bottom: 3.4rem;
   font-size: 1rem;
@@ -230,9 +200,7 @@ export const Message = styled.div`
   padding-left: 0.6rem;
   padding-right: 0.6rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     width: fit-content;
-    margin-top: 2rem;
-    margin-bottom: 2.4rem;
   }
 `;

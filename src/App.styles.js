@@ -7,30 +7,12 @@ export const Global = createGlobalStyle`
     padding: 0;
     height: 100vh;
   }
-
-  body::-webkit-scrollbar {
-    width: 0.6rem;
-  }
-
-  body::-webkit-scrollbar-track {
-    background-color: #1e232b;
-  }
-
-  body::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border-radius: 0.4rem;
-    overflow: auto;
-  }
-
-  b {
-    color: green;
-  }
   
   blockquote {
     color: #faf9f9;
     padding: 0.8rem;
     font-family: "Roboto", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     border-top-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 0.2rem;
@@ -41,7 +23,7 @@ export const Global = createGlobalStyle`
     margin-bottom: 2vh;
 
     @media (max-width: 500px) {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
     }
   }
 
@@ -50,7 +32,7 @@ export const Global = createGlobalStyle`
     margin: 0 auto;
     margin-bottom: 2vh;
     border-radius: 0.2rem;
-    max-width: 90%;
+    max-width: 100%;
     opacity: 1;
 
     @media (max-width: 500px) {
@@ -60,16 +42,16 @@ export const Global = createGlobalStyle`
 
   h1 {
     color: #faf9f9;
-    font-family: "VT323", monospace;
-    font-size: 2.8rem;
+    font-family: "Space Mono", monospace;
+    font-size: 1.8rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
     text-align: left;
     width: 100%;
-    line-height: 120%;
+    line-height: 150%;
 
     @media (max-width: 500px) {
-      font-size: 2.3rem;
+      font-size: 1.6rem;
       margin-bottom: 1vh;
     }
   }
@@ -102,16 +84,17 @@ export const Global = createGlobalStyle`
 
   p {
     font-family: "Roboto", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     letter-spacing: 0.5px;
     text-align: left;
     color: #faf9f9;
     margin-bottom: 2vh;
-    line-height: 150%;
+    line-height: 180%;
     width: 100%;
 
     @media (max-width: 768px) {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
+      line-height: 180%;
     }
   }
 
@@ -122,17 +105,23 @@ export const Global = createGlobalStyle`
     padding-right: 0.3rem;
     color: #000000;
     font-weight: normal;
+    font-size: 1.25rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.15rem;
+      line-height: 180%;
+    }
   }
 
   li {
     color: #faf9f9;
     font-family: "Roboto", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 0.2vh;
     letter-spacing: 0.5px;
 
     @media (max-width: 768px) {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
     }
   }
 
@@ -147,15 +136,15 @@ export const Global = createGlobalStyle`
     padding: 0.6rem;
     padding-left: 0.8rem;
     padding-right: 0.8rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border-radius: 0.2rem;
     letter-spacing: 0.5px;
     background: #000000; 
     margin-bottom: 2vh;
     width: 100%;
     
-    @media (max-width: 768px) {
-      font-size: 1rem;
+    @media (max-width: 500px) {
+      font-size: 0.8rem;
     }
   }
 
@@ -166,7 +155,7 @@ export const Global = createGlobalStyle`
   a {
     position: relative;
     color: #faf9f9;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 
     &::after {
       background: #fad530;
@@ -196,8 +185,8 @@ export const Global = createGlobalStyle`
       }
     }
 
-    @media (max-width: 768px) {
-      font-size: 1.2rem;
+    @media (max-width: 500px) {
+      font-size: 1.15rem;
     }
   }
 `;
@@ -205,5 +194,33 @@ export const Global = createGlobalStyle`
 export const NavBarContainer = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 7vw;
+
+  @media (max-width: 500px) {
+    width: 100vw;
+    height: 9vh;
+  }
+`;
+
+export const FullContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
+
+export const Container = styled.div`
+  width: 93vw;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+
+  @media (max-width: 500px) {
+    width: 100vw;
+    padding-top: 0rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+  }
 `;

@@ -15,18 +15,16 @@ const Footer = ({ error }) => {
   return (
     <>
       {!error ? (
-        <div className="container">
-          <FooterContainer>
-            <Data>
-              <CompanyName>
-                <Copyright>©</Copyright>2019-2020 codegg.tech
-              </CompanyName>
-              <PrivacyPolicy>
-                <Button to="/privacidad">Política de Privacidad</Button>
-              </PrivacyPolicy>
-            </Data>
-          </FooterContainer>
-        </div>
+        <FooterContainer>
+          <Data>
+            <CompanyName>
+              <Copyright>©</Copyright>2019-2020 codegg.tech
+            </CompanyName>
+            <PrivacyPolicy>
+              <Button to="/privacidad">Política de Privacidad</Button>
+            </PrivacyPolicy>
+          </Data>
+        </FooterContainer>
       ) : null}
     </>
   );
