@@ -43,7 +43,7 @@ export const Global = createGlobalStyle`
   h1 {
     color: #faf9f9;
     font-family: "Space Mono", monospace;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
     text-align: left;
@@ -51,7 +51,7 @@ export const Global = createGlobalStyle`
     line-height: 150%;
 
     @media (max-width: 500px) {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       margin-bottom: 1vh;
     }
   }
@@ -63,7 +63,7 @@ export const Global = createGlobalStyle`
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
 
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
       font-size: 1.2rem;
       text-align: left;
     }

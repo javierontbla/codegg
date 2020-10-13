@@ -62,13 +62,13 @@ export const Text = styled.div`
 
 export const Title = styled.div`
   font-family: "Space Mono", monospace;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   letter-spacing: 0.5px;
   color: ${white};
   line-height: 150%;
 
   @media (max-width: 500px) {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 `;
 
