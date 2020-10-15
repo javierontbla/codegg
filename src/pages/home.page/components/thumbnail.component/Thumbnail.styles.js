@@ -133,7 +133,7 @@ export const Tag = styled.div`
   font-size: 1rem;
   letter-spacing: 1px;
   height: fit-content;
-  margin: 0.4rem;
+  margin: 0.5rem;
   margin-bottom: ${(props) => (props.post ? "" : "0.6rem")};
   color: ${(props) =>
     props.type === "machine learning"
