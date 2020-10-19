@@ -64,7 +64,7 @@ export const Global = createGlobalStyle`
     margin-bottom: 1vh;
 
     @media (max-width: 500px) {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       text-align: left;
     }
   }
@@ -72,11 +72,11 @@ export const Global = createGlobalStyle`
   h3 {
     color: #faf9f9;
     font-family: "Abril Fatface", cursive;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
 
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
       font-size: 1.1rem;
       text-align: left;
     }
@@ -92,9 +92,8 @@ export const Global = createGlobalStyle`
     line-height: 180%;
     width: 100%;
 
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
       font-size: 1.15rem;
-      line-height: 180%;
     }
   }
 
@@ -106,10 +105,10 @@ export const Global = createGlobalStyle`
     color: #000000;
     font-weight: normal;
     font-size: 1.25rem;
+    line-height: 180%;
 
     @media (max-width: 768px) {
       font-size: 1.15rem;
-      line-height: 180%;
     }
   }
 
@@ -117,10 +116,10 @@ export const Global = createGlobalStyle`
     color: #faf9f9;
     font-family: "Roboto", sans-serif;
     font-size: 1.25rem;
-    margin-bottom: 0.2vh;
+    margin-bottom: 0.5vh;
     letter-spacing: 0.5px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 500px) {
       font-size: 1.15rem;
     }
   }
@@ -129,6 +128,7 @@ export const Global = createGlobalStyle`
     width: 100%;
     margin: 0;
     margin-bottom: 2vh;
+    line-height: 200%;
   }
 
   pre {

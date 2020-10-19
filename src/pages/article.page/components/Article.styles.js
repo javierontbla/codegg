@@ -10,8 +10,8 @@ export const Container = styled.div`
 
   @media (max-width: 500px) {
     margin-bottom: 3rem;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
   }
 `;
 
