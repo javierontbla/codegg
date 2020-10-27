@@ -32,7 +32,7 @@ const Thumbnail = ({ data, id, search }) => {
           <Text>
             <Title>{data.tituloArticulo}</Title>
             <InfoContainer>
-              <Date>{moment(data.fecha.toDate()).format("LL")}</Date>
+              <Date>{moment(data.fecha.toDate()).format("LL")} · </Date>
               <Time>
                 <Span>
                   <Icon icon={faReadme} />

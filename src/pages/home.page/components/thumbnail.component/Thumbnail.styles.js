@@ -96,7 +96,6 @@ export const Time = styled.div`
   font-size: 0.75rem;
   font-family: "Space Mono", monospace;
   letter-spacing: 0.5px;
-  padding-left: 0.6rem;
 
   @media (max-width: 500px) {
     font-size: 0.7rem;
@@ -185,7 +184,6 @@ export const Date = styled.div`
   font-size: 0.75rem;
   font-family: "Space Mono", monospace;
   letter-spacing: 0.5px;
-  border-right: 2px solid ${grey};
   padding-right: 0.6rem;
 `;
 
