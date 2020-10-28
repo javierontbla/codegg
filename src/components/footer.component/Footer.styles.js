@@ -18,7 +18,7 @@ export const CompanyName = styled.div`
   align-items: center;
   letter-spacing: 0.5px;
   width: fit-content;
-  padding-left: 0.2rem;
+  padding-right: 0.2rem;
 `;
 
 export const Data = styled.div`
@@ -26,13 +26,14 @@ export const Data = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   border-top: 2px solid ${darkBlack};
   color: ${white};
   padding: 0.4rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
 
   @media (max-width: 500px) {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
   }
@@ -46,14 +47,14 @@ export const PrivacyPolicy = styled.div`
   color: ${white} !important;
   background: transparent !important;
   width: fit-content;
-  padding-right: 0.2rem;
+  padding-left: 0.2rem;
 `;
 
 export const Button = styled(Link)`
   color: ${white};
 
   &&& {
-    font-size: 1rem;
+    font-size: 0.9rem;
     &::after {
       background-color: transparent;
       content: " ";
@@ -66,7 +67,7 @@ export const Button = styled(Link)`
     }
 
     @media (max-width: 500px) {
-      font-size: 0.65rem;
+      font-size: 0.8rem;
     }
   }
 
@@ -81,14 +82,13 @@ export const Button = styled(Link)`
 export const Copyright = styled.div`
   width: fit-content;
   height: fit-content;
-  font-size: 1rem;
-  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-family: "Space Mono", monospace;
   margin-right: 0.3rem;
   padding-top: 0.1rem;
 
   @media (max-width: 500px) {
     margin-right: 0.2rem;
-    font-size: 0.8rem;
-    padding-top: 0rem;
+    font-size: 1.1rem;
   }
 `;

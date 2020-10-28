@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import moment from "moment";
 import "moment/locale/es";
 import Masonry from "react-masonry-css";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Thumbnail from "./components/thumbnail.component/Thumbnail";
 import Loading from "../../components/loading.component/Loading";
 import Error from "../../components/error.component/Error";
+import Tag from "../../components/tag.component/Tag";
 import {
   fetchUnfilteredArticlesStart,
   fetchFilteredArticlesStart,
@@ -24,10 +24,7 @@ import {
   LoadMore,
   ButtonContainer,
   AvailableTagsContainer,
-  Icon,
-  IconContainer,
   Tags,
-  Tag,
   Message,
 } from "./Home.Page.styles";
 import "./Home.Page.css";
@@ -55,6 +52,13 @@ const HomePage = ({
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
     document.title = `codegg.tech | Todo sobre I.A.`;
     moment.locale("es");
+
+    return () => {
+      if (currentTag[0]) {
+        deleteTag(currentTag[0]);
+        emptyFilteredArticles([]);
+      }
+    };
   }, []);
 
   const breakpoints = {
@@ -73,11 +77,11 @@ const HomePage = ({
         previousArticles: filteredArticles,
       });
     } else {
-      removeTag(currentTag[0]);
+      deleteTag(currentTag[0]);
       insertTag(tag);
       getFilteredArticles({
         input: tag,
-        previousArticles: filteredArticles,
+        previousArticles: [],
       });
     }
   };
@@ -105,12 +109,6 @@ const HomePage = ({
     });
   };
 
-  const removeTag = (tag) => {
-    // function to remove articles from main array when tag clicked
-    deleteTag(tag);
-    emptyFilteredArticles([]);
-  };
-
   return (
     <>
       <Des>codegg.tech | Todo sobre I.A.</Des>
@@ -119,13 +117,11 @@ const HomePage = ({
           {availableTags.map((tag) => {
             return (
               <Tag
-                type={tag.toLowerCase()}
                 onClick={() => sendQueryBtn(tag.toLowerCase())}
-                search={"true"}
                 key={tag}
-              >
-                #{tag.toLowerCase()}
-              </Tag>
+                name={tag.toLowerCase()}
+                category={tag.toLowerCase()}
+              />
             );
           })}
         </AvailableTagsContainer>
@@ -134,17 +130,12 @@ const HomePage = ({
         <Tags>
           {currentTag.map((tag) => {
             return (
-              <Tag type={tag} filter={"true"} key={tag}>
-                #{tag}
-                <IconContainer>
-                  <Icon
-                    icon={faTimes}
-                    cross={"true"}
-                    onClick={() => removeTag(tag)}
-                    type={tag}
-                  />
-                </IconContainer>
-              </Tag>
+              <Tag
+                filter={"true"}
+                key={tag}
+                name={tag.toLowerCase()}
+                category={tag.toLowerCase()}
+              />
             );
           })}
         </Tags>

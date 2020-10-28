@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0.1rem;
+  margin-bottom: 3rem;
 `;
 export const Title = styled.div`
   font-family: "Space Mono", monospace;
@@ -26,7 +27,7 @@ export const Title = styled.div`
     text-align: left;
     padding: 0.2rem;
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     margin-top: 1.5rem;
   }
 `;
@@ -63,7 +64,7 @@ export const DateContainer = styled.div`
 
 export const Subtitle = styled.div`
   font-family: "Space Mono", monospace;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: ${white};
   letter-spacing: 0.5px;
   margin-bottom: 1vh;
@@ -71,7 +72,7 @@ export const Subtitle = styled.div`
   width: 65%;
 
   @media (max-width: 500px) {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     width: 100%;
     padding: 0.2rem;
   }
@@ -82,21 +83,16 @@ export const Content = styled.div`
   letter-spacing: 0.5px;
   margin-bottom: 3rem;
   font-family: "Roboto", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   line-height: 180%;
   width: 65%;
 
   @media (max-width: 500px) {
-    font-size: 1.15rem;
     width: 100%;
     padding: 0.2rem;
   }
 `;
 
 export const Bold = styled.strong`
-  font-size: 1.25rem;
-
-  @media (max-width: 500px) {
-    font-size: 1.15rem;
-  }
+  font-size: 1.1rem;
 `;

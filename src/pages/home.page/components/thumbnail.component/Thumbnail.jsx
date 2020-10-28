@@ -3,6 +3,7 @@ import { faReadme } from "@fortawesome/free-brands-svg-icons";
 import moment from "moment";
 import "moment/locale/es";
 
+import Tag from "../../../../components/tag.component/Tag";
 import {
   Container,
   Img,
@@ -12,7 +13,6 @@ import {
   Date,
   Time,
   Tags,
-  Tag,
   Span,
   Icon,
   LinkArticle,
@@ -46,9 +46,12 @@ const Thumbnail = ({ data, id, search }) => {
         <Tags>
           {data.tags.map((tag) => {
             return (
-              <Tag onClick={() => search(tag)} type={tag} key={tag}>
-                #{tag}
-              </Tag>
+              <Tag
+                onClick={() => search(tag)}
+                category={tag}
+                name={tag}
+                key={tag}
+              />
             );
           })}
         </Tags>

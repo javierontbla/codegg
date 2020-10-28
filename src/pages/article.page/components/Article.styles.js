@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 import { colors } from "../../../colors/colors";
 
@@ -35,7 +36,7 @@ export const Title = styled.div`
     text-align: left;
     font-size: 2.2rem;
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     margin-top: 1.5rem;
   }
 `;
@@ -53,7 +54,7 @@ export const AuthorContainer = styled.div`
   color: ${yellow};
   font-family: "Space Mono", monospace;
   margin-left: 0.9rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0.9rem;
 
   @media (max-width: 500px) {
     margin-left: 0.1rem;
@@ -64,11 +65,12 @@ export const InfoContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
   width: 100%;
   padding-left: 1.1rem;
-  margin-bottom: 1rem;
   letter-spacing: 0.5px;
   color: ${grey};
+  margin-bottom: 1.6rem;
 
   @media (max-width: 500px) {
     padding-left: 0.4rem;
@@ -78,7 +80,7 @@ export const InfoContainer = styled.div`
 export const Author = styled.div`
   font-size: 1.45rem;
   letter-spacing: 0.5px;
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     font-size: 1.4rem;
   }
 `;
@@ -88,8 +90,6 @@ export const Date = styled.div`
   font-size: 0.75rem;
   font-family: "Space Mono", monospace;
   letter-spacing: 0.5px;
-  border-right: 2px solid ${grey};
-  padding-right: 1rem;
 `;
 
 export const ReadTime = styled.div`
@@ -100,15 +100,15 @@ export const ReadTime = styled.div`
   font-size: 0.75rem;
   font-family: "Space Mono", monospace;
   letter-spacing: 0.5px;
-  padding-left: 1rem;
-  margin-top: -0.2rem;
 `;
 
 export const Body = styled.div`
   background: transparent;
   padding: 0.9rem;
+  margin-top: 3rem;
   margin-bottom: 2vh;
-  width: 65%;
+  width: 60%;
+  text-align: left;
 
   @media (max-width: 500px) {
     width: 100%;
@@ -118,8 +118,37 @@ export const Body = styled.div`
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
-  margin-right: 0.6rem;
-  margin-top: 0.4rem;
+  margin-right: 0.65rem;
+  margin-top: 0.25rem;
   font-size: 0.8rem;
   color: ${grey};
+`;
+
+export const Separator = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  padding-bottom: 0.2rem;
+`;
+
+export const QueryLink = styled(Link)`
+  &&& {
+    &::after {
+      background-color: transparent;
+      content: " ";
+      height: 40%;
+      position: absolute;
+      left: 0;
+      top: 65%;
+      width: calc(100%);
+      z-index: -1;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
 `;

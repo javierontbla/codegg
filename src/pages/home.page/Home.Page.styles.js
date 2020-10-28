@@ -19,12 +19,11 @@ export const Container = styled.div``;
 
 export const Des = styled.div`
   color: ${white};
-  border-bottom: 2px solid ${darkBlack};
   padding-bottom: 0.4rem;
   padding-left: 0.4rem;
   padding-right: 0.4rem;
   font-family: "Space Mono", monospace;
-  font-size: 1rem;
+  font-size: 0.9rem;
   opacity: 0.9;
   letter-spacing: 0.5px;
 
@@ -40,7 +39,7 @@ export const LoadMore = styled.button`
   border-radius: 0.2rem;
   background: ${lightBlack};
   margin: 0 auto;
-  font-family: "Space Mono", monospace;
+  font-family: "Roboto", sans-serif;
   margin-top: 3rem;
   margin-bottom: 3.4rem;
   font-size: 1rem;
@@ -69,15 +68,17 @@ export const ButtonContainer = styled.div`
 
 export const AvailableTagsContainer = styled.div`
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  background: ${lightBlack};
+  background: transparent;
   border-bottom: 2px solid ${darkBlack};
+  border-top: 2px solid ${darkBlack};
   width: 100%;
   height: fit-content;
-  padding-top: 0.3rem;
-  padding-bottom: 0.8rem;
   justify-content: left;
+  padding-top: 0.4rem;
+  padding-bottom: 0.8rem;
 
   @media (max-width: 500px) {
     padding-top: 0.5rem;
@@ -123,63 +124,13 @@ export const Tags = styled.div`
   flex-direction: row;
   width: 100%;
   height: fit-content;
-  margin-top: 0.4rem;
-`;
+  padding-top: ${(props) => (props.post ? "0rem" : "0.5rem")};
+  padding-left: ${(props) => (props.post ? "0.5rem" : "")};
 
-export const Tag = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: fit-content;
-  border-radius: 0.2rem;
-  padding: 0.4rem;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  height: fit-content;
-  margin: 0.5rem;
-  box-shadow: 0.4rem 0.4rem
-    ${(props) =>
-      props.type === "machine learning"
-        ? `${machine_learning}`
-        : props.type === "deep learning"
-        ? `${deep_learning}`
-        : props.type === "redes neuronales"
-        ? `${redes_neuronales}`
-        : props.type === "python"
-        ? `${python}`
-        : props.type === "modelos"
-        ? `${modelos}`
-        : `${algo}`};
-  color: ${(props) =>
-    props.type === "machine learning"
-      ? `${machine_learning}`
-      : props.type === "deep learning"
-      ? `${deep_learning}`
-      : props.type === "redes neuronales"
-      ? `${redes_neuronales}`
-      : props.type === "python"
-      ? `${python}`
-      : props.type === "modelos"
-      ? `${modelos}`
-      : `${algo}`};
-  border: 2px solid
-    ${(props) =>
-      props.type === "machine learning"
-        ? `${machine_learning}`
-        : props.type === "deep learning"
-        ? `${deep_learning}`
-        : props.type === "redes neuronales"
-        ? `${redes_neuronales}`
-        : props.type === "python"
-        ? `${python}`
-        : props.type === "modelos"
-        ? `${modelos}`
-        : `${algo}`};
-
-  &:hover {
-    cursor: ${(props) => (props.search ? "pointer" : "auto")};
-    opacity: ${(props) => (props.search ? "0.9" : "1")};
+  @media (max-width: 500px) {
+    padding-left: ${(props) => (props.post ? "0rem" : "")};
+    margin-left: ${(props) => (props.post ? "-0.3rem" : "")};
+    padding-top: ${(props) => (props.post ? "" : "0.6rem")};
   }
 `;
 
@@ -190,7 +141,7 @@ export const Message = styled.div`
   border-radius: 0.2rem;
   background: ${lightBlack};
   margin: 0 auto;
-  font-family: "Space Mono", monospace;
+  font-family: "Roboto", sans-serif;
   margin-top: 3rem;
   margin-bottom: 3.4rem;
   font-size: 1rem;

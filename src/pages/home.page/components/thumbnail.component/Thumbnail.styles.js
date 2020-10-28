@@ -62,13 +62,13 @@ export const Text = styled.div`
 
 export const Title = styled.div`
   font-family: "Space Mono", monospace;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   letter-spacing: 0.5px;
   color: ${white};
   line-height: 150%;
 
   @media (max-width: 500px) {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 `;
 
@@ -80,10 +80,6 @@ export const BodyPreview = styled.div`
 
   &::first-letter {
     text-transform: uppercase;
-  }
-
-  @media (max-width: 500px) {
-    font-size: 1rem;
   }
 `;
 
@@ -106,13 +102,11 @@ export const Tags = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-bottom: ${(props) => (props.post ? "3.4rem" : "0.6rem")};
-  padding-left: ${(props) => (props.post ? "0.5rem" : "0.2rem")};
+  padding-bottom: 0.6rem;
+  padding-left: 0.2rem;
   padding-right: 0.2rem;
-  padding-top: ${(props) => (props.post ? "" : "0.2rem")};
-  margin-left: ${(props) => (props.post ? "0.1rem" : "")};
-  width: ${(props) => (props.post ? "65%" : "")};
-  border-top: ${(props) => (props.post ? "" : `2px solid ${darkBlack}`)};
+  padding-top: 0.4rem;
+  border-top: 2px solid ${darkBlack};
 
   @media (max-width: 500px) {
     padding-left: ${(props) => (props.post ? "0rem" : "")};

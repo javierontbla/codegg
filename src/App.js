@@ -19,8 +19,8 @@ import { storeAvailableTagsStart } from "./redux/home.page/actions";
 const App = ({ storeAvailableTags }) => {
   useEffect(() => {
     if (
-      window.location.hostname == "avgguido.web.app" ||
-      window.location.hostname == "avgguido.firebaseapp.com"
+      window.location.hostname === "avgguido.web.app" ||
+      window.location.hostname === "avgguido.firebaseapp.com"
     ) {
       window.location.href = "https://codegg.tech/";
     }

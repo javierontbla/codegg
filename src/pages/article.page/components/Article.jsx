@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import parse from "html-react-parser";
 import moment from "moment";
 import "moment/locale/es";
@@ -14,18 +15,51 @@ import {
   ReadTime,
   Body,
   Icon,
+  Separator,
+  QueryLink,
 } from "./Article.styles";
 import {
-  Tags,
-  Tag,
-} from "../../home.page/components/thumbnail.component/Thumbnail.styles";
+  fetchFilteredArticlesStart,
+  insertTagRedux,
+  deleteTagRedux,
+  fetchFilteredArticlesSuccess,
+} from "../../../redux/home.page/actions";
+import { Tags } from "../../home.page/Home.Page.styles";
+import Tag from "../../../components/tag.component/Tag";
 
-const Article = ({ article }) => {
+const Article = ({
+  article,
+  currentTag,
+  getFilteredArticles,
+  insertTag,
+  deleteTag,
+  emptyFilteredArticles,
+  filteredArticles,
+}) => {
   useEffect(() => {
     moment.locale("es");
     window.scrollTo(0, 0);
     document.title = `${article.tituloArticulo}`;
   }, []);
+
+  const sendSearchQuery = (tag) => {
+    if (currentTag[0] === tag) {
+      return;
+    } else if (!currentTag[0]) {
+      insertTag(tag);
+      getFilteredArticles({
+        input: tag,
+        previousArticles: filteredArticles,
+      });
+    } else {
+      deleteTag(currentTag[0]);
+      insertTag(tag);
+      getFilteredArticles({
+        input: tag,
+        previousArticles: [],
+      });
+    }
+  };
 
   return (
     <>
@@ -36,6 +70,7 @@ const Article = ({ article }) => {
         </AuthorContainer>
         <InfoContainer>
           <Date>{moment(article.fecha.toDate()).format("LL")}</Date>
+          <Separator> · </Separator>
           <ReadTime>
             <span>
               <Icon icon={faReadme} />
@@ -46,9 +81,15 @@ const Article = ({ article }) => {
         <Tags post={"true"}>
           {article.tags.map((tag) => {
             return (
-              <Tag type={tag} post={"true"} key={tag}>
-                #{tag}
-              </Tag>
+              <QueryLink to="/">
+                <Tag
+                  category={tag}
+                  name={tag}
+                  key={tag}
+                  post={"true"}
+                  onClick={() => sendSearchQuery(tag)}
+                />
+              </QueryLink>
             );
           })}
         </Tags>
@@ -58,4 +99,19 @@ const Article = ({ article }) => {
   );
 };
 
-export default Article;
+// redux
+const mapStateToProps = ({
+  homePageReducer: { currentTag, filteredArticles },
+}) => ({
+  currentTag,
+  filteredArticles,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getFilteredArticles: (input) => dispatch(fetchFilteredArticlesStart(input)),
+  insertTag: (tag) => dispatch(insertTagRedux(tag)),
+  deleteTag: (tag) => dispatch(deleteTagRedux(tag)),
+  emptyFilteredArticles: (arr) => dispatch(fetchFilteredArticlesSuccess(arr)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Article);

@@ -43,7 +43,7 @@ export const Global = createGlobalStyle`
   h1 {
     color: #faf9f9;
     font-family: "Space Mono", monospace;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     letter-spacing: 0.5px;
     margin-bottom: 1vh;
     text-align: left;
@@ -51,40 +51,14 @@ export const Global = createGlobalStyle`
     line-height: 150%;
 
     @media (max-width: 500px) {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin-bottom: 1vh;
-    }
-  }
-
-  h2 {
-    color: #faf9f9;
-    font-family: "Abril Fatface", cursive;
-    font-size: 1.5rem;
-    letter-spacing: 0.5px;
-    margin-bottom: 1vh;
-
-    @media (max-width: 500px) {
-      font-size: 1.3rem;
-      text-align: left;
-    }
-  }
-
-  h3 {
-    color: #faf9f9;
-    font-family: "Abril Fatface", cursive;
-    font-size: 1.3rem;
-    letter-spacing: 0.5px;
-    margin-bottom: 1vh;
-
-    @media (max-width: 500px) {
-      font-size: 1.1rem;
-      text-align: left;
     }
   }
 
   p {
     font-family: "Roboto", sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     letter-spacing: 0.5px;
     text-align: left;
     color: #faf9f9;
@@ -93,7 +67,6 @@ export const Global = createGlobalStyle`
     width: 100%;
 
     @media (max-width: 500px) {
-      font-size: 1.15rem;
     }
   }
 
@@ -104,23 +77,21 @@ export const Global = createGlobalStyle`
     padding-right: 0.3rem;
     color: #000000;
     font-weight: normal;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     line-height: 180%;
 
-    @media (max-width: 768px) {
-      font-size: 1.15rem;
+    @media (max-width: 500px) {
     }
   }
 
   li {
     color: #faf9f9;
     font-family: "Roboto", sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin-bottom: 0.5vh;
     letter-spacing: 0.5px;
 
     @media (max-width: 500px) {
-      font-size: 1.15rem;
     }
   }
 
@@ -144,7 +115,7 @@ export const Global = createGlobalStyle`
     width: 100%;
     
     @media (max-width: 500px) {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
   }
 
@@ -155,7 +126,7 @@ export const Global = createGlobalStyle`
   a {
     position: relative;
     color: #faf9f9;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 
     &::after {
       background: #fad530;
@@ -186,7 +157,6 @@ export const Global = createGlobalStyle`
     }
 
     @media (max-width: 500px) {
-      font-size: 1.15rem;
     }
   }
 `;
@@ -213,9 +183,9 @@ export const FullContainer = styled.div`
 
 export const Container = styled.div`
   width: 93vw;
-  padding-top: 3rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 
   @media (max-width: 500px) {
     width: 100vw;

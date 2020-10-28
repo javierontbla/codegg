@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
 
-const { darkBlack, lightBlack, yellow } = colors;
+const { lightBlack, yellow } = colors;
 
 const Center = css`
   display: flex;

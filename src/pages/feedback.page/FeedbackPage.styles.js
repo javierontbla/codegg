@@ -51,20 +51,20 @@ export const Title = styled.div`
 export const Subtitle = styled.div`
   height: fit-content;
   color: ${white};
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: "Space Mono", monospace;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
 
   @media (max-width: 500px) {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 `;
 
 export const Input = styled.input`
   height: 3rem;
   width: 100%;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   background: ${darkBlack};
   border: none;
   border-radius: 0.2rem;
@@ -83,7 +83,6 @@ export const Input = styled.input`
   }
 
   @media (max-width: 500px) {
-    font-size: 1rem;
     height: 3rem;
     padding-left: 0.6rem;
     padding-right: 0.6rem;
@@ -102,7 +101,7 @@ export const Comment = styled.textarea`
   resize: none;
   color: ${white};
   font-family: "Roboto", sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   letter-spacing: 0.5px;
   margin-bottom: 4vh;
 
@@ -111,7 +110,6 @@ export const Comment = styled.textarea`
   }
 
   @media (max-width: 500px) {
-    font-size: 1rem;
     padding-left: 0.6rem;
     padding-right: 0.6rem;
   }
@@ -120,14 +118,14 @@ export const Comment = styled.textarea`
 export const Button = styled.div`
   display: flex;
   width: 100%;
-  height: 3.5rem;
+  height: 3rem;
   align-items: center;
   justify-content: center;
   position: relative;
   border: none;
   background: ${yellow};
   font-family: "Space Mono", monospace;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: ${darkBlack};
   letter-spacing: 0.5px;
   border-radius: 0.2rem;
@@ -148,8 +146,8 @@ export const Button = styled.div`
 
   @media (max-width: 500px) {
     margin-bottom: 1vh;
-    font-size: 1.6rem;
-    height: 3rem;
+    font-size: 1.4rem;
+    height: 2.8rem;
   }
 `;
 
@@ -165,7 +163,7 @@ export const Buttons = styled.div`
 
 export const Alert = styled.div`
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: ${white};
   width: 100%;
   justify-content: center;
@@ -174,7 +172,6 @@ export const Alert = styled.div`
   font-family: "Space Mono", monospace;
 
   @media (max-width: 500px) {
-    font-size: 1.1rem;
   }
 `;
 
