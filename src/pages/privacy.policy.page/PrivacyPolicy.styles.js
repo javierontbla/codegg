@@ -64,7 +64,7 @@ export const DateContainer = styled.div`
 
 export const Subtitle = styled.div`
   font-family: "Space Mono", monospace;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: ${white};
   letter-spacing: 0.5px;
   margin-bottom: 1vh;
@@ -83,7 +83,7 @@ export const Content = styled.div`
   letter-spacing: 0.5px;
   margin-bottom: 3rem;
   font-family: "Roboto", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 180%;
   width: 65%;
 
@@ -94,5 +94,5 @@ export const Content = styled.div`
 `;
 
 export const Bold = styled.strong`
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 `;

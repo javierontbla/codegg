@@ -7,12 +7,36 @@ export const Global = createGlobalStyle`
     padding: 0;
     height: 100vh;
   }
+
+  b {
+    color: #faf9f9;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  i {
+    color: #faf9f9;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  sub {
+    color: #faf9f9;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.5px;
+  }
+  
+  sup {
+    color: #faf9f9;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.5px;
+  }
   
   blockquote {
     color: #faf9f9;
     padding: 0.8rem;
     font-family: "Roboto", sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     border-top-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 0.2rem;
@@ -23,13 +47,12 @@ export const Global = createGlobalStyle`
     margin-bottom: 2vh;
 
     @media (max-width: 500px) {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
     }
   }
 
   img {
     display: block;
-    margin: 0 auto;
     margin-bottom: 2vh;
     border-radius: 0.2rem;
     max-width: 100%;
@@ -37,28 +60,28 @@ export const Global = createGlobalStyle`
 
     @media (max-width: 500px) {
       max-width: 100%;
+      margin: 0 auto;
     }
   }
 
   h1 {
     color: #faf9f9;
     font-family: "Space Mono", monospace;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     letter-spacing: 0.5px;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     text-align: left;
     width: 100%;
     line-height: 150%;
 
     @media (max-width: 500px) {
       font-size: 1.4rem;
-      margin-bottom: 1vh;
     }
   }
 
   p {
     font-family: "Roboto", sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     letter-spacing: 0.5px;
     text-align: left;
     color: #faf9f9;
@@ -67,6 +90,7 @@ export const Global = createGlobalStyle`
     width: 100%;
 
     @media (max-width: 500px) {
+      font-size: 1.1rem;
     }
   }
 
@@ -77,21 +101,23 @@ export const Global = createGlobalStyle`
     padding-right: 0.3rem;
     color: #000000;
     font-weight: normal;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 180%;
 
     @media (max-width: 500px) {
+      font-size: 1.1rem;
     }
   }
 
   li {
     color: #faf9f9;
     font-family: "Roboto", sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     margin-bottom: 0.5vh;
     letter-spacing: 0.5px;
 
     @media (max-width: 500px) {
+      font-size: 1.1rem;
     }
   }
 
@@ -107,7 +133,7 @@ export const Global = createGlobalStyle`
     padding: 0.6rem;
     padding-left: 0.8rem;
     padding-right: 0.8rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
     border-radius: 0.2rem;
     letter-spacing: 0.5px;
     background: #000000; 
@@ -115,7 +141,7 @@ export const Global = createGlobalStyle`
     width: 100%;
     
     @media (max-width: 500px) {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
   }
 
@@ -126,7 +152,7 @@ export const Global = createGlobalStyle`
   a {
     position: relative;
     color: #faf9f9;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 
     &::after {
       background: #fad530;
@@ -157,7 +183,27 @@ export const Global = createGlobalStyle`
     }
 
     @media (max-width: 500px) {
+      font-size: 1.1rem;
     }
+  }
+
+  table {
+    width: fit-content;
+    color: #faf9f9;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    margin-bottom: 2vh;
+
+    @media (max-width: 500px) {
+      margin: 0 auto;
+    }
+  }
+
+  table, th, td {
+      border: 2px solid #faf9f9;
+      border-radius: 0.2rem;
+      padding: 1rem;
   }
 `;
 

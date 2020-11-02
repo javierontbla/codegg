@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   width: 100%;
   justify-content: center;
+  height: 100vh;
 
   @media (max-width: 500px) {
     align-items: flex-start;
@@ -51,7 +52,7 @@ export const Title = styled.div`
 export const Subtitle = styled.div`
   height: fit-content;
   color: ${white};
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-family: "Space Mono", monospace;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
@@ -64,7 +65,7 @@ export const Subtitle = styled.div`
 export const Input = styled.input`
   height: 3rem;
   width: 100%;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   background: ${darkBlack};
   border: none;
   border-radius: 0.2rem;
@@ -101,7 +102,7 @@ export const Comment = styled.textarea`
   resize: none;
   color: ${white};
   font-family: "Roboto", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   letter-spacing: 0.5px;
   margin-bottom: 4vh;
 
@@ -125,7 +126,7 @@ export const Button = styled.div`
   border: none;
   background: ${yellow};
   font-family: "Space Mono", monospace;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: ${darkBlack};
   letter-spacing: 0.5px;
   border-radius: 0.2rem;

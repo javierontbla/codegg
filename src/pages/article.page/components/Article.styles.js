@@ -107,7 +107,7 @@ export const Body = styled.div`
   padding: 0.9rem;
   margin-top: 3rem;
   margin-bottom: 2vh;
-  width: 60%;
+  width: 50%;
   text-align: left;
 
   @media (max-width: 500px) {

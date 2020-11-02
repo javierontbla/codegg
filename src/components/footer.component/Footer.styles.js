@@ -5,8 +5,8 @@ import { colors } from "../../colors/colors";
 const { white, darkBlack } = colors;
 
 export const FooterContainer = styled.footer`
-  position: ${(props) => (props.error ? "absolute" : "relative")};
-  bottom: 0.2rem;
+  position: relative;
+  bottom: 0rem;
   width: 100%;
   height: fit-content;
   background-color: transparent;
