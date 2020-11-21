@@ -2,63 +2,35 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../colors/colors";
+import { fonts } from "../../fonts/fonts";
 
-const {
-  darkBlack,
-  machine_learning,
-  deep_learning,
-  redes_neuronales,
-  python,
-  modelos,
-  algo,
-} = colors;
+const { primary_font } = fonts;
+
+const { yellow, green } = colors;
 
 export const TagContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   width: fit-content;
-  border-radius: 0.2rem;
-  padding: 0.4rem;
-  padding-right: 0.6rem;
-  padding-left: 0.6rem;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
+  border-radius: 2.5px;
+  font-family: ${primary_font};
+  padding: ${(props) =>
+    props.on_card ? "0px 5px 0px 5px" : "0px 10px 0px 10px"};
+  margin: 0px 7.5px 0px 7.5px;
+  font-size: ${(props) => (props.on_card ? "16px" : "20px")};
   letter-spacing: 1px;
-  height: fit-content;
-  margin: 0.4rem;
-  box-shadow: 0.4rem 0.4rem ${darkBlack};
-  border: 2px solid ${darkBlack};
-  transition: border 0.4s;
-  color: ${(props) =>
-    props.name === "machine learning"
-      ? `${machine_learning}`
-      : props.name === "deep learning"
-      ? `${deep_learning}`
-      : props.name === "redes neuronales"
-      ? `${redes_neuronales}`
-      : props.name === "python"
-      ? `${python}`
-      : props.name === "modelos"
-      ? `${modelos}`
-      : `${algo}`};
+  height: ${(props) => (props.on_card ? "32px" : "45px")};
+  border: ${(props) =>
+    props.on_card ? `1px solid ${yellow}` : `1px solid ${yellow}`};
+  color: ${(props) => (props.on_card ? `${green}` : `${green}`)};
+  background: ${(props) => (props.on_card ? `${yellow}` : `${yellow}`)};
+  text-transform: ${(props) => (props.on_card ? "" : "")};
+  transition: opacity 0.1s;
 
   &:hover {
     cursor: pointer;
-    opacity: 0.9;
-    border: 2px solid
-      ${(props) =>
-        props.name === "machine learning"
-          ? `${machine_learning}`
-          : props.name === "deep learning"
-          ? `${deep_learning}`
-          : props.name === "redes neuronales"
-          ? `${redes_neuronales}`
-          : props.name === "python"
-          ? `${python}`
-          : props.name === "modelos"
-          ? `${modelos}`
-          : `${algo}`};
+    opacity: 0.95;
   }
 `;
 
@@ -74,17 +46,6 @@ export const IconContainer = styled.div`
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
-  color: ${(props) =>
-    props.name === "machine learning"
-      ? `${machine_learning}`
-      : props.name === "deep learning"
-      ? `${deep_learning}`
-      : props.name === "redes neuronales"
-      ? `${redes_neuronales}`
-      : props.name === "python"
-      ? `${python}`
-      : props.name === "modelos"
-      ? `${modelos}`
-      : `${algo}`};
+  color: black;
   font-size: 1rem;
 `;

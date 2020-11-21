@@ -3,20 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 import { colors } from "../../../../colors/colors";
+import { fonts } from "../../../../fonts/fonts";
 
-const {
-  white,
-  darkBlack,
-  machine_learning,
-  deep_learning,
-  redes_neuronales,
-  python,
-  modelos,
-  algo,
-  grey,
-} = colors;
+const { primary_font, secondary_font } = fonts;
+const { grey, dark_grey } = colors;
 
-export const LinkArticle = styled(Link)`
+export const LinkStock = styled(Link)`
   &:hover {
     text-decoration: none;
   }
@@ -24,11 +16,8 @@ export const LinkArticle = styled(Link)`
 
 export const Container = styled.div`
   width: 100%;
-  border: 2px solid ${darkBlack};
-  border-radius: 0.2rem;
-  -webkit-box-shadow: 0.4rem 0.4rem 0.4rem 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0.4rem 0.4rem 0.4rem 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0.4rem 0.4rem 0.4rem 0px rgba(0, 0, 0, 0.5);
+  border: 0.5px solid ${grey};
+  border-radius: 2.5px;
   transition: transform 0.15s;
 
   &:hover {
@@ -39,160 +28,83 @@ export const Container = styled.div`
 
 export const Img = styled.div`
   width: 100%;
-  min-height: 30vh;
-  border-top-left-radius: 0.2rem;
-  border-top-right-radius: 0.2rem;
+  min-height: 300px;
+  border-top-left-radius: 2.5px;
+  border-top-right-radius: 2.5px;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.source});
   background-repeat: no-repeat;
+  border-bottom: 0.5px solid ${grey};
 `;
 
-export const Text = styled.div`
-  padding-right: 0.6rem;
-  padding-left: 0.6rem;
-  padding-top: 0.6rem;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
+export const Description = styled.div`
+  font-family: ${primary_font};
+  font-size: 20px;
   letter-spacing: 0.5px;
   text-align: left;
-  margin-top: 1vh;
-  color: ${white};
+  color: black;
+  padding: 0px 15px 0px 15px;
+  margin: 15px 0px 15px 0px;
 `;
 
-export const Title = styled.div`
-  font-family: "Space Mono", monospace;
-  font-size: 1.5rem;
-  letter-spacing: 0.5px;
-  color: ${white};
-  line-height: 150%;
-
-  @media (max-width: 500px) {
-    font-size: 1.4rem;
-  }
-`;
-
-export const BodyPreview = styled.div`
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  line-height: 180%;
-  padding-bottom: 1.2rem;
-
-  &::first-letter {
-    text-transform: uppercase;
-  }
-`;
-
-export const Span = styled.span``;
-
-export const Time = styled.div`
+export const LastUpdate = styled.div`
   display: flex;
   align-items: center;
-  color: ${grey};
-  font-size: 0.75rem;
-  font-family: "Space Mono", monospace;
+  color: ${dark_grey};
+  font-size: 12px;
+  font-family: ${primary_font};
   letter-spacing: 0.5px;
+  padding: 0;
+  margin: 0;
+  height: fit-content;
+  width: 100%;
 
   @media (max-width: 500px) {
     font-size: 0.7rem;
   }
 `;
 
-export const Tags = styled.div`
+export const Stock = styled.div`
+  font-family: "Space Mono", monospace;
+  font-size: 40px;
+  letter-spacing: 0.5px;
+  color: black;
+
+  @media (max-width: 500px) {
+    font-size: 1.4rem;
+  }
+`;
+
+export const Acronym = styled.div`
+  font-family: ${secondary_font};
+  margin: 0;
+  padding: 0;
+  color: ${dark_grey};
+  letter-spacing: 0.5px;
+  font-size: 20px;
+`;
+
+export const Preview = styled.div`
+  font-family: ${primary_font};
+  font-size: 16px;
+  line-height: 150%;
+  margin: 15px 0px 0px 0px;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+`;
+
+export const Categories = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  padding-bottom: 0.6rem;
-  padding-left: 0.2rem;
-  padding-right: 0.2rem;
-  padding-top: 0.4rem;
-  border-top: 2px solid ${darkBlack};
+  padding: 0px 7.5px 0px 7.5px;
+  margin: 0px 0px 15px 0px;
 
   @media (max-width: 500px) {
     padding-left: ${(props) => (props.post ? "0rem" : "")};
     margin-left: ${(props) => (props.post ? "-0.2rem" : "")};
     width: ${(props) => (props.post ? "100%" : "")};
   }
-`;
-
-export const Tag = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: fit-content;
-  border-radius: 0.2rem;
-  padding: 0.4rem;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  height: fit-content;
-  margin: 0.5rem;
-  margin-bottom: ${(props) => (props.post ? "" : "0.6rem")};
-  color: ${(props) =>
-    props.type === "machine learning"
-      ? `${machine_learning}`
-      : props.type === "deep learning"
-      ? `${deep_learning}`
-      : props.type === "redes neuronales"
-      ? `${redes_neuronales}`
-      : props.type === "python"
-      ? `${python}`
-      : props.type === "modelos"
-      ? `${modelos}`
-      : `${algo}`};
-  box-shadow: 0.4rem 0.4rem
-    ${(props) =>
-      props.type === "machine learning"
-        ? `${machine_learning}`
-        : props.type === "deep learning"
-        ? `${deep_learning}`
-        : props.type === "redes neuronales"
-        ? `${redes_neuronales}`
-        : props.type === "python"
-        ? `${python}`
-        : props.type === "modelos"
-        ? `${modelos}`
-        : `${algo}`};
-  border: 2px solid
-    ${(props) =>
-      props.type === "machine learning"
-        ? `${machine_learning}`
-        : props.type === "deep learning"
-        ? `${deep_learning}`
-        : props.type === "redes neuronales"
-        ? `${redes_neuronales}`
-        : props.type === "python"
-        ? `${python}`
-        : props.type === "modelos"
-        ? `${modelos}`
-        : `${algo}`};
-
-  &:hover {
-    cursor: ${(props) => (props.post ? "" : "pointer")};
-    opacity: ${(props) => (props.post ? "1" : "0.9")};
-  }
-`;
-
-export const Date = styled.div`
-  color: ${grey};
-  font-size: 0.75rem;
-  font-family: "Space Mono", monospace;
-  letter-spacing: 0.5px;
-  padding-right: 0.6rem;
-`;
-
-export const Icon = styled(FontAwesomeIcon)`
-  margin-right: 0.6rem;
-  font-size: 0.7rem;
-  margin-top: 0.25rem;
-  color: ${white};
-`;
-
-export const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-top: 0.8rem;
-  padding-bottom: 1.2rem;
-  padding-left: 0.1rem;
 `;

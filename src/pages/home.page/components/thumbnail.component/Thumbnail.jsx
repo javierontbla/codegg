@@ -1,22 +1,18 @@
 import React, { useEffect } from "react";
-import { faReadme } from "@fortawesome/free-brands-svg-icons";
 import moment from "moment";
 import "moment/locale/es";
 
 import Tag from "../../../../components/tag.component/Tag";
 import {
+  Description,
+  LastUpdate,
+  Categories,
   Container,
+  LinkStock,
+  Preview,
+  Acronym,
+  Stock,
   Img,
-  Text,
-  Title,
-  BodyPreview,
-  Date,
-  Time,
-  Tags,
-  Span,
-  Icon,
-  LinkArticle,
-  InfoContainer,
 } from "./Thumbnail.styles";
 
 const Thumbnail = ({ data, id, search }) => {
@@ -27,23 +23,18 @@ const Thumbnail = ({ data, id, search }) => {
   return (
     <>
       <Container>
-        <LinkArticle to={`/${linkTitle}-${id}`}>
+        <LinkStock to={`/${linkTitle}-${id}`}>
           <Img source={data.imagen} />
-          <Text>
-            <Title>{data.tituloArticulo}</Title>
-            <InfoContainer>
-              <Date>{moment(data.fecha.toDate()).format("LL")} · </Date>
-              <Time>
-                <Span>
-                  <Icon icon={faReadme} />
-                </Span>
-                {data.tiempo}
-              </Time>
-            </InfoContainer>
-            <BodyPreview>{data.previo}...</BodyPreview>
-          </Text>
-        </LinkArticle>
-        <Tags>
+          <Description>
+            <LastUpdate>
+              Actualizado: {moment(data.fecha.toDate()).format("LL")}
+            </LastUpdate>
+            <Stock>{data.tituloArticulo}</Stock>
+            <Acronym>{data.acronimo.toUpperCase()}</Acronym>
+            <Preview>{data.previo}...</Preview>
+          </Description>
+        </LinkStock>
+        <Categories>
           {data.tags.map((tag) => {
             return (
               <Tag
@@ -51,10 +42,11 @@ const Thumbnail = ({ data, id, search }) => {
                 category={tag}
                 name={tag}
                 key={tag}
+                on_card={"true"}
               />
             );
           })}
-        </Tags>
+        </Categories>
       </Container>
     </>
   );

@@ -111,7 +111,6 @@ const HomePage = ({
 
   return (
     <>
-      <Des>codegg.tech | Todo sobre I.A.</Des>
       {!loading ? (
         <AvailableTagsContainer>
           {availableTags.map((tag) => {

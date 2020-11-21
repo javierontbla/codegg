@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
 
-const { lightBlack, yellow } = colors;
+const { white, grey, yellow, green } = colors;
 
 const Center = css`
   display: flex;
@@ -19,21 +19,16 @@ export const Navbar = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: ${lightBlack};
+  background: ${white};
   position: sticky;
   top: 0;
-  -webkit-box-shadow: 0.4rem 0px 0.4rem 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0.4rem 0px 0.4rem 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0.4rem 0px 0.4rem 0px rgba(0, 0, 0, 0.5);
+  border-right: 0.5px solid ${grey};
 
   @media (max-width: 500px) {
     flex-direction: row;
     height: 100%;
     width: 100%;
     position: "";
-    -webkit-box-shadow: 0.4rem 0.4rem 0.4rem 0.1rem rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0.4rem 0.4rem 0.4rem 0.1rem rgba(0, 0, 0, 0.5);
-    box-shadow: 0.4rem 0.4rem 0.4rem 0.1rem rgba(0, 0, 0, 0.5);
   }
 `;
 
@@ -47,7 +42,6 @@ export const Logo = styled.div`
 
   &:hover {
     cursor: pointer;
-    opacity: 0.9;
   }
 
   @media (max-width: 500px) {
@@ -77,8 +71,8 @@ export const SocialMedia = styled.div`
 
 // buttons
 export const MediaIcon = styled(FontAwesomeIcon)`
-  font-size: ${(props) => (props.comment ? "1.6rem" : "1.9rem")};
-  color: ${yellow};
+  font-size: 38px;
+  color: ${green};
   margin: 0;
   margin-bottom: ${(props) => (props.comment ? "0.6rem" : "")};
 
@@ -115,9 +109,8 @@ export const LinkContainer = styled(Link)`
 `;
 
 export const Img = styled.img`
-  margin-top: 0.8rem;
-  width: 4.2rem;
-  height: 4.2rem;
+  width: 105px;
+  height: 105px;
 
   &:hover {
     text-decoration: none;

@@ -11,6 +11,7 @@ import {
 const Tag = ({
   category,
   name,
+  on_card,
   deleteTag,
   emptyFilteredArticles,
   filter,
@@ -24,8 +25,8 @@ const Tag = ({
 
   return (
     <>
-      <TagContainer name={name} {...allProps}>
-        {category}
+      <TagContainer on_card={on_card} name={name} {...allProps}>
+        #{category}
         <IconContainer filter={filter}>
           <Icon
             icon={faTimes}

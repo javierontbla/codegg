@@ -2,9 +2,13 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../colors/colors";
+import { fonts } from "../../fonts/fonts";
+
+const { primary_font } = fonts;
 
 const {
   white,
+  grey,
   lightBlack,
   darkBlack,
   machine_learning,
@@ -34,21 +38,17 @@ export const Des = styled.div`
 
 export const LoadMore = styled.button`
   width: fit-content;
-  border: 2px solid ${darkBlack};
-  box-shadow: 0.4rem 0.4rem ${darkBlack};
-  border-radius: 0.2rem;
-  background: ${lightBlack};
-  margin: 0 auto;
-  font-family: "Roboto", sans-serif;
-  margin-top: 3rem;
-  margin-bottom: 3.4rem;
+  border: 0.5px solid ${grey};
+  border-radius: 2.5px;
+  background: transparent;
+  margin: 0px 0px 35px 35px;
+  font-family: ${primary_font};
   font-size: 1rem;
   letter-spacing: 0.5px;
-  color: ${white};
-  padding: 0.4rem;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
-  padding-bottom: 0.6rem;
+  color: black;
+  padding: 0px 10px 0px 10px;
+  font-size: 20px;
+  height: 45px;
 
   &:hover {
     opacity: 0.9;
@@ -62,23 +62,20 @@ export const LoadMore = styled.button`
 
 export const ButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
 `;
 
 export const AvailableTagsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
   background: transparent;
-  border-bottom: 2px solid ${darkBlack};
-  border-top: 2px solid ${darkBlack};
   width: 100%;
-  height: fit-content;
+  height: 90px;
+  border-bottom: 0.5px solid ${grey};
   justify-content: left;
-  padding-top: 0.4rem;
-  padding-bottom: 0.8rem;
+  padding: 0px 10px 0px 10px;
 
   @media (max-width: 500px) {
     padding-top: 0.5rem;

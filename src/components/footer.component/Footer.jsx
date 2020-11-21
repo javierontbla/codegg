@@ -3,27 +3,22 @@ import { connect } from "react-redux";
 
 import { FooterContainer } from "./Footer.styles";
 
-import {
-  CompanyName,
-  PrivacyPolicy,
-  Data,
-  Button,
-  Copyright,
-} from "./Footer.styles";
+import { CompanyName, Option, Options, Button } from "./Footer.styles";
 
 const Footer = ({ error }) => {
   return (
     <>
       {!error ? (
         <FooterContainer>
-          <Data>
-            <PrivacyPolicy>
+          <Options>
+            <Option>
               <Button to="/privacidad">Política de Privacidad</Button>
-            </PrivacyPolicy>
-            <CompanyName>
-              <Copyright>©</Copyright>codegg.tech
-            </CompanyName>
-          </Data>
+            </Option>
+            <Option>
+              <Button to="/privacidad">Términos y Condiciones</Button>
+            </Option>
+          </Options>
+          <CompanyName>© codegg.tech</CompanyName>
         </FooterContainer>
       ) : null}
     </>

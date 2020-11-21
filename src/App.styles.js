@@ -1,8 +1,12 @@
 import styled, { createGlobalStyle } from "styled-components";
 
+import { colors } from "./colors/colors";
+
+const { white, grey } = colors;
+
 export const Global = createGlobalStyle`
   body {
-    background-color: #1e232b;
+    background-color: ${white};
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -210,7 +214,7 @@ export const Global = createGlobalStyle`
 export const NavBarContainer = styled.div`
   display: flex;
   justify-content: center;
-  width: 7vw;
+  width: 125px;
 
   @media (max-width: 500px) {
     width: 100vw;
@@ -228,10 +232,10 @@ export const FullContainer = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 93vw;
-  padding-top: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  margin: 35px 35px 35px 35px;
+  border: 0.5px solid ${grey};
+  border-radius: 2.5px;
+  width: 100%;
 
   @media (max-width: 500px) {
     width: 100vw;
