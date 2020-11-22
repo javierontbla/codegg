@@ -15,7 +15,7 @@ const Footer = ({ error }) => {
               <Button to="/privacidad">Política de Privacidad</Button>
             </Option>
             <Option>
-              <Button to="/privacidad">Términos y Condiciones</Button>
+              <Button to="/terminos">Términos y Condiciones</Button>
             </Option>
           </Options>
           <CompanyName>© codegg.tech</CompanyName>

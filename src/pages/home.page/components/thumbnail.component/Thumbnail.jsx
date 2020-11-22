@@ -19,29 +19,30 @@ const Thumbnail = ({ data, id, search }) => {
   useEffect(() => {
     moment.locale("es");
   }, []);
-  const linkTitle = data.titulo.split(" ").join("-").toLowerCase();
+  const link_name = data.nombre_link.split(" ").join("-").toLowerCase();
   return (
     <>
       <Container>
-        <LinkStock to={`/${linkTitle}-${id}`}>
+        <LinkStock to={`/${link_name}-${id}`}>
           <Img source={data.imagen} />
           <Description>
             <LastUpdate>
-              Actualizado: {moment(data.fecha.toDate()).format("LL")}
+              Actualizado: {moment(data.fecha.toDate()).format("LL")} ·{" "}
+              {data.trimestre}
             </LastUpdate>
-            <Stock>{data.tituloArticulo}</Stock>
+            <Stock>{data.nombre}</Stock>
             <Acronym>{data.acronimo.toUpperCase()}</Acronym>
-            <Preview>{data.previo}...</Preview>
+            <Preview>{data.descripcion}...</Preview>
           </Description>
         </LinkStock>
         <Categories>
-          {data.tags.map((tag) => {
+          {data.categorias.map((category) => {
             return (
               <Tag
-                onClick={() => search(tag)}
-                category={tag}
-                name={tag}
-                key={tag}
+                onClick={() => search(category)}
+                category={category}
+                name={category}
+                key={category}
                 on_card={"true"}
               />
             );

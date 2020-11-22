@@ -6,7 +6,7 @@ import { fonts } from "../../fonts/fonts";
 
 const { primary_font } = fonts;
 
-const { yellow, green } = colors;
+const { yellow, green, grey, white } = colors;
 
 export const TagContainer = styled.div`
   display: flex;
@@ -18,18 +18,22 @@ export const TagContainer = styled.div`
   padding: ${(props) =>
     props.on_card ? "0px 5px 0px 5px" : "0px 10px 0px 10px"};
   margin: 0px 7.5px 0px 7.5px;
-  font-size: ${(props) => (props.on_card ? "16px" : "20px")};
+  font-size: ${(props) => (props.on_card ? "16px" : "18px")};
   letter-spacing: 1px;
   height: ${(props) => (props.on_card ? "32px" : "45px")};
   border: ${(props) =>
-    props.on_card ? `1px solid ${yellow}` : `1px solid ${yellow}`};
+    props.on_card ? `1px solid ${yellow}` : `1px solid ${grey}`};
   color: ${(props) => (props.on_card ? `${green}` : `${green}`)};
-  background: ${(props) => (props.on_card ? `${yellow}` : `${yellow}`)};
+  background: ${(props) => (props.on_card ? `${yellow}` : `transparent`)};
   text-transform: ${(props) => (props.on_card ? "" : "")};
-  transition: opacity 0.1s;
+  transition: color 0.2s, background 0.2s, border 0.2s;
 
   &:hover {
     cursor: pointer;
+    border: ${(props) =>
+      props.on_card ? `1px solid ${yellow}` : `1px solid ${green}`};
+    color: ${(props) => (props.on_card ? `${green}` : `${white}`)};
+    background: ${(props) => (props.on_card ? `${yellow}` : `${green}`)};
   }
 `;
 

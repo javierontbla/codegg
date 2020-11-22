@@ -20,12 +20,12 @@ import {
   fetchFilteredArticlesSuccess,
 } from "../../redux/home.page/actions";
 import {
-  AvailableTagsContainer,
+  AvailableCategories,
   FilteredCategories,
   ButtonContainer,
   NoMoreButton,
   Container,
-  LoadMore,
+  LoadMoreButton,
   HomeIcon,
 } from "./Home.Page.styles";
 import "./Home.Page.css";
@@ -51,7 +51,7 @@ const HomePage = ({
 }) => {
   useEffect(() => {
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
-    document.title = `codegg.tech | Todo sobre I.A.`;
+    document.title = `codegg.tech`;
     moment.locale("es");
 
     return () => {
@@ -87,6 +87,14 @@ const HomePage = ({
     }
   };
 
+  const remove_categories = () => {
+    if (!currentTag[0]) return;
+    if (currentTag[0]) {
+      deleteTag(currentTag[0]);
+      emptyFilteredArticles([]);
+    }
+  };
+
   const loadMoreUnfilteredArticles = () => {
     if (!lastUnfiltered) {
       stopFetching();
@@ -113,8 +121,8 @@ const HomePage = ({
   return (
     <>
       {!loading ? (
-        <AvailableTagsContainer>
-          <HomeIcon icon={faHome} />
+        <AvailableCategories>
+          <HomeIcon icon={faHome} onClick={() => remove_categories()} />
           {availableTags.map((tag) => {
             return (
               <Tag
@@ -125,7 +133,7 @@ const HomePage = ({
               />
             );
           })}
-        </AvailableTagsContainer>
+        </AvailableCategories>
       ) : null}
       {currentTag[0] ? (
         <FilteredCategories>
@@ -164,9 +172,9 @@ const HomePage = ({
             </Container>
             <ButtonContainer>
               {!noMorePosts ? (
-                <LoadMore onClick={() => loadMoreUnfilteredArticles()}>
+                <LoadMoreButton onClick={() => loadMoreUnfilteredArticles()}>
                   cargar más
-                </LoadMore>
+                </LoadMoreButton>
               ) : (
                 <NoMoreButton>no hay más</NoMoreButton>
               )}
@@ -194,9 +202,9 @@ const HomePage = ({
             </Container>
             <ButtonContainer>
               {!noMorePosts ? (
-                <LoadMore onClick={() => loadMoreFilteredArticles()}>
+                <LoadMoreButton onClick={() => loadMoreFilteredArticles()}>
                   cargar más
-                </LoadMore>
+                </LoadMoreButton>
               ) : (
                 <NoMoreButton>no hay más</NoMoreButton>
               )}

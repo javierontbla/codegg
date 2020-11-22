@@ -6,37 +6,30 @@ import { fonts } from "../../fonts/fonts";
 
 const { primary_font } = fonts;
 
-const {
-  green,
-  grey,
-  black,
-  machine_learning,
-  deep_learning,
-  redes_neuronales,
-  python,
-  modelos,
-  algo,
-} = colors;
+const { green, grey, black, white } = colors;
 
 export const Container = styled.div``;
 
-export const LoadMore = styled.button`
+export const LoadMoreButton = styled.button`
   width: fit-content;
-  border: 0.5px solid ${grey};
+  border: 1px solid ${grey};
   border-radius: 2.5px;
   background: transparent;
   margin: 0px 0px 35px 35px;
   font-family: ${primary_font};
   font-size: 1rem;
   letter-spacing: 0.5px;
-  color: black;
+  color: ${green};
   padding: 0px 10px 0px 10px;
-  font-size: 20px;
+  font-size: 18px;
   height: 45px;
+  transition: color 0.2s, background 0.2s, border 0.2s;
 
   &:hover {
-    opacity: 0.9;
     cursor: pointer;
+    border: 1px solid ${green};
+    color: ${white};
+    background: ${green};
   }
 
   &:focus {
@@ -50,7 +43,18 @@ export const ButtonContainer = styled.div`
   width: 100%;
 `;
 
-export const AvailableTagsContainer = styled.div`
+export const HomeIcon = styled(FontAwesomeIcon)`
+  font-size: 38px;
+  color: ${green};
+  margin: 0px 10px 0px 10px;
+  padding: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const AvailableCategories = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -64,27 +68,6 @@ export const AvailableTagsContainer = styled.div`
   @media (max-width: 500px) {
     padding-top: 0.5rem;
     padding-bottom: 1rem;
-  }
-`;
-
-export const Icon = styled(FontAwesomeIcon)`
-  color: ${(props) =>
-    props.type === "machine learning"
-      ? `${machine_learning}`
-      : props.type === "deep learning"
-      ? `${deep_learning}`
-      : props.type === "redes neuronales"
-      ? `${redes_neuronales}`
-      : props.type === "python"
-      ? `${python}`
-      : props.type === "modelos"
-      ? `${modelos}`
-      : `${algo}`};
-  font-size: ${(props) => (props.cross ? "1rem" : "1.5rem")};
-
-  &:hover {
-    cursor: pointer;
-    opacity: ${(props) => (props.cross ? "0.9" : "0.8")};
   }
 `;
 
@@ -123,7 +106,7 @@ export const NoMoreButton = styled.button`
   font-family: ${primary_font};
   font-size: 20px;
   letter-spacing: 0.5px;
-  color: ${black};
+  color: ${green};
   margin: 0px 0px 35px 35px;
   padding: 0px 10px 0px 10px;
   height: 45px;
@@ -136,11 +119,4 @@ export const NoMoreButton = styled.button`
   &:hover {
     cursor: default;
   }
-`;
-
-export const HomeIcon = styled(FontAwesomeIcon)`
-  font-size: 38px;
-  color: ${green};
-  margin: 0px 10px 0px 10px;
-  padding: 0;
 `;
