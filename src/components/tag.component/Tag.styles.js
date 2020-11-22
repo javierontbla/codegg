@@ -30,7 +30,6 @@ export const TagContainer = styled.div`
 
   &:hover {
     cursor: pointer;
-    opacity: 0.95;
   }
 `;
 
@@ -39,13 +38,16 @@ export const IconContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  margin-left: 0.5rem;
-  margin-right: 0.1rem;
-  width: fit-content;
-  height: fit-content;
+  margin: 0px 0px 0px 10px;
+  padding: 2.5px 0px 0px 0px;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.95;
+  }
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
-  color: black;
-  font-size: 1rem;
+  color: ${green};
+  font-size: 16px;
 `;

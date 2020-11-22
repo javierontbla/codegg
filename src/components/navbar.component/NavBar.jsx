@@ -1,5 +1,4 @@
 import React from "react";
-import { faCommentAlt } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import icon from "./official_logo.svg";
@@ -12,7 +11,6 @@ import {
   LinkContainer,
   Img,
   External,
-  Text,
 } from "./NavBar.styles";
 
 const NavBar = () => {
@@ -22,9 +20,6 @@ const NavBar = () => {
         <Logo>
           <LinkContainer to="/">
             <Img src={icon} />
-          </LinkContainer>
-          <LinkContainer to="/">
-            <Text>codegg</Text>
           </LinkContainer>
         </Logo>
         <SocialMedia>

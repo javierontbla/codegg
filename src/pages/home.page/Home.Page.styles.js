@@ -7,10 +7,9 @@ import { fonts } from "../../fonts/fonts";
 const { primary_font } = fonts;
 
 const {
-  white,
+  green,
   grey,
-  lightBlack,
-  darkBlack,
+  black,
   machine_learning,
   deep_learning,
   redes_neuronales,
@@ -20,21 +19,6 @@ const {
 } = colors;
 
 export const Container = styled.div``;
-
-export const Des = styled.div`
-  color: ${white};
-  padding-bottom: 0.4rem;
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
-  font-family: "Space Mono", monospace;
-  font-size: 0.9rem;
-  opacity: 0.9;
-  letter-spacing: 0.5px;
-
-  @media (max-width: 500px) {
-    margin-top: 3rem;
-  }
-`;
 
 export const LoadMore = styled.button`
   width: fit-content;
@@ -115,14 +99,13 @@ export const IconContainer = styled.div`
   height: fit-content;
 `;
 
-export const Tags = styled.div`
+export const FilteredCategories = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
   height: fit-content;
-  padding-top: ${(props) => (props.post ? "0rem" : "0.5rem")};
-  padding-left: ${(props) => (props.post ? "0.5rem" : "")};
+  padding: 22.5px 10px 0px 10px;
 
   @media (max-width: 500px) {
     padding-left: ${(props) => (props.post ? "0rem" : "")};
@@ -131,24 +114,33 @@ export const Tags = styled.div`
   }
 `;
 
-export const Message = styled.div`
+export const NoMoreButton = styled.button`
+  visibility: visible;
   width: fit-content;
-  border: 2px solid ${darkBlack};
-  box-shadow: 0.4rem 0.4rem ${darkBlack};
-  border-radius: 0.2rem;
-  background: ${lightBlack};
-  margin: 0 auto;
-  font-family: "Roboto", sans-serif;
-  margin-top: 3rem;
-  margin-bottom: 3.4rem;
-  font-size: 1rem;
+  border: 0.5px solid ${grey};
+  border-radius: 2.5px;
+  background: transparent;
+  font-family: ${primary_font};
+  font-size: 20px;
   letter-spacing: 0.5px;
-  color: ${white};
-  padding: 0.4rem;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
+  color: ${black};
+  margin: 0px 0px 35px 35px;
+  padding: 0px 10px 0px 10px;
+  height: 45px;
+  transition: visibility 0.5s;
 
   @media (max-width: 500px) {
     width: fit-content;
   }
+
+  &:hover {
+    cursor: default;
+  }
+`;
+
+export const HomeIcon = styled(FontAwesomeIcon)`
+  font-size: 38px;
+  color: ${green};
+  margin: 0px 10px 0px 10px;
+  padding: 0;
 `;

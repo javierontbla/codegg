@@ -39,6 +39,7 @@ export const Logo = styled.div`
   align-items: center;
   width: 100%;
   letter-spacing: 0.5px;
+  margin: 10px 0px 0px 0px;
 
   &:hover {
     cursor: pointer;
@@ -59,7 +60,6 @@ export const SocialMedia = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 1.2rem;
 
   @media (max-width: 500px) {
     flex-direction: row;
@@ -73,8 +73,7 @@ export const SocialMedia = styled.div`
 export const MediaIcon = styled(FontAwesomeIcon)`
   font-size: 38px;
   color: ${green};
-  margin: 0;
-  margin-bottom: ${(props) => (props.comment ? "0.6rem" : "")};
+  margin: 0px 0px 35px 0px;
 
   &:hover {
     cursor: pointer;
@@ -109,8 +108,8 @@ export const LinkContainer = styled(Link)`
 `;
 
 export const Img = styled.img`
-  width: 105px;
-  height: 105px;
+  width: 75px;
+  height: 75px;
 
   &:hover {
     text-decoration: none;
@@ -139,19 +138,5 @@ export const External = styled.a`
     cursor: pointer;
     text-decoration: none;
     color: ${yellow};
-  }
-`;
-
-export const Text = styled.div`
-  display: none;
-
-  @media (max-width: 500px) {
-    display: inline;
-    font-family: "Space Mono", monospace;
-    color: ${yellow};
-    letter-spacing: 0.5px;
-    width: fit-content;
-    height: 100%;
-    font-size: 2.4rem;
   }
 `;

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import "moment/locale/es";
 import Masonry from "react-masonry-css";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 import Thumbnail from "./components/thumbnail.component/Thumbnail";
 import Loading from "../../components/loading.component/Loading";
@@ -19,13 +20,13 @@ import {
   fetchFilteredArticlesSuccess,
 } from "../../redux/home.page/actions";
 import {
-  Container,
-  Des,
-  LoadMore,
-  ButtonContainer,
   AvailableTagsContainer,
-  Tags,
-  Message,
+  FilteredCategories,
+  ButtonContainer,
+  NoMoreButton,
+  Container,
+  LoadMore,
+  HomeIcon,
 } from "./Home.Page.styles";
 import "./Home.Page.css";
 
@@ -113,6 +114,7 @@ const HomePage = ({
     <>
       {!loading ? (
         <AvailableTagsContainer>
+          <HomeIcon icon={faHome} />
           {availableTags.map((tag) => {
             return (
               <Tag
@@ -126,7 +128,7 @@ const HomePage = ({
         </AvailableTagsContainer>
       ) : null}
       {currentTag[0] ? (
-        <Tags>
+        <FilteredCategories>
           {currentTag.map((tag) => {
             return (
               <Tag
@@ -137,7 +139,7 @@ const HomePage = ({
               />
             );
           })}
-        </Tags>
+        </FilteredCategories>
       ) : null}
       {!loading && !error ? (
         filteredArticles.length === 0 ? (
@@ -166,7 +168,7 @@ const HomePage = ({
                   cargar más
                 </LoadMore>
               ) : (
-                <Message>no hay más artículos</Message>
+                <NoMoreButton>no hay más</NoMoreButton>
               )}
             </ButtonContainer>
           </>
@@ -196,7 +198,7 @@ const HomePage = ({
                   cargar más
                 </LoadMore>
               ) : (
-                <Message>no hay más artículos</Message>
+                <NoMoreButton>no hay más</NoMoreButton>
               )}
             </ButtonContainer>
           </>

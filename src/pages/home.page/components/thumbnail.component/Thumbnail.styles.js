@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
 const { primary_font, secondary_font } = fonts;
-const { grey, dark_grey } = colors;
+const { grey, dark_grey, black } = colors;
 
 export const LinkStock = styled(Link)`
   &:hover {
@@ -43,7 +42,6 @@ export const Description = styled.div`
   font-size: 20px;
   letter-spacing: 0.5px;
   text-align: left;
-  color: black;
   padding: 0px 15px 0px 15px;
   margin: 15px 0px 15px 0px;
 `;
@@ -69,7 +67,7 @@ export const Stock = styled.div`
   font-family: "Space Mono", monospace;
   font-size: 40px;
   letter-spacing: 0.5px;
-  color: black;
+  color: ${black};
 
   @media (max-width: 500px) {
     font-size: 1.4rem;
@@ -90,6 +88,7 @@ export const Preview = styled.div`
   font-size: 16px;
   line-height: 150%;
   margin: 15px 0px 0px 0px;
+  color: ${black};
 
   &::first-letter {
     text-transform: uppercase;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { white, grey } = colors;
+const { grey, black } = colors;
 const { primary_font } = fonts;
 
 export const FooterContainer = styled.footer`
@@ -26,17 +26,20 @@ export const CompanyName = styled.div`
   letter-spacing: 0.5px;
   width: fit-content;
   height: 100%;
-  border: 1px solid pink;
   font-size: 16px;
+  margin: 0px 35px 0px 0px;
+  padding: 0px 0px 15px 0px;
+  color: ${black};
 `;
 
 export const Options = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  color: black;
+  justify-content: space-around;
+  color: ${black};
   height: 100%;
-  border: 1px solid green;
+  margin: 0px 0px 0px 35px;
+  padding: 15px 0px 15px 0px;
 
   @media (max-width: 500px) {
   }
@@ -44,7 +47,7 @@ export const Options = styled.div`
 
 export const Option = styled.div`
   letter-spacing: 0.5px;
-  color: black !important;
+  color: ${black} !important;
   background: transparent !important;
   width: fit-content;
 `;
@@ -52,7 +55,7 @@ export const Option = styled.div`
 export const Button = styled(Link)`
   &&& {
     font-family: ${primary_font};
-    color: black;
+    color: ${black};
     font-size: 16px;
     &::after {
       background-color: transparent;
