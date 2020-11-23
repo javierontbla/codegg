@@ -18,6 +18,7 @@ export const Container = styled.div`
   border: 1px solid ${grey};
   border-radius: 0.15rem;
   transition: transform 0.15s;
+  box-shadow: 3px 3px 3px -1px #ced4da;
 
   &:hover {
     cursor: pointer;

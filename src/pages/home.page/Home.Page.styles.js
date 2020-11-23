@@ -13,19 +13,20 @@ export const Container = styled.div``;
 export const LoadMoreButton = styled.button`
   width: fit-content;
   border: 1px solid ${grey};
-  border-radius: 0.15rem;
+  border-radius: 1rem;
   background: transparent;
-  margin: 1rem 0rem 2rem 1rem;
+  margin: 1rem 0rem 2rem 0.5rem;
   font-family: ${primary_font};
   font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${black};
-  padding: 0px 0.5rem 0px 0.5rem;
+  padding: 0px 0.55rem 0px 0.55rem;
   height: 2rem;
-  transition: color 0.2s, background 0.2s, border 0.2s;
+  transition: opacity 0.15s;
 
   &:hover {
     cursor: pointer;
+    opacity: 0.95;
   }
 
   &:focus {
@@ -59,7 +60,7 @@ export const AvailableCategories = styled.div`
   height: 4rem;
   border-bottom: 0.5px solid ${grey};
   justify-content: left;
-  padding: 0rem 0.5rem 0rem 0.5rem;
+  padding: 0rem 0rem 0rem 0rem;
 
   @media (max-width: 500px) {
   }
@@ -71,7 +72,7 @@ export const FilteredCategories = styled.div`
   flex-direction: row;
   width: 100%;
   height: fit-content;
-  padding: 1rem 0.5rem 0rem 0.5rem;
+  padding: 1rem 0rem 0rem 0rem;
 
   @media (max-width: 500px) {
   }
@@ -81,14 +82,14 @@ export const NoMoreButton = styled.button`
   visibility: visible;
   width: fit-content;
   border: 0.5px solid ${grey};
-  border-radius: 0.15rem;
+  border-radius: 1rem;
   background: transparent;
   font-family: ${primary_font};
   font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${black};
-  margin: 1rem 0rem 2rem 1rem;
-  padding: 0rem 0.5rem 0rem 0.5rem;
+  margin: 1rem 0rem 2rem 0.5rem;
+  padding: 0rem 0.55rem 0rem 0.55rem;
   height: 2rem;
   transition: visibility 0.5s;
 

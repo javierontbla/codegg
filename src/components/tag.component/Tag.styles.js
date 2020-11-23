@@ -15,12 +15,8 @@ export const TagContainer = styled.div`
   width: fit-content;
   border-radius: 1rem;
   font-family: ${primary_font};
-  padding: ${(props) =>
-    props.on_card ? "0rem 0.55rem 0rem 0.55rem" : "0rem 0.65rem 0rem 0.65rem"};
-  margin: 0rem 0.5rem 0rem 0.5rem;
-  font-size: ${(props) => (props.on_card ? "1rem" : "1.2rem")};
   letter-spacing: 0.5px;
-  height: ${(props) => (props.on_card ? "2rem" : "2rem")};
+  height: 2rem;
   color: ${white};
   border: none;
   background: rgb(67, 170, 139);
@@ -29,8 +25,15 @@ export const TagContainer = styled.div`
     rgba(67, 170, 139, 1) 0%,
     rgba(55, 139, 136, 1) 100%
   );
+  transition: opacity 0.15s;
+  padding: ${(props) =>
+    props.on_card ? "0rem 0.55rem 0rem 0.55rem" : "0rem 0.65rem 0rem 0.65rem"};
+  margin: 0rem 0.5rem 0rem 0.5rem;
+  font-size: ${(props) => (props.on_card ? "1rem" : "1.2rem")};
+
   &:hover {
     cursor: pointer;
+    opacity: 0.9;
   }
 `;
 

@@ -51,7 +51,7 @@ const HomePage = ({
 }) => {
   useEffect(() => {
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
-    document.title = `codegg.tech`;
+    document.title = `Codegg`;
     moment.locale("es");
 
     return () => {
@@ -122,7 +122,6 @@ const HomePage = ({
     <>
       {!loading ? (
         <AvailableCategories>
-          <HomeIcon icon={faHome} onClick={() => remove_categories()} />
           {availableTags.map((tag) => {
             return (
               <Tag

@@ -3,7 +3,7 @@
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 1rem 0.5rem 0rem 0.5rem;
+  padding: 1rem 0rem 0rem 0rem;
 }
 .mansonry-grid-column {
   background-clip: padding-box;

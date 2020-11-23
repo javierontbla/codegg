@@ -230,8 +230,7 @@ export const FullContainer = styled.div`
 `;
 
 export const Container = styled.div`
-  margin: 2rem 2rem 2rem 2rem;
-  border: 0.5px solid ${grey};
+  margin: 2rem 2rem 0rem 2rem;
   border-radius: 0.15rem;
   width: 100%;
 
