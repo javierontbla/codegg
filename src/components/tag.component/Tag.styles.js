@@ -6,7 +6,7 @@ import { fonts } from "../../fonts/fonts";
 
 const { primary_font } = fonts;
 
-const { yellow, green, grey, white } = colors;
+const { white, yellow } = colors;
 
 export const TagContainer = styled.div`
   display: flex;
@@ -16,23 +16,21 @@ export const TagContainer = styled.div`
   border-radius: 1rem;
   font-family: ${primary_font};
   padding: ${(props) =>
-    props.on_card ? "0rem 0.35rem 0rem 0.35rem" : "0rem 0.65rem 0rem 0.65rem"};
+    props.on_card ? "0rem 0.55rem 0rem 0.55rem" : "0rem 0.65rem 0rem 0.65rem"};
   margin: 0rem 0.5rem 0rem 0.5rem;
-  font-size: ${(props) => (props.on_card ? "0.8rem" : "1rem")};
-  letter-spacing: 1px;
-  height: ${(props) => (props.on_card ? "1.5rem" : "2rem")};
-  border: ${(props) =>
-    props.on_card ? `1px solid ${yellow}` : `1px solid ${grey}`};
-  color: ${(props) => (props.on_card ? `${green}` : `${green}`)};
-  background: ${(props) => (props.on_card ? `${yellow}` : `transparent`)};
-  transition: color 0.2s, background 0.2s, border 0.2s;
-
+  font-size: ${(props) => (props.on_card ? "1rem" : "1.2rem")};
+  letter-spacing: 0.5px;
+  height: ${(props) => (props.on_card ? "2rem" : "2rem")};
+  color: ${white};
+  border: none;
+  background: rgb(67, 170, 139);
+  background: linear-gradient(
+    45deg,
+    rgba(67, 170, 139, 1) 0%,
+    rgba(55, 139, 136, 1) 100%
+  );
   &:hover {
     cursor: pointer;
-    border: ${(props) =>
-      props.on_card ? `1px solid ${yellow}` : `1px solid ${green}`};
-    color: ${(props) => (props.on_card ? `${green}` : `${white}`)};
-    background: ${(props) => (props.on_card ? `${yellow}` : `${green}`)};
   }
 `;
 
@@ -45,11 +43,10 @@ export const IconContainer = styled.div`
 
   &:hover {
     cursor: pointer;
-    opacity: 0.95;
   }
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
-  color: ${green};
-  font-size: 16px;
+  color: ${white};
+  font-size: 1rem;
 `;

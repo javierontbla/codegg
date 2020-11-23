@@ -11,7 +11,7 @@ export const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-between;
   position: relative;
-  bottom: 0;
+  margin: 0rem 0rem 0rem 0rem;
   width: 100%;
   background-color: transparent;
   height: 4rem;

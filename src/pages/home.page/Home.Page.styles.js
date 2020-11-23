@@ -19,16 +19,13 @@ export const LoadMoreButton = styled.button`
   font-family: ${primary_font};
   font-size: 1rem;
   letter-spacing: 0.5px;
-  color: ${green};
+  color: ${black};
   padding: 0px 0.5rem 0px 0.5rem;
   height: 2rem;
   transition: color 0.2s, background 0.2s, border 0.2s;
 
   &:hover {
     cursor: pointer;
-    border: 1px solid ${green};
-    color: ${white};
-    background: ${green};
   }
 
   &:focus {
@@ -44,7 +41,7 @@ export const ButtonContainer = styled.div`
 
 export const HomeIcon = styled(FontAwesomeIcon)`
   font-size: 2rem;
-  color: ${green};
+  color: ${black};
   margin: 0rem 0.5rem 0rem 0.5rem;
   padding: 0;
 
@@ -89,7 +86,7 @@ export const NoMoreButton = styled.button`
   font-family: ${primary_font};
   font-size: 1rem;
   letter-spacing: 0.5px;
-  color: ${green};
+  color: ${black};
   margin: 1rem 0rem 2rem 1rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
   height: 2rem;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
 
-const { white, grey, yellow, green } = colors;
+const { black, grey, yellow, green } = colors;
 
 const Center = css`
   display: flex;
@@ -68,7 +68,7 @@ export const SocialMedia = styled.div`
 // buttons
 export const MediaIcon = styled(FontAwesomeIcon)`
   font-size: 2rem;
-  color: ${green};
+  color: ${black};
   margin: 0px 0px 1rem 0px;
 
   &:hover {

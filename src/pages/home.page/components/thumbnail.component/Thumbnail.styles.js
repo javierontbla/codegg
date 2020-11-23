@@ -15,7 +15,7 @@ export const LinkStock = styled(Link)`
 
 export const Container = styled.div`
   width: 100%;
-  border: 0.5px solid ${grey};
+  border: 1px solid ${grey};
   border-radius: 0.15rem;
   transition: transform 0.15s;
 
@@ -78,13 +78,15 @@ export const Acronym = styled.div`
   color: ${dark_grey};
   letter-spacing: 0.5px;
   font-size: 1.25rem;
+
+  margin: -0.5rem 0rem 0rem 0rem;
 `;
 
 export const Preview = styled.div`
   font-family: ${primary_font};
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 150%;
-  margin: 1rem 0rem 0rem 0rem;
+  margin: 0.5rem 0rem 0rem 0rem;
   color: ${black};
 
   &::first-letter {
