@@ -13,19 +13,18 @@ export const TagContainer = styled.div`
   flex-direction: row;
   align-items: center;
   width: fit-content;
-  border-radius: 2.5px;
+  border-radius: 1rem;
   font-family: ${primary_font};
   padding: ${(props) =>
-    props.on_card ? "0px 5px 0px 5px" : "0px 10px 0px 10px"};
-  margin: 0px 7.5px 0px 7.5px;
-  font-size: ${(props) => (props.on_card ? "16px" : "18px")};
+    props.on_card ? "0rem 0.35rem 0rem 0.35rem" : "0rem 0.65rem 0rem 0.65rem"};
+  margin: 0rem 0.5rem 0rem 0.5rem;
+  font-size: ${(props) => (props.on_card ? "0.8rem" : "1rem")};
   letter-spacing: 1px;
-  height: ${(props) => (props.on_card ? "32px" : "45px")};
+  height: ${(props) => (props.on_card ? "1.5rem" : "2rem")};
   border: ${(props) =>
     props.on_card ? `1px solid ${yellow}` : `1px solid ${grey}`};
   color: ${(props) => (props.on_card ? `${green}` : `${green}`)};
   background: ${(props) => (props.on_card ? `${yellow}` : `transparent`)};
-  text-transform: ${(props) => (props.on_card ? "" : "")};
   transition: color 0.2s, background 0.2s, border 0.2s;
 
   &:hover {
@@ -42,8 +41,7 @@ export const IconContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  margin: 0px 0px 0px 10px;
-  padding: 2.5px 0px 0px 0px;
+  margin: 0rem 0rem 0rem 0.35rem;
 
   &:hover {
     cursor: pointer;

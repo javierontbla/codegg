@@ -19,16 +19,12 @@ export const Navbar = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: ${white};
+  background: transparent;
   position: sticky;
   top: 0;
   border-right: 0.5px solid ${grey};
 
   @media (max-width: 500px) {
-    flex-direction: row;
-    height: 100%;
-    width: 100%;
-    position: "";
   }
 `;
 
@@ -39,7 +35,7 @@ export const Logo = styled.div`
   align-items: center;
   width: 100%;
   letter-spacing: 0.5px;
-  margin: 10px 0px 0px 0px;
+  margin: 0.5rem 0rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
@@ -71,13 +67,12 @@ export const SocialMedia = styled.div`
 
 // buttons
 export const MediaIcon = styled(FontAwesomeIcon)`
-  font-size: 38px;
+  font-size: 2rem;
   color: ${green};
-  margin: 0px 0px 35px 0px;
+  margin: 0px 0px 1rem 0px;
 
   &:hover {
     cursor: pointer;
-    opacity: 0.9;
   }
 
   @media (max-width: 500px) {
@@ -108,8 +103,7 @@ export const LinkContainer = styled(Link)`
 `;
 
 export const Img = styled.img`
-  width: 75px;
-  height: 75px;
+  width: 4rem;
 
   &:hover {
     text-decoration: none;
@@ -121,7 +115,6 @@ export const Img = styled.img`
 `;
 
 export const External = styled.a`
-  color: ${yellow};
   &&& {
     &::after {
       background-color: transparent;
@@ -137,6 +130,5 @@ export const External = styled.a`
   &:hover {
     cursor: pointer;
     text-decoration: none;
-    color: ${yellow};
   }
 `;

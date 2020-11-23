@@ -214,11 +214,9 @@ export const Global = createGlobalStyle`
 export const NavBarContainer = styled.div`
   display: flex;
   justify-content: center;
-  width: 125px;
+  width: 7rem;
 
   @media (max-width: 500px) {
-    width: 100vw;
-    height: 9vh;
   }
 `;
 
@@ -232,15 +230,11 @@ export const FullContainer = styled.div`
 `;
 
 export const Container = styled.div`
-  margin: 35px 35px 35px 35px;
+  margin: 2rem 2rem 2rem 2rem;
   border: 0.5px solid ${grey};
-  border-radius: 2.5px;
+  border-radius: 0.15rem;
   width: 100%;
 
   @media (max-width: 500px) {
-    width: 100vw;
-    padding-top: 0rem;
-    padding-left: 0.6rem;
-    padding-right: 0.6rem;
   }
 `;

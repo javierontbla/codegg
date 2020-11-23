@@ -16,7 +16,7 @@ export const LinkStock = styled(Link)`
 export const Container = styled.div`
   width: 100%;
   border: 0.5px solid ${grey};
-  border-radius: 2.5px;
+  border-radius: 0.15rem;
   transition: transform 0.15s;
 
   &:hover {
@@ -27,9 +27,9 @@ export const Container = styled.div`
 
 export const Img = styled.div`
   width: 100%;
-  min-height: 300px;
-  border-top-left-radius: 2.5px;
-  border-top-right-radius: 2.5px;
+  height: 18.5rem;
+  border-top-left-radius: 0.15rem;
+  border-top-right-radius: 0.15rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.source});
@@ -39,11 +39,10 @@ export const Img = styled.div`
 
 export const Description = styled.div`
   font-family: ${primary_font};
-  font-size: 20px;
   letter-spacing: 0.5px;
   text-align: left;
-  padding: 0px 15px 0px 15px;
-  margin: 15px 0px 15px 0px;
+  padding: 0rem 1rem 0rem 1rem;
+  margin: 1rem 0rem 1rem 0rem;
 `;
 
 export const LastUpdate = styled.div`
@@ -59,18 +58,16 @@ export const LastUpdate = styled.div`
   width: 100%;
 
   @media (max-width: 500px) {
-    font-size: 0.7rem;
   }
 `;
 
 export const Stock = styled.div`
   font-family: "Space Mono", monospace;
-  font-size: 40px;
+  font-size: 2rem;
   letter-spacing: 0.5px;
   color: ${black};
 
   @media (max-width: 500px) {
-    font-size: 1.4rem;
   }
 `;
 
@@ -80,14 +77,14 @@ export const Acronym = styled.div`
   padding: 0;
   color: ${dark_grey};
   letter-spacing: 0.5px;
-  font-size: 20px;
+  font-size: 1.25rem;
 `;
 
 export const Preview = styled.div`
   font-family: ${primary_font};
-  font-size: 16px;
+  font-size: 0.8rem;
   line-height: 150%;
-  margin: 15px 0px 0px 0px;
+  margin: 1rem 0rem 0rem 0rem;
   color: ${black};
 
   &::first-letter {
@@ -98,8 +95,8 @@ export const Preview = styled.div`
 export const Categories = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 0px 7.5px 0px 7.5px;
-  margin: 0px 0px 15px 0px;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  margin: 0px 0px 1rem 0rem;
 
   @media (max-width: 500px) {
     padding-left: ${(props) => (props.post ? "0rem" : "")};

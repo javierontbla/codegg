@@ -14,7 +14,7 @@ export const FooterContainer = styled.footer`
   bottom: 0;
   width: 100%;
   background-color: transparent;
-  height: 90px;
+  height: 4rem;
   border-top: 0.5px solid ${grey};
   font-family: ${primary_font};
 `;
@@ -26,9 +26,9 @@ export const CompanyName = styled.div`
   letter-spacing: 0.5px;
   width: fit-content;
   height: 100%;
-  font-size: 16px;
-  margin: 0px 35px 0px 0px;
-  padding: 0px 0px 15px 0px;
+  font-size: 1rem;
+  margin: 0rem 1rem 0rem 0rem;
+  padding: 0rem 0rem 0.25rem 0rem;
   color: ${black};
 `;
 
@@ -36,10 +36,9 @@ export const Options = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  color: ${black};
   height: 100%;
-  margin: 0px 0px 0px 35px;
-  padding: 15px 0px 15px 0px;
+  margin: 0rem 0rem 0rem 1rem;
+  padding: 0.25rem 0rem 0.25rem 0rem;
 
   @media (max-width: 500px) {
   }
@@ -47,7 +46,6 @@ export const Options = styled.div`
 
 export const Option = styled.div`
   letter-spacing: 0.5px;
-  color: ${black} !important;
   background: transparent !important;
   width: fit-content;
 `;
@@ -56,7 +54,7 @@ export const Button = styled(Link)`
   &&& {
     font-family: ${primary_font};
     color: ${black};
-    font-size: 16px;
+    font-size: 1rem;
     &::after {
       background-color: transparent;
       content: " ";

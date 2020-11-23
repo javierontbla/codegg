@@ -13,16 +13,15 @@ export const Container = styled.div``;
 export const LoadMoreButton = styled.button`
   width: fit-content;
   border: 1px solid ${grey};
-  border-radius: 2.5px;
+  border-radius: 0.15rem;
   background: transparent;
-  margin: 0px 0px 35px 35px;
+  margin: 1rem 0rem 2rem 1rem;
   font-family: ${primary_font};
   font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${green};
-  padding: 0px 10px 0px 10px;
-  font-size: 18px;
-  height: 45px;
+  padding: 0px 0.5rem 0px 0.5rem;
+  height: 2rem;
   transition: color 0.2s, background 0.2s, border 0.2s;
 
   &:hover {
@@ -44,9 +43,9 @@ export const ButtonContainer = styled.div`
 `;
 
 export const HomeIcon = styled(FontAwesomeIcon)`
-  font-size: 38px;
+  font-size: 2rem;
   color: ${green};
-  margin: 0px 10px 0px 10px;
+  margin: 0rem 0.5rem 0rem 0.5rem;
   padding: 0;
 
   &:hover {
@@ -60,26 +59,13 @@ export const AvailableCategories = styled.div`
   align-items: center;
   background: transparent;
   width: 100%;
-  height: 90px;
+  height: 4rem;
   border-bottom: 0.5px solid ${grey};
   justify-content: left;
-  padding: 0px 10px 0px 10px;
+  padding: 0rem 0.5rem 0rem 0.5rem;
 
   @media (max-width: 500px) {
-    padding-top: 0.5rem;
-    padding-bottom: 1rem;
   }
-`;
-
-export const IconContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin-left: 0.4rem;
-  margin-right: 0.2rem;
-  width: fit-content;
-  height: fit-content;
 `;
 
 export const FilteredCategories = styled.div`
@@ -88,12 +74,9 @@ export const FilteredCategories = styled.div`
   flex-direction: row;
   width: 100%;
   height: fit-content;
-  padding: 22.5px 10px 0px 10px;
+  padding: 1rem 0.5rem 0rem 0.5rem;
 
   @media (max-width: 500px) {
-    padding-left: ${(props) => (props.post ? "0rem" : "")};
-    margin-left: ${(props) => (props.post ? "-0.3rem" : "")};
-    padding-top: ${(props) => (props.post ? "" : "0.6rem")};
   }
 `;
 
@@ -101,15 +84,15 @@ export const NoMoreButton = styled.button`
   visibility: visible;
   width: fit-content;
   border: 0.5px solid ${grey};
-  border-radius: 2.5px;
+  border-radius: 0.15rem;
   background: transparent;
   font-family: ${primary_font};
-  font-size: 20px;
+  font-size: 1rem;
   letter-spacing: 0.5px;
   color: ${green};
-  margin: 0px 0px 35px 35px;
-  padding: 0px 10px 0px 10px;
-  height: 45px;
+  margin: 1rem 0rem 2rem 1rem;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  height: 2rem;
   transition: visibility 0.5s;
 
   @media (max-width: 500px) {
