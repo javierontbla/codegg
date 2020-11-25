@@ -192,15 +192,8 @@ export const Global = createGlobalStyle`
   }
 
   table {
-    width: fit-content;
-    color: #faf9f9;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 1rem;
-    margin-bottom: 2vh;
 
     @media (max-width: 500px) {
-      margin: 0 auto;
     }
   }
 
@@ -211,29 +204,29 @@ export const Global = createGlobalStyle`
   }
 `;
 
-export const NavBarContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 7rem;
-
-  @media (max-width: 500px) {
-  }
-`;
-
 export const FullContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 100vw;
 
   @media (max-width: 500px) {
     flex-direction: column;
   }
 `;
 
-export const Container = styled.div`
-  margin: 2rem 2rem 0rem 2rem;
-  border-radius: 0.15rem;
+export const MainContainer = styled.div`
+  padding: 0rem 0rem 0rem 0rem;
   width: 100%;
 
+  @media (max-width: 500px) {
+  }
+`;
+
+export const NavBarContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 5rem;
   @media (max-width: 500px) {
   }
 `;

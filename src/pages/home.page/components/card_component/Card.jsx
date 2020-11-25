@@ -13,9 +13,9 @@ import {
   Acronym,
   Stock,
   Img,
-} from "./Thumbnail.styles";
+} from "./Card_styles";
 
-const Thumbnail = ({ data, id, search }) => {
+const Card = ({ data, id, search }) => {
   useEffect(() => {
     moment.locale("es");
   }, []);
@@ -53,4 +53,4 @@ const Thumbnail = ({ data, id, search }) => {
   );
 };
 
-export default Thumbnail;
+export default Card;

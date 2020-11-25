@@ -15,7 +15,7 @@ export const LoadMoreButton = styled.button`
   border: 1px solid ${grey};
   border-radius: 1rem;
   background: transparent;
-  margin: 1rem 0rem 2rem 0.5rem;
+  margin: 1rem 0rem 4rem 0.5rem;
   font-family: ${primary_font};
   font-size: 1rem;
   letter-spacing: 0.5px;

@@ -4,57 +4,79 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey, black } = colors;
-const { primary_font } = fonts;
+const { white, grey } = colors;
+const { footer_font } = fonts;
 
 export const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-between;
   position: relative;
   margin: 0rem 0rem 0rem 0rem;
-  width: 100%;
+  width: 98%;
   background-color: transparent;
-  height: 4rem;
-  border-top: 0.5px solid ${grey};
-  font-family: ${primary_font};
+  height: 12rem;
+  border: none;
+  font-family: ${footer_font};
+  padding: 1rem 0rem 1rem 0rem;
+  font-weight: 600;
+  letter-spacing: 0.75px;
+
+  background: rgb(33, 33, 32);
+  background: linear-gradient(
+    90deg,
+    rgba(33, 33, 32, 1) 5%,
+    rgba(25, 25, 24, 1) 80%
+  );
+
+  border-top-right-radius: 2rem;
 `;
 
 export const CompanyName = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  letter-spacing: 0.5px;
   width: fit-content;
   height: 100%;
-  font-size: 1rem;
-  margin: 0rem 1rem 0rem 0rem;
-  padding: 0rem 0rem 0.25rem 0rem;
-  color: ${black};
+  font-size: 0.9rem;
+  margin: 0rem 2rem 0rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
+  color: ${white};
 `;
 
 export const Options = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  align-items: flex-end;
   height: 100%;
-  margin: 0rem 0rem 0rem 1rem;
-  padding: 0.25rem 0rem 0.25rem 0rem;
+  margin: 0rem 0rem 0rem 2rem;
+  padding: 0rem 0rem 0rem 0rem;
 
   @media (max-width: 500px) {
   }
 `;
 
 export const Option = styled.div`
-  letter-spacing: 0.5px;
   background: transparent !important;
   width: fit-content;
+  padding: 0rem 0rem 0rem 0rem;
+  height: fit-content;
 `;
 
-export const Button = styled(Link)`
+export const Division = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: fit-content;
+  margin: 0rem 1rem 0rem 1rem;
+  color: ${white};
+`;
+
+export const LinkContainer = styled(Link)`
   &&& {
-    font-family: ${primary_font};
-    color: ${black};
-    font-size: 1rem;
+    font-family: ${footer_font};
+    color: ${white};
+    font-size: 0.9rem;
     &::after {
       background-color: transparent;
       content: " ";

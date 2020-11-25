@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
-import "moment/locale/es";
 import Masonry from "react-masonry-css";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
-import Thumbnail from "./components/thumbnail.component/Thumbnail";
+import Card from "./components/card_component/Card";
 import Loading from "../../components/loading.component/Loading";
 import Error from "../../components/error.component/Error";
 import Tag from "../../components/tag.component/Tag";
@@ -159,7 +158,7 @@ const HomePage = ({
               >
                 {unfilteredArticles.map((article) => {
                   return (
-                    <Thumbnail
+                    <Card
                       search={(tag) => sendQueryBtn(tag)}
                       key={article[1]}
                       data={article[0]}
@@ -189,7 +188,7 @@ const HomePage = ({
               >
                 {filteredArticles.map((article) => {
                   return (
-                    <Thumbnail
+                    <Card
                       search={(tag) => sendQueryBtn(tag)}
                       key={article[0]}
                       data={article[0]}

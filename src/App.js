@@ -6,13 +6,13 @@ import {
   NavBarContainer,
   Global,
   FullContainer,
-  Container,
+  MainContainer,
 } from "./App.styles.js";
 import NavBar from "./components/navbar.component/NavBar";
 import HomePage from "./pages/home.page/Home.Page";
 import ArticlePage from "./pages/article.page/Article.Page";
 import PrivacyPolicy from "./pages/privacy.policy.page/PrivacyPolicy";
-import FeedbackPage from "./pages/feedback.page/FeedbackPage";
+import ContactPage from "./pages/contact_page/ContactPage";
 import Footer from "./components/footer.component/Footer";
 import { storeAvailableTagsStart } from "./redux/home.page/actions";
 
@@ -33,15 +33,15 @@ const App = ({ storeAvailableTags }) => {
         <NavBarContainer>
           <NavBar />
         </NavBarContainer>
-        <Container>
+        <MainContainer className="container">
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/privacidad" component={PrivacyPolicy} />
-            <Route path="/feedback" component={FeedbackPage} />
+            <Route path="/contacto" component={ContactPage} />
             <Route path="/:articleId" component={ArticlePage} />
           </Switch>
-          <Footer />
-        </Container>
+        </MainContainer>
+        <Footer />
       </FullContainer>
     </>
   );

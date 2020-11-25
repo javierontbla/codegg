@@ -14,10 +14,10 @@ import {
   Alert,
   Icon,
   MessageWrapper,
-} from "./FeedbackPage.styles";
+} from "./ContactPage_styles";
 import { sendFormStart } from "../../redux/feedback.page/actions";
 
-const FeedbackPage = ({ sendForm, error }) => {
+const ContactPage = ({ sendForm, error }) => {
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
   const [display, setDisplay] = useState(false);
@@ -100,4 +100,4 @@ const mapDispatchToProps = (dispatch) => ({
   sendForm: (data) => dispatch(sendFormStart(data)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FeedbackPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactPage);

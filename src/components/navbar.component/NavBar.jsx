@@ -4,29 +4,42 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import icon from "./official_logo.svg";
 
 import {
-  Navbar,
-  Logo,
-  SocialMedia,
-  MediaIcon,
+  SocialMediaContainer,
+  PagesContainer,
+  LogoContainer,
   LinkContainer,
-  Img,
+  MediaIcon,
   External,
+  PageLink,
+  Navbar,
+  Img,
 } from "./NavBar.styles";
 
 const NavBar = () => {
   return (
     <>
       <Navbar>
-        <Logo>
+        <PagesContainer>
+          <LogoContainer>
+            <LinkContainer to="/">
+              <Img src={icon} />
+            </LinkContainer>
+          </LogoContainer>
           <LinkContainer to="/">
-            <Img src={icon} />
+            <PageLink>Inicio</PageLink>
           </LinkContainer>
-        </Logo>
-        <SocialMedia>
+          <LinkContainer to="/que-hacemos">
+            <PageLink>¿Qué hacemos?</PageLink>
+          </LinkContainer>
+          <LinkContainer to="/contacto">
+            <PageLink>Contacto</PageLink>
+          </LinkContainer>
+        </PagesContainer>
+        <SocialMediaContainer>
           <External href="https://twitter.com/codegg_official">
             <MediaIcon icon={faTwitter} />
           </External>
-        </SocialMedia>
+        </SocialMediaContainer>
       </Navbar>
     </>
   );

@@ -29,7 +29,7 @@ export const TagContainer = styled.div`
   padding: ${(props) =>
     props.on_card ? "0rem 0.55rem 0rem 0.55rem" : "0rem 0.65rem 0rem 0.65rem"};
   margin: 0rem 0.5rem 0rem 0.5rem;
-  font-size: ${(props) => (props.on_card ? "1rem" : "1.2rem")};
+  font-size: ${(props) => (props.on_card ? "1rem" : "1.1rem")};
 
   &:hover {
     cursor: pointer;

@@ -3,39 +3,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
+import { fonts } from "../../fonts/fonts";
 
-const { black, grey, yellow, green } = colors;
-
-const Center = css`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+const { black, yellow } = colors;
+const { navbar_font } = fonts;
 
 export const Navbar = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 100vh;
   background: transparent;
   position: sticky;
-  top: 0;
-  border-right: 0.5px solid ${grey};
+  width: 100%;
+  height: 100%;
 
   @media (max-width: 500px) {
   }
 `;
 
 // containers
-export const Logo = styled.div`
+export const LogoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  letter-spacing: 0.5px;
-  margin: 0.5rem 0rem 0rem 0rem;
+  width: fit-content;
+  height: 100%;
+  margin: 0rem 3rem 0rem 2rem;
 
   &:hover {
     cursor: pointer;
@@ -50,60 +44,8 @@ export const Logo = styled.div`
   }
 `;
 
-export const SocialMedia = styled.div`
-  ${Center};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-
-  @media (max-width: 500px) {
-    flex-direction: row;
-    width: 30%;
-    height: 100%;
-    margin-bottom: 0rem;
-  }
-`;
-
-// buttons
-export const MediaIcon = styled(FontAwesomeIcon)`
-  font-size: 2rem;
-  color: ${black};
-  margin: 0px 0px 1rem 0px;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  @media (max-width: 500px) {
-    margin-bottom: 0rem;
-    margin-top: ${(props) => (props.comment ? "0.6rem" : "0.4rem")};
-    margin-right: ${(props) => (props.comment ? "1rem" : "0.2rem")};
-  }
-`;
-
-export const LinkContainer = styled(Link)`
-  &&& {
-    &::after {
-      background-color: transparent;
-      content: " ";
-      height: 40%;
-      position: absolute;
-      left: 0;
-      top: 65%;
-      width: calc(100%);
-      z-index: -1;
-    }
-  }
-  &:hover {
-    cursor: pointer;
-    text-decoration: none;
-    color: ${yellow};
-  }
-`;
-
 export const Img = styled.img`
-  width: 4rem;
+  width: 4.5rem;
 
   &:hover {
     text-decoration: none;
@@ -114,15 +56,79 @@ export const Img = styled.img`
   }
 `;
 
-export const External = styled.a`
+export const PagesContainer = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: fit-content;
+`;
+
+export const PageLink = styled.div`
+  margin: 0rem 1rem 0rem 1rem;
+  letter-spacing: 0.75px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-family: ${navbar_font};
+  color: ${black};
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const SocialMediaContainer = styled.div`
+  display: flex;
+  align-content: center;
+  width: fit-content;
+  margin: 0rem 2rem 0rem 0rem;
+  height: 100%;
+  width: fit-content;
+
+  @media (max-width: 500px) {
+  }
+`;
+
+// buttons
+export const MediaIcon = styled(FontAwesomeIcon)`
+  font-size: 1.6rem;
+  color: ${black};
+  height: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (max-width: 500px) {
+  }
+`;
+
+export const LinkContainer = styled(Link)`
   &&& {
     &::after {
       background-color: transparent;
       content: " ";
-      height: 40%;
+      height: 0%;
       position: absolute;
       left: 0;
-      top: 65%;
+      top: 0%;
+      width: calc(100%);
+      z-index: -1;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+`;
+
+export const External = styled.a`
+  &&& {
+    &::after {
+      background-color: transparent;
+      height: 0%;
+      position: relative;
+      left: 0;
+      top: 0%;
       width: calc(100%);
       z-index: -1;
     }

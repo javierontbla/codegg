@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
-const { primary_font, secondary_font } = fonts;
+const { primary_font, secondary_font, description_font, title_font } = fonts;
 const { grey, dark_grey, black } = colors;
 
 export const LinkStock = styled(Link)`
@@ -39,9 +39,6 @@ export const Img = styled.div`
 `;
 
 export const Description = styled.div`
-  font-family: ${primary_font};
-  letter-spacing: 0.5px;
-  text-align: left;
   padding: 0rem 1rem 0rem 1rem;
   margin: 1rem 0rem 1rem 0rem;
 `;
@@ -63,9 +60,8 @@ export const LastUpdate = styled.div`
 `;
 
 export const Stock = styled.div`
-  font-family: "Space Mono", monospace;
+  font-family: ${title_font};
   font-size: 2rem;
-  letter-spacing: 0.5px;
   color: ${black};
 
   @media (max-width: 500px) {
@@ -73,7 +69,7 @@ export const Stock = styled.div`
 `;
 
 export const Acronym = styled.div`
-  font-family: ${secondary_font};
+  font-family: ${title_font};
   margin: 0;
   padding: 0;
   color: ${dark_grey};
@@ -84,9 +80,9 @@ export const Acronym = styled.div`
 `;
 
 export const Preview = styled.div`
-  font-family: ${primary_font};
-  font-size: 1rem;
-  line-height: 150%;
+  font-family: ${description_font};
+  font-size: 1.1rem;
+  line-height: 130%;
   margin: 0.5rem 0rem 0rem 0rem;
   color: ${black};
 

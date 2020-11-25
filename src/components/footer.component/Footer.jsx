@@ -3,7 +3,13 @@ import { connect } from "react-redux";
 
 import { FooterContainer } from "./Footer.styles";
 
-import { CompanyName, Option, Options, Button } from "./Footer.styles";
+import {
+  CompanyName,
+  Option,
+  Options,
+  LinkContainer,
+  Division,
+} from "./Footer.styles";
 
 const Footer = ({ error }) => {
   return (
@@ -12,13 +18,18 @@ const Footer = ({ error }) => {
         <FooterContainer>
           <Options>
             <Option>
-              <Button to="/privacidad">Política de Privacidad</Button>
+              <LinkContainer to="/privacidad">
+                Política de Privacidad
+              </LinkContainer>
             </Option>
+            <Division> · </Division>
             <Option>
-              <Button to="/terminos">Términos y Condiciones</Button>
+              <LinkContainer to="/terminos">
+                Términos y Condiciones
+              </LinkContainer>
             </Option>
           </Options>
-          <CompanyName>© codegg.tech</CompanyName>
+          <CompanyName>© Codegg.tech</CompanyName>
         </FooterContainer>
       ) : null}
     </>
