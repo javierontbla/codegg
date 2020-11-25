@@ -13,6 +13,7 @@
 .mansonry-grid-column > div {
   background: transparent;
   width: 100%;
+  margin: 0rem 0rem 1rem 0rem;
 }
 
 @media (max-width: 500px) {

@@ -9,6 +9,9 @@ import {
   Options,
   LinkContainer,
   Division,
+  Slogan,
+  SloganTitle,
+  SloganSubtitle,
 } from "./Footer.styles";
 
 const Footer = ({ error }) => {
@@ -16,19 +19,23 @@ const Footer = ({ error }) => {
     <>
       {!error ? (
         <FooterContainer>
-          <Options>
-            <Option>
-              <LinkContainer to="/privacidad">
-                Política de Privacidad
-              </LinkContainer>
-            </Option>
-            <Division> · </Division>
-            <Option>
-              <LinkContainer to="/terminos">
-                Términos y Condiciones
-              </LinkContainer>
-            </Option>
-          </Options>
+          <Slogan>
+            <SloganTitle>Indaga.</SloganTitle>
+            <SloganSubtitle>Luego Invierte.</SloganSubtitle>
+            <Options>
+              <Option>
+                <LinkContainer to="/privacidad">
+                  Política de Privacidad
+                </LinkContainer>
+              </Option>
+              <Division> · </Division>
+              <Option>
+                <LinkContainer to="/terminos">
+                  Términos y Condiciones
+                </LinkContainer>
+              </Option>
+            </Options>
+          </Slogan>
           <CompanyName>© Codegg.tech</CompanyName>
         </FooterContainer>
       ) : null}

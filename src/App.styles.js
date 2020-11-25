@@ -207,7 +207,7 @@ export const Global = createGlobalStyle`
 export const FullContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
 
   @media (max-width: 500px) {
     flex-direction: column;
@@ -225,7 +225,7 @@ export const MainContainer = styled.div`
 export const NavBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
   height: 5rem;
   @media (max-width: 500px) {
   }

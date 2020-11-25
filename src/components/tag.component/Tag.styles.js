@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { primary_font } = fonts;
+const { button_font } = fonts;
 
-const { white, yellow } = colors;
+const { white } = colors;
 
 export const TagContainer = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ export const TagContainer = styled.div`
   align-items: center;
   width: fit-content;
   border-radius: 1rem;
-  font-family: ${primary_font};
+  font-family: ${button_font};
   letter-spacing: 0.5px;
   height: 2rem;
   color: ${white};

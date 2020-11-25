@@ -1,8 +1,8 @@
 export const fonts = {
-  primary_font: "'Work Sans', sans-serif",
-  secondary_font: "'Space Mono', monospace",
-  navbar_font: "'EB Garamond', serif",
-  footer_font: "'EB Garamond', serif",
+  slogan_font: "'Space Mono', monospace",
+  navbar_font: "'Work Sans', sans-serif",
+  footer_font: "'Work Sans', sans-serif",
   description_font: "'EB Garamond', serif",
-  title_font: "'Roboto Mono', monospace",
+  title_font: "'Space Mono', monospace",
+  button_font: "'Work Sans', sans-serif",
 };

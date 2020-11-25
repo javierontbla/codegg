@@ -4,22 +4,21 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { white, grey } = colors;
-const { footer_font } = fonts;
+const { white, green, yellow } = colors;
+const { footer_font, slogan_font } = fonts;
 
 export const FooterContainer = styled.footer`
   display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin: 0rem 0rem 0rem 0rem;
   width: 98%;
+  position: relative;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 10rem 0rem 0rem 0rem;
   background-color: transparent;
-  height: 12rem;
+  height: fit-content;
   border: none;
   font-family: ${footer_font};
   padding: 1rem 0rem 1rem 0rem;
-  font-weight: 600;
-  letter-spacing: 0.75px;
 
   background: rgb(33, 33, 32);
   background: linear-gradient(
@@ -28,7 +27,7 @@ export const FooterContainer = styled.footer`
     rgba(25, 25, 24, 1) 80%
   );
 
-  border-top-right-radius: 2rem;
+  border-top-right-radius: 4rem;
 `;
 
 export const CompanyName = styled.div`
@@ -41,14 +40,42 @@ export const CompanyName = styled.div`
   margin: 0rem 2rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
   color: ${white};
+  letter-spacing: 1px;
+`;
+
+export const Slogan = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-family: ${slogan_font};
+  letter-spacing: 1px;
+  justify-content: flex-end;
+`;
+
+export const SloganTitle = styled.div`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  color: ${green};
+  margin: 0rem 0rem 0rem 2rem;
+  font-size: 3rem;
+`;
+export const SloganSubtitle = styled.div`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  color: ${yellow};
+  margin: 0rem 0rem 0rem 4rem;
+  opacity: 0.95;
+  height: 100%;
+  font-size: 1.85rem;
 `;
 
 export const Options = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  height: 100%;
-  margin: 0rem 0rem 0rem 2rem;
+  height: fit-content;
+  margin: 6rem 0rem 0rem 2rem;
   padding: 0rem 0rem 0rem 0rem;
 
   @media (max-width: 500px) {
@@ -60,6 +87,7 @@ export const Option = styled.div`
   width: fit-content;
   padding: 0rem 0rem 0rem 0rem;
   height: fit-content;
+  letter-spacing: 1px;
 `;
 
 export const Division = styled.div`

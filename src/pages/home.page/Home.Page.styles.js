@@ -6,7 +6,7 @@ import { fonts } from "../../fonts/fonts";
 
 const { primary_font } = fonts;
 
-const { green, grey, black, white } = colors;
+const { grey, black } = colors;
 
 export const Container = styled.div``;
 
@@ -15,7 +15,7 @@ export const LoadMoreButton = styled.button`
   border: 1px solid ${grey};
   border-radius: 1rem;
   background: transparent;
-  margin: 1rem 0rem 4rem 0.5rem;
+  margin: 0 auto;
   font-family: ${primary_font};
   font-size: 1rem;
   letter-spacing: 0.5px;

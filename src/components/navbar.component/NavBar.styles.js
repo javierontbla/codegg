@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { black, yellow } = colors;
+const { black } = colors;
 const { navbar_font } = fonts;
 
 export const Navbar = styled.div`
@@ -17,7 +17,6 @@ export const Navbar = styled.div`
   position: sticky;
   width: 100%;
   height: 100%;
-
   @media (max-width: 500px) {
   }
 `;
@@ -29,7 +28,7 @@ export const LogoContainer = styled.div`
   align-items: center;
   width: fit-content;
   height: 100%;
-  margin: 0rem 3rem 0rem 2rem;
+  margin: 0rem 2rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
@@ -65,8 +64,7 @@ export const PagesContainer = styled.div`
 
 export const PageLink = styled.div`
   margin: 0rem 1rem 0rem 1rem;
-  letter-spacing: 0.75px;
-  font-weight: 600;
+  letter-spacing: 1px;
   font-size: 1.1rem;
   font-family: ${navbar_font};
   color: ${black};
@@ -80,7 +78,7 @@ export const SocialMediaContainer = styled.div`
   display: flex;
   align-content: center;
   width: fit-content;
-  margin: 0rem 2rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
   height: 100%;
   width: fit-content;
 

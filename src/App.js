@@ -30,7 +30,7 @@ const App = ({ storeAvailableTags }) => {
     <>
       <Global />
       <FullContainer>
-        <NavBarContainer>
+        <NavBarContainer className="container">
           <NavBar />
         </NavBarContainer>
         <MainContainer className="container">
