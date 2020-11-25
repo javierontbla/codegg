@@ -5,4 +5,5 @@ export const fonts = {
   description_font: "'EB Garamond', serif",
   title_font: "'Space Mono', monospace",
   button_font: "'Work Sans', sans-serif",
+  date_font: "'Work Sans', sans-serif",
 };

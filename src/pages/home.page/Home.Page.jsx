@@ -174,7 +174,7 @@ const HomePage = ({
                   cargar más
                 </LoadMoreButton>
               ) : (
-                <NoMoreButton>no hay más</NoMoreButton>
+                <NoMoreButton>· · ·</NoMoreButton>
               )}
             </ButtonContainer>
           </>
@@ -204,7 +204,7 @@ const HomePage = ({
                   cargar más
                 </LoadMoreButton>
               ) : (
-                <NoMoreButton>no hay más</NoMoreButton>
+                <NoMoreButton>· · ·</NoMoreButton>
               )}
             </ButtonContainer>
           </>

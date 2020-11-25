@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
-const { primary_font, secondary_font, description_font, title_font } = fonts;
+const { date_font, description_font, title_font } = fonts;
 const { grey, dark_grey, black } = colors;
 
 export const LinkStock = styled(Link)`
@@ -48,7 +48,7 @@ export const LastUpdate = styled.div`
   align-items: center;
   color: ${dark_grey};
   font-size: 12px;
-  font-family: ${primary_font};
+  font-family: ${date_font};
   letter-spacing: 0.5px;
   padding: 0;
   margin: 0;
@@ -73,9 +73,8 @@ export const Acronym = styled.div`
   margin: 0;
   padding: 0;
   color: ${dark_grey};
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   font-size: 1.25rem;
-
   margin: -0.5rem 0rem 0rem 0rem;
 `;
 

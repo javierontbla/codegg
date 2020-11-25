@@ -75,7 +75,7 @@ export const Options = styled.div`
   flex-direction: row;
   align-items: flex-end;
   height: fit-content;
-  margin: 6rem 0rem 0rem 2rem;
+  margin: 8rem 0rem 0rem 2rem;
   padding: 0rem 0rem 0rem 0rem;
 
   @media (max-width: 500px) {

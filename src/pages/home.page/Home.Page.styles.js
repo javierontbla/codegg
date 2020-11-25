@@ -4,25 +4,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { primary_font } = fonts;
+const { button_font } = fonts;
 
 const { grey, black } = colors;
 
 export const Container = styled.div``;
 
-export const LoadMoreButton = styled.button`
+export const LoadMoreButton = styled.div`
+  display: flex;
+  align-items: center;
   width: fit-content;
   border: 1px solid ${grey};
   border-radius: 1rem;
   background: transparent;
   margin: 0 auto;
-  font-family: ${primary_font};
+  font-family: ${button_font};
   font-size: 1rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   color: ${black};
-  padding: 0px 0.55rem 0px 0.55rem;
+  padding: 0px 0.65rem 0px 0.65rem;
   height: 2rem;
-  transition: opacity 0.15s;
 
   &:hover {
     cursor: pointer;
@@ -78,20 +79,17 @@ export const FilteredCategories = styled.div`
   }
 `;
 
-export const NoMoreButton = styled.button`
-  visibility: visible;
+export const NoMoreButton = styled.div`
+  display: flex;
+  align-items: center;
   width: fit-content;
-  border: 0.5px solid ${grey};
-  border-radius: 1rem;
+  border: none;
   background: transparent;
-  font-family: ${primary_font};
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-  color: ${black};
-  margin: 1rem 0rem 2rem 0.5rem;
-  padding: 0rem 0.55rem 0rem 0.55rem;
+  font-size: 2.2rem;
+  color: ${grey};
+  margin: 0 auto;
+  padding: 0rem;
   height: 2rem;
-  transition: visibility 0.5s;
 
   @media (max-width: 500px) {
     width: fit-content;

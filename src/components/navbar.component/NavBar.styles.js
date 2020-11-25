@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { black } = colors;
+const { black, white } = colors;
 const { navbar_font } = fonts;
 
 export const Navbar = styled.div`
@@ -65,7 +65,7 @@ export const PagesContainer = styled.div`
 export const PageLink = styled.div`
   margin: 0rem 1rem 0rem 1rem;
   letter-spacing: 1px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: ${navbar_font};
   color: ${black};
 
@@ -74,15 +74,41 @@ export const PageLink = styled.div`
   }
 `;
 
-export const SocialMediaContainer = styled.div`
+export const SuscribeContainer = styled.div`
   display: flex;
-  align-content: center;
+  align-items: center;
   width: fit-content;
   margin: 0rem 0rem 0rem 0rem;
   height: 100%;
   width: fit-content;
 
   @media (max-width: 500px) {
+  }
+`;
+
+export const Suscribe = styled.div`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: none;
+  height: 2rem;
+  background: rgb(33, 33, 32);
+  background: linear-gradient(
+    90deg,
+    rgba(33, 33, 32, 1) 5%,
+    rgba(25, 25, 24, 1) 80%
+  );
+  font-family: ${navbar_font};
+  padding: 0rem 0.65rem 0rem 0.65rem;
+  color: ${white};
+  font-size: 1rem;
+  border-radius: 1rem;
+  margin: 0rem 0rem 0rem 0rem;
+  letter-spacing: 1px;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.95;
   }
 `;
 
