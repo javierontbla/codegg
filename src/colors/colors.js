@@ -7,10 +7,4 @@ export const colors = {
   darkBlack: "#000000",
   lightBlack: "#1e232b",
   yellow: "#F9C74F",
-  machine_learning: "#3a86ff",
-  deep_learning: "#04ade6",
-  redes_neuronales: "#9d53ff",
-  python: "#ffd43b",
-  modelos: "#02c39a",
-  algo: "#8ac926",
 };

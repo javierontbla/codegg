@@ -27,8 +27,11 @@ const NavBar = () => {
           <LinkContainer to="/">
             <PageLink>Inicio</PageLink>
           </LinkContainer>
-          <LinkContainer to="/que-hacemos">
-            <PageLink>¿Qué hacemos?</PageLink>
+          <LinkContainer to="/categorias">
+            <PageLink>Categorías</PageLink>
+          </LinkContainer>
+          <LinkContainer to="/descripcion">
+            <PageLink>¿Qué es Codegg?</PageLink>
           </LinkContainer>
           <LinkContainer to="/contacto">
             <PageLink>Contacto</PageLink>

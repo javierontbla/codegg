@@ -9,12 +9,11 @@ import {
 } from "../../redux/home.page/actions";
 
 const Tag = ({
-  category,
-  name,
-  on_card,
-  deleteTag,
   emptyFilteredArticles,
+  deleteTag,
+  category,
   filter,
+  name,
   ...allProps
 }) => {
   const removeTag = (category) => {
@@ -25,7 +24,7 @@ const Tag = ({
 
   return (
     <>
-      <TagContainer on_card={on_card} name={name} {...allProps}>
+      <TagContainer name={name} {...allProps}>
         #{category}
         <IconContainer filter={filter}>
           <Icon

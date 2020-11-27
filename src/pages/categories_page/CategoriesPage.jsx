@@ -26,10 +26,10 @@ import {
   Container,
   LoadMoreButton,
   HomeIcon,
-} from "./Home.Page.styles";
-import "./Home.Page.css";
+} from "./CategoriesPage_styles";
+import "./CategoriesPage.css";
 
-const HomePage = ({
+const CategoriesPage = ({
   loading,
   getUnfilteredArticles,
   getFilteredArticles,
@@ -255,4 +255,4 @@ const mapDispatchToProps = (dispatch) => ({
   emptyFilteredArticles: (arr) => dispatch(fetchFilteredArticlesSuccess(arr)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoriesPage);

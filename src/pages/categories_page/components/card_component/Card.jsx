@@ -43,7 +43,6 @@ const Card = ({ data, id, search }) => {
                 category={category}
                 name={category}
                 key={category}
-                on_card={"true"}
               />
             );
           })}

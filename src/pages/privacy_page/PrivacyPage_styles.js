@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "../../colors/colors";
 
-const { darkBlack, yellow, white, grey } = colors;
+const { darkBlack, yellow, white, grey, black } = colors;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   font-family: "Space Mono", monospace;
   font-size: 3.5rem;
-  color: ${white};
+  color: ${black};
   margin-top: 1.5rem;
   margin-bottom: 6rem;
   letter-spacing: 0.5px;
@@ -79,7 +79,7 @@ export const Subtitle = styled.div`
 `;
 
 export const Content = styled.div`
-  color: ${white};
+  color: ${black};
   letter-spacing: 0.5px;
   margin-bottom: 3rem;
   font-family: "Roboto", sans-serif;

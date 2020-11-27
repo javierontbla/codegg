@@ -15,7 +15,7 @@ export const TagContainer = styled.div`
   width: fit-content;
   border-radius: 1rem;
   font-family: ${button_font};
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   height: 2rem;
   color: ${white};
   border: none;
@@ -26,10 +26,9 @@ export const TagContainer = styled.div`
     rgba(55, 139, 136, 1) 100%
   );
   transition: opacity 0.15s;
-  padding: ${(props) =>
-    props.on_card ? "0rem 0.55rem 0rem 0.55rem" : "0rem 0.65rem 0rem 0.65rem"};
+  padding: 0rem 0.65rem 0rem 0.65rem;
   margin: 0rem 0.5rem 0rem 0.5rem;
-  font-size: ${(props) => (props.on_card ? "1rem" : "1.1rem")};
+  font-size: 1rem;
 
   &:hover {
     cursor: pointer;

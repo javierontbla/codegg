@@ -51,7 +51,7 @@ export const LastUpdate = styled.div`
   font-family: ${date_font};
   letter-spacing: 0.5px;
   padding: 0;
-  margin: 0;
+  margin: 0rem 0rem 0.25rem 0rem;
   height: fit-content;
   width: 100%;
 
@@ -63,6 +63,8 @@ export const Stock = styled.div`
   font-family: ${title_font};
   font-size: 2rem;
   color: ${black};
+  font-weight: 600;
+  letter-spacing: 1px;
 
   @media (max-width: 500px) {
   }
@@ -70,20 +72,20 @@ export const Stock = styled.div`
 
 export const Acronym = styled.div`
   font-family: ${title_font};
-  margin: 0;
   padding: 0;
   color: ${dark_grey};
   letter-spacing: 1px;
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin: -0.5rem 0rem 0rem 0rem;
 `;
 
 export const Preview = styled.div`
   font-family: ${description_font};
-  font-size: 1.1rem;
-  line-height: 130%;
+  font-size: 1rem;
+  line-height: 135%;
   margin: 0.5rem 0rem 0rem 0rem;
   color: ${black};
+  letter-spacing: 0.5px;
 
   &::first-letter {
     text-transform: uppercase;

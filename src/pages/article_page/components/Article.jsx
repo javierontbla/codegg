@@ -24,7 +24,7 @@ import {
   deleteTagRedux,
   fetchFilteredArticlesSuccess,
 } from "../../../redux/home.page/actions";
-import { FilteredCategories } from "../../home.page/Home.Page.styles";
+import { FilteredCategories } from "../../categories_page/CategoriesPage_styles";
 import Tag from "../../../components/tag.component/Tag";
 
 const Article = ({

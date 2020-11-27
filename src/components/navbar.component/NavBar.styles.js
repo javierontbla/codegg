@@ -69,6 +69,8 @@ export const PageLink = styled.div`
   font-family: ${navbar_font};
   color: ${black};
 
+  font-weight: 500;
+
   &:hover {
     cursor: pointer;
   }
@@ -102,7 +104,7 @@ export const Suscribe = styled.div`
   padding: 0rem 0.65rem 0rem 0.65rem;
   color: ${white};
   font-size: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.15rem;
   margin: 0rem 0rem 0rem 0rem;
   letter-spacing: 1px;
 

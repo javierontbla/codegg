@@ -9,9 +9,11 @@ import {
   MainContainer,
 } from "./App.styles.js";
 import NavBar from "./components/navbar.component/NavBar";
-import HomePage from "./pages/home.page/Home.Page";
-import ArticlePage from "./pages/article.page/Article.Page";
-import PrivacyPolicy from "./pages/privacy.policy.page/PrivacyPolicy";
+import HomePage from "./pages/home_page/HomePage";
+import CategoriesPage from "./pages/categories_page/CategoriesPage";
+import ArticlePage from "./pages/article_page/ArticlePage";
+import PrivacyPage from "./pages/privacy_page/PrivacyPage";
+import DescriptionPage from "./pages/description_page/DescriptionPage";
 import ContactPage from "./pages/contact_page/ContactPage";
 import Footer from "./components/footer.component/Footer";
 import { storeAvailableTagsStart } from "./redux/home.page/actions";
@@ -36,8 +38,10 @@ const App = ({ storeAvailableTags }) => {
         <MainContainer className="container">
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/privacidad" component={PrivacyPolicy} />
+            <Route path="/categorias" component={CategoriesPage} />
+            <Route path="/descripcion" component={DescriptionPage} />
             <Route path="/contacto" component={ContactPage} />
+            <Route path="/privacidad" component={PrivacyPage} />
             <Route path="/:articleId" component={ArticlePage} />
           </Switch>
         </MainContainer>

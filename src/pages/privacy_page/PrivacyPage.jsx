@@ -8,9 +8,9 @@ import {
   Subtitle,
   Content,
   Bold,
-} from "./PrivacyPolicy.styles";
+} from "./PrivacyPage_styles";
 
-const PrivacyPolicy = () => {
+const PrivacyPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = `Política de Privacidad`;
@@ -86,4 +86,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default PrivacyPage;

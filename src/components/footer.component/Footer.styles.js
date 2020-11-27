@@ -47,7 +47,6 @@ export const Slogan = styled.div`
   display: flex;
   flex-direction: column;
   font-family: ${slogan_font};
-  letter-spacing: 1px;
   justify-content: flex-end;
 `;
 
@@ -57,7 +56,8 @@ export const SloganTitle = styled.div`
   width: fit-content;
   color: ${green};
   margin: 0rem 0rem 0rem 2rem;
-  font-size: 3rem;
+  font-size: 3.2rem;
+  letter-spacing: 1px;
 `;
 export const SloganSubtitle = styled.div`
   display: flex;
@@ -67,7 +67,8 @@ export const SloganSubtitle = styled.div`
   margin: 0rem 0rem 0rem 4rem;
   opacity: 0.95;
   height: 100%;
-  font-size: 1.85rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
 `;
 
 export const Options = styled.div`
