@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import Masonry from "react-masonry-css";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 import Card from "./components/card_component/Card";
-import Loading from "../../components/loading.component/Loading";
+import LoadingCategoriesSkeleton from "../../components/loading_components/LoadingCategoriesSkeleton";
+import LoadingArticlesSkeleton from "../../components/loading_components/LoadingArticlesSkeleton";
 import Error from "../../components/error.component/Error";
-import Tag from "../../components/tag.component/Tag";
+import Category from "../../components/category_component/Category";
 import {
   fetchUnfilteredArticlesStart,
   fetchFilteredArticlesStart,
@@ -17,20 +17,20 @@ import {
   deleteTagRedux,
   noMorePostsStart,
   fetchFilteredArticlesSuccess,
-} from "../../redux/home.page/actions";
+} from "../../redux/categories_page/actions";
 import {
+  AvailableCategoriesActive,
   AvailableCategories,
-  FilteredCategories,
   ButtonContainer,
   NoMoreButton,
   Container,
   LoadMoreButton,
-  HomeIcon,
 } from "./CategoriesPage_styles";
 import "./CategoriesPage.css";
 
 const CategoriesPage = ({
-  loading,
+  loading_articles,
+  loading_categories,
   getUnfilteredArticles,
   getFilteredArticles,
   getMoreUnfilteredArticles,
@@ -86,14 +86,6 @@ const CategoriesPage = ({
     }
   };
 
-  const remove_categories = () => {
-    if (!currentTag[0]) return;
-    if (currentTag[0]) {
-      deleteTag(currentTag[0]);
-      emptyFilteredArticles([]);
-    }
-  };
-
   const loadMoreUnfilteredArticles = () => {
     if (!lastUnfiltered) {
       stopFetching();
@@ -119,11 +111,11 @@ const CategoriesPage = ({
 
   return (
     <>
-      {!loading ? (
+      {!loading_categories ? (
         <AvailableCategories>
           {availableTags.map((tag) => {
             return (
-              <Tag
+              <Category
                 onClick={() => sendQueryBtn(tag.toLowerCase())}
                 key={tag}
                 name={tag.toLowerCase()}
@@ -132,12 +124,14 @@ const CategoriesPage = ({
             );
           })}
         </AvailableCategories>
-      ) : null}
+      ) : (
+        <LoadingCategoriesSkeleton />
+      )}
       {currentTag[0] ? (
-        <FilteredCategories>
+        <AvailableCategoriesActive>
           {currentTag.map((tag) => {
             return (
-              <Tag
+              <Category
                 filter={"true"}
                 key={tag}
                 name={tag.toLowerCase()}
@@ -145,9 +139,9 @@ const CategoriesPage = ({
               />
             );
           })}
-        </FilteredCategories>
+        </AvailableCategoriesActive>
       ) : null}
-      {!loading && !error ? (
+      {!loading_articles && !error ? (
         filteredArticles.length === 0 ? (
           <>
             <Container>
@@ -212,7 +206,7 @@ const CategoriesPage = ({
       ) : error ? (
         <Error />
       ) : (
-        <Loading />
+        <LoadingArticlesSkeleton />
       )}
     </>
   );
@@ -220,8 +214,9 @@ const CategoriesPage = ({
 
 // redux
 const mapStateToProps = ({
-  homePageReducer: {
-    loading,
+  categories_page_reducer: {
+    loading_articles,
+    loading_categories,
     unfilteredArticles,
     filteredArticles,
     lastUnfiltered,
@@ -232,7 +227,8 @@ const mapStateToProps = ({
     noMorePosts,
   },
 }) => ({
-  loading,
+  loading_articles,
+  loading_categories,
   unfilteredArticles,
   filteredArticles,
   lastUnfiltered,

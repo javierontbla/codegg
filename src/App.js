@@ -13,10 +13,10 @@ import HomePage from "./pages/home_page/HomePage";
 import CategoriesPage from "./pages/categories_page/CategoriesPage";
 import ArticlePage from "./pages/article_page/ArticlePage";
 import PrivacyPage from "./pages/privacy_page/PrivacyPage";
-import DescriptionPage from "./pages/description_page/DescriptionPage";
+import CommunityPage from "./pages/community_page/CommunityPage";
 import ContactPage from "./pages/contact_page/ContactPage";
 import Footer from "./components/footer.component/Footer";
-import { storeAvailableTagsStart } from "./redux/home.page/actions";
+import { storeAvailableTagsStart } from "./redux/categories_page/actions";
 
 const App = ({ storeAvailableTags }) => {
   useEffect(() => {
@@ -32,14 +32,14 @@ const App = ({ storeAvailableTags }) => {
     <>
       <Global />
       <FullContainer>
-        <NavBarContainer className="container">
+        <NavBarContainer>
           <NavBar />
         </NavBarContainer>
         <MainContainer className="container">
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/categorias" component={CategoriesPage} />
-            <Route path="/descripcion" component={DescriptionPage} />
+            <Route path="/comunidad" component={CommunityPage} />
             <Route path="/contacto" component={ContactPage} />
             <Route path="/privacidad" component={PrivacyPage} />
             <Route path="/:articleId" component={ArticlePage} />

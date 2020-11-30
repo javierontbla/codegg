@@ -1,55 +1,18 @@
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
 const { button_font } = fonts;
 
-const { grey, black } = colors;
+const { grey, black, white } = colors;
 
 export const Container = styled.div``;
-
-export const LoadMoreButton = styled.div`
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  border: 1px solid ${grey};
-  border-radius: 1rem;
-  background: transparent;
-  margin: 0 auto;
-  font-family: ${button_font};
-  font-size: 1rem;
-  letter-spacing: 1px;
-  color: ${black};
-  padding: 0px 0.65rem 0px 0.65rem;
-  height: 2rem;
-
-  &:hover {
-    cursor: pointer;
-    opacity: 0.95;
-  }
-
-  &:focus {
-    outline: none;
-  }
-`;
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   width: 100%;
-`;
-
-export const HomeIcon = styled(FontAwesomeIcon)`
-  font-size: 2rem;
-  color: ${black};
-  margin: 0rem 0.5rem 0rem 0.5rem;
-  padding: 0;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 export const AvailableCategories = styled.div`
@@ -62,12 +25,13 @@ export const AvailableCategories = styled.div`
   border-bottom: 0.5px solid ${grey};
   justify-content: left;
   padding: 0rem 0rem 0rem 0rem;
+  margin: 1rem 0rem 0rem 0rem;
 
   @media (max-width: 500px) {
   }
 `;
 
-export const FilteredCategories = styled.div`
+export const AvailableCategoriesActive = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -76,6 +40,31 @@ export const FilteredCategories = styled.div`
   padding: 1rem 0rem 0rem 0rem;
 
   @media (max-width: 500px) {
+  }
+`;
+
+export const LoadMoreButton = styled.div`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid ${grey};
+  border-radius: 1rem;
+  background: ${white};
+  margin: 0 auto;
+  font-family: ${button_font};
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: ${black};
+  padding: 0px 0.65rem 0px 0.65rem;
+  height: 2rem;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.95;
+  }
+
+  &:focus {
+    outline: none;
   }
 `;
 

@@ -1,7 +1,8 @@
-import { homePageTypes } from "./types";
+import { categories_page_types } from "./types";
 
 const INITIAL_STATE = {
-  loading: true,
+  loading_articles: true,
+  loading_categories: true,
   noMorePosts: false,
   unfilteredArticles: [],
   filteredArticles: [],
@@ -13,105 +14,109 @@ const INITIAL_STATE = {
   error: null,
 };
 
-export const homePageReducer = (state = INITIAL_STATE, action) => {
+export const categories_page_reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case homePageTypes.FETCH_UNFILTERED_ARTICLES_START:
+    case categories_page_types.FETCH_UNFILTERED_ARTICLES_START:
       return {
         ...state,
-        loading: true,
+        loading_articles: true,
         error: null,
       };
-    case homePageTypes.FETCH_FILTERED_ARTICLES_START:
+    case categories_page_types.FETCH_FILTERED_ARTICLES_START:
       return {
         ...state,
-        loading: true,
-        error: null,
-      };
-
-    case homePageTypes.FETCH_MORE_UNFILTERED_ARTICLES_START:
-      return {
-        ...state,
-        loading: true,
+        loading_articles: true,
         error: null,
       };
 
-    case homePageTypes.FETCH_MORE_FILTERED_ARTICLES_START:
+    case categories_page_types.FETCH_MORE_UNFILTERED_ARTICLES_START:
       return {
         ...state,
-        loading: true,
+        loading_articles: true,
         error: null,
       };
 
-    case homePageTypes.STORE_AVAILABLE_TAGS_START:
+    case categories_page_types.FETCH_MORE_FILTERED_ARTICLES_START:
       return {
         ...state,
+        loading_articles: true,
+        error: null,
+      };
+
+    case categories_page_types.STORE_AVAILABLE_CATEGORIES_START:
+      return {
+        ...state,
+        loading_categories: true,
         store_error: null,
       };
 
-    case homePageTypes.FETCH_UNFILTERED_ARTICLES_SUCCESS:
+    case categories_page_types.FETCH_UNFILTERED_ARTICLES_SUCCESS:
       return {
         ...state,
         unfilteredArticles: action.payload,
-        loading: false,
+        loading_articles: false,
         error: null,
         noMorePosts: false,
       };
 
-    case homePageTypes.FETCH_FILTERED_ARTICLES_SUCCESS:
+    case categories_page_types.FETCH_FILTERED_ARTICLES_SUCCESS:
       return {
         ...state,
         filteredArticles: action.payload,
-        loading: false,
+        loading_articles: false,
         error: null,
         noMorePosts: false,
       };
 
-    case homePageTypes.STORE_AVAILABLE_TAGS_SUCCESS:
+    case categories_page_types.STORE_AVAILABLE_CATEGORIES_SUCCESS:
+      console.log("HERE");
       return {
         ...state,
+        loading_categories: false,
         availableTags: action.payload,
         store_error: null,
       };
 
-    case homePageTypes.FETCH_UNFILTERED_ARTICLES_FAILURE:
+    case categories_page_types.FETCH_UNFILTERED_ARTICLES_FAILURE:
       return {
         ...state,
-        loading: false,
+        loading_articles: false,
         error: action.payload,
       };
 
-    case homePageTypes.FETCH_FILTERED_ARTICLES_FAILURE:
+    case categories_page_types.FETCH_FILTERED_ARTICLES_FAILURE:
       return {
         ...state,
-        loading: false,
+        loading_articles: false,
         error: action.payload,
       };
 
-    case homePageTypes.STORE_AVAILABLE_TAGS_FAILURE:
+    case categories_page_types.STORE_AVAILABLE_CATEGORIES_FAILURE:
       return {
         ...state,
+        loading_categories: false,
         store_error: action.payload,
       };
 
-    case homePageTypes.STORE_LAST_FILTERED_ELEMENT:
+    case categories_page_types.STORE_LAST_FILTERED_ELEMENT:
       return {
         ...state,
         lastFiltered: action.payload,
       };
 
-    case homePageTypes.STORE_LAST_UNFILTERED_ELEMENT:
+    case categories_page_types.STORE_LAST_UNFILTERED_ELEMENT:
       return {
         ...state,
         lastUnfiltered: action.payload,
       };
 
-    case homePageTypes.INSERT_TAG:
+    case categories_page_types.INSERT_TAG:
       state.currentTag.push(action.payload);
       return {
         ...state,
       };
 
-    case homePageTypes.REMOVE_TAG:
+    case categories_page_types.REMOVE_TAG:
       const update = [];
       return {
         ...state,
@@ -119,7 +124,7 @@ export const homePageReducer = (state = INITIAL_STATE, action) => {
         noMorePosts: false,
       };
 
-    case homePageTypes.NO_MORE_POSTS:
+    case categories_page_types.NO_MORE_POSTS:
       return {
         ...state,
         noMorePosts: true,

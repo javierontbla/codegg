@@ -4,20 +4,21 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import icon from "./official_logo.svg";
 
 import {
-  SuscribeContainer,
   PagesContainer,
   LogoContainer,
   LinkContainer,
+  UserContainer,
   PageLink,
-  Suscribe,
+  SignIn,
   Navbar,
+  LogIn,
   Img,
 } from "./NavBar.styles";
 
 const NavBar = () => {
   return (
     <>
-      <Navbar>
+      <Navbar className="container">
         <PagesContainer>
           <LogoContainer>
             <LinkContainer to="/">
@@ -30,16 +31,17 @@ const NavBar = () => {
           <LinkContainer to="/categorias">
             <PageLink>Categorías</PageLink>
           </LinkContainer>
-          <LinkContainer to="/descripcion">
-            <PageLink>¿Qué es Codegg?</PageLink>
+          <LinkContainer to="/comunidad">
+            <PageLink>Comunidad</PageLink>
           </LinkContainer>
           <LinkContainer to="/contacto">
             <PageLink>Contacto</PageLink>
           </LinkContainer>
         </PagesContainer>
-        <SuscribeContainer>
-          <Suscribe>Suscribirme</Suscribe>
-        </SuscribeContainer>
+        <UserContainer>
+          <LogIn>Ingresar</LogIn>
+          <SignIn>Registrarme</SignIn>
+        </UserContainer>
       </Navbar>
     </>
   );

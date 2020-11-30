@@ -44,7 +44,7 @@ const Footer = ({ error }) => {
 };
 
 // redux
-const mapStateToProps = ({ homePageReducer: { error } }) => ({
+const mapStateToProps = ({ categories_page_reducer: { error } }) => ({
   error,
 });
 

@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
-import { homePageReducer } from "./home.page/reducer";
+import { categories_page_reducer } from "./categories_page/reducer";
 import { articlePageReducer } from "./article.page/reducer";
 import { feedbackPageReducer } from "./feedback.page/reducer";
 
 const root = combineReducers({
-  homePageReducer,
+  categories_page_reducer,
   articlePageReducer,
   feedbackPageReducer,
 });

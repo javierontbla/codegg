@@ -13,10 +13,10 @@ export const Navbar = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: transparent;
   position: sticky;
   width: 100%;
   height: 100%;
+  padding: 0 !important;
   @media (max-width: 500px) {
   }
 `;
@@ -26,6 +26,7 @@ export const LogoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: fit-content;
   height: 100%;
   margin: 0rem 2rem 0rem 0rem;
@@ -35,16 +36,12 @@ export const LogoContainer = styled.div`
   }
 
   @media (max-width: 500px) {
-    width: fit-content;
-    height: 100%;
-    justify-content: center;
-    flex-direction: row;
-    padding-left: 1.2rem;
   }
 `;
 
 export const Img = styled.img`
-  width: 4.5rem;
+  width: 3.35rem;
+  margin: 0 !important;
 
   &:hover {
     text-decoration: none;
@@ -65,7 +62,7 @@ export const PagesContainer = styled.div`
 export const PageLink = styled.div`
   margin: 0rem 1rem 0rem 1rem;
   letter-spacing: 1px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-family: ${navbar_font};
   color: ${black};
 
@@ -76,7 +73,7 @@ export const PageLink = styled.div`
   }
 `;
 
-export const SuscribeContainer = styled.div`
+export const UserContainer = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
@@ -88,7 +85,7 @@ export const SuscribeContainer = styled.div`
   }
 `;
 
-export const Suscribe = styled.div`
+export const SignIn = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
@@ -103,10 +100,29 @@ export const Suscribe = styled.div`
   font-family: ${navbar_font};
   padding: 0rem 0.65rem 0rem 0.65rem;
   color: ${white};
-  font-size: 1rem;
+  font-size: 0.95rem;
   border-radius: 0.15rem;
   margin: 0rem 0rem 0rem 0rem;
   letter-spacing: 1px;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.95;
+  }
+`;
+
+export const LogIn = styled.div`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: none;
+  height: 2rem;
+  padding: 0rem 0.65rem 0rem 0.65rem;
+  color: ${black};
+  font-size: 0.95rem;
+  margin: 0rem 0.85rem 0rem 0rem;
+  letter-spacing: 1px;
+  font-family: ${navbar_font};
 
   &:hover {
     cursor: pointer;
@@ -132,13 +148,7 @@ export const LinkContainer = styled(Link)`
   &&& {
     &::after {
       background-color: transparent;
-      content: " ";
-      height: 0%;
-      position: absolute;
-      left: 0;
-      top: 0%;
       width: calc(100%);
-      z-index: -1;
     }
   }
   &:hover {

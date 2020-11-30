@@ -6,7 +6,7 @@ import {
   fetchMoreUnfiltered,
   fetchMoreFiltered,
   storeAvailableTags,
-} from "./home.page/sagas";
+} from "./categories_page/sagas";
 import { fetchArticle } from "./article.page/sagas";
 import { sendForm } from "./feedback.page/sagas";
 

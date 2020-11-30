@@ -24,7 +24,7 @@ import {
   deleteTagRedux,
   fetchFilteredArticlesSuccess,
 } from "../../../redux/home.page/actions";
-import { FilteredCategories } from "../../categories_page/CategoriesPage_styles";
+import { AvailableCategories } from "../../categories_page/CategoriesPage_styles";
 import Tag from "../../../components/tag.component/Tag";
 
 const Article = ({
@@ -78,7 +78,7 @@ const Article = ({
             {article.tiempo}
           </ReadTime>
         </InfoContainer>
-        <FilteredCategories post={"true"}>
+        <AvailableCategories post={"true"}>
           {article.tags.map((tag) => {
             return (
               <QueryLink to="/">
@@ -92,7 +92,7 @@ const Article = ({
               </QueryLink>
             );
           })}
-        </FilteredCategories>
+        </AvailableCategories>
         <Body>{parse(article.contenido)}</Body>
       </Container>
     </>

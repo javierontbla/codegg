@@ -5,7 +5,7 @@ import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
 const { date_font, description_font, title_font } = fonts;
-const { grey, dark_grey, black } = colors;
+const { grey, dark_grey, black, white } = colors;
 
 export const LinkStock = styled(Link)`
   &:hover {
@@ -19,6 +19,7 @@ export const Container = styled.div`
   border-radius: 0.15rem;
   transition: transform 0.15s;
   box-shadow: 3px 3px 3px -1px #ced4da;
+  background: ${white} !important;
 
   &:hover {
     cursor: pointer;

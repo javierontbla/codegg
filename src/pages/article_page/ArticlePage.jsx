@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import Article from "./components/Article";
-import Loading from "../../components/loading.component/Loading";
 import Error from "../../components/error.component/Error";
 import { fetchArticleStart } from "../../redux/article.page/actions";
 
@@ -27,9 +26,7 @@ const ArticlePage = ({
     <>
       {!loading && !error ? (
         <Article article={article} />
-      ) : !error ? (
-        <Loading />
-      ) : (
+      ) : !error ? null : (
         <Error />
       )}
     </>

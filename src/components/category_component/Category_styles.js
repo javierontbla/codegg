@@ -8,7 +8,7 @@ const { button_font } = fonts;
 
 const { white } = colors;
 
-export const TagContainer = styled.div`
+export const CategoryContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -28,7 +28,7 @@ export const TagContainer = styled.div`
   transition: opacity 0.15s;
   padding: 0rem 0.65rem 0rem 0.65rem;
   margin: 0rem 0.5rem 0rem 0.5rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
 
   &:hover {
     cursor: pointer;
@@ -50,5 +50,5 @@ export const IconContainer = styled.div`
 
 export const Icon = styled(FontAwesomeIcon)`
   color: ${white};
-  font-size: 1rem;
+  font-size: 0.8rem;
 `;

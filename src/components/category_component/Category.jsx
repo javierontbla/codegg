@@ -2,13 +2,13 @@ import React from "react";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 
-import { TagContainer, IconContainer, Icon } from "./Tag.styles";
+import { CategoryContainer, IconContainer, Icon } from "./Category_styles";
 import {
   deleteTagRedux,
   fetchFilteredArticlesSuccess,
-} from "../../redux/home.page/actions";
+} from "../../redux/categories_page/actions";
 
-const Tag = ({
+const Category = ({
   emptyFilteredArticles,
   deleteTag,
   category,
@@ -24,7 +24,7 @@ const Tag = ({
 
   return (
     <>
-      <TagContainer name={name} {...allProps}>
+      <CategoryContainer name={name} {...allProps}>
         #{category}
         <IconContainer filter={filter}>
           <Icon
@@ -33,7 +33,7 @@ const Tag = ({
             onClick={() => removeTag(category)}
           />
         </IconContainer>
-      </TagContainer>
+      </CategoryContainer>
     </>
   );
 };
@@ -43,4 +43,4 @@ const mapDispatchToProps = (dispatch) => ({
   emptyFilteredArticles: (arr) => dispatch(fetchFilteredArticlesSuccess(arr)),
 });
 
-export default connect(null, mapDispatchToProps)(Tag);
+export default connect(null, mapDispatchToProps)(Category);

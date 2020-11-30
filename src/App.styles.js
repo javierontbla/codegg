@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import { colors } from "./colors/colors";
 
-const { white, grey } = colors;
+const { white, grey, background } = colors;
 
 export const Global = createGlobalStyle`
   body {
@@ -208,6 +208,7 @@ export const FullContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: ${background};
 
   @media (max-width: 500px) {
     flex-direction: column;
@@ -226,7 +227,10 @@ export const NavBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 5rem;
+  height: 3.5rem;
+  background: ${white} !important;
+  border-bottom: 1px solid ${grey};
+
   @media (max-width: 500px) {
   }
 `;

@@ -1,6 +1,6 @@
 import { takeLatest, put } from "redux-saga/effects";
 
-import { homePageTypes } from "./types";
+import { categories_page_types } from "./types";
 import { db } from "../../firebase";
 import {
   fetchUnfilteredArticlesSuccess,
@@ -18,7 +18,7 @@ function* fetchUnfilteredAsync() {
   const articlesRef = db
     .collection(`articulos`)
     .orderBy("fecha", "desc")
-    .limit(6);
+    .limit(3);
   // inital fetch from firebase
   try {
     const res = yield articlesRef.get({ source: "server" }).then((snapshot) => {
@@ -44,7 +44,7 @@ function* fetchFilteredAsync(action) {
   const { previousArticles, input } = action.payload;
   const inputRef = db
     .collection("articulos")
-    .where("tags", "array-contains", `${input}`)
+    .where("categorias", "array-contains", `${input}`)
     .orderBy("fecha", "desc")
     .limit(1);
 
@@ -98,7 +98,7 @@ function* fetchMoreFilteredAsync(action) {
 
   const filteredRef = db
     .collection(`articulos`)
-    .where("tags", "array-contains", `${tag}`)
+    .where("categorias", "array-contains", `${tag}`)
     .orderBy("fecha", "desc")
     .startAfter(lastElement)
     .limit(1);
@@ -137,35 +137,35 @@ function* storeAvailableTagsAsync() {
 // sagas functions
 export function* fetchUnfiltered() {
   yield takeLatest(
-    homePageTypes.FETCH_UNFILTERED_ARTICLES_START,
+    categories_page_types.FETCH_UNFILTERED_ARTICLES_START,
     fetchUnfilteredAsync
   );
 }
 
 export function* fetchFiltered() {
   yield takeLatest(
-    homePageTypes.FETCH_FILTERED_ARTICLES_START,
+    categories_page_types.FETCH_FILTERED_ARTICLES_START,
     fetchFilteredAsync
   );
 }
 
 export function* fetchMoreUnfiltered() {
   yield takeLatest(
-    homePageTypes.FETCH_MORE_UNFILTERED_ARTICLES_START,
+    categories_page_types.FETCH_MORE_UNFILTERED_ARTICLES_START,
     fetchMoreUnfilteredAsync
   );
 }
 
 export function* fetchMoreFiltered() {
   yield takeLatest(
-    homePageTypes.FETCH_MORE_FILTERED_ARTICLES_START,
+    categories_page_types.FETCH_MORE_FILTERED_ARTICLES_START,
     fetchMoreFilteredAsync
   );
 }
 
 export function* storeAvailableTags() {
   yield takeLatest(
-    homePageTypes.STORE_AVAILABLE_TAGS_START,
+    categories_page_types.STORE_AVAILABLE_CATEGORIES_START,
     storeAvailableTagsAsync
   );
 }

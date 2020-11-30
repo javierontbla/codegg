@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../colors/colors";
 
-const { darkBlack, white, yellow } = colors;
+const { darkBlack, white, yellow, black } = colors;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
   width: 100%;
   justify-content: center;
   height: 100vh;
+  border: 1px solid blue;
+  margin: 2rem 0rem 0rem 0rem;
 
   @media (max-width: 500px) {
     align-items: flex-start;
@@ -33,7 +35,7 @@ export const ContactBlock = styled.div`
 `;
 
 export const Title = styled.div`
-  color: ${white};
+  color: ${black};
   font-size: 3.5rem;
   font-family: "Space Mono", monospace;
   letter-spacing: 0.5px;
