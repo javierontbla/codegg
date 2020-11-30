@@ -23,9 +23,9 @@ import {
   insertTagRedux,
   deleteTagRedux,
   fetchFilteredArticlesSuccess,
-} from "../../../redux/home.page/actions";
+} from "../../../redux/categories_page/actions";
 import { AvailableCategories } from "../../categories_page/CategoriesPage_styles";
-import Tag from "../../../components/tag.component/Tag";
+import Category from "../../../components/category_component/Category";
 
 const Article = ({
   article,
@@ -82,7 +82,7 @@ const Article = ({
           {article.tags.map((tag) => {
             return (
               <QueryLink to="/">
-                <Tag
+                <Category
                   category={tag}
                   name={tag}
                   key={tag}

@@ -7,13 +7,10 @@ const { button_font } = fonts;
 
 const { grey, black, white } = colors;
 
-export const Container = styled.div``;
-
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
+export const CategoriesPageContainer = styled.div`
+  padding: 0rem 0rem 0rem 0rem;
 `;
+export const Container = styled.div``;
 
 export const AvailableCategories = styled.div`
   display: flex;
@@ -87,4 +84,10 @@ export const NoMoreButton = styled.div`
   &:hover {
     cursor: default;
   }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
 `;

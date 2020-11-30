@@ -40,19 +40,19 @@ export const Img = styled.div`
 `;
 
 export const Description = styled.div`
-  padding: 0rem 1rem 0rem 1rem;
-  margin: 1rem 0rem 1rem 0rem;
+  padding: 1rem 1rem 1rem 1rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const LastUpdate = styled.div`
   display: flex;
   align-items: center;
   color: ${dark_grey};
-  font-size: 12px;
+  font-size: 0.75rem;
   font-family: ${date_font};
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   padding: 0;
-  margin: 0rem 0rem 0.25rem 0rem;
+  margin: 0rem 0rem 0.5rem 0rem;
   height: fit-content;
   width: 100%;
 
@@ -60,33 +60,35 @@ export const LastUpdate = styled.div`
   }
 `;
 
-export const Stock = styled.div`
+export const Title = styled.div`
   font-family: ${title_font};
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: ${black};
   font-weight: 600;
   letter-spacing: 1px;
+  line-height: 100%;
 
   @media (max-width: 500px) {
   }
 `;
 
-export const Acronym = styled.div`
-  font-family: ${title_font};
+export const Author = styled.div`
+  font-family: ${date_font};
   padding: 0;
   color: ${dark_grey};
   letter-spacing: 1px;
-  font-size: 1rem;
-  margin: -0.5rem 0rem 0rem 0rem;
+  font-size: 0.75rem;
+  margin: 0.5rem 0rem 0rem 0rem;
 `;
 
 export const Preview = styled.div`
   font-family: ${description_font};
   font-size: 1rem;
-  line-height: 135%;
+  line-height: 140%;
   margin: 0.5rem 0rem 0rem 0rem;
   color: ${black};
   letter-spacing: 0.5px;
+  opacity: 0.8;
 
   &::first-letter {
     text-transform: uppercase;

@@ -216,7 +216,6 @@ export const FullContainer = styled.div`
 `;
 
 export const MainContainer = styled.div`
-  padding: 0rem 0rem 0rem 0rem;
   width: 100%;
 
   @media (max-width: 500px) {

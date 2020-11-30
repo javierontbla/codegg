@@ -12,6 +12,11 @@ const LoadingArticlesSkeleton = () => (
         return <SkeletonArticle />;
       })}
     </SkeletonContainer>
+    <SkeletonContainer>
+      {[1, 2, 3].map((category) => {
+        return <SkeletonArticle />;
+      })}
+    </SkeletonContainer>
   </>
 );
 

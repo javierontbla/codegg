@@ -14,7 +14,7 @@ const LoadingAnimation = keyframes`
 `;
 
 export const SkeletonContainer = styled.div`
-  height: 60rem;
+  height: 48rem;
   margin: 1rem 0rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
   display: flex;

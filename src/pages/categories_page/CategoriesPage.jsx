@@ -25,6 +25,7 @@ import {
   NoMoreButton,
   Container,
   LoadMoreButton,
+  CategoriesPageContainer,
 } from "./CategoriesPage_styles";
 import "./CategoriesPage.css";
 
@@ -111,103 +112,105 @@ const CategoriesPage = ({
 
   return (
     <>
-      {!loading_categories ? (
-        <AvailableCategories>
-          {availableTags.map((tag) => {
-            return (
-              <Category
-                onClick={() => sendQueryBtn(tag.toLowerCase())}
-                key={tag}
-                name={tag.toLowerCase()}
-                category={tag.toLowerCase()}
-              />
-            );
-          })}
-        </AvailableCategories>
-      ) : (
-        <LoadingCategoriesSkeleton />
-      )}
-      {currentTag[0] ? (
-        <AvailableCategoriesActive>
-          {currentTag.map((tag) => {
-            return (
-              <Category
-                filter={"true"}
-                key={tag}
-                name={tag.toLowerCase()}
-                category={tag.toLowerCase()}
-              />
-            );
-          })}
-        </AvailableCategoriesActive>
-      ) : null}
-      {!loading_articles && !error ? (
-        filteredArticles.length === 0 ? (
-          <>
-            <Container>
-              <Masonry
-                breakpointCols={breakpoints}
-                className="mansonry-grid"
-                columnClassName="mansonry-grid-column"
-              >
-                {unfilteredArticles.map((article) => {
-                  return (
-                    <Card
-                      search={(tag) => sendQueryBtn(tag)}
-                      key={article[1]}
-                      data={article[0]}
-                      id={article[1]}
-                    />
-                  );
-                })}
-              </Masonry>
-            </Container>
-            <ButtonContainer>
-              {!noMorePosts ? (
-                <LoadMoreButton onClick={() => loadMoreUnfilteredArticles()}>
-                  cargar más
-                </LoadMoreButton>
-              ) : (
-                <NoMoreButton>· · ·</NoMoreButton>
-              )}
-            </ButtonContainer>
-          </>
-        ) : filteredArticles.length > 0 ? (
-          <>
-            <Container>
-              <Masonry
-                breakpointCols={breakpoints}
-                className="mansonry-grid"
-                columnClassName="mansonry-grid-column"
-              >
-                {filteredArticles.map((article) => {
-                  return (
-                    <Card
-                      search={(tag) => sendQueryBtn(tag)}
-                      key={article[0]}
-                      data={article[0]}
-                      id={article[1]}
-                    />
-                  );
-                })}
-              </Masonry>
-            </Container>
-            <ButtonContainer>
-              {!noMorePosts ? (
-                <LoadMoreButton onClick={() => loadMoreFilteredArticles()}>
-                  cargar más
-                </LoadMoreButton>
-              ) : (
-                <NoMoreButton>· · ·</NoMoreButton>
-              )}
-            </ButtonContainer>
-          </>
-        ) : null
-      ) : error ? (
-        <Error />
-      ) : (
-        <LoadingArticlesSkeleton />
-      )}
+      <CategoriesPageContainer className="container">
+        {!loading_categories ? (
+          <AvailableCategories>
+            {availableTags.map((tag) => {
+              return (
+                <Category
+                  onClick={() => sendQueryBtn(tag.toLowerCase())}
+                  key={tag}
+                  name={tag.toLowerCase()}
+                  category={tag.toLowerCase()}
+                />
+              );
+            })}
+          </AvailableCategories>
+        ) : (
+          <LoadingCategoriesSkeleton />
+        )}
+        {currentTag[0] ? (
+          <AvailableCategoriesActive>
+            {currentTag.map((tag) => {
+              return (
+                <Category
+                  filter={"true"}
+                  key={tag}
+                  name={tag.toLowerCase()}
+                  category={tag.toLowerCase()}
+                />
+              );
+            })}
+          </AvailableCategoriesActive>
+        ) : null}
+        {!loading_articles && !error ? (
+          filteredArticles.length === 0 ? (
+            <>
+              <Container>
+                <Masonry
+                  breakpointCols={breakpoints}
+                  className="mansonry-grid"
+                  columnClassName="mansonry-grid-column"
+                >
+                  {unfilteredArticles.map((article) => {
+                    return (
+                      <Card
+                        search={(tag) => sendQueryBtn(tag)}
+                        key={article[1]}
+                        data={article[0]}
+                        id={article[1]}
+                      />
+                    );
+                  })}
+                </Masonry>
+              </Container>
+              <ButtonContainer>
+                {!noMorePosts ? (
+                  <LoadMoreButton onClick={() => loadMoreUnfilteredArticles()}>
+                    cargar más
+                  </LoadMoreButton>
+                ) : (
+                  <NoMoreButton>· · ·</NoMoreButton>
+                )}
+              </ButtonContainer>
+            </>
+          ) : filteredArticles.length > 0 ? (
+            <>
+              <Container>
+                <Masonry
+                  breakpointCols={breakpoints}
+                  className="mansonry-grid"
+                  columnClassName="mansonry-grid-column"
+                >
+                  {filteredArticles.map((article) => {
+                    return (
+                      <Card
+                        search={(tag) => sendQueryBtn(tag)}
+                        key={article[0]}
+                        data={article[0]}
+                        id={article[1]}
+                      />
+                    );
+                  })}
+                </Masonry>
+              </Container>
+              <ButtonContainer>
+                {!noMorePosts ? (
+                  <LoadMoreButton onClick={() => loadMoreFilteredArticles()}>
+                    cargar más
+                  </LoadMoreButton>
+                ) : (
+                  <NoMoreButton>· · ·</NoMoreButton>
+                )}
+              </ButtonContainer>
+            </>
+          ) : null
+        ) : error ? (
+          <Error />
+        ) : (
+          <LoadingArticlesSkeleton />
+        )}
+      </CategoriesPageContainer>
     </>
   );
 };

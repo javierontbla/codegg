@@ -13,6 +13,7 @@ import HomePage from "./pages/home_page/HomePage";
 import CategoriesPage from "./pages/categories_page/CategoriesPage";
 import ArticlePage from "./pages/article_page/ArticlePage";
 import PrivacyPage from "./pages/privacy_page/PrivacyPage";
+import TermsConditionsPage from "./pages/terms_conditions_page/TermsConditionsPage";
 import CommunityPage from "./pages/community_page/CommunityPage";
 import ContactPage from "./pages/contact_page/ContactPage";
 import Footer from "./components/footer.component/Footer";
@@ -35,13 +36,14 @@ const App = ({ storeAvailableTags }) => {
         <NavBarContainer>
           <NavBar />
         </NavBarContainer>
-        <MainContainer className="container">
+        <MainContainer>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/categorias" component={CategoriesPage} />
             <Route path="/comunidad" component={CommunityPage} />
             <Route path="/contacto" component={ContactPage} />
             <Route path="/privacidad" component={PrivacyPage} />
+            <Route path="/terminos" component={TermsConditionsPage} />
             <Route path="/:articleId" component={ArticlePage} />
           </Switch>
         </MainContainer>

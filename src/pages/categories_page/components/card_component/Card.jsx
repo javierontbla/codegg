@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import moment from "moment";
 import "moment/locale/es";
 
-import Tag from "../../../../components/tag.component/Tag";
+import Category from "../../../../components/category_component/Category";
 import {
   Description,
   LastUpdate,
@@ -10,8 +10,8 @@ import {
   Container,
   LinkStock,
   Preview,
-  Acronym,
-  Stock,
+  Author,
+  Title,
   Img,
 } from "./Card_styles";
 
@@ -19,7 +19,7 @@ const Card = ({ data, id, search }) => {
   useEffect(() => {
     moment.locale("es");
   }, []);
-  const link_name = data.nombre_link.split(" ").join("-").toLowerCase();
+  const link_name = data.titulo_link.split(" ").join("-").toLowerCase();
   return (
     <>
       <Container>
@@ -28,17 +28,17 @@ const Card = ({ data, id, search }) => {
           <Description>
             <LastUpdate>
               Actualizado: {moment(data.fecha.toDate()).format("LL")} ·{" "}
-              {data.trimestre}
+              {data.trimestre.toUpperCase()}
             </LastUpdate>
-            <Stock>{data.nombre}</Stock>
-            <Acronym>{data.acronimo.toUpperCase()}</Acronym>
+            <Title>{data.titulo}</Title>
+            <Author>Autor: {data.autor}</Author>
             <Preview>{data.descripcion}...</Preview>
           </Description>
         </LinkStock>
         <Categories>
           {data.categorias.map((category) => {
             return (
-              <Tag
+              <Category
                 onClick={() => search(category)}
                 category={category}
                 name={category}

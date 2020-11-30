@@ -5,3 +5,5 @@ export const HomePageContainer = styled.div`
   height: 100vh;
   margin: 2rem 0rem 0rem 0rem;
 `;
+
+export const DescriptionContainer = styled.div``;

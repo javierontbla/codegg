@@ -18,7 +18,7 @@ function* fetchUnfilteredAsync() {
   const articlesRef = db
     .collection(`articulos`)
     .orderBy("fecha", "desc")
-    .limit(3);
+    .limit(6);
   // inital fetch from firebase
   try {
     const res = yield articlesRef.get({ source: "server" }).then((snapshot) => {
