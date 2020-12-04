@@ -5,4 +5,7 @@ export const fonts = {
   description_font: "'Roboto', sans-serif",
   date_font: "'Open Sans', sans-serif",
   button_font: "'Open Sans', sans-serif",
+  name_font: "'Source Sans Pro', sans-serif",
+  name_link_font: "'Open Sans', sans-serif",
+  price_font: "'Open Sans', sans-serif",
 };

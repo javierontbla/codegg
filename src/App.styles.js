@@ -216,8 +216,9 @@ export const FullContainer = styled.div`
 `;
 
 export const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
   width: 100%;
-
   @media (max-width: 500px) {
   }
 `;

@@ -87,7 +87,7 @@ export const Preview = styled.div`
   line-height: 140%;
   margin: 0.5rem 0rem 0rem 0rem;
   color: ${black};
-  letter-spacing: 0.5px;
+  letter-spacing: 0.25px;
   opacity: 0.8;
 
   &::first-letter {
