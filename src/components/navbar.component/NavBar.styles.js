@@ -29,7 +29,7 @@ export const LogoContainer = styled.div`
   justify-content: center;
   width: fit-content;
   height: 100%;
-  margin: 0rem 2rem 0rem 0rem;
+  margin: 0rem 1.5rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
@@ -62,11 +62,10 @@ export const PagesContainer = styled.div`
 export const PageLink = styled.div`
   margin: 0rem 1rem 0rem 1rem;
   letter-spacing: 1px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-family: ${navbar_font};
   color: ${black};
-
-  font-weight: 500;
+  font-weight: 600;
 
   &:hover {
     cursor: pointer;
@@ -100,10 +99,11 @@ export const SignIn = styled.div`
   font-family: ${navbar_font};
   padding: 0rem 0.65rem 0rem 0.65rem;
   color: ${white};
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   border-radius: 0.15rem;
   margin: 0rem 0rem 0rem 0rem;
   letter-spacing: 1px;
+  font-weight: 600;
 
   &:hover {
     cursor: pointer;
@@ -119,10 +119,11 @@ export const LogIn = styled.div`
   height: 2rem;
   padding: 0rem 0.65rem 0rem 0.65rem;
   color: ${black};
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin: 0rem 0.85rem 0rem 0rem;
   letter-spacing: 1px;
   font-family: ${navbar_font};
+  font-weight: 600;
 
   &:hover {
     cursor: pointer;

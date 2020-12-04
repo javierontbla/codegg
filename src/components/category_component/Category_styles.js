@@ -29,6 +29,7 @@ export const CategoryContainer = styled.div`
   padding: 0rem 0.65rem 0rem 0.65rem;
   margin: 0rem 0.5rem 0rem 0.5rem;
   font-size: 0.9rem;
+  font-weight: 600;
 
   &:hover {
     cursor: pointer;

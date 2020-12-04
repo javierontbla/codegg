@@ -26,21 +26,21 @@ const NavBar = () => {
             </LinkContainer>
           </LogoContainer>
           <LinkContainer to="/">
-            <PageLink>Inicio</PageLink>
+            <PageLink>Home</PageLink>
           </LinkContainer>
-          <LinkContainer to="/categorias">
-            <PageLink>Categorías</PageLink>
+          <LinkContainer to="/categories">
+            <PageLink>Categories</PageLink>
           </LinkContainer>
-          <LinkContainer to="/comunidad">
-            <PageLink>Comunidad</PageLink>
+          <LinkContainer to="/community">
+            <PageLink>Community</PageLink>
           </LinkContainer>
-          <LinkContainer to="/contacto">
-            <PageLink>Contacto</PageLink>
+          <LinkContainer to="/traders">
+            <PageLink>Traders</PageLink>
           </LinkContainer>
         </PagesContainer>
         <UserContainer>
-          <LogIn>Ingresar</LogIn>
-          <SignIn>Registrarme</SignIn>
+          <LogIn>Log In</LogIn>
+          <SignIn>Sign In</SignIn>
         </UserContainer>
       </Navbar>
     </>

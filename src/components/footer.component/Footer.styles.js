@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { white, green, yellow } = colors;
-const { footer_font, slogan_font } = fonts;
+const { white } = colors;
+const { footer_font, slogan_title_font, slogan_subtitle_font } = fonts;
 
 export const FooterContainer = styled.footer`
   display: flex;
@@ -15,7 +15,7 @@ export const FooterContainer = styled.footer`
   align-items: flex-end;
   margin: 10rem 0rem 0rem 0rem;
   background-color: transparent;
-  height: fit-content;
+  height: 16rem;
   border: none;
   font-family: ${footer_font};
   padding: 1rem 0rem 1rem 0rem;
@@ -36,39 +36,19 @@ export const CompanyName = styled.div`
   align-items: flex-end;
   width: fit-content;
   height: 100%;
-  font-size: 0.9rem;
+  font-size: 0.55rem;
   margin: 0rem 2rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
   color: ${white};
   letter-spacing: 1px;
 `;
 
-export const Slogan = styled.div`
+export const OptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: ${slogan_font};
   justify-content: flex-end;
-`;
-
-export const SloganTitle = styled.div`
-  display: flex;
-  align-items: center;
+  align-items: flex-end;
   width: fit-content;
-  color: ${green};
-  margin: 0rem 0rem 0rem 2rem;
-  font-size: 3.2rem;
-  letter-spacing: 1px;
-`;
-export const SloganSubtitle = styled.div`
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  color: ${yellow};
-  margin: 0rem 0rem 0rem 4rem;
-  opacity: 0.95;
-  height: 100%;
-  font-size: 1.8rem;
-  letter-spacing: 1px;
 `;
 
 export const Options = styled.div`
@@ -76,7 +56,7 @@ export const Options = styled.div`
   flex-direction: row;
   align-items: flex-end;
   height: fit-content;
-  margin: 8rem 0rem 0rem 2rem;
+  margin: 0rem 0rem 0rem 1rem;
   padding: 0rem 0rem 0rem 0rem;
 
   @media (max-width: 500px) {
@@ -86,7 +66,7 @@ export const Options = styled.div`
 export const Option = styled.div`
   background: transparent !important;
   width: fit-content;
-  padding: 0rem 0rem 0rem 0rem;
+  padding: 0rem 1rem 0rem 1rem;
   height: fit-content;
   letter-spacing: 1px;
 `;
@@ -105,7 +85,7 @@ export const LinkContainer = styled(Link)`
   &&& {
     font-family: ${footer_font};
     color: ${white};
-    font-size: 0.9rem;
+    font-size: 0.55rem;
     &::after {
       background-color: transparent;
       content: " ";
