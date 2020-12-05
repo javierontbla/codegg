@@ -16,7 +16,7 @@ export const LinkStock = styled(Link)`
 export const Container = styled.div`
   width: 100%;
   border: 1px solid ${grey};
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
   transition: transform 0.15s;
   box-shadow: 3px 3px 3px -1px #ced4da;
   background: ${white} !important;
@@ -30,8 +30,8 @@ export const Container = styled.div`
 export const Img = styled.div`
   width: 100%;
   height: 18.5rem;
-  border-top-left-radius: 0.15rem;
-  border-top-right-radius: 0.15rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.source});

@@ -12,6 +12,7 @@ import {
   DescriptionContainer,
   Price,
   Rating,
+  AllRatings,
   CategoriesContainer,
 } from "./TraderCard_styles";
 
@@ -42,7 +43,9 @@ const TraderCard = () => {
           </CategoriesContainer>
         </MiddleContainer>
         <BottomContainer>
-          <Rating>4.8 (14)</Rating>
+          <Rating>
+            4.8 <AllRatings>(14)</AllRatings>
+          </Rating>
           <Price>$6.99</Price>
         </BottomContainer>
       </TraderCardContainer>

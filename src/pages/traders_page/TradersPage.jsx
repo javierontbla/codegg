@@ -1,11 +1,15 @@
 import React, { useEffect } from "react";
 import Masonry from "react-masonry-css";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import TraderCard from "./components/TraderCard";
 import {
   TradersPageContainer,
   TopTradersContainer,
   AllTradersContainer,
+  SearchBarContainer,
+  SearchBar,
+  SearchIcon,
 } from "./TradersPage_styles";
 import "./TradersPage.css";
 
@@ -22,6 +26,10 @@ const TradersPage = () => {
     <TradersPageContainer className="container">
       <TopTradersContainer></TopTradersContainer>
       <AllTradersContainer>
+        <SearchBarContainer>
+          <SearchBar placeholder={"Search categories..."} />
+          <SearchIcon icon={faSearch} />
+        </SearchBarContainer>
         <Masonry
           breakpointCols={breakpoints}
           className="traders-grid"

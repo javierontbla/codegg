@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import { colors } from "./colors/colors";
 
-const { white, grey, background } = colors;
+const { white, grey, background, dark_grey } = colors;
 
 export const Global = createGlobalStyle`
   body {
@@ -10,6 +10,12 @@ export const Global = createGlobalStyle`
     margin: 0;
     padding: 0;
     height: 100vh;
+  }
+
+  ::placeholder { 
+   color: ${dark_grey};
+   font-family: 'Roboto', sans-serif;
+   letter-spacing: 0.25px;
   }
 
   b {

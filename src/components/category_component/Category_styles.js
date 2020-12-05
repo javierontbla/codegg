@@ -13,7 +13,7 @@ export const CategoryContainer = styled.div`
   flex-direction: row;
   align-items: center;
   width: fit-content;
-  border-radius: 1rem;
+  border-radius: 2rem;
   font-family: ${button_font};
   letter-spacing: 1px;
   height: 2rem;
