@@ -19,14 +19,12 @@ export const FooterContainer = styled.footer`
   border: none;
   font-family: ${footer_font};
   padding: 1rem 0rem 1rem 0rem;
-
   background: rgb(33, 33, 32);
   background: linear-gradient(
     90deg,
     rgba(33, 33, 32, 1) 5%,
     rgba(25, 25, 24, 1) 80%
   );
-
   border-top-right-radius: 4rem;
 `;
 

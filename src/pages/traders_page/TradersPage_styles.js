@@ -16,12 +16,12 @@ export const TradersPageContainer = styled.div`
 `;
 
 export const TopTradersContainer = styled.div`
-  border: 1px solid ${grey};
-  height: 50rem;
+  border: none;
+  height: fit-content;
   width: 25rem;
-  background: ${white};
-  border-radius: 0.15rem;
-  box-shadow: 1px 1px 3px -1px #ced4da;
+  background: transparent;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  margin: -0.5rem 0rem 0rem 0rem;
 `;
 
 export const AllTradersContainer = styled.div`
@@ -58,4 +58,5 @@ export const SearchBar = styled.input`
 export const SearchIcon = styled(FontAwesomeIcon)`
   color: ${grey};
   font-size: 1rem;
+  opacity: 0.9;
 `;

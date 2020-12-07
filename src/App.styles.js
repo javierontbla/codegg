@@ -13,9 +13,10 @@ export const Global = createGlobalStyle`
   }
 
   ::placeholder { 
-   color: ${dark_grey};
+   color: ${grey};
    font-family: 'Roboto', sans-serif;
    letter-spacing: 0.25px;
+   font-size: 1rem;
   }
 
   b {

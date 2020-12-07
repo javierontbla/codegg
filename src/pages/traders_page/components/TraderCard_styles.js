@@ -91,7 +91,7 @@ export const DescriptionContainer = styled.div`
   font-size: 1rem;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   border-top: 0.5px solid ${grey};
-  color. ${black};
+  color: ${black};
   letter-spacing: 0.25px;
 `;
 

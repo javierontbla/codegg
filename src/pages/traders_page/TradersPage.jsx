@@ -3,6 +3,7 @@ import Masonry from "react-masonry-css";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import TraderCard from "./components/TraderCard";
+import TopTraderCard from "./components/TopTraderCard";
 import {
   TradersPageContainer,
   TopTradersContainer,
@@ -24,7 +25,11 @@ const TradersPage = () => {
 
   return (
     <TradersPageContainer className="container">
-      <TopTradersContainer></TopTradersContainer>
+      <TopTradersContainer>
+        {[1, 2, 3, 4, 5].map((top_trader_card) => {
+          return <TopTraderCard />;
+        })}
+      </TopTradersContainer>
       <AllTradersContainer>
         <SearchBarContainer>
           <SearchBar placeholder={"Search categories..."} />
