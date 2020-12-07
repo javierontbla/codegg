@@ -32,7 +32,7 @@ const TradersPage = () => {
       </TopTradersContainer>
       <AllTradersContainer>
         <SearchBarContainer>
-          <SearchBar placeholder={"Search categories..."} />
+          <SearchBar placeholder={"Search categories, users..."} />
           <SearchIcon icon={faSearch} />
         </SearchBarContainer>
         <Masonry

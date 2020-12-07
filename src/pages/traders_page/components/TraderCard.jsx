@@ -8,6 +8,9 @@ import {
   BottomContainer,
   ImgContainer,
   NameContainer,
+  BadgesContainer,
+  Badge,
+  Name,
   NameLink,
   DescriptionContainer,
   Price,
@@ -23,7 +26,11 @@ const TraderCard = () => {
         <TopContainer>
           <ImgContainer />
           <NameContainer>
-            Marco Rubio <NameLink>@marco_rubio</NameLink>
+            <BadgesContainer>
+              <Badge>QUANT</Badge>
+            </BadgesContainer>
+            <Name>Marco Rubio</Name>
+            <NameLink>@marco_rubio</NameLink>
           </NameContainer>
         </TopContainer>
         <MiddleContainer>

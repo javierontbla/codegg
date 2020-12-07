@@ -4,7 +4,13 @@ import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
 const { grey, dark_grey, black, green, white } = colors;
-const { name_font, name_link_font, price_font, rating_font } = fonts;
+const {
+  name_font,
+  name_link_font,
+  price_font,
+  rating_font,
+  badge_font,
+} = fonts;
 
 export const TraderCardContainer = styled.div`
   border: 1px solid ${grey};
@@ -72,6 +78,41 @@ export const NameContainer = styled.div`
   color: ${black};
 `;
 
+export const Name = styled.div`
+  padding: 0rem 0rem 0rem 0rem !important;
+  margin: -0.4rem 0rem 0rem 0rem;
+`;
+
+export const BadgesContainer = styled.div`
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  margin: 0rem 0rem 0rem -0.2rem;
+`;
+
+export const Badge = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${black};
+  font-family: ${badge_font};
+  font-size: 0.55rem;
+  height: fit-content;
+  width: fit-content;
+  border: none;
+  border-radius: 2rem;
+  background: rgb(254, 206, 93);
+  background: linear-gradient(
+    45deg,
+    rgba(254, 206, 93, 1) 0%,
+    rgba(235, 191, 84, 1) 90%
+  );
+  padding: 0.1rem 0.4rem 0.1rem 0.4rem;
+  letter-spacing: 0.25px;
+  margin: 0rem 0.2rem 0rem 0.2rem;
+  font-weight: 600;
+`;
+
 export const NameLink = styled.div`
   font-size: 0.8rem;
   margin: -0.25rem 0rem 0rem 0rem;
@@ -100,7 +141,7 @@ export const CategoriesContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  padding: 1rem 0rem 1.5rem 0rem;
+  padding: 0.6rem 0rem 1.1rem 0rem;
 `;
 
 export const Price = styled.div`
@@ -130,7 +171,7 @@ export const AllRatings = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   margin: 0rem 0rem 0rem 0.25rem;
   color: ${dark_grey};
 `;

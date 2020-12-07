@@ -34,9 +34,9 @@ export const AllTradersContainer = styled.div`
 export const SearchBarContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 15rem;
+  width: 18rem;
   height: 3rem;
-  padding: 0rem 0rem 0rem 0rem;
+  padding: 0rem 1rem 0rem 0rem;
   margin: 0rem 0rem 0rem 0.5rem;
   border: 0.5px solid ${grey};
   border-radius: 2rem;
@@ -44,6 +44,7 @@ export const SearchBarContainer = styled.div`
 
 export const SearchBar = styled.input`
   height: 100%;
+  width: 100%;
   background: transparent;
   padding: 0rem 1rem 0rem 1rem;
   color: ${dark_grey};

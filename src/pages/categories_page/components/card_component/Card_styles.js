@@ -17,13 +17,13 @@ export const Container = styled.div`
   width: 100%;
   border: 1px solid ${grey};
   border-radius: 0.5rem;
-  transition: transform 0.15s;
+  transition: box-shadow 0.2s;
   box-shadow: 3px 3px 3px -1px #ced4da;
   background: ${white} !important;
 
   &:hover {
     cursor: pointer;
-    transform: translateY(-0.8%);
+    box-shadow: 6.5px 6.5px 6.5px -3px #ced4da;
   }
 `;
 

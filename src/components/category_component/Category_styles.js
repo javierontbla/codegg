@@ -16,7 +16,7 @@ export const CategoryContainer = styled.div`
   border-radius: 2rem;
   font-family: ${button_font};
   letter-spacing: 1px;
-  height: 2rem;
+  height: 1.8rem;
   color: ${white};
   border: none;
   background: rgb(67, 170, 139);
@@ -27,13 +27,13 @@ export const CategoryContainer = styled.div`
   );
   transition: opacity 0.15s;
   padding: 0rem 0.65rem 0rem 0.65rem;
-  margin: 0rem 0.5rem 0rem 0.5rem;
-  font-size: 0.9rem;
+  margin: 0.4rem 0.4rem 0.4rem 0.4rem;
+  font-size: 0.8rem;
   font-weight: 600;
 
   &:hover {
     cursor: pointer;
-    opacity: 0.9;
+    opacity: 0.95;
   }
 `;
 

@@ -26,9 +26,7 @@ const TopTraderCard = () => {
           <ImgContainer />
           <NameContainer>
             <BadgesContainer>
-              {["top", "master"].map((badge) => {
-                return <Badge>{badge.toUpperCase()}</Badge>;
-              })}
+              <Badge>ROOKIE</Badge>
             </BadgesContainer>
             <Name>Marco Rubio</Name>
             <NameLink>@marco_rubio</NameLink>
@@ -36,8 +34,8 @@ const TopTraderCard = () => {
         </TopContainer>
         <MiddleContainer>
           <CategoriesContainer>
-            {["stocks", "futures", "crypto"].map((category) => {
-              return <Category>{category}</Category>;
+            {["stocks", "futures", "crypto", "bitcoin"].map((category) => {
+              return <Category>#{category}</Category>;
             })}
           </CategoriesContainer>
         </MiddleContainer>

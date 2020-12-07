@@ -10,5 +10,5 @@ export const fonts = {
   price_font: "'Open Sans', sans-serif",
   rating_font: "'Open Sans', sans-serif",
   search_bar_font: "'Roboto', sans-serif",
-  badge_font: "'Source Sans Pro', sans-serif",
+  badge_font: "'Open Sans', sans-serif",
 };
