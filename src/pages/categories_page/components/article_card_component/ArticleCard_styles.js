@@ -40,7 +40,7 @@ export const Img = styled.div`
 `;
 
 export const Description = styled.div`
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 1rem 1rem 1.1rem 1rem;
   margin: 0rem 0rem 0rem 0rem;
 `;
 
@@ -48,11 +48,11 @@ export const LastUpdate = styled.div`
   display: flex;
   align-items: center;
   color: ${dark_grey};
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-family: ${date_font};
   letter-spacing: 1px;
   padding: 0;
-  margin: 0rem 0rem 0.5rem 0rem;
+  margin: 0rem 0rem 0.25rem 0rem;
   height: fit-content;
   width: 100%;
 
@@ -65,8 +65,8 @@ export const Title = styled.div`
   font-size: 1.8rem;
   color: ${black};
   font-weight: 600;
-  letter-spacing: 1px;
-  line-height: 100%;
+  letter-spacing: 0.5px;
+  line-height: 115%;
 
   @media (max-width: 500px) {
   }
@@ -77,7 +77,7 @@ export const Author = styled.div`
   padding: 0;
   color: ${dark_grey};
   letter-spacing: 1px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   margin: 0.5rem 0rem 0rem 0rem;
 `;
 
@@ -85,7 +85,7 @@ export const Preview = styled.div`
   font-family: ${description_font};
   font-size: 1rem;
   line-height: 140%;
-  margin: 0.5rem 0rem 0rem 0rem;
+  margin: 1rem 0rem 0rem 0rem;
   color: ${black};
   letter-spacing: 0.25px;
   opacity: 0.8;
@@ -99,7 +99,7 @@ export const Categories = styled.div`
   display: flex;
   flex-direction: row;
   padding: 0rem 0.5rem 0rem 0.5rem;
-  margin: 0px 0px 1rem 0rem;
+  margin: 0rem 0rem 0.6rem 0rem;
 
   @media (max-width: 500px) {
     padding-left: ${(props) => (props.post ? "0rem" : "")};

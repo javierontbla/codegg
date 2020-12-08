@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import Masonry from "react-masonry-css";
 
-import Card from "./components/card_component/Card";
+import ArticleCard from "./components/article_card_component/ArticleCard";
 import LoadingCategoriesSkeleton from "../../components/loading_components/LoadingCategoriesSkeleton";
 import LoadingArticlesSkeleton from "../../components/loading_components/LoadingArticlesSkeleton";
 import Error from "../../components/error.component/Error";
@@ -154,7 +154,7 @@ const CategoriesPage = ({
                 >
                   {unfilteredArticles.map((article) => {
                     return (
-                      <Card
+                      <ArticleCard
                         search={(tag) => sendQueryBtn(tag)}
                         key={article[1]}
                         data={article[0]}
@@ -184,7 +184,7 @@ const CategoriesPage = ({
                 >
                   {filteredArticles.map((article) => {
                     return (
-                      <Card
+                      <ArticleCard
                         search={(tag) => sendQueryBtn(tag)}
                         key={article[0]}
                         data={article[0]}

@@ -100,7 +100,7 @@ export const Badge = styled.div`
   height: fit-content;
   width: fit-content;
   border: none;
-  border-radius: 2rem;
+  border-radius: 0.25rem;
   background: rgb(254, 206, 93);
   background: linear-gradient(
     45deg,
@@ -115,7 +115,7 @@ export const Badge = styled.div`
 
 export const NameLink = styled.div`
   font-size: 0.8rem;
-  margin: -0.25rem 0rem 0rem 0rem;
+  margin: -0.5rem 0rem 0rem 0rem;
   color: ${dark_grey};
   font-family: ${name_link_font};
   letter-spacing: 1px;
@@ -159,11 +159,10 @@ export const Rating = styled.div`
   align-items: center;
   height: fit-content;
   width: fit-content;
-  color: ${dark_grey};
+  color: ${black};
   font-family: ${rating_font};
   letter-spacing: 1px;
   font-weight: 600;
-  color: ${green};
   font-size: 0.9rem;
 `;
 
@@ -173,5 +172,5 @@ export const AllRatings = styled.div`
   height: 100%;
   font-size: 0.6rem;
   margin: 0rem 0rem 0rem 0.25rem;
-  color: ${dark_grey};
+  color: ${grey};
 `;

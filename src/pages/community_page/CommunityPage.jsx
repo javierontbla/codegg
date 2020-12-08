@@ -5,7 +5,9 @@ import { CommunityPageContainer } from "./CommunityPage_styles";
 const CommunityPage = () => {
   return (
     <>
-      <CommunityPageContainer>community</CommunityPageContainer>
+      <CommunityPageContainer className="container">
+        community
+      </CommunityPageContainer>
     </>
   );
 };

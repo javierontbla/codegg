@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import { colors } from "./colors/colors";
 
-const { white, grey, background, dark_grey } = colors;
+const { white, grey, background } = colors;
 
 export const Global = createGlobalStyle`
   body {

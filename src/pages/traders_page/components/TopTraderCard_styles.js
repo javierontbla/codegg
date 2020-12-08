@@ -69,6 +69,7 @@ export const ImgContainer = styled.div`
   background-position: center;
   background-image: url(https://images.unsplash.com/photo-1602525962574-3bc829fbed3c?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
   background-repeat: no-repeat;
+  border: 0.5px solid white;
 `;
 
 export const NameContainer = styled.div`
@@ -83,6 +84,7 @@ export const BadgesContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 0rem 0rem 0rem -0.2rem;
+  font-size: 0.55rem;
 `;
 
 export const Badge = styled.div`
@@ -91,11 +93,10 @@ export const Badge = styled.div`
   justify-content: center;
   color: ${black};
   font-family: ${badge_font};
-  font-size: 0.55rem;
   height: fit-content;
   width: fit-content;
   border: none;
-  border-radius: 2rem;
+  border-radius: 0.25rem;
   background: rgb(254, 206, 93);
   background: linear-gradient(
     45deg,
@@ -137,7 +138,7 @@ export const Category = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
-  border-radius: 2rem;
+  border-radius: 0.25rem;
   font-family: ${button_font};
   height: 1.8rem;
   font-size: 0.8rem;
@@ -150,8 +151,8 @@ export const Category = styled.div`
   border: none;
   color: ${white};
   font-weight: 600;
-  letter-spacing: 1px;
-  padding: 0rem 0.65rem 0rem 0.65rem;
+  letter-spacing: 0.5px;
+  padding: 0rem 0.5rem 0rem 0.5rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
 
   &:hover {
@@ -166,7 +167,7 @@ export const Rating = styled.div`
   align-items: center;
   font-family: ${rating_font};
   font-size: 0.8rem;
-  color: ${green};
+  color: ${white};
   letter-spacing: 0.5px;
   font-weight: 600;
   height: fit-content;
@@ -175,7 +176,7 @@ export const Rating = styled.div`
 export const Price = styled.div`
   font-family: ${price_font};
   font-size: 0.8rem;
-  color: ${grey};
+  color: ${white};
   letter-spacing: 0.5px;
   font-weight: 600;
 `;

@@ -69,16 +69,6 @@ export const Option = styled.div`
   letter-spacing: 1px;
 `;
 
-export const Division = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1rem;
-  height: fit-content;
-  margin: 0rem 1rem 0rem 1rem;
-  color: ${white};
-`;
-
 export const LinkContainer = styled(Link)`
   &&& {
     font-family: ${footer_font};
