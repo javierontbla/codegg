@@ -13,6 +13,7 @@ import HomePage from "./pages/home_page/HomePage";
 import CategoriesPage from "./pages/categories_page/CategoriesPage";
 import CommunityPage from "./pages/community_page/CommunityPage";
 import TradersPage from "./pages/traders_page/TradersPage";
+import TraderProfilePage from "./pages/trader_profile_page/TraderProfilePage";
 import ContactPage from "./pages/contact_page/ContactPage";
 import ArticlePage from "./pages/article_page/ArticlePage";
 import PrivacyPage from "./pages/privacy_page/PrivacyPage";
@@ -46,6 +47,7 @@ const App = ({ storeAvailableTags }) => {
             <Route path="/contact" component={ContactPage} />
             <Route path="/privacy" component={PrivacyPage} />
             <Route path="/terms" component={TermsConditionsPage} />
+            <Route path="/profile-page" component={TraderProfilePage} />
             <Route path="/:articleId" component={ArticlePage} />
           </Switch>
         </MainContainer>

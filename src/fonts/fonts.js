@@ -11,4 +11,11 @@ export const fonts = {
   rating_font: "'Open Sans', sans-serif",
   search_bar_font: "'Roboto', sans-serif",
   badge_font: "'Open Sans', sans-serif",
+  call_card_orders_font: "'Roboto', sans-serif",
+  call_card_date_font: "'Open Sans', sans-serif",
+  warning_font: "'Open Sans', sans-serif",
+  number_font: "'Source Sans Pro', sans-serif",
+  source_sans_pro: "'Source Sans Pro', sans-serif",
+  open_sans: "'Open Sans', sans-serif",
+  roboto: "'Roboto', sans-serif",
 };

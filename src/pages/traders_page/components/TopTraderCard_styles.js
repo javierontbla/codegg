@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
-const { grey, dark_grey, white, green, black } = colors;
+const { grey, white, black } = colors;
 const {
   name_font,
   name_link_font,
@@ -93,17 +93,18 @@ export const Badge = styled.div`
   justify-content: center;
   color: ${black};
   font-family: ${badge_font};
+  font-size: 0.55rem;
   height: fit-content;
   width: fit-content;
   border: none;
   border-radius: 0.25rem;
-  background: rgb(254, 206, 93);
-  background: linear-gradient(
-    45deg,
-    rgba(254, 206, 93, 1) 0%,
-    rgba(235, 191, 84, 1) 90%
-  );
-  padding: 0.1rem 0.4rem 0.1rem 0.4rem;
+  background: ${(props) =>
+    props.country || props.language ? "rgb(219,223,227)" : "rgb(254, 206, 93)"};
+  background: ${(props) =>
+    props.country || props.language
+      ? "linear-gradient(45deg, rgba(219,223,227,1) 5%, rgba(201,203,205,1) 95%)"
+      : "linear-gradient(45deg,rgba(254, 206, 93, 1) 0%,rgba(235, 191, 84, 1) 90%)"};
+  padding: 0.1rem 0.35rem 0.1rem 0.35rem;
   letter-spacing: 0.25px;
   margin: 0rem 0.2rem 0rem 0.2rem;
   font-weight: 600;
@@ -140,7 +141,7 @@ export const Category = styled.div`
   color: white;
   border-radius: 0.25rem;
   font-family: ${button_font};
-  height: 1.8rem;
+  height: fit-content;
   font-size: 0.8rem;
   background: rgb(67, 170, 139);
   background: linear-gradient(
@@ -152,7 +153,7 @@ export const Category = styled.div`
   color: ${white};
   font-weight: 600;
   letter-spacing: 0.5px;
-  padding: 0rem 0.5rem 0rem 0.5rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
 
   &:hover {
@@ -168,7 +169,7 @@ export const Rating = styled.div`
   font-family: ${rating_font};
   font-size: 0.8rem;
   color: ${white};
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   font-weight: 600;
   height: fit-content;
 `;
@@ -177,7 +178,7 @@ export const Price = styled.div`
   font-family: ${price_font};
   font-size: 0.8rem;
   color: ${white};
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   font-weight: 600;
 `;
 
@@ -188,4 +189,5 @@ export const AllRatings = styled.div`
   font-size: 0.5rem;
   margin: 0rem 0rem 0rem 0.25rem;
   color: ${grey};
+  font-weight: 500;
 `;

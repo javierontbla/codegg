@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
-const { grey, dark_grey, black, green, white } = colors;
+const { grey, dark_grey, black, white } = colors;
 const {
   name_font,
   name_link_font,
@@ -14,7 +14,7 @@ const {
 
 export const TraderCardContainer = styled.div`
   border: 1px solid ${grey};
-  width: 50%;
+  width: 100%;
   height: fit-content;
   margin: 0.5rem 0.5rem 0.5rem 0.5rem;
   border-radius: 0.5rem;
@@ -101,13 +101,13 @@ export const Badge = styled.div`
   width: fit-content;
   border: none;
   border-radius: 0.25rem;
-  background: rgb(254, 206, 93);
-  background: linear-gradient(
-    45deg,
-    rgba(254, 206, 93, 1) 0%,
-    rgba(235, 191, 84, 1) 90%
-  );
-  padding: 0.1rem 0.4rem 0.1rem 0.4rem;
+  background: ${(props) =>
+    props.country || props.language ? "rgb(219,223,227)" : "rgb(254, 206, 93)"};
+  background: ${(props) =>
+    props.country || props.language
+      ? "linear-gradient(45deg, rgba(219,223,227,1) 5%, rgba(201,203,205,1) 95%)"
+      : "linear-gradient(45deg,rgba(254, 206, 93, 1) 0%,rgba(235, 191, 84, 1) 90%)"};
+  padding: 0.1rem 0.35rem 0.1rem 0.35rem;
   letter-spacing: 0.25px;
   margin: 0rem 0.2rem 0rem 0.2rem;
   font-weight: 600;
@@ -133,7 +133,7 @@ export const DescriptionContainer = styled.div`
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   border-top: 0.5px solid ${grey};
   color: ${black};
-  letter-spacing: 0.25px;
+  line-height: 125%;
 `;
 
 export const CategoriesContainer = styled.div`
@@ -147,7 +147,7 @@ export const CategoriesContainer = styled.div`
 export const Price = styled.div`
   height: fit-content;
   width: fit-content;
-  color: ${dark_grey};
+  color: ${black};
   font-family: ${price_font};
   letter-spacing: 1px;
   font-weight: 600;

@@ -1,8 +1,6 @@
 import React from "react";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import icon from "./official_logo.svg";
-
 import {
   PagesContainer,
   LogoContainer,

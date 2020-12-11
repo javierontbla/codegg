@@ -15,10 +15,10 @@ export const FooterContainer = styled.footer`
   align-items: flex-end;
   margin: 10rem 0rem 0rem 0rem;
   background-color: transparent;
-  height: 16rem;
+  height: 17rem;
   border: none;
   font-family: ${footer_font};
-  padding: 1rem 0rem 1rem 0rem;
+  padding: 0rem 0rem 0.6rem 0rem;
   background: rgb(33, 33, 32);
   background: linear-gradient(
     90deg,
@@ -47,6 +47,7 @@ export const OptionsContainer = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   width: fit-content;
+  height: 100%;
 `;
 
 export const Options = styled.div`
@@ -62,6 +63,8 @@ export const Options = styled.div`
 `;
 
 export const Option = styled.div`
+  display: flex;
+  align-items: flex-end;
   background: transparent !important;
   width: fit-content;
   padding: 0rem 1rem 0rem 1rem;

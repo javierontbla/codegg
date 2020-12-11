@@ -6,27 +6,27 @@ import { fonts } from "../../fonts/fonts";
 
 const { button_font } = fonts;
 
-const { white, black } = colors;
+const { white } = colors;
 
 export const CategoryContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   width: fit-content;
-  border-radius: 0.25rem;
+  border-radius: 0.15rem;
   font-family: ${button_font};
   letter-spacing: 0.5px;
-  height: 1.8rem;
-  color: ${black};
+  height: fit-content;
+  color: ${white};
   border: none;
-  background: rgb(221, 227, 232);
+  background: rgb(67, 170, 139);
   background: linear-gradient(
     45deg,
-    rgba(221, 227, 232, 1) 0%,
-    rgba(220, 224, 227, 1) 100%
+    rgba(67, 170, 139, 1) 0%,
+    rgba(55, 139, 136, 1) 100%
   );
   transition: opacity 0.15s;
-  padding: 0rem 0.5rem 0rem 0.5rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
   font-size: 0.8rem;
   font-weight: 600;

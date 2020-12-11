@@ -27,7 +27,9 @@ const TraderCard = () => {
           <ImgContainer />
           <NameContainer>
             <BadgesContainer>
-              <Badge>QUANT</Badge>
+              <Badge>Quant</Badge>
+              <Badge country={"true"}>United States</Badge>
+              <Badge language={"true"}>English</Badge>
             </BadgesContainer>
             <Name>Marco Rubio</Name>
             <NameLink>@marco_rubio</NameLink>

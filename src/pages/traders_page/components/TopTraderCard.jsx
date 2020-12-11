@@ -26,7 +26,9 @@ const TopTraderCard = () => {
           <ImgContainer />
           <NameContainer>
             <BadgesContainer>
-              <Badge>ROOKIE</Badge>
+              <Badge>Rookie</Badge>
+              <Badge country={"true"}>India</Badge>
+              <Badge language={"true"}>English</Badge>
             </BadgesContainer>
             <Name>Marco Rubio</Name>
             <NameLink>@marco_rubio</NameLink>

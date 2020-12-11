@@ -11,6 +11,7 @@ import {
   SearchBarContainer,
   SearchBar,
   SearchIcon,
+  LinkContainer,
 } from "./TradersPage_styles";
 import "./TradersPage.css";
 
@@ -41,7 +42,11 @@ const TradersPage = () => {
           columnClassName="traders-grid-column"
         >
           {[1, 2, 3, 4, 5, 6].map((card) => {
-            return <TraderCard />;
+            return (
+              <LinkContainer to="/profile-page">
+                <TraderCard />
+              </LinkContainer>
+            );
           })}
         </Masonry>
       </AllTradersContainer>

@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { dark_grey, grey, white } = colors;
-const {} = fonts;
+const { dark_grey, grey } = colors;
+const { search_bar_font } = fonts;
 
 export const TradersPageContainer = styled.div`
   display: flex;
@@ -50,6 +51,7 @@ export const SearchBar = styled.input`
   color: ${dark_grey};
   letter-spacing: 0.25px;
   border: none;
+  font-family: ${search_bar_font};
 
   &:focus {
     outline: none !important;
@@ -60,4 +62,11 @@ export const SearchIcon = styled(FontAwesomeIcon)`
   color: ${grey};
   font-size: 1rem;
   opacity: 0.9;
+`;
+
+export const LinkContainer = styled(Link)`
+  width: 100% !important;
+  &:hover {
+    text-decoration: none;
+  }
 `;
