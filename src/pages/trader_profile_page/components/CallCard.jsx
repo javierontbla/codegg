@@ -2,23 +2,23 @@ import React from "react";
 
 import {
   CallCardContainer,
-  BottomContainer,
-  MiddleContainer,
   TopContainer,
-  WarningsContainer,
-  Name,
-  Loss,
-  ProfitNo1,
-  ProfitNo2,
-  Warning,
-  UpTrend,
-  DownTrend,
-  TrendsContainer,
+  Title,
+  InformationContainer,
+  Action,
+  Risk,
   Date,
-  Count,
-  TrendIcon,
+  MiddleContainer,
+  Subtitle,
   OrderContainer,
   Price,
+  BottomContainer,
+  TrendsContainer,
+  UpTrend,
+  DownTrend,
+  Count,
+  TrendIcon,
+  NameLink,
 } from "./CallCard_styles";
 import up_button from "./media/up_button.svg";
 import down_button from "./media/down_button.svg";
@@ -28,23 +28,26 @@ const CallCard = () => {
     <>
       <CallCardContainer>
         <TopContainer>
-          <Name>GOOGL</Name>
+          <Title>GOOGL</Title>
+          <InformationContainer>
+            <Action>BUY</Action>
+            <Risk>2% RISK</Risk>
+            <Date>December 11, 2020 1:30 PM</Date>
+          </InformationContainer>
         </TopContainer>
         <MiddleContainer>
           <OrderContainer>
-            <Loss>Stop Loss:</Loss>
-            <Price>$89.99</Price>
+            <Subtitle>Stop Loss:</Subtitle>
+            <Price>$89.23</Price>
           </OrderContainer>
           <OrderContainer>
-            <ProfitNo1>Take Profit #1:</ProfitNo1> <Price>$91.25</Price>
+            <Subtitle>Take Profit No.1:</Subtitle>
+            <Price>$91.16</Price>
           </OrderContainer>
           <OrderContainer>
-            <ProfitNo2>Take Profit #2:</ProfitNo2> <Price>$92.79</Price>
+            <Subtitle>Take Profit No.2:</Subtitle>
+            <Price>$92.45</Price>
           </OrderContainer>
-          <WarningsContainer>
-            <Warning>BUY</Warning>
-            <Warning risk={"true"}>2% RISK</Warning>
-          </WarningsContainer>
         </MiddleContainer>
         <BottomContainer>
           <TrendsContainer>
@@ -57,7 +60,7 @@ const CallCard = () => {
               <Count>13</Count>
             </DownTrend>
           </TrendsContainer>
-          <Date>10/12/2020</Date>
+          <NameLink>@john_mayer</NameLink>
         </BottomContainer>
       </CallCardContainer>
     </>

@@ -10,6 +10,7 @@ const {
   price_font,
   rating_font,
   badge_font,
+  open_sans,
 } = fonts;
 
 export const TraderCardContainer = styled.div`
@@ -100,7 +101,7 @@ export const Badge = styled.div`
   height: fit-content;
   width: fit-content;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 0.15rem;
   background: ${(props) =>
     props.country || props.language ? "rgb(219,223,227)" : "rgb(254, 206, 93)"};
   background: ${(props) =>
@@ -160,7 +161,7 @@ export const Rating = styled.div`
   height: fit-content;
   width: fit-content;
   color: ${black};
-  font-family: ${rating_font};
+  font-family: ${open_sans};
   letter-spacing: 1px;
   font-weight: 600;
   font-size: 0.9rem;

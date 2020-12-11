@@ -36,7 +36,6 @@ export const TimelineContainer = styled.div`
   flex-direction: column;
   width: calc(100% - 26.5rem);
   height: 100%;
-  border: 1px solid orange;
   padding: 0rem 0.5rem 0rem 0.5rem;
   margin: -0.5rem 0rem 0rem 0rem;
 `;

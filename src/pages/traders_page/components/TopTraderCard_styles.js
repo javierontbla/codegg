@@ -9,7 +9,7 @@ const {
   name_link_font,
   button_font,
   price_font,
-  rating_font,
+  open_sans,
   badge_font,
 } = fonts;
 
@@ -48,7 +48,7 @@ export const MiddleContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 0.6rem 0.4rem 0.6rem 0.4rem;
+  padding: 0.1rem 0.4rem 1.1rem 0.4rem;
 `;
 
 export const BottomContainer = styled.div`
@@ -97,7 +97,7 @@ export const Badge = styled.div`
   height: fit-content;
   width: fit-content;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 0.15rem;
   background: ${(props) =>
     props.country || props.language ? "rgb(219,223,227)" : "rgb(254, 206, 93)"};
   background: ${(props) =>
@@ -166,7 +166,7 @@ export const Rating = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-family: ${rating_font};
+  font-family: ${open_sans};
   font-size: 0.8rem;
   color: ${white};
   letter-spacing: 1px;
@@ -189,5 +189,4 @@ export const AllRatings = styled.div`
   font-size: 0.5rem;
   margin: 0rem 0rem 0rem 0.25rem;
   color: ${grey};
-  font-weight: 500;
 `;
