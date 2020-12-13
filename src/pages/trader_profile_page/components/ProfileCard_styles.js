@@ -5,14 +5,21 @@ import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
 const { white, grey, black } = colors;
-const { name_font, name_link_font, description_font, button_font } = fonts;
+const {
+  name_font,
+  name_link_font,
+  description_font,
+  button_font,
+  open_sans,
+} = fonts;
 
 export const ProfileCardContainer = styled.div`
   width: 100%;
   height: fit-content;
   border: 1px solid ${grey};
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   background: ${white};
+  box-shadow: 2px 2px 2px -1px #ced4da;
 `;
 
 export const TopContainer = styled.div`
@@ -28,8 +35,8 @@ export const CoverPhoto = styled.div`
   background-position: center;
   background-image: url(https://images.unsplash.com/photo-1607453813894-21f7b5cf201a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
   background-repeat: no-repeat;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 `;
 
 export const ProfileImage = styled.div`
@@ -101,16 +108,17 @@ export const BottomContainer = styled.div`
   border-top: 0.5px solid ${grey};
 `;
 
-export const SocialMediaContainer = styled.div`
+export const SubscribersContainer = styled.div`
+  height: 100%;
   width: fit-content;
-  height: fit-content;
-  margin: 0rem 0rem 0rem -0.65rem;
-`;
-
-export const SocialMediaIcon = styled(FontAwesomeIcon)`
-  color: ${black};
-  margin: 0rem 0.65rem 0rem 0.65rem;
-  font-size: 1.1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: ${grey};
+  font-family: ${open_sans};
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
 `;
 
 export const SubscribeButton = styled.div`

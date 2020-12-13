@@ -12,7 +12,7 @@ export const BadgeContainer = styled.div`
   justify-content: center;
   color: ${black};
   font-family: ${badge_font};
-  font-size: 0.55rem;
+  font-size: ${(props) => (props.top ? "0.4rem" : "0.55rem")};
   height: fit-content;
   width: fit-content;
   border: none;

@@ -4,35 +4,20 @@ import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
 const { grey, white, black } = colors;
-const {
-  name_font,
-  name_link_font,
-  button_font,
-  price_font,
-  open_sans,
-  badge_font,
-} = fonts;
+const { name_font, name_link_font, open_sans } = fonts;
 
 export const TopTraderCardContainer = styled.div`
   width: 100%;
   margin: 0.5rem 0rem 0rem 0rem;
   border: 0.5px solid ${grey};
-  border-radius: 0.5rem;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
+  border-radius: 0.25rem;
+  background: ${white};
+  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  transition: box-shadow 0.4s;
 
   &:hover {
     cursor: pointer;
-    background: rgb(33, 33, 32);
-    background: linear-gradient(
-      90deg,
-      rgba(33, 33, 32, 1) 20%,
-      rgba(25, 25, 24, 1) 90%
-    );
+    box-shadow: 2.5px 2.5px 2.5px -1px #ced4da;
   }
 `;
 
@@ -53,13 +38,15 @@ export const MiddleContainer = styled.div`
 
 export const BottomContainer = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 0.5rem 0.65rem 0.4rem 0.65rem;
+  border-top: 0.5px solid ${grey};
 `;
 
-export const ImgContainer = styled.div`
+export const ProfileImg = styled.div`
   border-radius: 50%;
   border: none;
   width: 3.2rem;
@@ -69,7 +56,7 @@ export const ImgContainer = styled.div`
   background-position: center;
   background-image: url(https://images.unsplash.com/photo-1602525962574-3bc829fbed3c?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
   background-repeat: no-repeat;
-  border: 0.5px solid white;
+  border: 0.5px solid ${grey};
 `;
 
 export const NameContainer = styled.div`
@@ -83,40 +70,20 @@ export const NameContainer = styled.div`
 export const BadgesContainer = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   margin: 0rem 0rem 0rem -0.2rem;
   font-size: 0.55rem;
 `;
 
-export const Badge = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${black};
-  font-family: ${badge_font};
-  font-size: 0.55rem;
-  height: fit-content;
-  width: fit-content;
-  border: none;
-  border-radius: 0.15rem;
-  background: ${(props) =>
-    props.country || props.language ? "rgb(219,223,227)" : "rgb(254, 206, 93)"};
-  background: ${(props) =>
-    props.country || props.language
-      ? "linear-gradient(45deg, rgba(219,223,227,1) 5%, rgba(201,203,205,1) 95%)"
-      : "linear-gradient(45deg,rgba(254, 206, 93, 1) 0%,rgba(235, 191, 84, 1) 90%)"};
-  padding: 0.1rem 0.35rem 0.1rem 0.35rem;
-  letter-spacing: 0.25px;
-  margin: 0rem 0.2rem 0rem 0.2rem;
-  font-weight: 600;
-`;
-
 export const Name = styled.div`
-  color: ${white};
+  color: ${black};
   font-family: ${name_font};
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   letter-spacing: 0.25px;
   height: fit-content;
-  margin: -0.1rem 0rem 0rem 0rem;
+
+  line-height: 100%;
+  margin: 0.25rem 0rem 0.3rem 0rem;
 `;
 
 export const NameLink = styled.div`
@@ -134,59 +101,36 @@ export const CategoriesContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Category = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  border-radius: 0.25rem;
-  font-family: ${button_font};
-  height: fit-content;
-  font-size: 0.8rem;
-  background: rgb(67, 170, 139);
-  background: linear-gradient(
-    45deg,
-    rgba(67, 170, 139, 1) 0%,
-    rgba(55, 139, 136, 1) 100%
-  );
-  border: none;
-  color: ${white};
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
-  margin: 0.4rem 0.4rem 0.4rem 0.4rem;
-
-  &:hover {
-    cursor: pointer;
-    opacity: 0.95;
-  }
-`;
-
-export const Rating = styled.div`
+export const Subscribers = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   font-family: ${open_sans};
-  font-size: 0.8rem;
-  color: ${white};
-  letter-spacing: 1px;
+  font-size: 0.7rem;
+  color: ${grey};
+  letter-spacing: 0.5px;
   font-weight: 600;
   height: fit-content;
 `;
 
-export const Price = styled.div`
-  font-family: ${price_font};
-  font-size: 0.8rem;
-  color: ${white};
-  letter-spacing: 1px;
-  font-weight: 600;
-`;
-
-export const AllRatings = styled.div`
+export const ViewButton = styled.div`
   display: flex;
   align-items: center;
-  height: 100%;
-  font-size: 0.5rem;
-  margin: 0rem 0rem 0rem 0.25rem;
-  color: ${grey};
+  width: fit-content;
+  border: none;
+  height: fit-content;
+  background: rgb(33, 33, 32);
+  background: linear-gradient(
+    90deg,
+    rgba(33, 33, 32, 1) 5%,
+    rgba(25, 25, 24, 1) 80%
+  );
+  font-family: ${open_sans};
+  padding: 0.2rem 0.65rem 0.2rem 0.65rem;
+  color: ${white};
+  font-size: 0.7rem;
+  border-radius: 0.15rem;
+  margin: 0rem 0rem 0rem 0rem;
+  letter-spacing: 1px;
+  font-weight: 600;
 `;

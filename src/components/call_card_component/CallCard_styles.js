@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
-import { colors } from "../../../colors/colors";
-import { fonts } from "../../../fonts/fonts";
+import { colors } from "../../colors/colors";
+import { fonts } from "../../fonts/fonts";
 
 const { grey, white, black, green, red } = colors;
 const { button_font, source_sans_pro, open_sans, roboto } = fonts;
@@ -21,12 +21,14 @@ const InformationStyles = css`
 `;
 
 export const CallCardContainer = styled.div`
-  width: 17rem;
+  width: 18rem;
   border: 1px solid blue;
   margin: 0rem 0.5rem 0rem 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   background: ${white};
   border: 1px solid ${grey};
+  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  transition: box-shadow 0.2s;
 `;
 
 export const TopContainer = styled.div`
@@ -52,6 +54,7 @@ export const Title = styled.div`
 export const InformationContainer = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   margin: 0.4rem 0rem 0rem -0.25rem;
 `;
 
@@ -93,8 +96,8 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 5rem;
-  padding: 0rem 0rem 0rem 0.75rem;
+  height: 5.5rem;
+  padding: 0rem 0.75rem 0rem 0.75rem;
 `;
 
 export const OrderContainer = styled.div`
@@ -102,8 +105,9 @@ export const OrderContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0rem 3rem 0rem 0rem;
-  margin: 0rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
+  margin: ${(props) =>
+    props.last_child ? "0rem 0rem 0rem 0rem" : "0rem 0rem 0.25rem 0rem"};
 `;
 
 export const Subtitle = styled.div`

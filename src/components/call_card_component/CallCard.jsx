@@ -30,9 +30,9 @@ const CallCard = () => {
         <TopContainer>
           <Title>AMZN</Title>
           <InformationContainer>
-            <Action action={"sell"}>SELL</Action>
+            <Action action={"buy"}>BUY</Action>
             <Risk>2% RISK</Risk>
-            <Date>December 11, 2020 1:30 PM</Date>
+            <Date>November 13, 2020 12:12 PM</Date>
           </InformationContainer>
         </TopContainer>
         <MiddleContainer>
@@ -44,7 +44,7 @@ const CallCard = () => {
             <Subtitle>Take Profit No.1:</Subtitle>
             <Price>$91.16</Price>
           </OrderContainer>
-          <OrderContainer>
+          <OrderContainer last_child={"true"}>
             <Subtitle>Take Profit No.2:</Subtitle>
             <Price>$92.45</Price>
           </OrderContainer>

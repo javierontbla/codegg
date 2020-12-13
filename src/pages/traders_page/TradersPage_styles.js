@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { dark_grey, grey } = colors;
-const { search_bar_font } = fonts;
+const { dark_grey, grey, black, white } = colors;
+const { roboto, source_sans_pro } = fonts;
 
 export const TradersPageContainer = styled.div`
   display: flex;
@@ -17,12 +17,33 @@ export const TradersPageContainer = styled.div`
 `;
 
 export const TopTradersContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: none;
   height: fit-content;
   width: 25rem;
   background: transparent;
   padding: 0rem 0.5rem 0rem 0.5rem;
   margin: -0.5rem 0rem 0rem 0rem;
+`;
+
+export const Title = styled.div`
+  display: flex;
+  align-items: center;
+  color: ${black};
+  background: ${white};
+  width: 100%;
+  height: fit-content;
+  border-radius: 0.25rem;
+  font-family: ${source_sans_pro};
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 0.6rem 0rem 0.6rem 0.65rem;
+  border: 1px solid ${grey};
+  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  line-height: 100%;
+  letter-spacing: 0.5px;
 `;
 
 export const AllTradersContainer = styled.div`
@@ -51,7 +72,7 @@ export const SearchBar = styled.input`
   color: ${dark_grey};
   letter-spacing: 0.25px;
   border: none;
-  font-family: ${search_bar_font};
+  font-family: ${roboto};
 
   &:focus {
     outline: none !important;

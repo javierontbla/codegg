@@ -1,6 +1,7 @@
 import React from "react";
 
 import Category from "../../../components/category_component/Category";
+import Badge from "../../../components/badge_component/Badge";
 import {
   TraderCardContainer,
   TopContainer,
@@ -9,13 +10,11 @@ import {
   ImgContainer,
   NameContainer,
   BadgesContainer,
-  Badge,
   Name,
   NameLink,
   DescriptionContainer,
-  Price,
-  Rating,
-  AllRatings,
+  ViewButton,
+  Subscribers,
   CategoriesContainer,
 } from "./TraderCard_styles";
 
@@ -27,9 +26,14 @@ const TraderCard = () => {
           <ImgContainer />
           <NameContainer>
             <BadgesContainer>
-              <Badge>Quant</Badge>
-              <Badge country={"true"}>United States</Badge>
-              <Badge language={"true"}>English</Badge>
+              {["quant", "united states", "english"].map((badge) => {
+                return (
+                  <Badge
+                    badge={badge}
+                    rank={badge === "quant" ? "true" : null}
+                  />
+                );
+              })}
             </BadgesContainer>
             <Name>Marco Rubio</Name>
             <NameLink>@marco_rubio</NameLink>
@@ -52,10 +56,8 @@ const TraderCard = () => {
           </CategoriesContainer>
         </MiddleContainer>
         <BottomContainer>
-          <Rating>
-            4.8 <AllRatings>(14)</AllRatings>
-          </Rating>
-          <Price>$6.99</Price>
+          <Subscribers>123k subscribers</Subscribers>
+          <ViewButton>View</ViewButton>
         </BottomContainer>
       </TraderCardContainer>
     </>

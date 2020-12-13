@@ -1,21 +1,20 @@
 import React from "react";
 
+import Category from "../../../components/category_component/Category";
+import Badge from "../../../components/badge_component/Badge";
 import {
   TopTraderCardContainer,
   TopContainer,
   MiddleContainer,
   BottomContainer,
-  ImgContainer,
+  ProfileImg,
   NameContainer,
   NameLink,
   CategoriesContainer,
-  Category,
-  Rating,
-  Price,
+  Subscribers,
+  ViewButton,
   BadgesContainer,
-  Badge,
   Name,
-  AllRatings,
 } from "./TopTraderCard_styles";
 
 const TopTraderCard = () => {
@@ -23,12 +22,18 @@ const TopTraderCard = () => {
     <>
       <TopTraderCardContainer>
         <TopContainer>
-          <ImgContainer />
+          <ProfileImg />
           <NameContainer>
             <BadgesContainer>
-              <Badge>Rookie</Badge>
-              <Badge country={"true"}>India</Badge>
-              <Badge language={"true"}>English</Badge>
+              {["quant", "united states", "english"].map((badge) => {
+                return (
+                  <Badge
+                    badge={badge}
+                    rank={badge === "quant" ? "true" : null}
+                    top={"true"}
+                  />
+                );
+              })}
             </BadgesContainer>
             <Name>Marco Rubio</Name>
             <NameLink>@marco_rubio</NameLink>
@@ -37,15 +42,13 @@ const TopTraderCard = () => {
         <MiddleContainer>
           <CategoriesContainer>
             {["stocks", "futures", "crypto", "bitcoin"].map((category) => {
-              return <Category>#{category}</Category>;
+              return <Category top={"true"} category={category} />;
             })}
           </CategoriesContainer>
         </MiddleContainer>
         <BottomContainer>
-          <Rating>
-            4.8<AllRatings>(14)</AllRatings>
-          </Rating>
-          <Price>$8.99</Price>
+          <Subscribers>123k subscribers</Subscribers>
+          <ViewButton>View</ViewButton>
         </BottomContainer>
       </TopTraderCardContainer>
     </>

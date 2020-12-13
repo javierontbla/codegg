@@ -18,8 +18,7 @@ import {
   NameLink,
   Description,
   CategoriesContainer,
-  SocialMediaContainer,
-  SocialMediaIcon,
+  SubscribersContainer,
   SubscribeButton,
   BadgesContainer,
 } from "./ProfileCard_styles";
@@ -58,11 +57,7 @@ const ProfileCard = () => {
           </CategoriesContainer>
         </MiddleContainer>
         <BottomContainer>
-          <SocialMediaContainer>
-            <SocialMediaIcon icon={faTwitter} />
-            <SocialMediaIcon icon={faFacebook} />
-            <SocialMediaIcon icon={faYoutube} />
-          </SocialMediaContainer>
+          <SubscribersContainer>123,108 subscribers</SubscribersContainer>
           <SubscribeButton>Subscribe</SubscribeButton>
         </BottomContainer>
       </ProfileCardContainer>

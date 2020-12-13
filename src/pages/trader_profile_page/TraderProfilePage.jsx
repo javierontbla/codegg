@@ -1,12 +1,13 @@
 import React from "react";
 
 import ProfileCard from "./components/ProfileCard";
-import CallCard from "./components/CallCard";
+import Opinions from "./components/Opinions";
+import CallCard from "../../components/call_card_component/CallCard";
 import {
   TraderProfilePageContainer,
   ProfileInformationContainer,
   ProfileCardContainer,
-  ProfileReviewsContainer,
+  ProfileOpinionsContainer,
   TimelineContainer,
   CallsContainer,
   PostsContainer,
@@ -20,7 +21,9 @@ const TraderProfilePage = () => {
           <ProfileCardContainer>
             <ProfileCard />
           </ProfileCardContainer>
-          <ProfileReviewsContainer></ProfileReviewsContainer>
+          <ProfileOpinionsContainer>
+            <Opinions />
+          </ProfileOpinionsContainer>
         </ProfileInformationContainer>
         <TimelineContainer>
           <CallsContainer>

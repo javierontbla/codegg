@@ -6,7 +6,7 @@ import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
 const { black, white } = colors;
-const { navbar_font } = fonts;
+const { open_sans } = fonts;
 
 export const Navbar = styled.div`
   display: flex;
@@ -63,7 +63,7 @@ export const PageLink = styled.div`
   margin: 0rem 1rem 0rem 1rem;
   letter-spacing: 1px;
   font-size: 0.9rem;
-  font-family: ${navbar_font};
+  font-family: ${open_sans};
   color: ${black};
   font-weight: 600;
 
@@ -96,7 +96,7 @@ export const SignIn = styled.div`
     rgba(33, 33, 32, 1) 5%,
     rgba(25, 25, 24, 1) 80%
   );
-  font-family: ${navbar_font};
+  font-family: ${open_sans};
   padding: 0rem 0.65rem 0rem 0.65rem;
   color: ${white};
   font-size: 0.9rem;
@@ -122,7 +122,7 @@ export const LogIn = styled.div`
   font-size: 0.9rem;
   margin: 0rem 0.85rem 0rem 0rem;
   letter-spacing: 1px;
-  font-family: ${navbar_font};
+  font-family: ${open_sans};
   font-weight: 600;
 
   &:hover {

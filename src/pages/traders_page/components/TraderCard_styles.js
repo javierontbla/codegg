@@ -3,23 +3,16 @@ import styled from "styled-components";
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
-const { grey, dark_grey, black, white } = colors;
-const {
-  name_font,
-  name_link_font,
-  price_font,
-  rating_font,
-  badge_font,
-  open_sans,
-} = fonts;
+const { grey, black, white } = colors;
+const { name_font, open_sans } = fonts;
 
 export const TraderCardContainer = styled.div`
   border: 1px solid ${grey};
   width: 100%;
   height: fit-content;
-  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
-  border-radius: 0.5rem;
-  padding: 0rem 0.5rem 0rem 0.5rem;
+  margin: 1rem 0rem 1rem 0rem;
+  border-radius: 0.25rem;
+  padding: 0rem 0rem 0rem 0rem;
   background: ${white} !important;
   box-shadow: 3px 3px 3px -1px #ced4da;
   transition: box-shadow 0.2s;
@@ -34,7 +27,7 @@ export const TopContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 1.5rem 1rem 1.5rem 1rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   width: 100%;
   height: fit-content;
 `;
@@ -48,10 +41,11 @@ export const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: fit-content;
   border-top: 0.5px solid ${grey};
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
 `;
 
 export const ImgContainer = styled.div`
@@ -81,7 +75,8 @@ export const NameContainer = styled.div`
 
 export const Name = styled.div`
   padding: 0rem 0rem 0rem 0rem !important;
-  margin: -0.4rem 0rem 0rem 0rem;
+  line-height: 100%;
+  margin: 0.25rem 0rem 0.55rem 0rem;
 `;
 
 export const BadgesContainer = styled.div`
@@ -91,34 +86,11 @@ export const BadgesContainer = styled.div`
   margin: 0rem 0rem 0rem -0.2rem;
 `;
 
-export const Badge = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${black};
-  font-family: ${badge_font};
-  font-size: 0.55rem;
-  height: fit-content;
-  width: fit-content;
-  border: none;
-  border-radius: 0.15rem;
-  background: ${(props) =>
-    props.country || props.language ? "rgb(219,223,227)" : "rgb(254, 206, 93)"};
-  background: ${(props) =>
-    props.country || props.language
-      ? "linear-gradient(45deg, rgba(219,223,227,1) 5%, rgba(201,203,205,1) 95%)"
-      : "linear-gradient(45deg,rgba(254, 206, 93, 1) 0%,rgba(235, 191, 84, 1) 90%)"};
-  padding: 0.1rem 0.35rem 0.1rem 0.35rem;
-  letter-spacing: 0.25px;
-  margin: 0rem 0.2rem 0rem 0.2rem;
-  font-weight: 600;
-`;
-
 export const NameLink = styled.div`
   font-size: 0.8rem;
   margin: -0.5rem 0rem 0rem 0rem;
-  color: ${dark_grey};
-  font-family: ${name_link_font};
+  color: ${grey};
+  font-family: ${open_sans};
   letter-spacing: 1px;
   font-weight: 600;
 
@@ -131,7 +103,7 @@ export const DescriptionContainer = styled.div`
   width: 100%;
   height: fit-content;
   font-size: 1rem;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   border-top: 0.5px solid ${grey};
   color: ${black};
   line-height: 125%;
@@ -142,36 +114,39 @@ export const CategoriesContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  padding: 0.6rem 0rem 1.1rem 0rem;
+  padding: 0.6rem 0.5rem 1.1rem 0.5rem;
 `;
 
-export const Price = styled.div`
-  height: fit-content;
-  width: fit-content;
-  color: ${black};
-  font-family: ${price_font};
-  letter-spacing: 1px;
-  font-weight: 600;
-  font-size: 0.9rem;
-`;
-
-export const Rating = styled.div`
+export const ViewButton = styled.div`
   display: flex;
   align-items: center;
-  height: fit-content;
   width: fit-content;
-  color: ${black};
+  border: none;
+  height: fit-content;
+  background: rgb(33, 33, 32);
+  background: linear-gradient(
+    90deg,
+    rgba(33, 33, 32, 1) 5%,
+    rgba(25, 25, 24, 1) 80%
+  );
   font-family: ${open_sans};
+  padding: 0.2rem 0.65rem 0.2rem 0.65rem;
+  color: ${white};
+  font-size: 0.8rem;
+  border-radius: 0.15rem;
+  margin: 0rem 0rem 0rem 0rem;
   letter-spacing: 1px;
   font-weight: 600;
-  font-size: 0.9rem;
 `;
 
-export const AllRatings = styled.div`
+export const Subscribers = styled.div`
   display: flex;
   align-items: center;
-  height: 100%;
-  font-size: 0.6rem;
-  margin: 0rem 0rem 0rem 0.25rem;
+  height: fit-content;
+  width: fit-content;
   color: ${grey};
+  font-family: ${open_sans};
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  font-size: 0.8rem;
 `;

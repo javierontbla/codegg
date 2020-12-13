@@ -2,10 +2,12 @@ import React from "react";
 
 import { BadgeContainer } from "./Badge_styles";
 
-const Badge = ({ badge, rank }) => {
+const Badge = ({ badge, rank, top }) => {
   return (
     <>
-      <BadgeContainer rank={rank}>{badge.toUpperCase()}</BadgeContainer>
+      <BadgeContainer rank={rank} top={top}>
+        {badge.toUpperCase()}
+      </BadgeContainer>
     </>
   );
 };

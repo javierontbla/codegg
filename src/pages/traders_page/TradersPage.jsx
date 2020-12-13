@@ -12,6 +12,7 @@ import {
   SearchBar,
   SearchIcon,
   LinkContainer,
+  Title,
 } from "./TradersPage_styles";
 import "./TradersPage.css";
 
@@ -27,6 +28,7 @@ const TradersPage = () => {
   return (
     <TradersPageContainer className="container">
       <TopTradersContainer>
+        <Title>Top Investors</Title>
         {[1, 2, 3, 4, 5].map((top_trader_card) => {
           return <TopTraderCard />;
         })}
