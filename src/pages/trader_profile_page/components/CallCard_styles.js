@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
-const { grey, white, black, green, red, yellow } = colors;
+const { grey, white, black, green, red } = colors;
 const { button_font, source_sans_pro, open_sans, roboto } = fonts;
 
 const InformationStyles = css`
@@ -13,7 +13,7 @@ const InformationStyles = css`
   font-family: ${open_sans};
   font-weight: 600;
   padding: 0.1rem 0.35rem 0.1rem 0.35rem;
-  letter-spacing: 0.25px;
+  letter-spacing: 0.5px;
   margin: 0rem 0.25rem 0rem 0.25rem;
   height: fit-content;
   width: fit-content;
@@ -21,52 +21,49 @@ const InformationStyles = css`
 `;
 
 export const CallCardContainer = styled.div`
-  height: fit-content;
-  width: fit-content;
+  width: 17rem;
   border: 1px solid blue;
-  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+  margin: 0rem 0.5rem 0rem 0.5rem;
   border-radius: 0.5rem;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
-  border: none;
+  background: ${white};
+  border: 1px solid ${grey};
 `;
 
 export const TopContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
-  height: fit-content;
+  height: 5.15rem;
   border-bottom: 0.5px solid ${grey};
-  padding: 0.65rem 0.85rem 0.65rem 0.85rem;
+  padding: 0rem 0.75rem 0rem 0.75rem;
 `;
 
 export const Title = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 2.25rem;
-  color: white;
+  font-size: 2rem;
+  color: ${black};
   z-index: 1;
   line-height: 100%;
-  letter-spacing: 0.5px;
-  padding: 0.2rem 0rem 0.2rem 0rem;
+  letter-spacing: 0.25px;
+  padding: 0rem 0rem 0rem 0rem;
 `;
 
 export const InformationContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 0.1rem 0rem 0.15rem -0.25rem;
+  margin: 0.4rem 0rem 0rem -0.25rem;
 `;
 
 export const Action = styled.div`
   ${InformationStyles};
-  background: rgb(67, 170, 139);
-  background: linear-gradient(
-    45deg,
-    rgba(67, 170, 139, 1) 0%,
-    rgba(55, 139, 136, 1) 100%
-  );
   color: ${white};
+  background: ${(props) =>
+    props.action === "sell" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
+  background: ${(props) =>
+    props.action === "sell"
+      ? "linear-gradient(45deg,rgba(249, 104, 106, 1) 5%,rgba(185, 32, 34, 1) 95%)"
+      : "linear-gradient(45deg, rgba(67, 170, 139, 1) 0%, rgba(55, 139, 136, 1) 100%)"};
 `;
 
 export const Risk = styled.div`
@@ -96,8 +93,8 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: fit-content;
-  padding: 1rem 0.85rem 0.85rem 0.85rem;
+  height: 5rem;
+  padding: 0rem 0rem 0rem 0.75rem;
 `;
 
 export const OrderContainer = styled.div`
@@ -105,8 +102,8 @@ export const OrderContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0rem 6rem 0rem 0rem;
-  margin: 0rem 0rem 0.35rem 0rem;
+  padding: 0rem 3rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const Subtitle = styled.div`
@@ -115,8 +112,8 @@ export const Subtitle = styled.div`
   align-items: center;
   font-family: ${roboto};
   font-size: 0.85rem;
-  color: ${white};
-  letter-spacing: 1px;
+  color: ${black};
+  letter-spacing: 0.25px;
 `;
 
 export const Price = styled.div`
@@ -125,18 +122,18 @@ export const Price = styled.div`
   align-items: center;
   background: ${grey};
   border: none;
-  color: ${black};
-  padding: 0.1rem 0.35rem 0.1rem 0.35rem;
+  color: ${white};
+  padding: 0.125rem 0.35rem 0.125rem 0.35rem;
   margin: 0rem 0rem 0rem 1rem;
-  background: rgb(219, 223, 227);
+  background: rgb(33, 33, 32);
   background: linear-gradient(
-    45deg,
-    rgba(219, 223, 227, 1) 5%,
-    rgba(201, 203, 205, 1) 95%
+    90deg,
+    rgba(33, 33, 32, 1) 5%,
+    rgba(25, 25, 24, 1) 80%
   );
   border-radius: 0.15rem;
   font-weight: 600;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-family: ${open_sans};
   letter-spacing: 0.5px;
 `;
@@ -147,21 +144,22 @@ export const BottomContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: fit-content;
+  height: 2rem;
   border-top: 0.5px solid ${grey};
-  padding: 0.45rem 0.65rem 0.25rem 0.65rem;
+  padding: 0rem 0.5rem 0rem 0.5rem;
 `;
 
 export const TrendsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  height: fit-content;
+  align-items: center;
+  height: 100%;
 `;
 
 export const UpTrend = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   height: fit-content;
   width: fit-content;
   z-index: 1;
@@ -179,7 +177,7 @@ export const DownTrend = styled.div`
   height: fit-content;
   width: fit-content;
   z-index: 1;
-  margin: 0rem 0rem 0rem 0.25rem;
+  margin: 0rem 0rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
@@ -187,26 +185,35 @@ export const DownTrend = styled.div`
 `;
 
 export const TrendIcon = styled.img`
-  width: 1.65rem;
-  height: 1.65rem;
+  width: 1.85rem;
+  height: 1.85rem;
   margin: 0rem 0rem 0rem 0rem;
+
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const Count = styled.div`
-  color: ${(props) => (props.up ? `${green}` : `${red}`)};
-  font-size: 0.5rem;
-  margin: ${(props) =>
-    props.up ? "0rem -0.25rem 0rem 0rem" : "0rem 0rem 0rem -0.25rem"};
-  font-family: ${button_font};
-  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  color: ${black};
+  font-size: 0.6rem;
+  margin: 0rem 0.25rem 0rem 0.35rem;
+  font-family: ${open_sans};
+  font-weight: 700;
   letter-spacing: 0.25px;
+  opacity: 0.85;
 `;
 
 export const NameLink = styled.div`
   font-family: ${open_sans};
   color: ${grey};
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 1px;
-  padding: 0rem 0rem 0.2rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
 `;

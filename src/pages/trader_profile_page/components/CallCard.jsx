@@ -28,9 +28,9 @@ const CallCard = () => {
     <>
       <CallCardContainer>
         <TopContainer>
-          <Title>GOOGL</Title>
+          <Title>AMZN</Title>
           <InformationContainer>
-            <Action>BUY</Action>
+            <Action action={"sell"}>SELL</Action>
             <Risk>2% RISK</Risk>
             <Date>December 11, 2020 1:30 PM</Date>
           </InformationContainer>
@@ -52,12 +52,11 @@ const CallCard = () => {
         <BottomContainer>
           <TrendsContainer>
             <UpTrend>
-              <Count up={"true"}>104</Count>
               <TrendIcon src={up_button} />
             </UpTrend>
+            <Count>64</Count>
             <DownTrend>
               <TrendIcon src={down_button} />
-              <Count>13</Count>
             </DownTrend>
           </TrendsContainer>
           <NameLink>@john_mayer</NameLink>

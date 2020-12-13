@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
-const { white, grey, black, dark_grey } = colors;
+const { white, grey, black } = colors;
 const { name_font, name_link_font, description_font, button_font } = fonts;
 
 export const ProfileCardContainer = styled.div`
@@ -12,6 +12,7 @@ export const ProfileCardContainer = styled.div`
   height: fit-content;
   border: 1px solid ${grey};
   border-radius: 0.5rem;
+  background: ${white};
 `;
 
 export const TopContainer = styled.div`
@@ -130,4 +131,9 @@ export const SubscribeButton = styled.div`
   font-size: 0.8rem;
   letter-spacing: 1px;
   font-weight: 600;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.95;
+  }
 `;

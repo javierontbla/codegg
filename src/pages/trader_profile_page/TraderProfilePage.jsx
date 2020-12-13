@@ -24,7 +24,7 @@ const TraderProfilePage = () => {
         </ProfileInformationContainer>
         <TimelineContainer>
           <CallsContainer>
-            {[1, 2].map((card) => {
+            {[1, 2, 3, 4, 5].map((card) => {
               return <CallCard />;
             })}
           </CallsContainer>

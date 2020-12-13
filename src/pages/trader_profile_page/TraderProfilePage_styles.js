@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "../../colors/colors";
 
-const { grey } = colors;
+const {} = colors;
 
 export const TraderProfilePageContainer = styled.div`
   display: flex;
@@ -18,7 +18,8 @@ export const ProfileInformationContainer = styled.div`
   flex-direction: column;
   width: 26.5rem !important;
   height: 100%;
-  margin: 0rem 2rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
+  padding: 0rem 2rem 0rem 0rem;
 `;
 
 export const ProfileCardContainer = styled.div`
@@ -37,14 +38,26 @@ export const TimelineContainer = styled.div`
   width: calc(100% - 26.5rem);
   height: 100%;
   padding: 0rem 0.5rem 0rem 0.5rem;
-  margin: -0.5rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem -1rem;
 `;
 
 export const CallsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  height: 12rem !important;
+  margin: 0rem 0rem 0rem 0rem;
+  width: 100%;
+  display: grid;
+  height: 17rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  grid-gap: 0;
+  grid-auto-flow: column;
+  grid-template-columns: auto;
+  align-items: center;
+
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
 `;
 
 export const PostsContainer = styled.div`
