@@ -28,7 +28,7 @@ const TradersPage = () => {
   return (
     <TradersPageContainer className="container">
       <TopTradersContainer>
-        <Title>Top Investors</Title>
+        <Title>Top Traders/Investors</Title>
         {[1, 2, 3, 4, 5].map((top_trader_card) => {
           return <TopTraderCard />;
         })}

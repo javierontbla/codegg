@@ -1,15 +1,51 @@
 import React from "react";
 
-import { HomePageContainer, DescriptionContainer } from "./HomePage_styles";
+import CallCard from "../../components/call_card_component/CallCard";
+import ArticlePreview from "./components/ArticlePreview";
+import PostDashboard from "../../components/upload_dashboards_components/post_dashboard/PostDashboard";
+import CallDashboard from "../../components/upload_dashboards_components/call_dashboard/CallDashboard";
+import {
+  HomePageContainer,
+  SelectionContainer,
+  PrivateButton,
+  PublicButton,
+  MainContainer,
+  LeftContainer,
+  TradesContainer,
+  MiddleContainer,
+  RightContainer,
+  UploadDashboardContainer,
+} from "./HomePage_styles";
 
 const HomePage = () => {
   return (
     <>
-      <HomePageContainer>
-        <DescriptionContainer>
-          Toma decisiones de inversión a partir de análisis bursatiles
-          fundamentados en Machine Learning
-        </DescriptionContainer>
+      <HomePageContainer className="container">
+        <SelectionContainer>
+          <PublicButton>Public</PublicButton>
+          <PrivateButton>Private</PrivateButton>
+        </SelectionContainer>
+        <MainContainer>
+          <LeftContainer>
+            <CallDashboard />
+            <TradesContainer>
+              {[1, 2, 3, 4, 5].map((card) => {
+                return <CallCard home_page={"true"} />;
+              })}
+            </TradesContainer>
+          </LeftContainer>
+
+          <MiddleContainer>
+            <UploadDashboardContainer>
+              <PostDashboard />
+            </UploadDashboardContainer>
+          </MiddleContainer>
+          <RightContainer>
+            {[1, 2, 3].map((article) => {
+              return <ArticlePreview />;
+            })}
+          </RightContainer>
+        </MainContainer>
       </HomePageContainer>
     </>
   );

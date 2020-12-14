@@ -27,10 +27,10 @@ const NavBar = () => {
             <PageLink>Home</PageLink>
           </LinkContainer>
           <LinkContainer to="/categories">
-            <PageLink>Portfolios</PageLink>
+            <PageLink>Articles</PageLink>
           </LinkContainer>
           <LinkContainer to="/traders">
-            <PageLink>Investors</PageLink>
+            <PageLink>Traders/Investors</PageLink>
           </LinkContainer>
         </PagesContainer>
         <UserContainer>

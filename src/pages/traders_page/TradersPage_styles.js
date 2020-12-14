@@ -38,7 +38,7 @@ export const Title = styled.div`
   border-radius: 0.25rem;
   font-family: ${source_sans_pro};
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   padding: 0.6rem 0rem 0.6rem 0.65rem;
   border: 1px solid ${grey};
   box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;

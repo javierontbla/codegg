@@ -44,8 +44,6 @@ export const TimelineContainer = styled.div`
 `;
 
 export const CallsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
   margin: 0rem 0rem 0rem 0rem;
   width: 100%;
   display: grid;

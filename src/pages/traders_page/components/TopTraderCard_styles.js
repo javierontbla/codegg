@@ -42,7 +42,7 @@ export const BottomContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0.5rem 0.65rem 0.4rem 0.65rem;
+  padding: 0.6rem 0.65rem 0.6rem 0.65rem;
   border-top: 0.5px solid ${grey};
 `;
 

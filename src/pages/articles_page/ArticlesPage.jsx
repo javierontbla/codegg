@@ -19,17 +19,17 @@ import {
   fetchFilteredArticlesSuccess,
 } from "../../redux/categories_page/actions";
 import {
-  AvailableCategoriesActive,
-  AvailableCategories,
+  AvailableCategoriesActiveContainer,
+  AvailableCategoriesContainer,
   ButtonContainer,
   NoMoreButton,
   Container,
   LoadMoreButton,
-  CategoriesPageContainer,
-} from "./CategoriesPage_styles";
-import "./CategoriesPage.css";
+  ArticlesPageContainer,
+} from "./ArticlesPage_styles";
+import "./ArticlesPage.css";
 
-const CategoriesPage = ({
+const ArticlesPage = ({
   loading_articles,
   loading_categories,
   getUnfilteredArticles,
@@ -112,9 +112,9 @@ const CategoriesPage = ({
 
   return (
     <>
-      <CategoriesPageContainer className="container">
+      <ArticlesPageContainer className="container">
         {!loading_categories ? (
-          <AvailableCategories>
+          <AvailableCategoriesContainer>
             {availableTags.map((tag) => {
               return (
                 <Category
@@ -125,12 +125,12 @@ const CategoriesPage = ({
                 />
               );
             })}
-          </AvailableCategories>
+          </AvailableCategoriesContainer>
         ) : (
           <LoadingCategoriesSkeleton />
         )}
         {currentTag[0] ? (
-          <AvailableCategoriesActive>
+          <AvailableCategoriesActiveContainer>
             {currentTag.map((tag) => {
               return (
                 <Category
@@ -141,7 +141,7 @@ const CategoriesPage = ({
                 />
               );
             })}
-          </AvailableCategoriesActive>
+          </AvailableCategoriesActiveContainer>
         ) : null}
         {!loading_articles && !error ? (
           filteredArticles.length === 0 ? (
@@ -210,7 +210,7 @@ const CategoriesPage = ({
         ) : (
           <LoadingArticlesSkeleton />
         )}
-      </CategoriesPageContainer>
+      </ArticlesPageContainer>
     </>
   );
 };
@@ -254,4 +254,4 @@ const mapDispatchToProps = (dispatch) => ({
   emptyFilteredArticles: (arr) => dispatch(fetchFilteredArticlesSuccess(arr)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CategoriesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlesPage);

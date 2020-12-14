@@ -10,7 +10,7 @@ import {
 } from "./App.styles.js";
 import NavBar from "./components/navbar.component/NavBar";
 import HomePage from "./pages/home_page/HomePage";
-import CategoriesPage from "./pages/categories_page/CategoriesPage";
+import ArticlesPage from "./pages/articles_page/ArticlesPage";
 import CommunityPage from "./pages/community_page/CommunityPage";
 import TradersPage from "./pages/traders_page/TradersPage";
 import TraderProfilePage from "./pages/trader_profile_page/TraderProfilePage";
@@ -41,7 +41,7 @@ const App = ({ storeAvailableTags }) => {
         <MainContainer>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/categories" component={CategoriesPage} />
+            <Route path="/categories" component={ArticlesPage} />
             <Route path="/community" component={CommunityPage} />
             <Route path="/traders" component={TradersPage} />
             <Route path="/contact" component={ContactPage} />

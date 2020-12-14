@@ -16,7 +16,7 @@ export const Global = createGlobalStyle`
    color: ${grey};
    font-family: 'Roboto', sans-serif;
    letter-spacing: 0.25px;
-   font-size: 1rem;
+   font-size: 0.9rem;
   }
 
   b {

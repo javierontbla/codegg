@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey, white, black, green, red } = colors;
-const { button_font, source_sans_pro, open_sans, roboto } = fonts;
+const { grey, white, black, red } = colors;
+const { source_sans_pro, open_sans, roboto } = fonts;
 
 const InformationStyles = css`
   display: flex;
@@ -23,7 +23,8 @@ const InformationStyles = css`
 export const CallCardContainer = styled.div`
   width: 18rem;
   border: 1px solid blue;
-  margin: 0rem 0.5rem 0rem 0.5rem;
+  margin: ${(props) =>
+    props.home_page ? "0.5rem 0rem 0.5rem 0rem" : "0rem 0.5rem 0rem 0.5rem"};
   border-radius: 0.25rem;
   background: ${white};
   border: 1px solid ${grey};

@@ -24,7 +24,7 @@ export const SkeletonContainer = styled.div`
 export const SkeletonArticle = styled.div`
   display: flex;
   width: 33%;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   height: 100%;
   border: none;
   margin: 0rem 0.5rem 0rem 0.5rem;

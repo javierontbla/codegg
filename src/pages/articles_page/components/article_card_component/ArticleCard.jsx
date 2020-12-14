@@ -4,35 +4,32 @@ import "moment/locale/es";
 
 import Category from "../../../../components/category_component/Category";
 import {
-  Description,
-  LastUpdate,
+  ArticleCardContainer,
+  DataContainer,
   Categories,
-  Container,
-  LinkStock,
-  Preview,
-  Author,
+  LinkArticle,
+  Paragraph,
   Title,
-  Img,
+  Image,
+  Date,
 } from "./ArticleCard_styles";
 
 const ArticleCard = ({ data, id, search }) => {
   useEffect(() => {
     moment.locale("en");
   }, []);
-  const link_name = data.titulo_link.split(" ").join("-").toLowerCase();
+  const link_title = data.titulo_link.split(" ").join("-").toLowerCase();
   return (
     <>
-      <Container>
-        <LinkStock to={`/${link_name}-${id}`}>
-          <Img source={data.imagen} />
-          <Description>
-            <LastUpdate>
-              Date: {moment(data.fecha.toDate()).format("LL")}
-            </LastUpdate>
+      <ArticleCardContainer>
+        <LinkArticle to={`/${link_title}-${id}`}>
+          <Image source={data.imagen} />
+          <DataContainer>
+            <Date>Date: {moment(data.fecha.toDate()).format("LL")}</Date>
             <Title>{data.titulo}</Title>
-            <Preview>{data.descripcion}...</Preview>
-          </Description>
-        </LinkStock>
+            <Paragraph>{data.descripcion}...</Paragraph>
+          </DataContainer>
+        </LinkArticle>
         <Categories>
           {data.categorias.map((category) => {
             return (
@@ -45,7 +42,7 @@ const ArticleCard = ({ data, id, search }) => {
             );
           })}
         </Categories>
-      </Container>
+      </ArticleCardContainer>
     </>
   );
 };

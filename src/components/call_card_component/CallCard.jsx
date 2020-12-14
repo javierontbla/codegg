@@ -23,10 +23,10 @@ import {
 import up_button from "./media/up_button.svg";
 import down_button from "./media/down_button.svg";
 
-const CallCard = () => {
+const CallCard = ({ home_page }) => {
   return (
     <>
-      <CallCardContainer>
+      <CallCardContainer home_page={home_page}>
         <TopContainer>
           <Title>AMZN</Title>
           <InformationContainer>

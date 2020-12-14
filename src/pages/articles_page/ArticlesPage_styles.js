@@ -7,28 +7,30 @@ const { button_font } = fonts;
 
 const { grey, black, white } = colors;
 
-export const CategoriesPageContainer = styled.div`
+export const ArticlesPageContainer = styled.div`
   padding: 0rem 0rem 0rem 0rem;
+  margin: 1.6rem 0rem 0rem 0rem;
 `;
+
 export const Container = styled.div``;
 
-export const AvailableCategories = styled.div`
+export const AvailableCategoriesContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   background: transparent;
   width: 100%;
-  height: 4rem;
+  height: fit-content;
   border-bottom: 0.5px solid ${grey};
   justify-content: left;
-  padding: 0rem 0rem 0rem 0rem;
-  margin: 1rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0.35rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 
   @media (max-width: 500px) {
   }
 `;
 
-export const AvailableCategoriesActive = styled.div`
+export const AvailableCategoriesActiveContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;

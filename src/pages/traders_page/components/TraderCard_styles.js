@@ -45,7 +45,7 @@ export const BottomContainer = styled.div`
   width: 100%;
   height: fit-content;
   border-top: 0.5px solid ${grey};
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 0.6rem 1rem 0.6rem 1rem;
 `;
 
 export const ImgContainer = styled.div`
@@ -103,7 +103,7 @@ export const DescriptionContainer = styled.div`
   width: 100%;
   height: fit-content;
   font-size: 1rem;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 0.75rem 1rem 0.5rem 1rem;
   border-top: 0.5px solid ${grey};
   color: ${black};
   line-height: 125%;
