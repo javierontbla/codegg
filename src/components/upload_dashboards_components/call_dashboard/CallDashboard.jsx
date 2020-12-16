@@ -1,11 +1,18 @@
 import React from "react";
 
-import { CallDashboardContainer } from "./CallDashboard_styles";
+import {
+  CallDashboardContainer,
+  TitleInputContainer,
+  CreateButton,
+} from "./CallDashboard_styles";
 
 const CallDashboard = () => {
   return (
     <>
-      <CallDashboardContainer></CallDashboardContainer>
+      <CallDashboardContainer>
+        <TitleInputContainer placeholder="S&P500" />
+        <CreateButton>Create Call</CreateButton>
+      </CallDashboardContainer>
     </>
   );
 };

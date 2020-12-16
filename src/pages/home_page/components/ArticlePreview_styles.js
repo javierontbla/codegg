@@ -33,6 +33,7 @@ export const ImageContainer = styled.div`
   background-image: url(https://images.unsplash.com/photo-1593702953195-0f4fec55b5e9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80);
   background-repeat: no-repeat;
   border-bottom: 0.5px solid ${grey};
+  padding: 0rem 0rem 0rem 0rem !important;
 `;
 
 export const DataContainer = styled.div`
@@ -48,7 +49,7 @@ export const Date = styled.div`
   font-family: ${open_sans};
   font-weight: 600;
   letter-spacing: 1px;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.55rem 0.5rem 0.35rem 0.5rem;
   margin: 0rem 0rem 0rem 0rem;
   height: fit-content;
   width: 100%;

@@ -117,7 +117,7 @@ export const CategoriesContainer = styled.div`
   padding: 0.6rem 0.5rem 1.1rem 0.5rem;
 `;
 
-export const ViewButton = styled.div`
+export const ClassButton = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;

@@ -85,6 +85,7 @@ export const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 35rem;
+  height: 100vh;
 `;
 
 export const LeftTitle = styled.div`
@@ -93,17 +94,12 @@ export const LeftTitle = styled.div`
 `;
 
 export const TradesContainer = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
-  overflow-y: scroll;
-  grid-gap: 0;
-  grid-auto-flow: row;
-  grid-template-columns: auto;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
   width: 100%;
-  margin: -0.5rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 
   &::-webkit-scrollbar {
     display: none !important;
@@ -112,7 +108,7 @@ export const TradesContainer = styled.div`
 
 export const MiddleContainer = styled.div`
   width: 100%;
-  margin: 0rem 1.25rem 0rem 1.25rem;
+  margin: 0rem 1.5rem 0rem 1.5rem;
 `;
 
 export const UploadDashboardContainer = styled.div`
@@ -123,7 +119,7 @@ export const UploadDashboardContainer = styled.div`
 export const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 31rem;
+  width: 32rem;
   height: 100vh;
   margin: 0rem 0rem 0rem 0rem;
 `;

@@ -13,7 +13,7 @@ import {
   Name,
   NameLink,
   DescriptionContainer,
-  ViewButton,
+  ClassButton,
   Subscribers,
   CategoriesContainer,
 } from "./TraderCard_styles";
@@ -57,7 +57,7 @@ const TraderCard = () => {
         </MiddleContainer>
         <BottomContainer>
           <Subscribers>123k subscribers</Subscribers>
-          <ViewButton>Premium</ViewButton>
+          <ClassButton>Public</ClassButton>
         </BottomContainer>
       </TraderCardContainer>
     </>

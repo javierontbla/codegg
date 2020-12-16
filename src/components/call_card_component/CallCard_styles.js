@@ -30,6 +30,10 @@ export const CallCardContainer = styled.div`
   border: 1px solid ${grey};
   box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
   transition: box-shadow 0.2s;
+
+  &:first-child {
+    margin: ${(props) => (props.home_page ? "0rem 0rem 0.5rem 0rem" : "")};
+  }
 `;
 
 export const TopContainer = styled.div`
@@ -221,4 +225,9 @@ export const NameLink = styled.div`
   font-weight: 600;
   letter-spacing: 1px;
   padding: 0rem 0rem 0rem 0rem;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.875;
+  }
 `;

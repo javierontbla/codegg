@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { dark_grey, grey, black, white } = colors;
+const { dark_grey, grey, white } = colors;
 const { roboto, source_sans_pro } = fonts;
 
 export const TradersPageContainer = styled.div`
@@ -37,6 +37,7 @@ export const Title = styled.div`
   font-size: 1.35rem;
   letter-spacing: 1px;
   padding: 0.65rem 0.55rem 0.65rem 0.55rem;
+  margin: 0rem 0rem 0.25rem 0rem;
   line-height: 100%;
   border-radius: 0.25rem;
 `;
