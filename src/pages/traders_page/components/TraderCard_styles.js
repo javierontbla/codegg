@@ -45,7 +45,7 @@ export const BottomContainer = styled.div`
   width: 100%;
   height: fit-content;
   border-top: 0.5px solid ${grey};
-  padding: 0.6rem 1rem 0.6rem 1rem;
+  padding: 0.85rem 1rem 0.85rem 1rem;
 `;
 
 export const ImgContainer = styled.div`
@@ -130,13 +130,14 @@ export const ViewButton = styled.div`
     rgba(25, 25, 24, 1) 80%
   );
   font-family: ${open_sans};
-  padding: 0.2rem 0.65rem 0.2rem 0.65rem;
+  padding: 0.425rem 0.65rem 0.425rem 0.65rem;
   color: ${white};
   font-size: 0.8rem;
   border-radius: 0.15rem;
   margin: 0rem 0rem 0rem 0rem;
   letter-spacing: 1px;
   font-weight: 600;
+  line-height: 100%;
 `;
 
 export const Subscribers = styled.div`

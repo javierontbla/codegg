@@ -20,7 +20,7 @@ const ArticlePreview = () => {
           <Title>¿Por qué si invertir en Microsoft?</Title>
           <CategoriesContainer>
             {["stocks"].map((category) => {
-              return <Category category={category} />;
+              return <Category preview={"true"} category={category} />;
             })}
           </CategoriesContainer>
         </DataContainer>

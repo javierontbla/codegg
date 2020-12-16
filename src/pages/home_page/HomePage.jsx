@@ -15,6 +15,9 @@ import {
   MiddleContainer,
   RightContainer,
   UploadDashboardContainer,
+  ArticlesPreviewContainer,
+  RightTitle,
+  LeftTitle,
 } from "./HomePage_styles";
 
 const HomePage = () => {
@@ -23,10 +26,11 @@ const HomePage = () => {
       <HomePageContainer className="container">
         <SelectionContainer>
           <PublicButton>Public</PublicButton>
-          <PrivateButton>Private</PrivateButton>
+          <PrivateButton>Premium</PrivateButton>
         </SelectionContainer>
         <MainContainer>
           <LeftContainer>
+            <LeftTitle>Calls</LeftTitle>
             <CallDashboard />
             <TradesContainer>
               {[1, 2, 3, 4, 5].map((card) => {
@@ -34,16 +38,18 @@ const HomePage = () => {
               })}
             </TradesContainer>
           </LeftContainer>
-
           <MiddleContainer>
             <UploadDashboardContainer>
               <PostDashboard />
             </UploadDashboardContainer>
           </MiddleContainer>
           <RightContainer>
-            {[1, 2, 3].map((article) => {
-              return <ArticlePreview />;
-            })}
+            <RightTitle>Trending</RightTitle>
+            <ArticlesPreviewContainer>
+              {[1, 2, 3, 4, 5, 6].map((article) => {
+                return <ArticlePreview />;
+              })}
+            </ArticlesPreviewContainer>
           </RightContainer>
         </MainContainer>
       </HomePageContainer>

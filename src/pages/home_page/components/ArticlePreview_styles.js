@@ -13,9 +13,13 @@ export const ArticlePreviewContainer = styled.div`
   height: fit-content;
   background: ${white};
   border: 1px solid ${grey};
-  margin: 1rem 0rem 1rem 0rem;
+  margin: 0.5rem 0rem 0.5rem 0rem;
   border-radius: 0.25rem;
   box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+
+  &:first-child {
+    margin: 0rem 0rem 0.5rem 0rem !important;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -31,7 +35,9 @@ export const ImageContainer = styled.div`
   border-bottom: 0.5px solid ${grey};
 `;
 
-export const DataContainer = styled.div``;
+export const DataContainer = styled.div`
+  width: 100%;
+`;
 
 export const Date = styled.div`
   display: flex;
@@ -40,8 +46,9 @@ export const Date = styled.div`
   color: ${grey};
   font-size: 0.6rem;
   font-family: ${open_sans};
+  font-weight: 600;
   letter-spacing: 1px;
-  padding: 0.65rem 0.5rem 0.35rem 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   margin: 0rem 0rem 0rem 0rem;
   height: fit-content;
   width: 100%;
@@ -53,11 +60,12 @@ export const Title = styled.div`
   color: ${black};
   font-weight: 600;
   letter-spacing: 0.5px;
-  line-height: 100%;
+  line-height: 115%;
   padding: 0rem 0.5rem 0rem 0.5rem;
 `;
 
 export const CategoriesContainer = styled.div`
   margin: 1rem 0rem 0rem 0rem;
-  padding: 0rem 0.1rem 0rem 0.1rem;
+  padding: 0.25rem 0.1rem 0.25rem 0.1rem;
+  border-top: 0.5px solid ${grey};
 `;

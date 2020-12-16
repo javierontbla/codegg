@@ -45,11 +45,13 @@ export const Date = styled.div`
   color: ${dark_grey};
   font-size: 0.7rem;
   font-family: ${date_font};
+  font-weight: 600;
   letter-spacing: 1px;
   padding: 0;
-  margin: 0rem 0rem 0.25rem 0rem;
+  margin: 0rem 0rem 0.45rem 0rem;
   height: fit-content;
   width: 100%;
+  line-height: 100%;
 
   @media (max-width: 500px) {
   }

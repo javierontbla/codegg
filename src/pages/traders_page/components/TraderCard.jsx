@@ -26,7 +26,7 @@ const TraderCard = () => {
           <ImgContainer />
           <NameContainer>
             <BadgesContainer>
-              {["quant", "united states", "english"].map((badge) => {
+              {["quant", "united states"].map((badge) => {
                 return (
                   <Badge
                     badge={badge}
@@ -57,7 +57,7 @@ const TraderCard = () => {
         </MiddleContainer>
         <BottomContainer>
           <Subscribers>123k subscribers</Subscribers>
-          <ViewButton>View</ViewButton>
+          <ViewButton>Premium</ViewButton>
         </BottomContainer>
       </TraderCardContainer>
     </>

@@ -22,28 +22,23 @@ export const TopTradersContainer = styled.div`
   align-items: center;
   border: none;
   height: fit-content;
-  width: 25rem;
+  width: 24rem;
   background: transparent;
-  padding: 0rem 0.5rem 0rem 0.5rem;
-  margin: -0.5rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const Title = styled.div`
-  display: flex;
-  align-items: center;
-  color: ${black};
-  background: ${white};
   width: 100%;
   height: fit-content;
-  border-radius: 0.25rem;
-  font-family: ${source_sans_pro};
-  font-weight: 600;
-  font-size: 1.3rem;
-  padding: 0.6rem 0rem 0.6rem 0.65rem;
+  background: ${white};
   border: 1px solid ${grey};
-  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  font-family: ${source_sans_pro};
+  font-size: 1.35rem;
+  letter-spacing: 1px;
+  padding: 0.65rem 0.55rem 0.65rem 0.55rem;
   line-height: 100%;
-  letter-spacing: 0.5px;
+  border-radius: 0.25rem;
 `;
 
 export const AllTradersContainer = styled.div`

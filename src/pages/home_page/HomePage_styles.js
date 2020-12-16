@@ -4,7 +4,7 @@ import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
 const { black, white, grey } = colors;
-const { open_sans } = fonts;
+const { open_sans, source_sans_pro } = fonts;
 
 const ButtonClass = css`
   display: flex;
@@ -20,6 +20,20 @@ const ButtonClass = css`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const Titles = css`
+  width: 100%;
+  height: fit-content;
+  background: ${white};
+  border: 1px solid ${grey};
+  font-family: ${source_sans_pro};
+  font-size: 1.35rem;
+  letter-spacing: 1px;
+  padding: 0.65rem 0.55rem 0.65rem 0.55rem;
+  line-height: 100%;
+  border-radius: 0.25rem;
+  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
 `;
 
 export const HomePageContainer = styled.div`
@@ -73,6 +87,11 @@ export const LeftContainer = styled.div`
   width: 35rem;
 `;
 
+export const LeftTitle = styled.div`
+  ${Titles};
+  margin: 0rem 0rem 0.75rem 0rem;
+`;
+
 export const TradesContainer = styled.div`
   display: grid;
   overflow-x: hidden;
@@ -93,7 +112,7 @@ export const TradesContainer = styled.div`
 
 export const MiddleContainer = styled.div`
   width: 100%;
-  margin: 0rem 1rem 0rem 1rem;
+  margin: 0rem 1.25rem 0rem 1.25rem;
 `;
 
 export const UploadDashboardContainer = styled.div`
@@ -102,6 +121,27 @@ export const UploadDashboardContainer = styled.div`
 `;
 
 export const RightContainer = styled.div`
-  width: 28rem;
-  margin: -1rem 0rem 0rem 0rem;
+  display: flex;
+  flex-direction: column;
+  width: 31rem;
+  height: 100vh;
+  margin: 0rem 0rem 0rem 0rem;
+`;
+
+export const RightTitle = styled.div`
+  ${Titles};
+`;
+
+export const ArticlesPreviewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  margin: 0.75rem 0rem 0rem 0rem;
+
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
 `;

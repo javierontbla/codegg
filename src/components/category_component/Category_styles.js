@@ -28,7 +28,7 @@ export const CategoryContainer = styled.div`
   transition: opacity 0.15s;
   padding: 0.2rem 0.5rem 0.2rem 0.5rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
-  font-size: ${(props) => (props.top ? "0.65rem" : "0.8rem")};
+  font-size: ${(props) => (props.top || props.preview ? "0.65rem" : "0.8rem")};
   font-weight: 600;
 
   &:hover {

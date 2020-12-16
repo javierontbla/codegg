@@ -8,7 +8,7 @@ const { name_font, name_link_font, open_sans } = fonts;
 
 export const TopTraderCardContainer = styled.div`
   width: 100%;
-  margin: 0.5rem 0rem 0rem 0rem;
+  margin: 0.5rem 0rem 0.5rem 0rem;
   border: 0.5px solid ${grey};
   border-radius: 0.25rem;
   background: ${white};
@@ -42,7 +42,7 @@ export const BottomContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0.6rem 0.65rem 0.6rem 0.65rem;
+  padding: 0.65rem 0.75rem 0.65rem 0.75rem;
   border-top: 0.5px solid ${grey};
 `;
 
@@ -113,7 +113,7 @@ export const Subscribers = styled.div`
   height: fit-content;
 `;
 
-export const ViewButton = styled.div`
+export const ClassButton = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
@@ -126,11 +126,12 @@ export const ViewButton = styled.div`
     rgba(25, 25, 24, 1) 80%
   );
   font-family: ${open_sans};
-  padding: 0.2rem 0.65rem 0.2rem 0.65rem;
+  padding: 0.45rem 0.65rem 0.45rem 0.65rem;
   color: ${white};
   font-size: 0.7rem;
   border-radius: 0.15rem;
   margin: 0rem 0rem 0rem 0rem;
   letter-spacing: 1px;
   font-weight: 600;
+  line-height: 100%;
 `;

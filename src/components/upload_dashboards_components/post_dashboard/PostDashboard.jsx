@@ -25,7 +25,7 @@ const PostDashboard = () => {
           </MediaContainer>
           <PublishActionsContainer>
             <PostButton>Public Post</PostButton>
-            <PostButton private={"true"}>Private Post</PostButton>
+            <PostButton private={"true"}>Premium Post</PostButton>
           </PublishActionsContainer>
         </ButtonsContainer>
       </PostDashboardContainer>

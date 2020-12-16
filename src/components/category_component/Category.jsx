@@ -15,6 +15,7 @@ const Category = ({
   filter,
   name,
   top,
+  preview,
   ...allProps
 }) => {
   const removeTag = (category) => {
@@ -25,7 +26,7 @@ const Category = ({
 
   return (
     <>
-      <CategoryContainer name={name} {...allProps} top={top}>
+      <CategoryContainer name={name} {...allProps} top={top} preview={preview}>
         #{category}
         <IconContainer filter={filter}>
           <Icon

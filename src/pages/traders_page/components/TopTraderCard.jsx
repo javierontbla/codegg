@@ -12,7 +12,7 @@ import {
   NameLink,
   CategoriesContainer,
   Subscribers,
-  ViewButton,
+  ClassButton,
   BadgesContainer,
   Name,
 } from "./TopTraderCard_styles";
@@ -25,7 +25,7 @@ const TopTraderCard = () => {
           <ProfileImg />
           <NameContainer>
             <BadgesContainer>
-              {["quant", "united states", "english"].map((badge) => {
+              {["quant", "united states"].map((badge) => {
                 return (
                   <Badge
                     badge={badge}
@@ -48,7 +48,7 @@ const TopTraderCard = () => {
         </MiddleContainer>
         <BottomContainer>
           <Subscribers>123k subscribers</Subscribers>
-          <ViewButton>View</ViewButton>
+          <ClassButton>Premium</ClassButton>
         </BottomContainer>
       </TopTraderCardContainer>
     </>
