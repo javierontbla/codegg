@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-import { colors } from "../../../colors/colors";
-import { fonts } from "../../../fonts/fonts";
+import { colors } from "../../../../colors/colors";
+import { fonts } from "../../../../fonts/fonts";
 
 const { grey, black, white } = colors;
 const { name_font, open_sans } = fonts;
 
-export const TraderCardContainer = styled.div`
+export const InvestorCardContainer = styled.div`
   border: 1px solid ${grey};
   width: 100%;
   height: fit-content;
@@ -19,7 +19,7 @@ export const TraderCardContainer = styled.div`
 
   &:hover {
     cursor: pointer;
-    box-shadow: 6.5px 6.5px 6.5px -3px #ced4da;
+    box-shadow: 6px 6px 6px -2px #ced4da;
   }
 `;
 
@@ -30,22 +30,6 @@ export const TopContainer = styled.div`
   padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   width: 100%;
   height: fit-content;
-`;
-
-export const MiddleContainer = styled.div`
-  width: 100%;
-  height: fit-content;
-`;
-
-export const BottomContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: fit-content;
-  border-top: 0.5px solid ${grey};
-  padding: 0.85rem 1rem 0.85rem 1rem;
 `;
 
 export const ImgContainer = styled.div`
@@ -99,6 +83,11 @@ export const NameLink = styled.div`
   }
 `;
 
+export const MiddleContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+`;
+
 export const DescriptionContainer = styled.div`
   width: 100%;
   height: fit-content;
@@ -115,6 +104,17 @@ export const CategoriesContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   padding: 0.6rem 0.5rem 1.1rem 0.5rem;
+`;
+
+export const BottomContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  border-top: 0.5px solid ${grey};
+  padding: 0.85rem 1rem 0.85rem 1rem;
 `;
 
 export const ClassButton = styled.div`

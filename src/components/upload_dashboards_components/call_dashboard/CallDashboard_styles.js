@@ -18,7 +18,7 @@ export const CallDashboardContainer = styled.div`
   width: 100%;
   margin: 0rem 0rem 0.5rem 0rem;
   padding: 0.55rem 0.55rem 0.55rem 0.55rem;
-  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
 `;
 
 export const TitleInputContainer = styled.input`

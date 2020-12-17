@@ -24,12 +24,12 @@ export const PostContainer = styled.div`
 export const TopContainer = styled.div`
   display: flex;
   flex-direction: row;
-  height: 4.25rem;
+  height: 4.4rem;
   align-items: center;
-  padding: 0.15rem 0.75rem 0rem 0.75rem;
+  padding: 0rem 0.75rem 0rem 0.75rem;
 `;
 
-export const ImageContainer = styled.div`
+export const ProfileImageContainer = styled.div`
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -52,6 +52,10 @@ export const NamesContainer = styled.div`
   flex-direction: row;
   align-items: center;
   margin: 0rem 0rem 0.175rem 0rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Name = styled.div`
@@ -67,7 +71,11 @@ export const NameLink = styled.div`
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 1px;
-  margin: 0rem 0rem 0rem 0.35rem;
+  margin: 0rem 0rem 0rem 0.5rem;
+
+  &:hover {
+    opacity: 0.95;
+  }
 `;
 
 export const Date = styled.div`
@@ -79,14 +87,26 @@ export const Date = styled.div`
 `;
 
 export const MiddleContainer = styled.div`
-  padding: 0rem 0.75rem 0rem 0.75rem;
-  margin: 0.25rem 0rem 1rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const Description = styled.div`
-  line-height: 110%;
+  line-height: 118%;
   font-size: 1rem;
   font-family: ${roboto};
+  padding: 0rem 0.75rem 0rem 0.75rem;
+
+  margin: 0.25rem 0rem 0.75rem 0rem;
+`;
+
+export const PostImageContainer = styled.div`
+  max-width: 100%;
+  height: 23rem;
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80);
+  background-repeat: no-repeat;
+  margin: 0 auto;
 `;
 
 export const BottomContainer = styled.div`

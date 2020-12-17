@@ -33,7 +33,7 @@ const Titles = css`
   padding: 0.65rem 0.55rem 0.65rem 0.55rem;
   line-height: 100%;
   border-radius: 0.25rem;
-  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
 `;
 
 export const HomePageContainer = styled.div`

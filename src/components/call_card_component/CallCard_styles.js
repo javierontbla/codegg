@@ -101,7 +101,7 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 5.5rem;
+  height: 7.25rem;
   padding: 0rem 0.75rem 0rem 0.75rem;
 `;
 
@@ -109,13 +109,13 @@ export const OrderContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0rem 0rem 0rem 0rem;
   margin: ${(props) =>
     props.last_child ? "0rem 0rem 0rem 0rem" : "0rem 0rem 0.25rem 0rem"};
 `;
 
-export const Subtitle = styled.div`
+export const LeftText = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -125,26 +125,31 @@ export const Subtitle = styled.div`
   letter-spacing: 0.25px;
 `;
 
-export const Price = styled.div`
+export const RightText = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: ${grey};
   border: none;
   color: ${white};
   padding: 0.125rem 0.35rem 0.125rem 0.35rem;
-  margin: 0rem 0rem 0rem 1rem;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
+  margin: 0rem 0rem 0rem 0rem;
   border-radius: 0.15rem;
   font-weight: 600;
-  font-size: 0.65rem;
-  font-family: ${open_sans};
+  font-size: 0.675rem;
+  font-family: ${roboto};
   letter-spacing: 0.5px;
+  color: ${black};
+  text-decoration: underline;
+`;
+
+export const CommentContainer = styled.div`
+  color: ${black};
+  font-family: ${roboto};
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-style: italic;
+  padding: 0.2rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const BottomContainer = styled.div`

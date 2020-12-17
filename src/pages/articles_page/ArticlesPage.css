@@ -7,7 +7,7 @@
 }
 .mansonry-grid-column {
   background-clip: padding-box;
-  margin: 0px 0.5rem 1rem 0.5rem;
+  margin: 0rem 0.5rem 0rem 0.5rem;
 }
 
 .mansonry-grid-column > div {
@@ -17,13 +17,4 @@
 }
 
 @media (max-width: 500px) {
-  .mansonry-grid-column {
-  }
-
-  .mansonry-grid-column > div:first-child {
-  }
-
-  .mansonry-grid-column > div {
-    background: transparent;
-  }
 }

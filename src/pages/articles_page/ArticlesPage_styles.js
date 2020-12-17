@@ -12,7 +12,9 @@ export const ArticlesPageContainer = styled.div`
   margin: 1.6rem 0rem 0rem 0rem;
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  margin: 0rem 0rem 0rem 0rem;
+`;
 
 export const AvailableCategoriesContainer = styled.div`
   display: flex;

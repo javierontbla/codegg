@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { colors } from "../../../colors/colors";
-import { fonts } from "../../../fonts/fonts";
+import { colors } from "../../../../colors/colors";
+import { fonts } from "../../../../fonts/fonts";
 
 const { grey, white, black } = colors;
 const { source_sans_pro, open_sans } = fonts;
@@ -23,7 +23,7 @@ export const ArticlePreviewContainer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  height: 7rem;
+  height: 7.25rem;
   width: 100%;
   border: none;
   border-top-left-radius: 0.25rem;

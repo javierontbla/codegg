@@ -3,7 +3,7 @@ import React from "react";
 import {
   BottomContainer,
   MiddleContainer,
-  ImageContainer,
+  ProfileImageContainer,
   Date,
   Name,
   NameLink,
@@ -11,6 +11,7 @@ import {
   PostContainer,
   TopContainer,
   Description,
+  PostImageContainer,
   TrendsContainer,
   TrendContainer,
   UserDataContainer,
@@ -27,7 +28,7 @@ const Post = () => {
     <>
       <PostContainer>
         <TopContainer>
-          <ImageContainer />
+          <ProfileImageContainer />
           <UserDataContainer>
             <NamesContainer>
               <Name>Tom Sprank</Name>
@@ -43,6 +44,7 @@ const Post = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </Description>
+          <PostImageContainer />
         </MiddleContainer>
         <BottomContainer>
           <TrendsContainer>

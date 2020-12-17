@@ -16,7 +16,7 @@ export const PostDashboardContainer = styled.div`
   border: 1px solid ${grey};
   padding: 0.55rem 0.55rem 0.55rem 0.55rem;
   border-radius: 0.25rem;
-  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
 `;
 
 export const TextInputContainer = styled.input`
@@ -40,10 +40,10 @@ export const TextInputContainer = styled.input`
 export const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between !important;
-  margin: 0rem 0rem 0rem 0rem;
-  padding: 1rem 0.25rem 0.3rem 0.25rem;
+  margin: 0rem 0rem 0.15rem 0rem;
+  padding: 1rem 0.25rem 0rem 0.25rem;
 `;
 
 export const MediaContainer = styled.div`

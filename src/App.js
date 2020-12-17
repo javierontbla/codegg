@@ -12,7 +12,7 @@ import NavBar from "./components/navbar.component/NavBar";
 import HomePage from "./pages/home_page/HomePage";
 import ArticlesPage from "./pages/articles_page/ArticlesPage";
 import CommunityPage from "./pages/community_page/CommunityPage";
-import TradersPage from "./pages/traders_page/TradersPage";
+import InvestorsPage from "./pages/investors_page/InvestorsPage";
 import TraderProfilePage from "./pages/trader_profile_page/TraderProfilePage";
 import ContactPage from "./pages/contact_page/ContactPage";
 import ArticlePage from "./pages/article_page/ArticlePage";
@@ -43,7 +43,7 @@ const App = ({ storeAvailableTags }) => {
             <Route exact path="/" component={HomePage} />
             <Route path="/categories" component={ArticlesPage} />
             <Route path="/community" component={CommunityPage} />
-            <Route path="/traders" component={TradersPage} />
+            <Route path="/investors" component={InvestorsPage} />
             <Route path="/contact" component={ContactPage} />
             <Route path="/privacy" component={PrivacyPage} />
             <Route path="/terms" component={TermsConditionsPage} />

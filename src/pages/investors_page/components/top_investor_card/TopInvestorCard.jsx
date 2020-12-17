@@ -1,9 +1,9 @@
 import React from "react";
 
-import Category from "../../../components/category_component/Category";
-import Badge from "../../../components/badge_component/Badge";
+import Category from "../../../../components/category_component/Category";
+import Badge from "../../../../components/badge_component/Badge";
 import {
-  TopTraderCardContainer,
+  TopInvestorContainer,
   TopContainer,
   MiddleContainer,
   BottomContainer,
@@ -15,12 +15,12 @@ import {
   ClassButton,
   BadgesContainer,
   Name,
-} from "./TopTraderCard_styles";
+} from "./TopInvestorCard_styles";
 
-const TopTraderCard = () => {
+const TopInvestorCard = () => {
   return (
     <>
-      <TopTraderCardContainer>
+      <TopInvestorContainer>
         <TopContainer>
           <ProfileImg />
           <NameContainer>
@@ -50,9 +50,9 @@ const TopTraderCard = () => {
           <Subscribers>123k subscribers</Subscribers>
           <ClassButton>Premium</ClassButton>
         </BottomContainer>
-      </TopTraderCardContainer>
+      </TopInvestorContainer>
     </>
   );
 };
 
-export default TopTraderCard;
+export default TopInvestorCard;

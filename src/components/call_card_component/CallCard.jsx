@@ -9,9 +9,10 @@ import {
   Risk,
   Date,
   MiddleContainer,
-  Subtitle,
   OrderContainer,
-  Price,
+  LeftText,
+  RightText,
+  CommentContainer,
   BottomContainer,
   TrendsContainer,
   UpTrend,
@@ -31,23 +32,23 @@ const CallCard = ({ home_page }) => {
           <Title>AMZN</Title>
           <InformationContainer>
             <Action action={"buy"}>BUY</Action>
-            <Risk>2% RISK</Risk>
             <Date>November 13, 2020 12:12 PM</Date>
           </InformationContainer>
         </TopContainer>
         <MiddleContainer>
           <OrderContainer>
-            <Subtitle>Stop Loss:</Subtitle>
-            <Price>$89.23</Price>
+            <LeftText>Company:</LeftText>
+            <RightText>Amazon</RightText>
           </OrderContainer>
           <OrderContainer>
-            <Subtitle>Take Profit No.1:</Subtitle>
-            <Price>$91.16</Price>
+            <LeftText>Price:</LeftText>
+            <RightText>$129.45</RightText>
           </OrderContainer>
-          <OrderContainer last_child={"true"}>
-            <Subtitle>Take Profit No.2:</Subtitle>
-            <Price>$92.45</Price>
+          <OrderContainer>
+            <LeftText>Shares:</LeftText>
+            <RightText>25</RightText>
           </OrderContainer>
+          <CommentContainer>"Amazing company"</CommentContainer>
         </MiddleContainer>
         <BottomContainer>
           <TrendsContainer>

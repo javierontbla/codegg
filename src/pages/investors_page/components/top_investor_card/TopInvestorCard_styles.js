@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-import { colors } from "../../../colors/colors";
-import { fonts } from "../../../fonts/fonts";
+import { colors } from "../../../../colors/colors";
+import { fonts } from "../../../../fonts/fonts";
 
 const { grey, white, black } = colors;
 const { name_font, name_link_font, open_sans } = fonts;
 
-export const TopTraderCardContainer = styled.div`
+export const TopInvestorContainer = styled.div`
   width: 100%;
   margin: 0.5rem 0rem 0.5rem 0rem;
   border: 0.5px solid ${grey};
@@ -17,7 +17,7 @@ export const TopTraderCardContainer = styled.div`
 
   &:hover {
     cursor: pointer;
-    box-shadow: 2.5px 2.5px 2.5px -1px #ced4da;
+    box-shadow: 2.5px 2.5px 2.5px -1.25px #ced4da;
   }
 `;
 
