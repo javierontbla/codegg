@@ -1,5 +1,6 @@
 import React from "react";
 
+import Post from "../../components/post_component/Post";
 import CallCard from "../../components/call_card_component/CallCard";
 import ArticlePreview from "./components/ArticlePreview";
 import PostDashboard from "../../components/upload_dashboards_components/post_dashboard/PostDashboard";
@@ -13,6 +14,7 @@ import {
   LeftContainer,
   TradesContainer,
   MiddleContainer,
+  PostsContainer,
   RightContainer,
   UploadDashboardContainer,
   ArticlesPreviewContainer,
@@ -42,6 +44,11 @@ const HomePage = () => {
             <UploadDashboardContainer>
               <PostDashboard />
             </UploadDashboardContainer>
+            <PostsContainer>
+              {[1, 2, 3].map((post) => {
+                return <Post />;
+              })}
+            </PostsContainer>
           </MiddleContainer>
           <RightContainer>
             <RightTitle>Trending</RightTitle>

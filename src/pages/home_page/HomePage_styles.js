@@ -111,9 +111,15 @@ export const MiddleContainer = styled.div`
   margin: 0rem 1.5rem 0rem 1.5rem;
 `;
 
+export const PostsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const UploadDashboardContainer = styled.div`
   width: 100%;
   height: fit-content;
+  margin: 0rem 0rem 0.75rem 0rem;
 `;
 
 export const RightContainer = styled.div`

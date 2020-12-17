@@ -45,9 +45,9 @@ export const Date = styled.div`
   align-items: center;
   line-height: 100%;
   color: ${grey};
-  font-size: 0.6rem;
+  font-size: 0.625rem;
   font-family: ${open_sans};
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1px;
   padding: 0.55rem 0.5rem 0.35rem 0.5rem;
   margin: 0rem 0rem 0rem 0rem;

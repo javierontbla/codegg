@@ -16,7 +16,7 @@ export const CallDashboardContainer = styled.div`
   border-radius: 0.25rem;
   height: fit-content;
   width: 100%;
-  margin: 0rem 0rem 0.75rem 0rem;
+  margin: 0rem 0rem 0.5rem 0rem;
   padding: 0.55rem 0.55rem 0.55rem 0.55rem;
   box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
 `;
