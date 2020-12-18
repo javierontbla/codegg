@@ -37,7 +37,7 @@ const InvestorsPage = () => {
       </TopTradersContainer>
       <AllTradersContainer>
         <SearchBarContainer>
-          <SearchBar placeholder={"Search categories, users..."} />
+          <SearchBar placeholder={"Search categories, investors..."} />
           <SearchIcon icon={faSearch} />
         </SearchBarContainer>
         <Masonry

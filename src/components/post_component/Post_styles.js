@@ -34,7 +34,7 @@ export const ProfileImageContainer = styled.div`
   height: 3rem;
   border-radius: 50%;
   border-radius: 50%;
-  border: 0.5px solid ${grey};
+  border: none;
   margin: 0rem 0.5rem 0rem 0rem;
   background-size: cover;
   background-position: center;
@@ -92,14 +92,14 @@ export const MiddleContainer = styled.div`
 
 export const Description = styled.div`
   line-height: 118%;
-  font-size: 1rem;
+  font-size: 0.925rem;
   font-family: ${roboto};
   padding: 0rem 0.75rem 0rem 0.75rem;
-
-  margin: 0.25rem 0rem 0.75rem 0rem;
+  margin: 0.1rem 0rem 1rem 0rem;
 `;
 
 export const PostImageContainer = styled.div`
+  display: ${(props) => (props.no_image ? "none" : "flex")};
   max-width: 100%;
   height: 23rem;
   background-size: cover;

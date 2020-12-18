@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { dark_grey, grey, white } = colors;
+const { black, grey, white } = colors;
 const { roboto, source_sans_pro } = fonts;
 
 export const TradersPageContainer = styled.div`
@@ -65,10 +65,11 @@ export const SearchBar = styled.input`
   width: 100%;
   background: transparent;
   padding: 0rem 1rem 0rem 1rem;
-  color: ${dark_grey};
+  color: ${black};
   letter-spacing: 0.25px;
   border: none;
   font-family: ${roboto};
+  font-size: 0.9rem;
 
   &:focus {
     outline: none !important;

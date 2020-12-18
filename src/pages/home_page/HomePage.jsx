@@ -50,7 +50,7 @@ const HomePage = () => {
             </UploadDashboardContainer>
             <PostsContainer>
               {[1, 2, 3].map((post) => {
-                return <Post />;
+                return <Post no_image={post === 1 ? "true" : null} />;
               })}
             </PostsContainer>
           </MiddleContainer>

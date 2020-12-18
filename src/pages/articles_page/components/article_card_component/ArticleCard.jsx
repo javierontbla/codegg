@@ -8,7 +8,7 @@ import {
   DataContainer,
   Categories,
   LinkArticle,
-  Paragraph,
+  Description,
   Title,
   Image,
   Date,
@@ -27,7 +27,7 @@ const ArticleCard = ({ data, id, search }) => {
           <DataContainer>
             <Date>Date: {moment(data.fecha.toDate()).format("LL")}</Date>
             <Title>{data.titulo}</Title>
-            <Paragraph>{data.descripcion}...</Paragraph>
+            <Description>{data.descripcion}</Description>
           </DataContainer>
         </LinkArticle>
         <Categories>

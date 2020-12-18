@@ -32,9 +32,8 @@ export const TopContainer = styled.div`
   height: fit-content;
 `;
 
-export const ImgContainer = styled.div`
+export const ProfileImageContainer = styled.div`
   border-radius: 50%;
-  border: 0.5px solid ${grey};
   width: 5rem;
   height: 5rem;
   margin: 0rem 1rem 0rem 0rem;
@@ -88,10 +87,10 @@ export const MiddleContainer = styled.div`
   height: fit-content;
 `;
 
-export const DescriptionContainer = styled.div`
+export const Description = styled.div`
   width: 100%;
   height: fit-content;
-  font-size: 1rem;
+  font-size: 0.925rem;
   padding: 0.75rem 1rem 0.5rem 1rem;
   border-top: 0.5px solid ${grey};
   color: ${black};

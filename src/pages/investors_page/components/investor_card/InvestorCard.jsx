@@ -5,17 +5,17 @@ import Badge from "../../../../components/badge_component/Badge";
 import {
   InvestorCardContainer,
   TopContainer,
-  MiddleContainer,
-  BottomContainer,
-  ImgContainer,
-  NameContainer,
+  ProfileImageContainer,
   BadgesContainer,
+  NameContainer,
   Name,
   NameLink,
-  DescriptionContainer,
-  ClassButton,
-  Subscribers,
+  MiddleContainer,
+  Description,
+  BottomContainer,
   CategoriesContainer,
+  Subscribers,
+  ClassButton,
 } from "./InvestorCard_styles";
 
 const InvestorCard = () => {
@@ -23,7 +23,7 @@ const InvestorCard = () => {
     <>
       <InvestorCardContainer>
         <TopContainer>
-          <ImgContainer />
+          <ProfileImageContainer />
           <NameContainer>
             <BadgesContainer>
               {["quant", "united states"].map((badge) => {
@@ -40,7 +40,7 @@ const InvestorCard = () => {
           </NameContainer>
         </TopContainer>
         <MiddleContainer>
-          <DescriptionContainer>
+          <Description>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -48,7 +48,7 @@ const InvestorCard = () => {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
-          </DescriptionContainer>
+          </Description>
           <CategoriesContainer>
             {["forex", "stocks"].map((category) => {
               return <Category category={category} />;

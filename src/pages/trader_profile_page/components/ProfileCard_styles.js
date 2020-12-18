@@ -85,7 +85,7 @@ export const MiddleContainer = styled.div`
 
 export const Description = styled.div`
   font-size: ${description_font};
-  font-size: 1rem;
+  font-size: 0.925rem;
   color: ${black};
   line-height: 125%;
   margin: 1rem 0rem 1rem 0rem;

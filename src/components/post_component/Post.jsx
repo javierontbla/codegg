@@ -23,7 +23,7 @@ import UpIcon from "./media/up_button.svg";
 import DownIcon from "./media/down_button.svg";
 import CommentsIcon from "./media/comments_button.svg";
 
-const Post = () => {
+const Post = ({ no_image }) => {
   return (
     <>
       <PostContainer>
@@ -44,7 +44,7 @@ const Post = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </Description>
-          <PostImageContainer />
+          <PostImageContainer no_image={no_image} />
         </MiddleContainer>
         <BottomContainer>
           <TrendsContainer>
