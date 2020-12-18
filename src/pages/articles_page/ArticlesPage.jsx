@@ -51,7 +51,7 @@ const ArticlesPage = ({
 }) => {
   useEffect(() => {
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
-    document.title = `Codegg | Articles`;
+    document.title = `Codegg - Articles`;
     moment.locale("es");
 
     return () => {

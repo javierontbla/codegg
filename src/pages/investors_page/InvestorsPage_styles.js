@@ -40,6 +40,7 @@ export const Title = styled.div`
   margin: 0rem 0rem 0.25rem 0rem;
   line-height: 100%;
   border-radius: 0.25rem;
+  box-shadow: 1.25px 1.25px 1.25px -1px #ced4da;
 `;
 
 export const AllTradersContainer = styled.div`

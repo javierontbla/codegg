@@ -140,6 +140,7 @@ export const RightText = styled.div`
   letter-spacing: 0.5px;
   color: ${black};
   text-decoration: underline;
+  text-transform: capitalize;
 `;
 
 export const CommentContainer = styled.div`
@@ -150,6 +151,10 @@ export const CommentContainer = styled.div`
   font-style: italic;
   padding: 0.2rem 0rem 0rem 0rem;
   margin: 0rem 0rem 0rem 0rem;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 export const BottomContainer = styled.div`

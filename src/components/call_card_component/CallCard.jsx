@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 import {
   CallCardContainer,
@@ -6,7 +7,6 @@ import {
   Title,
   InformationContainer,
   Action,
-  Risk,
   Date,
   MiddleContainer,
   OrderContainer,
@@ -24,43 +24,48 @@ import {
 import up_button from "./media/up_button.svg";
 import down_button from "./media/down_button.svg";
 
-const CallCard = ({ home_page }) => {
+const CallCard = ({ home_page, data }) => {
+  moment.locale("en");
   return (
     <>
       <CallCardContainer home_page={home_page}>
         <TopContainer>
-          <Title>AMZN</Title>
+          <Title>{data.symbol.toUpperCase()}</Title>
           <InformationContainer>
-            <Action action={"buy"}>BUY</Action>
-            <Date>November 13, 2020 12:12 PM</Date>
+            <Action action={data.action.toLowerCase()}>
+              {data.action.toUpperCase()}
+            </Action>
+            <Date>{moment(data.date.toDate()).format("LL")}</Date>
           </InformationContainer>
         </TopContainer>
         <MiddleContainer>
           <OrderContainer>
             <LeftText>Company:</LeftText>
-            <RightText>Amazon</RightText>
+            <RightText>{data.company}</RightText>
+          </OrderContainer>
+          <OrderContainer>
+            <LeftText>No. of Shares:</LeftText>
+            <RightText>{data.no_of_shares}</RightText>
           </OrderContainer>
           <OrderContainer>
             <LeftText>Price:</LeftText>
-            <RightText>$129.45</RightText>
+            <RightText>
+              ${data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            </RightText>
           </OrderContainer>
-          <OrderContainer>
-            <LeftText>Shares:</LeftText>
-            <RightText>25</RightText>
-          </OrderContainer>
-          <CommentContainer>"Amazing company"</CommentContainer>
+          <CommentContainer>"{data.comment.toLowerCase()}"</CommentContainer>
         </MiddleContainer>
         <BottomContainer>
           <TrendsContainer>
             <UpTrend>
               <TrendIcon src={up_button} />
             </UpTrend>
-            <Count>64</Count>
+            <Count>{data.votes}</Count>
             <DownTrend>
               <TrendIcon src={down_button} />
             </DownTrend>
           </TrendsContainer>
-          <NameLink>@john_mayer</NameLink>
+          <NameLink>@{data.username}</NameLink>
         </BottomContainer>
       </CallCardContainer>
     </>

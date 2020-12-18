@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
 import Post from "../../components/post_component/Post";
 import CallCard from "../../components/call_card_component/CallCard";
 import ArticlePreview from "./components/article_preview/ArticlePreview";
 import PostDashboard from "../../components/upload_dashboards_components/post_dashboard/PostDashboard";
 import CallDashboard from "../../components/upload_dashboards_components/call_dashboard/CallDashboard";
+import { request_latest_trades_action_start } from "../../redux/home_page/actions";
 import {
   HomePageContainer,
   SelectionContainer,
@@ -22,13 +24,15 @@ import {
   LeftTitle,
 } from "./HomePage_styles";
 
-const HomePage = () => {
+const HomePage = ({ latest_trades, request_latest_trades }) => {
   useEffect(() => {
-    document.title = `Codegg | Amplifying Smart Investments`;
+    document.title = `Codegg - Make Smart Investments`;
+    request_latest_trades();
   }, []);
 
   return (
     <>
+      {console.log(latest_trades)}
       <HomePageContainer className="container">
         <SelectionContainer>
           <PublicButton>Public</PublicButton>
@@ -39,8 +43,8 @@ const HomePage = () => {
             <LeftTitle>Latest Trades</LeftTitle>
             <CallDashboard />
             <TradesContainer>
-              {[1, 2, 3, 4, 5].map((card) => {
-                return <CallCard home_page={"true"} />;
+              {latest_trades.map((trade_card) => {
+                return <CallCard home_page={"true"} data={trade_card[0]} />;
               })}
             </TradesContainer>
           </LeftContainer>
@@ -57,7 +61,7 @@ const HomePage = () => {
           <RightContainer>
             <RightTitle>Trending</RightTitle>
             <ArticlesPreviewContainer>
-              {[1, 2, 3, 4, 5, 6].map((article) => {
+              {[1, 2, 3, 4, 5, 6].map((article_preview) => {
                 return <ArticlePreview />;
               })}
             </ArticlesPreviewContainer>
@@ -68,4 +72,13 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+// redux
+const mapStateToProps = ({ home_page_reducer: { latest_trades } }) => ({
+  latest_trades,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  request_latest_trades: () => dispatch(request_latest_trades_action_start()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
