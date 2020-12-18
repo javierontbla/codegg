@@ -27,3 +27,17 @@ export const request_posts_action_failure = (error) => ({
   type: home_page_types.REQUEST_POSTS_FAILURE,
   payload: error,
 });
+
+export const request_article_previews_action_start = () => ({
+  type: home_page_types.REQUEST_ARTICLE_PREVIEWS_START,
+});
+
+export const request_article_previews_action_success = (article_previews) => ({
+  type: home_page_types.REQUEST_ARTICLE_PREVIEWS_SUCCESS,
+  payload: article_previews,
+});
+
+export const request_article_previews_action_failure = (error) => ({
+  type: home_page_types.REQUEST_ARTICLE_PREVIEWS_FAILURE,
+  payload: error,
+});

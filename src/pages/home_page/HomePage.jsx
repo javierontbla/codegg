@@ -9,6 +9,7 @@ import CallDashboard from "../../components/upload_dashboards_components/call_da
 import {
   request_latest_trades_action_start,
   request_posts_action_start,
+  request_article_previews_action_start,
 } from "../../redux/home_page/actions";
 import {
   HomePageContainer,
@@ -32,16 +33,19 @@ const HomePage = ({
   request_latest_trades,
   posts,
   request_posts,
+  article_previews,
+  request_article_previews,
 }) => {
   useEffect(() => {
     document.title = `Codegg - Make Smart Investments`;
     request_latest_trades();
     request_posts();
+    request_article_previews();
   }, []);
 
   return (
     <>
-      {console.log(posts)}
+      {console.log(article_previews)}
       <HomePageContainer className="container">
         <SelectionContainer>
           <PublicButton>Public</PublicButton>
@@ -76,8 +80,13 @@ const HomePage = ({
           <RightContainer>
             <RightTitle>Trending</RightTitle>
             <ArticlesPreviewContainer>
-              {[1, 2, 3, 4, 5, 6].map((article_preview) => {
-                return <ArticlePreview />;
+              {article_previews.map((article_preview) => {
+                return (
+                  <ArticlePreview
+                    data={article_preview[0]}
+                    id={article_preview[1]}
+                  />
+                );
               })}
             </ArticlesPreviewContainer>
           </RightContainer>
@@ -88,14 +97,19 @@ const HomePage = ({
 };
 
 // redux
-const mapStateToProps = ({ home_page_reducer: { latest_trades, posts } }) => ({
+const mapStateToProps = ({
+  home_page_reducer: { latest_trades, posts, article_previews },
+}) => ({
   latest_trades,
   posts,
+  article_previews,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   request_latest_trades: () => dispatch(request_latest_trades_action_start()),
   request_posts: () => dispatch(request_posts_action_start()),
+  request_article_previews: () =>
+    dispatch(request_article_previews_action_start()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

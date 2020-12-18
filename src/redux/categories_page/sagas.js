@@ -16,7 +16,7 @@ import {
 // async functions
 function* fetchUnfilteredAsync() {
   const articlesRef = db
-    .collection(`articulos`)
+    .collection(`articles`)
     .orderBy("fecha", "desc")
     .limit(6);
   // inital fetch from firebase

@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 import Category from "../../../../components/category_component/Category";
 import {
@@ -10,17 +11,17 @@ import {
   CategoriesContainer,
 } from "./ArticlePreview_styles";
 
-const ArticlePreview = () => {
+const ArticlePreview = ({ data }) => {
   return (
     <>
       <ArticlePreviewContainer>
-        <ImageContainer></ImageContainer>
+        <ImageContainer article_preview_image={data.article_image} />
         <DataContainer>
-          <Date>December 14, 2020</Date>
-          <Title>¿Por qué si invertir en Microsoft?</Title>
+          <Date>{moment(data.date.toDate()).format("LL")}</Date>
+          <Title>{data.title}</Title>
           <CategoriesContainer>
-            {["stocks"].map((category) => {
-              return <Category preview={"true"} category={category} />;
+            {data.categories.map((category) => {
+              return <Category article_preview={"true"} category={category} />;
             })}
           </CategoriesContainer>
         </DataContainer>

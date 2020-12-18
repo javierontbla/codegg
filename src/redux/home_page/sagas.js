@@ -6,6 +6,8 @@ import {
   request_latest_trades_action_failure,
   request_posts_action_success,
   request_posts_action_failure,
+  request_article_previews_action_success,
+  request_article_previews_action_failure,
 } from "./actions";
 import { db } from "../../firebase";
 
@@ -42,6 +44,24 @@ function* request_posts_async() {
   }
 }
 
+function* request_article_previews_async() {
+  const article_previews_ref = db.collection(`articles`);
+
+  try {
+    const response = yield article_previews_ref.get().then((snapshot) => {
+      const article_previews_arr = [];
+      snapshot.forEach((article_preview) =>
+        article_previews_arr.push([article_preview.data(), article_preview.id])
+      );
+      return article_previews_arr;
+    });
+
+    yield put(request_article_previews_action_success(response));
+  } catch (error) {
+    yield put(request_article_previews_action_failure(error));
+  }
+}
+
 export function* request_latest_trades() {
   yield takeLatest(
     home_page_types.REQUEST_LATEST_TRADES_START,
@@ -51,4 +71,11 @@ export function* request_latest_trades() {
 
 export function* request_posts() {
   yield takeLatest(home_page_types.REQUEST_POSTS_START, request_posts_async);
+}
+
+export function* request_article_previews() {
+  yield takeLatest(
+    home_page_types.REQUEST_ARTICLE_PREVIEWS_START,
+    request_article_previews_async
+  );
 }

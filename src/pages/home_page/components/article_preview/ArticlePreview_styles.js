@@ -30,7 +30,7 @@ export const ImageContainer = styled.div`
   border-top-right-radius: 0.25rem;
   background-size: cover;
   background-position: center;
-  background-image: url(https://images.unsplash.com/photo-1593702953195-0f4fec55b5e9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80);
+  background-image: url(${(props) => props.article_preview_image});
   background-repeat: no-repeat;
   border-bottom: 0.5px solid ${grey};
   padding: 0rem 0rem 0rem 0rem !important;
