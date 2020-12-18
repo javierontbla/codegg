@@ -38,7 +38,7 @@ export const ProfileImageContainer = styled.div`
   margin: 0rem 0.5rem 0rem 0rem;
   background-size: cover;
   background-position: center;
-  background-image: url(https://images.unsplash.com/photo-1602525962574-3bc829fbed3c?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+  background-image: url(${(props) => props.profile_image_url});
   background-repeat: no-repeat;
 `;
 
@@ -62,6 +62,7 @@ export const Name = styled.div`
   font-family: ${source_sans_pro};
   font-size: 1.2rem;
   line-height: 100%;
+  text-transform: capitalize;
 `;
 
 export const NameLink = styled.div`
@@ -84,6 +85,7 @@ export const Date = styled.div`
   font-size: 0.75rem;
   color: ${grey};
   letter-spacing: 0.25px;
+  margin: 0.1rem 0rem 0rem 0rem;
 `;
 
 export const MiddleContainer = styled.div`
@@ -99,12 +101,12 @@ export const Description = styled.div`
 `;
 
 export const PostImageContainer = styled.div`
-  display: ${(props) => (props.no_image ? "none" : "flex")};
+  display: ${(props) => (props.post_image_url ? "flex" : "none")};
   max-width: 100%;
   height: 23rem;
   background-size: cover;
   background-position: center;
-  background-image: url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80);
+  background-image: url(${(props) => props.post_image_url});
   background-repeat: no-repeat;
   margin: 0 auto;
 `;

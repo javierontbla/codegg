@@ -1,6 +1,6 @@
 import { all, call } from "redux-saga/effects";
 
-import { request_latest_trades } from "./home_page/sagas";
+import { request_latest_trades, request_posts } from "./home_page/sagas";
 import {
   fetchUnfiltered,
   fetchFiltered,
@@ -14,6 +14,7 @@ import { sendForm } from "./feedback.page/sagas";
 export function* rootSaga() {
   yield all([
     call(request_latest_trades),
+    call(request_posts),
     call(fetchUnfiltered),
     call(fetchFiltered),
     call(fetchMoreUnfiltered),

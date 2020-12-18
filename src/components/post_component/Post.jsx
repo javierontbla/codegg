@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 import {
   BottomContainer,
@@ -23,35 +24,30 @@ import UpIcon from "./media/up_button.svg";
 import DownIcon from "./media/down_button.svg";
 import CommentsIcon from "./media/comments_button.svg";
 
-const Post = ({ no_image }) => {
+const Post = ({ data }) => {
   return (
     <>
       <PostContainer>
         <TopContainer>
-          <ProfileImageContainer />
+          <ProfileImageContainer profile_image_url={data.profile_image} />
           <UserDataContainer>
             <NamesContainer>
-              <Name>Tom Sprank</Name>
-              <NameLink>@tom_sprank</NameLink>
+              <Name>{data.user.toLowerCase()}</Name>
+              <NameLink>@{data.username}</NameLink>
             </NamesContainer>
-            <Date>4 hours ago</Date>
+            <Date>{moment(data.date.toDate()).startOf("hour").fromNow()}</Date>
           </UserDataContainer>
         </TopContainer>
         <MiddleContainer>
-          <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Description>
-          <PostImageContainer no_image={no_image} />
+          <Description>{data.description}</Description>
+          <PostImageContainer post_image_url={data.post_image} />
         </MiddleContainer>
         <BottomContainer>
           <TrendsContainer>
             <TrendContainer>
               <TrendIcon src={UpIcon} />
             </TrendContainer>
-            <CountContainer>74</CountContainer>
+            <CountContainer>{data.votes}</CountContainer>
             <TrendContainer>
               <TrendIcon src={DownIcon} />
             </TrendContainer>
