@@ -26,11 +26,12 @@ export const CategoryContainer = styled.div`
     rgba(55, 139, 136, 1) 100%
   );
   transition: opacity 0.15s;
-  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
   font-size: ${(props) =>
     props.top || props.article_preview ? "0.65rem" : "0.8rem"};
   font-weight: 600;
+  line-height: 100%;
 
   &:hover {
     cursor: pointer;

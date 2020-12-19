@@ -42,8 +42,8 @@ export const ButtonsContainer = styled.div`
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between !important;
-  margin: 0rem 0rem 0.15rem 0rem;
-  padding: 1rem 0.25rem 0rem 0.25rem;
+  margin: 0rem 0.1rem 0.15rem 0.1rem;
+  padding: 1rem 0rem 0rem 0rem;
 `;
 
 export const MediaContainer = styled.div`

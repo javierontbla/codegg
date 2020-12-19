@@ -12,6 +12,7 @@ import {
 } from "./ArticlePreview_styles";
 
 const ArticlePreview = ({ data }) => {
+  moment.locale("es");
   return (
     <>
       <ArticlePreviewContainer>

@@ -24,10 +24,10 @@ export const CallDashboardContainer = styled.div`
 export const TitleInputContainer = styled.input`
   width: calc(100% - 6.5rem);
   border: 0.5px solid ${grey};
-  padding: 0.45rem 0.5rem 0.25rem 0.5rem;
+  padding: 0.35rem 0.5rem 0.25rem 0.5rem;
   border-radius: 0.25rem;
   font-family: ${roboto};
-  font-size: 1.15rem;
+  font-size: 0.9rem;
   height: 2.25rem;
   line-height: 100%;
   color: ${black};

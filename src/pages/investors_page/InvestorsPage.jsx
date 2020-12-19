@@ -18,7 +18,7 @@ import "./InvestorsPage.css";
 
 const InvestorsPage = () => {
   useEffect(() => {
-    document.title = `Codegg - Investors`;
+    document.title = `Codegg - Inversionistas`;
   }, []);
 
   const breakpoints = {

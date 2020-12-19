@@ -16,7 +16,7 @@ import {
 
 const ArticleCard = ({ data, id, search }) => {
   useEffect(() => {
-    moment.locale("en");
+    moment.locale("es");
   }, []);
   const link_title = data.titulo_link.split(" ").join("-").toLowerCase();
   return (

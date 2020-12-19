@@ -41,10 +41,10 @@ const App = ({ storeAvailableTags }) => {
         <MainContainer>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/categories" component={ArticlesPage} />
+            <Route path="/articulos" component={ArticlesPage} />
             <Route path="/community" component={CommunityPage} />
-            <Route path="/investors" component={InvestorsPage} />
-            <Route path="/contact" component={ContactPage} />
+            <Route path="/inversionistas" component={InvestorsPage} />
+            <Route path="/contacto" component={ContactPage} />
             <Route path="/privacy" component={PrivacyPage} />
             <Route path="/terms" component={TermsConditionsPage} />
             <Route path="/profile-page" component={TraderProfilePage} />

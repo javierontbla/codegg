@@ -90,6 +90,7 @@ export const Date = styled.div`
 
 export const MiddleContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
 `;
 
 export const Description = styled.div`
@@ -101,14 +102,24 @@ export const Description = styled.div`
 `;
 
 export const PostImageContainer = styled.div`
-  display: ${(props) => (props.post_image_url ? "flex" : "none")};
-  max-width: 100%;
+  display: ${(props) => (props.post_image_url ? "block" : "none")};
+  background-image: url(${(props) => props.post_image_url});
+  width: 100%;
   height: 23rem;
   background-size: cover;
   background-position: center;
-  background-image: url(${(props) => props.post_image_url});
-  background-repeat: no-repeat;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  &::before {
+    content: " ";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 23rem;
+    z-index: 1;
+  }
 `;
 
 export const BottomContainer = styled.div`

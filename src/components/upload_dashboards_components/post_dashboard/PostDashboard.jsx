@@ -16,7 +16,7 @@ const PostDashboard = () => {
   return (
     <>
       <PostDashboardContainer>
-        <TextInputContainer placeholder="What do you want to share?" />
+        <TextInputContainer placeholder="¿Qué quieres compartir?" />
         <ButtonsContainer>
           <MediaContainer>
             <UploadImageContainer>
@@ -24,8 +24,8 @@ const PostDashboard = () => {
             </UploadImageContainer>
           </MediaContainer>
           <PublishActionsContainer>
-            <PostButton>Public Post</PostButton>
-            <PostButton private={"true"}>Premium Post</PostButton>
+            <PostButton>Público</PostButton>
+            <PostButton private={"true"}>Premium</PostButton>
           </PublishActionsContainer>
         </ButtonsContainer>
       </PostDashboardContainer>

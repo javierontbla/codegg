@@ -25,6 +25,7 @@ import DownIcon from "./media/down_button.svg";
 import CommentsIcon from "./media/comments_button.svg";
 
 const Post = ({ data }) => {
+  moment.locale("es");
   return (
     <>
       <PostContainer>

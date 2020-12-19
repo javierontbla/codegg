@@ -37,7 +37,7 @@ const HomePage = ({
   request_article_previews,
 }) => {
   useEffect(() => {
-    document.title = `Codegg - Make Smart Investments`;
+    document.title = `Codegg - Inversiones Inteligentes`;
     request_latest_trades();
     request_posts();
     request_article_previews();
@@ -45,15 +45,14 @@ const HomePage = ({
 
   return (
     <>
-      {console.log(article_previews)}
       <HomePageContainer className="container">
         <SelectionContainer>
-          <PublicButton>Public</PublicButton>
+          <PublicButton>Público</PublicButton>
           <PrivateButton>Premium</PrivateButton>
         </SelectionContainer>
         <MainContainer>
           <LeftContainer>
-            <LeftTitle>Latest Trades</LeftTitle>
+            <LeftTitle>Últimas Operaciones</LeftTitle>
             <CallDashboard />
             <TradesContainer>
               {latest_trades.map((trade_card) => {

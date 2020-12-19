@@ -20,6 +20,10 @@ export const ArticlePreviewContainer = styled.div`
   &:first-child {
     margin: 0rem 0rem 0.5rem 0rem !important;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const ImageContainer = styled.div`
