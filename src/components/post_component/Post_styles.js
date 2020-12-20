@@ -39,7 +39,7 @@ export const Premium = styled.div`
     rgba(25, 25, 24, 1) 80%
   );
   color: ${white};
-  margin: 0.75rem 0.75rem 0rem 0rem;
+  margin: 0.75rem 0.65rem 0rem 0rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
   border-radius: 0.15rem;
   font-family: ${open_sans};

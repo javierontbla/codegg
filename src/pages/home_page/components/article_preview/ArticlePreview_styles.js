@@ -49,9 +49,10 @@ export const InformationContainer = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
   padding: 0rem 0rem 0rem 0rem;
-  height: 1.05rem;
+  height: 1.1rem;
   margin: 0.55rem 0.55rem 0.3rem 0.55rem;
 `;
 
@@ -72,12 +73,12 @@ export const Premium = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   font-family: ${open_sans};
   font-weight: 600;
   padding: 0rem 0.35rem 0rem 0.35rem;
   letter-spacing: 0.5px;
-  margin: 0rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0.75rem;
   height: 100%;
   width: fit-content;
   border-radius: 0.15rem;
@@ -93,7 +94,7 @@ export const Premium = styled.div`
 
 export const Title = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   color: ${black};
   font-weight: 600;
   letter-spacing: 0.5px;
