@@ -11,7 +11,7 @@ export const PostContainer = styled.div`
   flex-direction: column;
   border: 1px solid black;
   background: ${white};
-  border: 1px solid ${grey};
+  border: 0px solid ${grey};
   border-radius: 0.25rem;
   margin: 0.5rem 0rem 0.5rem 0rem;
   box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
@@ -27,6 +27,12 @@ export const TopContainer = styled.div`
   height: 4.4rem;
   align-items: center;
   padding: 0rem 0.75rem 0rem 0.75rem;
+  border-top: 1px solid ${grey};
+  border-left: 1px solid ${grey};
+  border-right: 1px solid ${grey};
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  background: transparent;
 `;
 
 export const ProfileImageContainer = styled.div`
@@ -91,6 +97,9 @@ export const Date = styled.div`
 export const MiddleContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
+  border-left: 1px solid ${grey};
+  border-right: 1px solid ${grey};
+  background: transparent;
 `;
 
 export const Description = styled.div`
@@ -102,24 +111,15 @@ export const Description = styled.div`
 `;
 
 export const PostImageContainer = styled.div`
-  display: ${(props) => (props.post_image_url ? "block" : "none")};
+  display: ${(props) => (props.post_image_url ? "flex" : "none")};
   background-image: url(${(props) => props.post_image_url});
-  width: 100%;
+  max-width: 100%;
   height: 23rem;
   background-size: cover;
   background-position: center;
   margin: 0;
   padding: 0;
   position: relative;
-
-  &::before {
-    content: " ";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 23rem;
-    z-index: 1;
-  }
 `;
 
 export const BottomContainer = styled.div`
@@ -129,7 +129,13 @@ export const BottomContainer = styled.div`
   height: fit-content;
   justify-content: space-between;
   border-top: 0.5px solid ${grey};
+  border-left: 1px solid ${grey};
+  border-right: 1px solid ${grey};
+  border-bottom: 1px solid ${grey};
   padding: 0.1rem 0.55rem 0.1rem 0.55rem;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  background: transparent;
 `;
 
 export const TrendsContainer = styled.div`

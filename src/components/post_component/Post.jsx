@@ -41,8 +41,8 @@ const Post = ({ data }) => {
         </TopContainer>
         <MiddleContainer>
           <Description>{data.description}</Description>
-          <PostImageContainer post_image_url={data.post_image} />
         </MiddleContainer>
+        <PostImageContainer post_image_url={data.post_image} />
         <BottomContainer>
           <TrendsContainer>
             <TrendContainer>

@@ -59,6 +59,7 @@ export const Title = styled.div`
 export const InformationContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   flex-wrap: nowrap;
   margin: 0.4rem 0rem 0rem -0.25rem;
 `;
@@ -67,9 +68,9 @@ export const Action = styled.div`
   ${InformationStyles};
   color: ${white};
   background: ${(props) =>
-    props.action === "sell" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
+    props.action === "venta" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
   background: ${(props) =>
-    props.action === "sell"
+    props.action === "venta"
       ? "linear-gradient(45deg,rgba(249, 104, 106, 1) 5%,rgba(185, 32, 34, 1) 95%)"
       : "linear-gradient(45deg, rgba(67, 170, 139, 1) 0%, rgba(55, 139, 136, 1) 100%)"};
 `;
@@ -94,6 +95,8 @@ export const Date = styled.div`
     rgba(201, 203, 205, 1) 95%
   );
   color: ${black};
+  font-size: 0.565rem;
+  font-family: ${roboto};
 `;
 
 export const MiddleContainer = styled.div`
@@ -231,7 +234,7 @@ export const Count = styled.div`
 export const NameLink = styled.div`
   font-family: ${open_sans};
   color: ${grey};
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 1px;
   padding: 0rem 0rem 0rem 0rem;

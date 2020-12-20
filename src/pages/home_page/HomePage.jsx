@@ -77,7 +77,7 @@ const HomePage = ({
             </PostsContainer>
           </MiddleContainer>
           <RightContainer>
-            <RightTitle>Trending</RightTitle>
+            <RightTitle>Tendencias</RightTitle>
             <ArticlesPreviewContainer>
               {article_previews.map((article_preview) => {
                 return (

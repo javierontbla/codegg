@@ -96,7 +96,7 @@ export const PostButton = styled.div`
       : "linear-gradient(45deg,rgba(219, 223, 227, 1) 5%,rgba(201, 203, 205, 1) 95%)"};
   color: ${(props) => (props.private ? `${white}` : `${black}`)};
   margin: ${(props) =>
-    props.private ? "0rem 0rem 0rem 0rem" : "0rem 0.6rem 0rem 0rem"};
+    props.private ? "0rem 0rem 0rem 0rem" : "0rem 0.5rem 0rem 0rem"};
   padding: 0rem 0.5rem 0rem 0.5rem;
   border-radius: 0.15rem;
   font-family: ${open_sans};

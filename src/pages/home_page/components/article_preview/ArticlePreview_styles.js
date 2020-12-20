@@ -4,7 +4,7 @@ import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
 const { grey, white, black } = colors;
-const { source_sans_pro, open_sans } = fonts;
+const { source_sans_pro, roboto } = fonts;
 
 export const ArticlePreviewContainer = styled.div`
   display: flex;
@@ -48,20 +48,18 @@ export const Date = styled.div`
   display: flex;
   align-items: center;
   line-height: 100%;
+  font-family: ${roboto};
+  font-size: 0.75rem;
   color: ${grey};
-  font-size: 0.625rem;
-  font-family: ${open_sans};
-  font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.25px;
   padding: 0.55rem 0.5rem 0.35rem 0.5rem;
   margin: 0rem 0rem 0rem 0rem;
-  height: fit-content;
   width: 100%;
 `;
 
 export const Title = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: ${black};
   font-weight: 600;
   letter-spacing: 0.5px;

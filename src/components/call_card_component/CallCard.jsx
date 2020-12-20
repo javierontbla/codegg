@@ -25,7 +25,7 @@ import up_button from "./media/up_button.svg";
 import down_button from "./media/down_button.svg";
 
 const CallCard = ({ home_page, data }) => {
-  moment.locale("en");
+  moment.locale("es");
   return (
     <>
       <CallCardContainer home_page={home_page}>
@@ -40,15 +40,15 @@ const CallCard = ({ home_page, data }) => {
         </TopContainer>
         <MiddleContainer>
           <OrderContainer>
-            <LeftText>Company:</LeftText>
+            <LeftText>Compañia:</LeftText>
             <RightText>{data.company}</RightText>
           </OrderContainer>
           <OrderContainer>
-            <LeftText>No. of Shares:</LeftText>
+            <LeftText>No. de Acciones:</LeftText>
             <RightText>{data.no_of_shares}</RightText>
           </OrderContainer>
           <OrderContainer>
-            <LeftText>Price:</LeftText>
+            <LeftText>Precio:</LeftText>
             <RightText>
               ${data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </RightText>
