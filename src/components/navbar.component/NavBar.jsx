@@ -34,8 +34,7 @@ const NavBar = () => {
           </LinkContainer>
         </PagesContainer>
         <UserContainer>
-          <LogIn>Ingresar</LogIn>
-          <SignIn>Registrarse</SignIn>
+          <SignIn>Ingresar</SignIn>
         </UserContainer>
       </Navbar>
     </>

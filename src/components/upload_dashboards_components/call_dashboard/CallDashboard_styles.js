@@ -10,13 +10,13 @@ const ButtonStyles = css`
   display: flex;
   align-items: center;
   line-height: 100%;
-  height: 1.75rem;
+  height: 1.55rem;
   width: fit-content;
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
   border-radius: 0.15rem;
   font-family: ${open_sans};
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   color: ${white};
@@ -38,28 +38,30 @@ export const CallDashboardContainer = styled.div`
   flex-direction: column;
   border: 1px solid ${grey};
   background: ${white};
-  border-radius: 0.25rem;
+  border-radius: 0.35rem;
   height: fit-content;
   width: 100%;
   margin: 0rem 0rem 0.5rem 0rem;
-  box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
+  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
   line-height: 100%;
 `;
 
 export const SymbolInputContainer = styled.input`
-  width: calc(100% - 9rem);
+  width: 7.5rem;
   border: 0.5px solid ${grey};
-  padding: 0.35rem 0.5rem 0.25rem 0.5rem;
-  border-radius: 0.25rem;
+  padding: 0.375rem 0.5rem 0.25rem 0.5rem;
+  margin: 0.55rem 0rem 0rem 0rem;
+  border-radius: 0.15rem;
   font-family: ${roboto};
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   height: 2.25rem;
   line-height: 100%;
   color: ${black};
+  text-transform: uppercase;
 
   &&& {
     ::placeholder {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
     }
   }
 
@@ -70,6 +72,23 @@ export const SymbolInputContainer = styled.input`
 
 export const CreateButton = styled.div`
   ${ButtonStyles};
+  background: ${(props) =>
+    props.active_dashboard ? "transparent" : "rgb(33, 33, 32)"};
+  background: ${(props) =>
+    props.active_dashboard
+      ? "transparent"
+      : "linear-gradient(90deg,rgba(33, 33, 32, 1) 5%,rgba(25, 25, 24, 1) 80%)"};
+`;
+
+export const CloseIcon = styled.img`
+  width: 1rem;
+  height: 1rem;
+  margin: 0.4rem 0rem 0rem 0rem;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.95;
+  }
 `;
 
 export const TopContainer = styled.div`
@@ -77,7 +96,10 @@ export const TopContainer = styled.div`
   flex-direction: column;
   margin: ${(props) =>
     props.active_dashboard ? "0rem 0rem 0.25rem 0rem" : "0rem 0rem 0rem 0rem"};
-  padding: 0.55rem 0.55rem 0.55rem 0.55rem;
+  padding: ${(props) =>
+    props.active_dashboard
+      ? "0rem 0rem 0.55rem 0.55rem"
+      : "0rem 0.55rem 0.55rem 0.55rem"};
   border-bottom: ${(props) =>
     props.active_dashboard ? `0.5px solid ${grey}` : "none"};
 `;
@@ -85,7 +107,8 @@ export const TopContainer = styled.div`
 export const PreviewContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: ${(props) =>
+    props.active_dashboard ? "flex-start" : "flex-end"};
   justify-content: space-between;
 `;
 
@@ -98,34 +121,44 @@ export const ActionContainer = styled.div`
   margin: 0.55rem 0rem 0rem 0rem;
 `;
 
+export const ActionOverlay = styled.div`
+  width: 3.75rem;
+`;
+
 export const Action = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   font-size: 0.55rem;
   font-family: ${open_sans};
   font-weight: 600;
-  padding: 0.3rem 0.35rem 0.3rem 0.35rem;
+  padding: 0rem 0.35rem 0rem 0.35rem;
   line-height: 100%;
   letter-spacing: 0.5px;
   margin: 0rem 0rem 0rem 0rem;
-  height: fit-content;
+  height: 1.05rem;
   width: fit-content;
   border-radius: 0.15rem;
   color: ${white};
   background: ${(props) =>
-    props.action === "sell" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
+    props.action === "venta" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
   background: ${(props) =>
-    props.action === "sell"
+    props.action === "venta"
       ? "linear-gradient(45deg,rgba(249, 104, 106, 1) 5%,rgba(185, 32, 34, 1) 95%)"
       : "linear-gradient(45deg, rgba(67, 170, 139, 1) 0%, rgba(55, 139, 136, 1) 100%)"};
 `;
 
-export const ActionChange = styled.div``;
+export const ActionChange = styled.div`
+  &:hover {
+    cursor: pointer;
+    opacity: 0.95;
+  }
+`;
 
 export const ChangeIcon = styled.img`
   width: 1.2rem;
-  margin: 0rem 0rem 0rem 0.5rem;
+  margin: 0rem 0rem 0rem 0rem;
   transform: rotate(180deg);
 `;
 
@@ -160,29 +193,41 @@ export const SubtitleInput = styled.input`
   border: 0.5px solid ${grey};
   border-radius: 0.15rem;
   height: 100%;
-  padding: 0.035rem 0.275rem 0rem 0.275rem;
-  font-size: 0.85rem;
+  padding: 0rem 0.275rem 0rem 0.275rem;
+  font-size: 0.7rem;
   color: ${black};
   font-family: ${roboto};
   letter-spacing: 0.25px;
+
+  &&& {
+    ::placeholder {
+      font-size: 0.7rem;
+    }
+  }
 
   &:focus {
     outline: none !important;
   }
 `;
 
-export const CommentInput = styled.textarea`
+export const CommentInput = styled.input`
   width: 100%;
   height: 1.85rem;
   border: 0.5px solid ${grey};
   margin: 0.5rem 0rem 0rem 0rem;
   border-radius: 0.15rem;
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   resize: none !important;
-  padding: 0.35rem 0.275rem 0rem 0.275rem;
+  padding: 0rem 0.275rem 0rem 0.275rem;
   color: ${black};
   font-family: ${roboto};
   letter-spacing: 0.25px;
+
+  &&& {
+    ::placeholder {
+      font-size: 0.7rem;
+    }
+  }
 
   &:focus {
     outline: none !important;
@@ -202,4 +247,11 @@ export const PostButton = styled.div`
   ${ButtonStyles};
   margin: ${(props) =>
     props.premium ? "0rem 0rem 0rem 0rem" : "0rem 0.5rem 0rem 0rem"};
+  background: ${(props) =>
+    props.premium ? "rgb(33, 33, 32)" : "rgb(219, 223, 227)"};
+  background: ${(props) =>
+    props.premium
+      ? "linear-gradient(90deg,rgba(33, 33, 32, 1) 5%,rgba(25, 25, 24, 1) 80%)"
+      : "linear-gradient(45deg,rgba(219, 223, 227, 1) 5%,rgba(201, 203, 205, 1) 95%)"};
+  color: ${(props) => (props.premium ? `${white}` : `${black}`)};
 `;

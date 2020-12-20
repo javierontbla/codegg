@@ -11,6 +11,7 @@ import {
   NamesContainer,
   PostContainer,
   TopContainer,
+  Premium,
   Description,
   PostImageContainer,
   TrendsContainer,
@@ -29,6 +30,7 @@ const Post = ({ data }) => {
   return (
     <>
       <PostContainer>
+        <Premium>Premium</Premium>
         <TopContainer>
           <ProfileImageContainer profile_image_url={data.profile_image} />
           <UserDataContainer>

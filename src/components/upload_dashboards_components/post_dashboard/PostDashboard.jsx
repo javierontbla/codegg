@@ -10,7 +10,8 @@ import {
   PostButton,
   Icon,
 } from "./PostDashboard_styles";
-import Camera from "../media/camera.svg";
+import Camera from "./media/image_button.svg";
+import Video from "./media/video_button.svg";
 
 const PostDashboard = () => {
   return (
@@ -24,7 +25,7 @@ const PostDashboard = () => {
             </UploadImageContainer>
           </MediaContainer>
           <PublishActionsContainer>
-            <PostButton>Público</PostButton>
+            <PostButton>Pública</PostButton>
             <PostButton private={"true"}>Premium</PostButton>
           </PublishActionsContainer>
         </ButtonsContainer>

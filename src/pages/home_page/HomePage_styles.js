@@ -28,11 +28,11 @@ const Titles = css`
   background: ${white};
   border: 1px solid ${grey};
   font-family: ${source_sans_pro};
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   letter-spacing: 1px;
   padding: 0.65rem 0.55rem 0.65rem 0.55rem;
   line-height: 100%;
-  border-radius: 0.25rem;
+  border-radius: 0.35rem;
   box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
 `;
 
@@ -78,7 +78,7 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin: 0.75rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const LeftContainer = styled.div`

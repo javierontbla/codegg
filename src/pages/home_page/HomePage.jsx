@@ -46,10 +46,6 @@ const HomePage = ({
   return (
     <>
       <HomePageContainer className="container">
-        <SelectionContainer>
-          <PublicButton>Público</PublicButton>
-          <PrivateButton>Premium</PrivateButton>
-        </SelectionContainer>
         <MainContainer>
           <LeftContainer>
             <LeftTitle>Últimas Operaciones</LeftTitle>

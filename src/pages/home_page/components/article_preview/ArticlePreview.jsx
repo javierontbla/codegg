@@ -6,7 +6,9 @@ import {
   ArticlePreviewContainer,
   ImageContainer,
   DataContainer,
+  InformationContainer,
   Date,
+  Premium,
   Title,
   CategoriesContainer,
 } from "./ArticlePreview_styles";
@@ -18,7 +20,10 @@ const ArticlePreview = ({ data }) => {
       <ArticlePreviewContainer>
         <ImageContainer article_preview_image={data.article_image} />
         <DataContainer>
-          <Date>{moment(data.date.toDate()).format("LL")}</Date>
+          <InformationContainer>
+            <Date>{moment(data.date.toDate()).format("LL")}</Date>
+            <Premium>Premium</Premium>
+          </InformationContainer>
           <Title>{data.title}</Title>
           <CategoriesContainer>
             {data.categories.map((category) => {

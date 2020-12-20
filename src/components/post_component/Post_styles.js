@@ -7,18 +7,45 @@ const { grey, black, white } = colors;
 const { open_sans, roboto, source_sans_pro } = fonts;
 
 export const PostContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
   background: ${white};
   border: 0px solid ${grey};
-  border-radius: 0.25rem;
+  border-radius: 0.35rem;
   margin: 0.5rem 0rem 0.5rem 0rem;
   box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
 
   &:first-child {
     margin: 0rem 0rem 0.5rem 0rem;
   }
+`;
+
+export const Premium = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  line-height: 100%;
+  background: ${grey};
+  height: 1.55rem;
+  width: fit-content;
+  background: rgb(33, 33, 32);
+  background: linear-gradient(
+    90deg,
+    rgba(33, 33, 32, 1) 5%,
+    rgba(25, 25, 24, 1) 80%
+  );
+  color: ${white};
+  margin: 0.75rem 0.75rem 0rem 0rem;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  border-radius: 0.15rem;
+  font-family: ${open_sans};
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 `;
 
 export const TopContainer = styled.div`
@@ -30,8 +57,8 @@ export const TopContainer = styled.div`
   border-top: 1px solid ${grey};
   border-left: 1px solid ${grey};
   border-right: 1px solid ${grey};
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.35rem;
+  border-top-right-radius: 0.35rem;
   background: transparent;
 `;
 
@@ -133,8 +160,8 @@ export const BottomContainer = styled.div`
   border-right: 1px solid ${grey};
   border-bottom: 1px solid ${grey};
   padding: 0.1rem 0.55rem 0.1rem 0.55rem;
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.35rem;
+  border-bottom-right-radius: 0.35rem;
   background: transparent;
 `;
 

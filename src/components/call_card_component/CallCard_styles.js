@@ -8,16 +8,19 @@ const { source_sans_pro, open_sans, roboto } = fonts;
 
 const InformationStyles = css`
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   font-size: 0.55rem;
   font-family: ${open_sans};
   font-weight: 600;
-  padding: 0.1rem 0.35rem 0.1rem 0.35rem;
+  padding: 0rem 0.35rem 0rem 0.35rem;
   letter-spacing: 0.5px;
   margin: 0rem 0.25rem 0rem 0.25rem;
-  height: fit-content;
+  height: 100%;
   width: fit-content;
   border-radius: 0.15rem;
+  line-height: 100%;
 `;
 
 export const CallCardContainer = styled.div`
@@ -25,7 +28,7 @@ export const CallCardContainer = styled.div`
   border: 1px solid blue;
   margin: ${(props) =>
     props.home_page ? "0.5rem 0rem 0.5rem 0rem" : "0rem 0.5rem 0rem 0.5rem"};
-  border-radius: 0.25rem;
+  border-radius: 0.35rem;
   background: ${white};
   border: 1px solid ${grey};
   box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
@@ -62,6 +65,8 @@ export const InformationContainer = styled.div`
   align-items: center;
   flex-wrap: nowrap;
   margin: 0.4rem 0rem 0rem -0.25rem;
+  padding: 0rem 0rem 0rem 0rem;
+  height: 1.05rem;
 `;
 
 export const Action = styled.div`
@@ -75,15 +80,15 @@ export const Action = styled.div`
       : "linear-gradient(45deg, rgba(67, 170, 139, 1) 0%, rgba(55, 139, 136, 1) 100%)"};
 `;
 
-export const Risk = styled.div`
+export const Premium = styled.div`
   ${InformationStyles};
-  background: rgb(254, 206, 93);
+  background: rgb(33, 33, 32);
   background: linear-gradient(
-    45deg,
-    rgba(254, 206, 93, 1) 0%,
-    rgba(235, 191, 84, 1) 90%
+    90deg,
+    rgba(33, 33, 32, 1) 5%,
+    rgba(25, 25, 24, 1) 80%
   );
-  color: ${black};
+  color: ${white};
 `;
 
 export const Date = styled.div`

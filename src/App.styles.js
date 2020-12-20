@@ -19,6 +19,11 @@ export const Global = createGlobalStyle`
    font-size: 0.9rem;
   }
 
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
   b {
     color: #faf9f9;
     font-family: "Roboto", sans-serif;

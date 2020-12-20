@@ -8,6 +8,7 @@ import {
   InformationContainer,
   Action,
   Date,
+  Premium,
   MiddleContainer,
   OrderContainer,
   LeftText,
@@ -36,6 +37,7 @@ const CallCard = ({ home_page, data }) => {
               {data.action.toUpperCase()}
             </Action>
             <Date>{moment(data.date.toDate()).format("LL")}</Date>
+            <Premium>Premium</Premium>
           </InformationContainer>
         </TopContainer>
         <MiddleContainer>
