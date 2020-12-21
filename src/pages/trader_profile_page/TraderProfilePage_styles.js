@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "../../colors/colors";
-
-const {} = colors;
+// import { colors } from "../../colors/colors";
 
 export const TraderProfilePageContainer = styled.div`
   display: flex;

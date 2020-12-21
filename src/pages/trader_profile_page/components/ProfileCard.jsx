@@ -1,9 +1,4 @@
 import React from "react";
-import {
-  faTwitter,
-  faYoutube,
-  faFacebook,
-} from "@fortawesome/free-brands-svg-icons";
 
 import Category from "../../../components/category_component/Category";
 import Badge from "../../../components/badge_component/Badge";
@@ -33,7 +28,7 @@ const ProfileCard = () => {
         </TopContainer>
         <MiddleContainer>
           <BadgesContainer>
-            {["quant", "united states", "english"].map((badge) => {
+            {["quant", "united states"].map((badge) => {
               return (
                 <Badge badge={badge} rank={badge === "quant" ? "true" : null} />
               );

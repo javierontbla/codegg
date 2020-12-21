@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey, white, black, red } = colors;
+const { grey, white, black } = colors;
 const { source_sans_pro, open_sans, roboto } = fonts;
 
 const InformationStyles = css`

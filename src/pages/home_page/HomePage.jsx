@@ -13,9 +13,6 @@ import {
 } from "../../redux/home_page/actions";
 import {
   HomePageContainer,
-  SelectionContainer,
-  PrivateButton,
-  PublicButton,
   MainContainer,
   LeftContainer,
   TradesContainer,
@@ -29,12 +26,12 @@ import {
 } from "./HomePage_styles";
 
 const HomePage = ({
-  latest_trades,
   request_latest_trades,
-  posts,
   request_posts,
-  article_previews,
   request_article_previews,
+  latest_trades,
+  posts,
+  article_previews,
 }) => {
   useEffect(() => {
     document.title = `Codegg - Inversiones Inteligentes`;

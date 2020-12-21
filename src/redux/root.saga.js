@@ -1,5 +1,6 @@
 import { all, call } from "redux-saga/effects";
 
+import { sync_active_user_with_database } from "./user/sagas";
 import {
   request_latest_trades,
   request_posts,
@@ -17,6 +18,7 @@ import { sendForm } from "./feedback.page/sagas";
 
 export function* rootSaga() {
   yield all([
+    call(sync_active_user_with_database),
     call(request_latest_trades),
     call(request_posts),
     call(request_article_previews),

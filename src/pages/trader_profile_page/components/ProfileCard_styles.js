@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";

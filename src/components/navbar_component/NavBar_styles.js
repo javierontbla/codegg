@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
@@ -84,7 +84,9 @@ export const UserContainer = styled.div`
   }
 `;
 
-export const SignIn = styled.div`
+export const ProfileMenu = styled.div``;
+
+export const LogIn = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
@@ -103,26 +105,6 @@ export const SignIn = styled.div`
   border-radius: 0.15rem;
   margin: 0rem 0rem 0rem 0rem;
   letter-spacing: 1px;
-  font-weight: 600;
-
-  &:hover {
-    cursor: pointer;
-    opacity: 0.95;
-  }
-`;
-
-export const LogIn = styled.div`
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  border: none;
-  height: 2rem;
-  padding: 0rem 0.65rem 0rem 0.65rem;
-  color: ${black};
-  font-size: 0.9rem;
-  margin: 0rem 0.85rem 0rem 0rem;
-  letter-spacing: 1px;
-  font-family: ${open_sans};
   font-weight: 600;
 
   &:hover {

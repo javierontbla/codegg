@@ -11,7 +11,6 @@ import {
   Icon,
 } from "./PostDashboard_styles";
 import Camera from "./media/image_button.svg";
-import Video from "./media/video_button.svg";
 
 const PostDashboard = () => {
   return (
