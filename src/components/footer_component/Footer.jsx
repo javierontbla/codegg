@@ -1,16 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { FooterContainer } from "./Footer.styles";
-
 import {
-  CompanyName,
-  Option,
-  Options,
-  LinkContainer,
-  Division,
+  FooterContainer,
   OptionsContainer,
-} from "./Footer.styles";
+  Options,
+  Option,
+  CompanyName,
+  LinkContainer,
+} from "./Footer_styles";
 
 const Footer = ({ error }) => {
   return (

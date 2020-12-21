@@ -57,6 +57,7 @@ const HomePage = ({
                     home_page={"true"}
                     data={trade_card[0]}
                     id={trade_card[1]}
+                    key={trade_card[1]}
                   />
                 );
               })}
@@ -68,7 +69,7 @@ const HomePage = ({
             </UploadDashboardContainer>
             <PostsContainer>
               {posts.map((post) => {
-                return <Post data={post[0]} id={post[1]} />;
+                return <Post data={post[0]} id={post[1]} key={post[1]} />;
               })}
             </PostsContainer>
           </MiddleContainer>
@@ -80,6 +81,7 @@ const HomePage = ({
                   <ArticlePreview
                     data={article_preview[0]}
                     id={article_preview[1]}
+                    key={article_preview[1]}
                   />
                 );
               })}

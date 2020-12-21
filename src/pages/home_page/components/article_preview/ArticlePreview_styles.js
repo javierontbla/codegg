@@ -30,8 +30,8 @@ export const ImageContainer = styled.div`
   height: 7.4rem;
   width: 100%;
   border: none;
-  border-top-left-radius: 0.35rem;
-  border-top-right-radius: 0.35rem;
+  border-top-left-radius: 0.305rem;
+  border-top-right-radius: 0.305rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.article_preview_image});

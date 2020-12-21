@@ -5,7 +5,7 @@ import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
 const { white } = colors;
-const { footer_font, slogan_title_font, slogan_subtitle_font } = fonts;
+const { open_sans } = fonts;
 
 export const FooterContainer = styled.footer`
   display: flex;
@@ -17,7 +17,7 @@ export const FooterContainer = styled.footer`
   background-color: transparent;
   height: 17rem;
   border: none;
-  font-family: ${footer_font};
+  font-family: ${open_sans};
   padding: 0rem 0rem 0.6rem 0rem;
   background: rgb(33, 33, 32);
   background: linear-gradient(
@@ -74,7 +74,7 @@ export const Option = styled.div`
 
 export const LinkContainer = styled(Link)`
   &&& {
-    font-family: ${footer_font};
+    font-family: ${open_sans};
     color: ${white};
     font-size: 0.55rem;
     &::after {

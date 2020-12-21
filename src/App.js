@@ -18,7 +18,7 @@ import ContactPage from "./pages/contact_page/ContactPage";
 import ArticlePage from "./pages/article_page/ArticlePage";
 import PrivacyPage from "./pages/privacy_page/PrivacyPage";
 import TermsConditionsPage from "./pages/terms_conditions_page/TermsConditionsPage";
-import Footer from "./components/footer.component/Footer";
+import Footer from "./components/footer_component/Footer";
 import { storeAvailableTagsStart } from "./redux/categories_page/actions";
 
 const App = ({ storeAvailableTags }) => {

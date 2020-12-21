@@ -27,7 +27,13 @@ const ArticlePreview = ({ data }) => {
           <Title>{data.title}</Title>
           <CategoriesContainer>
             {data.categories.map((category) => {
-              return <Category article_preview={"true"} category={category} />;
+              return (
+                <Category
+                  article_preview={"true"}
+                  category={category}
+                  key={category}
+                />
+              );
             })}
           </CategoriesContainer>
         </DataContainer>
