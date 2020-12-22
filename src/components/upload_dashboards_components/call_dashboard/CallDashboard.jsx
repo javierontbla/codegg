@@ -79,7 +79,7 @@ const CallDashboard = () => {
           <ActionContainer active_dashboard={active_dashboard}>
             <ActionOverlay>
               <Action action={current_action}>
-                {current_action.toUpperCase()}
+                {current_action.toLowerCase()}
               </Action>
             </ActionOverlay>
             <ActionChange onClick={() => handle_call_card_action()}>
@@ -121,6 +121,8 @@ const CallDashboard = () => {
           </OptionContainer>
           <CommentInput
             placeholder="¿Algún comentario? (Opcional)"
+            type="text"
+            maxLength="24"
             onChange={(e) => handle_call_card_fields("comment", e.target.value)}
           />
         </MiddleContainer>

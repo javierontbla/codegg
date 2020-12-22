@@ -17,13 +17,22 @@ import {
   Menu,
   MenuOption,
 } from "./NavBar_styles";
-import { User } from "../../redux/user/class";
+import { google_provider, auth } from "../../firebase";
 
-const NavBar = ({ active_user }) => {
+const NavBar = ({ active_user_database }) => {
   const [menu_active, set_menu_active] = useState(false);
 
   const display_profile_menu = () => {
     set_menu_active((prev_state) => !prev_state);
+  };
+
+  const log_in = () => {
+    auth.signInWithPopup(google_provider);
+  };
+
+  const log_out = () => {
+    auth.signOut();
+    set_menu_active(false);
   };
 
   return (
@@ -46,7 +55,7 @@ const NavBar = ({ active_user }) => {
           </LinkContainer>
         </PagesContainer>
         <UserContainer>
-          {active_user ? (
+          {active_user_database ? (
             <>
               <ProfileContainer>
                 <ProfileIcon
@@ -56,12 +65,14 @@ const NavBar = ({ active_user }) => {
                 <Menu menu_active={menu_active}>
                   <MenuOption>Perfil</MenuOption>
                   <MenuOption>Ajustes</MenuOption>
-                  <MenuOption last_child={"true"}>Cerrar Sesión</MenuOption>
+                  <MenuOption last_child={"true"} onClick={() => log_out()}>
+                    Cerrar Sesión
+                  </MenuOption>
                 </Menu>
               </ProfileContainer>
             </>
           ) : (
-            <LogIn onClick={() => User.log_in_with_google()}>Ingresar</LogIn>
+            <LogIn onClick={() => log_in()}>Ingresar</LogIn>
           )}
         </UserContainer>
       </Navbar>
@@ -70,8 +81,10 @@ const NavBar = ({ active_user }) => {
 };
 
 // redux
-const mapStateToProps = ({ user_reducer: { active_user } }) => ({
-  active_user,
+const mapStateToProps = ({ user_reducer: { active_user_database } }) => ({
+  active_user_database,
 });
 
-export default connect(mapStateToProps, null)(NavBar);
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

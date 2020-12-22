@@ -130,17 +130,18 @@ export const Action = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.5rem;
-  font-family: ${open_sans};
-  font-weight: 600;
+  font-size: 0.565rem;
+  font-family: ${roboto};
+  color: ${white};
+  text-transform: capitalize;
+  font-weight: 500;
   padding: 0rem 0.35rem 0rem 0.35rem;
-  line-height: 100%;
   letter-spacing: 0.5px;
   margin: 0rem 0rem 0rem 0rem;
-  height: 1rem;
+  height: 1.05rem;
   width: fit-content;
   border-radius: 0.15rem;
-  color: ${white};
+  line-height: 100%;
   background: ${(props) =>
     props.action === "venta" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
   background: ${(props) =>

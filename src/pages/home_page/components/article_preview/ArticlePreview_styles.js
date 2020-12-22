@@ -4,7 +4,7 @@ import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
 const { grey, white, black } = colors;
-const { open_sans, source_sans_pro, roboto } = fonts;
+const { source_sans_pro, roboto } = fonts;
 
 export const ArticlePreviewContainer = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ export const ArticlePreviewContainer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  height: 7.4rem;
+  height: 8rem;
   width: 100%;
   border: none;
   border-top-left-radius: 0.305rem;
@@ -44,66 +44,85 @@ export const DataContainer = styled.div`
   width: 100%;
 `;
 
-export const InformationContainer = styled.div`
-  line-height: 100%;
-  height: fit-content;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0rem 0rem 0rem 0rem;
-  height: 1rem;
-  margin: 0.55rem 0.55rem 0.3rem 0.55rem;
-`;
-
-export const Date = styled.div`
-  display: flex;
-  align-items: center;
-  line-height: 100%;
-  font-family: ${roboto};
-  font-size: 0.75rem;
-  color: ${grey};
-  letter-spacing: 0.25px;
-  margin: 0rem 0rem 0rem 0rem;
-  width: fit-content;
-`;
-
 export const Premium = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.5rem;
-  font-family: ${open_sans};
-  font-weight: 600;
+  font-size: 0.565rem;
+  font-family: ${roboto};
+  font-weight: 500;
   padding: 0rem 0.35rem 0rem 0.35rem;
   letter-spacing: 0.5px;
-  margin: 0rem 0rem 0rem 0.75rem;
-  height: 100%;
+  margin: 0.55rem 0rem 0rem 0.55rem;
+  height: 1.05rem;
   width: fit-content;
   border-radius: 0.15rem;
   line-height: 100%;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
-  color: ${white};
+  background: transparent;
+  color: ${black};
+  border: 0.25px solid ${black};
 `;
 
 export const Title = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: ${black};
   font-weight: 600;
   letter-spacing: 0.5px;
   line-height: 115%;
+  width: 100%;
+  height: fit-content;
+  padding: 0.35rem 0.55rem 0.35rem 0.55rem;
+`;
+
+export const ProfileInformationContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 3.5rem;
   padding: 0rem 0.55rem 0rem 0.55rem;
+  margin: 0rem 0rem 0.25rem 0rem;
+`;
+
+export const ProfileImage = styled.div`
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 50%;
+  border: none;
+  margin: 0rem 0.5rem 0rem 0rem;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${(props) => props.profile_image_url});
+  background-repeat: no-repeat;
+`;
+
+export const NameAndDateContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+`;
+
+export const Name = styled.div`
+  line-height: 100%;
+  font-family: ${source_sans_pro};
+  font-size: 0.95rem;
+  color: ${black};
+  margin: 0rem 0rem 0.15rem 0rem;
+`;
+
+export const Date = styled.div`
+  line-height: 100%;
+  font-family: ${roboto};
+  font-size: 0.65rem;
+  color: ${grey};
+  letter-spacing: 0.25px;
+  width: fit-content;
 `;
 
 export const CategoriesContainer = styled.div`
-  margin: 1rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
   padding: 0.25rem 0.15rem 0.25rem 0.15rem;
   border-top: 0.5px solid ${grey};
 `;

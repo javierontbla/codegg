@@ -34,7 +34,7 @@ const CallCard = ({ home_page, data }) => {
           <Title>{data.symbol.toUpperCase()}</Title>
           <InformationContainer>
             <Action action={data.action.toLowerCase()}>
-              {data.action.toUpperCase()}
+              {data.action.toLowerCase()}
             </Action>
             <Date>{moment(data.date.toDate()).format("LL")}</Date>
             <Premium>Premium</Premium>

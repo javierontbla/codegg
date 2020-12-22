@@ -11,9 +11,9 @@ const InformationStyles = css`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.5rem;
-  font-family: ${open_sans};
-  font-weight: 600;
+  font-size: 0.565rem;
+  font-family: ${roboto};
+  font-weight: 500;
   padding: 0rem 0.35rem 0rem 0.35rem;
   letter-spacing: 0.5px;
   margin: 0rem 0.25rem 0rem 0.25rem;
@@ -21,6 +21,9 @@ const InformationStyles = css`
   width: fit-content;
   border-radius: 0.15rem;
   line-height: 100%;
+  background: transparent;
+  color: ${black};
+  border: 0.25px solid ${black};
 `;
 
 export const CallCardContainer = styled.div`
@@ -66,7 +69,7 @@ export const InformationContainer = styled.div`
   flex-wrap: nowrap;
   margin: 0.4rem 0rem 0rem -0.25rem;
   padding: 0rem 0rem 0rem 0rem;
-  height: 1rem;
+  height: 1.05rem;
 `;
 
 export const Action = styled.div`
@@ -78,31 +81,16 @@ export const Action = styled.div`
     props.action === "venta"
       ? "linear-gradient(45deg,rgba(249, 104, 106, 1) 5%,rgba(185, 32, 34, 1) 95%)"
       : "linear-gradient(45deg, rgba(67, 170, 139, 1) 0%, rgba(55, 139, 136, 1) 100%)"};
+  text-transform: capitalize;
+  border: none;
 `;
 
 export const Premium = styled.div`
   ${InformationStyles};
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
-  color: ${white};
-  font-family: ${roboto};
 `;
 
 export const Date = styled.div`
   ${InformationStyles};
-  background: rgb(219, 223, 227);
-  background: linear-gradient(
-    45deg,
-    rgba(219, 223, 227, 1) 5%,
-    rgba(201, 203, 205, 1) 95%
-  );
-  color: ${black};
-  font-size: 0.565rem;
-  font-family: ${roboto};
 `;
 
 export const MiddleContainer = styled.div`
@@ -143,8 +131,8 @@ export const RightText = styled.div`
   padding: 0.125rem 0.35rem 0.125rem 0.35rem;
   margin: 0rem 0rem 0rem 0rem;
   border-radius: 0.15rem;
-  font-weight: 600;
-  font-size: 0.675rem;
+  font-weight: 500;
+  font-size: 0.7rem;
   font-family: ${roboto};
   letter-spacing: 0.5px;
   color: ${black};

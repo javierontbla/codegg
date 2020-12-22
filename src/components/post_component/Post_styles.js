@@ -27,25 +27,22 @@ export const Premium = styled.div`
   right: 0;
   top: 0;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  line-height: 100%;
-  background: ${grey};
-  height: 1.55rem;
-  width: fit-content;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
-  color: ${white};
-  margin: 0.75rem 0.65rem 0rem 0rem;
-  padding: 0rem 0.5rem 0rem 0.5rem;
-  border-radius: 0.15rem;
-  font-family: ${open_sans};
-  font-size: 0.7rem;
-  font-weight: 600;
+  justify-content: center;
+  font-size: 0.565rem;
+  font-family: ${roboto};
+  font-weight: 500;
+  padding: 0rem 0.35rem 0rem 0.35rem;
   letter-spacing: 0.5px;
+  margin: 0.75rem 0.75rem 0rem 0rem;
+  height: 1.05rem;
+  width: fit-content;
+  border-radius: 0.15rem;
+  line-height: 100%;
+  background: transparent;
+  color: ${black};
+  border: 0.25px solid ${black};
 `;
 
 export const TopContainer = styled.div`
@@ -65,7 +62,6 @@ export const TopContainer = styled.div`
 export const ProfileImageContainer = styled.div`
   width: 3rem;
   height: 3rem;
-  border-radius: 50%;
   border-radius: 50%;
   border: none;
   margin: 0rem 0.5rem 0rem 0rem;

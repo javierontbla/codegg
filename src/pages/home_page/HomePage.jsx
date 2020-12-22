@@ -34,7 +34,7 @@ const HomePage = ({
   article_previews,
 }) => {
   useEffect(() => {
-    document.title = `Codegg - Inversiones Inteligentes`;
+    document.title = `Codegg - Explora Inversiones Inteligentes`;
     request_latest_trades();
     request_posts();
     request_article_previews();
