@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import Codegg from "./official_logo.svg";
+import Codegg from "./media/official_logo.svg";
+import UserIcon from "./media/user_button.svg";
 import {
   Navbar,
   LinkContainer,
@@ -11,11 +12,20 @@ import {
   PageLink,
   UserContainer,
   LogIn,
-  ProfileMenu,
+  ProfileContainer,
+  ProfileIcon,
+  Menu,
+  MenuOption,
 } from "./NavBar_styles";
 import { User } from "../../redux/user/class";
 
 const NavBar = ({ active_user }) => {
+  const [menu_active, set_menu_active] = useState(false);
+
+  const display_profile_menu = () => {
+    set_menu_active((prev_state) => !prev_state);
+  };
+
   return (
     <>
       <Navbar className="container">
@@ -37,7 +47,19 @@ const NavBar = ({ active_user }) => {
         </PagesContainer>
         <UserContainer>
           {active_user ? (
-            <ProfileMenu>logged in</ProfileMenu>
+            <>
+              <ProfileContainer>
+                <ProfileIcon
+                  src={UserIcon}
+                  onClick={() => display_profile_menu()}
+                />
+                <Menu menu_active={menu_active}>
+                  <MenuOption>Perfil</MenuOption>
+                  <MenuOption>Ajustes</MenuOption>
+                  <MenuOption last_child={"true"}>Cerrar Sesión</MenuOption>
+                </Menu>
+              </ProfileContainer>
+            </>
           ) : (
             <LogIn onClick={() => User.log_in_with_google()}>Ingresar</LogIn>
           )}

@@ -11,7 +11,7 @@ const InformationStyles = css`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
   font-family: ${open_sans};
   font-weight: 600;
   padding: 0rem 0.35rem 0rem 0.35rem;
@@ -66,7 +66,7 @@ export const InformationContainer = styled.div`
   flex-wrap: nowrap;
   margin: 0.4rem 0rem 0rem -0.25rem;
   padding: 0rem 0rem 0rem 0rem;
-  height: 1.1rem;
+  height: 1rem;
 `;
 
 export const Action = styled.div`

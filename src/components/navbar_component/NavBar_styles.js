@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { black, white } = colors;
+const { black, white, grey } = colors;
 const { open_sans } = fonts;
 
 export const Navbar = styled.div`
@@ -73,6 +73,7 @@ export const PageLink = styled.div`
 `;
 
 export const UserContainer = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   width: fit-content;
@@ -84,7 +85,53 @@ export const UserContainer = styled.div`
   }
 `;
 
-export const ProfileMenu = styled.div``;
+export const ProfileContainer = styled.div`
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  height: 50%;
+`;
+
+export const ProfileIcon = styled.img`
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0rem 0.1rem 0rem 0rem;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.95;
+  }
+`;
+
+export const Menu = styled.div`
+  position: absolute;
+  right: 0;
+  display: ${(props) => (props.menu_active ? "block" : "none")};
+  z-index: 1;
+  background: ${white};
+  border-radius: 0.25rem;
+  border: 1px solid ${grey};
+  width: 7.85rem;
+  height: fit-content;
+  margin: 0.5rem 0rem 0rem 0rem;
+  box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
+`;
+
+export const MenuOption = styled.div`
+  width: 100%;
+  height: fit-content;
+  font-size: 0.8rem;
+  font-family: ${open_sans};
+  color: ${black};
+  font-weight: 600;
+  padding: 0.65rem 0.35rem 0.65rem 0.35rem;
+  border-bottom: ${(props) =>
+    props.last_child ? "none" : `0.5px solid ${grey}`};
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 export const LogIn = styled.div`
   display: flex;

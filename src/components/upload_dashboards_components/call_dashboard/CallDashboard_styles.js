@@ -130,14 +130,14 @@ export const Action = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
   font-family: ${open_sans};
   font-weight: 600;
   padding: 0rem 0.35rem 0rem 0.35rem;
   line-height: 100%;
   letter-spacing: 0.5px;
   margin: 0rem 0rem 0rem 0rem;
-  height: 1.1rem;
+  height: 1rem;
   width: fit-content;
   border-radius: 0.15rem;
   color: ${white};
