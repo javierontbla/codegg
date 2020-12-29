@@ -7,10 +7,10 @@ const INITIAL_STATE = {
   unfilteredArticles: [],
   filteredArticles: [],
   currentTag: [],
-  availableTags: [],
+  available_categories: [],
   lastFiltered: null,
   lastUnfiltered: null,
-  store_error: null,
+  categories_error: null,
   error: null,
 };
 
@@ -43,11 +43,11 @@ export const categories_page_reducer = (state = INITIAL_STATE, action) => {
         error: null,
       };
 
-    case categories_page_types.STORE_AVAILABLE_CATEGORIES_START:
+    case categories_page_types.REQUEST_AVAILABLE_CATEGORIES_START:
       return {
         ...state,
         loading_categories: true,
-        store_error: null,
+        categories_error: null,
       };
 
     case categories_page_types.FETCH_UNFILTERED_ARTICLES_SUCCESS:
@@ -68,12 +68,11 @@ export const categories_page_reducer = (state = INITIAL_STATE, action) => {
         noMorePosts: false,
       };
 
-    case categories_page_types.STORE_AVAILABLE_CATEGORIES_SUCCESS:
-      console.log("HERE");
+    case categories_page_types.REQUEST_AVAILABLE_CATEGORIES_SUCCESS:
       return {
         ...state,
         loading_categories: false,
-        availableTags: action.payload,
+        available_categories: action.payload,
         store_error: null,
       };
 
@@ -91,7 +90,7 @@ export const categories_page_reducer = (state = INITIAL_STATE, action) => {
         error: action.payload,
       };
 
-    case categories_page_types.STORE_AVAILABLE_CATEGORIES_FAILURE:
+    case categories_page_types.REQUEST_AVAILABLE_CATEGORIES_FAILURE:
       return {
         ...state,
         loading_categories: false,

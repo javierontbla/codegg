@@ -53,7 +53,7 @@ export const Premium = styled.button`
   font-weight: 500;
   padding: 0.25rem 0.35rem 0.25rem 0.35rem;
   letter-spacing: 0.5px;
-  margin: 0.55rem 0rem 0rem 0.55rem;
+  margin: 0.65rem 0rem 0rem 0.55rem;
   height: fit-content;
   width: fit-content;
   border-radius: 0.15rem;
@@ -76,7 +76,7 @@ export const Title = styled.div`
   line-height: 115%;
   width: 100%;
   height: fit-content;
-  padding: 0.35rem 0.55rem 0.35rem 0.55rem;
+  padding: 0.45rem 0.55rem 0.35rem 0.55rem;
 `;
 
 export const ProfileInformationContainer = styled.div`

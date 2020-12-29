@@ -3,25 +3,25 @@ import { takeLatest, put } from "redux-saga/effects";
 import { categories_page_types } from "./types";
 import { db } from "../../firebase";
 import {
+  request_available_categories_action_success,
+  request_available_categories_action_failure,
   fetchUnfilteredArticlesSuccess,
   fetchUnfilteredArticlesFailure,
   fetchFilteredArticlesSuccess,
   fetchFilteredArticlesFailure,
   storeLastUnfilteredElement,
   storeLastFilteredElement,
-  storeAvailableTagsSuccess,
-  storeAvailableTagsFailure,
 } from "./actions";
 
 // async functions
 function* fetchUnfilteredAsync() {
   const articlesRef = db
     .collection(`articles`)
-    .orderBy("fecha", "desc")
-    .limit(6);
+    .orderBy("date", "desc")
+    .limit(2);
   // inital fetch from firebase
   try {
-    const res = yield articlesRef.get({ source: "server" }).then((snapshot) => {
+    const res = yield articlesRef.get().then((snapshot) => {
       // we get the last doc from the collection, for future fetching
       // in case user wants to load more posts
       const lastRef = snapshot.docs[snapshot.docs.length - 1];
@@ -31,6 +31,7 @@ function* fetchUnfilteredAsync() {
       );
       return [articles, lastRef];
     });
+
     // firing succesful actions to store data on reducer
     yield put(fetchUnfilteredArticlesSuccess(res[0]));
     yield put(storeLastUnfilteredElement(res[1]));
@@ -119,18 +120,18 @@ function* fetchMoreFilteredAsync(action) {
   }
 }
 
-function* storeAvailableTagsAsync() {
+function* request_available_categories_async() {
   // get all available tags from firebase
-  const tagsRef = db.doc(`categorias/NAsurinyFbWcpWKeUnId`);
+  const categories_ref = db.doc(`categories/oUrt0M5eEN8f7FosGxqW`);
 
   try {
-    const res = yield tagsRef.get({ source: "server" }).then((doc) => {
-      return doc.data().categorias;
+    const response = yield categories_ref.get().then((doc) => {
+      return doc.data().categories;
     });
 
-    yield put(storeAvailableTagsSuccess(res));
+    yield put(request_available_categories_action_success(response));
   } catch (error) {
-    yield put(storeAvailableTagsFailure(error));
+    yield put(request_available_categories_action_failure(error));
   }
 }
 
@@ -163,9 +164,9 @@ export function* fetchMoreFiltered() {
   );
 }
 
-export function* storeAvailableTags() {
+export function* request_available_categories() {
   yield takeLatest(
-    categories_page_types.STORE_AVAILABLE_CATEGORIES_START,
-    storeAvailableTagsAsync
+    categories_page_types.REQUEST_AVAILABLE_CATEGORIES_START,
+    request_available_categories_async
   );
 }

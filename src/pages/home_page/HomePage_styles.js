@@ -125,7 +125,7 @@ export const UploadDashboardContainer = styled.div`
 export const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 34rem;
+  width: 35rem;
   height: 100vh;
   margin: 0rem 0rem 0rem 0rem;
 `;

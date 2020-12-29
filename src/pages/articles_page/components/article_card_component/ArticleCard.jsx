@@ -5,33 +5,47 @@ import "moment/locale/es";
 import Category from "../../../../components/category_component/Category";
 import {
   ArticleCardContainer,
-  DataContainer,
-  Categories,
   LinkArticle,
-  Description,
+  ArticleImage,
+  TopContainer,
   Title,
-  Image,
+  Description,
+  MiddleContainer,
+  ProfileImage,
+  ProfileInformation,
+  Name,
   Date,
+  BottomContainer,
 } from "./ArticleCard_styles";
 
 const ArticleCard = ({ data, id, search }) => {
+  const url = data.title_link.split(" ").join("-").toLowerCase();
+
   useEffect(() => {
     moment.locale("es");
   }, []);
-  const link_title = data.titulo_link.split(" ").join("-").toLowerCase();
+
   return (
     <>
       <ArticleCardContainer>
-        <LinkArticle to={`/${link_title}-${id}`}>
-          <Image source={data.imagen} />
-          <DataContainer>
-            <Date>Date: {moment(data.fecha.toDate()).format("LL")}</Date>
-            <Title>{data.titulo}</Title>
-            <Description>{data.descripcion}</Description>
-          </DataContainer>
+        <LinkArticle to={`/${url}-${id}`}>
+          <ArticleImage source={data.article_image} />
+          <TopContainer>
+            <Title>{data.title}</Title>
+            <Description>{data.description}</Description>
+          </TopContainer>
+          <MiddleContainer>
+            <ProfileImage />
+            <ProfileInformation>
+              <Name>John Magay</Name>
+              <Date>
+                {moment(data.date.toDate()).startOf("hour").fromNow()}
+              </Date>
+            </ProfileInformation>
+          </MiddleContainer>
         </LinkArticle>
-        <Categories>
-          {data.categorias.map((category) => {
+        <BottomContainer>
+          {data.categories.map((category) => {
             return (
               <Category
                 onClick={() => search(category)}
@@ -41,7 +55,7 @@ const ArticleCard = ({ data, id, search }) => {
               />
             );
           })}
-        </Categories>
+        </BottomContainer>
       </ArticleCardContainer>
     </>
   );

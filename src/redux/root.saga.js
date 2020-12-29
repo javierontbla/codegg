@@ -14,8 +14,8 @@ import {
   fetchFiltered,
   fetchMoreUnfiltered,
   fetchMoreFiltered,
-  storeAvailableTags,
-} from "./categories_page/sagas";
+  request_available_categories,
+} from "./articles_page/sagas";
 import { fetchArticle } from "./article.page/sagas";
 import { sendForm } from "./feedback.page/sagas";
 
@@ -31,7 +31,7 @@ export function* rootSaga() {
     call(fetchMoreUnfiltered),
     call(fetchMoreFiltered),
     call(fetchArticle),
-    call(storeAvailableTags),
+    call(request_available_categories),
     call(sendForm),
   ]);
 }

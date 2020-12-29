@@ -6,7 +6,7 @@ import { CategoryContainer, IconContainer, Icon } from "./Category_styles";
 import {
   deleteTagRedux,
   fetchFilteredArticlesSuccess,
-} from "../../redux/categories_page/actions";
+} from "../../redux/articles_page/actions";
 
 const Category = ({
   emptyFilteredArticles,

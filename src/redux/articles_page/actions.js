@@ -50,17 +50,17 @@ export const storeLastUnfilteredElement = (last) => ({
   payload: last,
 });
 
-export const storeAvailableTagsStart = () => ({
-  type: categories_page_types.STORE_AVAILABLE_CATEGORIES_START,
+export const request_available_categories_action_start = () => ({
+  type: categories_page_types.REQUEST_AVAILABLE_CATEGORIES_START,
 });
 
-export const storeAvailableTagsSuccess = (tags) => ({
-  type: categories_page_types.STORE_AVAILABLE_CATEGORIES_SUCCESS,
-  payload: tags,
+export const request_available_categories_action_success = (categories) => ({
+  type: categories_page_types.REQUEST_AVAILABLE_CATEGORIES_SUCCESS,
+  payload: categories,
 });
 
-export const storeAvailableTagsFailure = (error) => ({
-  type: categories_page_types.STORE_AVAILABLE_CATEGORIES_FAILURE,
+export const request_available_categories_action_failure = (error) => ({
+  type: categories_page_types.REQUEST_AVAILABLE_CATEGORIES_FAILURE,
   payload: error,
 });
 

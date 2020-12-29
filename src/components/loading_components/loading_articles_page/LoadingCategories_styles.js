@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-import { colors } from "../../colors/colors";
+import { colors } from "../../../colors/colors";
 
 const { grey } = colors;
 
@@ -13,21 +13,23 @@ const LoadingAnimation = keyframes`
   }
 `;
 
-export const SkeletonContainer = styled.div`
-  height: 48rem;
-  margin: 1rem 0rem 0rem 0rem;
-  padding: 0rem 0rem 0rem 0rem;
+export const LoadingCategoriesContainer = styled.div`
+  height: fit-content;
+  margin: 0rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0.75rem 0rem;
   display: flex;
   align-items: center;
+  border-bottom: 0.5px solid ${grey};
 `;
 
-export const SkeletonArticle = styled.div`
+export const Category = styled.div`
   display: flex;
-  width: 33%;
-  border-radius: 0.25rem;
-  height: 100%;
+  width: 4.5rem;
+  border-radius: 0.15rem;
+  height: 1.6rem;
   border: none;
-  margin: 0rem 0.5rem 0rem 0.5rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  margin: 0.4rem 0.4rem 0.4rem 0.4rem;
   position: relative;
   overflow: hidden;
   background: ${grey};

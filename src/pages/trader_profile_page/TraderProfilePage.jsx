@@ -2,7 +2,7 @@ import React from "react";
 
 import ProfileCard from "./components/ProfileCard";
 import Opinions from "./components/Opinions";
-import CallCard from "../../components/call_card_component/CallCard";
+import TradeCard from "../../components/trade_card_component/TradeCard";
 import {
   TraderProfilePageContainer,
   ProfileInformationContainer,
@@ -28,7 +28,7 @@ const TraderProfilePage = () => {
         <TimelineContainer>
           <CallsContainer>
             {[1, 2, 3, 4, 5].map((card) => {
-              return <CallCard />;
+              return <TradeCard />;
             })}
           </CallsContainer>
           <PostsContainer></PostsContainer>

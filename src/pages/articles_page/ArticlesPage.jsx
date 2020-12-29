@@ -4,11 +4,12 @@ import moment from "moment";
 import Masonry from "react-masonry-css";
 
 import ArticleCard from "./components/article_card_component/ArticleCard";
-import LoadingCategoriesSkeleton from "../../components/loading_components/LoadingCategoriesSkeleton";
-import LoadingArticlesSkeleton from "../../components/loading_components/LoadingArticlesSkeleton";
+import LoadingCategories from "../../components/loading_components/loading_articles_page/LoadingCategories";
+import LoadingArticles from "../../components/loading_components/loading_articles_page/LoadingArticles";
 import Error from "../../components/error.component/Error";
 import Category from "../../components/category_component/Category";
 import {
+  request_available_categories_action_start,
   fetchUnfilteredArticlesStart,
   fetchFilteredArticlesStart,
   fetchMoreUnfilteredArticles,
@@ -17,7 +18,7 @@ import {
   deleteTagRedux,
   noMorePostsStart,
   fetchFilteredArticlesSuccess,
-} from "../../redux/categories_page/actions";
+} from "../../redux/articles_page/actions";
 import {
   AvailableCategoriesActiveContainer,
   AvailableCategoriesContainer,
@@ -32,6 +33,7 @@ import "./ArticlesPage.css";
 const ArticlesPage = ({
   loading_articles,
   loading_categories,
+  request_available_categories,
   getUnfilteredArticles,
   getFilteredArticles,
   getMoreUnfilteredArticles,
@@ -41,7 +43,7 @@ const ArticlesPage = ({
   lastUnfiltered,
   lastFiltered,
   error,
-  availableTags,
+  available_categories,
   currentTag,
   insertTag,
   deleteTag,
@@ -51,7 +53,9 @@ const ArticlesPage = ({
 }) => {
   useEffect(() => {
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
-    document.title = `Codegg - Articles`;
+    if (available_categories.length === 0) request_available_categories();
+
+    document.title = `Codegg - Artículos`;
     moment.locale("es");
 
     return () => {
@@ -113,9 +117,11 @@ const ArticlesPage = ({
   return (
     <>
       <ArticlesPageContainer className="container">
-        {!loading_categories ? (
+        {loading_categories ? (
+          <LoadingCategories />
+        ) : (
           <AvailableCategoriesContainer>
-            {availableTags.map((tag) => {
+            {available_categories.map((tag) => {
               return (
                 <Category
                   onClick={() => sendQueryBtn(tag.toLowerCase())}
@@ -126,8 +132,6 @@ const ArticlesPage = ({
               );
             })}
           </AvailableCategoriesContainer>
-        ) : (
-          <LoadingCategoriesSkeleton />
         )}
         {currentTag[0] ? (
           <AvailableCategoriesActiveContainer>
@@ -208,7 +212,7 @@ const ArticlesPage = ({
         ) : error ? (
           <Error />
         ) : (
-          <LoadingArticlesSkeleton />
+          <LoadingArticles />
         )}
       </ArticlesPageContainer>
     </>
@@ -224,7 +228,7 @@ const mapStateToProps = ({
     filteredArticles,
     lastUnfiltered,
     lastFiltered,
-    availableTags,
+    available_categories,
     currentTag,
     error,
     noMorePosts,
@@ -236,13 +240,15 @@ const mapStateToProps = ({
   filteredArticles,
   lastUnfiltered,
   lastFiltered,
-  availableTags,
+  available_categories,
   currentTag,
   error,
   noMorePosts,
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  request_available_categories: () =>
+    dispatch(request_available_categories_action_start()),
   getUnfilteredArticles: () => dispatch(fetchUnfilteredArticlesStart()),
   getFilteredArticles: (input) => dispatch(fetchFilteredArticlesStart(input)),
   getMoreFilteredArticles: (obj) => dispatch(fetchMoreFilteredArticles(obj)),

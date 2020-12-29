@@ -13,7 +13,6 @@ import ArticlePage from "./pages/article_page/ArticlePage";
 import PrivacyPage from "./pages/privacy_page/PrivacyPage";
 import TermsConditionsPage from "./pages/terms_conditions_page/TermsConditionsPage";
 import Footer from "./components/footer_component/Footer";
-import { storeAvailableTagsStart } from "./redux/categories_page/actions";
 import {
   log_in_active_user_action_start,
   log_out_active_user_action_start,
@@ -78,7 +77,6 @@ const App = ({ log_in_active_user, log_out_active_user }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  storeAvailableTags: () => dispatch(storeAvailableTagsStart()),
   log_in_active_user: (user) => dispatch(log_in_active_user_action_start(user)),
   log_out_active_user: () => dispatch(log_out_active_user_action_start()),
 });
