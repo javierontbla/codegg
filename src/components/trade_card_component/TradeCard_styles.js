@@ -3,31 +3,34 @@ import styled, { css } from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey, white, black } = colors;
+const { grey, white, black, red } = colors;
 const { source_sans_pro, open_sans, roboto } = fonts;
 
 const InformationStyles = css`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   font-size: 0.565rem;
   font-family: ${roboto};
   font-weight: 500;
-  padding: 0rem 0.35rem 0rem 0.35rem;
+  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
   letter-spacing: 0.5px;
   margin: 0rem 0.25rem 0rem 0.25rem;
-  height: 100%;
+  height: fit-content;
   width: fit-content;
   border-radius: 0.15rem;
   line-height: 100%;
   background: transparent;
   color: ${black};
   border: 0.25px solid ${black};
+
+  &:hover {
+    cursor: auto;
+  }
 `;
 
-export const CallCardContainer = styled.div`
-  width: 18rem;
+export const TradeCardContainer = styled.div`
+  width: ${(props) => (props.home_page ? "100%" : "18rem")};
   border: 1px solid blue;
   margin: ${(props) =>
     props.home_page ? "0.5rem 0rem 0.5rem 0rem" : "0rem 0.5rem 0rem 0.5rem"};
@@ -69,10 +72,9 @@ export const InformationContainer = styled.div`
   flex-wrap: nowrap;
   margin: 0.4rem 0rem 0rem -0.25rem;
   padding: 0rem 0rem 0rem 0rem;
-  height: 1.05rem;
 `;
 
-export const Action = styled.div`
+export const Action = styled.button`
   ${InformationStyles};
   color: ${white};
   background: ${(props) =>
@@ -85,11 +87,11 @@ export const Action = styled.div`
   border: none;
 `;
 
-export const Premium = styled.div`
+export const Premium = styled.button`
   ${InformationStyles};
 `;
 
-export const Date = styled.div`
+export const Date = styled.button`
   ${InformationStyles};
 `;
 

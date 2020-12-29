@@ -19,11 +19,11 @@ import {
   OptionContainer,
   BottomContainer,
   PostButton,
-} from "./CallDashboard_styles";
+} from "./TradeDashboard_styles";
 import ChangeIconSVG from "./media/change_button.svg";
 import CloseIconSVG from "./media/close_button.svg";
 
-const CallDashboard = () => {
+const TradeDashboard = () => {
   const [active_dashboard, set_active_dashboard] = useState(false);
   const [current_action, set_current_action] = useState("compra");
   const call_card_fields = useRef({
@@ -88,7 +88,7 @@ const CallDashboard = () => {
           </ActionContainer>
         </TopContainer>
         <MiddleContainer active_dashboard={active_dashboard}>
-          <OptionContainer>
+          <OptionContainer first_container={"true"}>
             <Subtitle>Compañia:</Subtitle>
             <SubtitleInput
               placeholder="Tesla"
@@ -135,4 +135,4 @@ const CallDashboard = () => {
   );
 };
 
-export default CallDashboard;
+export default TradeDashboard;

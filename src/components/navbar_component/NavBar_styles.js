@@ -8,7 +8,7 @@ import { fonts } from "../../fonts/fonts";
 const { black, white, grey } = colors;
 const { open_sans } = fonts;
 
-export const Navbar = styled.div`
+export const NavbarContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -111,7 +111,7 @@ export const Menu = styled.div`
   background: ${white};
   border-radius: 0.25rem;
   border: 1px solid ${grey};
-  width: 7.85rem;
+  width: 8rem;
   height: fit-content;
   margin: 0.5rem 0rem 0rem 0rem;
   box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
@@ -124,7 +124,7 @@ export const MenuOption = styled.div`
   font-family: ${open_sans};
   color: ${black};
   font-weight: 600;
-  padding: 0.65rem 0.35rem 0.65rem 0.35rem;
+  padding: 0.7rem 0.4rem 0.7rem 0.4rem;
   border-bottom: ${(props) =>
     props.last_child ? "none" : `0.5px solid ${grey}`};
 

@@ -83,7 +83,7 @@ export const CreateButton = styled.div`
 export const CloseIcon = styled.img`
   width: 1rem;
   height: 1rem;
-  margin: 0.4rem 0rem 0rem 0rem;
+  margin: 0.5rem 0rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
@@ -94,8 +94,7 @@ export const CloseIcon = styled.img`
 export const TopContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: ${(props) =>
-    props.active_dashboard ? "0rem 0rem 0.25rem 0rem" : "0rem 0rem 0rem 0rem"};
+  margin: 0rem 0rem 0rem 0rem;
   padding: ${(props) =>
     props.active_dashboard
       ? "0rem 0rem 0.55rem 0.55rem"
@@ -129,18 +128,17 @@ export const Action = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   font-size: 0.565rem;
   font-family: ${roboto};
   color: ${white};
   text-transform: capitalize;
   font-weight: 500;
-  padding: 0rem 0.35rem 0rem 0.35rem;
+  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
   letter-spacing: 0.5px;
   margin: 0rem 0rem 0rem 0rem;
-  height: 1.05rem;
   width: fit-content;
   border-radius: 0.15rem;
+  border: none;
   line-height: 100%;
   background: ${(props) =>
     props.action === "venta" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
@@ -167,8 +165,8 @@ export const MiddleContainer = styled.div`
   display: ${(props) => (props.active_dashboard ? "flex" : "none")};
   flex-direction: column;
   width: 100%;
-  margin: 0rem 0rem 0.5rem 0rem;
-  padding: 0rem 0.55rem 0rem 0.55rem;
+  margin: 0rem 0rem 0.75rem 0rem;
+  padding: 0.75rem 0.55rem 0rem 0.55rem;
 `;
 
 export const OptionContainer = styled.div`
@@ -176,7 +174,8 @@ export const OptionContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0.35rem 0rem 0rem 0rem;
+  margin: ${(props) =>
+    props.first_container ? "0rem 0rem 0rem 0rem" : "0.35rem 0rem 0rem 0rem"};
   padding: 0rem 0rem 0rem 0rem;
   width: 100%;
   height: 1.85rem;
@@ -215,7 +214,7 @@ export const CommentInput = styled.input`
   width: 100%;
   height: 1.85rem;
   border: 0.5px solid ${grey};
-  margin: 0.5rem 0rem 0rem 0rem;
+  margin: 0.75rem 0rem 0rem 0rem;
   border-radius: 0.15rem;
   font-size: 0.7rem;
   resize: none !important;

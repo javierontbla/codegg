@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 
 import {
-  CallCardContainer,
+  TradeCardContainer,
   TopContainer,
   Title,
   InformationContainer,
@@ -21,15 +21,15 @@ import {
   Count,
   TrendIcon,
   NameLink,
-} from "./CallCard_styles";
+} from "./TradeCard_styles";
 import up_button from "./media/up_button.svg";
 import down_button from "./media/down_button.svg";
 
-const CallCard = ({ home_page, data }) => {
+const TradeCard = ({ home_page, data }) => {
   moment.locale("es");
   return (
     <>
-      <CallCardContainer home_page={home_page}>
+      <TradeCardContainer home_page={home_page}>
         <TopContainer>
           <Title>{data.symbol.toUpperCase()}</Title>
           <InformationContainer>
@@ -69,9 +69,9 @@ const CallCard = ({ home_page, data }) => {
           </TrendsContainer>
           <NameLink>@{data.username}</NameLink>
         </BottomContainer>
-      </CallCardContainer>
+      </TradeCardContainer>
     </>
   );
 };
 
-export default CallCard;
+export default TradeCard;

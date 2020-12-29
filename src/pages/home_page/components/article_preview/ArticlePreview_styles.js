@@ -44,24 +44,27 @@ export const DataContainer = styled.div`
   width: 100%;
 `;
 
-export const Premium = styled.div`
+export const Premium = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   font-size: 0.565rem;
   font-family: ${roboto};
   font-weight: 500;
-  padding: 0rem 0.35rem 0rem 0.35rem;
+  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
   letter-spacing: 0.5px;
   margin: 0.55rem 0rem 0rem 0.55rem;
-  height: 1.05rem;
+  height: fit-content;
   width: fit-content;
   border-radius: 0.15rem;
   line-height: 100%;
   background: transparent;
   color: ${black};
   border: 0.25px solid ${black};
+
+  &:hover {
+    cursor: auto;
+  }
 `;
 
 export const Title = styled.div`
@@ -109,7 +112,7 @@ export const Name = styled.div`
   font-family: ${source_sans_pro};
   font-size: 0.95rem;
   color: ${black};
-  margin: 0rem 0rem 0.15rem 0rem;
+  margin: 0rem 0rem 0.185rem 0rem;
 `;
 
 export const Date = styled.div`

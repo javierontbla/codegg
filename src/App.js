@@ -63,7 +63,7 @@ const App = ({ log_in_active_user, log_out_active_user }) => {
             <Route exact path="/" component={HomePage} />
             <Route path="/articulos" component={ArticlesPage} />
             <Route path="/community" component={CommunityPage} />
-            <Route path="/inversionistas" component={InvestorsPage} />
+            <Route path="/inversores" component={InvestorsPage} />
             <Route path="/contacto" component={ContactPage} />
             <Route path="/privacy" component={PrivacyPage} />
             <Route path="/terms" component={TermsConditionsPage} />

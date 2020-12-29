@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Codegg from "./media/official_logo.svg";
 import UserIcon from "./media/user_button.svg";
 import {
-  Navbar,
+  NavbarContainer,
   LinkContainer,
   LogoContainer,
   Img,
@@ -37,7 +37,7 @@ const NavBar = ({ active_user_database }) => {
 
   return (
     <>
-      <Navbar className="container">
+      <NavbarContainer className="container">
         <PagesContainer>
           <LogoContainer>
             <LinkContainer to="/">
@@ -64,7 +64,6 @@ const NavBar = ({ active_user_database }) => {
                 />
                 <Menu menu_active={menu_active}>
                   <MenuOption>Perfil</MenuOption>
-                  <MenuOption>Ajustes</MenuOption>
                   <MenuOption last_child={"true"} onClick={() => log_out()}>
                     Cerrar Sesión
                   </MenuOption>
@@ -75,7 +74,7 @@ const NavBar = ({ active_user_database }) => {
             <LogIn onClick={() => log_in()}>Ingresar</LogIn>
           )}
         </UserContainer>
-      </Navbar>
+      </NavbarContainer>
     </>
   );
 };

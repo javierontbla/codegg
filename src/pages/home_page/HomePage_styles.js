@@ -84,7 +84,7 @@ export const MainContainer = styled.div`
 export const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 35rem;
+  width: 38rem;
   height: 100vh;
 `;
 
@@ -125,13 +125,14 @@ export const UploadDashboardContainer = styled.div`
 export const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 32rem;
+  width: 34rem;
   height: 100vh;
   margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const RightTitle = styled.div`
   ${Titles};
+  margin: 0rem 0rem 0.75rem 0rem;
 `;
 
 export const ArticlesPreviewContainer = styled.div`
@@ -141,7 +142,7 @@ export const ArticlesPreviewContainer = styled.div`
   overflow-y: scroll;
   width: 100%;
   height: 100%;
-  margin: 0.75rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 
   &::-webkit-scrollbar {
     display: none !important;

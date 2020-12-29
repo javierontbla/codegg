@@ -22,27 +22,30 @@ export const PostContainer = styled.div`
   }
 `;
 
-export const Premium = styled.div`
+export const Premium = styled.button`
   position: absolute;
   right: 0;
   top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   font-size: 0.565rem;
   font-family: ${roboto};
   font-weight: 500;
-  padding: 0rem 0.35rem 0rem 0.35rem;
+  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
   letter-spacing: 0.5px;
   margin: 0.75rem 0.75rem 0rem 0rem;
-  height: 1.05rem;
+  height: fit-content;
   width: fit-content;
   border-radius: 0.15rem;
   line-height: 100%;
   background: transparent;
   color: ${black};
   border: 0.25px solid ${black};
+
+  &:hover {
+    cursor: auto;
+  }
 `;
 
 export const TopContainer = styled.div`
