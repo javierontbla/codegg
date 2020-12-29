@@ -17,7 +17,7 @@ const ButtonStyles = css`
   border-radius: 0.15rem;
   font-family: ${open_sans};
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.5px;
   color: ${white};
   background: rgb(33, 33, 32);
@@ -240,18 +240,5 @@ export const BottomContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
   border-top: 0.5px solid ${grey};
-  padding: 0.55rem 0.55rem 0.55rem 0.55rem;
-`;
-
-export const PostButton = styled.div`
-  ${ButtonStyles};
-  margin: ${(props) =>
-    props.premium ? "0rem 0rem 0rem 0rem" : "0rem 0.5rem 0rem 0rem"};
-  background: ${(props) =>
-    props.premium ? "rgb(33, 33, 32)" : "rgb(219, 223, 227)"};
-  background: ${(props) =>
-    props.premium
-      ? "linear-gradient(90deg,rgba(33, 33, 32, 1) 5%,rgba(25, 25, 24, 1) 80%)"
-      : "linear-gradient(45deg,rgba(219, 223, 227, 1) 5%,rgba(201, 203, 205, 1) 95%)"};
-  color: ${(props) => (props.premium ? `${white}` : `${black}`)};
+  padding: 0.65rem 0.55rem 0.65rem 0.55rem;
 `;

@@ -109,7 +109,7 @@ export const Menu = styled.div`
   display: ${(props) => (props.menu_active ? "block" : "none")};
   z-index: 1;
   background: ${white};
-  border-radius: 0.25rem;
+  border-radius: 0.35rem;
   border: 1px solid ${grey};
   width: 8rem;
   height: fit-content;

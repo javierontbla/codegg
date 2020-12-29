@@ -18,8 +18,8 @@ import {
   CommentInput,
   OptionContainer,
   BottomContainer,
-  PostButton,
 } from "./TradeDashboard_styles";
+import PublishButton from "../../publish_button_component/PublishButton";
 import ChangeIconSVG from "./media/change_button.svg";
 import CloseIconSVG from "./media/close_button.svg";
 
@@ -46,10 +46,6 @@ const TradeDashboard = () => {
 
   const handle_call_card_fields = (subtitle, content) => {
     call_card_fields.current[`${subtitle}`] = `${content}`;
-  };
-
-  const create_call_card = () => {
-    console.log(call_card_fields);
   };
 
   return (
@@ -127,8 +123,7 @@ const TradeDashboard = () => {
           />
         </MiddleContainer>
         <BottomContainer active_dashboard={active_dashboard}>
-          <PostButton onClick={() => create_call_card()}>Pública</PostButton>
-          <PostButton premium={"true"}>Premium</PostButton>
+          <PublishButton />
         </BottomContainer>
       </CallDashboardContainer>
     </>

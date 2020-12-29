@@ -221,7 +221,7 @@ const ArticlesPage = ({
 
 // redux
 const mapStateToProps = ({
-  categories_page_reducer: {
+  articles_page_reducer: {
     loading_articles,
     loading_categories,
     unfilteredArticles,

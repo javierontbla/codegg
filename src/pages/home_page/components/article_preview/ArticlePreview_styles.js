@@ -27,7 +27,7 @@ export const ArticlePreviewContainer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  height: 8rem;
+  height: 8.75rem;
   width: 100%;
   border: none;
   border-top-left-radius: 0.305rem;
@@ -40,7 +40,9 @@ export const ImageContainer = styled.div`
   padding: 0rem 0rem 0rem 0rem !important;
 `;
 
-export const DataContainer = styled.div`
+export const TopContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `;
 
@@ -53,7 +55,7 @@ export const Premium = styled.button`
   font-weight: 500;
   padding: 0.25rem 0.35rem 0.25rem 0.35rem;
   letter-spacing: 0.5px;
-  margin: 0.65rem 0rem 0rem 0.55rem;
+  margin: 0.65rem 0rem 0rem 0.65rem;
   height: fit-content;
   width: fit-content;
   border-radius: 0.15rem;
@@ -76,16 +78,16 @@ export const Title = styled.div`
   line-height: 115%;
   width: 100%;
   height: fit-content;
-  padding: 0.45rem 0.55rem 0.35rem 0.55rem;
+  padding: 0.45rem 0.65rem 0rem 0.65rem;
 `;
 
-export const ProfileInformationContainer = styled.div`
+export const MiddleContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 3.5rem;
-  padding: 0rem 0.55rem 0rem 0.55rem;
-  margin: 0rem 0rem 0.25rem 0rem;
+  height: fit-content;
+  padding: 0.85rem 0.65rem 0.85rem 0.65rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const ProfileImage = styled.div`
@@ -100,19 +102,20 @@ export const ProfileImage = styled.div`
   background-repeat: no-repeat;
 `;
 
-export const NameAndDateContainer = styled.div`
+export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
 `;
 
-export const Name = styled.div`
+export const ProfileName = styled.div`
   line-height: 100%;
   font-family: ${source_sans_pro};
   font-size: 0.95rem;
   color: ${black};
-  margin: 0rem 0rem 0.185rem 0rem;
+  margin: 0rem 0rem 0.2rem 0rem;
+  text-transform: capitalize;
 `;
 
 export const Date = styled.div`
@@ -124,8 +127,8 @@ export const Date = styled.div`
   width: fit-content;
 `;
 
-export const CategoriesContainer = styled.div`
+export const BottomContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0.25rem 0.15rem 0.25rem 0.15rem;
+  padding: 0.35rem 0.25rem 0.35rem 0.25rem;
   border-top: 0.5px solid ${grey};
 `;

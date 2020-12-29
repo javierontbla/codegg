@@ -14,7 +14,7 @@ const INITIAL_STATE = {
   error: null,
 };
 
-export const categories_page_reducer = (state = INITIAL_STATE, action) => {
+export const articles_page_reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case categories_page_types.FETCH_UNFILTERED_ARTICLES_START:
       return {
