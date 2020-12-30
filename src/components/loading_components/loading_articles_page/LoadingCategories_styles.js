@@ -1,8 +1,10 @@
 import styled, { keyframes } from "styled-components";
 
 import { colors } from "../../../colors/colors";
+import { fonts } from "../../../fonts/fonts";
 
 const { grey } = colors;
+const { open_sans } = fonts;
 
 const LoadingAnimation = keyframes`
   from {
@@ -15,8 +17,9 @@ const LoadingAnimation = keyframes`
 
 export const LoadingCategoriesContainer = styled.div`
   height: fit-content;
+  width: 100%;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0rem 0rem 0.75rem 0rem;
+  padding: 0rem 0rem 0.35rem 0rem;
   display: flex;
   align-items: center;
   border-bottom: 0.5px solid ${grey};
@@ -24,16 +27,23 @@ export const LoadingCategoriesContainer = styled.div`
 
 export const Category = styled.div`
   display: flex;
-  width: 4.5rem;
+  width: 100%;
   border-radius: 0.15rem;
   height: 1.6rem;
   border: none;
-  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
   position: relative;
   overflow: hidden;
   background: ${grey};
   opacity: 0.45;
+  font-family: ${open_sans};
+  letter-spacing: 0.5px;
+  height: fit-content;
+  color: transparent;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 100%;
 
   &::before {
     content: "";

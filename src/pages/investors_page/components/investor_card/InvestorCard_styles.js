@@ -27,15 +27,15 @@ export const TopContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  padding: 1.25rem 1rem 1.25rem 1rem;
   width: 100%;
   height: fit-content;
 `;
 
 export const ProfileImageContainer = styled.div`
   border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
+  width: 4.85rem;
+  height: 4.85rem;
   margin: 0rem 1rem 0rem 0rem;
   background-size: cover;
   background-position: center;
@@ -50,16 +50,16 @@ export const NameContainer = styled.div`
   align-items: flex-start;
   height: fit-content;
   width: fit-content;
-  font-family: ${name_font};
   padding: 0rem 0rem 0rem 0rem;
-  font-size: 2rem;
-  color: ${black};
 `;
 
 export const Name = styled.div`
   padding: 0rem 0rem 0rem 0rem !important;
   line-height: 100%;
   margin: 0.25rem 0rem 0.55rem 0rem;
+  font-size: 1.55rem;
+  color: ${black};
+  font-family: ${name_font};
 `;
 
 export const BadgesContainer = styled.div`
@@ -70,12 +70,12 @@ export const BadgesContainer = styled.div`
 `;
 
 export const NameLink = styled.div`
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   margin: -0.5rem 0rem 0rem 0rem;
   color: ${grey};
   font-family: ${open_sans};
   letter-spacing: 1px;
-  font-weight: 600;
+  font-weight: 500;
 
   &:hover {
     cursor: pointer;
@@ -90,19 +90,20 @@ export const MiddleContainer = styled.div`
 export const Description = styled.div`
   width: 100%;
   height: fit-content;
-  font-size: 0.925rem;
-  padding: 0.75rem 1rem 0.5rem 1rem;
-  border-top: 0.5px solid ${grey};
+  font-size: 0.9rem;
+  padding: 0rem 1rem 0rem 1rem;
   color: ${black};
-  line-height: 125%;
+  line-height: 130%;
 `;
 
 export const CategoriesContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
+  line-height: 100%;
   width: 100%;
-  padding: 0.6rem 0.5rem 1.1rem 0.5rem;
+  padding: 0.75rem 0.6rem 1rem 0.6rem;
 `;
 
 export const BottomContainer = styled.div`
@@ -116,29 +117,6 @@ export const BottomContainer = styled.div`
   padding: 0.85rem 1rem 0.85rem 1rem;
 `;
 
-export const ClassButton = styled.div`
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  border: none;
-  height: fit-content;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
-  font-family: ${open_sans};
-  padding: 0.425rem 0.65rem 0.425rem 0.65rem;
-  color: ${white};
-  font-size: 0.8rem;
-  border-radius: 0.15rem;
-  margin: 0rem 0rem 0rem 0rem;
-  letter-spacing: 1px;
-  font-weight: 600;
-  line-height: 100%;
-`;
-
 export const Subscribers = styled.div`
   display: flex;
   align-items: center;
@@ -147,6 +125,6 @@ export const Subscribers = styled.div`
   color: ${grey};
   font-family: ${open_sans};
   letter-spacing: 0.5px;
-  font-weight: 600;
-  font-size: 0.8rem;
+  font-weight: 500;
+  font-size: 0.7rem;
 `;

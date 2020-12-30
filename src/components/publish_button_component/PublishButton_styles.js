@@ -59,7 +59,7 @@ export const DropDownContainer = styled.div`
 
 export const DropDownImage = styled.img`
   width: 0.6rem;
-  height: 0.525rem;
+  height: 0.45rem;
   margin: 0.1rem 0rem 0rem 0rem;
 `;
 

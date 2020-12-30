@@ -8,9 +8,7 @@ import {
 const LoadingCategories = () => (
   <>
     <LoadingCategoriesContainer>
-      {[1, 2, 3, 4, 5].map((category) => {
-        return <Category key={category} />;
-      })}
+      <Category>Loading Categories...</Category>
     </LoadingCategoriesContainer>
   </>
 );

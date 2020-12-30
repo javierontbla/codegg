@@ -30,7 +30,7 @@ export const CategoryContainer = styled.div`
   margin: 0.4rem 0.4rem 0.4rem 0.4rem;
   font-size: ${(props) =>
     props.top || props.article_preview ? "0.65rem" : "0.8rem"};
-  font-weight: 600;
+  font-weight: 500;
   line-height: 100%;
 
   &:hover {

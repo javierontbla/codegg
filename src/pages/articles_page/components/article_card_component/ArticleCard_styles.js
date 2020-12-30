@@ -17,13 +17,13 @@ export const ArticleCardContainer = styled.div`
   width: 100%;
   border: 1px solid ${grey};
   border-radius: 0.35rem;
-  transition: box-shadow 0.2s;
-  box-shadow: 3px 3px 3px -1px #ced4da;
   background: ${white} !important;
+  box-shadow: 3px 3px 3px -1px #ced4da;
+  transition: box-shadow 0.2s;
 
   &:hover {
     cursor: pointer;
-    box-shadow: 5.5px 5.5px 5.5px -2.5px #ced4da;
+    box-shadow: 6px 6px 6px -2px #ced4da;
   }
 `;
 
@@ -54,7 +54,7 @@ export const Premium = styled.div`
   font-weight: 500;
   padding: 0.25rem 0.35rem 0.25rem 0.35rem;
   letter-spacing: 0.5px;
-  margin: 0.75rem 0rem 0rem 0.65rem;
+  margin: 0.75rem 0rem 0rem 1rem;
   height: fit-content;
   width: fit-content;
   border-radius: 0.15rem;
@@ -70,13 +70,12 @@ export const Premium = styled.div`
 
 export const Title = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 1.6rem;
+  font-size: 1.55rem;
   color: ${black};
-  font-weight: 600;
   letter-spacing: 0.5px;
   line-height: 110%;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0.55rem 0.65rem 0.75rem 0.65rem;
+  padding: 0.55rem 1rem 0.75rem 1rem;
 
   @media (max-width: 500px) {
   }
@@ -88,7 +87,7 @@ export const Description = styled.div`
   color: ${black};
   line-height: 130%;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0rem 0.65rem 0rem 0.65rem;
+  padding: 0rem 1rem 0rem 1rem;
 
   &::first-letter {
     text-transform: uppercase;
@@ -100,7 +99,7 @@ export const MiddleContainer = styled.div`
   flex-direction: row;
   align-items: center;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0.95rem 0.65rem 0.95rem 0.65rem;
+  padding: 0.95rem 1rem 0.95rem 1rem;
   height: fit-content;
 `;
 
@@ -154,7 +153,7 @@ export const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 0.35rem 0.25rem 0.35rem 0.25rem;
+  padding: 0.55rem 0.6rem 0.55rem 0.6rem;
   margin: 0rem 0rem 0rem 0rem;
   border-top: 0.5px solid ${grey};
 

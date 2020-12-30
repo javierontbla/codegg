@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import Masonry from "react-masonry-css";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { connect } from "react-redux";
 
 import InvestorCard from "./components/investor_card/InvestorCard";
 import TopInvestorCard from "./components/top_investor_card/TopInvestorCard";
+import { request_top_investors_start_action } from "../../redux/investors_page/actions";
 import {
   TradersPageContainer,
   TopTradersContainer,
@@ -16,9 +18,10 @@ import {
 } from "./InvestorsPage_styles";
 import "./InvestorsPage.css";
 
-const InvestorsPage = () => {
+const InvestorsPage = ({ top_investors, request_top_investors }) => {
   useEffect(() => {
-    document.title = `Codegg - Inversionistas`;
+    document.title = `Codegg - Explora Inversores`;
+    request_top_investors();
   }, []);
 
   const breakpoints = {
@@ -30,9 +33,11 @@ const InvestorsPage = () => {
   return (
     <TradersPageContainer className="container">
       <TopTradersContainer>
-        <Title>Top Investors</Title>
-        {[1, 2, 3, 4, 5].map((top_trader_card) => {
-          return <TopInvestorCard />;
+        <Title>Mejores Inversores</Title>
+        {top_investors.map((top_investor) => {
+          return (
+            <TopInvestorCard data={top_investor[0]} id={top_investor[1]} />
+          );
         })}
       </TopTradersContainer>
       <AllTradersContainer>
@@ -58,4 +63,13 @@ const InvestorsPage = () => {
   );
 };
 
-export default InvestorsPage;
+// redux
+const mapStateToProps = ({ investors_page_reducer: { top_investors } }) => ({
+  top_investors,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  request_top_investors: () => dispatch(request_top_investors_start_action()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(InvestorsPage);

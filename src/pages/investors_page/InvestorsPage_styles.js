@@ -22,7 +22,7 @@ export const TopTradersContainer = styled.div`
   align-items: center;
   border: none;
   height: fit-content;
-  width: 24rem;
+  width: 25rem;
   background: transparent;
   padding: 0rem 0rem 0rem 0rem;
   margin: 0rem 0rem 0rem 0rem;
@@ -34,13 +34,13 @@ export const Title = styled.div`
   background: ${white};
   border: 1px solid ${grey};
   font-family: ${source_sans_pro};
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   letter-spacing: 1px;
   padding: 0.65rem 0.55rem 0.65rem 0.55rem;
-  margin: 0rem 0rem 0.25rem 0rem;
   line-height: 100%;
-  border-radius: 0.25rem;
-  box-shadow: 1.25px 1.25px 1.25px -1px #ced4da;
+  border-radius: 0.35rem;
+  box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
+  margin: 0rem 0rem 0.75rem 0rem;
 `;
 
 export const AllTradersContainer = styled.div`

@@ -5,50 +5,43 @@ import Badge from "../../../../components/badge_component/Badge";
 import {
   TopInvestorContainer,
   TopContainer,
-  MiddleContainer,
-  BottomContainer,
-  ProfileImg,
+  RankContainer,
+  ProfileImage,
   NameContainer,
-  NameLink,
-  CategoriesContainer,
-  Subscribers,
-  ClassButton,
-  BadgesContainer,
   Name,
+  NameLink,
+  MiddleContainer,
+  CategoriesContainer,
+  BottomContainer,
+  Subscribers,
 } from "./TopInvestorCard_styles";
 
-const TopInvestorCard = () => {
+const TopInvestorCard = ({ data }) => {
   return (
     <>
       <TopInvestorContainer>
         <TopContainer>
-          <ProfileImg />
+          <ProfileImage profile_image_url={data.profile_image} />
           <NameContainer>
-            <BadgesContainer>
-              {["quant", "united states"].map((badge) => {
-                return (
-                  <Badge
-                    badge={badge}
-                    rank={badge === "quant" ? "true" : null}
-                    top={"true"}
-                  />
-                );
-              })}
-            </BadgesContainer>
-            <Name>Marco Rubio</Name>
-            <NameLink>@marco_rubio</NameLink>
+            <RankContainer>
+              <Badge badge={data.rank} top={"true"} />
+            </RankContainer>
+            <Name>{data.user.toLowerCase()}</Name>
+            <NameLink>@{data.username}</NameLink>
           </NameContainer>
         </TopContainer>
         <MiddleContainer>
           <CategoriesContainer>
-            {["stocks", "futures", "crypto", "bitcoin"].map((category) => {
+            {data.categories.map((category) => {
               return <Category top={"true"} category={category} />;
             })}
           </CategoriesContainer>
         </MiddleContainer>
         <BottomContainer>
-          <Subscribers>123k subscribers</Subscribers>
-          <ClassButton>Premium</ClassButton>
+          <Subscribers>
+            {data.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+            subscribers
+          </Subscribers>
         </BottomContainer>
       </TopInvestorContainer>
     </>

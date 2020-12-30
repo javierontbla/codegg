@@ -218,7 +218,7 @@ export const CommentInput = styled.input`
   border-radius: 0.15rem;
   font-size: 0.7rem;
   resize: none !important;
-  padding: 0rem 0.275rem 0rem 0.275rem;
+  padding: 0rem 0.3rem 0rem 0.3rem;
   color: ${black};
   font-family: ${roboto};
   letter-spacing: 0.25px;

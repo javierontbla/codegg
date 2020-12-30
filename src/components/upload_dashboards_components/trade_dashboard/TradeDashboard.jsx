@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { connect } from "react-redux";
 
 import {
   CallDashboardContainer,
@@ -23,7 +24,7 @@ import PublishButton from "../../publish_button_component/PublishButton";
 import ChangeIconSVG from "./media/change_button.svg";
 import CloseIconSVG from "./media/close_button.svg";
 
-const TradeDashboard = () => {
+const TradeDashboard = ({ current_drop_down_selection_trade }) => {
   const [active_dashboard, set_active_dashboard] = useState(false);
   const [current_action, set_current_action] = useState("compra");
   const call_card_fields = useRef({
@@ -123,11 +124,21 @@ const TradeDashboard = () => {
           />
         </MiddleContainer>
         <BottomContainer active_dashboard={active_dashboard}>
-          <PublishButton />
+          <PublishButton
+            current_drop_down_selection_trade={
+              current_drop_down_selection_trade
+            }
+            current_drop_down_selection_post={false}
+          />
         </BottomContainer>
       </CallDashboardContainer>
     </>
   );
 };
 
-export default TradeDashboard;
+// redux
+const mapStateToProps = ({
+  dashboards_reducer: { current_drop_down_selection_trade },
+}) => ({ current_drop_down_selection_trade });
+
+export default connect(mapStateToProps, null)(TradeDashboard);

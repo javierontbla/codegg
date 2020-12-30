@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
 import {
   PostDashboardContainer,
@@ -11,7 +12,7 @@ import {
 import PublishButton from "../../publish_button_component/PublishButton";
 import Camera from "./media/image_button.svg";
 
-const PostDashboard = () => {
+const PostDashboard = ({ current_drop_down_selection_post }) => {
   const [current_rows, set_current_rows] = useState(1);
 
   const handle_input_rows = (rows) => {
@@ -33,11 +34,19 @@ const PostDashboard = () => {
               <Icon src={Camera} />
             </UploadImageIcon>
           </UploadImageIconContainer>
-          <PublishButton />
+          <PublishButton
+            current_drop_down_selection_post={current_drop_down_selection_post}
+            current_drop_down_selection_trade={false}
+          />
         </ButtonsContainer>
       </PostDashboardContainer>
     </>
   );
 };
 
-export default PostDashboard;
+// redux
+const mapStateToProps = ({
+  dashboards_reducer: { current_drop_down_selection_post },
+}) => ({ current_drop_down_selection_post });
+
+export default connect(mapStateToProps, null)(PostDashboard);

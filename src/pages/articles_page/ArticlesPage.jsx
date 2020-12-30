@@ -55,7 +55,7 @@ const ArticlesPage = ({
     if (unfilteredArticles.length === 0) getUnfilteredArticles();
     if (available_categories.length === 0) request_available_categories();
 
-    document.title = `Codegg - Artículos`;
+    document.title = `Codegg - Descubre Artículos`;
     moment.locale("es");
 
     return () => {

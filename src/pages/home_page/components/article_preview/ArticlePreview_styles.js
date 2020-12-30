@@ -16,6 +16,7 @@ export const ArticlePreviewContainer = styled.div`
   margin: 0.5rem 0rem 0.5rem 0rem;
   border-radius: 0.35rem;
   box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  transition: box-shadow 0.4s;
 
   &:first-child {
     margin: 0rem 0rem 0.5rem 0rem !important;
@@ -23,6 +24,7 @@ export const ArticlePreviewContainer = styled.div`
 
   &:hover {
     cursor: pointer;
+    box-shadow: 3px 3px 3px -1.5px #ced4da;
   }
 `;
 
@@ -71,7 +73,7 @@ export const Premium = styled.button`
 
 export const Title = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: ${black};
   font-weight: 600;
   letter-spacing: 0.5px;

@@ -4,27 +4,30 @@ import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
 const { black } = colors;
-const { badge_font } = fonts;
+const { roboto } = fonts;
 
 export const BadgeContainer = styled.div`
+  text-transform: capitalize;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  color: ${black};
-  font-family: ${badge_font};
-  font-size: ${(props) => (props.top ? "0.4rem" : "0.55rem")};
+  font-size: 0.565rem;
+  font-family: ${roboto};
+  font-weight: 500;
+  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
+  letter-spacing: 0.5px;
+  margin: 0rem 0.25rem 0rem 0.25rem;
   height: fit-content;
   width: fit-content;
-  border: none;
   border-radius: 0.15rem;
-  background: ${(props) =>
-    props.rank ? "rgb(254, 206, 93)" : "rgb(219,223,227)"};
-  background: ${(props) =>
-    props.rank
-      ? "linear-gradient(45deg,rgba(254, 206, 93, 1) 0%,rgba(235, 191, 84, 1) 90%)"
-      : "linear-gradient(45deg, rgba(219,223,227,1) 5%, rgba(201,203,205,1) 95%)"};
-  padding: 0.1rem 0.35rem 0.1rem 0.35rem;
-  letter-spacing: 0.25px;
-  margin: 0rem 0.25rem 0rem 0.25rem;
-  font-weight: 600;
+  line-height: 100%;
+  background: transparent;
+  color: ${black};
+  border: 0.25px solid ${black};
+  background: transparent;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.95;
+  }
 `;

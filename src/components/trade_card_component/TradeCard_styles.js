@@ -57,11 +57,11 @@ export const TopContainer = styled.div`
 
 export const Title = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 2rem;
+  font-size: 1.55rem;
   color: ${black};
   z-index: 1;
   line-height: 100%;
-  letter-spacing: 0.25px;
+  letter-spacing: 0.5px;
   padding: 0rem 0rem 0rem 0rem;
 `;
 

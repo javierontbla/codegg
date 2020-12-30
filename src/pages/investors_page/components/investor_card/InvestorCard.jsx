@@ -15,7 +15,6 @@ import {
   BottomContainer,
   CategoriesContainer,
   Subscribers,
-  ClassButton,
 } from "./InvestorCard_styles";
 
 const InvestorCard = () => {
@@ -26,7 +25,7 @@ const InvestorCard = () => {
           <ProfileImageContainer />
           <NameContainer>
             <BadgesContainer>
-              {["quant", "united states"].map((badge) => {
+              {["quant"].map((badge) => {
                 return (
                   <Badge
                     badge={badge}
@@ -57,7 +56,6 @@ const InvestorCard = () => {
         </MiddleContainer>
         <BottomContainer>
           <Subscribers>123k subscribers</Subscribers>
-          <ClassButton>Public</ClassButton>
         </BottomContainer>
       </InvestorCardContainer>
     </>
