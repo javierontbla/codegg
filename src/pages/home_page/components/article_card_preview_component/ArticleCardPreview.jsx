@@ -14,9 +14,9 @@ import {
   ProfileName,
   Date,
   BottomContainer,
-} from "./ArticlePreview_styles";
+} from "./ArticleCardPreview_styles";
 
-const ArticlePreview = ({ data }) => {
+const ArticleCardPreview = ({ data }) => {
   moment.locale("es");
   return (
     <>
@@ -49,4 +49,4 @@ const ArticlePreview = ({ data }) => {
   );
 };
 
-export default ArticlePreview;
+export default ArticleCardPreview;

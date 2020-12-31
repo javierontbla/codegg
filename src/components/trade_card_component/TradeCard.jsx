@@ -50,7 +50,7 @@ const TradeCard = ({ home_page, data }) => {
             <RightText>{data.no_of_shares}</RightText>
           </OrderContainer>
           <OrderContainer>
-            <LeftText>Precio:</LeftText>
+            <LeftText>Precio p/ Acción:</LeftText>
             <RightText>
               ${data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </RightText>

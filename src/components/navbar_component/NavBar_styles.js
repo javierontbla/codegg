@@ -95,7 +95,7 @@ export const ProfileContainer = styled.div`
 export const ProfileIcon = styled.img`
   width: 1.6rem;
   height: 1.6rem;
-  margin: 0rem 0.1rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;

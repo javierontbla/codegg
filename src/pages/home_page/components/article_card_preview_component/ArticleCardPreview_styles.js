@@ -16,7 +16,7 @@ export const ArticlePreviewContainer = styled.div`
   margin: 0.5rem 0rem 0.5rem 0rem;
   border-radius: 0.35rem;
   box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
-  transition: box-shadow 0.4s;
+  transition: box-shadow 0.2s;
 
   &:first-child {
     margin: 0rem 0rem 0.5rem 0rem !important;
@@ -73,7 +73,7 @@ export const Premium = styled.button`
 
 export const Title = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: ${black};
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -114,7 +114,7 @@ export const ProfileContainer = styled.div`
 export const ProfileName = styled.div`
   line-height: 100%;
   font-family: ${source_sans_pro};
-  font-size: 0.95rem;
+  font-size: 0.925rem;
   color: ${black};
   margin: 0rem 0rem 0.2rem 0rem;
   text-transform: capitalize;

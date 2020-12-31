@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey, white, black, red } = colors;
+const { grey, white, black } = colors;
 const { source_sans_pro, open_sans, roboto } = fonts;
 
 const InformationStyles = css`
@@ -231,12 +231,12 @@ export const NameLink = styled.div`
   font-family: ${open_sans};
   color: ${grey};
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1px;
   padding: 0rem 0rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
-    opacity: 0.875;
+    opacity: 0.95;
   }
 `;

@@ -6,19 +6,22 @@ import { fonts } from "../../fonts/fonts";
 const { grey, black, white } = colors;
 const { open_sans, roboto, source_sans_pro } = fonts;
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const PostContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
   background: ${white};
-  border: 0px solid ${grey};
   border-radius: 0.35rem;
-  margin: 0.5rem 0rem 0.5rem 0rem;
+  margin: 0.75rem 0rem 0.75rem 0rem;
   box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
 
   &:first-child {
-    margin: 0rem 0rem 0.5rem 0rem;
+    margin: 0rem 0rem 0.75rem 0rem;
   }
 `;
 
@@ -59,7 +62,6 @@ export const TopContainer = styled.div`
   border-right: 1px solid ${grey};
   border-top-left-radius: 0.35rem;
   border-top-right-radius: 0.35rem;
-  background: transparent;
 `;
 
 export const ProfileImageContainer = styled.div`
@@ -82,7 +84,7 @@ export const UserDataContainer = styled.div`
 export const NamesContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
   margin: 0rem 0rem 0.175rem 0rem;
 
   &:hover {
@@ -102,7 +104,7 @@ export const NameLink = styled.div`
   font-family: ${open_sans};
   color: ${grey};
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1px;
   margin: 0rem 0rem 0rem 0.5rem;
 
@@ -125,7 +127,6 @@ export const MiddleContainer = styled.div`
   padding: 0rem 0rem 0rem 0rem;
   border-left: 1px solid ${grey};
   border-right: 1px solid ${grey};
-  background: transparent;
 `;
 
 export const Description = styled.div`
@@ -158,10 +159,11 @@ export const BottomContainer = styled.div`
   border-left: 1px solid ${grey};
   border-right: 1px solid ${grey};
   border-bottom: 1px solid ${grey};
+  border-bottom-left-radius: ${(props) =>
+    props.display_comments ? `0rem` : `0.35rem`};
+  border-bottom-right-radius: ${(props) =>
+    props.display_comments ? `0rem` : `0.35rem`};
   padding: 0.1rem 0.55rem 0.1rem 0.55rem;
-  border-bottom-left-radius: 0.35rem;
-  border-bottom-right-radius: 0.35rem;
-  background: transparent;
 `;
 
 export const TrendsContainer = styled.div`
@@ -201,4 +203,36 @@ export const CountContainer = styled.div`
   opacity: 0.85;
 `;
 
-export const CommentsContainer = styled.div``;
+export const CommentsIconContainer = styled.div``;
+
+export const CommentsContainer = styled.div`
+  display: ${(props) => (props.display_comments ? "flex" : "none")};
+  width: 100%;
+  height: fit-content;
+`;
+
+export const LoadMoreComments = styled.div`
+  display: ${(props) => (props.display_comments ? "flex" : "none")};
+  border: 1px solid ${grey};
+  background: ${white};
+  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  align-items: center;
+  justify-content: center;
+  line-height: 100%;
+  height: 1.55rem;
+  width: 100%;
+  margin: -0.5rem 0rem 0.75rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
+  border-radius: 0.35rem;
+  font-family: ${open_sans};
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: box-shadow 0.2s;
+  color: ${black};
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px -1.5px #ced4da;
+  }
+`;

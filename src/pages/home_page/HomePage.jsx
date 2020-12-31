@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import Post from "../../components/post_component/Post";
+import PostCard from "../../components/post_card_component/PostCard";
 import TradeCard from "../../components/trade_card_component/TradeCard";
-import ArticlePreview from "./components/article_preview/ArticlePreview";
+import ArticleCardPreview from "./components/article_card_preview_component/ArticleCardPreview";
 import PostDashboard from "../../components/upload_dashboards_components/post_dashboard/PostDashboard";
 import TradeDashboard from "../../components/upload_dashboards_components/trade_dashboard/TradeDashboard";
 import LoadingArticlesPreview from "../../components/loading_components/loading_home_page/LoadingArticlesPreview";
@@ -79,7 +79,7 @@ const HomePage = ({
             ) : (
               <PostsContainer>
                 {posts.map((post) => {
-                  return <Post data={post[0]} id={post[1]} key={post[1]} />;
+                  return <PostCard data={post[0]} id={post[1]} key={post[1]} />;
                 })}
               </PostsContainer>
             )}
@@ -92,7 +92,7 @@ const HomePage = ({
               <ArticlesPreviewContainer>
                 {article_previews.map((article_preview) => {
                   return (
-                    <ArticlePreview
+                    <ArticleCardPreview
                       data={article_preview[0]}
                       id={article_preview[1]}
                       key={article_preview[1]}

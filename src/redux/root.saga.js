@@ -17,6 +17,7 @@ import {
   request_available_categories,
 } from "./articles_page/sagas";
 import { request_top_investors_saga } from "./investors_page/sagas";
+import { request_all_comments_saga } from "./post/sagas";
 import { fetchArticle } from "./article.page/sagas";
 import { sendForm } from "./feedback.page/sagas";
 
@@ -33,6 +34,7 @@ export function* rootSaga() {
     call(fetchMoreFiltered),
     call(fetchArticle),
     call(request_top_investors_saga),
+    call(request_all_comments_saga),
     call(request_available_categories),
     call(sendForm),
   ]);
