@@ -3,6 +3,7 @@ import moment from "moment";
 import { connect } from "react-redux";
 
 import Comments from "./components/comments_component/Comments";
+import LoadingComments from "../loading_components/loading_comments/LoadingComments";
 import {
   BottomContainer,
   MiddleContainer,
@@ -31,7 +32,13 @@ import DownIcon from "./media/down_button.svg";
 import CommentsIcon from "./media/comments_button.svg";
 import { request_all_comments_start_action } from "../../redux/post/actions";
 
-const PostCard = ({ data, id, current_post_id, request_all_comments }) => {
+const PostCard = ({
+  data,
+  id,
+  loading_comments,
+  current_post_id,
+  request_all_comments,
+}) => {
   moment.locale("es");
 
   const display_all_comments = () => {
@@ -78,7 +85,11 @@ const PostCard = ({ data, id, current_post_id, request_all_comments }) => {
             </CommentsIconContainer>
           </BottomContainer>
           <CommentsContainer display_comments={current_post_id === id}>
-            {current_post_id === id ? <Comments post_id={id} /> : null}
+            {loading_comments ? (
+              <LoadingComments />
+            ) : current_post_id === id ? (
+              <Comments post_id={id} />
+            ) : null}
           </CommentsContainer>
         </PostContainer>
         <LoadMoreComments display_comments={current_post_id === id}>
@@ -90,7 +101,10 @@ const PostCard = ({ data, id, current_post_id, request_all_comments }) => {
 };
 
 // redux
-const mapStateToProps = ({ post_reducer: { current_post_id } }) => ({
+const mapStateToProps = ({
+  post_reducer: { loading_comments, current_post_id },
+}) => ({
+  loading_comments,
   current_post_id,
 });
 

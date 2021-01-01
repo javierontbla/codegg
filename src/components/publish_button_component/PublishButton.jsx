@@ -19,6 +19,7 @@ const PublishButton = ({
   current_drop_down_selection_post,
   change_drop_down_selection_trade,
   change_drop_down_selection_post,
+  launch_firebase_action,
 }) => {
   const [display_drop_down, set_display_drop_down] = useState(false);
 
@@ -47,7 +48,7 @@ const PublishButton = ({
   return (
     <>
       <PublishButtonContainer display_drop_down={display_drop_down}>
-        <Publish>
+        <Publish onClick={launch_firebase_action}>
           {current_drop_down_selection_post ||
             current_drop_down_selection_trade}
         </Publish>

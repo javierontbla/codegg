@@ -12,14 +12,12 @@ import {
 import { db } from "../../firebase";
 
 function* request_latest_trades_async() {
-  const lastest_trades_ref = db.collection(`trades`);
+  const trades_ref = db.collection(`trades`).orderBy("date", "desc");
   try {
-    const response = yield lastest_trades_ref.get().then((snapshot) => {
-      const latest_trades_arr = [];
-      snapshot.forEach((trade) =>
-        latest_trades_arr.push([trade.data(), trade.id])
-      );
-      return latest_trades_arr;
+    const response = yield trades_ref.get().then((snapshot) => {
+      const trades_arr = [];
+      snapshot.forEach((trade) => trades_arr.push([trade.data(), trade.id]));
+      return trades_arr;
     });
 
     yield put(request_latest_trades_action_success(response));

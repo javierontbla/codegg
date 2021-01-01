@@ -6,7 +6,7 @@ const LoadingPosts = () => {
   return (
     <>
       <LoadingPostsContainer>
-        {[1, 2, 3, 4, 5].map((post) => {
+        {[1, 2, 3].map((post) => {
           return <Post post={post} key={post} />;
         })}
       </LoadingPostsContainer>

@@ -21,7 +21,7 @@ export const IndividualCommentContainer = styled.div`
   height: fit-content;
   width: 100%;
   border-bottom: 0.25px solid ${grey};
-  padding: 0rem 0.75rem 0rem 0.75rem;
+  padding: 0.4rem 0.75rem 0rem 0.75rem;
   border-left: 1px solid ${grey};
   border-right: 1px solid ${grey};
 

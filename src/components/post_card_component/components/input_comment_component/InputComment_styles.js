@@ -62,7 +62,7 @@ export const CommentButton = styled.div`
   line-height: 100%;
   height: 1.55rem;
   width: fit-content;
-  margin: 0.5rem 0rem 1rem 0rem;
+  margin: 0.5rem 0rem 0.6rem 0rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
   border-radius: 0.15rem;
   font-family: ${open_sans};

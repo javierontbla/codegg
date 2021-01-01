@@ -1,7 +1,7 @@
 import React from "react";
 
 import Category from "../../../../components/category_component/Category";
-import Badge from "../../../../components/badge_component/Badge";
+import Rank from "../../../../components/rank_component/Rank";
 import {
   TopInvestorContainer,
   TopContainer,
@@ -24,7 +24,7 @@ const TopInvestorCard = ({ data }) => {
           <ProfileImage profile_image_url={data.profile_image} />
           <NameContainer>
             <RankContainer>
-              <Badge badge={data.rank} top={"true"} />
+              <Rank badge={data.rank} top={"true"} />
             </RankContainer>
             <Name>{data.user.toLowerCase()}</Name>
             <NameLink>@{data.username}</NameLink>

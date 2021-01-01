@@ -6,7 +6,7 @@ import { fonts } from "../../fonts/fonts";
 const { black } = colors;
 const { roboto } = fonts;
 
-export const BadgeContainer = styled.div`
+export const RankContainer = styled.div`
   text-transform: capitalize;
   display: flex;
   flex-direction: row;

@@ -9,7 +9,7 @@ const LoadingArticlesPreview = () => {
   return (
     <>
       <LoadingArticlesPreviewContainer>
-        {[1, 2, 3, 4, 5].map((article_preview) => {
+        {[1, 2, 3].map((article_preview) => {
           return (
             <ArticlePreview
               article_preview={article_preview}

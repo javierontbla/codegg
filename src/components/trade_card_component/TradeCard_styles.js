@@ -10,6 +10,7 @@ const InformationStyles = css`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   font-size: 0.565rem;
   font-family: ${roboto};
   font-weight: 500;
@@ -68,7 +69,7 @@ export const Title = styled.div`
 export const InformationContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: nowrap;
   margin: 0.4rem 0rem 0rem -0.25rem;
   padding: 0rem 0rem 0rem 0rem;
@@ -107,7 +108,7 @@ export const MiddleContainer = styled.div`
 export const OrderContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-start;
   padding: 0rem 0rem 0rem 0rem;
   margin: ${(props) =>

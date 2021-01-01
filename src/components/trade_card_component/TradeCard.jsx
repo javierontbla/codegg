@@ -26,7 +26,7 @@ import up_button from "./media/up_button.svg";
 import down_button from "./media/down_button.svg";
 
 const TradeCard = ({ home_page, data }) => {
-  moment.locale("es");
+  moment.locale("en");
   return (
     <>
       <TradeCardContainer home_page={home_page}>
@@ -42,17 +42,24 @@ const TradeCard = ({ home_page, data }) => {
         </TopContainer>
         <MiddleContainer>
           <OrderContainer>
-            <LeftText>Compañia:</LeftText>
+            <LeftText>Company:</LeftText>
             <RightText>{data.company}</RightText>
           </OrderContainer>
           <OrderContainer>
-            <LeftText>No. de Acciones:</LeftText>
-            <RightText>{data.no_of_shares}</RightText>
+            <LeftText>No. of Shares:</LeftText>
+            <RightText>
+              {data.number_of_shares
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            </RightText>
           </OrderContainer>
           <OrderContainer>
-            <LeftText>Precio p/ Acción:</LeftText>
+            <LeftText>Price per Share:</LeftText>
             <RightText>
-              ${data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              $
+              {data.price_per_share
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </RightText>
           </OrderContainer>
           <CommentContainer>"{data.comment.toLowerCase()}"</CommentContainer>
@@ -62,7 +69,7 @@ const TradeCard = ({ home_page, data }) => {
             <UpTrend>
               <TrendIcon src={up_button} />
             </UpTrend>
-            <Count>{data.votes}</Count>
+            <Count>{data.up_trends - data.down_trends}</Count>
             <DownTrend>
               <TrendIcon src={down_button} />
             </DownTrend>

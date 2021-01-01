@@ -1,7 +1,7 @@
 import React from "react";
 
 import Category from "../../../components/category_component/Category";
-import Badge from "../../../components/badge_component/Badge";
+import Rank from "../../../components/rank_component/Rank";
 import {
   ProfileCardContainer,
   TopContainer,
@@ -30,7 +30,7 @@ const ProfileCard = () => {
           <BadgesContainer>
             {["quant", "united states"].map((badge) => {
               return (
-                <Badge badge={badge} rank={badge === "quant" ? "true" : null} />
+                <Rank badge={badge} rank={badge === "quant" ? "true" : null} />
               );
             })}
           </BadgesContainer>

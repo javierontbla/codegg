@@ -21,7 +21,7 @@ function* request_all_comments_async(action) {
       return all_comments_arr;
     });
 
-    yield put(request_all_comments_success_action([response, action.payload]));
+    yield put(request_all_comments_success_action(response));
   } catch (error) {
     yield put(request_all_comments_failure_action(error));
   }
