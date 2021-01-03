@@ -14,20 +14,22 @@ const LoadingAnimation = keyframes`
 `;
 
 export const LoadingArticlesContainer = styled.div`
-  height: 28.5rem;
-  margin: 1rem 0rem 0rem 0rem;
-  padding: 0rem 0rem 0rem 0rem;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 28rem;
+  margin: -1rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
 `;
 
 export const Article = styled.div`
   display: flex;
-  width: 33%;
+  width: 48%;
   border-radius: 0.35rem;
   height: 100%;
   border: none;
-  margin: 0rem 0.5rem 0rem 0.5rem;
+  margin: 1rem 0.5rem 0rem 0.5rem;
   position: relative;
   overflow: hidden;
   background: ${grey};

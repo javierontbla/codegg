@@ -25,7 +25,7 @@ const ArticlePage = ({
   return (
     <>
       {!loading && !error ? (
-        <Article article={article} />
+        <Article data={article} />
       ) : !error ? null : (
         <Error />
       )}

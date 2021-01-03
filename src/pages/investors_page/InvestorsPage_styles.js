@@ -29,8 +29,11 @@ export const TopTradersContainer = styled.div`
 `;
 
 export const Title = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
   width: 100%;
-  height: fit-content;
+  height: 2.85rem;
   background: ${white};
   border: 1px solid ${grey};
   font-family: ${source_sans_pro};

@@ -36,7 +36,6 @@ export const ArticleImage = styled.div`
   background-position: center;
   background-image: url(${(props) => props.source});
   background-repeat: no-repeat;
-  border-bottom: 0.5px solid ${grey};
 `;
 
 export const TopContainer = styled.div`
@@ -112,13 +111,13 @@ export const ProfileContainer = styled.div`
 `;
 
 export const ProfileImage = styled.div`
-  width: 3rem;
-  height: 3rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
   border: none;
   background-size: cover;
   background-position: center;
-  background-image: url(${(props) => props.profile_image_url});
+  background-image: url(${(props) => props.profile_image});
   background-repeat: no-repeat;
 `;
 
@@ -153,7 +152,7 @@ export const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 0.55rem 0.6rem 0.55rem 0.6rem;
+  padding: 0.55rem 0.5rem 0.55rem 0.5rem;
   margin: 0rem 0rem 0rem 0rem;
   border-top: 0.5px solid ${grey};
 

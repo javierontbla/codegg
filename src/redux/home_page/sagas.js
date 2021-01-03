@@ -11,6 +11,7 @@ import {
 } from "./actions";
 import { db } from "../../firebase";
 
+/* ASYNC FUNCTIONS */
 function* request_latest_trades_async() {
   const trades_ref = db.collection(`trades`).orderBy("date", "desc");
   try {
@@ -60,18 +61,19 @@ function* request_article_previews_async() {
   }
 }
 
-export function* request_latest_trades() {
+/* SAGA FUNCTIONS */
+export function* request_latest_trades_saga() {
   yield takeLatest(
     home_page_types.REQUEST_LATEST_TRADES_START,
     request_latest_trades_async
   );
 }
 
-export function* request_posts() {
+export function* request_posts_saga() {
   yield takeLatest(home_page_types.REQUEST_POSTS_START, request_posts_async);
 }
 
-export function* request_article_previews() {
+export function* request_article_previews_saga() {
   yield takeLatest(
     home_page_types.REQUEST_ARTICLE_PREVIEWS_START,
     request_article_previews_async

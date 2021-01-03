@@ -19,40 +19,32 @@ import {
   QueryLink,
 } from "./Article.styles";
 import {
-  fetchFilteredArticlesStart,
-  insertTagRedux,
-  deleteTagRedux,
-  fetchFilteredArticlesSuccess,
+  select_category_action,
+  delete_category_action,
 } from "../../../redux/articles_page/actions";
 import Category from "../../../components/category_component/Category";
 
-const Article = ({
-  article,
-  currentTag,
-  getFilteredArticles,
-  insertTag,
-  deleteTag,
-  emptyFilteredArticles,
-  filteredArticles,
-}) => {
+const Article = ({ data }) => {
   useEffect(() => {
-    moment.locale("es");
+    moment.locale("en");
     window.scrollTo(0, 0);
-    document.title = `${article.tituloArticulo}`;
+
+    document.title = `${data.title_link}`;
   }, []);
 
+  /*
   const sendSearchQuery = (tag) => {
     if (currentTag[0] === tag) {
       return;
     } else if (!currentTag[0]) {
-      insertTag(tag);
+      select_category(tag);
       getFilteredArticles({
         input: tag,
         previousArticles: filteredArticles,
       });
     } else {
-      deleteTag(currentTag[0]);
-      insertTag(tag);
+      delete_category(currentTag[0]);
+      select_category(tag);
       getFilteredArticles({
         input: tag,
         previousArticles: [],
@@ -60,59 +52,30 @@ const Article = ({
     }
   };
 
+  */
+
   return (
     <>
       <Container>
-        <Title>{article.tituloArticulo}</Title>
+        <Title>{data.title}</Title>
         <AuthorContainer>
-          <Author>{article.autor}</Author>
+          <Author>{data.user}</Author>
         </AuthorContainer>
         <InfoContainer>
-          <Date>{moment(article.fecha.toDate()).format("LL")}</Date>
-          <Separator> · </Separator>
-          <ReadTime>
-            <span>
-              <Icon icon={faReadme} />
-            </span>
-            {article.tiempo}
-          </ReadTime>
+          <Date>{moment(data.date.toDate()).format("LL")}</Date>
         </InfoContainer>
-        {/*
-          <AvailableCategoriesContainer post={"true"}>
-          {article.tags.map((tag) => {
-            return (
-              <QueryLink to="/">
-                <Category
-                  category={tag}
-                  name={tag}
-                  key={tag}
-                  post={"true"}
-                  onClick={() => sendSearchQuery(tag)}
-                />
-              </QueryLink>
-            );
-          })}
-        </AvailableCategoriesContainer>
-        */}
-        <Body>{parse(article.contenido)}</Body>
+        <Body>{parse(data.description)}</Body>
       </Container>
     </>
   );
 };
 
 // redux
-const mapStateToProps = ({
-  homePageReducer: { currentTag, filteredArticles },
-}) => ({
-  currentTag,
-  filteredArticles,
-});
+const mapStateToProps = ({}) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-  getFilteredArticles: (input) => dispatch(fetchFilteredArticlesStart(input)),
-  insertTag: (tag) => dispatch(insertTagRedux(tag)),
-  deleteTag: (tag) => dispatch(deleteTagRedux(tag)),
-  emptyFilteredArticles: (arr) => dispatch(fetchFilteredArticlesSuccess(arr)),
+  select_category: (category) => dispatch(select_category_action(category)),
+  delete_category: (category) => dispatch(delete_category_action(category)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Article);

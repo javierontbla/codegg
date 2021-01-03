@@ -3,95 +3,83 @@ import styled from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { button_font } = fonts;
+const { source_sans_pro } = fonts;
 
-const { grey, black, white } = colors;
-
-export const ArticlesPageContainer = styled.div`
-  padding: 0rem 0rem 0rem 0rem;
-  margin: 1.6rem 0rem 0rem 0rem;
-`;
+const { grey, white } = colors;
 
 export const Container = styled.div`
-  margin: 0rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
+  margin: 2rem 0rem 0rem 0rem;
+  min-height: 100vh;
 `;
 
-export const AvailableCategoriesContainer = styled.div`
+export const ArticlesPageContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  background: transparent;
-  width: 100%;
-  height: fit-content;
-  border-bottom: 0.5px solid ${grey};
-  justify-content: left;
-  padding: 0rem 0rem 0.35rem 0rem;
-  margin: 0rem 0rem 0rem 0rem;
-
-  @media (max-width: 500px) {
-  }
 `;
 
-export const AvailableCategoriesActiveContainer = styled.div`
+export const LeftContainer = styled.div`
+  width: 25rem;
+`;
+
+export const Title = styled.div`
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
+  align-items: flex-end;
   width: 100%;
-  height: fit-content;
-  padding: 1rem 0rem 0rem 0rem;
-
-  @media (max-width: 500px) {
-  }
-`;
-
-export const LoadMoreButton = styled.div`
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  border: 1px solid ${grey};
-  border-radius: 1rem;
+  height: 2.85rem;
   background: ${white};
-  margin: 0 auto;
-  font-family: ${button_font};
-  font-size: 0.9rem;
+  border: 1px solid ${grey};
+  font-family: ${source_sans_pro};
+  font-size: 1.4rem;
   letter-spacing: 1px;
-  color: ${black};
-  padding: 0px 0.65rem 0px 0.65rem;
-  height: 2rem;
-
-  &:hover {
-    cursor: pointer;
-    opacity: 0.95;
-  }
-
-  &:focus {
-    outline: none;
-  }
+  padding: 0.65rem 0.55rem 0.65rem 0.55rem;
+  line-height: 100%;
+  border-radius: 0.35rem;
+  box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
+  margin: 0rem 0rem 0.75rem 0rem;
 `;
 
-export const NoMoreButton = styled.div`
+export const CategoriesContainer = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
-  width: fit-content;
-  border: none;
-  background: transparent;
-  font-size: 2.2rem;
-  color: ${grey};
-  margin: 0 auto;
-  padding: 0rem;
-  height: 2rem;
+  flex-wrap: wrap;
+  background: ${white};
+  width: 100%;
+  height: fit-content;
+  border: 1px solid ${grey};
+  justify-content: left;
+  padding: 0.8rem 0.3rem 0.8rem 0.3rem;
+  margin: 0rem 0rem 0rem 0rem;
+  border-radius: 0.35rem;
+  box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
 
   @media (max-width: 500px) {
-    width: fit-content;
-  }
-
-  &:hover {
-    cursor: default;
   }
 `;
 
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
+export const RightContainer = styled.div`
   width: 100%;
+  margin: 0rem 0rem 0rem 1.5rem;
 `;
+
+export const ActiveCategoryContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 0rem 0rem 0.5rem 0rem;
+  margin: -0.25rem 0rem 0rem -0.25rem;
+  width: 100%;
+  height: fit-content;
+`;
+
+export const ActionContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 0.5px solid ${grey};
+  height: 2.85rem;
+  margin: 0rem 0rem 0.75rem 0rem;
+`;
+
+export const MasonryContainer = styled.div``;

@@ -8,7 +8,9 @@ import {
 const LoadingCategories = () => (
   <>
     <LoadingCategoriesContainer>
-      <Category>Loading Categories...</Category>
+      <Category top={"true"}>Loading</Category>
+      <Category middle={"true"}>Loading</Category>
+      <Category bottom={"true"}>Loading</Category>
     </LoadingCategoriesContainer>
   </>
 );

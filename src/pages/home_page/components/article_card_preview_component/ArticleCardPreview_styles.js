@@ -100,7 +100,7 @@ export const ProfileImage = styled.div`
   margin: 0rem 0.5rem 0rem 0rem;
   background-size: cover;
   background-position: center;
-  background-image: url(${(props) => props.profile_image_url});
+  background-image: url(${(props) => props.profile_image});
   background-repeat: no-repeat;
 `;
 
@@ -130,7 +130,10 @@ export const Date = styled.div`
 `;
 
 export const BottomContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0.35rem 0.25rem 0.35rem 0.25rem;
+  padding: 0.35rem 0.4rem 0.35rem 0.4rem;
   border-top: 0.5px solid ${grey};
 `;

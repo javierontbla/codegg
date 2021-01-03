@@ -3,28 +3,15 @@ import styled, { css } from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { black, white, grey } = colors;
-const { open_sans, source_sans_pro } = fonts;
-
-const ButtonClass = css`
-  display: flex;
-  align-items: center;
-  height: 2rem;
-  padding: 0rem 0.65rem 0rem 0.65rem;
-  font-family: ${open_sans};
-  font-size: 0.9rem;
-  border-radius: 0.15rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
+const { white, grey } = colors;
+const { source_sans_pro } = fonts;
 
 const Titles = css`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
   width: 100%;
-  height: fit-content;
+  height: 2.85rem;
   background: ${white};
   border: 1px solid ${grey};
   font-family: ${source_sans_pro};
@@ -34,6 +21,7 @@ const Titles = css`
   line-height: 100%;
   border-radius: 0.35rem;
   box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
+  margin: 0rem 0rem 0.75rem 0rem;
 `;
 
 export const HomePageContainer = styled.div`
@@ -49,29 +37,6 @@ export const SelectionContainer = styled.div`
   flex-direction: row;
   border-bottom: 0.5px solid ${grey};
   padding: 0rem 0rem 0.75rem 0rem;
-`;
-
-export const PublicButton = styled.div`
-  ${ButtonClass};
-  background: rgb(219, 223, 227);
-  background: linear-gradient(
-    45deg,
-    rgba(219, 223, 227, 1) 5%,
-    rgba(201, 203, 205, 1) 95%
-  );
-  color: ${black};
-`;
-
-export const PrivateButton = styled.div`
-  ${ButtonClass};
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
-  color: ${white};
-  margin: 0rem 0rem 0rem 0.75rem;
 `;
 
 export const MainContainer = styled.div`

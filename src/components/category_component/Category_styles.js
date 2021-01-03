@@ -27,9 +27,9 @@ export const CategoryContainer = styled.div`
   );
   transition: opacity 0.15s;
   padding: 0.4rem 0.5rem 0.4rem 0.5rem;
-  margin: 0.4rem 0.4rem 0.4rem 0.4rem;
+  margin: 0.25rem 0.25rem 0.25rem 0.25rem;
   font-size: ${(props) =>
-    props.top || props.article_preview ? "0.65rem" : "0.8rem"};
+    props.top || props.article_preview ? "0.7rem" : "0.8rem"};
   font-weight: 500;
   line-height: 100%;
 
@@ -40,7 +40,7 @@ export const CategoryContainer = styled.div`
 `;
 
 export const IconContainer = styled.div`
-  display: ${(props) => (props.filter ? "flex" : "none")};
+  display: ${(props) => (props.active_category ? "flex" : "none")};
   justify-content: center;
   align-items: center;
   height: 100%;

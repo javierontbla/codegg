@@ -45,13 +45,13 @@ const NavBar = ({ active_user_database }) => {
             </LinkContainer>
           </LogoContainer>
           <LinkContainer to="/">
-            <PageLink>Inicio</PageLink>
+            <PageLink>Home</PageLink>
           </LinkContainer>
-          <LinkContainer to="/articulos">
-            <PageLink>Artículos</PageLink>
+          <LinkContainer to="/articles">
+            <PageLink>Articles</PageLink>
           </LinkContainer>
-          <LinkContainer to="/inversores">
-            <PageLink>Inversores</PageLink>
+          <LinkContainer to="/investors">
+            <PageLink>Investors</PageLink>
           </LinkContainer>
         </PagesContainer>
         <UserContainer>

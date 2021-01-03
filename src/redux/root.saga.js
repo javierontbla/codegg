@@ -5,16 +5,16 @@ import {
   log_out_active_user_saga,
 } from "./user/sagas";
 import {
-  request_latest_trades,
-  request_posts,
-  request_article_previews,
+  request_latest_trades_saga,
+  request_posts_saga,
+  request_article_previews_saga,
 } from "./home_page/sagas";
 import {
-  fetchUnfiltered,
-  fetchFiltered,
-  fetchMoreUnfiltered,
-  fetchMoreFiltered,
-  request_available_categories,
+  request_unfiltered_articles_saga,
+  request_filtered_articles_saga,
+  request_more_unfiltered_articles_saga,
+  request_more_filtered_articles_saga,
+  request_available_categories_saga,
 } from "./articles_page/sagas";
 import { request_top_investors_saga } from "./investors_page/sagas";
 import { request_all_comments_saga } from "./post/sagas";
@@ -26,18 +26,18 @@ export function* rootSaga() {
   yield all([
     call(log_in_active_user_saga),
     call(log_out_active_user_saga),
-    call(request_latest_trades),
-    call(request_posts),
-    call(request_article_previews),
-    call(fetchUnfiltered),
-    call(fetchFiltered),
-    call(fetchMoreUnfiltered),
-    call(fetchMoreFiltered),
-    call(fetchArticle),
+    call(request_latest_trades_saga),
+    call(request_posts_saga),
+    call(request_article_previews_saga),
+    call(request_unfiltered_articles_saga),
+    call(request_filtered_articles_saga),
+    call(request_more_unfiltered_articles_saga),
+    call(request_more_filtered_articles_saga),
     call(request_top_investors_saga),
     call(request_all_comments_saga),
-    call(request_available_categories),
+    call(request_available_categories_saga),
     call(create_trade_card_saga),
+    call(fetchArticle),
     call(sendForm),
   ]);
 }

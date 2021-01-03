@@ -27,7 +27,7 @@ const ArticleCardPreview = ({ data }) => {
           <Title>{data.title}</Title>
         </TopContainer>
         <MiddleContainer>
-          <ProfileImage profile_image_url={data.profile_image_url} />
+          <ProfileImage profile_image={data.profile_image} />
           <ProfileContainer>
             <ProfileName>{data.user}</ProfileName>
             <Date>{moment(data.date.toDate()).startOf("hour").fromNow()}</Date>

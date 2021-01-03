@@ -40,10 +40,10 @@ const HomePage = ({
   article_previews,
 }) => {
   useEffect(() => {
-    document.title = `Codegg - Explora Inversiones Inteligentes`;
-    request_latest_trades();
-    request_posts();
-    request_article_previews();
+    document.title = `Codegg - The Right Place for Investors`;
+    if (latest_trades.length === 0) request_latest_trades();
+    if (posts.length === 0) request_posts();
+    if (article_previews.length === 0) request_article_previews();
   }, []);
 
   return (
@@ -51,7 +51,7 @@ const HomePage = ({
       <HomePageContainer className="container">
         <MainContainer>
           <LeftContainer>
-            <LeftTitle>Últimas Operaciones</LeftTitle>
+            <LeftTitle>Latest Trades</LeftTitle>
             <TradeDashboard />
             {loading_latest_trades ? (
               <LoadingLatestTrades />
@@ -85,7 +85,7 @@ const HomePage = ({
             )}
           </MiddleContainer>
           <RightContainer>
-            <RightTitle>Tendencias</RightTitle>
+            <RightTitle>Trending</RightTitle>
             {loading_articles_preview ? (
               <LoadingArticlesPreview />
             ) : (

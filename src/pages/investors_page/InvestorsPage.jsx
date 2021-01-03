@@ -33,7 +33,7 @@ const InvestorsPage = ({ top_investors, request_top_investors }) => {
   return (
     <TradersPageContainer className="container">
       <TopTradersContainer>
-        <Title>Mejores Inversores</Title>
+        <Title>Top Investors</Title>
         {top_investors.map((top_investor) => {
           return (
             <TopInvestorCard data={top_investor[0]} id={top_investor[1]} />

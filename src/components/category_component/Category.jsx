@@ -4,24 +4,24 @@ import { connect } from "react-redux";
 
 import { CategoryContainer, IconContainer, Icon } from "./Category_styles";
 import {
-  deleteTagRedux,
-  fetchFilteredArticlesSuccess,
+  delete_category_action,
+  request_filtered_articles_success_action,
 } from "../../redux/articles_page/actions";
 
 const Category = ({
-  emptyFilteredArticles,
-  deleteTag,
+  clear_filtered_articles,
+  delete_category,
   category,
-  filter,
+  active_category,
   name,
   top,
   article_preview,
   ...allProps
 }) => {
-  const removeTag = (category) => {
-    // function to remove articles from main array when tag clicked
-    deleteTag(category);
-    emptyFilteredArticles([]);
+  const remove_category = (category) => {
+    // function to remove articles from main array when cross is clicked
+    delete_category(category);
+    clear_filtered_articles([]);
   };
 
   return (
@@ -33,12 +33,8 @@ const Category = ({
         article_preview={article_preview}
       >
         #{category}
-        <IconContainer filter={filter}>
-          <Icon
-            icon={faTimes}
-            name={category}
-            onClick={() => removeTag(category)}
-          />
+        <IconContainer active_category={active_category}>
+          <Icon icon={faTimes} onClick={() => remove_category(category)} />
         </IconContainer>
       </CategoryContainer>
     </>
@@ -46,8 +42,9 @@ const Category = ({
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteTag: (tag) => dispatch(deleteTagRedux(tag)),
-  emptyFilteredArticles: (arr) => dispatch(fetchFilteredArticlesSuccess(arr)),
+  delete_category: (category) => dispatch(delete_category_action(category)),
+  clear_filtered_articles: (empty_arr) =>
+    dispatch(request_filtered_articles_success_action(empty_arr)),
 });
 
 export default connect(null, mapDispatchToProps)(Category);

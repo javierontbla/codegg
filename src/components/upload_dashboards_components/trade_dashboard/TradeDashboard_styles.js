@@ -50,7 +50,7 @@ export const SymbolInputContainer = styled.input`
   width: 7.5rem;
   border: 0.5px solid ${grey};
   padding: 0.375rem 0.5rem 0.25rem 0.5rem;
-  margin: 0.55rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
   border-radius: 0.15rem;
   font-family: ${roboto};
   font-size: 1.1rem;
@@ -83,7 +83,7 @@ export const CreateButton = styled.div`
 export const CloseIcon = styled.img`
   width: 1rem;
   height: 1rem;
-  margin: 0.5rem 0rem 0rem 0rem;
+  margin: -0.4rem 0.15rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
@@ -97,8 +97,8 @@ export const TopContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
   padding: ${(props) =>
     props.active_dashboard
-      ? "0rem 0rem 0.55rem 0.55rem"
-      : "0rem 0.55rem 0.55rem 0.55rem"};
+      ? "0.75rem 0rem 0.75rem 0.75rem"
+      : "0.75rem 0.75rem 0.75rem 0.75rem"};
   border-bottom: ${(props) =>
     props.active_dashboard ? `0.5px solid ${grey}` : "none"};
 `;
@@ -141,9 +141,9 @@ export const Action = styled.div`
   border: none;
   line-height: 100%;
   background: ${(props) =>
-    props.action === "venta" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
+    props.action === "sell" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
   background: ${(props) =>
-    props.action === "venta"
+    props.action === "sell"
       ? "linear-gradient(45deg,rgba(249, 104, 106, 1) 5%,rgba(185, 32, 34, 1) 95%)"
       : "linear-gradient(45deg, rgba(67, 170, 139, 1) 0%, rgba(55, 139, 136, 1) 100%)"};
 `;
@@ -166,7 +166,7 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   width: 100%;
   margin: 0rem 0rem 0.75rem 0rem;
-  padding: 0.75rem 0.55rem 0rem 0.55rem;
+  padding: 0.75rem 0.75rem 0rem 0.75rem;
 `;
 
 export const OptionContainer = styled.div`
@@ -240,5 +240,5 @@ export const BottomContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
   border-top: 0.5px solid ${grey};
-  padding: 0.65rem 0.55rem 0.65rem 0.55rem;
+  padding: 0.65rem 0.75rem 0.65rem 0.75rem;
 `;

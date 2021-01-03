@@ -31,7 +31,7 @@ const TradeDashboard = ({
   active_user_database,
 }) => {
   const [active_dashboard, set_active_dashboard] = useState(false);
-  const [current_action, set_current_action] = useState("compra");
+  const [current_action, set_current_action] = useState("buy");
   const call_card_fields = useRef({
     action: current_action,
   });
@@ -41,12 +41,12 @@ const TradeDashboard = ({
   };
 
   const handle_call_card_action = () => {
-    if (current_action === "compra") {
-      set_current_action("venta");
-      call_card_fields.current["action"] = "venta";
+    if (current_action === "buy") {
+      set_current_action("sell");
+      call_card_fields.current["action"] = "sell";
     } else {
-      set_current_action("compra");
-      call_card_fields.current["action"] = "compra";
+      set_current_action("buy");
+      call_card_fields.current["action"] = "buy";
     }
   };
 
@@ -84,7 +84,7 @@ const TradeDashboard = ({
               {active_dashboard ? (
                 <CloseIcon src={CloseIconSVG} />
               ) : (
-                `Crear Operación`
+                `Create Trade`
               )}
             </CreateButton>
           </PreviewContainer>

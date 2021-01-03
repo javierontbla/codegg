@@ -16,23 +16,23 @@ const LoadingAnimation = keyframes`
 `;
 
 export const LoadingCategoriesContainer = styled.div`
-  height: fit-content;
-  width: 100%;
-  margin: 0rem 0rem 0rem 0rem;
-  padding: 0rem 0rem 0.35rem 0rem;
   display: flex;
-  align-items: center;
-  border-bottom: 0.5px solid ${grey};
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  margin: 0rem 0.25rem 0rem 0.25rem;
+  padding: 0rem 0rem 0rem 0rem;
+  overflow: hidden;
 `;
 
 export const Category = styled.div`
   display: flex;
-  width: 100%;
+  width: ${(props) => (props.top ? "100%" : props.middle ? "75%" : "50%")};
   border-radius: 0.15rem;
   height: 1.6rem;
   border: none;
   padding: 0.4rem 0.5rem 0.4rem 0.5rem;
-  margin: 0.4rem 0.4rem 0.4rem 0.4rem;
+  margin: 0.25rem 0rem 0.25rem 0rem;
   position: relative;
   overflow: hidden;
   background: ${grey};

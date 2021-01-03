@@ -1,20 +1,20 @@
 import { takeLatest, put } from "redux-saga/effects";
 
-import { categories_page_types } from "./types";
+import { articles_page_types } from "./types";
 import { db } from "../../firebase";
 import {
-  request_available_categories_action_success,
-  request_available_categories_action_failure,
-  fetchUnfilteredArticlesSuccess,
-  fetchUnfilteredArticlesFailure,
-  fetchFilteredArticlesSuccess,
-  fetchFilteredArticlesFailure,
-  storeLastUnfilteredElement,
-  storeLastFilteredElement,
+  request_available_categories_success_action,
+  request_available_categories_failure_action,
+  request_unfiltered_articles_success_action,
+  request_unfiltered_articles_failure_action,
+  request_filtered_articles_success_action,
+  request_filtered_articles_failure_action,
+  store_last_unfiltered_article_action,
+  store_last_filtered_article_action,
 } from "./actions";
 
 // async functions
-function* fetchUnfilteredAsync() {
+function* request_unfiltered_articles_async() {
   const articlesRef = db
     .collection(`articles`)
     .orderBy("date", "desc")
@@ -33,42 +33,46 @@ function* fetchUnfilteredAsync() {
     });
 
     // firing succesful actions to store data on reducer
-    yield put(fetchUnfilteredArticlesSuccess(res[0]));
-    yield put(storeLastUnfilteredElement(res[1]));
+    yield put(request_unfiltered_articles_success_action(res[0]));
+    yield put(store_last_unfiltered_article_action(res[1]));
   } catch (error) {
-    yield put(fetchUnfilteredArticlesFailure(error));
+    yield put(request_unfiltered_articles_failure_action(error));
   }
 }
 
-function* fetchFilteredAsync(action) {
+function* request_filtered_articles_async(action) {
   // geting the input from the button the user clicked
-  const { previousArticles, input } = action.payload;
-  const inputRef = db
-    .collection("articulos")
-    .where("categorias", "array-contains", `${input}`)
-    .orderBy("fecha", "desc")
-    .limit(1);
+  const { previous_filtered_articles, category } = action.payload;
+  const filtered_articles_ref = db
+    .collection("articles")
+    .where("categories", "array-contains", `${category}`)
+    .orderBy("date", "desc");
 
   try {
-    const lastElement = yield inputRef
-      .get({ source: "server" })
+    const last_filtered_article = yield filtered_articles_ref
+      .get()
       .then((snapshot) => {
         // we get the last doc from the collection, for future fetching
         // in case user wants to load more posts
-        const lastRef = snapshot.docs[snapshot.docs.length - 1];
+        const last_filtered_article_ref =
+          snapshot.docs[snapshot.docs.length - 1];
 
-        snapshot.forEach((doc) => previousArticles.push([doc.data(), doc.id]));
-        return lastRef;
+        snapshot.forEach((doc) =>
+          previous_filtered_articles.push([doc.data(), doc.id])
+        );
+        return last_filtered_article_ref;
       });
     // firing succesful actions to store data on reducer
-    yield put(storeLastFilteredElement(lastElement));
-    yield put(fetchFilteredArticlesSuccess(previousArticles));
+    yield put(store_last_filtered_article_action(last_filtered_article));
+    yield put(
+      request_filtered_articles_success_action(previous_filtered_articles)
+    );
   } catch (error) {
-    yield put(fetchFilteredArticlesFailure(error));
+    yield put(request_filtered_articles_failure_action(error));
   }
 }
 
-function* fetchMoreUnfilteredAsync(action) {
+function* request_more_unfiltered_articles_async(action) {
   const { previousArticles, lastElement } = action.payload;
   const articlesRef = db
     .collection(`articulos`)
@@ -85,15 +89,15 @@ function* fetchMoreUnfilteredAsync(action) {
     });
 
     // firing succesful actions to store data on reducer
-    yield put(fetchUnfilteredArticlesSuccess(previousArticles));
+    yield put(request_unfiltered_articles_success_action(previousArticles));
     // storing last element from collection for next fetch
-    yield put(storeLastUnfilteredElement(res));
+    yield put(store_last_unfiltered_article_action(res));
   } catch (error) {
-    yield put(fetchUnfilteredArticlesFailure(error));
+    yield put(request_unfiltered_articles_failure_action(error));
   }
 }
 
-function* fetchMoreFilteredAsync(action) {
+function* request_more_filtered_articles_async(action) {
   // getting tag from redux reducer
   const { previousArticles, lastElement, tag } = action.payload;
 
@@ -112,11 +116,11 @@ function* fetchMoreFilteredAsync(action) {
       return lastRef;
     });
 
-    yield put(fetchFilteredArticlesSuccess(previousArticles));
+    yield put(request_filtered_articles_success_action(previousArticles));
     // storing last element from collection for next fetch
-    yield put(storeLastFilteredElement(res));
+    yield put(store_last_filtered_article_action(res));
   } catch (error) {
-    yield put(fetchFilteredArticlesFailure(error));
+    yield put(request_filtered_articles_failure_action(error));
   }
 }
 
@@ -129,44 +133,44 @@ function* request_available_categories_async() {
       return doc.data().categories;
     });
 
-    yield put(request_available_categories_action_success(response));
+    yield put(request_available_categories_success_action(response));
   } catch (error) {
-    yield put(request_available_categories_action_failure(error));
+    yield put(request_available_categories_failure_action(error));
   }
 }
 
 // sagas functions
-export function* fetchUnfiltered() {
+export function* request_unfiltered_articles_saga() {
   yield takeLatest(
-    categories_page_types.FETCH_UNFILTERED_ARTICLES_START,
-    fetchUnfilteredAsync
+    articles_page_types.REQUEST_UNFILTERED_ARTICLES_START,
+    request_unfiltered_articles_async
   );
 }
 
-export function* fetchFiltered() {
+export function* request_filtered_articles_saga() {
   yield takeLatest(
-    categories_page_types.FETCH_FILTERED_ARTICLES_START,
-    fetchFilteredAsync
+    articles_page_types.REQUEST_FILTERED_ARTICLES_START,
+    request_filtered_articles_async
   );
 }
 
-export function* fetchMoreUnfiltered() {
+export function* request_more_unfiltered_articles_saga() {
   yield takeLatest(
-    categories_page_types.FETCH_MORE_UNFILTERED_ARTICLES_START,
-    fetchMoreUnfilteredAsync
+    articles_page_types.REQUEST_MORE_UNFILTERED_ARTICLES_START,
+    request_more_unfiltered_articles_async
   );
 }
 
-export function* fetchMoreFiltered() {
+export function* request_more_filtered_articles_saga() {
   yield takeLatest(
-    categories_page_types.FETCH_MORE_FILTERED_ARTICLES_START,
-    fetchMoreFilteredAsync
+    articles_page_types.REQUEST_MORE_FILTERED_ARTICLES_START,
+    request_more_filtered_articles_async
   );
 }
 
-export function* request_available_categories() {
+export function* request_available_categories_saga() {
   yield takeLatest(
-    categories_page_types.REQUEST_AVAILABLE_CATEGORIES_START,
+    articles_page_types.REQUEST_CATEGORIES_START,
     request_available_categories_async
   );
 }

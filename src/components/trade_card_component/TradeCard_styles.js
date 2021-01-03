@@ -51,7 +51,7 @@ export const TopContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 5.15rem;
+  height: 4.8rem;
   border-bottom: 0.5px solid ${grey};
   padding: 0rem 0.75rem 0rem 0.75rem;
 `;
@@ -79,9 +79,9 @@ export const Action = styled.button`
   ${InformationStyles};
   color: ${white};
   background: ${(props) =>
-    props.action === "venta" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
+    props.action === "sell" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
   background: ${(props) =>
-    props.action === "venta"
+    props.action === "sell"
       ? "linear-gradient(45deg,rgba(249, 104, 106, 1) 5%,rgba(185, 32, 34, 1) 95%)"
       : "linear-gradient(45deg, rgba(67, 170, 139, 1) 0%, rgba(55, 139, 136, 1) 100%)"};
   text-transform: capitalize;
@@ -146,9 +146,8 @@ export const RightText = styled.div`
 export const CommentContainer = styled.div`
   color: ${black};
   font-family: ${roboto};
-  font-size: 0.8rem;
-  font-weight: 600;
-  font-style: italic;
+  font-size: 0.75rem;
+  font-weight: 500;
   padding: 0.2rem 0rem 0rem 0rem;
   margin: 0rem 0rem 0rem 0rem;
 

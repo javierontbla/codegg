@@ -19,7 +19,7 @@ import {
   BottomContainer,
 } from "./ArticleCard_styles";
 
-const ArticleCard = ({ data, id, search }) => {
+const ArticleCard = ({ data, id, request_filtered_articles_fun }) => {
   const url = data.title_link.split(" ").join("-").toLowerCase();
 
   useEffect(() => {
@@ -37,11 +37,7 @@ const ArticleCard = ({ data, id, search }) => {
             <Description>{data.description.toLowerCase()}...</Description>
           </TopContainer>
           <MiddleContainer>
-            <ProfileImage
-              profile_image_url={
-                "https://images.unsplash.com/photo-1549045337-967927d923c0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
-              }
-            />
+            <ProfileImage profile_image={data.profile_image} />
             <ProfileContainer>
               <ProfileName>{data.user.toLowerCase()}</ProfileName>
               <Date>
@@ -54,7 +50,7 @@ const ArticleCard = ({ data, id, search }) => {
           {data.categories.map((category) => {
             return (
               <Category
-                onClick={() => search(category)}
+                onClick={() => request_filtered_articles_fun(category)}
                 category={category}
                 name={category}
                 key={category}

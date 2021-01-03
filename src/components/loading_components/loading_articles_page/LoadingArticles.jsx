@@ -5,13 +5,8 @@ import { LoadingArticlesContainer, Article } from "./LoadingArticles_styles";
 const LoadingArticles = () => (
   <>
     <LoadingArticlesContainer>
-      {[1, 2, 3].map((category) => {
-        return <Article key={category} />;
-      })}
-    </LoadingArticlesContainer>
-    <LoadingArticlesContainer>
-      {[1, 2, 3].map((category) => {
-        return <Article key={category} />;
+      {[0, 1, 2, 3].map((article) => {
+        return <Article key={article} />;
       })}
     </LoadingArticlesContainer>
   </>
