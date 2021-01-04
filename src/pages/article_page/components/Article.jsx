@@ -3,25 +3,22 @@ import { connect } from "react-redux";
 import parse from "html-react-parser";
 import moment from "moment";
 import "moment/locale/es";
-import { faReadme } from "@fortawesome/free-brands-svg-icons";
 
 import {
   Container,
   Title,
-  Author,
-  Date,
   AuthorContainer,
-  InfoContainer,
-  ReadTime,
+  Description,
   Body,
-  Icon,
-  Separator,
-  QueryLink,
-} from "./Article.styles";
+  LeftContainer,
+  RightContainer,
+  CategoriesContainer,
+} from "./Article_styles";
 import {
   select_category_action,
   delete_category_action,
 } from "../../../redux/articles_page/actions";
+import ProfileBox from "../../../components/profile_box_component/ProfileBox";
 import Category from "../../../components/category_component/Category";
 
 const Article = ({ data }) => {
@@ -29,7 +26,7 @@ const Article = ({ data }) => {
     moment.locale("en");
     window.scrollTo(0, 0);
 
-    document.title = `${data.title_link}`;
+    document.title = `${data.title}`;
   }, []);
 
   /*
@@ -57,14 +54,25 @@ const Article = ({ data }) => {
   return (
     <>
       <Container>
-        <Title>{data.title}</Title>
-        <AuthorContainer>
-          <Author>{data.user}</Author>
-        </AuthorContainer>
-        <InfoContainer>
-          <Date>{moment(data.date.toDate()).format("LL")}</Date>
-        </InfoContainer>
-        <Body>{parse(data.description)}</Body>
+        <LeftContainer>
+          <Title>{data.title}</Title>
+          <Body>{parse(data.description)}</Body>
+        </LeftContainer>
+        <RightContainer>
+          <AuthorContainer>
+            <ProfileBox
+              profile_image={data.profile_image}
+              user={data.user}
+              date={data.date}
+            />
+            <Description>{parse(data.description)}</Description>
+          </AuthorContainer>
+          <CategoriesContainer>
+            {data.categories.map((category) => {
+              return <Category category={category} key={category} />;
+            })}
+          </CategoriesContainer>
+        </RightContainer>
       </Container>
     </>
   );

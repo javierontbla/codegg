@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
@@ -27,6 +28,8 @@ export const ArticlePreviewContainer = styled.div`
     box-shadow: 3px 3px 3px -1.5px #ced4da;
   }
 `;
+
+export const LinkContainer = styled(Link)``;
 
 export const ImageContainer = styled.div`
   height: 8.75rem;

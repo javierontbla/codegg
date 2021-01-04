@@ -19,7 +19,7 @@ import {
   BottomContainer,
 } from "./ArticleCard_styles";
 
-const ArticleCard = ({ data, id, request_filtered_articles_fun }) => {
+const ArticleCard = ({ match, data, id, request_filtered_articles_fun }) => {
   const url = data.title_link.split(" ").join("-").toLowerCase();
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const ArticleCard = ({ data, id, request_filtered_articles_fun }) => {
   return (
     <>
       <ArticleCardContainer>
-        <LinkArticle to={`/${url}-${id}`}>
+        <LinkArticle to={`${match}/${url}-${id}`}>
           <ArticleImage source={data.article_image} />
           <TopContainer>
             <Premium>Premium</Premium>

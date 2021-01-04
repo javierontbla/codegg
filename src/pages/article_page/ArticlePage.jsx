@@ -2,47 +2,47 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import Article from "./components/Article";
-import Error from "../../components/error.component/Error";
-import { fetchArticleStart } from "../../redux/article.page/actions";
+import { request_article_start_action } from "../../redux/article_page/actions";
 
 const ArticlePage = ({
   match: {
-    params: { articleId },
+    params: { article_id },
   },
-  loading,
-  getArticle,
+  request_article,
+  loading_article,
   article,
-  error,
+  error_article,
 }) => {
   useEffect(() => {
-    // getting to the top of the page when component renders
-    window.scrollTo(0, 0);
-    // getting id doc from the url, using react router
-    const url = articleId.split("-");
-    getArticle(url[url.length - 1]);
-  }, [getArticle, articleId]);
+    window.scrollTo(0, 0); // getting to the top of the page when component renders
+    const url = article_id.split("-"); // getting id doc from the url, using react router
+
+    request_article(url[url.length - 1]);
+  }, [article_id]);
 
   return (
     <>
-      {!loading && !error ? (
+      {error_article ? (
+        console.log("Error!")
+      ) : loading_article ? (
+        console.log("Loading...")
+      ) : (
         <Article data={article} />
-      ) : !error ? null : (
-        <Error />
       )}
     </>
   );
 };
 
 const mapStateToProps = ({
-  articlePageReducer: { loading, article, error },
+  article_page_reducer: { loading_article, article, error_article },
 }) => ({
-  loading,
+  loading_article,
   article,
-  error,
+  error_article,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getArticle: (id) => dispatch(fetchArticleStart(id)),
+  request_article: (id) => dispatch(request_article_start_action(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);

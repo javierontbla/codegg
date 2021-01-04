@@ -18,11 +18,11 @@ import {
 } from "./articles_page/sagas";
 import { request_top_investors_saga } from "./investors_page/sagas";
 import { request_all_comments_saga } from "./post/sagas";
-import { fetchArticle } from "./article.page/sagas";
+import { request_article_saga } from "./article_page/sagas";
 import { sendForm } from "./feedback.page/sagas";
 import { create_trade_card_saga } from "./dashboards/sagas";
 
-export function* rootSaga() {
+export function* root_saga() {
   yield all([
     call(log_in_active_user_saga),
     call(log_out_active_user_saga),
@@ -33,11 +33,11 @@ export function* rootSaga() {
     call(request_filtered_articles_saga),
     call(request_more_unfiltered_articles_saga),
     call(request_more_filtered_articles_saga),
+    call(request_article_saga),
     call(request_top_investors_saga),
     call(request_all_comments_saga),
     call(request_available_categories_saga),
     call(create_trade_card_saga),
-    call(fetchArticle),
     call(sendForm),
   ]);
 }

@@ -70,8 +70,10 @@ export const SymbolInputContainer = styled.input`
   }
 `;
 
-export const CreateButton = styled.div`
-  ${ButtonStyles};
+export const ActionButtonContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
+  border-radius: 0.15rem;
   background: ${(props) =>
     props.active_dashboard ? "transparent" : "rgb(33, 33, 32)"};
   background: ${(props) =>

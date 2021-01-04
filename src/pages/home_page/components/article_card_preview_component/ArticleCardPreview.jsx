@@ -4,6 +4,7 @@ import moment from "moment";
 import Category from "../../../../components/category_component/Category";
 import {
   ArticlePreviewContainer,
+  LinkContainer,
   ImageContainer,
   TopContainer,
   Premium,
@@ -16,23 +17,28 @@ import {
   BottomContainer,
 } from "./ArticleCardPreview_styles";
 
-const ArticleCardPreview = ({ data }) => {
+const ArticleCardPreview = ({ data, id }) => {
   moment.locale("es");
+
   return (
     <>
       <ArticlePreviewContainer>
-        <ImageContainer article_preview_image={data.article_image} />
-        <TopContainer>
-          <Premium>Premium</Premium>
-          <Title>{data.title}</Title>
-        </TopContainer>
-        <MiddleContainer>
-          <ProfileImage profile_image={data.profile_image} />
-          <ProfileContainer>
-            <ProfileName>{data.user}</ProfileName>
-            <Date>{moment(data.date.toDate()).startOf("hour").fromNow()}</Date>
-          </ProfileContainer>
-        </MiddleContainer>
+        <LinkContainer to={`/articles/${id}`}>
+          <ImageContainer article_preview_image={data.article_image} />
+          <TopContainer>
+            <Premium>Premium</Premium>
+            <Title>{data.title}</Title>
+          </TopContainer>
+          <MiddleContainer>
+            <ProfileImage profile_image={data.profile_image} />
+            <ProfileContainer>
+              <ProfileName>{data.user}</ProfileName>
+              <Date>
+                {moment(data.date.toDate()).startOf("hour").fromNow()}
+              </Date>
+            </ProfileContainer>
+          </MiddleContainer>
+        </LinkContainer>
         <BottomContainer>
           {data.categories.map((category) => {
             return (

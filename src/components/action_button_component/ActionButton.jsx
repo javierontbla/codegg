@@ -2,10 +2,10 @@ import React from "react";
 
 import { ActionButtonContainer } from "./ActionButton_styles";
 
-const ActionButton = () => {
+const ActionButton = ({ action }) => {
   return (
     <>
-      <ActionButtonContainer>Write</ActionButtonContainer>
+      <ActionButtonContainer>{action}</ActionButtonContainer>
     </>
   );
 };

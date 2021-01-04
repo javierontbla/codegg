@@ -1,11 +1,13 @@
 import React from "react";
 
-import { WritePageContainer } from "./WritePage_styles";
+import { Container, WritePageContainer } from "./WritePage_styles";
 
 const WritePage = () => {
   return (
     <>
-      <WritePageContainer className="container">write</WritePageContainer>
+      <Container className="container">
+        <WritePageContainer>write</WritePageContainer>
+      </Container>
     </>
   );
 };

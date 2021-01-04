@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {
   CallDashboardContainer,
   SymbolInputContainer,
-  CreateButton,
+  ActionButtonContainer,
   TopContainer,
   PreviewContainer,
   CloseIcon,
@@ -21,6 +21,7 @@ import {
   BottomContainer,
 } from "./TradeDashboard_styles";
 import { create_trade_card_start_action } from "../../../redux/dashboards/actions";
+import ActionButton from "../../action_button_component/ActionButton";
 import PublishButton from "../../publish_button_component/PublishButton";
 import ChangeIconSVG from "./media/change_button.svg";
 import CloseIconSVG from "./media/close_button.svg";
@@ -77,16 +78,16 @@ const TradeDashboard = ({
                 handle_call_card_fields("symbol", e.target.value)
               }
             />
-            <CreateButton
+            <ActionButtonContainer
               active_dashboard={active_dashboard}
               onClick={() => display_call_card_dashboard()}
             >
               {active_dashboard ? (
                 <CloseIcon src={CloseIconSVG} />
               ) : (
-                `Create Trade`
+                <ActionButton action={"Create Trade"} />
               )}
-            </CreateButton>
+            </ActionButtonContainer>
           </PreviewContainer>
           <ActionContainer active_dashboard={active_dashboard}>
             <ActionOverlay>
