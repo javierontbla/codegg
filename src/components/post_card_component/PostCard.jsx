@@ -6,21 +6,22 @@ import Comments from "./components/comments_component/Comments";
 import LoadingComments from "../loading_components/loading_comments/LoadingComments";
 import {
   BottomContainer,
-  MiddleContainer,
-  ProfileImageContainer,
-  Date,
-  Name,
-  NameLink,
-  NamesContainer,
   Container,
   PostContainer,
   TopContainer,
+  PremiumContainer,
   Premium,
+  UserDataContainer,
+  ProfileImageContainer,
+  NamesContainer,
+  Name,
+  NameLink,
+  Date,
+  MiddleContainer,
   Description,
   PostImageContainer,
   TrendsContainer,
   TrendContainer,
-  UserDataContainer,
   TrendIcon,
   CountContainer,
   CommentsIconContainer,
@@ -31,6 +32,7 @@ import UpIcon from "./media/up_button.svg";
 import DownIcon from "./media/down_button.svg";
 import CommentsIcon from "./media/comments_button.svg";
 import { request_all_comments_start_action } from "../../redux/post/actions";
+import PremiumIcon from "./media/premium_icon.svg";
 
 const PostCard = ({
   data,
@@ -49,7 +51,9 @@ const PostCard = ({
     <>
       <Container>
         <PostContainer>
-          <Premium>Premium</Premium>
+          <PremiumContainer>
+            <Premium src={PremiumIcon} />
+          </PremiumContainer>
           <TopContainer>
             <ProfileImageContainer profile_image_url={data.profile_image} />
             <UserDataContainer>

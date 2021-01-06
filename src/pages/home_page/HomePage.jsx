@@ -20,6 +20,7 @@ import {
   LeftContainer,
   TradesContainer,
   MiddleContainer,
+  Division,
   PostsContainer,
   RightContainer,
   UploadDashboardContainer,
@@ -74,6 +75,7 @@ const HomePage = ({
             <UploadDashboardContainer>
               <PostDashboard />
             </UploadDashboardContainer>
+            <Division />
             {loading_posts ? (
               <LoadingPosts />
             ) : (

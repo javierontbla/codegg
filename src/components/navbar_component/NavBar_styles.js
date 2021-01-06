@@ -109,12 +109,12 @@ export const Menu = styled.div`
   display: ${(props) => (props.menu_active ? "block" : "none")};
   z-index: 1;
   background: ${white};
-  border-radius: 0.35rem;
+  border-radius: 0.15rem;
   border: 1px solid ${grey};
   width: 8rem;
   height: fit-content;
   margin: 0.5rem 0rem 0rem 0rem;
-  box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
 `;
 
 export const MenuOption = styled.div`

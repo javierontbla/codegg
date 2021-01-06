@@ -15,8 +15,8 @@ export const PostDashboardContainer = styled.div`
   background: ${white};
   border: 1px solid ${grey};
   padding: 0.55rem 0.55rem 0.55rem 0.55rem;
-  border-radius: 0.35rem;
-  box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
+  border-radius: 0.15rem;
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
 `;
 
 export const TextInputContainer = styled.textarea`
@@ -40,9 +40,11 @@ export const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+  height: fit-content;
+  width: 100%;
   justify-content: space-between !important;
-  margin: 0rem 0.1rem 0.15rem 0.1rem;
-  padding: 1rem 0rem 0rem 0rem;
+  margin: 1rem 0rem 0rem 0rem;
+  padding: 0rem 0.1rem 0rem 0.1rem;
 `;
 
 export const LeftContainer = styled.div`
@@ -58,7 +60,9 @@ export const CameraContainer = styled.label`
   height: fit-content;
   background: black;
   padding: 0.05rem 0.275rem 0.05rem 0.275rem;
+  margin: 0rem 0rem 0rem 0rem;
   border-radius: 0.15rem;
+  border: 1px solid green;
 
   &:hover {
     cursor: pointer;

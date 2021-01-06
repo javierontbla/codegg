@@ -74,6 +74,12 @@ export const MiddleContainer = styled.div`
   margin: 0rem 1.5rem 0rem 1.5rem;
 `;
 
+export const Division = styled.div`
+  width: 100%;
+  height: 0.75rem;
+  border-bottom: 0.5px solid ${grey};
+  margin: 0rem 0rem 0.75rem 0rem;
+`;
 export const PostsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -82,7 +88,7 @@ export const PostsContainer = styled.div`
 export const UploadDashboardContainer = styled.div`
   width: 100%;
   height: fit-content;
-  margin: 0rem 0rem 0.75rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const RightContainer = styled.div`

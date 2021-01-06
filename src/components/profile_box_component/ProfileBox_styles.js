@@ -16,8 +16,8 @@ export const ProfileBoxContainer = styled.div`
 `;
 
 export const ProfileImage = styled.div`
-  width: 2.75rem;
-  height: 2.75rem;
+  width: ${(props) => (props.article_card_preview ? "2.15rem" : "2.75rem")};
+  height: ${(props) => (props.article_card_preview ? "2.15rem" : "2.75rem")};
   border-radius: 50%;
   border: none;
   background-size: cover;
@@ -35,7 +35,7 @@ export const InformationContainer = styled.div`
 
 export const User = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 1.2rem;
+  font-size: ${(props) => (props.article_card_preview ? "0.925rem" : "1.2rem")};
   color: ${black};
   line-height: 100%;
   margin: 0rem 0rem 0.125rem 0rem;
@@ -46,7 +46,7 @@ export const Date = styled.div`
   display: flex;
   align-items: center;
   color: ${grey};
-  font-size: 0.7rem;
+  font-size: ${(props) => (props.article_card_preview ? "0.65rem" : "0.7rem")};
   font-family: ${roboto};
   font-weight: 500;
   letter-spacing: 0.25px;

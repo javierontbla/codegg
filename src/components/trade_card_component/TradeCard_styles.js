@@ -11,19 +11,18 @@ const InformationStyles = css`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.565rem;
+  font-size: 0.7rem;
   font-family: ${roboto};
   font-weight: 500;
   padding: 0.25rem 0.35rem 0.25rem 0.35rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.75px;
   margin: 0rem 0.25rem 0rem 0.25rem;
   height: fit-content;
   width: fit-content;
   border-radius: 0.15rem;
   line-height: 100%;
-  background: transparent;
+  background: #f0eeec;
   color: ${black};
-  border: 0.25px solid ${black};
 
   &:hover {
     cursor: auto;
@@ -35,10 +34,10 @@ export const TradeCardContainer = styled.div`
   border: 1px solid blue;
   margin: ${(props) =>
     props.home_page ? "0.5rem 0rem 0.5rem 0rem" : "0rem 0.5rem 0rem 0.5rem"};
-  border-radius: 0.35rem;
   background: ${white};
   border: 1px solid ${grey};
-  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  border-radius: 0.15rem;
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   transition: box-shadow 0.2s;
 
   &:first-child {
@@ -70,28 +69,21 @@ export const InformationContainer = styled.div`
   flex-direction: row;
   align-items: baseline;
   flex-wrap: nowrap;
-  margin: 0.4rem 0rem 0rem -0.25rem;
+  margin: 0.5rem 0rem 0rem -0.25rem;
   padding: 0rem 0rem 0rem 0rem;
 `;
 
-export const Action = styled.button`
+export const Action = styled.div`
   ${InformationStyles};
-  color: ${white};
-  background: ${(props) =>
-    props.action === "sell" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
-  background: ${(props) =>
-    props.action === "sell"
-      ? "linear-gradient(45deg,rgba(249, 104, 106, 1) 5%,rgba(185, 32, 34, 1) 95%)"
-      : "linear-gradient(45deg, rgba(67, 170, 139, 1) 0%, rgba(55, 139, 136, 1) 100%)"};
   text-transform: capitalize;
   border: none;
 `;
 
-export const Premium = styled.button`
+export const Premium = styled.div`
   ${InformationStyles};
 `;
 
-export const Date = styled.button`
+export const Date = styled.div`
   ${InformationStyles};
 `;
 

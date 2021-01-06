@@ -5,7 +5,7 @@ import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
 const { grey, white, black } = colors;
-const { source_sans_pro, roboto } = fonts;
+const { source_sans_pro, roboto, open_sans } = fonts;
 
 export const ArticlePreviewContainer = styled.div`
   display: flex;
@@ -15,8 +15,8 @@ export const ArticlePreviewContainer = styled.div`
   background: ${white};
   border: 1px solid ${grey};
   margin: 0.5rem 0rem 0.5rem 0rem;
-  border-radius: 0.35rem;
-  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  border-radius: 0.15rem;
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   transition: box-shadow 0.2s;
 
   &:first-child {
@@ -35,14 +35,15 @@ export const ImageContainer = styled.div`
   height: 8.75rem;
   width: 100%;
   border: none;
-  border-top-left-radius: 0.305rem;
-  border-top-right-radius: 0.305rem;
+  border-top-left-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.article_preview_image});
   background-repeat: no-repeat;
   border-bottom: 0.5px solid ${grey};
   padding: 0rem 0rem 0rem 0rem !important;
+  overflow: hidden;
 `;
 
 export const TopContainer = styled.div`
@@ -60,7 +61,7 @@ export const Premium = styled.button`
   font-weight: 500;
   padding: 0.25rem 0.35rem 0.25rem 0.35rem;
   letter-spacing: 0.5px;
-  margin: 0.65rem 0rem 0rem 0.65rem;
+  margin: 0.5rem 0rem 0rem 0.65rem;
   height: fit-content;
   width: fit-content;
   border-radius: 0.15rem;
@@ -83,60 +84,48 @@ export const Title = styled.div`
   line-height: 115%;
   width: 100%;
   height: fit-content;
-  padding: 0.45rem 0.65rem 0rem 0.65rem;
+  padding: 0rem 0.65rem 0rem 0.65rem;
+  margin: 0.5rem 0rem 0rem 0rem;
 `;
 
 export const MiddleContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: fit-content;
-  padding: 0.85rem 0.65rem 0.85rem 0.65rem;
-  margin: 0rem 0rem 0rem 0rem;
-`;
-
-export const ProfileImage = styled.div`
-  width: 2.15rem;
-  height: 2.15rem;
-  border-radius: 50%;
-  border: none;
-  margin: 0rem 0.5rem 0rem 0rem;
-  background-size: cover;
-  background-position: center;
-  background-image: url(${(props) => props.profile_image});
-  background-repeat: no-repeat;
-`;
-
-export const ProfileContainer = styled.div`
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
-`;
-
-export const ProfileName = styled.div`
-  line-height: 100%;
-  font-family: ${source_sans_pro};
-  font-size: 0.925rem;
-  color: ${black};
-  margin: 0rem 0rem 0.2rem 0rem;
-  text-transform: capitalize;
-`;
-
-export const Date = styled.div`
-  line-height: 100%;
-  font-family: ${roboto};
-  font-size: 0.65rem;
-  color: ${grey};
-  letter-spacing: 0.25px;
-  width: fit-content;
+  align-items: flex-start;
+  height: fit-content;
+  padding: 0.8rem 0.65rem 0.8em 0.65rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  height: fit-content;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0.35rem 0.4rem 0.35rem 0.4rem;
+  padding: 0.1rem 0.65rem 0.1rem 0.65rem;
   border-top: 0.5px solid ${grey};
+`;
+
+export const Trends = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const Icon = styled.img`
+  width: 1.85rem;
+  height: 1.85rem;
+  margin: 0rem 0rem 0rem 0rem;
+`;
+
+export const Votes = styled.div`
+  width: fit-content;
+  color: ${black};
+  font-size: 0.65rem;
+  margin: 0rem 0.25rem 0rem 0.35rem;
+  font-family: ${open_sans};
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  opacity: 0.85;
 `;

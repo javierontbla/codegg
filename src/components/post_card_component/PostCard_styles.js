@@ -16,39 +16,28 @@ export const PostContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: ${white};
-  border-radius: 0.35rem;
   margin: 0.75rem 0rem 0.75rem 0rem;
-  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
 
   &:first-child {
     margin: 0rem 0rem 0.75rem 0rem;
   }
 `;
 
-export const Premium = styled.button`
+export const PremiumContainer = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 0.565rem;
-  font-family: ${roboto};
-  font-weight: 500;
-  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
-  letter-spacing: 0.5px;
-  margin: 0.75rem 0.75rem 0rem 0rem;
   height: fit-content;
   width: fit-content;
-  border-radius: 0.15rem;
-  line-height: 100%;
   background: transparent;
-  color: ${black};
-  border: 0.25px solid ${black};
+  margin: 0.75rem 0.75rem 0rem 0rem;
+`;
 
-  &:hover {
-    cursor: auto;
-  }
+export const Premium = styled.img`
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const TopContainer = styled.div`
@@ -56,12 +45,12 @@ export const TopContainer = styled.div`
   flex-direction: row;
   height: 4.4rem;
   align-items: center;
-  padding: 0rem 0.75rem 0rem 0.75rem;
+  padding: 0rem 0rem 0rem 0.75rem;
   border-top: 1px solid ${grey};
   border-left: 1px solid ${grey};
   border-right: 1px solid ${grey};
-  border-top-left-radius: 0.35rem;
-  border-top-right-radius: 0.35rem;
+  border-top-left-radius: 0.15rem;
+  border-top-right-radius: 0.15rem;
 `;
 
 export const ProfileImageContainer = styled.div`
@@ -160,9 +149,9 @@ export const BottomContainer = styled.div`
   border-right: 1px solid ${grey};
   border-bottom: 1px solid ${grey};
   border-bottom-left-radius: ${(props) =>
-    props.display_comments ? `0rem` : `0.35rem`};
+    props.display_comments ? `0rem` : `0.15rem`};
   border-bottom-right-radius: ${(props) =>
-    props.display_comments ? `0rem` : `0.35rem`};
+    props.display_comments ? `0rem` : `0.15rem`};
   padding: 0.1rem 0.55rem 0.1rem 0.55rem;
 `;
 

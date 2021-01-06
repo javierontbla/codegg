@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 
+import ProfileBox from "../../../../components/profile_box_component/ProfileBox";
 import Category from "../../../../components/category_component/Category";
 import {
   ArticlePreviewContainer,
@@ -10,12 +11,14 @@ import {
   Premium,
   Title,
   MiddleContainer,
-  ProfileImage,
-  ProfileContainer,
-  ProfileName,
-  Date,
+  CategoriesContainer,
   BottomContainer,
+  Trends,
+  Icon,
+  Votes,
 } from "./ArticleCardPreview_styles";
+import UpTrend from "./media/up_button.svg";
+import DownTrend from "./media/down_button.svg";
 
 const ArticleCardPreview = ({ data, id }) => {
   moment.locale("es");
@@ -30,25 +33,20 @@ const ArticleCardPreview = ({ data, id }) => {
             <Title>{data.title}</Title>
           </TopContainer>
           <MiddleContainer>
-            <ProfileImage profile_image={data.profile_image} />
-            <ProfileContainer>
-              <ProfileName>{data.user}</ProfileName>
-              <Date>
-                {moment(data.date.toDate()).startOf("hour").fromNow()}
-              </Date>
-            </ProfileContainer>
+            <ProfileBox
+              profile_image={data.profile_image}
+              user={data.user}
+              date={data.date}
+              article_card_preview={"true"}
+            />
           </MiddleContainer>
         </LinkContainer>
         <BottomContainer>
-          {data.categories.map((category) => {
-            return (
-              <Category
-                article_preview={"true"}
-                category={category}
-                key={category}
-              />
-            );
-          })}
+          <Trends>
+            <Icon src={UpTrend} />
+            <Votes>{"12"}</Votes>
+            <Icon src={DownTrend} />
+          </Trends>
         </BottomContainer>
       </ArticlePreviewContainer>
     </>
