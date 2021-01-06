@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { button_font } = fonts;
+const { open_sans } = fonts;
 
 const { white } = colors;
 
@@ -14,7 +14,7 @@ export const CategoryContainer = styled.div`
   align-items: center;
   width: fit-content;
   border-radius: 0.15rem;
-  font-family: ${button_font};
+  font-family: ${open_sans};
   letter-spacing: 0.5px;
   height: fit-content;
   color: ${white};

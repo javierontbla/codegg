@@ -28,7 +28,7 @@ function* request_latest_trades_async() {
 }
 
 function* request_posts_async() {
-  const posts_ref = db.collection(`posts`);
+  const posts_ref = db.collection(`posts`).orderBy("date", "desc");
 
   try {
     const response = yield posts_ref.get().then((snapshot) => {

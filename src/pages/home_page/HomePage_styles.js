@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { white, grey } = colors;
+const { grey } = colors;
 const { source_sans_pro } = fonts;
 
 const Titles = css`
@@ -12,15 +12,13 @@ const Titles = css`
   align-items: flex-end;
   width: 100%;
   height: 2.85rem;
-  background: ${white};
-  border: 1px solid ${grey};
+  background: transparent;
+  border-bottom: 0.5px solid ${grey};
   font-family: ${source_sans_pro};
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   letter-spacing: 1px;
-  padding: 0.65rem 0.55rem 0.65rem 0.55rem;
+  padding: 0.65rem 0rem 0.65rem 0rem;
   line-height: 100%;
-  border-radius: 0.35rem;
-  box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;
   margin: 0rem 0rem 0.75rem 0rem;
 `;
 

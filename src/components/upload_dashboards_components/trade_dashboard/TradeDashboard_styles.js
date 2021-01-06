@@ -85,7 +85,7 @@ export const ActionButtonContainer = styled.div`
 export const CloseIcon = styled.img`
   width: 1rem;
   height: 1rem;
-  margin: -0.4rem 0.15rem 0rem 0rem;
+  margin: -0.1rem 0.5rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
@@ -243,4 +243,8 @@ export const BottomContainer = styled.div`
   align-items: center;
   border-top: 0.5px solid ${grey};
   padding: 0.65rem 0.75rem 0.65rem 0.75rem;
+`;
+
+export const PublishButton = styled.div`
+  ${ButtonStyles};
 `;

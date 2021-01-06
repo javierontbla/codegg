@@ -19,10 +19,10 @@ import {
   CommentInput,
   OptionContainer,
   BottomContainer,
+  PublishButton,
 } from "./TradeDashboard_styles";
 import { create_trade_card_start_action } from "../../../redux/dashboards/actions";
 import ActionButton from "../../action_button_component/ActionButton";
-import PublishButton from "../../publish_button_component/PublishButton";
 import ChangeIconSVG from "./media/change_button.svg";
 import CloseIconSVG from "./media/close_button.svg";
 
@@ -30,6 +30,7 @@ const TradeDashboard = ({
   current_drop_down_selection_trade,
   create_trade_card,
   active_user_database,
+  latest_trades,
 }) => {
   const [active_dashboard, set_active_dashboard] = useState(false);
   const [current_action, set_current_action] = useState("buy");
@@ -59,10 +60,13 @@ const TradeDashboard = ({
     }
   };
 
-  const create_call_card = () => {
+  const upload_trade_card_to_firebase = () => {
     call_card_fields.current["username"] =
       active_user_database.user_data.username;
-    create_trade_card(call_card_fields.current);
+    create_trade_card({
+      new_trade_content: call_card_fields.current,
+      latest_trades,
+    });
   };
 
   return (
@@ -141,13 +145,9 @@ const TradeDashboard = ({
           />
         </MiddleContainer>
         <BottomContainer active_dashboard={active_dashboard}>
-          <PublishButton
-            launch_firebase_action={() => create_call_card()}
-            current_drop_down_selection_trade={
-              current_drop_down_selection_trade
-            }
-            current_drop_down_selection_post={false}
-          />
+          <PublishButton onClick={() => upload_trade_card_to_firebase()}>
+            Publish
+          </PublishButton>
         </BottomContainer>
       </CallDashboardContainer>
     </>
@@ -156,9 +156,14 @@ const TradeDashboard = ({
 
 // redux
 const mapStateToProps = ({
+  home_page_reducer: { latest_trades },
   dashboards_reducer: { current_drop_down_selection_trade },
   user_reducer: { active_user_database },
-}) => ({ current_drop_down_selection_trade, active_user_database });
+}) => ({
+  current_drop_down_selection_trade,
+  active_user_database,
+  latest_trades,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   create_trade_card: (trade_card) =>

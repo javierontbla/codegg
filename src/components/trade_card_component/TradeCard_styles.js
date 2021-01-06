@@ -58,9 +58,8 @@ export const TopContainer = styled.div`
 
 export const Title = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 1.55rem;
+  font-size: 1.5rem;
   color: ${black};
-  z-index: 1;
   line-height: 100%;
   letter-spacing: 0.5px;
   padding: 0rem 0rem 0rem 0rem;
@@ -164,7 +163,7 @@ export const BottomContainer = styled.div`
   width: 100%;
   height: 2rem;
   border-top: 0.5px solid ${grey};
-  padding: 0rem 0.5rem 0rem 0.5rem;
+  padding: 0.1rem 0.5rem 0.1rem 0.5rem;
 `;
 
 export const TrendsContainer = styled.div`
@@ -219,10 +218,10 @@ export const Count = styled.div`
   justify-content: center;
   width: fit-content;
   color: ${black};
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   margin: 0rem 0.25rem 0rem 0.35rem;
   font-family: ${open_sans};
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.25px;
   opacity: 0.85;
 `;

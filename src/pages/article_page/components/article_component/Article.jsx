@@ -6,27 +6,35 @@ import "moment/locale/es";
 
 import {
   Container,
-  Title,
-  AuthorContainer,
-  Description,
-  Body,
   LeftContainer,
+  TitleArticle,
+  Body,
   RightContainer,
+  AuthorContainer,
+  ProfileBoxContainer,
+  Description,
+  TrendsContainer,
+  Trends,
+  Icon,
+  Votes,
   CategoriesContainer,
 } from "./Article_styles";
 import {
   select_category_action,
   delete_category_action,
-} from "../../../redux/articles_page/actions";
-import ProfileBox from "../../../components/profile_box_component/ProfileBox";
-import Category from "../../../components/category_component/Category";
+} from "../../../../redux/articles_page/actions";
+import Title from "../../../../components/title_component/Title";
+import ProfileBox from "../../../../components/profile_box_component/ProfileBox";
+import Category from "../../../../components/category_component/Category";
+import UpTrend from "./media/up_button.svg";
+import DownTrend from "./media/down_button.svg";
 
 const Article = ({ data }) => {
   useEffect(() => {
     moment.locale("en");
     window.scrollTo(0, 0);
 
-    document.title = `${data.title}`;
+    document.title = `Codegg - ${data.title}`;
   }, []);
 
   /*
@@ -55,17 +63,27 @@ const Article = ({ data }) => {
     <>
       <Container>
         <LeftContainer>
-          <Title>{data.title}</Title>
+          <TitleArticle>{data.title}</TitleArticle>
           <Body>{parse(data.description)}</Body>
         </LeftContainer>
         <RightContainer>
+          <Title title={"Investor"} />
           <AuthorContainer>
-            <ProfileBox
-              profile_image={data.profile_image}
-              user={data.user}
-              date={data.date}
-            />
+            <ProfileBoxContainer>
+              <ProfileBox
+                profile_image={data.profile_image}
+                user={data.user}
+                date={data.date}
+              />
+            </ProfileBoxContainer>
             <Description>{parse(data.description)}</Description>
+            <TrendsContainer>
+              <Trends>
+                <Icon src={UpTrend} />
+                <Votes>{"12"}</Votes>
+                <Icon src={DownTrend} />
+              </Trends>
+            </TrendsContainer>
           </AuthorContainer>
           <CategoriesContainer>
             {data.categories.map((category) => {

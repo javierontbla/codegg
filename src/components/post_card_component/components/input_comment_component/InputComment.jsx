@@ -18,7 +18,7 @@ const InputComment = () => {
           }
         />
         <InputCommentContainer>
-          <TextArea rows="3" placeholder="Escribe un comentario" />
+          <TextArea rows="3" placeholder="Write a comment" />
           <CommentButton>Comentar</CommentButton>
         </InputCommentContainer>
       </Container>

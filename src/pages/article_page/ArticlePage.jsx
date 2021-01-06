@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import Article from "./components/Article";
+import Article from "./components/article_component/Article";
 import { request_article_start_action } from "../../redux/article_page/actions";
 
 const ArticlePage = ({

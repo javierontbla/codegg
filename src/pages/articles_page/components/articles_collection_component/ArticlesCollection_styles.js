@@ -51,7 +51,7 @@ export const CategoriesContainer = styled.div`
   height: fit-content;
   border: 1px solid ${grey};
   justify-content: left;
-  padding: 0.5rem 0.45rem 0.5rem 0.45rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   margin: 0rem 0rem 0rem 0rem;
   border-radius: 0.35rem;
   box-shadow: 1.35px 1.35px 1.35px -1px #ced4da;

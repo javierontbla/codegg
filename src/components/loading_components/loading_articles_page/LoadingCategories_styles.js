@@ -31,7 +31,7 @@ export const Category = styled.div`
   border-radius: 0.15rem;
   height: 1.6rem;
   border: none;
-  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   margin: 0.25rem 0rem 0.25rem 0rem;
   position: relative;
   overflow: hidden;

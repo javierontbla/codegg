@@ -7,6 +7,7 @@ import ActionButton from "../../../../components/action_button_component/ActionB
 import LoadingArticles from "../../../../components/loading_components/loading_articles_page/LoadingArticles";
 import LoadingCategories from "../../../../components/loading_components/loading_articles_page/LoadingCategories";
 import Category from "../../../../components/category_component/Category";
+import Title from "../../../../components/title_component/Title";
 import {
   request_available_categories_start_action,
   request_unfiltered_articles_start_action,
@@ -19,7 +20,6 @@ import {
   Container,
   ArticlesPageContainer,
   LeftContainer,
-  Title,
   CategoriesContainer,
   RightContainer,
   ActiveCategoryContainer,
@@ -110,7 +110,7 @@ const ArticlesCollection = ({
       <Container className="container">
         <ArticlesPageContainer>
           <LeftContainer>
-            <Title>Categories</Title>
+            <Title title={"Categories"} />
             <CategoriesContainer>
               {loading_categories ? (
                 <LoadingCategories />

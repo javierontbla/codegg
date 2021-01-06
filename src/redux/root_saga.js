@@ -19,8 +19,11 @@ import {
 import { request_top_investors_saga } from "./investors_page/sagas";
 import { request_all_comments_saga } from "./post/sagas";
 import { request_article_saga } from "./article_page/sagas";
+import {
+  create_trade_card_saga,
+  create_post_card_saga,
+} from "./dashboards/sagas";
 import { sendForm } from "./feedback.page/sagas";
-import { create_trade_card_saga } from "./dashboards/sagas";
 
 export function* root_saga() {
   yield all([
@@ -38,6 +41,7 @@ export function* root_saga() {
     call(request_all_comments_saga),
     call(request_available_categories_saga),
     call(create_trade_card_saga),
+    call(create_post_card_saga),
     call(sendForm),
   ]);
 }

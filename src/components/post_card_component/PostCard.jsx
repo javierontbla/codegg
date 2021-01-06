@@ -71,7 +71,9 @@ const PostCard = ({
               <TrendContainer>
                 <TrendIcon src={UpIcon} />
               </TrendContainer>
-              <CountContainer>{data.votes}</CountContainer>
+              <CountContainer>
+                {data.up_trends - data.down_trends}
+              </CountContainer>
               <TrendContainer>
                 <TrendIcon src={DownIcon} />
               </TrendContainer>

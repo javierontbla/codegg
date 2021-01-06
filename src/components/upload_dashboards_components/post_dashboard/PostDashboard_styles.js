@@ -4,7 +4,7 @@ import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
 const { white, grey, black } = colors;
-const { roboto } = fonts;
+const { roboto, open_sans } = fonts;
 
 export const PostDashboardContainer = styled.div`
   display: flex;
@@ -45,25 +45,20 @@ export const ButtonsContainer = styled.div`
   padding: 1rem 0rem 0rem 0rem;
 `;
 
-export const UploadImageIconContainer = styled.div`
+export const LeftContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 
-export const UploadImageIcon = styled.div`
+export const CameraContainer = styled.label`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
   width: fit-content;
-  height: 1.75rem;
-  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
+  height: fit-content;
+  background: black;
+  padding: 0.05rem 0.275rem 0.05rem 0.275rem;
   border-radius: 0.15rem;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
 
   &:hover {
     cursor: pointer;
@@ -71,7 +66,46 @@ export const UploadImageIcon = styled.div`
   }
 `;
 
-export const Icon = styled.img`
-  width: 1.55rem;
+export const ImageInput = styled.input`
+  display: none;
+`;
+
+export const CameraIcon = styled.img`
+  width: 1.75rem;
+  height: 1.75rem;
   margin: 0rem 0rem 0rem 0rem;
+`;
+
+export const ImageActiveContainer = styled.div`
+  display: ${(props) => (props.image_active ? "flex" : "none")};
+`;
+
+export const ImageActiveIcon = styled.img`
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0rem 0rem 0rem 0.5rem;
+`;
+
+export const RightContainer = styled.div``;
+
+export const PublishButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  line-height: 100%;
+  height: 1.55rem;
+  width: 5.35rem;
+  background: rgb(33, 33, 32);
+  background: linear-gradient(
+    90deg,
+    rgba(33, 33, 32, 1) 5%,
+    rgba(25, 25, 24, 1) 80%
+  );
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  border-radius: 0.15rem;
+  font-family: ${open_sans};
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: ${white};
 `;
