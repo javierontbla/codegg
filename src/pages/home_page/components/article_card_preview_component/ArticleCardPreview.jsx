@@ -2,16 +2,15 @@ import React from "react";
 import moment from "moment";
 
 import ProfileBox from "../../../../components/profile_box_component/ProfileBox";
-import Category from "../../../../components/category_component/Category";
+import Premium from "../../../../components/premium_component/Premium";
 import {
   ArticlePreviewContainer,
   LinkContainer,
   ImageContainer,
   TopContainer,
-  Premium,
+  PremiumContainer,
   Title,
   MiddleContainer,
-  CategoriesContainer,
   BottomContainer,
   Trends,
   Icon,
@@ -29,7 +28,9 @@ const ArticleCardPreview = ({ data, id }) => {
         <LinkContainer to={`/articles/${id}`}>
           <ImageContainer article_preview_image={data.article_image} />
           <TopContainer>
-            <Premium>Premium</Premium>
+            <PremiumContainer>
+              <Premium />
+            </PremiumContainer>
             <Title>{data.title}</Title>
           </TopContainer>
           <MiddleContainer>

@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 
+import Premium from "../premium_component/Premium";
 import {
   TradeCardContainer,
   TopContainer,
@@ -8,7 +9,6 @@ import {
   InformationContainer,
   Action,
   Date,
-  Premium,
   MiddleContainer,
   OrderContainer,
   LeftText,
@@ -37,13 +37,13 @@ const TradeCard = ({ home_page, data }) => {
               {data.action.toLowerCase()}
             </Action>
             <Date>{moment(data.date.toDate()).format("LL")}</Date>
-            <Premium>Premium</Premium>
+            {data.premium ? <Premium /> : null}
           </InformationContainer>
         </TopContainer>
         <MiddleContainer>
           <OrderContainer>
             <LeftText>Company:</LeftText>
-            <RightText>{data.company}</RightText>
+            <RightText>{data.company.toLowerCase()}</RightText>
           </OrderContainer>
           <OrderContainer>
             <LeftText>No. of Shares:</LeftText>

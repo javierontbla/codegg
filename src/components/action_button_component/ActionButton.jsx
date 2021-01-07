@@ -2,10 +2,10 @@ import React from "react";
 
 import { ActionButtonContainer } from "./ActionButton_styles";
 
-const ActionButton = ({ action }) => {
+const ActionButton = ({ action, navbar }) => {
   return (
     <>
-      <ActionButtonContainer>{action}</ActionButtonContainer>
+      <ActionButtonContainer navbar={navbar}>{action}</ActionButtonContainer>
     </>
   );
 };

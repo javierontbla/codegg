@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PostCard from "../../components/post_card_component/PostCard";
 import TradeCard from "../../components/trade_card_component/TradeCard";
 import ArticleCardPreview from "./components/article_card_preview_component/ArticleCardPreview";
+import Title from "../../components/title_component/Title";
 import PostDashboard from "../../components/upload_dashboards_components/post_dashboard/PostDashboard";
 import TradeDashboard from "../../components/upload_dashboards_components/trade_dashboard/TradeDashboard";
 import LoadingArticlesPreview from "../../components/loading_components/loading_home_page/LoadingArticlesPreview";
@@ -25,8 +26,6 @@ import {
   RightContainer,
   UploadDashboardContainer,
   ArticlesPreviewContainer,
-  RightTitle,
-  LeftTitle,
 } from "./HomePage_styles";
 
 const HomePage = ({
@@ -52,7 +51,7 @@ const HomePage = ({
       <HomePageContainer className="container">
         <MainContainer>
           <LeftContainer>
-            <LeftTitle>LATEST TRADES</LeftTitle>
+            <Title title={"Latest Trades"} />
             <TradeDashboard />
             {loading_latest_trades ? (
               <LoadingLatestTrades />
@@ -87,7 +86,7 @@ const HomePage = ({
             )}
           </MiddleContainer>
           <RightContainer>
-            <RightTitle>TRENDING</RightTitle>
+            <Title title={"Trending"} />
             {loading_articles_preview ? (
               <LoadingArticlesPreview />
             ) : (

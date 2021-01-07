@@ -5,7 +5,7 @@ import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
 const { grey, white, black } = colors;
-const { source_sans_pro, roboto, open_sans } = fonts;
+const { source_sans_pro, open_sans } = fonts;
 
 export const ArticlePreviewContainer = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ export const ArticlePreviewContainer = styled.div`
 
   &:hover {
     cursor: pointer;
-    box-shadow: 3px 3px 3px -1.5px #ced4da;
+    box-shadow: 0px 3px 3px -1px #ced4da;
   }
 `;
 
@@ -52,27 +52,10 @@ export const TopContainer = styled.div`
   width: 100%;
 `;
 
-export const Premium = styled.button`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 0.565rem;
-  font-family: ${roboto};
-  font-weight: 500;
-  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
-  letter-spacing: 0.5px;
-  margin: 0.5rem 0rem 0rem 0.65rem;
-  height: fit-content;
+export const PremiumContainer = styled.div`
   width: fit-content;
-  border-radius: 0.15rem;
-  line-height: 100%;
-  background: transparent;
-  color: ${black};
-  border: 0.25px solid ${black};
-
-  &:hover {
-    cursor: auto;
-  }
+  height: fit-content;
+  margin: 0.65rem 0rem 0rem 0.4rem;
 `;
 
 export const Title = styled.div`
@@ -93,7 +76,7 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   height: fit-content;
-  padding: 0.8rem 0.65rem 0.8em 0.65rem;
+  padding: 0.85rem 0.65rem 0.85em 0.65rem;
   margin: 0rem 0rem 0rem 0rem;
 `;
 

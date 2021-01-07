@@ -3,16 +3,21 @@ import styled, { css } from "styled-components";
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
-const { grey, white, black } = colors;
+const { grey, grey_2, white, black } = colors;
 const { roboto, open_sans } = fonts;
 
 const ButtonStyles = css`
-  display: flex;
   align-items: center;
+  justify-content: space-between;
   line-height: 100%;
   height: 1.55rem;
-  width: fit-content;
-  margin: 0rem 0rem 0rem 0rem;
+  width: 5.35rem;
+  background: rgb(33, 33, 32);
+  background: linear-gradient(
+    90deg,
+    rgba(33, 33, 32, 1) 5%,
+    rgba(25, 25, 24, 1) 80%
+  );
   padding: 0rem 0.5rem 0rem 0.5rem;
   border-radius: 0.15rem;
   font-family: ${open_sans};
@@ -20,16 +25,9 @@ const ButtonStyles = css`
   font-weight: 500;
   letter-spacing: 0.5px;
   color: ${white};
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
 
   &:hover {
     cursor: pointer;
-    opacity: 0.95;
   }
 `;
 
@@ -85,7 +83,7 @@ export const ActionButtonContainer = styled.div`
 export const CloseIcon = styled.img`
   width: 1rem;
   height: 1rem;
-  margin: -0.1rem 0.5rem 0rem 0rem;
+  margin: -0.1rem 0.3rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
@@ -99,8 +97,8 @@ export const TopContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
   padding: ${(props) =>
     props.active_dashboard
-      ? "0.75rem 0rem 0.75rem 0.75rem"
-      : "0.75rem 0.75rem 0.75rem 0.75rem"};
+      ? "0.6rem 0rem 0.6rem 0.55rem"
+      : "0.6rem 0.55rem 0.6rem 0.55rem"};
   border-bottom: ${(props) =>
     props.active_dashboard ? `0.5px solid ${grey}` : "none"};
 `;
@@ -119,35 +117,32 @@ export const ActionContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  margin: 0.55rem 0rem 0rem 0rem;
+  margin: 0.6rem 0rem 0rem 0rem;
 `;
 
 export const ActionOverlay = styled.div`
-  width: 3.75rem;
+  width: 3rem;
 `;
 
 export const Action = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 0.565rem;
+  justify-content: center;
+  font-size: 0.7rem;
   font-family: ${roboto};
-  color: ${white};
-  text-transform: capitalize;
   font-weight: 500;
   padding: 0.25rem 0.35rem 0.25rem 0.35rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.75px;
   margin: 0rem 0rem 0rem 0rem;
+  height: fit-content;
   width: fit-content;
   border-radius: 0.15rem;
-  border: none;
   line-height: 100%;
-  background: ${(props) =>
-    props.action === "sell" ? "rgb(67, 170, 139)" : "rgb(249, 104, 106)"};
-  background: ${(props) =>
-    props.action === "sell"
-      ? "linear-gradient(45deg,rgba(249, 104, 106, 1) 5%,rgba(185, 32, 34, 1) 95%)"
-      : "linear-gradient(45deg, rgba(67, 170, 139, 1) 0%, rgba(55, 139, 136, 1) 100%)"};
+  background: ${grey_2};
+  color: ${black};
+  text-transform: uppercase;
+  border: none;
 `;
 
 export const ActionChange = styled.div`
@@ -158,9 +153,8 @@ export const ActionChange = styled.div`
 `;
 
 export const ChangeIcon = styled.img`
-  width: 1.2rem;
+  width: 1.1rem;
   margin: 0rem 0rem 0rem 0rem;
-  transform: rotate(180deg);
 `;
 
 export const MiddleContainer = styled.div`
@@ -168,14 +162,14 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   width: 100%;
   margin: 0rem 0rem 0.75rem 0rem;
-  padding: 0.75rem 0.75rem 0rem 0.75rem;
+  padding: 0.75rem 0.55rem 0rem 0.55rem;
 `;
 
 export const OptionContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   margin: ${(props) =>
     props.first_container ? "0rem 0rem 0rem 0rem" : "0.35rem 0rem 0rem 0rem"};
   padding: 0rem 0rem 0rem 0rem;
@@ -184,26 +178,26 @@ export const OptionContainer = styled.div`
   line-height: 100%;
 `;
 
-export const Subtitle = styled.div`
-  font-size: 0.85rem;
+export const LeftText = styled.div`
+  font-size: 0.8rem;
   color: ${black};
   font-family: ${roboto};
 `;
 
-export const SubtitleInput = styled.input`
+export const RightTextInput = styled.input`
   width: 6.5rem;
   border: 0.5px solid ${grey};
   border-radius: 0.15rem;
   height: 100%;
   padding: 0rem 0.275rem 0rem 0.275rem;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: ${black};
   font-family: ${roboto};
   letter-spacing: 0.25px;
 
   &&& {
     ::placeholder {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
     }
   }
 
@@ -218,16 +212,16 @@ export const CommentInput = styled.input`
   border: 0.5px solid ${grey};
   margin: 0.75rem 0rem 0rem 0rem;
   border-radius: 0.15rem;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   resize: none !important;
-  padding: 0rem 0.3rem 0rem 0.3rem;
+  padding: 0rem 0.4rem 0rem 0.4rem;
   color: ${black};
   font-family: ${roboto};
   letter-spacing: 0.25px;
 
   &&& {
     ::placeholder {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
     }
   }
 
@@ -242,9 +236,46 @@ export const BottomContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
   border-top: 0.5px solid ${grey};
-  padding: 0.65rem 0.75rem 0.65rem 0.75rem;
+  padding: 0.6rem 0.55rem 0.6rem 0.55rem;
+`;
+
+export const PublishContainer = styled.div`
+  ${ButtonStyles};
+  display: flex;
+  position: relative;
+`;
+
+export const DropDownIconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const DropDownIcon = styled.img`
+  width: 0.5rem;
+  margin: 0.1rem 0rem 0rem 0rem;
 `;
 
 export const PublishButton = styled.div`
+  width: fit-content;
+  height: fit-content;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const DropDownMenu = styled.div`
   ${ButtonStyles};
+  display: ${(props) => (props.dropdown_active ? "flex" : "none")};
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 105%;
+  z-index: 1;
 `;

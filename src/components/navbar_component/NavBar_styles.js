@@ -65,7 +65,7 @@ export const PageLink = styled.div`
   font-size: 0.9rem;
   font-family: ${open_sans};
   color: ${black};
-  font-weight: 600;
+  font-weight: 500;
 
   &:hover {
     cursor: pointer;
@@ -123,8 +123,9 @@ export const MenuOption = styled.div`
   font-size: 0.8rem;
   font-family: ${open_sans};
   color: ${black};
-  font-weight: 600;
-  padding: 0.7rem 0.4rem 0.7rem 0.4rem;
+  font-weight: 500;
+  padding: 0.75rem 0.5rem 0.75rem 0.5rem;
+  letter-spacing: 1px;
   border-bottom: ${(props) =>
     props.last_child ? "none" : `0.5px solid ${grey}`};
 
@@ -133,31 +134,9 @@ export const MenuOption = styled.div`
   }
 `;
 
-export const LogIn = styled.div`
-  display: flex;
-  align-items: center;
+export const ActionButtonContainer = styled.div`
+  height: fit-content;
   width: fit-content;
-  border: none;
-  height: 2rem;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
-  font-family: ${open_sans};
-  padding: 0rem 0.65rem 0rem 0.65rem;
-  color: ${white};
-  font-size: 0.9rem;
-  border-radius: 0.15rem;
-  margin: 0rem 0rem 0rem 0rem;
-  letter-spacing: 1px;
-  font-weight: 600;
-
-  &:hover {
-    cursor: pointer;
-    opacity: 0.95;
-  }
 `;
 
 // buttons

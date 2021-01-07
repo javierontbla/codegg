@@ -3,6 +3,7 @@ import moment from "moment";
 import { connect } from "react-redux";
 
 import Comments from "./components/comments_component/Comments";
+import Premium from "../premium_component/Premium";
 import LoadingComments from "../loading_components/loading_comments/LoadingComments";
 import {
   BottomContainer,
@@ -10,7 +11,6 @@ import {
   PostContainer,
   TopContainer,
   PremiumContainer,
-  Premium,
   UserDataContainer,
   ProfileImageContainer,
   NamesContainer,
@@ -32,7 +32,6 @@ import UpIcon from "./media/up_button.svg";
 import DownIcon from "./media/down_button.svg";
 import CommentsIcon from "./media/comments_button.svg";
 import { request_all_comments_start_action } from "../../redux/post/actions";
-import PremiumIcon from "./media/premium_icon.svg";
 
 const PostCard = ({
   data,
@@ -52,7 +51,7 @@ const PostCard = ({
       <Container>
         <PostContainer>
           <PremiumContainer>
-            <Premium src={PremiumIcon} />
+            <Premium />
           </PremiumContainer>
           <TopContainer>
             <ProfileImageContainer profile_image_url={data.profile_image} />

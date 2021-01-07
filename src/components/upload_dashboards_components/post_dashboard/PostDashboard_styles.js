@@ -14,7 +14,7 @@ export const PostDashboardContainer = styled.div`
   width: 100%;
   background: ${white};
   border: 1px solid ${grey};
-  padding: 0.55rem 0.55rem 0.55rem 0.55rem;
+  padding: 0.6rem 0.55rem 0.6rem 0.55rem;
   border-radius: 0.15rem;
   box-shadow: 0px 1.5px 1.5px -1px #ced4da;
 `;
@@ -44,7 +44,7 @@ export const ButtonsContainer = styled.div`
   width: 100%;
   justify-content: space-between !important;
   margin: 1rem 0rem 0rem 0rem;
-  padding: 0rem 0.1rem 0rem 0.1rem;
+  padding: 0rem 0.05rem 0rem 0.05rem;
 `;
 
 export const LeftContainer = styled.div`
@@ -53,16 +53,14 @@ export const LeftContainer = styled.div`
   align-items: center;
 `;
 
-export const CameraContainer = styled.label`
+export const ImageContainer = styled.label`
   display: flex;
   flex-direction: row;
   width: fit-content;
   height: fit-content;
-  background: black;
-  padding: 0.05rem 0.275rem 0.05rem 0.275rem;
+  background: none;
+  padding: 0rem 0rem 0rem 0rem;
   margin: 0rem 0rem 0rem 0rem;
-  border-radius: 0.15rem;
-  border: 1px solid green;
 
   &:hover {
     cursor: pointer;
@@ -74,9 +72,9 @@ export const ImageInput = styled.input`
   display: none;
 `;
 
-export const CameraIcon = styled.img`
-  width: 1.75rem;
-  height: 1.75rem;
+export const ImageIcon = styled.img`
+  width: 2rem;
+  border-radius: 0.15rem;
   margin: 0rem 0rem 0rem 0rem;
 `;
 

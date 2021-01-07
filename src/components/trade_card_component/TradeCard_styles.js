@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey, white, black } = colors;
+const { grey, grey_2, white, black } = colors;
 const { source_sans_pro, open_sans, roboto } = fonts;
 
 const InformationStyles = css`
@@ -21,7 +21,7 @@ const InformationStyles = css`
   width: fit-content;
   border-radius: 0.15rem;
   line-height: 100%;
-  background: #f0eeec;
+  background: ${grey_2};
   color: ${black};
 
   &:hover {
@@ -75,7 +75,7 @@ export const InformationContainer = styled.div`
 
 export const Action = styled.div`
   ${InformationStyles};
-  text-transform: capitalize;
+  text-transform: uppercase;
   border: none;
 `;
 
@@ -94,6 +94,7 @@ export const MiddleContainer = styled.div`
   width: 100%;
   height: 7.25rem;
   padding: 0rem 0.75rem 0rem 0.75rem;
+  line-height: 100%;
 `;
 
 export const OrderContainer = styled.div`
@@ -102,8 +103,7 @@ export const OrderContainer = styled.div`
   align-items: baseline;
   justify-content: flex-start;
   padding: 0rem 0rem 0rem 0rem;
-  margin: ${(props) =>
-    props.last_child ? "0rem 0rem 0rem 0rem" : "0rem 0rem 0.25rem 0rem"};
+  margin: 0rem 0rem 0.35rem 0rem;
 `;
 
 export const LeftText = styled.div`
@@ -111,7 +111,7 @@ export const LeftText = styled.div`
   flex-direction: row;
   align-items: center;
   font-family: ${roboto};
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: ${black};
   letter-spacing: 0.25px;
 `;
@@ -126,7 +126,7 @@ export const RightText = styled.div`
   margin: 0rem 0rem 0rem 0rem;
   border-radius: 0.15rem;
   font-weight: 500;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-family: ${roboto};
   letter-spacing: 0.5px;
   color: ${black};
@@ -137,9 +137,9 @@ export const RightText = styled.div`
 export const CommentContainer = styled.div`
   color: ${black};
   font-family: ${roboto};
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  padding: 0.2rem 0rem 0rem 0rem;
+  padding: 0.15rem 0rem 0rem 0rem;
   margin: 0rem 0rem 0rem 0rem;
 
   &::first-letter {

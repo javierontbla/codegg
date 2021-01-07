@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import Codegg from "./media/official_logo.svg";
 import UserIcon from "./media/user_button.svg";
+import ActionButton from "../action_button_component/ActionButton";
 import {
   NavbarContainer,
   LinkContainer,
@@ -11,7 +12,7 @@ import {
   PagesContainer,
   PageLink,
   UserContainer,
-  LogIn,
+  ActionButtonContainer,
   ProfileContainer,
   ProfileIcon,
   Menu,
@@ -63,15 +64,19 @@ const NavBar = ({ active_user_database }) => {
                   onClick={() => display_profile_menu()}
                 />
                 <Menu menu_active={menu_active}>
-                  <MenuOption>Perfil</MenuOption>
+                  <MenuOption>Profile</MenuOption>
                   <MenuOption last_child={"true"} onClick={() => log_out()}>
-                    Cerrar Sesión
+                    Log Out
                   </MenuOption>
                 </Menu>
               </ProfileContainer>
             </>
           ) : (
-            <LogIn onClick={() => log_in()}>Ingresar</LogIn>
+            <ActionButtonContainer onClick={() => log_in()}>
+              <ActionButton navbar={"true"} action={"Log In"}>
+                Ingresar
+              </ActionButton>
+            </ActionButtonContainer>
           )}
         </UserContainer>
       </NavbarContainer>

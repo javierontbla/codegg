@@ -6,21 +6,30 @@ import {
   TextInputContainer,
   ButtonsContainer,
   LeftContainer,
-  CameraContainer,
+  ImageContainer,
   ImageInput,
-  CameraIcon,
+  ImageIcon,
   ImageActiveContainer,
   ImageActiveIcon,
   RightContainer,
-  PublishButton,
 } from "./PostDashboard_styles";
+import {
+  PublishContainer,
+  DropDownIconContainer,
+  DropDownIcon,
+  PublishButton,
+  DropDownMenu,
+} from "../trade_dashboard/TradeDashboard_styles";
 import { create_post_card_start_action } from "../../../redux/dashboards/actions";
-import Camera from "./media/image_button.svg";
+import Image from "./media/image_button.svg";
 import ImageActive from "./media/image_active.svg";
+import DropDownSVG from "./media/dropdown_button.svg";
 
 const PostDashboard = ({ create_post_card, posts }) => {
   const [current_rows, set_current_rows] = useState(1);
   const [image_active, set_image_active] = useState(false);
+  const [publish_mode, set_publish_mode] = useState("Public");
+  const [dropdown_active, set_dropdown_active] = useState(false);
 
   const post_card_fields = useRef({
     description: null,
@@ -49,6 +58,15 @@ const PostDashboard = ({ create_post_card, posts }) => {
     create_post_card({ post_content: post_card_fields.current, posts });
   };
 
+  const handle_publish_mode = (mode) => {
+    set_publish_mode(mode);
+    set_dropdown_active(false);
+  };
+
+  const handle_dropdown = () => {
+    set_dropdown_active((prev_state) => !prev_state);
+  };
+
   return (
     <>
       <PostDashboardContainer>
@@ -66,17 +84,34 @@ const PostDashboard = ({ create_post_card, posts }) => {
             onChange={(e) => handle_input_file(e.target.files)}
           />
           <LeftContainer>
-            <CameraContainer htmlFor="file-input">
-              <CameraIcon src={Camera} />
-            </CameraContainer>
+            <ImageContainer htmlFor="file-input">
+              <ImageIcon src={Image} />
+            </ImageContainer>
             <ImageActiveContainer image_active={image_active}>
               <ImageActiveIcon src={ImageActive} />
             </ImageActiveContainer>
           </LeftContainer>
           <RightContainer>
-            <PublishButton onClick={() => upload_post_card_to_firebase()}>
-              Upload
-            </PublishButton>
+            <PublishContainer>
+              <PublishButton
+                onClick={() => upload_post_card_to_firebase(publish_mode)}
+              >
+                {publish_mode}
+              </PublishButton>
+              <DropDownIconContainer onClick={() => handle_dropdown()}>
+                <DropDownIcon src={DropDownSVG} />
+              </DropDownIconContainer>
+              <DropDownMenu
+                dropdown_active={dropdown_active}
+                onClick={() =>
+                  handle_publish_mode(
+                    publish_mode === "Public" ? "Premium" : "Public"
+                  )
+                }
+              >
+                {publish_mode === "Public" ? "Premium" : "Public"}
+              </DropDownMenu>
+            </PublishContainer>
           </RightContainer>
         </ButtonsContainer>
       </PostDashboardContainer>

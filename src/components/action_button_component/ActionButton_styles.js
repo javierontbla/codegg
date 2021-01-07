@@ -10,13 +10,13 @@ export const ActionButtonContainer = styled.div`
   display: flex;
   align-items: center;
   line-height: 100%;
-  height: 1.55rem;
+  height: ${(props) => (props.navbar ? "1.8rem" : "1.55rem")};
   width: fit-content;
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
   border-radius: 0.15rem;
   font-family: ${open_sans};
-  font-size: 0.8rem;
+  font-size: ${(props) => (props.navbar ? "0.85rem" : "0.8rem")};
   font-weight: 500;
   letter-spacing: 0.5px;
   color: ${white};

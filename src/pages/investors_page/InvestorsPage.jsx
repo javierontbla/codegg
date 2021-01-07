@@ -20,7 +20,7 @@ import "./InvestorsPage.css";
 
 const InvestorsPage = ({ top_investors, request_top_investors }) => {
   useEffect(() => {
-    document.title = `Codegg - Explora Inversores`;
+    document.title = `Codegg - Explore New Investors`;
     request_top_investors();
   }, []);
 

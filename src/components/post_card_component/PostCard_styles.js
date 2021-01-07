@@ -31,12 +31,16 @@ export const PremiumContainer = styled.div`
   height: fit-content;
   width: fit-content;
   background: transparent;
-  margin: 0.75rem 0.75rem 0rem 0rem;
+  margin: 0.75rem 0.5rem 0rem 0rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Premium = styled.img`
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.65rem;
+  height: 1.65rem;
   margin: 0rem 0rem 0rem 0rem;
 `;
 

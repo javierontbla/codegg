@@ -22,8 +22,6 @@ function* create_trade_card_async(action) {
         date: new Date(),
         up_trends: 0,
         down_trends: 0,
-        username: "mari lo",
-        premium: true, // need to modify this field
       })
       .then((doc_ref) => doc_ref.id);
 
