@@ -3,18 +3,16 @@ import moment from "moment";
 
 import {
   IndividualCommentContainer,
-  TopContainer,
+  ProfileImageContainer,
   ProfileImage,
-  UserDataContainer,
-  UserName,
+  UserContainer,
+  User,
   Date,
-  MiddleContainer,
-  CommentText,
-  BottomContainer,
+  ContentContainer,
+  Comment,
   TrendsContainer,
-  UpTrend,
-  VotesCount,
-  DownTrend,
+  TrendIcon,
+  Votes,
 } from "./IndividualComment_styles";
 import UpIcon from "../../media/up_button.svg";
 import DownIcon from "../../media/down_button.svg";
@@ -23,23 +21,21 @@ const IndividualComment = ({ data }) => {
   return (
     <>
       <IndividualCommentContainer>
-        <TopContainer>
+        <ProfileImageContainer>
           <ProfileImage profile_image_url={data.profile_image} />
-          <UserDataContainer>
-            <UserName>{data.user}</UserName>
+        </ProfileImageContainer>
+        <ContentContainer>
+          <UserContainer>
+            <User>{data.user}</User>
             <Date>{moment(data.date.toDate()).startOf("hour").fromNow()}</Date>
-          </UserDataContainer>
-        </TopContainer>
-        <MiddleContainer>
-          <CommentText>{data.comment}</CommentText>
-        </MiddleContainer>
-        <BottomContainer>
+          </UserContainer>
+          <Comment>{data.comment}</Comment>
           <TrendsContainer>
-            <UpTrend src={UpIcon} />
-            <VotesCount>{data.up_trends - data.down_trends}</VotesCount>
-            <DownTrend src={DownIcon} />
+            <TrendIcon src={UpIcon} />
+            <Votes>{data.up_trends - data.down_trends}</Votes>
+            <TrendIcon src={DownIcon} />
           </TrendsContainer>
-        </BottomContainer>
+        </ContentContainer>
       </IndividualCommentContainer>
     </>
   );

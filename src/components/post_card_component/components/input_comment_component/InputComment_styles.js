@@ -11,14 +11,6 @@ export const Container = styled.div`
   flex-direction: row;
   align-items: flex-start;
   width: 100%;
-  border-left: 1px solid ${grey};
-  border-right: 1px solid ${grey};
-  border-bottom: ${(props) =>
-    props.no_comments ? ` 1px solid ${grey}` : "none"};
-  border-bottom-left-radius: ${(props) =>
-    props.no_comments ? `0.15rem` : `0rem`};
-  border-bottom-right-radius: ${(props) =>
-    props.no_comments ? `0.15rem` : `0rem`};
   padding: 0.75rem 0.75rem 0.75rem 0.75rem;
 `;
 

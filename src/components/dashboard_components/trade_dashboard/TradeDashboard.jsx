@@ -60,6 +60,8 @@ const TradeDashboard = ({
   };
 
   const upload_trade_card_to_firebase = (publish_mode) => {
+    if (!symbol || !company || !number_of_shares || !price_per_share) return;
+
     create_trade_card({
       new_trade_content: {
         username: active_user_database.user_data.username,
@@ -68,7 +70,7 @@ const TradeDashboard = ({
         company,
         number_of_shares,
         price_per_share,
-        comment,
+        comment: comment ? comment : null,
         premium: publish_mode === "Premium" ? true : false,
       },
       latest_trades,

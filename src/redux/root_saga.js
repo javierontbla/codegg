@@ -17,7 +17,7 @@ import {
   request_available_categories_saga,
 } from "./articles_page/sagas";
 import { request_top_investors_saga } from "./investors_page/sagas";
-import { request_all_comments_saga } from "./post/sagas";
+import { request_all_comments_saga, send_new_comment_saga } from "./post/sagas";
 import { request_article_saga } from "./article_page/sagas";
 import {
   create_trade_card_saga,
@@ -39,6 +39,7 @@ export function* root_saga() {
     call(request_article_saga),
     call(request_top_investors_saga),
     call(request_all_comments_saga),
+    call(send_new_comment_saga),
     call(request_available_categories_saga),
     call(create_trade_card_saga),
     call(create_post_card_saga),

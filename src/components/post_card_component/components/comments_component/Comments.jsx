@@ -5,11 +5,11 @@ import InputComment from "../input_comment_component/InputComment";
 import IndividualComment from "../individual_comment_component/IndividualComment";
 import { CommentsContainer } from "./Comments_styles";
 
-const Comments = ({ comments }) => {
+const Comments = ({ comments, post_id }) => {
   return (
     <>
       <CommentsContainer>
-        <InputComment no_comments={"true"} />
+        <InputComment post_id={post_id} />
         {comments.map((individual_comment) => {
           return (
             <IndividualComment

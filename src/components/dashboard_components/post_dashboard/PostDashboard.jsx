@@ -61,6 +61,8 @@ const PostDashboard = ({ create_post_card, posts, active_user_database }) => {
   };
 
   const upload_post_card_to_firebase = () => {
+    if (!description) return; // if there is no description
+
     const {
       user,
       username,

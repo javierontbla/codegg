@@ -25,6 +25,19 @@ export const PostContainer = styled.div`
   }
 `;
 
+export const TopContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 4.4rem;
+  align-items: center;
+  padding: 0rem 0rem 0rem 0.75rem;
+  border-top: 1px solid ${grey};
+  border-left: 1px solid ${grey};
+  border-right: 1px solid ${grey};
+  border-top-left-radius: 0.15rem;
+  border-top-right-radius: 0.15rem;
+`;
+
 export const PremiumContainer = styled.div`
   position: absolute;
   right: 0;
@@ -43,19 +56,6 @@ export const Premium = styled.img`
   width: 1.65rem;
   height: 1.65rem;
   margin: 0rem 0rem 0rem 0rem;
-`;
-
-export const TopContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: 4.4rem;
-  align-items: center;
-  padding: 0rem 0rem 0rem 0.75rem;
-  border-top: 1px solid ${grey};
-  border-left: 1px solid ${grey};
-  border-right: 1px solid ${grey};
-  border-top-left-radius: 0.15rem;
-  border-top-right-radius: 0.15rem;
 `;
 
 export const ProfileImageContainer = styled.div`

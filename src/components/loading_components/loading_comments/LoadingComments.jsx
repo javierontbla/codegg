@@ -13,7 +13,7 @@ const LoadingComments = () => {
       <LoadingCommentsContainer>
         <CommentContainer>
           <ProfileImage />
-          <Comment />
+          <Comment rows="3" />
         </CommentContainer>
       </LoadingCommentsContainer>
     </>

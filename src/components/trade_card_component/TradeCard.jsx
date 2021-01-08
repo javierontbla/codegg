@@ -40,7 +40,7 @@ const TradeCard = ({ home_page, data }) => {
             {data.premium ? <Premium /> : null}
           </InformationContainer>
         </TopContainer>
-        <MiddleContainer>
+        <MiddleContainer comment={data.comment}>
           <OrderContainer>
             <LeftText>Company:</LeftText>
             <RightText>{data.company.toLowerCase()}</RightText>
@@ -53,7 +53,7 @@ const TradeCard = ({ home_page, data }) => {
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </RightText>
           </OrderContainer>
-          <OrderContainer>
+          <OrderContainer last_child={"true"}>
             <LeftText>Price per Share:</LeftText>
             <RightText>
               $
@@ -62,7 +62,9 @@ const TradeCard = ({ home_page, data }) => {
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </RightText>
           </OrderContainer>
-          <CommentContainer>"{data.comment.toLowerCase()}"</CommentContainer>
+          {data.comment ? (
+            <CommentContainer>"{data.comment.toLowerCase()}"</CommentContainer>
+          ) : null}
         </MiddleContainer>
         <BottomContainer>
           <TrendsContainer>

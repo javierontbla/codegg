@@ -43,9 +43,9 @@ const BackgroundStyles = css`
 export const LoadingCommentsContainer = styled.div`
   height: fit-content;
   width: 100%;
-  padding: 0rem 0.75rem 0rem 0.75rem;
-  border-bottom-left-radius: 0.35rem;
-  border-bottom-right-radius: 0.35rem;
+  padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  border-bottom-left-radius: 0.15rem;
+  border-bottom-right-radius: 0.15rem;
   border-left: 1px solid ${grey};
   border-right: 1px solid ${grey};
   border-bottom: 1px solid ${grey};
@@ -62,12 +62,16 @@ export const ProfileImage = styled.div`
 export const CommentContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 0.75rem 0rem 0.75rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
-export const Comment = styled.div`
+export const Comment = styled.textarea`
   ${BackgroundStyles};
   width: 100%;
-  height: 5rem;
+  resize: none !important;
   border-radius: 0.15rem;
+
+  &:focus {
+    outline: none !important;
+  }
 `;
