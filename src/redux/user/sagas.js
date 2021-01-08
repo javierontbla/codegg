@@ -20,6 +20,15 @@ function* log_in_active_user_async(action) {
     // create new user in db
     try {
       yield user_ref.set({
+        user: payload.displayName,
+        username: payload.email.split("@")[0],
+        user_id: payload.uid,
+        description: "I'm a new investor!",
+        categories: [],
+        profile_image:
+          "https://firebasestorage.googleapis.com/v0/b/avgguido.appspot.com/o/codegg%2Fprofile_image_base.png?alt=media&token=9a28bb3b-f73e-4a95-a88b-d79b1fadd4fe",
+        subscribers: 0,
+        rank: "Rookie",
         email: payload.email,
       });
 

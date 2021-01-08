@@ -51,7 +51,7 @@ const PostCard = ({
       <Container>
         <PostContainer>
           <PremiumContainer>
-            <Premium />
+            {data.premium ? <Premium /> : null}
           </PremiumContainer>
           <TopContainer>
             <ProfileImageContainer profile_image_url={data.profile_image} />

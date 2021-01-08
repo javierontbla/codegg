@@ -81,6 +81,7 @@ const TradeDashboard = ({
     set_number_of_shares("");
     set_price_per_share("");
     set_comment("");
+    set_publish_mode("Public");
   };
 
   const handle_publish_mode = (mode) => {

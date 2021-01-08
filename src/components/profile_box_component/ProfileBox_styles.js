@@ -30,7 +30,7 @@ export const InformationContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: fit-content;
-  margin: 0rem 0rem 0rem 0.75rem;
+  margin: 0rem 0rem 0rem 0.5rem;
 `;
 
 export const User = styled.div`
@@ -38,7 +38,7 @@ export const User = styled.div`
   font-size: ${(props) => (props.article_card_preview ? "0.925rem" : "1.2rem")};
   color: ${black};
   line-height: 100%;
-  margin: 0rem 0rem 0.16rem 0rem;
+  margin: 0rem 0rem 0.2rem 0rem;
   text-transform: capitalize;
 `;
 

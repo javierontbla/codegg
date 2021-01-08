@@ -79,13 +79,12 @@ export const ImageIcon = styled.img`
 `;
 
 export const ImageActiveContainer = styled.div`
-  display: ${(props) => (props.image_active ? "flex" : "none")};
+  display: ${(props) => (props.image ? "flex" : "none")};
 `;
 
 export const ImageActiveIcon = styled.img`
-  width: 1.25rem;
-  height: 1.25rem;
-  margin: 0rem 0rem 0rem 0.5rem;
+  width: 0.85rem;
+  margin: 0rem 0rem 0rem 0.55rem;
 `;
 
 export const RightContainer = styled.div``;

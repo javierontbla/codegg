@@ -42,30 +42,32 @@ function* create_trade_card_async(action) {
 function* create_post_card_async(action) {
   const { post_content, posts } = action.payload;
   const post_cards_ref = db.collection(`posts`);
-  const storage_ref = storage.ref(`investors/${post_content.image.name}`);
+  let image_url = null;
 
   try {
-    const image_url = yield storage_ref.put(post_content.image).then(() => {
-      const url = storage
-        .ref(`investors`)
-        .child(post_content.image.name)
-        .getDownloadURL();
-      return url;
-    });
+    if (post_content.image) {
+      const storage_ref = storage.ref(`investors/${post_content.image.name}`);
+      image_url = yield storage_ref.put(post_content.image).then(() => {
+        const url = storage
+          .ref(`investors`)
+          .child(post_content.image.name)
+          .getDownloadURL();
+        return url;
+      });
+    }
 
     const new_post_card_id = yield post_cards_ref
       .add({
-        user: "test user",
-        username: "test_user",
-        user_id: "12345",
-        date: new Date(),
+        user: post_content.user,
+        username: post_content.username,
+        user_id: post_content.user_id,
         description: post_content.description,
+        post_image: image_url ? image_url : null,
+        profile_image: post_content.profile_image,
+        premium: post_content.premium,
+        date: new Date(),
         up_trends: 0,
         down_trends: 0,
-        post_image: image_url,
-        profile_image:
-          "https://images.unsplash.com/photo-1563306406-e66174fa3787?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-        premium: true, // need to modify this field
       })
       .then((doc_ref) => doc_ref.id);
 
@@ -73,11 +75,12 @@ function* create_post_card_async(action) {
 
     const response = yield new_post_card_ref.get().then((doc) => {
       if (doc.exists) return [[doc.data(), doc.id], ...posts];
-      console.log("no doc");
+      console.log("no doc"); // need to add saga error here
     });
 
     yield put(request_posts_action_success(response));
   } catch (error) {
+    console.log(error);
     yield put(create_post_card_failure_action(error));
   }
 }

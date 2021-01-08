@@ -9,7 +9,7 @@ const Comments = ({ comments }) => {
   return (
     <>
       <CommentsContainer>
-        <InputComment />
+        <InputComment no_comments={"true"} />
         {comments.map((individual_comment) => {
           return (
             <IndividualComment

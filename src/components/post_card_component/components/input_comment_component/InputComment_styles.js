@@ -13,7 +13,13 @@ export const Container = styled.div`
   width: 100%;
   border-left: 1px solid ${grey};
   border-right: 1px solid ${grey};
-  padding: 0.75rem 0.75rem 0rem 0.75rem;
+  border-bottom: ${(props) =>
+    props.no_comments ? ` 1px solid ${grey}` : "none"};
+  border-bottom-left-radius: ${(props) =>
+    props.no_comments ? `0.15rem` : `0rem`};
+  border-bottom-right-radius: ${(props) =>
+    props.no_comments ? `0.15rem` : `0rem`};
+  padding: 0.75rem 0.75rem 0.75rem 0.75rem;
 `;
 
 export const InputCommentContainer = styled.div`
@@ -62,7 +68,7 @@ export const CommentButton = styled.div`
   line-height: 100%;
   height: 1.55rem;
   width: fit-content;
-  margin: 0.5rem 0rem 0.6rem 0rem;
+  margin: 0.5rem 0rem 0rem 0rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
   border-radius: 0.15rem;
   font-family: ${open_sans};

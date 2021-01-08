@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import {
@@ -20,42 +20,35 @@ import {
   PublishButton,
   DropDownMenu,
 } from "../trade_dashboard/TradeDashboard_styles";
-import { create_post_card_start_action } from "../../../redux/dashboards/actions";
 import Image from "./media/image_button.svg";
 import ImageActive from "./media/image_active.svg";
 import DropDownSVG from "./media/dropdown_button.svg";
+import { create_post_card_start_action } from "../../../redux/dashboards/actions";
 
-const PostDashboard = ({ create_post_card, posts }) => {
-  const [current_rows, set_current_rows] = useState(1);
-  const [image_active, set_image_active] = useState(false);
+const PostDashboard = ({ create_post_card, posts, active_user_database }) => {
+  const [rows, set_rows] = useState(1);
+
+  const [description, set_description] = useState("");
+  const [image, set_image] = useState(null);
+
   const [publish_mode, set_publish_mode] = useState("Public");
   const [dropdown_active, set_dropdown_active] = useState(false);
 
-  const post_card_fields = useRef({
-    description: null,
-    image: null,
-  });
-
   const handle_input_rows = (rows) => {
-    set_current_rows(rows);
+    set_rows(rows);
   };
 
-  const handle_input_text = (text) => {
-    post_card_fields.current.description = text;
+  const handle_input_description = (text) => {
+    set_description(text);
   };
 
-  const handle_input_file = (file) => {
-    if (file.length !== 1) return; // need to set error message here
+  const handle_input_image = (image) => {
+    if (image.length !== 1) return; // need to set error message here
 
-    const file_type = file[0].type.split("/")[0];
-    if (file_type !== "image") return; // check if file is an image
+    const image_type = image[0].type.split("/")[0];
+    if (image_type !== "image") return; // check if file is an image
 
-    post_card_fields.current.image = file[0];
-    set_image_active(true);
-  };
-
-  const upload_post_card_to_firebase = () => {
-    create_post_card({ post_content: post_card_fields.current, posts });
+    set_image(image[0]);
   };
 
   const handle_publish_mode = (mode) => {
@@ -67,6 +60,32 @@ const PostDashboard = ({ create_post_card, posts }) => {
     set_dropdown_active((prev_state) => !prev_state);
   };
 
+  const upload_post_card_to_firebase = () => {
+    const {
+      user,
+      username,
+      user_id,
+      profile_image,
+    } = active_user_database.user_data;
+    create_post_card({
+      post_content: {
+        user,
+        username,
+        user_id,
+        profile_image,
+        premium: publish_mode === "Premium" ? true : false,
+        description,
+        image,
+      },
+      posts,
+    });
+
+    // clearing fields
+    set_description("");
+    set_image(null);
+    set_publish_mode("Public");
+  };
+
   return (
     <>
       <PostDashboardContainer>
@@ -74,28 +93,28 @@ const PostDashboard = ({ create_post_card, posts }) => {
           placeholder="What do you want to share?"
           onFocus={() => handle_input_rows(3)}
           onBlur={() => handle_input_rows(1)}
-          rows={current_rows}
-          onChange={(e) => handle_input_text(e.target.value)}
+          rows={rows}
+          value={description}
+          onChange={(e) => handle_input_description(e.target.value)}
         />
         <ButtonsContainer>
           <ImageInput
-            id="file-input"
+            id="image-input"
             type="file"
-            onChange={(e) => handle_input_file(e.target.files)}
+            onClick={(e) => (e.target.value = null)}
+            onChange={(e) => handle_input_image(e.target.files)}
           />
           <LeftContainer>
-            <ImageContainer htmlFor="file-input">
+            <ImageContainer htmlFor="image-input">
               <ImageIcon src={Image} />
             </ImageContainer>
-            <ImageActiveContainer image_active={image_active}>
+            <ImageActiveContainer image={image}>
               <ImageActiveIcon src={ImageActive} />
             </ImageActiveContainer>
           </LeftContainer>
           <RightContainer>
             <PublishContainer>
-              <PublishButton
-                onClick={() => upload_post_card_to_firebase(publish_mode)}
-              >
+              <PublishButton onClick={() => upload_post_card_to_firebase()}>
                 {publish_mode}
               </PublishButton>
               <DropDownIconContainer onClick={() => handle_dropdown()}>
@@ -120,8 +139,12 @@ const PostDashboard = ({ create_post_card, posts }) => {
 };
 
 // redux
-const mapStateToProps = ({ home_page_reducer: { posts } }) => ({
+const mapStateToProps = ({
+  home_page_reducer: { posts },
+  user_reducer: { active_user_database },
+}) => ({
   posts,
+  active_user_database,
 });
 
 const mapDispatchToProps = (dispatch) => ({

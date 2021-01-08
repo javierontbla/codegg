@@ -18,6 +18,7 @@ export const PostContainer = styled.div`
   background: ${white};
   margin: 0.75rem 0rem 0.75rem 0rem;
   box-shadow: 0px 1.5px 1.5px -1px #ced4da;
+  border-radius: 0.15rem;
 
   &:first-child {
     margin: 0rem 0rem 0.75rem 0rem;
@@ -62,7 +63,7 @@ export const ProfileImageContainer = styled.div`
   height: 3rem;
   border-radius: 50%;
   border: none;
-  margin: 0rem 0.5rem 0rem 0rem;
+  margin: 0rem 0.6rem 0rem 0rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.profile_image_url});
@@ -112,7 +113,7 @@ export const Date = styled.div`
   font-size: 0.75rem;
   color: ${grey};
   letter-spacing: 0.25px;
-  margin: 0.1rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const MiddleContainer = styled.div`
@@ -208,7 +209,7 @@ export const LoadMoreComments = styled.div`
   display: ${(props) => (props.display_comments ? "flex" : "none")};
   border: 1px solid ${grey};
   background: ${white};
-  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   align-items: center;
   justify-content: center;
   line-height: 100%;
@@ -216,7 +217,7 @@ export const LoadMoreComments = styled.div`
   width: 100%;
   margin: -0.5rem 0rem 0.75rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
-  border-radius: 0.35rem;
+  border-radius: 0.15rem;
   font-family: ${open_sans};
   font-size: 0.7rem;
   font-weight: 500;
@@ -226,6 +227,6 @@ export const LoadMoreComments = styled.div`
 
   &:hover {
     cursor: pointer;
-    box-shadow: 3px 3px 3px -1.5px #ced4da;
+    box-shadow: 0px 2px 2px -1px #ced4da;
   }
 `;
