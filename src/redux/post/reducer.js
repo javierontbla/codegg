@@ -33,6 +33,14 @@ export const post_reducer = (state = INITIAL_STATE, action) => {
         error_comments: action.payload,
       };
 
+    case post_types.CLOSE_COMMENTS_SECTION:
+      return {
+        ...state,
+        current_post_id: null,
+        loading_comments: false,
+        error_comments: null,
+      };
+
     default:
       return state;
   }

@@ -31,7 +31,10 @@ import {
 import UpIcon from "./media/up_button.svg";
 import DownIcon from "./media/down_button.svg";
 import CommentsIcon from "./media/comments_button.svg";
-import { request_all_comments_start_action } from "../../redux/post/actions";
+import {
+  request_all_comments_start_action,
+  close_comments_section_action,
+} from "../../redux/post/actions";
 
 const PostCard = ({
   data,
@@ -39,11 +42,13 @@ const PostCard = ({
   loading_comments,
   current_post_id,
   request_all_comments,
+  close_comments_section,
 }) => {
   moment.locale("es");
 
   const display_all_comments = () => {
     if (current_post_id !== id) request_all_comments(id);
+    else close_comments_section(); // it's the same so close comments section
   };
 
   return (
@@ -116,6 +121,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = (dispatch) => ({
   request_all_comments: (post_id) =>
     dispatch(request_all_comments_start_action(post_id)),
+  close_comments_section: () => dispatch(close_comments_section_action()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostCard);

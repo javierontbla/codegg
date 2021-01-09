@@ -31,3 +31,8 @@ export const send_new_comment_failure_action = (error) => ({
   type: post_types.SEND_NEW_COMMENT_FAILURE,
   payload: error,
 });
+
+/* CLOSE COMMENTS SECTION ACTION */
+export const close_comments_section_action = () => ({
+  type: post_types.CLOSE_COMMENTS_SECTION,
+});
