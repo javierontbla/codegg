@@ -27,6 +27,7 @@ import {
   CommentsIconContainer,
   CommentsContainer,
   LoadMoreComments,
+  LinkContainer,
 } from "./PostCard_styles";
 import UpIcon from "./media/up_button.svg";
 import DownIcon from "./media/down_button.svg";
@@ -35,6 +36,7 @@ import {
   request_all_comments_start_action,
   close_comments_section_action,
 } from "../../redux/post/actions";
+import { Link } from "react-router-dom";
 
 const PostCard = ({
   data,
@@ -59,12 +61,16 @@ const PostCard = ({
             {data.premium ? <Premium /> : null}
           </PremiumContainer>
           <TopContainer>
-            <ProfileImageContainer profile_image_url={data.profile_image} />
+            <LinkContainer to={`/investors/${data.user_id}`}>
+              <ProfileImageContainer profile_image_url={data.profile_image} />
+            </LinkContainer>
             <UserDataContainer>
-              <NamesContainer>
-                <Name>{data.user.toLowerCase()}</Name>
-                <NameLink>@{data.username}</NameLink>
-              </NamesContainer>
+              <LinkContainer to={`/investors/${data.user_id}`}>
+                <NamesContainer>
+                  <Name>{data.user.toLowerCase()}</Name>
+                  <NameLink>@{data.username}</NameLink>
+                </NamesContainer>
+              </LinkContainer>
               <Date>
                 {moment(data.date.toDate()).startOf("hour").fromNow()}
               </Date>

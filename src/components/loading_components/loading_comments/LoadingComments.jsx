@@ -5,15 +5,17 @@ import {
   CommentContainer,
   ProfileImage,
   Comment,
+  Button,
 } from "./LoadingComments_styles";
 
 const LoadingComments = () => {
   return (
     <>
       <LoadingCommentsContainer>
+        <ProfileImage />
         <CommentContainer>
-          <ProfileImage />
           <Comment rows="3" />
+          <Button>Comment</Button>
         </CommentContainer>
       </LoadingCommentsContainer>
     </>

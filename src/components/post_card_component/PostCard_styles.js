@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
@@ -229,4 +230,9 @@ export const LoadMoreComments = styled.div`
     cursor: pointer;
     box-shadow: 0px 2px 2px -1px #ced4da;
   }
+`;
+
+export const LinkContainer = styled(Link)`
+  color: ${black};
+  text-decoration: none;
 `;

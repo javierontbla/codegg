@@ -123,7 +123,7 @@ export const MenuOption = styled.div`
   font-size: 0.8rem;
   font-family: ${open_sans};
   color: ${black};
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.75rem 0.5rem 0.75rem 0.5rem;
   letter-spacing: 1px;
   border-bottom: ${(props) =>

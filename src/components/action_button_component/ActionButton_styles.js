@@ -10,7 +10,7 @@ export const ActionButtonContainer = styled.div`
   display: flex;
   align-items: center;
   line-height: 100%;
-  height: ${(props) => (props.navbar ? "1.8rem" : "1.55rem")};
+  height: ${(props) => (props.navbar ? "1.8rem" : "1.65rem")};
   width: fit-content;
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0.5rem 0rem 0.5rem;

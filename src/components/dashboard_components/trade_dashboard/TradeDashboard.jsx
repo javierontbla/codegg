@@ -65,6 +65,7 @@ const TradeDashboard = ({
     create_trade_card({
       new_trade_content: {
         username: active_user_database.user_data.username,
+        user_id: active_user_database.user_data.user_id,
         symbol,
         action,
         company,

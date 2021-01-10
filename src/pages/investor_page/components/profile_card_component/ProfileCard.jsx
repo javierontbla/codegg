@@ -1,21 +1,21 @@
 import React from "react";
 
-import Category from "../../../components/category_component/Category";
-import Rank from "../../../components/rank_component/Rank";
+import Category from "../../../../components/category_component/Category";
+import Rank from "../../../../components/rank_component/Rank";
+import ActionButton from "../../../../components/action_button_component/ActionButton";
 import {
   ProfileCardContainer,
   TopContainer,
-  MiddleContainer,
-  BottomContainer,
-  CoverPhoto,
+  CoverImage,
   ProfileImage,
-  Name,
-  NameLink,
+  RankContainer,
+  User,
+  Username,
+  MiddleContainer,
   Description,
   CategoriesContainer,
-  SubscribersContainer,
-  SubscribeButton,
-  BadgesContainer,
+  BottomContainer,
+  Subscribers,
 } from "./ProfileCard_styles";
 
 const ProfileCard = () => {
@@ -23,19 +23,19 @@ const ProfileCard = () => {
     <>
       <ProfileCardContainer>
         <TopContainer>
-          <CoverPhoto />
+          <CoverImage />
           <ProfileImage />
         </TopContainer>
         <MiddleContainer>
-          <BadgesContainer>
-            {["quant", "united states"].map((badge) => {
+          <RankContainer>
+            {["rookie"].map((badge) => {
               return (
                 <Rank badge={badge} rank={badge === "quant" ? "true" : null} />
               );
             })}
-          </BadgesContainer>
-          <Name>John Mayer</Name>
-          <NameLink>@john_mayer</NameLink>
+          </RankContainer>
+          <User>John Mayer</User>
+          <Username>@john_mayer</Username>
           <Description>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -52,8 +52,8 @@ const ProfileCard = () => {
           </CategoriesContainer>
         </MiddleContainer>
         <BottomContainer>
-          <SubscribersContainer>123,108 subscribers</SubscribersContainer>
-          <SubscribeButton>Subscribe</SubscribeButton>
+          <Subscribers>123,108 subscribers</Subscribers>
+          <ActionButton action={"Subscribe"} />
         </BottomContainer>
       </ProfileCardContainer>
     </>

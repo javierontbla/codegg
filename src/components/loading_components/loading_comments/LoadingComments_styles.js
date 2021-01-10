@@ -1,8 +1,10 @@
 import styled, { keyframes, css } from "styled-components";
 
 import { colors } from "../../../colors/colors";
+import { fonts } from "../../../fonts/fonts";
 
 const { grey } = colors;
+const { roboto, open_sans } = fonts;
 
 const LoadingAnimation = keyframes`
   from {
@@ -41,6 +43,8 @@ const BackgroundStyles = css`
 `;
 
 export const LoadingCommentsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
   height: fit-content;
   width: 100%;
   padding: 0.75rem 0.75rem 0.75rem 0.75rem;
@@ -61,17 +65,38 @@ export const ProfileImage = styled.div`
 
 export const CommentContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: calc(100% - 1.65rem);
   margin: 0rem 0rem 0rem 0rem;
 `;
 
-export const Comment = styled.textarea`
+export const Comment = styled.div`
   ${BackgroundStyles};
   width: 100%;
+  height: 4.25rem;
   resize: none !important;
   border-radius: 0.15rem;
+  font-family: ${roboto};
+  font-size: 0.8rem;
 
   &:focus {
     outline: none !important;
   }
+`;
+
+export const Button = styled.div`
+  ${BackgroundStyles};
+  display: flex;
+  align-items: center;
+  line-height: 100%;
+  height: 1.55rem;
+  width: fit-content;
+  margin: 0.5rem 0rem 0rem 0rem;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  border-radius: 0.15rem;
+  font-family: ${open_sans};
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: transparent;
 `;

@@ -23,6 +23,7 @@ import {
   create_trade_card_saga,
   create_post_card_saga,
 } from "./dashboards/sagas";
+import { request_investor_trades_saga } from "./investor_page/sagas";
 import { sendForm } from "./feedback.page/sagas";
 
 export function* root_saga() {
@@ -43,6 +44,7 @@ export function* root_saga() {
     call(request_available_categories_saga),
     call(create_trade_card_saga),
     call(create_post_card_saga),
+    call(request_investor_trades_saga),
     call(sendForm),
   ]);
 }

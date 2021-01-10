@@ -11,7 +11,8 @@ import {
 function* request_all_comments_async(action) {
   const all_comments_ref = db
     .collection(`posts/${action.payload}/comments`)
-    .orderBy("date", "desc");
+    .orderBy("date", "desc")
+    .limit(3);
 
   try {
     const response = yield all_comments_ref.get().then((snapshot) => {

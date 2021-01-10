@@ -6,7 +6,6 @@ import NavBar from "./components/navbar_component/NavBar";
 import HomePage from "./pages/home_page/HomePage";
 import ArticlesPage from "./pages/articles_page/ArticlesPage";
 import InvestorsPage from "./pages/investors_page/InvestorsPage";
-import TraderProfilePage from "./pages/trader_profile_page/TraderProfilePage";
 import ContactPage from "./pages/contact_page/ContactPage";
 import PrivacyPage from "./pages/privacy_page/PrivacyPage";
 import TermsConditionsPage from "./pages/terms_conditions_page/TermsConditionsPage";
@@ -63,7 +62,6 @@ const App = ({ log_in_active_user, log_out_active_user }) => {
             <Route path="/contact" component={ContactPage} />
             <Route path="/privacy" component={PrivacyPage} />
             <Route path="/terms" component={TermsConditionsPage} />
-            <Route path="/profile-page" component={TraderProfilePage} />
           </Switch>
         </MainContainer>
         <Footer />

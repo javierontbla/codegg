@@ -11,15 +11,15 @@ export const InvestorCardContainer = styled.div`
   width: 100%;
   height: fit-content;
   margin: 1rem 0rem 1rem 0rem;
-  border-radius: 0.25rem;
+  border-radius: 0.15rem;
   padding: 0rem 0rem 0rem 0rem;
   background: ${white} !important;
-  box-shadow: 3px 3px 3px -1px #ced4da;
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   transition: box-shadow 0.2s;
 
   &:hover {
     cursor: pointer;
-    box-shadow: 6px 6px 6px -2px #ced4da;
+    box-shadow: 0px 3px 3px -1px #ced4da;
   }
 `;
 

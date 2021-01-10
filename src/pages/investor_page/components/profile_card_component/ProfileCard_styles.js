@@ -1,41 +1,33 @@
 import styled from "styled-components";
 
-import { colors } from "../../../colors/colors";
-import { fonts } from "../../../fonts/fonts";
+import { colors } from "../../../../colors/colors";
+import { fonts } from "../../../../fonts/fonts";
 
-const { white, grey, black } = colors;
-const {
-  name_font,
-  name_link_font,
-  description_font,
-  button_font,
-  open_sans,
-} = fonts;
+const { white, grey, grey_2, black } = colors;
+const { source_sans_pro, open_sans, roboto } = fonts;
 
 export const ProfileCardContainer = styled.div`
   width: 100%;
   height: fit-content;
   border: 1px solid ${grey};
-  border-radius: 0.25rem;
+  border-radius: 0.15rem;
   background: ${white};
-  box-shadow: 2px 2px 2px -1px #ced4da;
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
 `;
 
 export const TopContainer = styled.div`
   height: fit-content;
 `;
 
-export const CoverPhoto = styled.div`
+export const CoverImage = styled.div`
   width: 100%;
-  height: 15rem;
-  width: 100%;
-  height: 12rem;
+  height: 13.25rem;
   background-size: cover;
   background-position: center;
   background-image: url(https://images.unsplash.com/photo-1607453813894-21f7b5cf201a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
   background-repeat: no-repeat;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
 `;
 
 export const ProfileImage = styled.div`
@@ -44,57 +36,59 @@ export const ProfileImage = styled.div`
   height: 8.75rem;
   border-radius: 50%;
   border: 2.5px solid ${white};
-  margin: -6.5rem 0rem 0rem 1.8rem;
+  margin: -6.5rem 0rem 1rem 1rem;
   background-size: cover;
   background-position: center;
   background-image: url(https://images.unsplash.com/photo-1508908324153-d1a219719814?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80);
   background-repeat: no-repeat;
 `;
 
-export const BadgesContainer = styled.div`
+export const RankContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  margin: 0.75rem 0rem 0rem -0.25rem;
+  width: 100;
+  height: fit-content;
+  margin: 0rem 0rem 0.5rem 0rem;
 `;
 
-export const Name = styled.div`
+export const User = styled.div`
   display: flex;
   align-items: center;
-  font-family: ${name_font};
-  font-size: 2.2rem;
+  font-family: ${source_sans_pro};
+  font-size: 2rem;
   color: ${black};
   padding: 0rem 0rem 0rem 0rem;
   line-height: 100%;
-  margin: 0.35rem 0rem 0.35rem 0rem;
+  margin: 0rem 0rem 0.15rem 0rem;
 `;
 
-export const NameLink = styled.div`
-  font-family: ${name_link_font};
+export const Username = styled.div`
+  font-family: ${open_sans};
   font-size: 0.8rem;
   color: ${grey};
-  font-weight: 600;
-  margin: -0.25rem 0rem 0rem 0rem;
+  font-weight: 500;
+  margin: 0rem 0rem 1rem 0rem;
+  line-height: 100%;
   letter-spacing: 1px;
 `;
 
 export const MiddleContainer = styled.div`
   height: fit-content;
-  padding: 0rem 1rem 0rem 1rem;
+  padding: 0rem 0.75rem 0rem 0.75rem;
 `;
 
 export const Description = styled.div`
-  font-size: ${description_font};
-  font-size: 0.925rem;
+  font-size: ${roboto};
+  font-size: 0.9rem;
   color: ${black};
-  line-height: 125%;
-  margin: 1rem 0rem 1rem 0rem;
+  line-height: 130%;
+  margin: 0rem 0rem 1.25rem 0rem;
 `;
 
 export const CategoriesContainer = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 0.6rem 0.6rem 1.6rem 0rem;
-  margin: 0rem 0rem 0rem -0.4rem;
+  padding: 0rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 1.5rem -0.25rem;
 `;
 
 export const BottomContainer = styled.div`
@@ -103,44 +97,25 @@ export const BottomContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   height: fit-content;
-  padding: 0.55rem 1rem 0.55rem 1rem;
+  padding: 0.6rem 0.75rem 0.6rem 0.75rem;
   border-top: 0.5px solid ${grey};
 `;
 
-export const SubscribersContainer = styled.div`
-  height: 100%;
-  width: fit-content;
+export const Subscribers = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: ${grey};
-  font-family: ${open_sans};
-  font-weight: 600;
+  justify-content: center;
   font-size: 0.7rem;
-  letter-spacing: 0.5px;
-`;
-
-export const SubscribeButton = styled.div`
-  display: flex;
-  align-items: center;
-  height: 2rem;
+  font-family: ${roboto};
+  font-weight: 500;
+  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
+  letter-spacing: 0.75px;
+  margin: 0rem 0rem 0rem 0rem;
+  height: fit-content;
   width: fit-content;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
-  color: ${white};
-  padding: 0rem 0.65rem 0rem 0.65rem;
   border-radius: 0.15rem;
-  font-family: ${button_font};
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  font-weight: 600;
-
-  &:hover {
-    cursor: pointer;
-    opacity: 0.95;
-  }
+  line-height: 100%;
+  background: ${grey_2};
+  color: ${black};
 `;

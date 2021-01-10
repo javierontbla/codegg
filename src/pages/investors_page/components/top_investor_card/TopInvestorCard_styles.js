@@ -10,9 +10,9 @@ export const TopInvestorContainer = styled.div`
   width: 100%;
   margin: 0rem 0rem 0rem 0rem;
   border: 0.5px solid ${grey};
-  border-radius: 0.25rem;
+  border-radius: 0.15rem;
   background: ${white};
-  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   transition: box-shadow 0.4s;
   margin: 0rem 0rem 0.5rem 0rem;
 
@@ -22,7 +22,7 @@ export const TopInvestorContainer = styled.div`
 
   &:hover {
     cursor: pointer;
-    box-shadow: 3px 3px 3px -1.5px #ced4da;
+    box-shadow: 0px 3px 3px -1px #ced4da;
   }
 `;
 

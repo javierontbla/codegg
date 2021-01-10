@@ -1,75 +1,21 @@
-import React, { useEffect } from "react";
-import Masonry from "react-masonry-css";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { connect } from "react-redux";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import InvestorCard from "./components/investor_card/InvestorCard";
-import TopInvestorCard from "./components/top_investor_card/TopInvestorCard";
-import { request_top_investors_start_action } from "../../redux/investors_page/actions";
-import {
-  TradersPageContainer,
-  TopTradersContainer,
-  AllTradersContainer,
-  SearchBarContainer,
-  SearchBar,
-  SearchIcon,
-  LinkContainer,
-  Title,
-} from "./InvestorsPage_styles";
-import "./InvestorsPage.css";
+import InvestorsCollection from "./components/investors_collection/InvestorsCollection";
+import InvestorPage from "../investor_page/InvestorPage";
+import { Container } from "./InvestorsPage_styles";
 
-const InvestorsPage = ({ top_investors, request_top_investors }) => {
-  useEffect(() => {
-    document.title = `Codegg - Explore New Investors`;
-    request_top_investors();
-  }, []);
-
-  const breakpoints = {
-    default: 2,
-    1100: 2,
-    500: 1,
-  };
-
+const InvestorsPage = ({ match }) => {
   return (
-    <TradersPageContainer className="container">
-      <TopTradersContainer>
-        <Title>Top Investors</Title>
-        {top_investors.map((top_investor) => {
-          return (
-            <TopInvestorCard data={top_investor[0]} id={top_investor[1]} />
-          );
-        })}
-      </TopTradersContainer>
-      <AllTradersContainer>
-        <SearchBarContainer>
-          <SearchBar placeholder={"Search categories, investors..."} />
-          <SearchIcon icon={faSearch} />
-        </SearchBarContainer>
-        <Masonry
-          breakpointCols={breakpoints}
-          className="traders-grid"
-          columnClassName="traders-grid-column"
-        >
-          {[1, 2, 3, 4, 5, 6].map((card) => {
-            return (
-              <LinkContainer to="/profile-page">
-                <InvestorCard />
-              </LinkContainer>
-            );
-          })}
-        </Masonry>
-      </AllTradersContainer>
-    </TradersPageContainer>
+    <>
+      <Container className="container">
+        <Switch>
+          <Route exact path={`${match.path}`} component={InvestorsCollection} />
+          <Route path={`${match.path}/:investor_id`} component={InvestorPage} />
+        </Switch>
+      </Container>
+    </>
   );
 };
 
-// redux
-const mapStateToProps = ({ investors_page_reducer: { top_investors } }) => ({
-  top_investors,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  request_top_investors: () => dispatch(request_top_investors_start_action()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(InvestorsPage);
+export default InvestorsPage;
