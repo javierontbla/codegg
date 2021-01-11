@@ -4,43 +4,58 @@ import { connect } from "react-redux";
 import ProfileCard from "./components/profile_card_component/ProfileCard";
 import OpinionsCard from "./components/opinions_card_component/OpinionsCard";
 import TradeCard from "../../components/trade_card_component/TradeCard";
+import PostCard from "../../components/post_card_component/PostCard";
 import ArticlePreviewTitle from "./components/article_preview_title_component/ArticlePreviewTitle";
+import Title from "../../components/title_component/Title";
 import {
-  TraderProfilePageContainer,
-  ProfileInformationContainer,
+  InvestorPageContainer,
+  LeftContainer,
   ProfileCardContainer,
-  ProfileOpinionsContainer,
-  TimelineContainer,
+  RightContainer,
+  TitleContainer,
   TopContainer,
   TradesContainer,
+  Division,
   BottomContainer,
   PostsContainer,
   ArticlesContainer,
 } from "./InvestorPage_styles";
-import { request_trades_start_action } from "../../redux/investor_page/actions";
+import {
+  request_investor_profile_start_action,
+  request_trades_start_action,
+  request_posts_start_action,
+} from "../../redux/investor_page/actions";
 
 const InvestorPage = ({
   match: {
     params: { investor_id },
   },
-  trades,
+  request_investor_profile,
   request_trades,
+  request_posts,
+  investor,
+  trades,
+  posts,
 }) => {
   useEffect(() => {
     request_trades(investor_id);
+    request_posts(investor_id);
+    request_investor_profile(investor_id);
   }, []);
   return (
     <>
-      <TraderProfilePageContainer>
-        <ProfileInformationContainer>
+      <InvestorPageContainer>
+        <LeftContainer>
           <ProfileCardContainer>
-            <ProfileCard />
+            {investor.length > 0 ? (
+              <ProfileCard data={investor[0]} id={investor[1]} />
+            ) : null}
           </ProfileCardContainer>
-          <ProfileOpinionsContainer>
-            <OpinionsCard />
-          </ProfileOpinionsContainer>
-        </ProfileInformationContainer>
-        <TimelineContainer>
+        </LeftContainer>
+        <RightContainer>
+          <TitleContainer>
+            <Title title={"john's latest trades"} />
+          </TitleContainer>
           <TopContainer>
             <TradesContainer>
               {trades.map((trade_card) => {
@@ -54,25 +69,39 @@ const InvestorPage = ({
               })}
             </TradesContainer>
           </TopContainer>
+          <Division />
           <BottomContainer>
-            <PostsContainer></PostsContainer>
+            <PostsContainer>
+              {posts.map((post) => {
+                return <PostCard data={post[0]} id={post[1]} />;
+              })}
+            </PostsContainer>
             <ArticlesContainer>
-              {[1, 2, 3].map((article_preview_title) => {
+              {[1, 2, 3, 4, 5, 6].map((article_preview_title) => {
                 return <ArticlePreviewTitle />;
               })}
             </ArticlesContainer>
           </BottomContainer>
-        </TimelineContainer>
-      </TraderProfilePageContainer>
+        </RightContainer>
+      </InvestorPageContainer>
     </>
   );
 };
 
 // redux
-const mapStateToProps = ({ investor_page_reducer: { trades } }) => ({ trades });
+const mapStateToProps = ({
+  investor_page_reducer: { investor, trades, posts },
+}) => ({
+  investor,
+  trades,
+  posts,
+});
 
 const mapDispatchToProps = (dispatch) => ({
+  request_investor_profile: (user_id) =>
+    dispatch(request_investor_profile_start_action(user_id)),
   request_trades: (user_id) => dispatch(request_trades_start_action(user_id)),
+  request_posts: (user_id) => dispatch(request_posts_start_action(user_id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InvestorPage);

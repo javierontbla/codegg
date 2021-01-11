@@ -17,13 +17,9 @@ export const PostContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: ${white};
-  margin: 0.75rem 0rem 0.75rem 0rem;
+  margin: 0rem 0rem 0.75rem 0rem;
   box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   border-radius: 0.15rem;
-
-  &:first-child {
-    margin: 0rem 0rem 0.75rem 0rem;
-  }
 `;
 
 export const TopContainer = styled.div`

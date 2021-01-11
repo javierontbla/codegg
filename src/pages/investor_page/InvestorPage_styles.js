@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
-// import { colors } from "../../colors/colors";
+import { colors } from "../../colors/colors";
 
-export const TraderProfilePageContainer = styled.div`
+const { grey } = colors;
+
+export const InvestorPageContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem !important;
 `;
 
-export const ProfileInformationContainer = styled.div`
+export const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -26,12 +28,7 @@ export const ProfileCardContainer = styled.div`
   height: fit-content;
 `;
 
-export const ProfileOpinionsContainer = styled.div`
-  width: 100%;
-  padding: 0rem 0rem 0rem 0rem;
-`;
-
-export const TimelineContainer = styled.div`
+export const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: calc(100% - 24.5rem);
@@ -40,26 +37,35 @@ export const TimelineContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
 `;
 
-export const TopContainer = styled.div`
-  height: fit-content;
-  height: 15.25rem;
+export const TopContainer = styled.div``;
+
+export const TitleContainer = styled.div`
+  width: 100%;
+  padding: 0rem 0rem 0rem 0.5rem;
 `;
 
 export const TradesContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0.75rem 0rem;
   width: 100%;
   display: grid;
-  height: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
   grid-gap: 0;
   grid-auto-flow: column;
-  grid-template-columns: auto;
+  grid-template-columns: minmax(min-content, max-content);
   align-items: flex-start;
 
   &::-webkit-scrollbar {
     display: none !important;
   }
+`;
+
+export const Division = styled.div`
+  border-top: 1px solid ${grey};
+  height: 0.75rem;
+  width: calc(100% - 0.5rem);
+  margin: 0rem 0rem 0rem 0.5rem;
 `;
 
 export const BottomContainer = styled.div`
@@ -70,9 +76,19 @@ export const BottomContainer = styled.div`
 export const PostsContainer = styled.div`
   width: calc(100% - 15rem);
   height: 100%;
+  padding: 0rem 0.75rem 0rem 0.5rem;
 `;
 
 export const ArticlesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll;
   height: 100vh;
   width: 15rem;
+  margin: 0rem 0rem 0rem 0rem;
+
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
 `;

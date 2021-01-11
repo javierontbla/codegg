@@ -13,7 +13,6 @@ import {
   OrderContainer,
   LeftText,
   RightText,
-  CommentContainer,
   BottomContainer,
   TrendsContainer,
   UpTrend,
@@ -40,7 +39,7 @@ const TradeCard = ({ home_page, data }) => {
             {data.premium ? <Premium /> : null}
           </InformationContainer>
         </TopContainer>
-        <MiddleContainer comment={data.comment}>
+        <MiddleContainer>
           <OrderContainer>
             <LeftText>Company:</LeftText>
             <RightText>{data.company.toLowerCase()}</RightText>
@@ -62,9 +61,6 @@ const TradeCard = ({ home_page, data }) => {
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </RightText>
           </OrderContainer>
-          {data.comment ? (
-            <CommentContainer>"{data.comment.toLowerCase()}"</CommentContainer>
-          ) : null}
         </MiddleContainer>
         <BottomContainer>
           <TrendsContainer>

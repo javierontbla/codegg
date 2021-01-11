@@ -39,7 +39,7 @@ export const ProfileImage = styled.div`
   margin: -6.5rem 0rem 1rem 1rem;
   background-size: cover;
   background-position: center;
-  background-image: url(https://images.unsplash.com/photo-1508908324153-d1a219719814?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80);
+  background-image: url(${(props) => props.profile_image});
   background-repeat: no-repeat;
 `;
 
@@ -54,11 +54,13 @@ export const User = styled.div`
   display: flex;
   align-items: center;
   font-family: ${source_sans_pro};
-  font-size: 2rem;
+  font-size: 1.9rem;
   color: ${black};
   padding: 0rem 0rem 0rem 0rem;
   line-height: 100%;
   margin: 0rem 0rem 0.15rem 0rem;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
 `;
 
 export const Username = styled.div`

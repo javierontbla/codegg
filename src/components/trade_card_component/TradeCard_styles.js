@@ -92,8 +92,8 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: ${(props) => (props.comment ? "7.35rem" : "5.75rem")};
-  padding: 0rem 0.75rem 0rem 0.75rem;
+  height: fit-content;
+  padding: 0.75rem 0.75rem 0.8rem 0.75rem;
   line-height: 100%;
 `;
 
@@ -104,7 +104,7 @@ export const OrderContainer = styled.div`
   justify-content: flex-start;
   padding: 0rem 0rem 0rem 0rem;
   margin: ${(props) =>
-    props.last_child ? "0rem 0rem 0rem 0rem" : "0rem 0rem 0.35rem 0rem"};
+    props.last_child ? "0rem 0rem 0rem 0rem" : "0rem 0rem 0.4rem 0rem"};
 `;
 
 export const LeftText = styled.div`
@@ -133,19 +133,6 @@ export const RightText = styled.div`
   color: ${black};
   text-decoration: underline;
   text-transform: capitalize;
-`;
-
-export const CommentContainer = styled.div`
-  color: ${black};
-  font-family: ${roboto};
-  font-size: 0.8rem;
-  font-weight: 500;
-  padding: 0rem 0rem 0rem 0rem;
-  margin: 0.5rem 0rem 0rem 0rem;
-
-  &::first-letter {
-    text-transform: capitalize;
-  }
 `;
 
 export const BottomContainer = styled.div`

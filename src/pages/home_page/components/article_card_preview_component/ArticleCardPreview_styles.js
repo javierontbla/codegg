@@ -62,7 +62,7 @@ export const Title = styled.div`
   font-family: ${source_sans_pro};
   font-size: 1.2rem;
   color: ${black};
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.5px;
   line-height: 115%;
   width: 100%;
@@ -96,7 +96,7 @@ export const Trends = styled.div`
   align-items: center;
 `;
 
-export const Icon = styled.img`
+export const TrendIcon = styled.img`
   width: 1.85rem;
   height: 1.85rem;
   margin: 0rem 0rem 0rem 0rem;

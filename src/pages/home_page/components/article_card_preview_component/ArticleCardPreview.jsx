@@ -13,7 +13,7 @@ import {
   MiddleContainer,
   BottomContainer,
   Trends,
-  Icon,
+  TrendIcon,
   Votes,
 } from "./ArticleCardPreview_styles";
 import UpTrend from "./media/up_button.svg";
@@ -44,9 +44,9 @@ const ArticleCardPreview = ({ data, id }) => {
         </LinkContainer>
         <BottomContainer>
           <Trends>
-            <Icon src={UpTrend} />
+            <TrendIcon src={UpTrend} />
             <Votes>{"12"}</Votes>
-            <Icon src={DownTrend} />
+            <TrendIcon src={DownTrend} />
           </Trends>
         </BottomContainer>
       </ArticlePreviewContainer>
