@@ -33,16 +33,12 @@ export const TradeCardContainer = styled.div`
   width: ${(props) => (props.home_page ? "100%" : "18rem")};
   border: 1px solid blue;
   margin: ${(props) =>
-    props.home_page ? "0.5rem 0rem 0.5rem 0rem" : "0rem 0.5rem 0rem 0.5rem"};
+    props.home_page ? "0rem 0rem 0.75rem 0rem" : "0rem 0.75rem 0rem 0rem"};
   background: ${white};
   border: 1px solid ${grey};
   border-radius: 0.15rem;
   box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   transition: box-shadow 0.2s;
-
-  &:first-child {
-    margin: ${(props) => (props.home_page ? "0rem 0rem 0.5rem 0rem" : "")};
-  }
 `;
 
 export const TopContainer = styled.div`
@@ -199,7 +195,7 @@ export const Count = styled.div`
   width: fit-content;
   color: ${black};
   font-size: 0.65rem;
-  margin: 0rem 0.25rem 0rem 0.35rem;
+  margin: 0rem 0.25rem 0rem 0.4rem;
   font-family: ${open_sans};
   font-weight: 500;
   letter-spacing: 0.25px;

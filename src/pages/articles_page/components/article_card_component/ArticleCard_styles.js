@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
-const { roboto, source_sans_pro } = fonts;
+const { roboto, source_sans_pro, open_sans } = fonts;
 const { grey, black, white } = colors;
 
 export const LinkArticle = styled(Link)`
@@ -16,22 +16,22 @@ export const LinkArticle = styled(Link)`
 export const ArticleCardContainer = styled.div`
   width: 100%;
   border: 1px solid ${grey};
-  border-radius: 0.35rem;
+  border-radius: 0.15rem;
   background: ${white} !important;
-  box-shadow: 3px 3px 3px -1px #ced4da;
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   transition: box-shadow 0.2s;
 
   &:hover {
     cursor: pointer;
-    box-shadow: 6px 6px 6px -2px #ced4da;
+    box-shadow: 0px 3px 3px -1px #ced4da;
   }
 `;
 
 export const ArticleImage = styled.div`
   width: 100%;
   height: 14.5rem;
-  border-top-left-radius: 0.305rem;
-  border-top-right-radius: 0.305rem;
+  border-top-left-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.source});
@@ -44,27 +44,8 @@ export const TopContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
 `;
 
-export const Premium = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 0.565rem;
-  font-family: ${roboto};
-  font-weight: 500;
-  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
-  letter-spacing: 0.5px;
-  margin: 0.75rem 0rem 0rem 1rem;
-  height: fit-content;
-  width: fit-content;
-  border-radius: 0.15rem;
-  line-height: 100%;
-  background: transparent;
-  color: ${black};
-  border: 0.25px solid ${black};
-
-  &:hover {
-    cursor: auto;
-  }
+export const PremiumContainer = styled.div`
+  padding: 0.75rem 0rem 0rem 0.5rem;
 `;
 
 export const Title = styled.div`
@@ -74,7 +55,7 @@ export const Title = styled.div`
   letter-spacing: 0.5px;
   line-height: 110%;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0.55rem 1rem 0.75rem 1rem;
+  padding: 0.5rem 0.75rem 0.75rem 0.75rem;
 
   @media (max-width: 500px) {
   }
@@ -86,7 +67,7 @@ export const Description = styled.div`
   color: ${black};
   line-height: 130%;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0rem 1rem 0rem 1rem;
+  padding: 0rem 0.75rem 0rem 0.75rem;
 
   &::first-letter {
     text-transform: uppercase;
@@ -95,67 +76,48 @@ export const Description = styled.div`
 
 export const MiddleContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 0rem 0rem 0rem 0rem;
-  padding: 0.95rem 1rem 0.95rem 1rem;
-  height: fit-content;
-`;
-
-export const ProfileContainer = styled.div`
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  margin: 0rem 0rem 0rem 0.75rem;
-`;
-
-export const ProfileImage = styled.div`
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  border: none;
-  background-size: cover;
-  background-position: center;
-  background-image: url(${(props) => props.profile_image});
-  background-repeat: no-repeat;
-`;
-
-export const ProfileName = styled.div`
-  font-family: ${source_sans_pro};
-  font-size: 1.2rem;
-  color: ${black};
-  line-height: 100%;
-  margin: 0rem 0rem 0.2rem 0rem;
-  text-transform: capitalize;
-`;
-
-export const Date = styled.div`
-  display: flex;
-  align-items: center;
-  color: ${grey};
-  font-size: 0.685rem;
-  font-family: ${roboto};
-  font-weight: 500;
-  letter-spacing: 0.25px;
-  padding: 0;
   margin: 0rem 0rem 0rem 0rem;
+  padding: 1.25rem 0.75rem 0rem 0.75rem;
   height: fit-content;
-  width: 100%;
-  line-height: 100%;
+`;
 
-  @media (max-width: 500px) {
-  }
+export const CategoriesContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 0rem 0rem 0rem -0.25rem;
+  padding: 1.25rem 0rem 1.25rem 0rem;
 `;
 
 export const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 0.55rem 0.5rem 0.55rem 0.5rem;
+  height: fit-content;
   margin: 0rem 0rem 0rem 0rem;
+  padding: 0.1rem 0.7rem 0.1rem 0.7rem;
   border-top: 0.5px solid ${grey};
+`;
 
-  @media (max-width: 500px) {
-  }
+export const Trends = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const TrendIcon = styled.img`
+  width: 1.85rem;
+  height: 1.85rem;
+  margin: 0rem 0rem 0rem 0rem;
+`;
+
+export const Votes = styled.div`
+  width: fit-content;
+  color: ${black};
+  font-size: 0.65rem;
+  margin: 0rem 0.25rem 0rem 0.35rem;
+  font-family: ${open_sans};
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  opacity: 0.85;
 `;

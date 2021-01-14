@@ -23,7 +23,6 @@ import {
   select_category_action,
   delete_category_action,
 } from "../../../../redux/articles_page/actions";
-import Title from "../../../../components/title_component/Title";
 import ProfileBox from "../../../../components/profile_box_component/ProfileBox";
 import Category from "../../../../components/category_component/Category";
 import UpTrend from "./media/up_button.svg";
@@ -67,7 +66,6 @@ const Article = ({ data }) => {
           <Body>{parse(data.description)}</Body>
         </LeftContainer>
         <RightContainer>
-          <Title title={"Investor"} />
           <AuthorContainer>
             <ProfileBoxContainer>
               <ProfileBox

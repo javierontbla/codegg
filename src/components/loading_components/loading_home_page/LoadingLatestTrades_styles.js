@@ -26,10 +26,7 @@ export const TradeCard = styled.div`
   border-radius: 0.15rem;
   height: 13.5rem;
   border: none;
-  margin: ${(props) =>
-    props.trade_card === 1
-      ? "0rem 0rem 0.5rem 0rem"
-      : "0.5rem 0rem 0.5rem 0rem"};
+  margin: 0rem 0rem 0.75rem 0rem;
   position: relative;
   overflow: hidden;
   background: ${grey};

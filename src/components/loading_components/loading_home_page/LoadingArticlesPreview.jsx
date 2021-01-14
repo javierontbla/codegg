@@ -10,12 +10,7 @@ const LoadingArticlesPreview = () => {
     <>
       <LoadingArticlesPreviewContainer>
         {[1, 2, 3].map((article_preview) => {
-          return (
-            <ArticlePreview
-              article_preview={article_preview}
-              key={article_preview}
-            />
-          );
+          return <ArticlePreview key={article_preview} />;
         })}
       </LoadingArticlesPreviewContainer>
     </>

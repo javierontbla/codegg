@@ -7,7 +7,6 @@ import ActionButton from "../../../../components/action_button_component/ActionB
 import LoadingArticles from "../../../../components/loading_components/loading_articles_page/LoadingArticles";
 import LoadingCategories from "../../../../components/loading_components/loading_articles_page/LoadingCategories";
 import Category from "../../../../components/category_component/Category";
-import Title from "../../../../components/title_component/Title";
 import {
   request_available_categories_start_action,
   request_unfiltered_articles_start_action,
@@ -19,7 +18,9 @@ import {
 import {
   Container,
   ArticlesPageContainer,
+  TopContainer,
   LeftContainer,
+  BottomContainer,
   CategoriesContainer,
   RightContainer,
   ActiveCategoryContainer,
@@ -109,85 +110,88 @@ const ArticlesCollection = ({
     <>
       <Container className="container">
         <ArticlesPageContainer>
-          <LeftContainer>
-            <Title title={"Categories"} />
-            <CategoriesContainer>
-              {loading_categories ? (
-                <LoadingCategories />
-              ) : (
-                categories.map((category) => {
-                  return (
-                    <Category
-                      onClick={() =>
-                        request_filtered_articles_fun(category.toLowerCase())
-                      }
-                      key={category}
-                      name={category.toLowerCase()}
-                      category={category.toLowerCase()}
-                    />
-                  );
-                })
-              )}
-            </CategoriesContainer>
-          </LeftContainer>
-          <RightContainer>
+          <TopContainer>
             <ActionButtonContainer>
               <LinkContainer to={`${match.path}/write/12345`}>
                 <ActionButton action={"Write"} />
               </LinkContainer>
             </ActionButtonContainer>
-            <ActiveCategoryContainer length={active_category.length}>
-              {active_category.map((category) => {
-                return (
-                  <Category
-                    category={category.toLowerCase()}
-                    active_category={"true"}
-                  />
-                );
-              })}
-            </ActiveCategoryContainer>
-            <MasonryContainer>
-              {loading_articles ? (
-                <LoadingArticles />
-              ) : (
-                <Masonry
-                  breakpointCols={breakpoints}
-                  className="mansonry-grid"
-                  columnClassName="mansonry-grid-column"
-                >
-                  {filtered_articles.length > 0
-                    ? filtered_articles.map((article) => {
-                        return (
-                          <ArticleCard
-                            match={match.path}
-                            request_filtered_articles_fun={(category) =>
-                              request_filtered_articles_fun(
-                                category.toLowerCase()
-                              )
-                            }
-                            key={article[0]}
-                            data={article[0]}
-                            id={article[1]}
-                          />
-                        );
-                      })
-                    : unfiltered_articles.map((article) => {
-                        return (
-                          <ArticleCard
-                            match={match.path}
-                            request_filtered_articles_fun={(category) =>
-                              request_filtered_articles_fun(category)
-                            }
-                            key={article[1]}
-                            data={article[0]}
-                            id={article[1]}
-                          />
-                        );
-                      })}
-                </Masonry>
-              )}
-            </MasonryContainer>
-          </RightContainer>
+          </TopContainer>
+          <BottomContainer>
+            <LeftContainer>
+              <CategoriesContainer>
+                {loading_categories ? (
+                  <LoadingCategories />
+                ) : (
+                  categories.map((category) => {
+                    return (
+                      <Category
+                        onClick={() =>
+                          request_filtered_articles_fun(category.toLowerCase())
+                        }
+                        key={category}
+                        name={category.toLowerCase()}
+                        category={category.toLowerCase()}
+                      />
+                    );
+                  })
+                )}
+              </CategoriesContainer>
+            </LeftContainer>
+            <RightContainer>
+              <ActiveCategoryContainer length={active_category.length}>
+                {active_category.map((category) => {
+                  return (
+                    <Category
+                      category={category.toLowerCase()}
+                      active_category={"true"}
+                    />
+                  );
+                })}
+              </ActiveCategoryContainer>
+              <MasonryContainer>
+                {loading_articles ? (
+                  <LoadingArticles />
+                ) : (
+                  <Masonry
+                    breakpointCols={breakpoints}
+                    className="mansonry-grid"
+                    columnClassName="mansonry-grid-column"
+                  >
+                    {filtered_articles.length > 0
+                      ? filtered_articles.map((article) => {
+                          return (
+                            <ArticleCard
+                              match={match.path}
+                              request_filtered_articles_fun={(category) =>
+                                request_filtered_articles_fun(
+                                  category.toLowerCase()
+                                )
+                              }
+                              key={article[0]}
+                              data={article[0]}
+                              id={article[1]}
+                            />
+                          );
+                        })
+                      : unfiltered_articles.map((article) => {
+                          return (
+                            <ArticleCard
+                              match={match.path}
+                              request_filtered_articles_fun={(category) =>
+                                request_filtered_articles_fun(category)
+                              }
+                              key={article[1]}
+                              data={article[0]}
+                              id={article[1]}
+                            />
+                          );
+                        })}
+                  </Masonry>
+                )}
+              </MasonryContainer>
+            </RightContainer>
+          </BottomContainer>
         </ArticlesPageContainer>
       </Container>
     </>

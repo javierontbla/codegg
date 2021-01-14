@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Category from "../../../../components/category_component/Category";
 import Rank from "../../../../components/rank_component/Rank";
@@ -19,11 +19,15 @@ import {
 } from "./ProfileCard_styles";
 
 const ProfileCard = ({ data }) => {
+  useEffect(() => {
+    document.title = `Codegg - @${data.username}`;
+  }, []);
+
   return (
     <>
       <ProfileCardContainer>
         <TopContainer>
-          <CoverImage />
+          <CoverImage cover_image={data.cover_image} />
           <ProfileImage profile_image={data.profile_image} />
         </TopContainer>
         <MiddleContainer>

@@ -24,7 +24,7 @@ export const CoverImage = styled.div`
   height: 13.25rem;
   background-size: cover;
   background-position: center;
-  background-image: url(https://images.unsplash.com/photo-1607453813894-21f7b5cf201a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+  background-image: url(${(props) => props.cover_image});
   background-repeat: no-repeat;
   border-top-left-radius: 0.1rem;
   border-top-right-radius: 0.1rem;

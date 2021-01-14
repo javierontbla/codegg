@@ -12,7 +12,6 @@ import {
   LeftContainer,
   ProfileCardContainer,
   RightContainer,
-  TitleContainer,
   TopContainer,
   TradesContainer,
   Division,
@@ -53,9 +52,6 @@ const InvestorPage = ({
           </ProfileCardContainer>
         </LeftContainer>
         <RightContainer>
-          <TitleContainer>
-            <Title title={"john's latest trades"} />
-          </TitleContainer>
           <TopContainer>
             <TradesContainer>
               {trades.map((trade_card) => {

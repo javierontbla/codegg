@@ -81,7 +81,7 @@ export const Votes = styled.div`
   width: fit-content;
   color: ${black};
   font-size: 0.65rem;
-  margin: 0rem 0.25rem 0rem 0.35rem;
+  margin: 0rem 0.25rem 0rem 0.4rem;
   font-family: ${open_sans};
   font-weight: 500;
   letter-spacing: 0.25px;

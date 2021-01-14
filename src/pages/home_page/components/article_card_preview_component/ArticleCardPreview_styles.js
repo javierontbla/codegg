@@ -14,14 +14,10 @@ export const ArticlePreviewContainer = styled.div`
   height: fit-content;
   background: ${white};
   border: 1px solid ${grey};
-  margin: 0.5rem 0rem 0.5rem 0rem;
+  margin: 0rem 0rem 0.75rem 0rem;
   border-radius: 0.15rem;
   box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   transition: box-shadow 0.2s;
-
-  &:first-child {
-    margin: 0rem 0rem 0.5rem 0rem !important;
-  }
 
   &:hover {
     cursor: pointer;

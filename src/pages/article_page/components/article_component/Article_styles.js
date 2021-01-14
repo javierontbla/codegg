@@ -11,8 +11,8 @@ const ContainerStyles = css`
   height: fit-content;
   background: ${white};
   border: 1px solid ${grey};
-  border-radius: 0.35rem;
-  box-shadow: 1.5px 1.5px 1.5px -1px #ced4da;
+  border-radius: 0.15rem;
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
 `;
 
 export const Container = styled.div`
@@ -26,7 +26,7 @@ export const Container = styled.div`
 export const LeftContainer = styled.div`
   ${ContainerStyles};
   margin: 0rem 1.5rem 0rem 0rem;
-  padding: 0.75rem 1rem 0.75rem 1rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
 `;
 
 export const TitleArticle = styled.div`
@@ -51,13 +51,13 @@ export const RightContainer = styled.div`
 export const AuthorContainer = styled.div`
   ${ContainerStyles};
   padding: 0rem 0rem 0rem 0rem;
-  margin: 0rem 0rem 1.5rem 0rem;
+  margin: 0rem 0rem 0.5rem 0rem;
 `;
 
 export const ProfileBoxContainer = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 0.65rem 0.65rem 0rem 0.65rem;
+  padding: 0.75rem 0.75rem 0rem 0.75rem;
 `;
 
 export const TrendsContainer = styled.div`
@@ -82,7 +82,7 @@ export const Votes = styled.div`
   width: fit-content;
   color: ${black};
   font-size: 0.65rem;
-  margin: 0rem 0.25rem 0rem 0.35rem;
+  margin: 0rem 0.25rem 0rem 0.4rem;
   font-family: ${open_sans};
   font-weight: 500;
   letter-spacing: 0.25px;
@@ -93,7 +93,7 @@ export const Description = styled.div`
   font-size: 0.9rem;
   line-height: 130%;
   font-family: ${roboto};
-  padding: 1rem 0.65rem 0.65rem 0.65rem;
+  padding: 1rem 0.75rem 1rem 0.75rem;
 `;
 
 export const CategoriesContainer = styled.div`

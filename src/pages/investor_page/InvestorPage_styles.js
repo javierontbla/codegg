@@ -20,7 +20,7 @@ export const LeftContainer = styled.div`
   width: 24.5rem !important;
   height: fit-content;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0rem 1rem 0rem 0rem;
+  padding: 0rem 1.5rem 0rem 0rem;
 `;
 
 export const ProfileCardContainer = styled.div`
@@ -38,11 +38,6 @@ export const RightContainer = styled.div`
 `;
 
 export const TopContainer = styled.div``;
-
-export const TitleContainer = styled.div`
-  width: 100%;
-  padding: 0rem 0rem 0rem 0.5rem;
-`;
 
 export const TradesContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
@@ -64,8 +59,8 @@ export const TradesContainer = styled.div`
 export const Division = styled.div`
   border-top: 1px solid ${grey};
   height: 0.75rem;
-  width: calc(100% - 0.5rem);
-  margin: 0rem 0rem 0rem 0.5rem;
+  width: calc(100%);
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const BottomContainer = styled.div`
@@ -76,7 +71,7 @@ export const BottomContainer = styled.div`
 export const PostsContainer = styled.div`
   width: calc(100% - 15rem);
   height: 100%;
-  padding: 0rem 0.75rem 0rem 0.5rem;
+  padding: 0rem 1.5rem 0rem 0rem;
 `;
 
 export const ArticlesContainer = styled.div`
