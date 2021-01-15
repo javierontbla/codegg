@@ -31,7 +31,7 @@ const ButtonStyles = css`
   }
 `;
 
-export const CallDashboardContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid ${grey};
@@ -44,7 +44,7 @@ export const CallDashboardContainer = styled.div`
   line-height: 100%;
 `;
 
-export const SymbolInputContainer = styled.input`
+export const SymbolInput = styled.input`
   width: 7.5rem;
   border: 0.5px solid ${grey};
   padding: 0.375rem 0.5rem 0.25rem 0.5rem;
@@ -161,8 +161,8 @@ export const MiddleContainer = styled.div`
   display: ${(props) => (props.active_dashboard ? "flex" : "none")};
   flex-direction: column;
   width: 100%;
-  margin: 0rem 0rem 0.75rem 0rem;
-  padding: 0.75rem 0.55rem 0rem 0.55rem;
+  margin: 0rem 0rem 0rem 0rem;
+  padding: 0.75rem 0.55rem 0.75rem 0.55rem;
 `;
 
 export const OptionContainer = styled.div`
@@ -184,37 +184,13 @@ export const LeftText = styled.div`
   font-family: ${roboto};
 `;
 
-export const RightTextInput = styled.input`
+export const RightInput = styled.input`
   width: 6.5rem;
   border: 0.5px solid ${grey};
   border-radius: 0.15rem;
   height: 100%;
   padding: 0rem 0.275rem 0rem 0.275rem;
   font-size: 0.8rem;
-  color: ${black};
-  font-family: ${roboto};
-  letter-spacing: 0.25px;
-
-  &&& {
-    ::placeholder {
-      font-size: 0.8rem;
-    }
-  }
-
-  &:focus {
-    outline: none !important;
-  }
-`;
-
-export const CommentInput = styled.input`
-  width: 100%;
-  height: 1.85rem;
-  border: 0.5px solid ${grey};
-  margin: 0.75rem 0rem 0rem 0rem;
-  border-radius: 0.15rem;
-  font-size: 0.8rem;
-  resize: none !important;
-  padding: 0rem 0.4rem 0rem 0.4rem;
   color: ${black};
   font-family: ${roboto};
   letter-spacing: 0.25px;

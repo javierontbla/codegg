@@ -1,9 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import {
-  CallDashboardContainer,
-  SymbolInputContainer,
+  Container,
+  SymbolInput,
   ActionButtonContainer,
   TopContainer,
   PreviewContainer,
@@ -15,8 +15,7 @@ import {
   ActionChange,
   ActionContainer,
   LeftText,
-  RightTextInput,
-  CommentInput,
+  RightInput,
   OptionContainer,
   BottomContainer,
   PublishContainer,
@@ -42,7 +41,6 @@ const TradeDashboard = ({
   const [company, set_company] = useState("");
   const [number_of_shares, set_number_of_shares] = useState("");
   const [price_per_share, set_price_per_share] = useState("");
-  const [comment, set_comment] = useState("");
   const [publish_mode, set_publish_mode] = useState("Public");
   const [dropdown_active, set_dropdown_active] = useState(false);
 
@@ -63,7 +61,7 @@ const TradeDashboard = ({
     if (!symbol || !company || !number_of_shares || !price_per_share) return;
 
     create_trade_card({
-      new_trade_content: {
+      trade_content: {
         username: active_user_database.user_data.username,
         user_id: active_user_database.user_data.user_id,
         symbol,
@@ -71,7 +69,6 @@ const TradeDashboard = ({
         company,
         number_of_shares,
         price_per_share,
-        comment: comment ? comment : null,
         premium: publish_mode === "Premium" ? true : false,
       },
       latest_trades,
@@ -83,7 +80,6 @@ const TradeDashboard = ({
     set_company("");
     set_number_of_shares("");
     set_price_per_share("");
-    set_comment("");
     set_publish_mode("Public");
   };
 
@@ -98,10 +94,10 @@ const TradeDashboard = ({
 
   return (
     <>
-      <CallDashboardContainer>
+      <Container>
         <TopContainer active_dashboard={active_dashboard}>
           <PreviewContainer active_dashboard={active_dashboard}>
-            <SymbolInputContainer
+            <SymbolInput
               placeholder="SNOW"
               type="text"
               maxLength="9"
@@ -133,7 +129,7 @@ const TradeDashboard = ({
         <MiddleContainer active_dashboard={active_dashboard}>
           <OptionContainer first_container={"true"}>
             <LeftText>Company:</LeftText>
-            <RightTextInput
+            <RightInput
               placeholder="Snowflake"
               type="text"
               maxLength="12"
@@ -145,7 +141,7 @@ const TradeDashboard = ({
           </OptionContainer>
           <OptionContainer>
             <LeftText>No. of Shares:</LeftText>
-            <RightTextInput
+            <RightInput
               placeholder="1"
               type="number"
               value={number_of_shares}
@@ -156,7 +152,7 @@ const TradeDashboard = ({
           </OptionContainer>
           <OptionContainer>
             <LeftText>Price per Share:</LeftText>
-            <RightTextInput
+            <RightInput
               placeholder="$265"
               type="number"
               value={price_per_share}
@@ -165,15 +161,6 @@ const TradeDashboard = ({
               }
             />
           </OptionContainer>
-          <CommentInput
-            placeholder="Any comment? (Optional)"
-            type="text"
-            maxLength="24"
-            value={comment}
-            onChange={(e) =>
-              handle_trade_card_fields(set_comment, e.target.value)
-            }
-          />
         </MiddleContainer>
         <BottomContainer active_dashboard={active_dashboard}>
           <PublishContainer>
@@ -197,7 +184,7 @@ const TradeDashboard = ({
             </DropDownMenu>
           </PublishContainer>
         </BottomContainer>
-      </CallDashboardContainer>
+      </Container>
     </>
   );
 };

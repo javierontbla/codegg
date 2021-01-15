@@ -18,7 +18,7 @@ function* request_unfiltered_articles_async() {
   const articlesRef = db
     .collection(`articles`)
     .orderBy("date", "desc")
-    .limit(2);
+    .limit(3);
   // inital fetch from firebase
   try {
     const res = yield articlesRef.get().then((snapshot) => {

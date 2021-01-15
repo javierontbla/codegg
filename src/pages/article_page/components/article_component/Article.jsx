@@ -63,7 +63,7 @@ const Article = ({ data }) => {
       <Container>
         <LeftContainer>
           <TitleArticle>{data.title}</TitleArticle>
-          <Body>{parse(data.description)}</Body>
+          <Body>{parse(data.content)}</Body>
         </LeftContainer>
         <RightContainer>
           <AuthorContainer>
@@ -74,7 +74,7 @@ const Article = ({ data }) => {
                 date={data.date}
               />
             </ProfileBoxContainer>
-            <Description>{parse(data.description)}</Description>
+            <Description>{data.description}</Description>
             <TrendsContainer>
               <Trends>
                 <Icon src={UpTrend} />

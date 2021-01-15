@@ -6,7 +6,6 @@ import OpinionsCard from "./components/opinions_card_component/OpinionsCard";
 import TradeCard from "../../components/trade_card_component/TradeCard";
 import PostCard from "../../components/post_card_component/PostCard";
 import ArticlePreviewTitle from "./components/article_preview_title_component/ArticlePreviewTitle";
-import Title from "../../components/title_component/Title";
 import {
   InvestorPageContainer,
   LeftContainer,

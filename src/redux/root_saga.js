@@ -28,7 +28,7 @@ import {
   request_investor_trades_saga,
   request_investor_posts_saga,
 } from "./investor_page/sagas";
-import { sendForm } from "./feedback.page/sagas";
+import { upload_draft_saga, upload_article_saga } from "./write_page/sagas";
 
 export function* root_saga() {
   yield all([
@@ -51,6 +51,7 @@ export function* root_saga() {
     call(request_investor_profile_saga),
     call(request_investor_trades_saga),
     call(request_investor_posts_saga),
-    call(sendForm),
+    call(upload_draft_saga),
+    call(upload_article_saga),
   ]);
 }

@@ -65,7 +65,7 @@ export const CategoriesContainer = styled.div`
 
 export const RightContainer = styled.div`
   width: 100%;
-  padding: 0rem 0rem 0rem 1rem;
+  padding: 0rem 0rem 0rem 0.75rem;
 `;
 
 export const ActiveCategoryContainer = styled.div`

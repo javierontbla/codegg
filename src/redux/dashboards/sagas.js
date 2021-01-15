@@ -12,13 +12,13 @@ import {
 } from "./actions";
 
 function* create_trade_card_async(action) {
-  const { new_trade_content, latest_trades } = action.payload;
+  const { trade_content, latest_trades } = action.payload;
   const trade_cards_ref = db.collection(`trades`);
 
   try {
     const new_trade_card_id = yield trade_cards_ref
       .add({
-        ...new_trade_content,
+        ...trade_content,
         date: new Date(),
         up_trends: 0,
         down_trends: 0,
