@@ -58,7 +58,7 @@ export const User = styled.div`
   color: ${black};
   padding: 0rem 0rem 0rem 0rem;
   line-height: 100%;
-  margin: 0rem 0rem 0.15rem 0rem;
+  margin: 0rem 0rem 0.25rem 0rem;
   text-transform: capitalize;
   letter-spacing: 0.5px;
 `;

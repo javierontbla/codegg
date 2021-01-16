@@ -7,13 +7,7 @@ import {
   Index,
   Table,
   Row,
-  StockCompany,
-  StockSymbol,
-  Shares,
-  InitialPrice,
-  ActualPrice,
-  InitialPortfolioValue,
-  ActualPortfolioValue,
+  Column,
   Totals,
   Total,
 } from "./Portfolio_styles";
@@ -22,7 +16,7 @@ const Portfolio = () => {
   return (
     <>
       <Container>
-        <ActionButton action={"Create"} />
+        <ActionButton action={"Return"} />
         <Indexes>
           <Index>Company</Index>
           <Index>Symbol</Index>
@@ -34,19 +28,28 @@ const Portfolio = () => {
         </Indexes>
         <Table>
           <Row>
-            <StockCompany>Microsoft</StockCompany>
-            <StockSymbol>MSFT</StockSymbol>
-            <Shares>58</Shares>
-            <InitialPrice>$187</InitialPrice>
-            <ActualPrice>$205</ActualPrice>
-            <InitialPortfolioValue>$10,846</InitialPortfolioValue>
-            <ActualPortfolioValue>$11,890</ActualPortfolioValue>
+            <Column>Microsoft</Column>
+            <Column>MSFT</Column>
+            <Column>58</Column>
+            <Column>$187</Column>
+            <Column>$205</Column>
+            <Column>$10,846</Column>
+            <Column last_child={"true"}>$11,890</Column>
+          </Row>
+          <Row>
+            <Column>Facebook</Column>
+            <Column>FB</Column>
+            <Column>12</Column>
+            <Column>$94</Column>
+            <Column>$156</Column>
+            <Column>$1,024</Column>
+            <Column last_child={"true"}>$1,365</Column>
           </Row>
         </Table>
         <Totals>
-          <Total>58</Total>
-          <Total>$10,846</Total>
-          <Total>$11,890</Total>
+          <Total first_child={"true"}>58</Total>
+          <Total middle_child={"true"}>$10,846</Total>
+          <Total last_child={"true"}>$11,890</Total>
         </Totals>
       </Container>
     </>

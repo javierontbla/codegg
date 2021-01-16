@@ -1,25 +1,41 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import { colors } from "../../../../colors/colors";
+import { fonts } from "../../../../fonts/fonts";
+
+const { white, background } = colors;
+const { roboto } = fonts;
+
+const BoxStyles = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 14.285%;
+`;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: calc(100% - 24.5rem);
-  height: 100vh;
-  border: 1px solid orange;
+  min-height: 100vh;
 `;
 
 export const Indexes = styled.div`
   display: flex;
   flex-direction: row;
+  background: ${white};
+  font-family: ${roboto};
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 0.15rem;
+  height: fit-content;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+  margin: 0.75rem 0rem 0.25rem 0rem;
 `;
 
 export const Index = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border: 1px solid orange;
-  width: 14.285%;
+  ${BoxStyles};
 `;
 
 export const Table = styled.div`
@@ -32,64 +48,43 @@ export const Row = styled.div`
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  height: 2rem;
-  border: 1px solid black;
+  height: 2.15rem;
+  font-family: ${roboto};
+  font-size: 0.9rem;
+  margin: 0rem 0rem 0.15rem 0rem;
+  background: ${white};
+  border-radius: 0.15rem;
 `;
 
-export const StockCompany = styled.div`
-  height: 100%;
-  border: 1px solid pink;
-  width: 14.285%;
-  text-align: center;
-`;
-
-export const StockSymbol = styled.div`
-  height: 100%;
-  border: 1px solid grey;
-  width: 14.285%;
-  text-align: center;
-`;
-
-export const Shares = styled.div`
-  height: 100%;
-  border: 1px solid yellow;
-  width: 14.285%;
-  text-align: center;
-`;
-
-export const InitialPrice = styled.div`
-  height: 100%;
-  border: 1px solid blue;
-  width: 14.285%;
-  text-align: center;
-`;
-
-export const ActualPrice = styled.div`
-  height: 100%;
-  border: 1px solid red;
-  width: 14.285%;
-  text-align: center;
-`;
-
-export const InitialPortfolioValue = styled.div`
-  border: 1px solid green;
-  width: 14.285%;
-  text-align: center;
-`;
-
-export const ActualPortfolioValue = styled.div`
-  border: 1px solid orange;
-  width: 14.285%;
-  text-align: center;
+export const Column = styled.div`
+  ${BoxStyles};
+  border-right: ${(props) =>
+    props.last_child ? "none" : `1px solid ${background}`};
 `;
 
 export const Totals = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   width: 100%;
-  height: 2rem;
+  height: 2.15rem;
+  font-family: ${roboto};
+  font-size: 0.9rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const Total = styled.div`
-  border: 1px solid gold;
+  ${BoxStyles};
+  background: ${white};
+  margin: ${(props) =>
+    props.first_child ? "0rem 28.57% 0rem 0rem" : "0rem 0rem 0rem 0rem"};
+  border-right: ${(props) =>
+    props.middle_child ? `0.25px solid ${background}` : "none"};
+  border-top-left-radius: ${(props) => (props.last_child ? "none" : "0.15rem")};
+  border-bottom-left-radius: ${(props) =>
+    props.last_child ? "none" : "0.15rem"};
+  border-top-right-radius: ${(props) =>
+    props.middle_child ? "none" : "0.15rem"};
+  border-bottom-right-radius: ${(props) =>
+    props.middle_child ? "none" : "0.15rem"};
 `;

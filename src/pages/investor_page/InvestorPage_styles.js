@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 import { colors } from "../../colors/colors";
+import { fonts } from "../../fonts/fonts";
 
-const { grey } = colors;
+const { grey, black, white } = colors;
+const { open_sans } = fonts;
 
 export const InvestorPageContainer = styled.div`
   display: flex;
@@ -91,7 +93,21 @@ export const ArticlesContainer = styled.div`
 `;
 
 export const PortfolioButton = styled.div`
+  display: flex;
+  align-items: center;
   width: 100%;
   height: 2rem;
-  border: 1px solid blue;
+  background: ${white};
+  font-family: ${open_sans};
+  font-size: 0.85rem;
+  margin: 0.5rem 0rem 0rem 0rem;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  border-radius: 0.15rem;
+  color: ${black};
+  border: 1px solid ${grey};
+  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;

@@ -24,7 +24,11 @@ export const TopContainer = styled.div`
   width: 100%;
 `;
 
-export const LinkContainer = styled(Link)``;
+export const LinkContainer = styled(Link)`
+  &:hover {
+    text-decoration: none;
+  }
+`;
 
 export const ActionButtonContainer = styled.div`
   display: flex;

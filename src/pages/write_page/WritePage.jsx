@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 
 import {
   Container,
+  LeftContainer,
+  RightContainer,
   TitleInput,
   HeaderInput,
   BodyInput,
-  ActionsContainer,
+  InsertActionsContainer,
   InsertAction,
   CloseIcon,
   InputContainer,
@@ -74,65 +76,70 @@ const WritePage = ({ upload_draft, upload_article, active_user_database }) => {
   return (
     <>
       <Container className="container">
-        <TitleInput
-          value={title}
-          onChange={(e) => handle_title_input(e.target.value)}
-        />
-        {blocks.map((block) => {
-          switch (block.type) {
-            case "header":
-              return (
-                <InputContainer>
-                  <CloseIcon
-                    src={CloseIconSVG}
-                    onClick={() => handle_remove_block(block.id)}
-                  />
-                  <HeaderInput
-                    key={block.id}
-                    onChange={(e) =>
-                      handle_content_input(e.target.value, block.id)
-                    }
-                  />
-                </InputContainer>
-              );
+        <LeftContainer>
+          <TitleInput
+            value={title}
+            onChange={(e) => handle_title_input(e.target.value)}
+          />
+          {blocks.map((block) => {
+            switch (block.type) {
+              case "header":
+                return (
+                  <InputContainer>
+                    <CloseIcon
+                      src={CloseIconSVG}
+                      onClick={() => handle_remove_block(block.id)}
+                    />
+                    <HeaderInput
+                      placeholder="Header..."
+                      key={block.id}
+                      onChange={(e) =>
+                        handle_content_input(e.target.value, block.id)
+                      }
+                    />
+                  </InputContainer>
+                );
 
-            case "body":
-              return (
-                <InputContainer>
-                  <CloseIcon
-                    src={CloseIconSVG}
-                    onClick={() => handle_remove_block(block.id)}
-                  />
-                  <BodyInput
-                    key={block.id}
-                    onChange={(e) =>
-                      handle_content_input(e.target.value, block.id)
-                    }
-                  />
-                </InputContainer>
-              );
+              case "body":
+                return (
+                  <InputContainer>
+                    <CloseIcon
+                      src={CloseIconSVG}
+                      onClick={() => handle_remove_block(block.id)}
+                    />
+                    <BodyInput
+                      placeholder="Body..."
+                      key={block.id}
+                      onChange={(e) =>
+                        handle_content_input(e.target.value, block.id)
+                      }
+                    />
+                  </InputContainer>
+                );
 
-            default:
-              return;
-          }
-        })}
-        <ActionsContainer>
-          <InsertAction onClick={() => handle_insert_block("header", "h1")}>
-            header
-          </InsertAction>
-          <InsertAction onClick={() => handle_insert_block("body", "p")}>
-            body
-          </InsertAction>
-          <InsertAction>image</InsertAction>
-        </ActionsContainer>
-        <BottomContainer>
-          <ActionButtonContainer onClick={() => upload_draft_to_firebase()}>
-            <ActionButton action={"Save Draft"} />
-          </ActionButtonContainer>
-          <ActionButtonContainer onClick={() => upload_article_to_firebase()}>
-            <ActionButton action={"Publish"} />
-          </ActionButtonContainer>
-        </BottomContainer>
+              default:
+                return;
+            }
+          })}
+          <InsertActionsContainer>
+            <InsertAction onClick={() => handle_insert_block("header", "h1")}>
+              header
+            </InsertAction>
+            <InsertAction onClick={() => handle_insert_block("body", "p")}>
+              body
+            </InsertAction>
+            <InsertAction>image</InsertAction>
+          </InsertActionsContainer>
+          <BottomContainer>
+            <ActionButtonContainer onClick={() => upload_draft_to_firebase()}>
+              <ActionButton action={"Save Draft"} />
+            </ActionButtonContainer>
+            <ActionButtonContainer onClick={() => upload_article_to_firebase()}>
+              <ActionButton action={"Publish"} />
+            </ActionButtonContainer>
+          </BottomContainer>
+        </LeftContainer>
+        <RightContainer></RightContainer>
       </Container>
     </>
   );

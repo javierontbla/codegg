@@ -27,6 +27,7 @@ export const LeftContainer = styled.div`
   ${ContainerStyles};
   margin: 0rem 1.5rem 0rem 0rem;
   padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  width: calc(100% - 18.5rem);
 `;
 
 export const TitleArticle = styled.div`
@@ -45,7 +46,7 @@ export const Body = styled.div`
 `;
 
 export const RightContainer = styled.div`
-  width: 25rem;
+  width: 18.5rem;
 `;
 
 export const AuthorContainer = styled.div`
