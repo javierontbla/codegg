@@ -25,7 +25,11 @@ export const ArticlePreviewContainer = styled.div`
   }
 `;
 
-export const LinkContainer = styled(Link)``;
+export const LinkContainer = styled(Link)`
+  &:hover {
+    text-decoration: none;
+  }
+`;
 
 export const ImageContainer = styled.div`
   height: 8.75rem;
@@ -72,7 +76,7 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   height: fit-content;
-  padding: 0.85rem 0.65rem 0.85em 0.65rem;
+  padding: 1.15rem 0.65rem 1rem 0.65rem;
   margin: 0rem 0rem 0rem 0rem;
 `;
 

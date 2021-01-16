@@ -28,8 +28,10 @@ export const ProfileCardContainer = styled.div`
   height: fit-content;
 `;
 
+export const PortfolioContainer = styled.div``;
+
 export const RightContainer = styled.div`
-  display: flex;
+  display: ${(props) => (props.display_portfolio ? "none" : "flex")};
   flex-direction: column;
   width: calc(100% - 24.5rem);
   height: fit-content;
@@ -86,4 +88,10 @@ export const ArticlesContainer = styled.div`
   &::-webkit-scrollbar {
     display: none !important;
   }
+`;
+
+export const PortfolioButton = styled.div`
+  width: 100%;
+  height: 2rem;
+  border: 1px solid blue;
 `;

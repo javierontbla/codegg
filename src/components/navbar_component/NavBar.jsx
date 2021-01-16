@@ -49,10 +49,7 @@ const NavBar = ({ active_user_database }) => {
             <PageLink>Home</PageLink>
           </LinkContainer>
           <LinkContainer to="/articles">
-            <PageLink>Articles</PageLink>
-          </LinkContainer>
-          <LinkContainer to="/investors">
-            <PageLink>Investors</PageLink>
+            <PageLink>Read</PageLink>
           </LinkContainer>
         </PagesContainer>
         <UserContainer>

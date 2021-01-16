@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
+import Portfolio from "./components/portfolio_component/Portfolio";
 import ProfileCard from "./components/profile_card_component/ProfileCard";
-import OpinionsCard from "./components/opinions_card_component/OpinionsCard";
 import TradeCard from "../../components/trade_card_component/TradeCard";
 import PostCard from "../../components/post_card_component/PostCard";
 import ArticlePreviewTitle from "./components/article_preview_title_component/ArticlePreviewTitle";
@@ -10,6 +10,7 @@ import {
   InvestorPageContainer,
   LeftContainer,
   ProfileCardContainer,
+  PortfolioContainer,
   RightContainer,
   TopContainer,
   TradesContainer,
@@ -17,6 +18,7 @@ import {
   BottomContainer,
   PostsContainer,
   ArticlesContainer,
+  PortfolioButton,
 } from "./InvestorPage_styles";
 import {
   request_investor_profile_start_action,
@@ -35,11 +37,18 @@ const InvestorPage = ({
   trades,
   posts,
 }) => {
+  const [display_portfolio, set_display_portfolio] = useState(false);
+
   useEffect(() => {
     request_trades(investor_id);
     request_posts(investor_id);
     request_investor_profile(investor_id);
   }, []);
+
+  const handle_display_portfolio = () => {
+    set_display_portfolio((prev_state) => !prev_state);
+  };
+
   return (
     <>
       <InvestorPageContainer>
@@ -49,8 +58,12 @@ const InvestorPage = ({
               <ProfileCard data={investor[0]} id={investor[1]} />
             ) : null}
           </ProfileCardContainer>
+          <PortfolioButton onClick={() => handle_display_portfolio()}>
+            Watch Portfolio
+          </PortfolioButton>
         </LeftContainer>
-        <RightContainer>
+        {display_portfolio ? <Portfolio /> : null}
+        <RightContainer display_portfolio={display_portfolio}>
           <TopContainer>
             <TradesContainer>
               {trades.map((trade_card) => {
