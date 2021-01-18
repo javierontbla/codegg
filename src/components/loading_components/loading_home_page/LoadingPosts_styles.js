@@ -23,8 +23,8 @@ export const LoadingPostsContainer = styled.div`
 export const Post = styled.div`
   display: flex;
   width: 100%;
-  border-radius: 0.15rem;
-  height: 27.5rem;
+  border-radius: 0.5rem;
+  height: 10rem;
   border: none;
   margin: 0rem 0rem 0.75rem 0rem;
   position: relative;

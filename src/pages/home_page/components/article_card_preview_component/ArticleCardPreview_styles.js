@@ -15,7 +15,7 @@ export const ArticlePreviewContainer = styled.div`
   background: ${white};
   border: 1px solid ${grey};
   margin: 0rem 0rem 0.75rem 0rem;
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
   box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   transition: box-shadow 0.2s;
 
@@ -35,8 +35,8 @@ export const ImageContainer = styled.div`
   height: 8.75rem;
   width: 100%;
   border: none;
-  border-top-left-radius: 0.1rem;
-  border-top-right-radius: 0.1rem;
+  border-top-left-radius: 0.45rem;
+  border-top-right-radius: 0.45rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.article_preview_image});

@@ -60,7 +60,7 @@ export const CategoriesContainer = styled.div`
   justify-content: left;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   margin: 0rem 0rem 0rem 0rem;
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
   box-shadow: 0px 1.5px 1.5px -1px #ced4da;
 
   @media (max-width: 500px) {

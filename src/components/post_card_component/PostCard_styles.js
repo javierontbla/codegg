@@ -19,7 +19,7 @@ export const PostContainer = styled.div`
   background: ${white};
   margin: 0rem 0rem 0.75rem 0rem;
   box-shadow: 0px 1.5px 1.5px -1px #ced4da;
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
 `;
 
 export const TopContainer = styled.div`
@@ -31,8 +31,8 @@ export const TopContainer = styled.div`
   border-top: 1px solid ${grey};
   border-left: 1px solid ${grey};
   border-right: 1px solid ${grey};
-  border-top-left-radius: 0.15rem;
-  border-top-right-radius: 0.15rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 `;
 
 export const PremiumContainer = styled.div`
@@ -151,9 +151,9 @@ export const BottomContainer = styled.div`
   border-right: 1px solid ${grey};
   border-bottom: 1px solid ${grey};
   border-bottom-left-radius: ${(props) =>
-    props.display_comments ? `0rem` : `0.15rem`};
+    props.display_comments ? `0rem` : `0.5rem`};
   border-bottom-right-radius: ${(props) =>
-    props.display_comments ? `0rem` : `0.15rem`};
+    props.display_comments ? `0rem` : `0.5rem`};
   padding: 0.1rem 0.55rem 0.1rem 0.55rem;
 `;
 
@@ -187,7 +187,7 @@ export const CountContainer = styled.div`
   width: fit-content;
   color: ${black};
   font-size: 0.65rem;
-  margin: 0rem 0.25rem 0rem 0.4rem;
+  margin: 0rem 0.5rem 0rem 0.4rem;
   font-family: ${open_sans};
   font-weight: 500;
   letter-spacing: 0.25px;
@@ -214,7 +214,7 @@ export const LoadMoreComments = styled.div`
   width: 100%;
   margin: -0.5rem 0rem 0.75rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
   font-family: ${open_sans};
   font-size: 0.7rem;
   font-weight: 500;
@@ -230,5 +230,8 @@ export const LoadMoreComments = styled.div`
 
 export const LinkContainer = styled(Link)`
   color: ${black};
-  text-decoration: none;
+  &:hover {
+    color: ${black};
+    text-decoration: none;
+  }
 `;

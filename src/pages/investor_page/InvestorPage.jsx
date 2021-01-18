@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
+import ActionButton from "../../components/action_button_component/ActionButton";
 import Portfolio from "./components/portfolio_component/Portfolio";
 import ProfileCard from "./components/profile_card_component/ProfileCard";
 import TradeCard from "../../components/trade_card_component/TradeCard";
@@ -10,7 +11,7 @@ import {
   InvestorPageContainer,
   LeftContainer,
   ProfileCardContainer,
-  PortfolioContainer,
+  ActionButtonContainer,
   RightContainer,
   TopContainer,
   TradesContainer,
@@ -18,7 +19,6 @@ import {
   BottomContainer,
   PostsContainer,
   ArticlesContainer,
-  PortfolioButton,
 } from "./InvestorPage_styles";
 import {
   request_investor_profile_start_action,
@@ -45,8 +45,9 @@ const InvestorPage = ({
     request_investor_profile(investor_id);
   }, []);
 
-  const handle_display_portfolio = () => {
-    set_display_portfolio((prev_state) => !prev_state);
+  const handle_display_portfolio = (display) => {
+    console.log("running");
+    set_display_portfolio(display);
   };
 
   return (
@@ -58,12 +59,16 @@ const InvestorPage = ({
               <ProfileCard data={investor[0]} id={investor[1]} />
             ) : null}
           </ProfileCardContainer>
-          <PortfolioButton onClick={() => handle_display_portfolio()}>
-            Watch Portfolio
-          </PortfolioButton>
         </LeftContainer>
-        {display_portfolio ? <Portfolio /> : null}
+        {display_portfolio ? (
+          <Portfolio
+            handle_display_portfolio={() => handle_display_portfolio(false)}
+          />
+        ) : null}
         <RightContainer display_portfolio={display_portfolio}>
+          <ActionButtonContainer onClick={() => handle_display_portfolio(true)}>
+            <ActionButton action={"Watch Portfolio"} />
+          </ActionButtonContainer>
           <TopContainer>
             <TradesContainer>
               {trades.map((trade_card) => {

@@ -1,6 +1,8 @@
 import { write_page_types } from "./types";
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+  draft_id: null,
+};
 
 export const write_page_reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -17,6 +19,12 @@ export const write_page_reducer = (state = INITIAL_STATE, action) => {
     case write_page_types.UPLOAD_DRAFT_FAILURE:
       return {
         ...state,
+      };
+
+    case write_page_types.CREATE_DRAFT_SUCCESS:
+      return {
+        ...state,
+        draft_id: action.payload,
       };
 
     default:

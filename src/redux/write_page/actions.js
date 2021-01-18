@@ -21,3 +21,19 @@ export const upload_article_start_action = (article) => ({
   type: write_page_types.UPLOAD_ARTICLE_START,
   payload: article,
 });
+
+/* CREATE DRAFT ACTIONS */
+export const create_draft_start_action = (user_id) => ({
+  type: write_page_types.CREATE_DRAFT_START,
+  payload: user_id,
+});
+
+export const create_draft_success_action = (draft_id) => ({
+  type: write_page_types.CREATE_DRAFT_SUCCESS,
+  payload: draft_id,
+});
+
+export const create_draft_failure_action = (error) => ({
+  type: write_page_types.CREATE_DRAFT_FAILURE,
+  payload: error,
+});

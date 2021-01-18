@@ -23,7 +23,7 @@ export const LoadingArticlesPreviewContainer = styled.div`
 export const ArticlePreview = styled.div`
   display: flex;
   width: 100%;
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
   height: 17.5rem;
   border: none;
   margin: 0rem 0rem 0.75rem 0rem;

@@ -16,7 +16,7 @@ export const LinkArticle = styled(Link)`
 export const ArticleCardContainer = styled.div`
   width: 100%;
   border: 1px solid ${grey};
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
   background: ${white} !important;
   box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   transition: box-shadow 0.2s;
@@ -30,8 +30,8 @@ export const ArticleCardContainer = styled.div`
 export const ArticleImage = styled.div`
   width: 100%;
   height: 14.5rem;
-  border-top-left-radius: 0.1rem;
-  border-top-right-radius: 0.1rem;
+  border-top-left-radius: 0.45rem;
+  border-top-right-radius: 0.45rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.source});

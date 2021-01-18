@@ -21,6 +21,10 @@ export const Container = styled.div`
   min-height: 100vh;
 `;
 
+export const ActionButtonContainer = styled.div`
+  margin: 0rem 0rem 0.75rem 0rem;
+`;
+
 export const Indexes = styled.div`
   display: flex;
   flex-direction: row;
@@ -31,7 +35,7 @@ export const Indexes = styled.div`
   border-radius: 0.15rem;
   height: fit-content;
   padding: 0.5rem 0rem 0.5rem 0rem;
-  margin: 0.75rem 0rem 0.25rem 0rem;
+  margin: 0rem 0rem 0.25rem 0rem;
 `;
 
 export const Index = styled.div`

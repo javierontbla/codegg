@@ -12,8 +12,12 @@ const ArticlesPage = ({ match }) => {
       <Container className="container">
         <Switch>
           <Route exact path={`${match.path}`} component={ArticlesCollection} />
-          <Route path={`${match.path}/write/:write_id`} component={WritePage} />
-          <Route path={`${match.path}/:article_id`} component={ArticlePage} />
+          <Route exact path={`${match.path}/write`} component={WritePage} />
+          <Route
+            exact
+            path={`/${match.path}/:article_id`}
+            component={ArticlePage}
+          />
         </Switch>
       </Container>
     </>

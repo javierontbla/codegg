@@ -3,6 +3,7 @@ import React from "react";
 import ActionButton from "../../../../components/action_button_component/ActionButton";
 import {
   Container,
+  ActionButtonContainer,
   Indexes,
   Index,
   Table,
@@ -12,11 +13,13 @@ import {
   Total,
 } from "./Portfolio_styles";
 
-const Portfolio = () => {
+const Portfolio = ({ handle_display_portfolio }) => {
   return (
     <>
       <Container>
-        <ActionButton action={"Return"} />
+        <ActionButtonContainer onClick={() => handle_display_portfolio()}>
+          <ActionButton action={"Return"} />
+        </ActionButtonContainer>
         <Indexes>
           <Index>Company</Index>
           <Index>Symbol</Index>

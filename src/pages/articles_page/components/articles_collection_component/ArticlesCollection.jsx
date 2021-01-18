@@ -15,6 +15,7 @@ import {
   select_category_action,
   delete_category_action,
 } from "../../../../redux/articles_page/actions";
+import { create_draft_start_action } from "../../../../redux/write_page/actions";
 import {
   Container,
   ArticlesPageContainer,
@@ -50,6 +51,8 @@ const ArticlesCollection = ({
   stopFetching,
   noMorePosts,
   clear_filtered_articles,
+  create_draft,
+  active_user_database,
 }) => {
   useEffect(() => {
     if (categories.length === 0) request_available_categories();
@@ -112,7 +115,7 @@ const ArticlesCollection = ({
         <ArticlesPageContainer>
           <TopContainer>
             <ActionButtonContainer>
-              <LinkContainer to={`${match.path}/write/12345`}>
+              <LinkContainer to={`${match.path}/write`}>
                 <ActionButton action={"Write"} />
               </LinkContainer>
             </ActionButtonContainer>
@@ -211,6 +214,7 @@ const mapStateToProps = ({
     active_category,
     error,
   },
+  user_reducer: { active_user_database },
 }) => ({
   loading_articles,
   loading_categories,
@@ -221,6 +225,7 @@ const mapStateToProps = ({
   categories,
   active_category,
   error,
+  active_user_database,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -234,6 +239,7 @@ const mapDispatchToProps = (dispatch) => ({
   delete_category: (category) => dispatch(delete_category_action(category)),
   clear_filtered_articles: (empty_arr) =>
     dispatch(request_filtered_articles_success_action(empty_arr)),
+  create_draft: (user_id) => dispatch(create_draft_start_action(user_id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticlesCollection);

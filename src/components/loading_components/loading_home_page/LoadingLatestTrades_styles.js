@@ -23,7 +23,7 @@ export const LoadingLatestTradesContainer = styled.div`
 export const TradeCard = styled.div`
   display: flex;
   width: 100%;
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
   height: 13.5rem;
   border: none;
   margin: 0rem 0rem 0.75rem 0rem;

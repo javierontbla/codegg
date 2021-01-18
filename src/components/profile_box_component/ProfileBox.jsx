@@ -24,7 +24,7 @@ const ProfileBox = ({ profile_image, user, date, article_card_preview }) => {
           <InformationContainer>
             <User article_card_preview={article_card_preview}>{user}</User>
             <Date article_card_preview={article_card_preview}>
-              {moment(date.toDate()).format("LL")}
+              {date ? moment(date.toDate()).format("LL") : null}
             </Date>
           </InformationContainer>
         </ProfileBoxContainer>

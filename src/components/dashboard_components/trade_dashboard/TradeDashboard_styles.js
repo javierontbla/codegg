@@ -39,7 +39,7 @@ export const Container = styled.div`
   height: fit-content;
   width: 100%;
   margin: 0rem 0rem 0.5rem 0rem;
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
   box-shadow: 0px 1.5px 1.5px -1px #ced4da;
   line-height: 100%;
 `;
@@ -182,6 +182,7 @@ export const LeftText = styled.div`
   font-size: 0.8rem;
   color: ${black};
   font-family: ${roboto};
+  font-weight: 700;
 `;
 
 export const RightInput = styled.input`

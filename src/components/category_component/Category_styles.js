@@ -6,7 +6,7 @@ import { fonts } from "../../fonts/fonts";
 
 const { open_sans } = fonts;
 
-const { white } = colors;
+const { white, grey_2, black } = colors;
 
 export const CategoryContainer = styled.div`
   display: flex;
@@ -32,6 +32,9 @@ export const CategoryContainer = styled.div`
     props.top || props.article_preview ? "0.7rem" : "0.8rem"};
   font-weight: 500;
   line-height: 100%;
+
+  background: ${grey_2};
+  color: ${black};
 
   &:hover {
     cursor: pointer;

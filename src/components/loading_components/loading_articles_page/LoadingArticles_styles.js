@@ -26,7 +26,7 @@ export const LoadingArticlesContainer = styled.div`
 export const Article = styled.div`
   display: flex;
   width: 48%;
-  border-radius: 0.35rem;
+  border-radius: 0.5rem;
   height: 100%;
   border: none;
   margin: 1rem 0.5rem 0rem 0.5rem;

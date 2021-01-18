@@ -1,158 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
-import {
-  Container,
-  LeftContainer,
-  RightContainer,
-  TitleInput,
-  HeaderInput,
-  BodyInput,
-  InsertActionsContainer,
-  InsertAction,
-  CloseIcon,
-  InputContainer,
-  BottomContainer,
-  ActionButtonContainer,
-} from "./WritePage_styles";
-import ActionButton from "../../components/action_button_component/ActionButton";
-import CloseIconSVG from "./media/close_button.svg";
-import {
-  upload_draft_start_action,
-  upload_article_start_action,
-} from "../../redux/write_page/actions";
+import Draft from "./components/draft_component/Draft";
+import { Container } from "./WritePage_styles";
+import { create_draft_start_action } from "../../redux/write_page/actions";
 
-const WritePage = ({ upload_draft, upload_article, active_user_database }) => {
-  const [title, set_title] = useState("");
-  const [blocks, set_blocks] = useState([]);
-
-  const handle_title_input = (input) => {
-    set_title(input);
-  };
-
-  const handle_insert_block = (type, html_type) => {
-    const id = Date.now();
-    set_blocks((prev_state) => [
-      ...prev_state,
-      {
-        id,
-        type,
-        html_type,
-        content: "",
-      },
-    ]);
-  };
-
-  const handle_remove_block = (id) => {
-    set_blocks((prev_state) => prev_state.filter((block) => block.id !== id));
-  };
-
-  const handle_content_input = (input, id) => {
-    set_blocks((prev_state) =>
-      prev_state.map((block) => {
-        if (block.id === id) block.content = input;
-        return block;
-      })
-    );
-  };
-
-  const upload_draft_to_firebase = () => {
-    const { user_id } = active_user_database.user_data;
-
-    upload_draft({
-      title,
-      draft: blocks,
-      user_id,
-    });
-  };
-
-  const upload_article_to_firebase = () => {
-    upload_article({
-      title,
-      article: blocks,
-    });
-  };
+const WritePage = ({ match, create_draft, active_user_database, draft_id }) => {
+  useEffect(() => {
+    document.title = `Codegg - Write your next article`;
+    create_draft(active_user_database.user_data.user_id);
+  }, []);
 
   return (
     <>
+      {console.log(draft_id)}
       <Container className="container">
-        <LeftContainer>
-          <TitleInput
-            value={title}
-            onChange={(e) => handle_title_input(e.target.value)}
-          />
-          {blocks.map((block) => {
-            switch (block.type) {
-              case "header":
-                return (
-                  <InputContainer>
-                    <CloseIcon
-                      src={CloseIconSVG}
-                      onClick={() => handle_remove_block(block.id)}
-                    />
-                    <HeaderInput
-                      placeholder="Header..."
-                      key={block.id}
-                      onChange={(e) =>
-                        handle_content_input(e.target.value, block.id)
-                      }
-                    />
-                  </InputContainer>
-                );
-
-              case "body":
-                return (
-                  <InputContainer>
-                    <CloseIcon
-                      src={CloseIconSVG}
-                      onClick={() => handle_remove_block(block.id)}
-                    />
-                    <BodyInput
-                      placeholder="Body..."
-                      key={block.id}
-                      onChange={(e) =>
-                        handle_content_input(e.target.value, block.id)
-                      }
-                    />
-                  </InputContainer>
-                );
-
-              default:
-                return;
-            }
-          })}
-          <InsertActionsContainer>
-            <InsertAction onClick={() => handle_insert_block("header", "h1")}>
-              header
-            </InsertAction>
-            <InsertAction onClick={() => handle_insert_block("body", "p")}>
-              body
-            </InsertAction>
-            <InsertAction>image</InsertAction>
-          </InsertActionsContainer>
-          <BottomContainer>
-            <ActionButtonContainer onClick={() => upload_draft_to_firebase()}>
-              <ActionButton action={"Save Draft"} />
-            </ActionButtonContainer>
-            <ActionButtonContainer onClick={() => upload_article_to_firebase()}>
-              <ActionButton action={"Publish"} />
-            </ActionButtonContainer>
-          </BottomContainer>
-        </LeftContainer>
-        <RightContainer></RightContainer>
+        <Switch>
+          <Route exact path={`/${match.path}`}>
+            {draft_id ? <Redirect to={`/${match.path}/${draft_id}`} /> : null}
+          </Route>
+          <Route path={`/${match.path}/:draft_id`} component={Draft} />
+        </Switch>
       </Container>
     </>
   );
 };
 
 // redux
-const mapStateToProps = ({ user_reducer: { active_user_database } }) => ({
+const mapStateToProps = ({
+  user_reducer: { active_user_database },
+  write_page_reducer: { draft_id },
+}) => ({
+  draft_id,
   active_user_database,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  upload_draft: (draft) => dispatch(upload_draft_start_action(draft)),
-  upload_article: (article) => dispatch(upload_article_start_action(article)),
+  create_draft: (user_id) => dispatch(create_draft_start_action(user_id)),
 });
-
 export default connect(mapStateToProps, mapDispatchToProps)(WritePage);

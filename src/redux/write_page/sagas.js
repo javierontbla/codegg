@@ -4,6 +4,8 @@ import { write_page_types } from "./types";
 import {
   upload_draft_success_action,
   upload_draft_failure_action,
+  create_draft_success_action,
+  create_draft_failure_action,
 } from "./actions";
 import { db } from "../../firebase";
 
@@ -49,10 +51,30 @@ function* upload_article_async(action) {
   } catch (error) {}
 }
 
+function* create_draft_async(action) {
+  const drafts_ref = db.collection(`investors/${action.payload}/drafts`);
+
+  try {
+    const response = yield drafts_ref
+      .add({
+        content: "",
+      })
+      .then((doc_ref) => doc_ref.id);
+
+    yield put(create_draft_success_action(response));
+  } catch (error) {
+    yield put(create_draft_failure_action(error));
+  }
+}
+
 export function* upload_draft_saga() {
   yield takeLatest(write_page_types.UPLOAD_DRAFT_START, upload_draft_async);
 }
 
 export function* upload_article_saga() {
   yield takeLatest(write_page_types.UPLOAD_ARTICLE_START, upload_article_async);
+}
+
+export function* create_draft_saga() {
+  yield takeLatest(write_page_types.CREATE_DRAFT_START, create_draft_async);
 }

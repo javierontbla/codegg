@@ -15,7 +15,7 @@ export const PostDashboardContainer = styled.div`
   background: ${white};
   border: 1px solid ${grey};
   padding: 0.6rem 0.55rem 0.6rem 0.55rem;
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
   box-shadow: 0px 1.5px 1.5px -1px #ced4da;
 `;
 
