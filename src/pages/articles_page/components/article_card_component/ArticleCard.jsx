@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { withRouter } from "react-router-dom";
 import moment from "moment";
 import "moment/locale/es";
 
@@ -33,7 +34,7 @@ const ArticleCard = ({ match, data, id, request_filtered_articles_fun }) => {
   return (
     <>
       <ArticleCardContainer>
-        <LinkArticle to={`${match}/${url}-${id}`}>
+        <LinkArticle to={`${match.path}/${url}-${id}`}>
           <ArticleImage source={data.article_image} />
           <TopContainer>
             <PremiumContainer>
@@ -74,4 +75,4 @@ const ArticleCard = ({ match, data, id, request_filtered_articles_fun }) => {
   );
 };
 
-export default ArticleCard;
+export default withRouter(ArticleCard);

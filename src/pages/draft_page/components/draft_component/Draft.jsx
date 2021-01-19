@@ -20,23 +20,30 @@ import {
   AddIcon,
   TagInput,
   DescriptionInput,
+  ImageInput,
 } from "./Draft_styles";
 import ActionButton from "../../../../components/action_button_component/ActionButton";
 import AddIconSVG from "./media/add_button.svg";
 import {
   upload_draft_start_action,
   upload_article_start_action,
-} from "../../../../redux/write_page/actions";
+  request_draft_start_action,
+} from "../../../../redux/draft_page/actions";
 
 const Draft = ({
   upload_draft,
   upload_article,
+  request_draft,
   active_user_database,
   draft_id,
 }) => {
   useEffect(() => {
-    document.title = `Codegg - Write your next article`;
-    console.log("IN DRAFT");
+    document.title = `Codegg - New draft`;
+
+    request_draft({
+      user_id: active_user_database.user_data.user_id,
+      draft_id,
+    });
   }, []);
 
   const [title, set_title] = useState("");
@@ -96,7 +103,6 @@ const Draft = ({
 
   return (
     <>
-      {console.log(draft_id)}
       <Container className="container">
         <LeftContainer>
           <TitleInput
@@ -199,15 +205,17 @@ const Draft = ({
 // redux
 const mapStateToProps = ({
   user_reducer: { active_user_database },
-  write_page_reducer: { draft_id },
+  draft_page_reducer: { draft_id, draft },
 }) => ({
   active_user_database,
   draft_id,
+  draft,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   upload_draft: (draft) => dispatch(upload_draft_start_action(draft)),
   upload_article: (article) => dispatch(upload_article_start_action(article)),
+  request_draft: (obj) => dispatch(request_draft_start_action(obj)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Draft);

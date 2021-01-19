@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { withRouter } from "react-router-dom";
 import Masonry from "react-masonry-css";
 import { connect } from "react-redux";
 
@@ -15,7 +16,6 @@ import {
   select_category_action,
   delete_category_action,
 } from "../../../../redux/articles_page/actions";
-import { create_draft_start_action } from "../../../../redux/write_page/actions";
 import {
   Container,
   ArticlesPageContainer,
@@ -115,7 +115,7 @@ const ArticlesCollection = ({
         <ArticlesPageContainer>
           <TopContainer>
             <ActionButtonContainer>
-              <LinkContainer to={`${match.path}/write`}>
+              <LinkContainer to={`${match.path}/draft`}>
                 <ActionButton action={"Write"} />
               </LinkContainer>
             </ActionButtonContainer>
@@ -239,7 +239,8 @@ const mapDispatchToProps = (dispatch) => ({
   delete_category: (category) => dispatch(delete_category_action(category)),
   clear_filtered_articles: (empty_arr) =>
     dispatch(request_filtered_articles_success_action(empty_arr)),
-  create_draft: (user_id) => dispatch(create_draft_start_action(user_id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticlesCollection);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(ArticlesCollection)
+);

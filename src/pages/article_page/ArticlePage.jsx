@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Article from "./components/article_component/Article";
@@ -45,4 +46,6 @@ const mapDispatchToProps = (dispatch) => ({
   request_article: (id) => dispatch(request_article_start_action(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(ArticlePage)
+);

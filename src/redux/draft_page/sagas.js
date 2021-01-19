@@ -1,11 +1,13 @@
 import { takeLatest, put } from "redux-saga/effects";
 
-import { write_page_types } from "./types";
+import { draft_page_types } from "./types";
 import {
   upload_draft_success_action,
   upload_draft_failure_action,
   create_draft_success_action,
   create_draft_failure_action,
+  request_draft_success_action,
+  request_draft_failure_action,
 } from "./actions";
 import { db } from "../../firebase";
 
@@ -67,14 +69,35 @@ function* create_draft_async(action) {
   }
 }
 
+function* request_draft_async(action) {
+  const { user_id, draft_id } = action.payload;
+  const draft_ref = db.doc(`investors/${user_id}/drafts/${draft_id}`);
+
+  try {
+    const response = yield draft_ref.get().then((doc) => {
+      if (doc.exists) return [doc.data(), doc.id];
+    });
+
+    console.log(response);
+
+    yield put(request_draft_success_action(response));
+  } catch (error) {
+    yield put(request_draft_failure_action(error));
+  }
+}
+
 export function* upload_draft_saga() {
-  yield takeLatest(write_page_types.UPLOAD_DRAFT_START, upload_draft_async);
+  yield takeLatest(draft_page_types.UPLOAD_DRAFT_START, upload_draft_async);
 }
 
 export function* upload_article_saga() {
-  yield takeLatest(write_page_types.UPLOAD_ARTICLE_START, upload_article_async);
+  yield takeLatest(draft_page_types.UPLOAD_ARTICLE_START, upload_article_async);
 }
 
 export function* create_draft_saga() {
-  yield takeLatest(write_page_types.CREATE_DRAFT_START, create_draft_async);
+  yield takeLatest(draft_page_types.CREATE_DRAFT_START, create_draft_async);
+}
+
+export function* request_draft_saga() {
+  yield takeLatest(draft_page_types.REQUEST_DRAFT_START, request_draft_async);
 }

@@ -32,7 +32,8 @@ import {
   upload_draft_saga,
   upload_article_saga,
   create_draft_saga,
-} from "./write_page/sagas";
+  request_draft_saga,
+} from "./draft_page/sagas";
 
 export function* root_saga() {
   yield all([
@@ -58,5 +59,6 @@ export function* root_saga() {
     call(upload_draft_saga),
     call(upload_article_saga),
     call(create_draft_saga),
+    call(request_draft_saga),
   ]);
 }

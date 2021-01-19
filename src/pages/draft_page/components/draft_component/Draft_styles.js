@@ -224,3 +224,5 @@ export const DescriptionInput = styled.textarea`
     outline: none !important;
   }
 `;
+
+export const ImageInput = styled.input``;
