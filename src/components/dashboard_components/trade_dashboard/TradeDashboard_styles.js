@@ -34,13 +34,12 @@ const ButtonStyles = css`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid ${grey};
-  background: ${white};
+  border: none;
+  background: ${black};
   height: fit-content;
   width: 100%;
   margin: 0rem 0rem 0.5rem 0rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
+  border-radius: 0.75rem;
   line-height: 100%;
 `;
 
@@ -49,7 +48,7 @@ export const SymbolInput = styled.input`
   border: 0.5px solid ${grey};
   padding: 0.375rem 0.5rem 0.25rem 0.5rem;
   margin: 0rem 0rem 0rem 0rem;
-  border-radius: 0.15rem;
+  border-radius: 0.5rem;
   font-family: ${roboto};
   font-size: 1.1rem;
   height: 2.25rem;

@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import { colors } from "./colors/colors";
 
-const { white, grey, background } = colors;
+const { white, grey, grey_2, background } = colors;
 
 export const Global = createGlobalStyle`
   body {
@@ -89,8 +89,8 @@ export const NavBarContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 3.5rem;
-  background: ${white} !important;
-  border-bottom: 1px solid ${grey};
+  background: ${background} !important;
+  border-bottom: 1px solid ${grey_2};
 
   @media (max-width: 500px) {
   }

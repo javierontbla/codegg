@@ -31,13 +31,11 @@ const InformationStyles = css`
 
 export const TradeCardContainer = styled.div`
   width: ${(props) => (props.home_page ? "100%" : "18rem")};
-  border: 1px solid blue;
   margin: ${(props) =>
     props.home_page ? "0rem 0rem 0.75rem 0rem" : "0rem 0.75rem 0rem 0rem"};
-  background: ${white};
-  border: 1px solid ${grey};
-  border-radius: 0.5rem;
-  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
+  background: ${black};
+  border: none;
+  border-radius: 0.75rem;
   transition: box-shadow 0.2s;
 `;
 
@@ -54,7 +52,7 @@ export const TopContainer = styled.div`
 export const Title = styled.div`
   font-family: ${source_sans_pro};
   font-size: 1.5rem;
-  color: ${black};
+  color: ${white};
   line-height: 100%;
   letter-spacing: 0.5px;
   padding: 0rem 0rem 0rem 0rem;
@@ -110,7 +108,7 @@ export const LeftText = styled.div`
   font-family: ${roboto};
   font-size: 0.825rem;
   font-weight: 700;
-  color: ${black};
+  color: ${white};
   letter-spacing: 0.25px;
 `;
 
@@ -125,7 +123,7 @@ export const RightText = styled.div`
   font-size: 0.825rem;
   font-family: ${roboto};
   letter-spacing: 0.25px;
-  color: ${black};
+  color: ${white};
   text-transform: capitalize;
 `;
 
@@ -191,7 +189,7 @@ export const Count = styled.div`
   align-items: center;
   justify-content: center;
   width: fit-content;
-  color: ${black};
+  color: ${white};
   font-size: 0.65rem;
   margin: 0rem 0.25rem 0rem 0.4rem;
   font-family: ${open_sans};
