@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey } = colors;
+const { grey, white } = colors;
 const { source_sans_pro } = fonts;
 
 export const TitleContainer = styled.div`
@@ -21,4 +21,5 @@ export const TitleContainer = styled.div`
   line-height: 100%;
   margin: 0rem 0rem 0.75rem 0rem;
   text-transform: uppercase;
+  color: ${white};
 `;
