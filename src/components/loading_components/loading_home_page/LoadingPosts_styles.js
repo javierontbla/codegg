@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 import { colors } from "../../../colors/colors";
 
-const { grey } = colors;
+const { black } = colors;
 
 const LoadingAnimation = keyframes`
   from {
@@ -29,7 +29,7 @@ export const Post = styled.div`
   margin: 0rem 0rem 0.75rem 0rem;
   position: relative;
   overflow: hidden;
-  background: ${grey};
+  background: ${black};
   opacity: 0.45;
 
   &::before {
@@ -43,7 +43,7 @@ export const Post = styled.div`
     background: linear-gradient(
       to right,
       transparent 0%,
-      #e8e8e8 50%,
+      #403c3c 50%,
       transparent 100%
     );
     animation: ${LoadingAnimation} 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;

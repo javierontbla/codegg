@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 import { colors } from "../../../colors/colors";
 
-const { grey } = colors;
+const { black } = colors;
 
 const LoadingAnimation = keyframes`
   from {
@@ -32,7 +32,7 @@ export const Article = styled.div`
   margin: 1rem 0.5rem 0rem 0.5rem;
   position: relative;
   overflow: hidden;
-  background: ${grey};
+  background: ${black};
   opacity: 0.45;
 
   &::before {
