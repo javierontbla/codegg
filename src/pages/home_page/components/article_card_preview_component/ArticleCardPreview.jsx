@@ -28,9 +28,6 @@ const ArticleCardPreview = ({ data, id }) => {
         <LinkContainer to={`/articles/${id}`}>
           <ImageContainer article_preview_image={data.article_image} />
           <TopContainer>
-            <PremiumContainer>
-              <Premium />
-            </PremiumContainer>
             <Title>{data.title}</Title>
           </TopContainer>
           <MiddleContainer>

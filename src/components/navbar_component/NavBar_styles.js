@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { black, white, grey } = colors;
-const { open_sans } = fonts;
+const { black, white, grey_2 } = colors;
+const { open_sans, roboto } = fonts;
 
 export const NavbarContainer = styled.div`
   display: flex;
@@ -62,9 +62,9 @@ export const PagesContainer = styled.div`
 export const PageLink = styled.div`
   margin: 0rem 1rem 0rem 1rem;
   letter-spacing: 1px;
-  font-size: 0.9rem;
-  font-family: ${open_sans};
-  color: ${black};
+  font-size: 0.95rem;
+  font-family: ${roboto};
+  color: ${white};
   font-weight: 500;
 
   &:hover {
@@ -108,26 +108,24 @@ export const Menu = styled.div`
   right: 0;
   display: ${(props) => (props.menu_active ? "block" : "none")};
   z-index: 1;
-  background: ${white};
-  border-radius: 0.15rem;
-  border: 1px solid ${grey};
+  background: ${black};
+  border-radius: 15px;
   width: 8rem;
   height: fit-content;
   margin: 0.5rem 0rem 0rem 0rem;
-  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
 `;
 
 export const MenuOption = styled.div`
   width: 100%;
   height: fit-content;
-  font-size: 0.8rem;
-  font-family: ${open_sans};
-  color: ${black};
-  font-weight: 600;
-  padding: 0.75rem 0.5rem 0.75rem 0.5rem;
+  font-size: 0.85rem;
+  font-family: ${roboto};
+  color: ${white};
+  font-weight: 500;
+  padding: 0.75rem 0.75rem 0.75rem 0.75rem;
   letter-spacing: 1px;
   border-bottom: ${(props) =>
-    props.last_child ? "none" : `0.5px solid ${grey}`};
+    props.last_child ? "none" : `0.5px solid ${grey_2}`};
 
   &:hover {
     cursor: pointer;

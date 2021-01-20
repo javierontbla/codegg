@@ -3,7 +3,6 @@ import moment from "moment";
 import { connect } from "react-redux";
 
 import Comments from "./components/comments_component/Comments";
-import Premium from "../premium_component/Premium";
 import LoadingComments from "../loading_components/loading_comments/LoadingComments";
 import {
   BottomContainer,
@@ -12,7 +11,7 @@ import {
   TopContainer,
   PremiumContainer,
   UserDataContainer,
-  ProfileImageContainer,
+  ProfileImage,
   NamesContainer,
   Name,
   NameLink,
@@ -36,7 +35,6 @@ import {
   request_all_comments_start_action,
   close_comments_section_action,
 } from "../../redux/post/actions";
-import { Link } from "react-router-dom";
 
 const PostCard = ({
   data,
@@ -46,7 +44,7 @@ const PostCard = ({
   request_all_comments,
   close_comments_section,
 }) => {
-  moment.locale("es");
+  moment.locale("en");
 
   const display_all_comments = () => {
     if (current_post_id !== id) request_all_comments(id);
@@ -57,18 +55,14 @@ const PostCard = ({
     <>
       <Container>
         <PostContainer>
-          <PremiumContainer>
-            {data.premium ? <Premium /> : null}
-          </PremiumContainer>
           <TopContainer>
             <LinkContainer to={`/investors/${data.user_id}`}>
-              <ProfileImageContainer profile_image_url={data.profile_image} />
+              <ProfileImage profile_image_url={data.profile_image} />
             </LinkContainer>
             <UserDataContainer>
               <LinkContainer to={`/investors/${data.user_id}`}>
                 <NamesContainer>
                   <Name>{data.user.toLowerCase()}</Name>
-                  <NameLink>@{data.username}</NameLink>
                 </NamesContainer>
               </LinkContainer>
               <Date>

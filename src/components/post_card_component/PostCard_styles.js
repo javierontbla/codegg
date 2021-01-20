@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey, black, white } = colors;
+const { grey, grey_2, black, white } = colors;
 const { open_sans, roboto, source_sans_pro } = fonts;
 
 export const Container = styled.div`
@@ -16,23 +16,19 @@ export const PostContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  background: ${white};
-  margin: 0rem 0rem 0.75rem 0rem;
-  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
-  border-radius: 0.5rem;
+  background: ${black};
+  margin: 0rem 0rem 1.25rem 0rem;
+  border-radius: 15px;
 `;
 
 export const TopContainer = styled.div`
   display: flex;
   flex-direction: row;
-  height: 4.4rem;
+  height: fit-content;
   align-items: center;
-  padding: 0rem 0rem 0rem 0.75rem;
-  border-top: 1px solid ${grey};
-  border-left: 1px solid ${grey};
-  border-right: 1px solid ${grey};
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  padding: 0.85rem 0rem 0.85rem 1rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 `;
 
 export const PremiumContainer = styled.div`
@@ -42,25 +38,19 @@ export const PremiumContainer = styled.div`
   height: fit-content;
   width: fit-content;
   background: transparent;
-  margin: 0.75rem 0.5rem 0rem 0rem;
+  margin: 0.85rem 0.75rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
   }
 `;
 
-export const Premium = styled.img`
-  width: 1.65rem;
-  height: 1.65rem;
-  margin: 0rem 0rem 0rem 0rem;
-`;
-
-export const ProfileImageContainer = styled.div`
-  width: 3rem;
-  height: 3rem;
+export const ProfileImage = styled.div`
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
   border: none;
-  margin: 0rem 0.6rem 0rem 0rem;
+  margin: 0rem 0.65rem 0rem 0rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.profile_image_url});
@@ -88,6 +78,7 @@ export const Name = styled.div`
   font-size: 1.2rem;
   line-height: 100%;
   text-transform: capitalize;
+  color: ${white};
 `;
 
 export const NameLink = styled.div`
@@ -116,16 +107,15 @@ export const Date = styled.div`
 export const MiddleContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
-  border-left: 1px solid ${grey};
-  border-right: 1px solid ${grey};
 `;
 
 export const Description = styled.div`
   line-height: 118%;
-  font-size: 0.925rem;
+  font-size: 1rem;
   font-family: ${roboto};
-  padding: 0rem 0.75rem 0rem 0.75rem;
-  margin: 0.1rem 0rem 1rem 0rem;
+  padding: 0rem 0.9rem 0rem 0.9rem;
+  margin: 0.4rem 0rem 1.25rem 0rem;
+  color: ${white};
 `;
 
 export const PostImageContainer = styled.div`
@@ -146,15 +136,12 @@ export const BottomContainer = styled.div`
   align-items: center;
   height: fit-content;
   justify-content: space-between;
-  border-top: 0.5px solid ${grey};
-  border-left: 1px solid ${grey};
-  border-right: 1px solid ${grey};
-  border-bottom: 1px solid ${grey};
+  border-top: 0.5px solid ${grey_2};
   border-bottom-left-radius: ${(props) =>
-    props.display_comments ? `0rem` : `0.5rem`};
+    props.display_comments ? `0rem` : `15px`};
   border-bottom-right-radius: ${(props) =>
-    props.display_comments ? `0rem` : `0.5rem`};
-  padding: 0.1rem 0.55rem 0.1rem 0.55rem;
+    props.display_comments ? `0rem` : `15px`};
+  padding: 0.2rem 1rem 0.2rem 1rem;
 `;
 
 export const TrendsContainer = styled.div`
@@ -185,9 +172,9 @@ export const CountContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: fit-content;
-  color: ${black};
+  color: ${grey};
   font-size: 0.65rem;
-  margin: 0rem 0.5rem 0rem 0.4rem;
+  margin: 0rem 0.4rem 0rem 0.5rem;
   font-family: ${open_sans};
   font-weight: 500;
   letter-spacing: 0.25px;
@@ -229,9 +216,9 @@ export const LoadMoreComments = styled.div`
 `;
 
 export const LinkContainer = styled(Link)`
-  color: ${black};
+  color: ${white};
   &:hover {
-    color: ${black};
+    color: ${white};
     text-decoration: none;
   }
 `;

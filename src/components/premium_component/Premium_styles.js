@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { black, grey_2 } = colors;
+const { black, grey } = colors;
 const { roboto } = fonts;
 
 export const PremiumContainer = styled.div`
@@ -14,14 +14,14 @@ export const PremiumContainer = styled.div`
   font-size: 0.7rem;
   font-family: ${roboto};
   font-weight: 500;
-  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
+  padding: 0.45rem 0.5rem 0.35rem 0.5rem;
   letter-spacing: 0.75px;
   margin: 0rem 0.25rem 0rem 0.25rem;
   height: fit-content;
   width: fit-content;
-  border-radius: 0.15rem;
+  border-radius: 30px;
   line-height: 100%;
-  background: ${grey_2};
+  background: ${grey};
   color: ${black};
 
   &:hover {

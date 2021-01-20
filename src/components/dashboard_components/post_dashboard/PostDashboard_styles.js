@@ -12,21 +12,20 @@ export const PostDashboardContainer = styled.div`
   justify-content: space-between;
   height: 100%;
   width: 100%;
-  background: ${white};
-  border: 1px solid ${grey};
-  padding: 0.6rem 0.55rem 0.6rem 0.55rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
+  background: ${black};
+  border: none;
+  padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  border-radius: 15px;
 `;
 
 export const TextInputContainer = styled.textarea`
   display: flex;
   align-items: center;
-  padding: 0.45rem 0.5rem 0.45rem 0.5rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   color: ${black};
   width: 100%;
   border: 0.5px solid ${grey};
-  border-radius: 0.15rem;
+  border-radius: 10px;
   font-family: ${roboto};
   font-size: 0.9rem;
   resize: none !important;
@@ -44,7 +43,7 @@ export const ButtonsContainer = styled.div`
   width: 100%;
   justify-content: space-between !important;
   margin: 1rem 0rem 0rem 0rem;
-  padding: 0rem 0.05rem 0rem 0.05rem;
+  padding: 0rem 0.1rem 0rem 0.1rem;
 `;
 
 export const LeftContainer = styled.div`
@@ -109,4 +108,9 @@ export const PublishButton = styled.div`
   font-weight: 500;
   letter-spacing: 0.5px;
   color: ${white};
+`;
+
+export const ActionButtonContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
 `;

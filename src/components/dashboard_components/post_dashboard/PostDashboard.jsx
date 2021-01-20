@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
+import ActionButton from "../../action_button_component/ActionButton";
 import {
   PostDashboardContainer,
   TextInputContainer,
@@ -12,14 +13,8 @@ import {
   ImageActiveContainer,
   ImageActiveIcon,
   RightContainer,
+  ActionButtonContainer,
 } from "./PostDashboard_styles";
-import {
-  PublishContainer,
-  DropDownIconContainer,
-  DropDownIcon,
-  PublishButton,
-  DropDownMenu,
-} from "../trade_dashboard/TradeDashboard_styles";
 import Image from "./media/image_button.svg";
 import ImageActive from "./media/image_active.svg";
 import DropDownSVG from "./media/dropdown_button.svg";
@@ -115,24 +110,9 @@ const PostDashboard = ({ create_post_card, posts, active_user_database }) => {
             </ImageActiveContainer>
           </LeftContainer>
           <RightContainer>
-            <PublishContainer>
-              <PublishButton onClick={() => upload_post_card_to_firebase()}>
-                {publish_mode}
-              </PublishButton>
-              <DropDownIconContainer onClick={() => handle_dropdown()}>
-                <DropDownIcon src={DropDownSVG} />
-              </DropDownIconContainer>
-              <DropDownMenu
-                dropdown_active={dropdown_active}
-                onClick={() =>
-                  handle_publish_mode(
-                    publish_mode === "Public" ? "Premium" : "Public"
-                  )
-                }
-              >
-                {publish_mode === "Public" ? "Premium" : "Public"}
-              </DropDownMenu>
-            </PublishContainer>
+            <ActionButtonContainer>
+              <ActionButton action={"Publish"} />
+            </ActionButtonContainer>
           </RightContainer>
         </ButtonsContainer>
       </PostDashboardContainer>

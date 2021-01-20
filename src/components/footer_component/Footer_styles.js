@@ -4,28 +4,22 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { white } = colors;
+const { white, background } = colors;
 const { open_sans } = fonts;
 
 export const FooterContainer = styled.footer`
   display: flex;
-  width: 98%;
+  width: 100%;
   position: relative;
   justify-content: space-between;
   align-items: flex-end;
   margin: 10rem 0rem 0rem 0rem;
   background-color: transparent;
-  height: 17rem;
+  height: 15rem;
   border: none;
   font-family: ${open_sans};
-  padding: 0rem 0rem 0.6rem 0rem;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
-  border-top-right-radius: 4rem;
+  padding: 0rem 0rem 1rem 0rem;
+  background: ${background};
 `;
 
 export const CompanyName = styled.div`
@@ -77,23 +71,13 @@ export const LinkContainer = styled(Link)`
     font-family: ${open_sans};
     color: ${white};
     font-size: 0.55rem;
-    &::after {
-      background-color: transparent;
-      content: " ";
-      height: 40%;
-      position: absolute;
-      left: 0;
-      top: 65%;
-      width: calc(100%);
-      z-index: -1;
-    }
 
     @media (max-width: 500px) {
     }
-  }
 
-  &:hover {
-    text-decoration: none !important;
-    cursor: pointer !important;
+    &:hover {
+      text-decoration: none !important;
+      cursor: pointer !important;
+    }
   }
 `;

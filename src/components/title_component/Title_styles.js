@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey, white } = colors;
+const { grey_2, white } = colors;
 const { source_sans_pro } = fonts;
 
 export const TitleContainer = styled.div`
@@ -13,7 +13,7 @@ export const TitleContainer = styled.div`
   width: 100%;
   height: fit-content;
   background: transparent;
-  border-bottom: 0.5px solid ${grey};
+  border-bottom: 0.5px solid ${grey_2};
   font-family: ${source_sans_pro};
   font-size: 1.6rem;
   letter-spacing: 1px;

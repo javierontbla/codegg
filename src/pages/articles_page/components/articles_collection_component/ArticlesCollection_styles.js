@@ -6,7 +6,7 @@ import { fonts } from "../../../../fonts/fonts";
 
 const {} = fonts;
 
-const { grey, white } = colors;
+const { grey_2, black } = colors;
 
 export const Container = styled.div`
   padding: 0rem 0rem 0rem 0rem;
@@ -34,8 +34,9 @@ export const ActionButtonContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  border-bottom: 0.5px solid ${grey};
-  height: 2.85rem;
+  border-bottom: 0.5px solid ${grey_2};
+  height: fit-content;
+  padding: 0rem 0rem 0.75rem 0rem;
   margin: 0rem 0rem 0.75rem 0rem;
 `;
 
@@ -53,15 +54,13 @@ export const CategoriesContainer = styled.div`
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  background: ${white};
+  background: ${black};
   width: 100%;
   height: fit-content;
-  border: 1px solid ${grey};
   justify-content: left;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   margin: 0rem 0rem 0rem 0rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
+  border-radius: 15px;
 
   @media (max-width: 500px) {
   }

@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey } = colors;
+const { grey, grey_2 } = colors;
 
 export const HomePageContainer = styled.div`
   display: flex;
@@ -55,7 +55,7 @@ export const MiddleContainer = styled.div`
 export const Division = styled.div`
   width: 100%;
   height: 0.75rem;
-  border-bottom: 0.5px solid ${grey};
+  border-bottom: 0.5px solid ${grey_2};
   margin: 0rem 0rem 0.75rem 0rem;
 `;
 export const PostsContainer = styled.div`

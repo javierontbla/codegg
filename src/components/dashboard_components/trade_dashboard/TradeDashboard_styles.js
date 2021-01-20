@@ -38,23 +38,22 @@ export const Container = styled.div`
   background: ${black};
   height: fit-content;
   width: 100%;
-  margin: 0rem 0rem 0.5rem 0rem;
-  border-radius: 0.75rem;
+  margin: 0rem 0rem 1rem 0rem;
+  border-radius: 15px;
   line-height: 100%;
 `;
 
 export const SymbolInput = styled.input`
-  width: 7.5rem;
+  width: 8rem;
   border: 0.5px solid ${grey};
-  padding: 0.375rem 0.5rem 0.25rem 0.5rem;
+  padding: 0.5rem 0rem 0.55rem 0.75rem;
   margin: 0rem 0rem 0rem 0rem;
-  border-radius: 0.5rem;
+  border-radius: 10px;
   font-family: ${roboto};
   font-size: 1.1rem;
   height: 2.25rem;
   line-height: 100%;
   color: ${black};
-  text-transform: uppercase;
 
   &&& {
     ::placeholder {
@@ -70,13 +69,6 @@ export const SymbolInput = styled.input`
 export const ActionButtonContainer = styled.div`
   width: fit-content;
   height: fit-content;
-  border-radius: 0.15rem;
-  background: ${(props) =>
-    props.active_dashboard ? "transparent" : "rgb(33, 33, 32)"};
-  background: ${(props) =>
-    props.active_dashboard
-      ? "transparent"
-      : "linear-gradient(90deg,rgba(33, 33, 32, 1) 5%,rgba(25, 25, 24, 1) 80%)"};
 `;
 
 export const CloseIcon = styled.img`
@@ -96,8 +88,8 @@ export const TopContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
   padding: ${(props) =>
     props.active_dashboard
-      ? "0.6rem 0rem 0.6rem 0.55rem"
-      : "0.6rem 0.55rem 0.6rem 0.55rem"};
+      ? "1rem 0rem 1rem 0.75rem"
+      : "0.75rem 0.75rem 0.75rem 0.75rem"};
   border-bottom: ${(props) =>
     props.active_dashboard ? `0.5px solid ${grey}` : "none"};
 `;

@@ -6,35 +6,25 @@ import { fonts } from "../../fonts/fonts";
 
 const { open_sans } = fonts;
 
-const { white, grey_2, black } = colors;
+const { white, blue } = colors;
 
 export const CategoryContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: fit-content;
-  border-radius: 0.15rem;
+  justify-content: center;
+  font-size: 0.75rem;
   font-family: ${open_sans};
-  letter-spacing: 0.5px;
-  height: fit-content;
-  color: ${white};
-  border: none;
-  background: rgb(67, 170, 139);
-  background: linear-gradient(
-    45deg,
-    rgba(67, 170, 139, 1) 0%,
-    rgba(55, 139, 136, 1) 100%
-  );
-  transition: opacity 0.15s;
-  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
-  margin: 0.25rem 0.25rem 0.25rem 0.25rem;
-  font-size: ${(props) =>
-    props.top || props.article_preview ? "0.7rem" : "0.8rem"};
   font-weight: 500;
+  padding: 0.45rem 0.6rem 0.5rem 0.6rem;
+  letter-spacing: 0.75px;
+  margin: 0.5rem 0.25rem 0.5rem 0.25rem;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 30px;
   line-height: 100%;
-
-  background: ${grey_2};
-  color: ${black};
+  background: ${blue};
+  color: ${white};
 
   &:hover {
     cursor: pointer;

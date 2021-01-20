@@ -38,7 +38,7 @@ export const Global = createGlobalStyle`
   }
 
   h1 {
-    color: black;
+    color: ${white};
     font-size: 1.5rem;
     letter-spacing: 0.5px;
     text-align: left;
@@ -56,7 +56,7 @@ export const Global = createGlobalStyle`
     font-size: 1rem;
     letter-spacing: 0.5px;
     text-align: left;
-    color: black;
+    color: ${white};
     line-height: 100%;
     width: 100%;
 
@@ -88,9 +88,9 @@ export const NavBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 3.5rem;
+  height: 3.65rem;
   background: ${background} !important;
-  border-bottom: 1px solid ${grey_2};
+  border-bottom: 0.5px solid ${grey_2};
 
   @media (max-width: 500px) {
   }

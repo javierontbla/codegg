@@ -98,7 +98,7 @@ const TradeDashboard = ({
         <TopContainer active_dashboard={active_dashboard}>
           <PreviewContainer active_dashboard={active_dashboard}>
             <SymbolInput
-              placeholder="SNOW"
+              placeholder="Artist"
               type="text"
               maxLength="9"
               value={symbol}
@@ -113,7 +113,7 @@ const TradeDashboard = ({
               {active_dashboard ? (
                 <CloseIcon src={CloseIconSVG} />
               ) : (
-                <ActionButton action={"Create Trade"} />
+                <ActionButton action={"Publish"} />
               )}
             </ActionButtonContainer>
           </PreviewContainer>

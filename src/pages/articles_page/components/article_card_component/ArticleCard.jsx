@@ -5,13 +5,11 @@ import "moment/locale/es";
 
 import ProfileBox from "../../../../components/profile_box_component/ProfileBox";
 import Category from "../../../../components/category_component/Category";
-import Premium from "../../../../components/premium_component/Premium";
 import {
-  ArticleCardContainer,
+  Container,
   LinkArticle,
   ArticleImage,
   TopContainer,
-  PremiumContainer,
   Title,
   Description,
   MiddleContainer,
@@ -33,23 +31,15 @@ const ArticleCard = ({ match, data, id, request_filtered_articles_fun }) => {
 
   return (
     <>
-      <ArticleCardContainer>
+      <Container>
         <LinkArticle to={`${match.path}/${url}-${id}`}>
           <ArticleImage source={data.article_image} />
           <TopContainer>
-            <PremiumContainer>
-              <Premium />
-            </PremiumContainer>
             <Title>{data.title}</Title>
             <Description>{data.description.toLowerCase()}...</Description>
           </TopContainer>
         </LinkArticle>
         <MiddleContainer>
-          <ProfileBox
-            profile_image={data.profile_image}
-            user={data.user}
-            date={data.date}
-          />
           <CategoriesContainer>
             {data.categories.map((category) => {
               return (
@@ -62,6 +52,11 @@ const ArticleCard = ({ match, data, id, request_filtered_articles_fun }) => {
               );
             })}
           </CategoriesContainer>
+          <ProfileBox
+            profile_image={data.profile_image}
+            user={data.user}
+            date={data.date}
+          />
         </MiddleContainer>
         <BottomContainer>
           <Trends>
@@ -70,7 +65,7 @@ const ArticleCard = ({ match, data, id, request_filtered_articles_fun }) => {
             <TrendIcon src={DownTrendSVG} />
           </Trends>
         </BottomContainer>
-      </ArticleCardContainer>
+      </Container>
     </>
   );
 };

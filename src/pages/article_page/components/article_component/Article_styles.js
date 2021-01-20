@@ -3,16 +3,14 @@ import styled, { css } from "styled-components";
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
-const { black, white, grey } = colors;
+const { black, white, grey, grey_2 } = colors;
 const { source_sans_pro, roboto, open_sans } = fonts;
 
 const ContainerStyles = css`
   width: 100%;
   height: fit-content;
-  background: ${white};
-  border: 1px solid ${grey};
-  border-radius: 0.15rem;
-  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
+  background: ${black};
+  border-radius: 15px;
 `;
 
 export const Container = styled.div`
@@ -35,14 +33,14 @@ export const TitleArticle = styled.div`
   font-size: 2.35rem;
   line-height: 100%;
   text-align: left;
+  color: ${white};
 `;
 
 export const Body = styled.div`
-  color: ${black};
   font-size: 1rem;
   line-height: 130%;
   font-family: ${roboto};
-  margin: 1.5rem 0rem 0rem 0rem;
+  margin: 2rem 0rem 0rem 0rem;
 `;
 
 export const RightContainer = styled.div`
@@ -52,19 +50,19 @@ export const RightContainer = styled.div`
 export const AuthorContainer = styled.div`
   ${ContainerStyles};
   padding: 0rem 0rem 0rem 0rem;
-  margin: 0rem 0rem 0.5rem 0rem;
+  margin: 0rem 0rem 1rem 0rem;
 `;
 
 export const ProfileBoxContainer = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 0.75rem 0.75rem 0rem 0.75rem;
+  padding: 1rem 1rem 1rem 1rem;
 `;
 
 export const TrendsContainer = styled.div`
   width: 100%;
-  padding: 0.1rem 0.65rem 0.1rem 0.65rem;
-  border-top: 0.5px solid ${grey};
+  padding: 0.2rem 1rem 0.2rem 1rem;
+  border-top: 0.5px solid ${grey_2};
 `;
 
 export const Trends = styled.div`
@@ -81,7 +79,7 @@ export const Icon = styled.img`
 
 export const Votes = styled.div`
   width: fit-content;
-  color: ${black};
+  color: ${grey};
   font-size: 0.65rem;
   margin: 0rem 0.25rem 0rem 0.4rem;
   font-family: ${open_sans};
@@ -94,7 +92,8 @@ export const Description = styled.div`
   font-size: 0.9rem;
   line-height: 130%;
   font-family: ${roboto};
-  padding: 1rem 0.75rem 1rem 0.75rem;
+  padding: 0rem 1rem 1.25rem 1rem;
+  color: ${white};
 `;
 
 export const CategoriesContainer = styled.div`

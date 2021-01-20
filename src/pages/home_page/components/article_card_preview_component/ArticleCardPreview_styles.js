@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
-const { grey, white, black } = colors;
+const { grey_2, grey, white, black } = colors;
 const { source_sans_pro, open_sans } = fonts;
 
 export const ArticlePreviewContainer = styled.div`
@@ -12,17 +12,9 @@ export const ArticlePreviewContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: fit-content;
-  background: ${white};
-  border: 1px solid ${grey};
-  margin: 0rem 0rem 0.75rem 0rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
-  transition: box-shadow 0.2s;
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: 0px 3px 3px -1px #ced4da;
-  }
+  background: ${black};
+  margin: 0rem 0rem 1.25rem 0rem;
+  border-radius: 20px;
 `;
 
 export const LinkContainer = styled(Link)`
@@ -35,13 +27,12 @@ export const ImageContainer = styled.div`
   height: 8.75rem;
   width: 100%;
   border: none;
-  border-top-left-radius: 0.45rem;
-  border-top-right-radius: 0.45rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.article_preview_image});
   background-repeat: no-repeat;
-  border-bottom: 0.5px solid ${grey};
   padding: 0rem 0rem 0rem 0rem !important;
   overflow: hidden;
 `;
@@ -61,14 +52,14 @@ export const PremiumContainer = styled.div`
 export const Title = styled.div`
   font-family: ${source_sans_pro};
   font-size: 1.2rem;
-  color: ${black};
+  color: ${white};
   font-weight: 500;
   letter-spacing: 0.5px;
   line-height: 115%;
   width: 100%;
   height: fit-content;
-  padding: 0rem 0.65rem 0rem 0.65rem;
-  margin: 0.5rem 0rem 0rem 0rem;
+  padding: 0rem 1rem 0rem 1rem;
+  margin: 0.75rem 0rem 0rem 0rem;
 `;
 
 export const MiddleContainer = styled.div`
@@ -76,7 +67,7 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   height: fit-content;
-  padding: 1.15rem 0.65rem 1rem 0.65rem;
+  padding: 1.15rem 0.95rem 1rem 0.95rem;
   margin: 0rem 0rem 0rem 0rem;
 `;
 
@@ -86,8 +77,8 @@ export const BottomContainer = styled.div`
   flex-wrap: wrap;
   height: fit-content;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0.1rem 0.65rem 0.1rem 0.65rem;
-  border-top: 0.5px solid ${grey};
+  padding: 0.2rem 1rem 0.2rem 1rem;
+  border-top: 0.5px solid ${grey_2};
 `;
 
 export const Trends = styled.div`
@@ -104,9 +95,9 @@ export const TrendIcon = styled.img`
 
 export const Votes = styled.div`
   width: fit-content;
-  color: ${black};
+  color: ${grey};
   font-size: 0.65rem;
-  margin: 0rem 0.25rem 0rem 0.35rem;
+  margin: 0rem 0.4rem 0rem 0.5rem;
   font-family: ${open_sans};
   font-weight: 500;
   letter-spacing: 0.25px;

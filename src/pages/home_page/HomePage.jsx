@@ -51,7 +51,7 @@ const HomePage = ({
       <HomePageContainer className="container">
         <MainContainer>
           <LeftContainer>
-            <Title title={"Latest Trades"} />
+            <Title title={"Artists"} />
             <TradeDashboard />
             {loading_latest_trades ? (
               <LoadingLatestTrades />
@@ -86,7 +86,7 @@ const HomePage = ({
             )}
           </MiddleContainer>
           <RightContainer>
-            <Title title={"Trending"} />
+            <Title title={"Reviews"} />
             {loading_articles_preview ? (
               <LoadingArticlesPreview />
             ) : (
