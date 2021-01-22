@@ -15,11 +15,6 @@ import {
   request_more_unfiltered_articles_saga,
   request_more_filtered_articles_saga,
   request_available_categories_saga,
-  upload_draft_saga,
-  upload_article_saga,
-  create_draft_saga,
-  request_draft_saga,
-  request_drafts_saga,
 } from "./articles_page/sagas";
 import { request_top_investors_saga } from "./investors_page/sagas";
 import { request_all_comments_saga, send_new_comment_saga } from "./post/sagas";
@@ -33,6 +28,13 @@ import {
   request_investor_trades_saga,
   request_investor_posts_saga,
 } from "./investor_page/sagas";
+import {
+  upload_draft_saga,
+  upload_article_saga,
+  create_draft_saga,
+  request_draft_saga,
+  request_drafts_saga,
+} from "./drafts_page/sagas";
 
 export function* root_saga() {
   yield all([
