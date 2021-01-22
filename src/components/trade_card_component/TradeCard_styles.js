@@ -21,7 +21,7 @@ const InformationStyles = css`
   width: fit-content;
   border-radius: 30px;
   line-height: 100%;
-  background: ${blue};
+  background: #085bb5;
   color: ${white};
 
   &:hover {

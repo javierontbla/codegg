@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { white, blue } = colors;
+const { black, grey } = colors;
 const { open_sans } = fonts;
 
 export const ActionButtonContainer = styled.div`
@@ -19,8 +19,8 @@ export const ActionButtonContainer = styled.div`
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.5px;
-  color: ${white};
-  background: ${blue};
+  color: ${black};
+  background: ${grey};
 
   &:hover {
     cursor: pointer;

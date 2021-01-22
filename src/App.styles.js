@@ -2,9 +2,9 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import { colors } from "./colors/colors";
 
-const { white, grey, grey_2, background } = colors;
+const { white, grey, background } = colors;
 
-export const Global = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${white};
     margin: 0;
@@ -65,32 +65,20 @@ export const Global = createGlobalStyle`
   }
 `;
 
-export const FullContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   background: ${background};
 
   @media (max-width: 500px) {
-    flex-direction: column;
   }
 `;
 
-export const MainContainer = styled.div`
+export const PageContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  @media (max-width: 500px) {
-  }
-`;
-
-export const NavBarContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 3.65rem;
-  background: ${background} !important;
-  border-bottom: 0.5px solid ${grey_2};
 
   @media (max-width: 500px) {
   }

@@ -80,7 +80,6 @@ function* create_post_card_async(action) {
 
     yield put(request_posts_action_success(response));
   } catch (error) {
-    console.log(error);
     yield put(create_post_card_failure_action(error));
   }
 }

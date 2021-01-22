@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import moment from "moment";
 import "moment/locale/es";
 
@@ -22,8 +22,9 @@ import {
 import UpTrendSVG from "./media/up_button.svg";
 import DownTrendSVG from "./media/down_button.svg";
 
-const ArticleCard = ({ match, data, id, request_filtered_articles_fun }) => {
-  const url = data.title_link.split(" ").join("-").toLowerCase();
+const ArticleCard = ({ data, id, request_filtered_articles_fun }) => {
+  const { url } = useRouteMatch();
+  const url_article = data.title_link.split(" ").join("-").toLowerCase();
 
   useEffect(() => {
     moment.locale("es");
@@ -32,7 +33,7 @@ const ArticleCard = ({ match, data, id, request_filtered_articles_fun }) => {
   return (
     <>
       <Container>
-        <LinkArticle to={`${match.path}/${url}-${id}`}>
+        <LinkArticle to={`${url}/${url_article}-${id}`}>
           <ArticleImage source={data.article_image} />
           <TopContainer>
             <Title>{data.title}</Title>
@@ -70,4 +71,4 @@ const ArticleCard = ({ match, data, id, request_filtered_articles_fun }) => {
   );
 };
 
-export default withRouter(ArticleCard);
+export default ArticleCard;

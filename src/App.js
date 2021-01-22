@@ -15,12 +15,7 @@ import {
   log_out_active_user_action_start,
 } from "./redux/user/actions";
 import { auth } from "./firebase";
-import {
-  NavBarContainer,
-  Global,
-  FullContainer,
-  MainContainer,
-} from "./App.styles.js";
+import { GlobalStyles, Container, PageContainer } from "./App.styles.js";
 
 const App = ({ log_in_active_user, log_out_active_user }) => {
   let firebase_observer = null;
@@ -49,23 +44,23 @@ const App = ({ log_in_active_user, log_out_active_user }) => {
   }, []);
   return (
     <>
-      <Global />
-      <FullContainer>
-        <NavBarContainer>
-          <NavBar />
-        </NavBarContainer>
-        <MainContainer>
+      <GlobalStyles />
+      <Container>
+        <NavBar />
+        <PageContainer>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/articles" component={ArticlesPage} />
+            <Route path="/articles">
+              <ArticlesPage />
+            </Route>
             <Route path="/investors" component={InvestorsPage} />
             <Route path="/contact" component={ContactPage} />
             <Route path="/privacy" component={PrivacyPage} />
             <Route path="/terms" component={TermsConditionsPage} />
           </Switch>
-        </MainContainer>
+        </PageContainer>
         <Footer />
-      </FullContainer>
+      </Container>
     </>
   );
 };

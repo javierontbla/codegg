@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import Masonry from "react-masonry-css";
 import { connect } from "react-redux";
 
@@ -54,6 +54,8 @@ const ArticlesCollection = ({
   create_draft,
   active_user_database,
 }) => {
+  const { url } = useRouteMatch();
+
   useEffect(() => {
     if (categories.length === 0) request_available_categories();
     if (unfiltered_articles.length === 0) request_unfiltered_articles();
@@ -115,7 +117,7 @@ const ArticlesCollection = ({
         <ArticlesPageContainer>
           <TopContainer>
             <ActionButtonContainer>
-              <LinkContainer to={`${match.path}/draft`}>
+              <LinkContainer to={`${url}/dashboard`}>
                 <ActionButton action={"Write"} />
               </LinkContainer>
             </ActionButtonContainer>
@@ -165,7 +167,6 @@ const ArticlesCollection = ({
                       ? filtered_articles.map((article) => {
                           return (
                             <ArticleCard
-                              match={match.path}
                               request_filtered_articles_fun={(category) =>
                                 request_filtered_articles_fun(
                                   category.toLowerCase()
@@ -180,7 +181,6 @@ const ArticlesCollection = ({
                       : unfiltered_articles.map((article) => {
                           return (
                             <ArticleCard
-                              match={match.path}
                               request_filtered_articles_fun={(category) =>
                                 request_filtered_articles_fun(category)
                               }
@@ -241,6 +241,4 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(request_filtered_articles_success_action(empty_arr)),
 });
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(ArticlesCollection)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlesCollection);

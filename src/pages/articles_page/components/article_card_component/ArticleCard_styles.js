@@ -50,7 +50,7 @@ export const Title = styled.div`
 `;
 
 export const Description = styled.div`
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: ${roboto};
   color: ${white};
   line-height: 115%;

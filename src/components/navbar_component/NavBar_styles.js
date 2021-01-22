@@ -5,8 +5,15 @@ import { Link } from "react-router-dom";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { black, white, grey_2 } = colors;
+const { black, white, grey_2, background } = colors;
 const { open_sans, roboto } = fonts;
+
+export const Container = styled.div`
+  width: 100%;
+  height: 3.65rem;
+  background: ${background} !important;
+  border-bottom: 0.5px solid ${grey_2};
+`;
 
 export const NavbarContainer = styled.div`
   display: flex;
@@ -17,6 +24,7 @@ export const NavbarContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 0 !important;
+
   @media (max-width: 500px) {
   }
 `;

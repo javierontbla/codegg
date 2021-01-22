@@ -5,6 +5,7 @@ import Codegg from "./media/official_logo.svg";
 import UserIcon from "./media/user_button.svg";
 import ActionButton from "../action_button_component/ActionButton";
 import {
+  Container,
   NavbarContainer,
   LinkContainer,
   LogoContainer,
@@ -20,7 +21,7 @@ import {
 } from "./NavBar_styles";
 import { google_provider, auth } from "../../firebase";
 
-const NavBar = ({ active_user_database }) => {
+const NavBar = ({ user_firebase }) => {
   const [menu_active, set_menu_active] = useState(false);
 
   const display_profile_menu = () => {
@@ -38,52 +39,54 @@ const NavBar = ({ active_user_database }) => {
 
   return (
     <>
-      <NavbarContainer className="container">
-        <PagesContainer>
-          <LogoContainer>
+      <Container>
+        <NavbarContainer className="container">
+          <PagesContainer>
+            <LogoContainer>
+              <LinkContainer to="/">
+                <Img src={Codegg} />
+              </LinkContainer>
+            </LogoContainer>
             <LinkContainer to="/">
-              <Img src={Codegg} />
+              <PageLink>Home</PageLink>
             </LinkContainer>
-          </LogoContainer>
-          <LinkContainer to="/">
-            <PageLink>Home</PageLink>
-          </LinkContainer>
-          <LinkContainer to="/articles">
-            <PageLink>Read</PageLink>
-          </LinkContainer>
-        </PagesContainer>
-        <UserContainer>
-          {active_user_database ? (
-            <>
-              <ProfileContainer>
-                <ProfileIcon
-                  src={UserIcon}
-                  onClick={() => display_profile_menu()}
-                />
-                <Menu menu_active={menu_active}>
-                  <MenuOption>Profile</MenuOption>
-                  <MenuOption last_child={"true"} onClick={() => log_out()}>
-                    Log Out
-                  </MenuOption>
-                </Menu>
-              </ProfileContainer>
-            </>
-          ) : (
-            <ActionButtonContainer onClick={() => log_in()}>
-              <ActionButton navbar={"true"} action={"Log In"}>
-                Ingresar
-              </ActionButton>
-            </ActionButtonContainer>
-          )}
-        </UserContainer>
-      </NavbarContainer>
+            <LinkContainer to="/articles">
+              <PageLink>Read</PageLink>
+            </LinkContainer>
+          </PagesContainer>
+          <UserContainer>
+            {user_firebase ? (
+              <>
+                <ProfileContainer>
+                  <ProfileIcon
+                    src={UserIcon}
+                    onClick={() => display_profile_menu()}
+                  />
+                  <Menu menu_active={menu_active}>
+                    <MenuOption>Profile</MenuOption>
+                    <MenuOption last_child={"true"} onClick={() => log_out()}>
+                      Log Out
+                    </MenuOption>
+                  </Menu>
+                </ProfileContainer>
+              </>
+            ) : (
+              <ActionButtonContainer onClick={() => log_in()}>
+                <ActionButton navbar={"true"} action={"Log In"}>
+                  Ingresar
+                </ActionButton>
+              </ActionButtonContainer>
+            )}
+          </UserContainer>
+        </NavbarContainer>
+      </Container>
     </>
   );
 };
 
 // redux
-const mapStateToProps = ({ user_reducer: { active_user_database } }) => ({
-  active_user_database,
+const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
+  user_firebase,
 });
 
 const mapDispatchToProps = (dispatch) => ({});
