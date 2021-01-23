@@ -6,7 +6,7 @@ import {
   Container,
   CreateButton,
   Icon,
-  ArticleDraftCard,
+  DraftCard,
   HyperLink,
 } from "./DraftsDashboard_styles";
 import {
@@ -22,18 +22,19 @@ const DraftsDashboard = ({
   draft_id,
   drafts,
 }) => {
-  const { url } = useRouteMatch();
+  const {
+    url,
+    params: { user_id },
+  } = useRouteMatch();
 
   useEffect(() => {
     document.title = `Codegg - Dashboard`;
     if (user_firebase) {
-      request_drafts({
-        user_id: user_firebase.user_data.user_id,
-      });
+      if (user_firebase.user_id === user_id) request_drafts({ user_id }); // runs twice
     }
-  }, []);
+  }, [user_firebase]);
 
-  const create_draft_firebase = () => {
+  const create_draft_to_firebase = () => {
     const { user_id, user, profile_image } = user_firebase.user_data;
 
     create_draft({
@@ -51,13 +52,13 @@ const DraftsDashboard = ({
     <>
       {draft_id ? <Redirect to={`${url}/${draft_id}`} /> : null}
       <Container>
-        <CreateButton onClick={() => create_draft_firebase()}>
+        <CreateButton onClick={() => create_draft_to_firebase()}>
           <Icon src={AddIconSVG} />
         </CreateButton>
         {drafts.map((article_draft) => {
           return (
-            <HyperLink to={`${url}/${article_draft[1]}`}>
-              <ArticleDraftCard
+            <HyperLink to={`${url}/draft/${article_draft[1]}`}>
+              <DraftCard
                 data={article_draft[0]}
                 id={article_draft[1]}
                 key={article_draft[1]}

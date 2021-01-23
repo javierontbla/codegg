@@ -3,7 +3,7 @@ import { drafts_page_types } from "./types";
 const INITIAL_STATE = {
   drafts: [],
   draft_id: null,
-  active_draft: null,
+  draft: null,
 };
 
 export const drafts_page_reducer = (state = INITIAL_STATE, action) => {
@@ -32,7 +32,7 @@ export const drafts_page_reducer = (state = INITIAL_STATE, action) => {
     case drafts_page_types.REQUEST_DRAFT_SUCCESS:
       return {
         ...state,
-        active_draft: action.payload,
+        draft: action.payload,
       };
 
     case drafts_page_types.REQUEST_DRAFTS_START:

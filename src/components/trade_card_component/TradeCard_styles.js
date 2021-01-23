@@ -51,7 +51,7 @@ export const TopContainer = styled.div`
 
 export const Name = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: ${white};
   line-height: 100%;
   letter-spacing: 0.5px;

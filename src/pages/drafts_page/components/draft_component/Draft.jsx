@@ -14,11 +14,11 @@ import {
   BottomContainer,
   ActionButtonContainer,
   AuthorContainer,
-  CategoriesContainer,
+  TagsContainer,
   AddIcon,
   TagInput,
   DescriptionInput,
-  InputContainer,
+  InputOverlay,
   RemoveButton,
   HeaderInput,
   BodyInput,
@@ -31,42 +31,24 @@ import {
 } from "../../../../redux/drafts_page/actions";
 import AddIconSVG from "./media/add_button.svg";
 
-const Draft = ({ data, upload_draft, upload_article, user_firebase }) => {
-  const [title, set_title] = useState("");
+const Draft = ({ data, user_firebase, save_draft, save_article }) => {
+  const {
+    params: { draft_id },
+  } = useRouteMatch();
+  const [title, set_title] = useState(data.title);
   const [content, set_content] = useState(data.content);
-  const [genres, set_genres] = useState([]);
-  const [description, set_description] = useState("");
-
+  const [genres, set_genres] = useState(data.genres);
+  const [description, set_description] = useState(data.description);
   useEffect(() => {
-    document.title = `Codegg - New draft`;
+    if (data.title.length > 0) {
+      document.title = `Codegg - ${data.title}`;
+    } else {
+      document.title = `Codegg - New draft`;
+    }
   }, []);
 
   const handle_input_field = (field, input) => {
     field(input);
-  };
-
-  const handle_insert_tag = () => {
-    set_genres((prev_state) => [1, ...prev_state]);
-  };
-
-  const upload_draft_to_firebase = () => {
-    const { user_id } = user_firebase.user_data;
-    upload_draft({
-      user_id,
-      draft: {
-        title,
-        description,
-        genres,
-
-        user_id,
-      },
-    });
-  };
-
-  const upload_article_to_firebase = () => {
-    upload_article({
-      title,
-    });
   };
 
   const handle_content_input = (input, id) => {
@@ -78,13 +60,13 @@ const Draft = ({ data, upload_draft, upload_article, user_firebase }) => {
     );
   };
 
-  const handle_remove_input = (id) => {
+  const remove_input = (id) => {
     set_content((prev_state) =>
       prev_state.filter((content_block) => content_block.id !== id)
     );
   };
 
-  const handle_insert_content_block = (type, html_type) => {
+  const insert_input = (type, html_type) => {
     const id = Date.now();
     set_content((prev_state) => [
       ...prev_state,
@@ -95,6 +77,30 @@ const Draft = ({ data, upload_draft, upload_article, user_firebase }) => {
         content: "",
       },
     ]);
+  };
+
+  const insert_tag = () => {
+    set_genres((prev_state) => [1, ...prev_state]);
+  };
+
+  const save_draft_to_firebase = () => {
+    const { user_id } = user_firebase.user_data;
+    save_draft({
+      user_id,
+      draft_id,
+      draft: {
+        title,
+        description,
+        genres,
+        content,
+      },
+    });
+  };
+
+  const save_article_to_firebase = () => {
+    save_article({
+      title,
+    });
   };
 
   return (
@@ -111,9 +117,9 @@ const Draft = ({ data, upload_draft, upload_article, user_firebase }) => {
               switch (content_block.type) {
                 case "header":
                   return (
-                    <InputContainer>
+                    <InputOverlay>
                       <RemoveButton
-                        onClick={() => handle_remove_input(content_block.id)}
+                        onClick={() => remove_input(content_block.id)}
                       >
                         Remove
                       </RemoveButton>
@@ -125,44 +131,47 @@ const Draft = ({ data, upload_draft, upload_article, user_firebase }) => {
                           handle_content_input(e.target.value, content_block.id)
                         }
                       />
-                    </InputContainer>
+                    </InputOverlay>
                   );
 
                 case "body":
                   return (
-                    <InputContainer>
+                    <InputOverlay>
                       <RemoveButton
-                        onClick={() => handle_remove_input(content_block.id)}
+                        onClick={() => remove_input(content_block.id)}
                       >
                         Remove
                       </RemoveButton>
                       <BodyInput
                         rows="1"
+                        value={content_block.text}
                         placeholder="Paragraph..."
                         key={content_block.id}
                         onChange={(e) =>
                           handle_content_input(e.target.value, content_block.id)
                         }
                       />
-                    </InputContainer>
+                    </InputOverlay>
                   );
+
                 case "image":
                   return (
-                    <InputContainer>
+                    <InputOverlay>
                       <RemoveButton
-                        onClick={() => handle_remove_input(content_block.id)}
+                        onClick={() => remove_input(content_block.id)}
                       >
                         Remove
                       </RemoveButton>
                       <ImageInput
                         rows="1"
+                        value={content_block.text}
                         placeholder="Link..."
                         key={content_block.id}
                         onChange={(e) =>
                           handle_content_input(e.target.value, content_block.id)
                         }
                       />
-                    </InputContainer>
+                    </InputOverlay>
                   );
 
                 default:
@@ -170,21 +179,15 @@ const Draft = ({ data, upload_draft, upload_article, user_firebase }) => {
               }
             })}
             <InsertActionsContainer>
-              <InsertAction
-                onClick={() => handle_insert_content_block("header", "h1")}
-              >
+              <InsertAction onClick={() => insert_input("header", "h1")}>
                 <AddIcon src={AddIconSVG} />
                 Header
               </InsertAction>
-              <InsertAction
-                onClick={() => handle_insert_content_block("body", "p")}
-              >
+              <InsertAction onClick={() => insert_input("body", "p")}>
                 <AddIcon src={AddIconSVG} />
                 Body
               </InsertAction>
-              <InsertAction
-                onClick={() => handle_insert_content_block("image", "img")}
-              >
+              <InsertAction onClick={() => insert_input("image", "img")}>
                 {" "}
                 <AddIcon src={AddIconSVG} />
                 Image
@@ -195,36 +198,36 @@ const Draft = ({ data, upload_draft, upload_article, user_firebase }) => {
             <AuthorContainer>
               {user_firebase ? (
                 <ProfileBox
-                  profile_image={user_firebase.user_data.profile_image}
-                  user={user_firebase.user_data.user}
+                  profile_image={data.profile_image}
+                  user={data.user}
                   date={null}
                 />
               ) : null}
               <DescriptionInput
                 value={description}
-                placeholder="Hey! Add some description here..."
+                placeholder="Some description here..."
                 rows="3"
                 onChange={(e) =>
                   handle_input_field(set_description, e.target.value)
                 }
               />
             </AuthorContainer>
-            <CategoriesContainer>
+            <TagsContainer>
               {genres.map((tag) => {
                 return <TagInput placeholder="#genre" />;
               })}
-              <InsertAction onClick={() => handle_insert_tag()}>
+              <InsertAction onClick={() => insert_tag()}>
                 <AddIcon src={AddIconSVG} />
                 Tag
               </InsertAction>
-            </CategoriesContainer>
+            </TagsContainer>
           </RightContainer>
         </TopContainer>
         <BottomContainer>
-          <ActionButtonContainer onClick={() => upload_draft_to_firebase()}>
+          <ActionButtonContainer onClick={() => save_draft_to_firebase()}>
             <ActionButton action={"Save Draft"} />
           </ActionButtonContainer>
-          <ActionButtonContainer onClick={() => upload_article_to_firebase()}>
+          <ActionButtonContainer onClick={() => save_article_to_firebase()}>
             <ActionButton action={"Publish"} />
           </ActionButtonContainer>
         </BottomContainer>
@@ -239,8 +242,8 @@ const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  upload_draft: (draft) => dispatch(upload_draft_start_action(draft)),
-  upload_article: (article) => dispatch(upload_article_start_action(article)),
+  save_draft: (draft) => dispatch(upload_draft_start_action(draft)),
+  save_article: (article) => dispatch(upload_article_start_action(article)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Draft);

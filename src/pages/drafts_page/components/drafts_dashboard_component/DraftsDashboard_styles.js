@@ -34,7 +34,7 @@ export const Icon = styled.img`
   transform: rotate(45deg);
 `;
 
-export const ArticleDraftCard = styled.div`
+export const DraftCard = styled.div`
   height: 16rem;
   width: 100%;
   background: ${black};

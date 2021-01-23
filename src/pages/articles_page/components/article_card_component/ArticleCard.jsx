@@ -36,23 +36,23 @@ const ArticleCard = ({ data, id, request_filtered_articles_fun }) => {
         <LinkArticle to={`${url}/${url_article}-${id}`}>
           <ArticleImage source={data.article_image} />
           <TopContainer>
+            <CategoriesContainer>
+              {data.categories.map((category) => {
+                return (
+                  <Category
+                    onClick={() => request_filtered_articles_fun(category)}
+                    category={category}
+                    name={category}
+                    key={category}
+                  />
+                );
+              })}
+            </CategoriesContainer>
             <Title>{data.title}</Title>
             <Description>{data.description.toLowerCase()}...</Description>
           </TopContainer>
         </LinkArticle>
         <MiddleContainer>
-          <CategoriesContainer>
-            {data.categories.map((category) => {
-              return (
-                <Category
-                  onClick={() => request_filtered_articles_fun(category)}
-                  category={category}
-                  name={category}
-                  key={category}
-                />
-              );
-            })}
-          </CategoriesContainer>
           <ProfileBox
             profile_image={data.profile_image}
             user={data.user}

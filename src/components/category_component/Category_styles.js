@@ -13,22 +13,21 @@ export const CategoryContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-family: ${open_sans};
   font-weight: 500;
-  padding: 0.45rem 0.6rem 0.5rem 0.6rem;
+  padding: 0rem 0rem 0rem 0rem;
   letter-spacing: 0.75px;
-  margin: 0.5rem 0.25rem 0.5rem 0.25rem;
+  margin: 0.5rem 1rem 0.5rem 0rem;
   height: fit-content;
   width: fit-content;
-  border-radius: 30px;
   line-height: 100%;
-  background: ${blue};
-  color: ${white};
+  background: none;
+  color: ${blue};
+  opacity: 0.9;
 
   &:hover {
     cursor: pointer;
-    opacity: 0.95;
   }
 `;
 

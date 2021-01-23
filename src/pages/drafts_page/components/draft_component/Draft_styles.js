@@ -11,9 +11,60 @@ const InputStyles = css`
   background: none;
   border: none;
   border-bottom: 0.5px solid ${grey_2};
-  padding: 0.2rem 0rem 0.2rem 0rem;
+  padding: 0.5rem 0rem 0.2rem 0rem;
   color: ${white};
   resize: none;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0rem 0rem 0rem 0rem !important;
+`;
+
+export const TopContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const LeftContainer = styled.div`
+  width: calc(100% - 18.5rem);
+  margin: 0rem 2rem 0rem 0rem;
+  height: fit-content;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  background: ${black};
+  border-radius: 15px;
+`;
+
+export const TitleInput = styled.input`
+  width: 100%;
+  margin: 0rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0.35rem 0rem;
+  font-size: 2.2rem;
+  border: none;
+  border-bottom: 0.5px solid ${grey_2};
+  font-family: ${source_sans_pro};
+  background: transparent;
+  color: ${white};
+
+  &&& {
+    ::placeholder {
+      font-size: 2.2rem;
+      font-family: ${source_sans_pro};
+    }
+  }
+
+  &:focus {
+    outline: none !important;
+  }
+`;
+
+export const InputOverlay = styled.div`
+  position: relative;
+  margin: 4rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
 `;
 
 export const HeaderInput = styled.input`
@@ -52,8 +103,10 @@ export const BodyInput = styled.textarea`
 
 export const ImageInput = styled.input`
   ${InputStyles};
-  font-size: 1rem;
-  font-family: ${roboto};
+  font-size: 0.8rem;
+  font-family: ${open_sans};
+  letter-spacing: 0.5px;
+  color: ${grey};
 
   &&& {
     ::placeholder {
@@ -67,40 +120,6 @@ export const ImageInput = styled.input`
   }
 `;
 
-export const InsertActionsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  height: fit-content;
-  margin: 2rem 0rem 0rem 0rem;
-`;
-
-export const InsertAction = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: fit-content;
-  font-size: 0.8rem;
-  border: none;
-  margin: 0rem 1rem 0rem 1rem;
-  padding: 0rem 0.55rem 0rem 0.55rem;
-  height: 1.65rem;
-  background: ${grey};
-  border-radius: 20px;
-  font-family: ${open_sans};
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export const InputContainer = styled.div`
-  position: relative;
-  margin: 3rem 0rem 0rem 0rem;
-  padding: 0rem 0.25rem 0rem 0.25rem;
-`;
-
 export const RemoveButton = styled.div`
   display: flex;
   align-items: center;
@@ -109,7 +128,7 @@ export const RemoveButton = styled.div`
   width: fit-content;
   right: 0;
   bottom: 100%;
-  margin: 0rem 0.25rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
   color: ${black};
   background: ${grey};
   font-family: ${roboto};
@@ -123,52 +142,31 @@ export const RemoveButton = styled.div`
   }
 `;
 
-export const AddIcon = styled.img`
-  width: 0.65rem;
-  transform: rotate(45deg);
-  margin: 0rem 0.45rem 0rem 0rem;
-`;
-
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 0rem 0rem 0rem 0rem !important;
-`;
-
-export const TopContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-`;
-
-export const LeftContainer = styled.div`
-  width: calc(100% - 18.5rem);
-  margin: 0rem 1.5rem 0rem 0rem;
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-  background: ${black};
-  border-radius: 15px;
-`;
-
 export const RightContainer = styled.div`
   width: 18.5rem;
 `;
 
-export const TitleInput = styled.input`
+export const AuthorContainer = styled.div`
+  height: fit-content;
+  background: ${black};
+  margin: 0rem 0rem 1rem 0rem;
+  padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+  border-radius: 15px;
+`;
+
+export const DescriptionInput = styled.textarea`
   width: 100%;
-  margin: 0rem 0rem 0rem 0rem;
-  padding: 0.35rem 0.85rem 0.35rem 0.85rem;
-  font-size: 2.2rem;
+  font-size: 1rem;
+  font-family: ${roboto};
   border: none;
-  border-bottom: 0.5px solid ${grey_2};
-  font-family: ${source_sans_pro};
+  resize: none;
+  margin: 1rem 0rem 0rem 0rem;
   background: transparent;
-  color: ${white};
 
   &&& {
     ::placeholder {
-      font-size: 2.2rem;
-      font-family: ${source_sans_pro};
+      font-size: 1rem;
+      font-family: ${roboto};
     }
   }
 
@@ -177,28 +175,7 @@ export const TitleInput = styled.input`
   }
 `;
 
-export const ActionButtonContainer = styled.div`
-  width: fit-content;
-  height: fit-content;
-  margin: 0rem 0.5rem 0rem 0rem;
-`;
-
-export const BottomContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin: 2rem 0rem 0rem 0rem;
-`;
-
-export const AuthorContainer = styled.div`
-  height: fit-content;
-  background: ${black};
-  margin: 0rem 0rem 0.75rem 0rem;
-  padding: 1rem 1rem 1.25rem 1rem;
-  border-radius: 15px;
-`;
-
-export const CategoriesContainer = styled.div`
+export const TagsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   height: fit-content;
@@ -232,23 +209,49 @@ export const TagInput = styled.input`
   }
 `;
 
-export const DescriptionInput = styled.textarea`
+export const InsertActionsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 100%;
-  font-size: 1rem;
-  font-family: ${roboto};
+  height: fit-content;
+  margin: 3rem 0rem 1.5rem 0rem;
+`;
+
+export const InsertAction = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  font-size: 0.8rem;
   border: none;
-  resize: none;
-  margin: 1rem 0rem 0rem 0rem;
-  background: transparent;
+  margin: 0rem 1rem 0rem 1rem;
+  padding: 0rem 0.55rem 0rem 0.55rem;
+  height: 1.65rem;
+  background: ${grey};
+  border-radius: 20px;
+  font-family: ${open_sans};
 
-  &&& {
-    ::placeholder {
-      font-size: 1rem;
-      font-family: ${roboto};
-    }
+  &:hover {
+    cursor: pointer;
   }
+`;
 
-  &:focus {
-    outline: none !important;
-  }
+export const AddIcon = styled.img`
+  width: 0.65rem;
+  transform: rotate(45deg);
+  margin: 0rem 0.45rem 0rem 0rem;
+`;
+
+export const BottomContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 2rem 0rem 0rem 0rem;
+`;
+
+export const ActionButtonContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
+  margin: 0rem 0.5rem 0rem 0rem;
 `;

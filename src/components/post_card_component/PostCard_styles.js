@@ -75,24 +75,10 @@ export const NamesContainer = styled.div`
 
 export const Name = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 100%;
   text-transform: capitalize;
   color: ${white};
-`;
-
-export const NameLink = styled.div`
-  line-height: 100%;
-  font-family: ${open_sans};
-  color: ${grey};
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin: 0rem 0rem 0rem 0.5rem;
-
-  &:hover {
-    opacity: 0.95;
-  }
 `;
 
 export const Date = styled.div`
@@ -178,7 +164,6 @@ export const CountContainer = styled.div`
   font-family: ${open_sans};
   font-weight: 500;
   letter-spacing: 0.25px;
-  opacity: 0.85;
 `;
 
 export const CommentsIconContainer = styled.div``;

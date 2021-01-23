@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch, useHistory } from "react-router-dom";
 import Masonry from "react-masonry-css";
 import { connect } from "react-redux";
 
@@ -52,9 +52,10 @@ const ArticlesCollection = ({
   noMorePosts,
   clear_filtered_articles,
   create_draft,
-  active_user_database,
+  user_firebase,
 }) => {
   const { url } = useRouteMatch();
+  const history = useHistory();
 
   useEffect(() => {
     if (categories.length === 0) request_available_categories();
@@ -111,15 +112,17 @@ const ArticlesCollection = ({
     });
   };
 
+  const push_to_dashboard = () => {
+    history.push(`${url}/dashboard/${user_firebase.user_id}`);
+  };
+
   return (
     <>
       <Container className="container">
         <ArticlesPageContainer>
           <TopContainer>
-            <ActionButtonContainer>
-              <LinkContainer to={`${url}/dashboard`}>
-                <ActionButton action={"Write"} />
-              </LinkContainer>
+            <ActionButtonContainer onClick={() => push_to_dashboard()}>
+              <ActionButton action={"Write"} />
             </ActionButtonContainer>
           </TopContainer>
           <BottomContainer>
@@ -214,7 +217,7 @@ const mapStateToProps = ({
     active_category,
     error,
   },
-  user_reducer: { active_user_database },
+  user_reducer: { user_firebase },
 }) => ({
   loading_articles,
   loading_categories,
@@ -225,7 +228,7 @@ const mapStateToProps = ({
   categories,
   active_category,
   error,
-  active_user_database,
+  user_firebase,
 });
 
 const mapDispatchToProps = (dispatch) => ({

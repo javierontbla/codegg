@@ -15,7 +15,7 @@ const ArticlesPage = () => {
           <Route exact path={`${path}`}>
             <ArticlesCollection />
           </Route>
-          <Route path={`${path}/dashboard`}>
+          <Route path={`${path}/dashboard/:user_id`}>
             <DraftsPage />
           </Route>
           <Route exact path={`${path}/:article_id`}>

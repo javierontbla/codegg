@@ -16,8 +16,8 @@ export const ProfileBoxContainer = styled.div`
 `;
 
 export const ProfileImage = styled.div`
-  width: ${(props) => (props.article_card_preview ? "2.15rem" : "2.75rem")};
-  height: ${(props) => (props.article_card_preview ? "2.15rem" : "2.75rem")};
+  width: ${(props) => (props.article_card_preview ? "2.15rem" : "2.5rem")};
+  height: ${(props) => (props.article_card_preview ? "2.15rem" : "2.5rem")};
   border-radius: 50%;
   border: none;
   background-size: cover;
@@ -35,10 +35,10 @@ export const InformationContainer = styled.div`
 
 export const User = styled.div`
   font-family: ${source_sans_pro};
-  font-size: ${(props) => (props.article_card_preview ? "0.9rem" : "1.1rem")};
+  font-size: ${(props) => (props.article_card_preview ? "0.8rem" : "0.9rem")};
   color: ${white};
   line-height: 100%;
-  margin: 0rem 0rem 0.2rem 0rem;
+  margin: 0rem 0rem 0.25rem 0rem;
   text-transform: capitalize;
 `;
 
