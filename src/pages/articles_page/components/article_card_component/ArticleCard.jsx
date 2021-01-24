@@ -24,16 +24,15 @@ import DownTrendSVG from "./media/down_button.svg";
 
 const ArticleCard = ({ data, id, request_filtered_articles_fun }) => {
   const { url } = useRouteMatch();
-  const url_article = data.title_link.split(" ").join("-").toLowerCase();
 
   useEffect(() => {
-    moment.locale("es");
+    moment.locale("en");
   }, []);
 
   return (
     <>
       <Container>
-        <LinkArticle to={`${url}/${url_article}-${id}`}>
+        <LinkArticle to={`${url}/${data.title_link}-${id}`}>
           <ArticleImage source={data.article_image} />
           <TopContainer>
             <CategoriesContainer>

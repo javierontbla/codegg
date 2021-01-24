@@ -24,7 +24,6 @@ export const CategoryContainer = styled.div`
   line-height: 100%;
   background: none;
   color: ${blue};
-  opacity: 0.9;
 
   &:hover {
     cursor: pointer;

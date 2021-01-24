@@ -8,6 +8,8 @@ import {
   request_trades_failure_action,
   request_posts_success_action,
   request_posts_failure_action,
+  request_user_articles_success_action,
+  request_user_articles_failure_action,
 } from "./actions";
 import { db } from "../../firebase";
 
@@ -69,6 +71,29 @@ function* request_investor_posts_async(action) {
   }
 }
 
+function* request_user_articles_async(action) {
+  const { user_id } = action.payload;
+  const user_articles_ref = db
+    .collection(`articles`)
+    .where("user_id", "==", user_id);
+
+  try {
+    const response = yield user_articles_ref.get().then((snapshot) => {
+      const user_articles_arr = [];
+
+      snapshot.forEach((article) => {
+        user_articles_arr.push([article.data(), article.id]);
+      });
+
+      return user_articles_arr;
+    });
+
+    yield put(request_user_articles_success_action(response));
+  } catch (error) {
+    yield put(request_user_articles_failure_action(error));
+  }
+}
+
 export function* request_investor_profile_saga() {
   yield takeLatest(
     investor_page_types.REQUEST_INVESTOR_PROFILE_START,
@@ -87,5 +112,12 @@ export function* request_investor_posts_saga() {
   yield takeLatest(
     investor_page_types.REQUEST_INDIVIDUAL_POSTS_START,
     request_investor_posts_async
+  );
+}
+
+export function* request_user_articles_saga() {
+  yield takeLatest(
+    investor_page_types.REQUEST_USER_ARTICLES_START,
+    request_user_articles_async
   );
 }

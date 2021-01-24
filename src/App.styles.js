@@ -1,8 +1,10 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 import { colors } from "./colors/colors";
+import { fonts } from "./fonts/fonts";
 
 const { white, grey, background } = colors;
+const { montserrat } = fonts;
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -27,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
   img {
     display: block;
     margin-bottom: 2vh;
-    border-radius: 0.2rem;
+    border-radius: 15px;
     max-width: 100%;
     opacity: 1;
 
@@ -39,12 +41,10 @@ export const GlobalStyles = createGlobalStyle`
 
   h1 {
     color: ${white};
-    font-size: 1.5rem;
-    letter-spacing: 0.5px;
-    text-align: left;
-    width: 100%;
-    line-height: 100%;
-    text-decoration: underline;
+    font-size: 1.6rem;
+    font-family: ${montserrat};
+    line-height: 115%;
+    margin: 0rem 0rem 1.5rem 0rem;
 
     @media (max-width: 500px) {
 
@@ -61,6 +61,12 @@ export const GlobalStyles = createGlobalStyle`
     width: 100%;
 
     @media (max-width: 500px) {
+    }
+  }
+
+  input {
+    &:focus {
+      outline: none !important;
     }
   }
 `;

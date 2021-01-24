@@ -24,6 +24,7 @@ import {
   BodyInput,
   ImageInput,
   InsertActionsContainer,
+  ContentContainer,
 } from "./Draft_styles";
 import {
   upload_draft_start_action,
@@ -60,6 +61,13 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
     );
   };
 
+  const handle_tag_input = (input, indx) => {
+    set_genres((prev_state) => {
+      prev_state[indx] = input;
+      return [...prev_state];
+    });
+  };
+
   const remove_input = (id) => {
     set_content((prev_state) =>
       prev_state.filter((content_block) => content_block.id !== id)
@@ -80,7 +88,7 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
   };
 
   const insert_tag = () => {
-    set_genres((prev_state) => [1, ...prev_state]);
+    set_genres((prev_state) => ["", ...prev_state]);
   };
 
   const save_draft_to_firebase = () => {
@@ -98,8 +106,14 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
   };
 
   const save_article_to_firebase = () => {
+    const { user, user_id } = user_firebase.user_data;
     save_article({
+      user,
+      user_id,
       title,
+      description,
+      content,
+      genres,
     });
   };
 
@@ -108,91 +122,111 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
       <Container className="container">
         <TopContainer>
           <LeftContainer>
-            <TitleInput
-              value={title}
-              placeholder="Title..."
-              onChange={(e) => handle_input_field(set_title, e.target.value)}
-            />
-            {content.map((content_block) => {
-              switch (content_block.type) {
-                case "header":
-                  return (
-                    <InputOverlay>
-                      <RemoveButton
-                        onClick={() => remove_input(content_block.id)}
-                      >
-                        Remove
-                      </RemoveButton>
-                      <HeaderInput
-                        value={content_block.text}
-                        placeholder="Header..."
-                        key={content_block.id}
-                        onChange={(e) =>
-                          handle_content_input(e.target.value, content_block.id)
-                        }
-                      />
-                    </InputOverlay>
-                  );
+            <ContentContainer>
+              <TitleInput
+                value={title}
+                placeholder="Untitled"
+                onChange={(e) => handle_input_field(set_title, e.target.value)}
+              />
+              {content.map((content_block) => {
+                switch (content_block.type) {
+                  case "header":
+                    return (
+                      <InputOverlay>
+                        <RemoveButton
+                          onClick={() => remove_input(content_block.id)}
+                        >
+                          Remove
+                        </RemoveButton>
+                        <HeaderInput
+                          minRows="1"
+                          value={content_block.text}
+                          placeholder="Header"
+                          key={content_block.id}
+                          onChange={(e) =>
+                            handle_content_input(
+                              e.target.value,
+                              content_block.id
+                            )
+                          }
+                        />
+                      </InputOverlay>
+                    );
 
-                case "body":
-                  return (
-                    <InputOverlay>
-                      <RemoveButton
-                        onClick={() => remove_input(content_block.id)}
-                      >
-                        Remove
-                      </RemoveButton>
-                      <BodyInput
-                        rows="1"
-                        value={content_block.text}
-                        placeholder="Paragraph..."
-                        key={content_block.id}
-                        onChange={(e) =>
-                          handle_content_input(e.target.value, content_block.id)
-                        }
-                      />
-                    </InputOverlay>
-                  );
+                  case "body":
+                    return (
+                      <InputOverlay>
+                        <RemoveButton
+                          onClick={() => remove_input(content_block.id)}
+                        >
+                          Remove
+                        </RemoveButton>
+                        <BodyInput
+                          minRows="1"
+                          value={content_block.text}
+                          placeholder="Paragraph"
+                          key={content_block.id}
+                          onChange={(e) =>
+                            handle_content_input(
+                              e.target.value,
+                              content_block.id
+                            )
+                          }
+                        />
+                      </InputOverlay>
+                    );
 
-                case "image":
-                  return (
-                    <InputOverlay>
-                      <RemoveButton
-                        onClick={() => remove_input(content_block.id)}
-                      >
-                        Remove
-                      </RemoveButton>
-                      <ImageInput
-                        rows="1"
-                        value={content_block.text}
-                        placeholder="Link..."
-                        key={content_block.id}
-                        onChange={(e) =>
-                          handle_content_input(e.target.value, content_block.id)
-                        }
-                      />
-                    </InputOverlay>
-                  );
+                  case "image":
+                    return (
+                      <InputOverlay>
+                        <RemoveButton
+                          onClick={() => remove_input(content_block.id)}
+                        >
+                          Remove
+                        </RemoveButton>
+                        <ImageInput
+                          rows="1"
+                          value={content_block.text}
+                          placeholder="Link - (Unsplash, etc.)"
+                          key={content_block.id}
+                          onChange={(e) =>
+                            handle_content_input(
+                              e.target.value,
+                              content_block.id
+                            )
+                          }
+                        />
+                      </InputOverlay>
+                    );
 
-                default:
-                  return;
-              }
-            })}
-            <InsertActionsContainer>
-              <InsertAction onClick={() => insert_input("header", "h1")}>
-                <AddIcon src={AddIconSVG} />
-                Header
-              </InsertAction>
-              <InsertAction onClick={() => insert_input("body", "p")}>
-                <AddIcon src={AddIconSVG} />
-                Body
-              </InsertAction>
-              <InsertAction onClick={() => insert_input("image", "img")}>
-                {" "}
-                <AddIcon src={AddIconSVG} />
-                Image
-              </InsertAction>
-            </InsertActionsContainer>
+                  default:
+                    return;
+                }
+              })}
+              <InsertActionsContainer>
+                <InsertAction onClick={() => insert_input("header", "h1")}>
+                  <AddIcon src={AddIconSVG} />
+                  Header
+                </InsertAction>
+                <InsertAction onClick={() => insert_input("body", "p")}>
+                  <AddIcon src={AddIconSVG} />
+                  Body
+                </InsertAction>
+                <InsertAction onClick={() => insert_input("image", "img")}>
+                  {" "}
+                  <AddIcon src={AddIconSVG} />
+                  Image
+                </InsertAction>
+              </InsertActionsContainer>
+            </ContentContainer>
+            <BottomContainer>
+              <ActionButtonContainer onClick={() => save_draft_to_firebase()}>
+                <ActionButton action={"Save Draft"} />
+              </ActionButtonContainer>
+              <ActionButtonContainer onClick={() => save_article_to_firebase()}>
+                <ActionButton action={"Publish"} />
+              </ActionButtonContainer>
+            </BottomContainer>
           </LeftContainer>
           <RightContainer>
             <AuthorContainer>
@@ -213,8 +247,24 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
               />
             </AuthorContainer>
             <TagsContainer>
-              {genres.map((tag) => {
-                return <TagInput placeholder="#genre" />;
+              {genres.map((tag, indx) => {
+                return (
+                  <TagInput
+                    value={tag}
+                    key={indx}
+                    placeholder="#genre"
+                    onChange={(e) => handle_tag_input(e.target.value, indx)}
+                    inputStyle={{
+                      fontSize: "0.85rem",
+                      background: "none",
+                      border: "none",
+                      color: "#ffffff",
+                      padding: "0rem 0rem 0rem 0rem",
+                      margin: "0rem 0rem 0rem 0rem",
+                      height: "1.65rem",
+                    }}
+                  />
+                );
               })}
               <InsertAction onClick={() => insert_tag()}>
                 <AddIcon src={AddIconSVG} />
@@ -223,14 +273,6 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
             </TagsContainer>
           </RightContainer>
         </TopContainer>
-        <BottomContainer>
-          <ActionButtonContainer onClick={() => save_draft_to_firebase()}>
-            <ActionButton action={"Save Draft"} />
-          </ActionButtonContainer>
-          <ActionButtonContainer onClick={() => save_article_to_firebase()}>
-            <ActionButton action={"Publish"} />
-          </ActionButtonContainer>
-        </BottomContainer>
       </Container>
     </>
   );

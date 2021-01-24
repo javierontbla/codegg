@@ -6,7 +6,7 @@ import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
 const { black, white, grey_2, background } = colors;
-const { open_sans, roboto } = fonts;
+const { open_sans } = fonts;
 
 export const Container = styled.div`
   width: 100%;
@@ -70,8 +70,8 @@ export const PagesContainer = styled.div`
 export const PageLink = styled.div`
   margin: 0rem 1rem 0rem 1rem;
   letter-spacing: 1px;
-  font-size: 0.95rem;
-  font-family: ${roboto};
+  font-size: 0.9rem;
+  font-family: ${open_sans};
   color: ${white};
   font-weight: 500;
 
@@ -126,8 +126,8 @@ export const Menu = styled.div`
 export const MenuOption = styled.div`
   width: 100%;
   height: fit-content;
-  font-size: 0.85rem;
-  font-family: ${roboto};
+  font-size: 0.9rem;
+  font-family: ${open_sans};
   color: ${white};
   font-weight: 500;
   padding: 0.75rem 0.75rem 0.75rem 0.75rem;

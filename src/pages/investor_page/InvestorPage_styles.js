@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey, black, white } = colors;
+const { grey_2, black, white } = colors;
 const { open_sans } = fonts;
 
 export const InvestorPageContainer = styled.div`
@@ -22,7 +22,7 @@ export const LeftContainer = styled.div`
   width: 24.5rem !important;
   height: fit-content;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0rem 1.5rem 0rem 0rem;
+  padding: 0rem 2rem 0rem 0rem;
 `;
 
 export const ProfileCardContainer = styled.div`
@@ -64,7 +64,7 @@ export const TradesContainer = styled.div`
 `;
 
 export const Division = styled.div`
-  border-top: 1px solid ${grey};
+  border-top: 1px solid ${grey_2};
   height: 0.75rem;
   width: calc(100%);
   margin: 0rem 0rem 0rem 0rem;

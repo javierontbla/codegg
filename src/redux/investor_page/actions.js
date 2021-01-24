@@ -47,3 +47,19 @@ export const request_investor_profile_failure_action = (error) => ({
   type: investor_page_types.REQUEST_INVESTOR_PROFILE_FAILURE,
   payload: error,
 });
+
+/* REQUEST USER ARTICLES ACTIONS */
+export const request_user_articles_start_action = (user_id) => ({
+  type: investor_page_types.REQUEST_USER_ARTICLES_START,
+  payload: user_id,
+});
+
+export const request_user_articles_success_action = (articles) => ({
+  type: investor_page_types.REQUEST_USER_ARTICLES_SUCCESS,
+  payload: articles,
+});
+
+export const request_user_articles_failure_action = (error) => ({
+  type: investor_page_types.REQUEST_USER_ARTICLES_FAILURE,
+  payload: error,
+});

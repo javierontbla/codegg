@@ -2,11 +2,14 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useRouteMatch, Redirect } from "react-router-dom";
 
+import Title from "../../../../components/title_component/Title";
 import {
   Container,
+  DraftsContainer,
   CreateButton,
   Icon,
   DraftCard,
+  DraftTitle,
   HyperLink,
 } from "./DraftsDashboard_styles";
 import {
@@ -50,22 +53,27 @@ const DraftsDashboard = ({
 
   return (
     <>
-      {draft_id ? <Redirect to={`${url}/${draft_id}`} /> : null}
+      {draft_id ? <Redirect to={`${url}/draft/${draft_id}`} /> : null}
       <Container>
-        <CreateButton onClick={() => create_draft_to_firebase()}>
-          <Icon src={AddIconSVG} />
-        </CreateButton>
-        {drafts.map((article_draft) => {
-          return (
-            <HyperLink to={`${url}/draft/${article_draft[1]}`}>
-              <DraftCard
-                data={article_draft[0]}
-                id={article_draft[1]}
-                key={article_draft[1]}
-              />
-            </HyperLink>
-          );
-        })}
+        <Title title="Drafts" />
+        <DraftsContainer>
+          <CreateButton onClick={() => create_draft_to_firebase()}>
+            <Icon src={AddIconSVG} />
+          </CreateButton>
+          {drafts.map((article_draft, indx) => {
+            return (
+              <HyperLink to={`${url}/draft/${article_draft[1]}`}>
+                <DraftCard id={article_draft[1]} key={article_draft[1]}>
+                  <DraftTitle>
+                    {article_draft[0].title.length > 0
+                      ? article_draft[0].title
+                      : `Untitled_${indx + 1}`}
+                  </DraftTitle>
+                </DraftCard>
+              </HyperLink>
+            );
+          })}
+        </DraftsContainer>
       </Container>
     </>
   );

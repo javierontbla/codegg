@@ -23,8 +23,8 @@ export const Container = styled.div`
 
 export const LeftContainer = styled.div`
   ${ContainerStyles};
-  margin: 0rem 1.5rem 0rem 0rem;
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  margin: 0rem 2rem 0rem 0rem;
+  padding: 2rem 2rem 2rem 2rem;
   width: calc(100% - 18.5rem);
 `;
 
@@ -38,9 +38,9 @@ export const TitleArticle = styled.div`
 
 export const Body = styled.div`
   font-size: 1rem;
-  line-height: 130%;
+  line-height: 120%;
   font-family: ${roboto};
-  margin: 2rem 0rem 0rem 0rem;
+  margin: 4rem 0rem 0rem 0rem;
 `;
 
 export const RightContainer = styled.div`
@@ -56,7 +56,7 @@ export const AuthorContainer = styled.div`
 export const ProfileBoxContainer = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 1.25rem 1.25rem 1.25rem 1.25rem;
 `;
 
 export const TrendsContainer = styled.div`
@@ -81,7 +81,7 @@ export const Votes = styled.div`
   width: fit-content;
   color: ${grey};
   font-size: 0.65rem;
-  margin: 0rem 0.25rem 0rem 0.4rem;
+  margin: 0rem 0.4rem 0rem 0.5rem;
   font-family: ${open_sans};
   font-weight: 500;
   letter-spacing: 0.25px;
@@ -89,11 +89,12 @@ export const Votes = styled.div`
 `;
 
 export const Description = styled.div`
-  font-size: 0.9rem;
-  line-height: 130%;
+  font-size: 1rem;
+  line-height: 120%;
   font-family: ${roboto};
-  padding: 0rem 1rem 1.25rem 1rem;
+  padding: 0rem 1.25rem 1.5rem 1.25rem;
   color: ${white};
+  text-align: left;
 `;
 
 export const CategoriesContainer = styled.div`
@@ -102,5 +103,5 @@ export const CategoriesContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  padding: 0.5rem 0rem 0.5rem 1rem;
 `;

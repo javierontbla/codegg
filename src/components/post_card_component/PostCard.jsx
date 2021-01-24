@@ -56,11 +56,11 @@ const PostCard = ({
       <Container>
         <PostContainer>
           <TopContainer>
-            <LinkContainer to={`/investors/${data.user_id}`}>
+            <LinkContainer to={`/users/${data.user_id}`}>
               <ProfileImage profile_image_url={data.profile_image} />
             </LinkContainer>
             <UserDataContainer>
-              <LinkContainer to={`/investors/${data.user_id}`}>
+              <LinkContainer to={`/users/${data.user_id}`}>
                 <NamesContainer>
                   <Name>{data.user.toLowerCase()}</Name>
                 </NamesContainer>

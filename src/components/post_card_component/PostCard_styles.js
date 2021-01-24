@@ -26,23 +26,9 @@ export const TopContainer = styled.div`
   flex-direction: row;
   height: fit-content;
   align-items: center;
-  padding: 0.85rem 0rem 0.85rem 1rem;
+  padding: 0.85rem 0rem 0rem 1rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-`;
-
-export const PremiumContainer = styled.div`
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: fit-content;
-  width: fit-content;
-  background: transparent;
-  margin: 0.85rem 0.75rem 0rem 0rem;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 export const ProfileImage = styled.div`
@@ -66,7 +52,7 @@ export const NamesContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  margin: 0rem 0rem 0.175rem 0rem;
+  margin: 0rem 0rem 0.2rem 0rem;
 
   &:hover {
     cursor: pointer;
@@ -99,8 +85,8 @@ export const Description = styled.div`
   line-height: 118%;
   font-size: 1rem;
   font-family: ${roboto};
-  padding: 0rem 0.9rem 0rem 0.9rem;
-  margin: 0.4rem 0rem 1.25rem 0rem;
+  padding: 0rem 1rem 0rem 1rem;
+  margin: 1rem 0rem 1.25rem 0rem;
   color: ${white};
 `;
 

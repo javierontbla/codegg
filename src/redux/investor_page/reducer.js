@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   loading_investor: false,
   trades: [],
   posts: [],
+  articles: [],
   investor: [],
   error_trades: null,
   error_posts: null,
@@ -84,6 +85,11 @@ export const investor_page_reducer = (state = INITIAL_STATE, action) => {
         error_investor: action.payload,
       };
 
+    case investor_page_types.REQUEST_USER_ARTICLES_SUCCESS:
+      return {
+        ...state,
+        articles: action.payload,
+      };
     default:
       return state;
   }

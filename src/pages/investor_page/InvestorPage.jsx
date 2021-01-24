@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
-import ActionButton from "../../components/action_button_component/ActionButton";
 import Portfolio from "./components/portfolio_component/Portfolio";
 import ProfileCard from "./components/profile_card_component/ProfileCard";
 import TradeCard from "../../components/trade_card_component/TradeCard";
@@ -11,7 +10,6 @@ import {
   InvestorPageContainer,
   LeftContainer,
   ProfileCardContainer,
-  ActionButtonContainer,
   RightContainer,
   TopContainer,
   TradesContainer,
@@ -24,29 +22,32 @@ import {
   request_investor_profile_start_action,
   request_trades_start_action,
   request_posts_start_action,
+  request_user_articles_start_action,
 } from "../../redux/investor_page/actions";
 
 const InvestorPage = ({
   match: {
-    params: { investor_id },
+    params: { user_id },
   },
   request_investor_profile,
   request_trades,
   request_posts,
+  request_articles,
   investor,
   trades,
   posts,
+  articles,
 }) => {
   const [display_portfolio, set_display_portfolio] = useState(false);
 
   useEffect(() => {
-    request_trades(investor_id);
-    request_posts(investor_id);
-    request_investor_profile(investor_id);
+    request_trades(user_id);
+    request_posts(user_id);
+    request_articles({ user_id });
+    request_investor_profile(user_id);
   }, []);
 
   const handle_display_portfolio = (display) => {
-    console.log("running");
     set_display_portfolio(display);
   };
 
@@ -66,9 +67,6 @@ const InvestorPage = ({
           />
         ) : null}
         <RightContainer display_portfolio={display_portfolio}>
-          <ActionButtonContainer onClick={() => handle_display_portfolio(true)}>
-            <ActionButton action={"Watch Portfolio"} />
-          </ActionButtonContainer>
           <TopContainer>
             <TradesContainer>
               {trades.map((trade_card) => {
@@ -90,7 +88,7 @@ const InvestorPage = ({
               })}
             </PostsContainer>
             <ArticlesContainer>
-              {[1, 2, 3, 4, 5, 6].map((article_preview_title) => {
+              {articles.map((article_preview_title) => {
                 return <ArticlePreviewTitle />;
               })}
             </ArticlesContainer>
@@ -103,11 +101,12 @@ const InvestorPage = ({
 
 // redux
 const mapStateToProps = ({
-  investor_page_reducer: { investor, trades, posts },
+  investor_page_reducer: { investor, trades, posts, articles },
 }) => ({
   investor,
   trades,
   posts,
+  articles,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -115,6 +114,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(request_investor_profile_start_action(user_id)),
   request_trades: (user_id) => dispatch(request_trades_start_action(user_id)),
   request_posts: (user_id) => dispatch(request_posts_start_action(user_id)),
+  request_articles: (user_id) =>
+    dispatch(request_user_articles_start_action(user_id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InvestorPage);

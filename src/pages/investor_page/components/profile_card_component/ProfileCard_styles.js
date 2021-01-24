@@ -9,10 +9,8 @@ const { source_sans_pro, open_sans, roboto } = fonts;
 export const ProfileCardContainer = styled.div`
   width: 100%;
   height: fit-content;
-  border: 1px solid ${grey};
-  border-radius: 0.15rem;
-  background: ${white};
-  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
+  border-radius: 15px;
+  background: ${black};
 `;
 
 export const TopContainer = styled.div`
@@ -26,8 +24,8 @@ export const CoverImage = styled.div`
   background-position: center;
   background-image: url(${(props) => props.cover_image});
   background-repeat: no-repeat;
-  border-top-left-radius: 0.1rem;
-  border-top-right-radius: 0.1rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 `;
 
 export const ProfileImage = styled.div`
@@ -35,8 +33,8 @@ export const ProfileImage = styled.div`
   width: 8.75rem;
   height: 8.75rem;
   border-radius: 50%;
-  border: 2.5px solid ${white};
-  margin: -6.5rem 0rem 1rem 1rem;
+  border: 2.5px solid ${black};
+  margin: -6.5rem 0rem 0rem 1rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.profile_image});
@@ -55,7 +53,7 @@ export const User = styled.div`
   align-items: center;
   font-family: ${source_sans_pro};
   font-size: 1.9rem;
-  color: ${black};
+  color: ${white};
   padding: 0rem 0rem 0rem 0rem;
   line-height: 100%;
   margin: 0rem 0rem 0.25rem 0rem;
@@ -68,29 +66,29 @@ export const Username = styled.div`
   font-size: 0.8rem;
   color: ${grey};
   font-weight: 500;
-  margin: 0rem 0rem 1rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
   line-height: 100%;
   letter-spacing: 1px;
 `;
 
 export const MiddleContainer = styled.div`
   height: fit-content;
-  padding: 0rem 0.75rem 0rem 0.75rem;
+  padding: 1.5rem 1rem 1.5rem 1rem;
 `;
 
 export const Description = styled.div`
   font-size: ${roboto};
   font-size: 0.9rem;
-  color: ${black};
-  line-height: 130%;
-  margin: 0rem 0rem 1.25rem 0rem;
+  color: ${white};
+  line-height: 120%;
+  margin: 1.5rem 0rem 1.5rem 0rem;
 `;
 
 export const CategoriesContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 0rem 0rem 0rem 0rem;
-  margin: 0rem 0rem 1.5rem -0.25rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const BottomContainer = styled.div`
@@ -99,8 +97,8 @@ export const BottomContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   height: fit-content;
-  padding: 0.6rem 0.75rem 0.6rem 0.75rem;
-  border-top: 0.5px solid ${grey};
+  padding: 0.65rem 1rem 0.65rem 1rem;
+  border-top: 0.5px solid ${grey_2};
 `;
 
 export const Subscribers = styled.div`
@@ -108,16 +106,13 @@ export const Subscribers = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-family: ${roboto};
   font-weight: 500;
-  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
-  letter-spacing: 0.75px;
+  letter-spacing: 0.5px;
   margin: 0rem 0rem 0rem 0rem;
   height: fit-content;
   width: fit-content;
-  border-radius: 0.15rem;
   line-height: 100%;
-  background: ${grey_2};
-  color: ${black};
+  color: ${grey};
 `;

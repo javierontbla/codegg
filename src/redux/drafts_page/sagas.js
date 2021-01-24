@@ -60,27 +60,42 @@ function* save_draft_async(action) {
 }
 
 function* save_article_async(action) {
-  const { title, article } = action.payload;
+  const { user, user_id, title, description, content, genres } = action.payload;
   const articles_ref = db.collection(`articles`);
 
-  const content = yield article.reduce((accum, current) => {
-    const { html_type, content } = current;
-    return accum + `<${html_type}>${content}</${html_type}>`;
+  const reduced_content = yield content.reduce((accum, current) => {
+    const { html_type, text } = current;
+
+    if (html_type === "img") {
+      return accum + `<${html_type} src=${text} />`;
+    } else {
+      return accum + `<${html_type}>${text}</${html_type}>`;
+    }
   }, "");
 
+  const title_link = title
+    .toLowerCase()
+    .replace(/[^A-Za-z0-9\s]/g, "")
+    .trim()
+    .replace(/ /g, "-");
+
   try {
-    const response = articles_ref.add({
+    const response = yield articles_ref.add({
       article_image:
         "https://images.unsplash.com/photo-1610620746532-17022962989c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      categories: ["stocks"],
-      content,
+      categories: genres,
       date: new Date(),
       description: "this is a description",
       profile_image:
         "https://images.unsplash.com/photo-1588731247530-4076fc99173e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
       title,
-      title_link: "brand new company at highest",
-      user: "Marshall Mathers",
+      title_link,
+      user,
+      user_id,
+      description,
+      content: reduced_content,
+      up_trends: 0,
+      down_trends: 0,
     });
   } catch (error) {}
 }

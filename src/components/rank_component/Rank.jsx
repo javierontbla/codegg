@@ -6,7 +6,7 @@ const Rank = ({ badge, rank, top }) => {
   return (
     <>
       <RankContainer rank={rank} top={top}>
-        {badge.toLowerCase()}
+        #{badge.toLowerCase()}
       </RankContainer>
     </>
   );

@@ -11,7 +11,7 @@ const InvestorsPage = ({ match }) => {
       <Container className="container">
         <Switch>
           <Route exact path={`${match.path}`} component={InvestorsCollection} />
-          <Route path={`${match.path}/:investor_id`} component={InvestorPage} />
+          <Route path={`${match.path}/:user_id`} component={InvestorPage} />
         </Switch>
       </Container>
     </>

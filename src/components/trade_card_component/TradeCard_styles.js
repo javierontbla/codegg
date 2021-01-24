@@ -78,7 +78,7 @@ export const MiddleContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: fit-content;
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 1rem 1rem 1.25rem 1rem;
   line-height: 100%;
 `;
 

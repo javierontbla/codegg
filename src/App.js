@@ -53,7 +53,7 @@ const App = ({ log_in_active_user, log_out_active_user }) => {
             <Route path="/articles">
               <ArticlesPage />
             </Route>
-            <Route path="/investors" component={InvestorsPage} />
+            <Route path="/users" component={InvestorsPage} />
             <Route path="/contact" component={ContactPage} />
             <Route path="/privacy" component={PrivacyPage} />
             <Route path="/terms" component={TermsConditionsPage} />

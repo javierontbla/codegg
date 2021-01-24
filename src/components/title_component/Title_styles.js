@@ -15,7 +15,7 @@ export const TitleContainer = styled.div`
   background: transparent;
   border-bottom: 0.5px solid ${grey_2};
   font-family: ${source_sans_pro};
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   letter-spacing: 1px;
   padding: 0rem 0rem 0.45rem 0rem;
   line-height: 100%;

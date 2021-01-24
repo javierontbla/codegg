@@ -1,10 +1,12 @@
 import styled, { css } from "styled-components";
+import TextareaAutosize from "react-textarea-autosize";
+import AutosizeInput from "react-input-autosize";
 
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
 const { grey, black, grey_2, white } = colors;
-const { source_sans_pro, roboto, open_sans } = fonts;
+const { montserrat, roboto, open_sans } = fonts;
 
 const InputStyles = css`
   width: 100%;
@@ -14,6 +16,10 @@ const InputStyles = css`
   padding: 0.5rem 0rem 0.2rem 0rem;
   color: ${white};
   resize: none;
+
+  &:focus {
+    outline: none !important;
+  }
 `;
 
 export const Container = styled.div`
@@ -33,7 +39,10 @@ export const LeftContainer = styled.div`
   width: calc(100% - 18.5rem);
   margin: 0rem 2rem 0rem 0rem;
   height: fit-content;
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+`;
+
+export const ContentContainer = styled.div`
+  padding: 2rem 2rem 2rem 2rem;
   background: ${black};
   border-radius: 15px;
 `;
@@ -42,17 +51,19 @@ export const TitleInput = styled.input`
   width: 100%;
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0rem 0.35rem 0rem;
-  font-size: 2.2rem;
+  font-size: 2.35rem;
   border: none;
   border-bottom: 0.5px solid ${grey_2};
-  font-family: ${source_sans_pro};
+  font-family: ${montserrat};
   background: transparent;
   color: ${white};
 
   &&& {
     ::placeholder {
       font-size: 2.2rem;
-      font-family: ${source_sans_pro};
+      font-family: ${montserrat};
+      color: ${grey};
+      opacity: 0.9;
     }
   }
 
@@ -67,24 +78,22 @@ export const InputOverlay = styled.div`
   padding: 0rem 0rem 0rem 0rem;
 `;
 
-export const HeaderInput = styled.input`
+export const HeaderInput = styled(TextareaAutosize)`
   ${InputStyles};
   font-size: 1.5rem;
-  font-family: ${source_sans_pro};
+  font-family: ${montserrat};
 
   &&& {
     ::placeholder {
       font-size: 1.5rem;
-      font-family: ${source_sans_pro};
+      font-family: ${montserrat};
+      color: ${grey};
+      opacity: 0.9;
     }
-  }
-
-  &:focus {
-    outline: none !important;
   }
 `;
 
-export const BodyInput = styled.textarea`
+export const BodyInput = styled(TextareaAutosize)`
   ${InputStyles};
   font-size: 1rem;
   font-family: ${roboto};
@@ -93,11 +102,9 @@ export const BodyInput = styled.textarea`
     ::placeholder {
       font-size: 1rem;
       font-family: ${roboto};
+      color: ${grey};
+      opacity: 0.9;
     }
-  }
-
-  &:focus {
-    outline: none !important;
   }
 `;
 
@@ -110,13 +117,11 @@ export const ImageInput = styled.input`
 
   &&& {
     ::placeholder {
-      font-size: 1rem;
-      font-family: ${roboto};
+      font-size: 0.8rem;
+      font-family: ${open_sans};
+      color: ${grey};
+      opacity: 0.9;
     }
-  }
-
-  &:focus {
-    outline: none !important;
   }
 `;
 
@@ -129,13 +134,12 @@ export const RemoveButton = styled.div`
   right: 0;
   bottom: 100%;
   margin: 0rem 0rem 0rem 0rem;
-  color: ${black};
-  background: ${grey};
-  font-family: ${roboto};
+  color: ${grey};
+  font-family: ${open_sans};
   font-weight: 500;
-  font-size: 0.65rem;
-  padding: 0.15rem 0.35rem 0.15rem 0.35rem;
-  border-radius: 20px;
+  font-size: 0.75rem;
+  padding: 0rem 0rem 0rem 0rem;
+  border-bottom: 0.25px solid ${grey};
 
   &:hover {
     cursor: pointer;
@@ -154,24 +158,21 @@ export const AuthorContainer = styled.div`
   border-radius: 15px;
 `;
 
-export const DescriptionInput = styled.textarea`
-  width: 100%;
+export const DescriptionInput = styled(TextareaAutosize)`
+  ${InputStyles};
   font-size: 1rem;
   font-family: ${roboto};
-  border: none;
-  resize: none;
-  margin: 1rem 0rem 0rem 0rem;
-  background: transparent;
+  margin: 1.25rem 0rem 0rem 0rem;
+  border-bottom: none;
+  padding: 0rem 0rem 0rem 0rem;
 
   &&& {
     ::placeholder {
       font-size: 1rem;
       font-family: ${roboto};
+      color: ${grey};
+      opacity: 0.9;
     }
-  }
-
-  &:focus {
-    outline: none !important;
   }
 `;
 
@@ -180,20 +181,19 @@ export const TagsContainer = styled.div`
   flex-wrap: wrap;
   height: fit-content;
   background: ${black};
-  padding: 1rem 0rem 1rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
   border-radius: 15px;
 `;
 
-export const TagInput = styled.input`
-  max-width: 5em;
+export const TagInput = styled(AutosizeInput)`
   height: 1.65rem;
-  background: ${grey};
-  border-radius: 0.15rem;
   font-family: ${open_sans};
   font-size: 0.85rem;
+  margin: 1rem 0rem 0rem 1rem;
+  padding: 0rem 0rem 0rem 0rem;
   border: none;
-  margin: 0rem 0rem 1rem 1rem;
-  padding: 0rem 0.55rem 0rem 0.55rem;
+  background: none;
+  color: ${white};
 
   &&& {
     ::placeholder {
@@ -203,10 +203,6 @@ export const TagInput = styled.input`
       opacity: 0.6;
     }
   }
-
-  &:focus {
-    outline: none !important;
-  }
 `;
 
 export const InsertActionsContainer = styled.div`
@@ -215,7 +211,7 @@ export const InsertActionsContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: fit-content;
-  margin: 3rem 0rem 1.5rem 0rem;
+  margin: 2rem 0rem 0rem 0rem;
 `;
 
 export const InsertAction = styled.div`
@@ -225,7 +221,7 @@ export const InsertAction = styled.div`
   width: fit-content;
   font-size: 0.8rem;
   border: none;
-  margin: 0rem 1rem 0rem 1rem;
+  margin: 1rem 1rem 1rem 1rem;
   padding: 0rem 0.55rem 0rem 0.55rem;
   height: 1.65rem;
   background: ${grey};
@@ -253,5 +249,5 @@ export const BottomContainer = styled.div`
 export const ActionButtonContainer = styled.div`
   width: fit-content;
   height: fit-content;
-  margin: 0rem 0.5rem 0rem 0rem;
+  margin: 0rem 1rem 0rem 0rem;
 `;

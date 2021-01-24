@@ -27,6 +27,7 @@ import {
   request_investor_profile_saga,
   request_investor_trades_saga,
   request_investor_posts_saga,
+  request_user_articles_saga,
 } from "./investor_page/sagas";
 import {
   save_draft_saga,
@@ -57,6 +58,7 @@ export function* root_saga() {
     call(request_investor_profile_saga),
     call(request_investor_trades_saga),
     call(request_investor_posts_saga),
+    call(request_user_articles_saga),
     call(save_draft_saga),
     call(save_article_saga),
     call(create_draft_saga),

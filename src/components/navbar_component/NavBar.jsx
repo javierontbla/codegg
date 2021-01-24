@@ -53,6 +53,9 @@ const NavBar = ({ user_firebase }) => {
             <LinkContainer to="/articles">
               <PageLink>Read</PageLink>
             </LinkContainer>
+            <LinkContainer to="/articles">
+              <PageLink>FAQ</PageLink>
+            </LinkContainer>
           </PagesContainer>
           <UserContainer>
             {user_firebase ? (
