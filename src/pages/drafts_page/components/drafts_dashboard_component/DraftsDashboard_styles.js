@@ -21,10 +21,11 @@ export const Title = styled.div`
   margin: 0rem 0rem 0.75rem 0rem;
   border-bottom: 0.5px solid ${grey_2};
 `;
+
 export const DraftsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 2rem;
+  column-gap: 1.5rem;
   row-gap: 1.5rem;
   width: 100%;
   height: fit-content;

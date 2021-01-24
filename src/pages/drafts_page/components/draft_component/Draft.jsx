@@ -10,20 +10,24 @@ import {
   LeftContainer,
   RightContainer,
   TitleInput,
-  InsertAction,
+  InsertButton,
   BottomContainer,
   ActionButtonContainer,
   AuthorContainer,
   TagsContainer,
   AddIcon,
+  DeleteIcon,
+  TagInputContainer,
   TagInput,
+  InsertTagButton,
   DescriptionInput,
   InputOverlay,
-  RemoveButton,
+  DeleteContainer,
+  DeleteButton,
   HeaderInput,
   BodyInput,
   ImageInput,
-  InsertActionsContainer,
+  InsertButtonsContainer,
   ContentContainer,
 } from "./Draft_styles";
 import {
@@ -31,6 +35,7 @@ import {
   upload_article_start_action,
 } from "../../../../redux/drafts_page/actions";
 import AddIconSVG from "./media/add_button.svg";
+import DeleteIconSVG from "./media/delete_button.svg";
 
 const Draft = ({ data, user_firebase, save_draft, save_article }) => {
   const {
@@ -91,8 +96,12 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
     set_genres((prev_state) => ["", ...prev_state]);
   };
 
+  const remove_tag = (value) => {
+    set_genres((prev_state) => prev_state.filter((tag) => tag !== value));
+  };
+
   const save_draft_to_firebase = () => {
-    const { user_id } = user_firebase.user_data;
+    const { user_id, profile_image } = user_firebase.user_data;
     save_draft({
       user_id,
       draft_id,
@@ -101,6 +110,7 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
         description,
         genres,
         content,
+        profile_image,
       },
     });
   };
@@ -133,15 +143,16 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
                   case "header":
                     return (
                       <InputOverlay>
-                        <RemoveButton
+                        <DeleteContainer
                           onClick={() => remove_input(content_block.id)}
                         >
-                          Remove
-                        </RemoveButton>
+                          <DeleteIcon src={DeleteIconSVG} tag={"true"} />
+                          <DeleteButton>Remove</DeleteButton>
+                        </DeleteContainer>
                         <HeaderInput
                           minRows="1"
                           value={content_block.text}
-                          placeholder="Header"
+                          placeholder="Write a header"
                           key={content_block.id}
                           onChange={(e) =>
                             handle_content_input(
@@ -156,15 +167,16 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
                   case "body":
                     return (
                       <InputOverlay>
-                        <RemoveButton
+                        <DeleteContainer
                           onClick={() => remove_input(content_block.id)}
                         >
-                          Remove
-                        </RemoveButton>
+                          <DeleteIcon src={DeleteIconSVG} tag={"true"} />
+                          <DeleteButton>Remove</DeleteButton>
+                        </DeleteContainer>
                         <BodyInput
                           minRows="1"
                           value={content_block.text}
-                          placeholder="Paragraph"
+                          placeholder="Write a paragraph"
                           key={content_block.id}
                           onChange={(e) =>
                             handle_content_input(
@@ -179,15 +191,16 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
                   case "image":
                     return (
                       <InputOverlay>
-                        <RemoveButton
+                        <DeleteContainer
                           onClick={() => remove_input(content_block.id)}
                         >
-                          Remove
-                        </RemoveButton>
+                          <DeleteIcon src={DeleteIconSVG} tag={"true"} />
+                          <DeleteButton>Remove</DeleteButton>
+                        </DeleteContainer>
                         <ImageInput
                           rows="1"
                           value={content_block.text}
-                          placeholder="Link - (Unsplash, etc.)"
+                          placeholder="Insert a Link (Unsplash, Pexels, etc...)"
                           key={content_block.id}
                           onChange={(e) =>
                             handle_content_input(
@@ -203,21 +216,21 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
                     return;
                 }
               })}
-              <InsertActionsContainer>
-                <InsertAction onClick={() => insert_input("header", "h1")}>
+              <InsertButtonsContainer>
+                <InsertButton onClick={() => insert_input("header", "h1")}>
                   <AddIcon src={AddIconSVG} />
                   Header
-                </InsertAction>
-                <InsertAction onClick={() => insert_input("body", "p")}>
+                </InsertButton>
+                <InsertButton onClick={() => insert_input("body", "p")}>
                   <AddIcon src={AddIconSVG} />
                   Body
-                </InsertAction>
-                <InsertAction onClick={() => insert_input("image", "img")}>
+                </InsertButton>
+                <InsertButton onClick={() => insert_input("image", "img")}>
                   {" "}
                   <AddIcon src={AddIconSVG} />
                   Image
-                </InsertAction>
-              </InsertActionsContainer>
+                </InsertButton>
+              </InsertButtonsContainer>
             </ContentContainer>
             <BottomContainer>
               <ActionButtonContainer onClick={() => save_draft_to_firebase()}>
@@ -249,27 +262,33 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
             <TagsContainer>
               {genres.map((tag, indx) => {
                 return (
-                  <TagInput
-                    value={tag}
-                    key={indx}
-                    placeholder="#genre"
-                    onChange={(e) => handle_tag_input(e.target.value, indx)}
-                    inputStyle={{
-                      fontSize: "0.85rem",
-                      background: "none",
-                      border: "none",
-                      color: "#ffffff",
-                      padding: "0rem 0rem 0rem 0rem",
-                      margin: "0rem 0rem 0rem 0rem",
-                      height: "1.65rem",
-                    }}
-                  />
+                  <TagInputContainer>
+                    <DeleteIcon
+                      src={DeleteIconSVG}
+                      tag={"true"}
+                      onClick={() => remove_tag(tag)}
+                    />
+                    <TagInput
+                      value={tag}
+                      key={indx}
+                      placeholder="#genre"
+                      onChange={(e) => handle_tag_input(e.target.value, indx)}
+                      inputStyle={{
+                        fontSize: "0.85rem",
+                        background: "none",
+                        border: "none",
+                        color: "#ced4da",
+                        padding: "0rem 0rem 0rem 0rem",
+                        margin: "0rem 0rem 0rem 0rem",
+                      }}
+                    />
+                  </TagInputContainer>
                 );
               })}
-              <InsertAction onClick={() => insert_tag()}>
+              <InsertTagButton onClick={() => insert_tag()}>
                 <AddIcon src={AddIconSVG} />
                 Tag
-              </InsertAction>
+              </InsertTagButton>
             </TagsContainer>
           </RightContainer>
         </TopContainer>

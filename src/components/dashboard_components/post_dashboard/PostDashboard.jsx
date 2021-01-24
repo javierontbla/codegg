@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import ActionButton from "../../action_button_component/ActionButton";
 import {
   PostDashboardContainer,
-  TextInputContainer,
+  TextInput,
   ButtonsContainer,
   LeftContainer,
   ImageContainer,
@@ -17,21 +17,11 @@ import {
 } from "./PostDashboard_styles";
 import Image from "./media/image_button.svg";
 import ImageActive from "./media/image_active.svg";
-import DropDownSVG from "./media/dropdown_button.svg";
 import { create_post_card_start_action } from "../../../redux/dashboards/actions";
 
 const PostDashboard = ({ create_post_card, posts, active_user_database }) => {
-  const [rows, set_rows] = useState(1);
-
   const [description, set_description] = useState("");
   const [image, set_image] = useState(null);
-
-  const [publish_mode, set_publish_mode] = useState("Public");
-  const [dropdown_active, set_dropdown_active] = useState(false);
-
-  const handle_input_rows = (rows) => {
-    set_rows(rows);
-  };
 
   const handle_input_description = (text) => {
     set_description(text);
@@ -44,15 +34,6 @@ const PostDashboard = ({ create_post_card, posts, active_user_database }) => {
     if (image_type !== "image") return; // check if file is an image
 
     set_image(image[0]);
-  };
-
-  const handle_publish_mode = (mode) => {
-    set_publish_mode(mode);
-    set_dropdown_active(false);
-  };
-
-  const handle_dropdown = () => {
-    set_dropdown_active((prev_state) => !prev_state);
   };
 
   const upload_post_card_to_firebase = () => {
@@ -70,7 +51,6 @@ const PostDashboard = ({ create_post_card, posts, active_user_database }) => {
         username,
         user_id,
         profile_image,
-        premium: publish_mode === "Premium" ? true : false,
         description,
         image,
       },
@@ -80,17 +60,14 @@ const PostDashboard = ({ create_post_card, posts, active_user_database }) => {
     // clearing fields
     set_description("");
     set_image(null);
-    set_publish_mode("Public");
   };
 
   return (
     <>
       <PostDashboardContainer>
-        <TextInputContainer
-          placeholder="What do you want to share?"
-          onFocus={() => handle_input_rows(3)}
-          onBlur={() => handle_input_rows(1)}
-          rows={rows}
+        <TextInput
+          placeholder="Share anything you want!"
+          minRows="1"
           value={description}
           onChange={(e) => handle_input_description(e.target.value)}
         />
@@ -110,7 +87,9 @@ const PostDashboard = ({ create_post_card, posts, active_user_database }) => {
             </ImageActiveContainer>
           </LeftContainer>
           <RightContainer>
-            <ActionButtonContainer>
+            <ActionButtonContainer
+              onClick={() => upload_post_card_to_firebase()}
+            >
               <ActionButton action={"Publish"} />
             </ActionButtonContainer>
           </RightContainer>

@@ -100,7 +100,7 @@ const TradeDashboard = ({
             <SymbolInput
               placeholder="Artist"
               type="text"
-              maxLength="9"
+              maxLength="20"
               value={symbol}
               onChange={(e) =>
                 handle_trade_card_fields(set_symbol, e.target.value)
@@ -113,7 +113,7 @@ const TradeDashboard = ({
               {active_dashboard ? (
                 <CloseIcon src={CloseIconSVG} />
               ) : (
-                <ActionButton action={"Publish"} />
+                <ActionButton action={"Open"} />
               )}
             </ActionButtonContainer>
           </PreviewContainer>

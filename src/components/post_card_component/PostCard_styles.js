@@ -162,27 +162,23 @@ export const CommentsContainer = styled.div`
 
 export const LoadMoreComments = styled.div`
   display: ${(props) => (props.display_comments ? "flex" : "none")};
-  border: 1px solid ${grey};
-  background: ${white};
-  box-shadow: 0px 1.5px 1.5px -1px #ced4da;
+  background: ${black};
   align-items: center;
   justify-content: center;
   line-height: 100%;
-  height: 1.55rem;
+  height: 1.65rem;
   width: 100%;
   margin: -0.5rem 0rem 0.75rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
-  border-radius: 0.5rem;
+  border-radius: 15px;
   font-family: ${open_sans};
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.5px;
-  transition: box-shadow 0.2s;
-  color: ${black};
+  color: ${white};
 
   &:hover {
     cursor: pointer;
-    box-shadow: 0px 2px 2px -1px #ced4da;
   }
 `;
 

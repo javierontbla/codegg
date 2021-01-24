@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import TextareaAutosize from "react-textarea-autosize";
 
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
@@ -18,14 +19,14 @@ export const PostDashboardContainer = styled.div`
   border-radius: 15px;
 `;
 
-export const TextInputContainer = styled.textarea`
+export const TextInput = styled(TextareaAutosize)`
   display: flex;
   align-items: center;
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   color: ${black};
   width: 100%;
   border: 0.5px solid ${grey};
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: ${roboto};
   font-size: 0.9rem;
   resize: none !important;

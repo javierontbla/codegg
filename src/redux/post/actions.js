@@ -36,3 +36,19 @@ export const send_new_comment_failure_action = (error) => ({
 export const close_comments_section_action = () => ({
   type: post_types.CLOSE_COMMENTS_SECTION,
 });
+
+/* UPVOTE AND DOWNVOTE ACTIONS */
+export const upvote_post_start_action = (obj) => ({
+  type: post_types.UPVOTE_POST_START,
+  payload: obj,
+});
+
+export const upvote_post_success_action = (votes) => ({
+  type: post_types.UPVOTE_POST_SUCCESS,
+  payload: votes,
+});
+
+export const upvote_post_failure_action = (error) => ({
+  type: post_types.UPVOTE_POST_FAILURE,
+  payload: error,
+});

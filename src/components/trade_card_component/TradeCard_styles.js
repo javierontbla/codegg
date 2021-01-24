@@ -12,17 +12,15 @@ const InformationStyles = css`
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
-  font-family: ${roboto};
+  font-family: ${open_sans};
   font-weight: 500;
-  padding: 0.3rem 0.5rem 0.25rem 0.5rem;
+  padding: 0rem 0rem 0rem 0rem;
   letter-spacing: 0.75px;
-  margin: 0rem 0rem 0rem 0.25rem;
+  margin: 0rem 0.5rem 0rem 0rem;
   height: fit-content;
   width: fit-content;
-  border-radius: 30px;
   line-height: 100%;
-  background: #085bb5;
-  color: ${white};
+  color: ${blue};
 
   &:hover {
     cursor: auto;
@@ -58,18 +56,17 @@ export const Name = styled.div`
   padding: 0rem 0rem 0rem 0rem;
 `;
 
-export const InformationContainer = styled.div`
+export const TagsContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  flex-wrap: nowrap;
-  margin: 0.5rem 0rem 0rem -0.25rem;
+  flex-wrap: wrap;
+  margin: 0.35rem 0rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
 `;
 
 export const Tag = styled.div`
   ${InformationStyles};
-  border: none;
 `;
 
 export const MiddleContainer = styled.div`
@@ -148,7 +145,7 @@ export const Votes = styled.div`
 `;
 
 export const Username = styled.div`
-  font-family: ${roboto};
+  font-family: ${open_sans};
   color: ${grey};
   font-size: 0.7rem;
   font-weight: 500;

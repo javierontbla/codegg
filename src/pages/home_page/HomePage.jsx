@@ -40,7 +40,7 @@ const HomePage = ({
   article_previews,
 }) => {
   useEffect(() => {
-    document.title = `Codegg - The Right Place for Investors`;
+    document.title = `Codegg - Where Music Lives`;
     if (latest_trades.length === 0) request_latest_trades();
     if (posts.length === 0) request_posts();
     if (article_previews.length === 0) request_article_previews();

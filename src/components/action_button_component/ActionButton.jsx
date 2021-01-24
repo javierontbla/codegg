@@ -5,7 +5,9 @@ import { ActionButtonContainer } from "./ActionButton_styles";
 const ActionButton = ({ action, navbar }) => {
   return (
     <>
-      <ActionButtonContainer navbar={navbar}>{action}</ActionButtonContainer>
+      <ActionButtonContainer action={action} navbar={navbar}>
+        {action}
+      </ActionButtonContainer>
     </>
   );
 };

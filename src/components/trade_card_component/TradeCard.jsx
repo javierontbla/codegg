@@ -5,7 +5,7 @@ import {
   Container,
   TopContainer,
   Name,
-  InformationContainer,
+  TagsContainer,
   Tag,
   MiddleContainer,
   Description,
@@ -26,11 +26,11 @@ const TradeCard = ({ home_page, data }) => {
       <Container home_page={home_page}>
         <TopContainer>
           <Name>{data.symbol.toUpperCase()}</Name>
-          <InformationContainer>
+          <TagsContainer>
             <Tag action={data.action.toLowerCase()}>
               #{data.action.toLowerCase()}
             </Tag>
-          </InformationContainer>
+          </TagsContainer>
         </TopContainer>
         <MiddleContainer>
           <ArtistImage

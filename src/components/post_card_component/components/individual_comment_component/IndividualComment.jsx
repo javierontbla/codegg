@@ -3,14 +3,14 @@ import moment from "moment";
 
 import {
   IndividualCommentContainer,
-  ProfileImageContainer,
+  TopContainer,
   ProfileImage,
   UserContainer,
   User,
   Date,
-  ContentContainer,
+  CommentContainer,
   Comment,
-  TrendsContainer,
+  Trends,
   TrendIcon,
   Votes,
 } from "./IndividualComment_styles";
@@ -21,21 +21,21 @@ const IndividualComment = ({ data }) => {
   return (
     <>
       <IndividualCommentContainer>
-        <ProfileImageContainer>
+        <TopContainer>
           <ProfileImage profile_image_url={data.profile_image} />
-        </ProfileImageContainer>
-        <ContentContainer>
           <UserContainer>
             <User>{data.user}</User>
             <Date>{moment(data.date.toDate()).startOf("hour").fromNow()}</Date>
           </UserContainer>
+        </TopContainer>
+        <CommentContainer>
           <Comment>{data.comment}</Comment>
-          <TrendsContainer>
+          <Trends>
             <TrendIcon src={UpIcon} />
             <Votes>{data.up_trends - data.down_trends}</Votes>
             <TrendIcon src={DownIcon} />
-          </TrendsContainer>
-        </ContentContainer>
+          </Trends>
+        </CommentContainer>
       </IndividualCommentContainer>
     </>
   );

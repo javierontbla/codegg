@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
-const { source_sans_pro, open_sans, roboto } = fonts;
-const { grey, black } = colors;
+const { montserrat, open_sans, roboto } = fonts;
+const { grey, black, white, grey_2 } = colors;
 
 const IconStyles = css`
   width: 1.35rem;
@@ -18,16 +18,20 @@ const IconStyles = css`
 `;
 export const IndividualCommentContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: fit-content;
   width: 100%;
-  padding: 0.6rem 0.75rem 0.6rem 0.75rem;
-  border-top: 0.5px solid ${grey};
+  padding: 1rem 1rem 1rem 1rem;
+  border-top: 0.5px solid ${grey_2};
 `;
 
-export const ProfileImageContainer = styled.div`
-  height: 100%;
-  margin: 0rem 0.5rem 0rem 0rem;
+export const TopContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: fit-content;
+  width: 100%;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const ProfileImage = styled.div`
@@ -52,15 +56,16 @@ export const UserContainer = styled.div`
   flex-direction: row;
   align-items: baseline;
   line-height: 100%;
-  padding: 0rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0rem 0.75rem;
   height: fit-content;
 `;
 
 export const User = styled.div`
-  font-family: ${source_sans_pro};
+  font-family: ${montserrat};
   font-size: 0.9rem;
   line-height: 100%;
   text-transform: capitalize;
+  color: ${white};
 
   &:hover {
     cursor: pointer;
@@ -76,20 +81,22 @@ export const Date = styled.div`
   margin: 0rem 0rem 0rem 0.5rem;
 `;
 
-export const ContentContainer = styled.div`
+export const CommentContainer = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0rem 0rem 0rem 2.4rem;
 `;
 
 export const Comment = styled.div`
   width: 100%;
-  margin: 0.35rem 0rem 0.5rem 0rem;
+  margin: 0.15rem 0rem 0.75rem 0rem;
   line-height: 115%;
   font-size: 0.8rem;
   font-family: ${roboto};
+  color: ${white};
 `;
 
-export const TrendsContainer = styled.div`
+export const Trends = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -107,9 +114,9 @@ export const Votes = styled.div`
   align-items: center;
   justify-content: center;
   width: fit-content;
-  color: ${black};
+  color: ${grey};
   font-size: 0.5rem;
-  margin: 0rem 0.25rem 0rem 0.35rem;
+  margin: 0rem 0.4rem 0rem 0.5rem;
   font-family: ${open_sans};
   font-weight: 500;
   letter-spacing: 0.25px;

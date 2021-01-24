@@ -34,21 +34,32 @@ import CommentsIcon from "./media/comments_button.svg";
 import {
   request_all_comments_start_action,
   close_comments_section_action,
+  upvote_post_start_action,
 } from "../../redux/post/actions";
 
 const PostCard = ({
   data,
   id,
+  user_firebase,
   loading_comments,
   current_post_id,
   request_all_comments,
   close_comments_section,
+  upvote_post,
 }) => {
   moment.locale("en");
 
   const display_all_comments = () => {
     if (current_post_id !== id) request_all_comments(id);
     else close_comments_section(); // it's the same so close comments section
+  };
+
+  const upvote_post_to_firebase = () => {
+    const { user_id } = user_firebase.user_data;
+    upvote_post({
+      post_id: id,
+      user_id,
+    });
   };
 
   return (
@@ -77,7 +88,10 @@ const PostCard = ({
           <BottomContainer display_comments={current_post_id === id}>
             <TrendsContainer>
               <TrendContainer>
-                <TrendIcon src={UpIcon} />
+                <TrendIcon
+                  src={UpIcon}
+                  onClick={() => upvote_post_to_firebase()}
+                />
               </TrendContainer>
               <CountContainer>
                 {data.up_trends - data.down_trends}
@@ -113,15 +127,18 @@ const PostCard = ({
 // redux
 const mapStateToProps = ({
   post_reducer: { loading_comments, current_post_id },
+  user_reducer: { user_firebase },
 }) => ({
   loading_comments,
   current_post_id,
+  user_firebase,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   request_all_comments: (post_id) =>
     dispatch(request_all_comments_start_action(post_id)),
   close_comments_section: () => dispatch(close_comments_section_action()),
+  upvote_post: (obj) => dispatch(upvote_post_start_action(obj)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostCard);

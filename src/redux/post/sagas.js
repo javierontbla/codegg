@@ -6,6 +6,8 @@ import {
   request_all_comments_success_action,
   request_all_comments_failure_action,
   send_new_comment_failure_action,
+  upvote_post_success_action,
+  upvote_post_failure_action,
 } from "./actions";
 
 function* request_all_comments_async(action) {
@@ -70,6 +72,28 @@ function* send_new_comment_async(action) {
   }
 }
 
+function* upvote_post_async(action) {
+  const { post_id, user_id } = action.payload;
+  const post_ref = db.doc(`posts/${post_id}`);
+  const upvotes_ref = db.doc(`posts/${post_id}/upvotes/${user_id}`);
+
+  try {
+    const response = yield upvotes_ref.get().then((doc) => {
+      if (!doc.exists) {
+        upvotes_ref.set({
+          up_vote: true,
+          down_vote: false,
+        });
+      }
+    });
+
+    //yield put(upvote_post_success_action());
+  } catch (error) {
+    yield console.log(error);
+    yield put(upvote_post_failure_action(error));
+  }
+}
+
 export function* request_all_comments_saga() {
   yield takeLatest(
     post_types.REQUEST_ALL_COMMENTS_START,
@@ -79,4 +103,8 @@ export function* request_all_comments_saga() {
 
 export function* send_new_comment_saga() {
   yield takeLatest(post_types.SEND_NEW_COMMENT_START, send_new_comment_async);
+}
+
+export function* upvote_post_saga() {
+  yield takeLatest(post_types.UPVOTE_POST_START, upvote_post_async);
 }

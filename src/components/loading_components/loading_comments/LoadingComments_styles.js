@@ -1,9 +1,10 @@
 import styled, { keyframes, css } from "styled-components";
+import TextareaAutosize from "react-textarea-autosize";
 
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
-const { grey } = colors;
+const { grey_2, black } = colors;
 const { roboto, open_sans } = fonts;
 
 const LoadingAnimation = keyframes`
@@ -21,7 +22,7 @@ const BackgroundStyles = css`
   margin: 0rem 0rem 0rem 0rem;
   position: relative;
   overflow: hidden;
-  background: ${grey};
+  background: ${black};
   opacity: 0.45;
 
   &::before {
@@ -35,7 +36,7 @@ const BackgroundStyles = css`
     background: linear-gradient(
       to right,
       transparent 0%,
-      #e8e8e8 50%,
+      #403c3c 50%,
       transparent 100%
     );
     animation: ${LoadingAnimation} 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -48,11 +49,9 @@ export const LoadingCommentsContainer = styled.div`
   height: fit-content;
   width: 100%;
   padding: 0.75rem 0.75rem 0.75rem 0.75rem;
-  border-bottom-left-radius: 0.15rem;
-  border-bottom-right-radius: 0.15rem;
-  border-left: 1px solid ${grey};
-  border-right: 1px solid ${grey};
-  border-bottom: 1px solid ${grey};
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top: 0.5px solid ${grey_2};
 `;
 
 export const ProfileImage = styled.div`
@@ -60,7 +59,7 @@ export const ProfileImage = styled.div`
   width: 1.65rem;
   height: 1.65rem;
   border-radius: 50%;
-  margin: 0rem 0.6rem 0rem 0rem;
+  margin: 0rem 0.5rem 0rem 0rem;
 `;
 
 export const CommentContainer = styled.div`
@@ -70,30 +69,36 @@ export const CommentContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
 `;
 
-export const Comment = styled.div`
+export const TextInput = styled.div`
   ${BackgroundStyles};
   width: 100%;
-  height: 4.25rem;
-  resize: none !important;
-  border-radius: 0.15rem;
+  border-radius: 20px;
   font-family: ${roboto};
   font-size: 0.8rem;
+  padding: 0.35rem 0.5rem 0.35rem 0.5rem;
+  border: none;
+
+  &&& {
+    ::placeholder {
+      font-size: 0.8rem;
+    }
+  }
 
   &:focus {
     outline: none !important;
   }
 `;
 
-export const Button = styled.div`
+export const CommentButton = styled.div`
   ${BackgroundStyles};
   display: flex;
   align-items: center;
   line-height: 100%;
   height: 1.55rem;
   width: fit-content;
-  margin: 0.5rem 0rem 0rem 0rem;
+  margin: 0.75rem 0rem 0rem 0rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
-  border-radius: 0.15rem;
+  border-radius: 20px;
   font-family: ${open_sans};
   font-size: 0.7rem;
   font-weight: 500;

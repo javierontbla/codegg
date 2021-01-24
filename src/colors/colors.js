@@ -1,6 +1,6 @@
 export const colors = {
-  white: "#ffffff",
-  green: "#4d908e",
+  white: "#f9f5f6",
+  green: "#6CF153",
   grey: "#ced4da",
   grey_2: "#525151",
   black: "#292727",
@@ -8,6 +8,6 @@ export const colors = {
   dark_grey: "#BEBFC4",
   yellow: "#F9C74F",
   background: "#18191a",
-  blue: "#0392ea",
-  orange: "#f6873d",
+  blue: "#129EF4",
+  orange: "#FFA032",
 };

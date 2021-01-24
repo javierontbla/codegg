@@ -4,8 +4,8 @@ import {
   LoadingCommentsContainer,
   CommentContainer,
   ProfileImage,
-  Comment,
-  Button,
+  TextInput,
+  CommentButton,
 } from "./LoadingComments_styles";
 
 const LoadingComments = () => {
@@ -14,8 +14,8 @@ const LoadingComments = () => {
       <LoadingCommentsContainer>
         <ProfileImage />
         <CommentContainer>
-          <Comment rows="3" />
-          <Button>Comment</Button>
+          <TextInput>Foo text</TextInput>
+          <CommentButton>Comment</CommentButton>
         </CommentContainer>
       </LoadingCommentsContainer>
     </>

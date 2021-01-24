@@ -48,7 +48,7 @@ export const SymbolInput = styled.input`
   border: 0.5px solid ${grey};
   padding: 0.5rem 0rem 0.55rem 0.75rem;
   margin: 0rem 0rem 0rem 0rem;
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: ${roboto};
   font-size: 1.1rem;
   height: 2.25rem;

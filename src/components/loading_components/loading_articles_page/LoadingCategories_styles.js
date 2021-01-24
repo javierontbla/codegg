@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
-const { grey } = colors;
+const { black } = colors;
 const { open_sans } = fonts;
 
 const LoadingAnimation = keyframes`
@@ -20,7 +20,7 @@ export const LoadingCategoriesContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: fit-content;
-  margin: 0rem 0.25rem 0rem 0.25rem;
+  margin: 0rem 1rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
   overflow: hidden;
 `;
@@ -28,22 +28,14 @@ export const LoadingCategoriesContainer = styled.div`
 export const Category = styled.div`
   display: flex;
   width: ${(props) => (props.top ? "100%" : props.middle ? "75%" : "50%")};
-  border-radius: 0.15rem;
-  height: 1.6rem;
   border: none;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-  margin: 0.25rem 0rem 0.25rem 0rem;
+  margin: 0.5rem 0rem 0.5rem 0rem;
   position: relative;
   overflow: hidden;
-  background: ${grey};
+  background: ${black};
   opacity: 0.45;
-  font-family: ${open_sans};
-  letter-spacing: 0.5px;
-  height: fit-content;
-  color: transparent;
-  font-size: 0.8rem;
-  font-weight: 500;
-  line-height: 100%;
+  border-radius: 20px;
+  height: 1.55rem;
 
   &::before {
     content: "";
@@ -56,7 +48,7 @@ export const Category = styled.div`
     background: linear-gradient(
       to right,
       transparent 0%,
-      #e8e8e8 50%,
+      #403c3c 50%,
       transparent 100%
     );
     animation: ${LoadingAnimation} 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;

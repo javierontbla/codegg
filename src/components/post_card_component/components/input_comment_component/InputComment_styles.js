@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import TextareaAutosize from "react-textarea-autosize";
 
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
-const { grey, black, white } = colors;
+const { blue, black, white } = colors;
 const { roboto, open_sans } = fonts;
 
 export const Container = styled.div`
@@ -11,10 +12,10 @@ export const Container = styled.div`
   flex-direction: row;
   align-items: flex-start;
   width: 100%;
-  padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  padding: 1rem 1rem 1rem 1rem;
 `;
 
-export const InputCommentContainer = styled.div`
+export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0rem 0rem 0rem 0rem;
@@ -33,15 +34,15 @@ export const ProfileImage = styled.div`
   background-repeat: no-repeat;
 `;
 
-export const TextArea = styled.textarea`
+export const TextInput = styled(TextareaAutosize)`
   width: 100%;
   resize: none !important;
-  border-radius: 0.15rem;
-  border: 0.5px solid ${grey};
+  border-radius: 20px;
   font-family: ${roboto};
   font-size: 0.8rem;
   color: ${black};
-  padding: 0.25rem 0.4rem 0.25rem 0.4rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.75rem;
+  border: none;
 
   &&& {
     ::placeholder {
@@ -60,23 +61,17 @@ export const CommentButton = styled.div`
   line-height: 100%;
   height: 1.55rem;
   width: fit-content;
-  margin: 0.5rem 0rem 0rem 0rem;
+  margin: 0.75rem 0rem 0rem 0rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
-  border-radius: 0.15rem;
+  border-radius: 20px;
   font-family: ${open_sans};
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.5px;
   color: ${white};
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
+  background: ${blue};
 
   &:hover {
     cursor: pointer;
-    opacity: 0.95;
   }
 `;
