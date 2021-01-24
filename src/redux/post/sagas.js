@@ -1,4 +1,5 @@
 import { takeLatest, put } from "redux-saga/effects";
+import firebase from "firebase/app";
 
 import { post_types } from "./types";
 import { db } from "../../firebase";
@@ -76,20 +77,30 @@ function* upvote_post_async(action) {
   const { post_id, user_id } = action.payload;
   const post_ref = db.doc(`posts/${post_id}`);
   const upvotes_ref = db.doc(`posts/${post_id}/upvotes/${user_id}`);
+  let value = 0;
 
   try {
-    const response = yield upvotes_ref.get().then((doc) => {
+    yield upvotes_ref.get().then((doc) => {
       if (!doc.exists) {
+        // adding upvote
         upvotes_ref.set({
-          up_vote: true,
-          down_vote: false,
+          date: new Date(),
         });
+
+        value = 1;
+      } else {
+        // deleting unvote
+        upvotes_ref.delete();
+        value = -1;
       }
     });
 
-    //yield put(upvote_post_success_action());
+    yield post_ref.update({
+      up_votes: firebase.firestore.FieldValue.increment(value),
+    });
+
+    //yield put(upvote_post_success_action(value));
   } catch (error) {
-    yield console.log(error);
     yield put(upvote_post_failure_action(error));
   }
 }

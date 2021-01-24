@@ -19,7 +19,7 @@ import Image from "./media/image_button.svg";
 import ImageActive from "./media/image_active.svg";
 import { create_post_card_start_action } from "../../../redux/dashboards/actions";
 
-const PostDashboard = ({ create_post_card, posts, active_user_database }) => {
+const PostDashboard = ({ create_post_card, posts, user_firebase }) => {
   const [description, set_description] = useState("");
   const [image, set_image] = useState(null);
 
@@ -39,12 +39,7 @@ const PostDashboard = ({ create_post_card, posts, active_user_database }) => {
   const upload_post_card_to_firebase = () => {
     if (!description) return; // if there is no description
 
-    const {
-      user,
-      username,
-      user_id,
-      profile_image,
-    } = active_user_database.user_data;
+    const { user, username, user_id, profile_image } = user_firebase.user_data;
     create_post_card({
       post_content: {
         user,
@@ -102,10 +97,10 @@ const PostDashboard = ({ create_post_card, posts, active_user_database }) => {
 // redux
 const mapStateToProps = ({
   home_page_reducer: { posts },
-  user_reducer: { active_user_database },
+  user_reducer: { user_firebase },
 }) => ({
   posts,
-  active_user_database,
+  user_firebase,
 });
 
 const mapDispatchToProps = (dispatch) => ({

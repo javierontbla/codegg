@@ -9,7 +9,6 @@ import {
   Container,
   PostContainer,
   TopContainer,
-  PremiumContainer,
   UserDataContainer,
   ProfileImage,
   NamesContainer,
@@ -46,6 +45,7 @@ const PostCard = ({
   request_all_comments,
   close_comments_section,
   upvote_post,
+  upvote,
 }) => {
   moment.locale("en");
 
@@ -94,7 +94,7 @@ const PostCard = ({
                 />
               </TrendContainer>
               <CountContainer>
-                {data.up_trends - data.down_trends}
+                {data.up_votes - data.down_votes + upvote}
               </CountContainer>
               <TrendContainer>
                 <TrendIcon src={DownIcon} />
@@ -126,12 +126,13 @@ const PostCard = ({
 
 // redux
 const mapStateToProps = ({
-  post_reducer: { loading_comments, current_post_id },
+  post_reducer: { loading_comments, current_post_id, upvote },
   user_reducer: { user_firebase },
 }) => ({
   loading_comments,
   current_post_id,
   user_firebase,
+  upvote,
 });
 
 const mapDispatchToProps = (dispatch) => ({

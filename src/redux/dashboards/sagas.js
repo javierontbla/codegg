@@ -64,10 +64,9 @@ function* create_post_card_async(action) {
         description: post_content.description,
         post_image: image_url ? image_url : null,
         profile_image: post_content.profile_image,
-        premium: post_content.premium,
         date: new Date(),
-        up_trends: 0,
-        down_trends: 0,
+        up_votes: 0,
+        down_votes: 0,
       })
       .then((doc_ref) => doc_ref.id);
 
@@ -80,6 +79,7 @@ function* create_post_card_async(action) {
 
     yield put(request_posts_action_success(response));
   } catch (error) {
+    console.log(error);
     yield put(create_post_card_failure_action(error));
   }
 }
