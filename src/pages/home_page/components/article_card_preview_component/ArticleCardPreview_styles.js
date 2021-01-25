@@ -43,12 +43,6 @@ export const TopContainer = styled.div`
   width: 100%;
 `;
 
-export const PremiumContainer = styled.div`
-  width: fit-content;
-  height: fit-content;
-  margin: 0.65rem 0rem 0rem 0.4rem;
-`;
-
 export const Title = styled.div`
   font-family: ${source_sans_pro};
   font-size: 1.2rem;
@@ -67,7 +61,7 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   height: fit-content;
-  padding: 1.15rem 0.95rem 1rem 0.95rem;
+  padding: 1.25rem 1rem 1.25rem 1rem;
   margin: 0rem 0rem 0rem 0rem;
 `;
 

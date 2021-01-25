@@ -27,7 +27,7 @@ export const ProfileImage = styled.div`
   height: 1.65rem;
   border-radius: 50%;
   border: none;
-  margin: 0rem 0.6rem 0rem 0rem;
+  margin: 0rem 0.75rem 0rem 0rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.profile_image_url});

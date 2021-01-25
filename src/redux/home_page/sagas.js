@@ -9,7 +9,7 @@ import {
   request_article_previews_action_success,
   request_article_previews_action_failure,
 } from "./actions";
-import { db } from "../../firebase";
+import { db } from "../../firebase/firebase";
 
 /* ASYNC FUNCTIONS */
 function* request_latest_trades_async() {

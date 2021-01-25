@@ -1,35 +1,11 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import TextareaAutosize from "react-textarea-autosize";
 
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
 const { grey, grey_2, white, black } = colors;
-const { roboto, open_sans } = fonts;
-
-const ButtonStyles = css`
-  align-items: center;
-  justify-content: space-between;
-  line-height: 100%;
-  height: 1.55rem;
-  width: 5.35rem;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
-  padding: 0rem 0.5rem 0rem 0.5rem;
-  border-radius: 0.15rem;
-  font-family: ${open_sans};
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  color: ${white};
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
+const { roboto, open_sans, montserrat } = fonts;
 
 export const Container = styled.div`
   display: flex;
@@ -43,21 +19,22 @@ export const Container = styled.div`
   line-height: 100%;
 `;
 
-export const SymbolInput = styled.input`
+export const TitleInput = styled.input`
   width: 8rem;
-  border: 0.5px solid ${grey};
-  padding: 0.5rem 0rem 0.55rem 0.75rem;
+  padding: 0rem 0rem 0rem 0.75rem;
   margin: 0rem 0rem 0rem 0rem;
   border-radius: 20px;
-  font-family: ${roboto};
-  font-size: 1.1rem;
-  height: 2.25rem;
+  font-family: ${montserrat};
+  font-size: 1.2rem;
+  height: 2.5rem;
   line-height: 100%;
   color: ${black};
+  border: none !important;
 
   &&& {
     ::placeholder {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      font-family: ${montserrat};
     }
   }
 
@@ -72,9 +49,8 @@ export const ActionButtonContainer = styled.div`
 `;
 
 export const CloseIcon = styled.img`
-  width: 1rem;
-  height: 1rem;
-  margin: -0.1rem 0.3rem 0rem 0rem;
+  width: 0.9rem;
+  margin: 0.15rem 0rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
@@ -87,11 +63,9 @@ export const TopContainer = styled.div`
   flex-direction: column;
   margin: 0rem 0rem 0rem 0rem;
   padding: ${(props) =>
-    props.active_dashboard
-      ? "1rem 0rem 1rem 0.75rem"
-      : "0.75rem 0.75rem 0.75rem 0.75rem"};
+    props.active_dashboard ? "1rem 1rem 1rem 1rem" : "1rem 1rem 1rem 1rem"};
   border-bottom: ${(props) =>
-    props.active_dashboard ? `0.5px solid ${grey}` : "none"};
+    props.active_dashboard ? `0.5px solid ${grey_2}` : "none"};
 `;
 
 export const PreviewContainer = styled.div`
@@ -102,94 +76,56 @@ export const PreviewContainer = styled.div`
   justify-content: space-between;
 `;
 
-export const ActionContainer = styled.div`
+export const MiddleContainer = styled.div`
   display: ${(props) => (props.active_dashboard ? "flex" : "none")};
   flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
   width: 100%;
-  margin: 0.6rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
+  padding: 1rem 1rem 1rem 1rem;
+  min-height: 8rem;
 `;
 
-export const ActionOverlay = styled.div`
-  width: 3rem;
-`;
-
-export const Action = styled.div`
+export const ImageInput = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
-  font-family: ${roboto};
-  font-weight: 500;
-  padding: 0.25rem 0.35rem 0.25rem 0.35rem;
-  letter-spacing: 0.75px;
-  margin: 0rem 0rem 0rem 0rem;
-  height: fit-content;
-  width: fit-content;
-  border-radius: 0.15rem;
-  line-height: 100%;
-  background: ${grey_2};
-  color: ${black};
-  text-transform: uppercase;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
   border: none;
-`;
+  margin: 0rem 0.75rem 0rem 0rem;
+  border: 0.5px solid ${grey};
 
-export const ActionChange = styled.div`
   &:hover {
     cursor: pointer;
-    opacity: 0.95;
   }
 `;
 
-export const ChangeIcon = styled.img`
-  width: 1.1rem;
+export const AddIcon = styled.img`
+  width: 0.75rem;
+  transform: rotate(45deg);
   margin: 0rem 0rem 0rem 0rem;
 `;
 
-export const MiddleContainer = styled.div`
-  display: ${(props) => (props.active_dashboard ? "flex" : "none")};
-  flex-direction: column;
-  width: 100%;
-  margin: 0rem 0rem 0rem 0rem;
-  padding: 0.75rem 0.55rem 0.75rem 0.55rem;
-`;
-
-export const OptionContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
-  margin: ${(props) =>
-    props.first_container ? "0rem 0rem 0rem 0rem" : "0.35rem 0rem 0rem 0rem"};
+export const TextInput = styled(TextareaAutosize)`
+  border: none;
   padding: 0rem 0rem 0rem 0rem;
-  width: 100%;
-  height: 1.85rem;
-  line-height: 100%;
-`;
-
-export const LeftText = styled.div`
-  font-size: 0.8rem;
-  color: ${black};
+  color: ${white};
+  width: calc(100% - 3rem);
   font-family: ${roboto};
-  font-weight: 700;
-`;
-
-export const RightInput = styled.input`
-  width: 6.5rem;
-  border: 0.5px solid ${grey};
-  border-radius: 0.15rem;
-  height: 100%;
-  padding: 0rem 0.275rem 0rem 0.275rem;
-  font-size: 0.8rem;
-  color: ${black};
-  font-family: ${roboto};
+  font-size: 0.85rem;
+  resize: none !important;
+  background: transparent;
+  overflow: hidden;
+  line-height: 115%;
   letter-spacing: 0.25px;
 
   &&& {
     ::placeholder {
-      font-size: 0.8rem;
+      font-family: ${roboto};
+      font-size: 0.85rem;
+      color: ${grey};
+      letter-spacing: 0.25px;
     }
   }
 
@@ -203,47 +139,6 @@ export const BottomContainer = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  border-top: 0.5px solid ${grey};
-  padding: 0.6rem 0.55rem 0.6rem 0.55rem;
-`;
-
-export const PublishContainer = styled.div`
-  ${ButtonStyles};
-  display: flex;
-  position: relative;
-`;
-
-export const DropDownIconContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  height: 100%;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export const DropDownIcon = styled.img`
-  width: 0.5rem;
-  margin: 0.1rem 0rem 0rem 0rem;
-`;
-
-export const PublishButton = styled.div`
-  width: fit-content;
-  height: fit-content;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export const DropDownMenu = styled.div`
-  ${ButtonStyles};
-  display: ${(props) => (props.dropdown_active ? "flex" : "none")};
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  top: 105%;
-  z-index: 1;
+  border-top: 0.5px solid ${grey_2};
+  padding: 0.75rem 1rem 0.75rem 1rem;
 `;

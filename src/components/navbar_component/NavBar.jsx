@@ -19,7 +19,7 @@ import {
   Menu,
   MenuOption,
 } from "./NavBar_styles";
-import { google_provider, auth } from "../../firebase";
+import { google_provider, auth } from "../../firebase/firebase";
 
 const NavBar = ({ user_firebase }) => {
   const [menu_active, set_menu_active] = useState(false);

@@ -5,7 +5,7 @@ import {
   request_top_investors_success_action,
   request_top_investors_failure_action,
 } from "./actions";
-import { db } from "../../firebase";
+import { db } from "../../firebase/firebase";
 
 function* request_top_investors_async() {
   const top_investors_ref = db.collection("investors");

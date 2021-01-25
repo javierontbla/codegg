@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   current_post_id: null,
   loading_comments: false,
   comments: [],
-  upvote: 0,
+  update: false,
   error_comments: null,
 };
 
@@ -45,7 +45,6 @@ export const post_reducer = (state = INITIAL_STATE, action) => {
     case post_types.UPVOTE_POST_SUCCESS:
       return {
         ...state,
-        upvote: action.payload,
       };
 
     default:

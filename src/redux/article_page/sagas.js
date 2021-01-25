@@ -1,7 +1,7 @@
 import { takeLatest, put } from "redux-saga/effects";
 
 import { article_page_types } from "./types";
-import { db } from "../../firebase";
+import { db } from "../../firebase/firebase";
 import {
   request_article_success_action,
   request_article_failure_action,

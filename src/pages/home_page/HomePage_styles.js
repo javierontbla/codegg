@@ -1,7 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { colors } from "../../colors/colors";
-import { fonts } from "../../fonts/fonts";
 
 const { grey, grey_2 } = colors;
 
@@ -23,14 +22,14 @@ export const SelectionContainer = styled.div`
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
   margin: 0rem 0rem 0rem 0rem;
+  width: 100%;
 `;
 
 export const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 38rem;
+  width: 18.75rem;
   height: 100vh;
 `;
 
@@ -48,8 +47,8 @@ export const TradesContainer = styled.div`
 `;
 
 export const MiddleContainer = styled.div`
-  width: 100%;
-  margin: 0rem 1.5rem 0rem 1.5rem;
+  width: calc(100% - 37.5rem);
+  margin: 0rem 2rem 0rem 2rem;
 `;
 
 export const Division = styled.div`
@@ -72,7 +71,7 @@ export const UploadDashboardContainer = styled.div`
 export const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 36rem;
+  width: 18.75rem;
   height: 100vh;
   margin: 0rem 0rem 0rem 0rem;
 `;

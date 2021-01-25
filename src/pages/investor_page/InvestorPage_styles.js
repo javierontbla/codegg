@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey_2, black, white } = colors;
+const { grey_2, orange, white, black } = colors;
 const { open_sans } = fonts;
 
 export const InvestorPageContainer = styled.div`
@@ -28,6 +28,28 @@ export const LeftContainer = styled.div`
 export const ProfileCardContainer = styled.div`
   width: 100%;
   height: fit-content;
+`;
+
+export const RequestButton = styled.div`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 2.15rem;
+  color: ${white};
+  font-family: ${open_sans};
+  padding: 0rem 0.85rem 0rem 0.85rem;
+  margin: 1rem 0rem 0rem 0rem;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background: ${black};
+  transition: 0.25s color;
+
+  &:hover {
+    cursor: pointer;
+    color: ${orange};
+  }
 `;
 
 export const PortfolioContainer = styled.div``;

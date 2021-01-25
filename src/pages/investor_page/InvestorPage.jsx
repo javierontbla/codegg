@@ -10,6 +10,8 @@ import {
   InvestorPageContainer,
   LeftContainer,
   ProfileCardContainer,
+  RequestButton,
+  User,
   RightContainer,
   TopContainer,
   TradesContainer,
@@ -60,6 +62,11 @@ const InvestorPage = ({
               <ProfileCard data={investor[0]} id={investor[1]} />
             ) : null}
           </ProfileCardContainer>
+          <RequestButton>
+            {investor.length > 0
+              ? `Want to get reviewed by ${investor[0].user}?`
+              : null}
+          </RequestButton>
         </LeftContainer>
         {display_portfolio ? (
           <Portfolio

@@ -14,7 +14,7 @@ import {
   log_in_active_user_action_start,
   log_out_active_user_action_start,
 } from "./redux/user/actions";
-import { auth } from "./firebase";
+import { auth } from "./firebase/firebase";
 import { GlobalStyles, Container, PageContainer } from "./App.styles.js";
 
 const App = ({ log_in_active_user, log_out_active_user }) => {

@@ -4,7 +4,7 @@ import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
 const { grey, grey_2, white, black, blue } = colors;
-const { source_sans_pro, open_sans, roboto } = fonts;
+const { montserrat, open_sans, roboto } = fonts;
 
 const InformationStyles = css`
   display: flex;
@@ -48,12 +48,16 @@ export const TopContainer = styled.div`
 `;
 
 export const Name = styled.div`
-  font-family: ${source_sans_pro};
+  font-family: ${montserrat};
   font-size: 1.4rem;
   color: ${white};
   line-height: 100%;
   letter-spacing: 0.5px;
   padding: 0rem 0rem 0rem 0rem;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 export const TagsContainer = styled.div`
@@ -76,7 +80,6 @@ export const MiddleContainer = styled.div`
   width: 100%;
   height: fit-content;
   padding: 1rem 1rem 1.25rem 1rem;
-  line-height: 100%;
 `;
 
 export const ArtistImage = styled.div`
@@ -84,7 +87,7 @@ export const ArtistImage = styled.div`
   height: 2.25rem;
   border-radius: 50%;
   border: none;
-  margin: 0rem 0rem 0rem 0rem;
+  margin: 0rem 0.75rem 0rem 0rem;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.profile_image_url});
@@ -96,8 +99,8 @@ export const Description = styled.div`
   font-size: 0.9rem;
   color: ${white};
   line-height: 115%;
-  width: calc(100% - 2.25rem);
-  padding: 0rem 0rem 0rem 0.5rem;
+  width: calc(100% - 3rem);
+  padding: 0rem 0rem 0rem 0rem;
   text-align: left;
 `;
 
@@ -125,7 +128,8 @@ export const TrendIcon = styled.img`
   margin: 0rem 0rem 0rem 0rem;
 
   &:hover {
-    opacity: 0.9;
+    cursor: pointer;
+    opacity: 0.95;
   }
 `;
 

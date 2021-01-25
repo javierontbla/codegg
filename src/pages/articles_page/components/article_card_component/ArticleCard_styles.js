@@ -36,6 +36,14 @@ export const TopContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
 `;
 
+export const TagsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 0rem 0rem 0rem 0rem;
+  padding: 0.5rem 1.25rem 0rem 1.25rem;
+  height: fit-content;
+`;
+
 export const Title = styled.div`
   font-family: ${source_sans_pro};
   font-size: 1.5rem;
@@ -43,7 +51,7 @@ export const Title = styled.div`
   letter-spacing: 0.5px;
   line-height: 110%;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0rem 1rem 0rem 1rem;
+  padding: 0rem 1.25rem 0rem 1.25rem;
 
   @media (max-width: 500px) {
   }
@@ -55,7 +63,7 @@ export const Description = styled.div`
   color: ${white};
   line-height: 120%;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 1rem 1rem 1.25rem 1rem;
+  padding: 1rem 1.25rem 1.25rem 1.25rem;
 
   &::first-letter {
     text-transform: uppercase;
@@ -66,15 +74,7 @@ export const MiddleContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0rem 1rem 1.25rem 1rem;
-  height: fit-content;
-`;
-
-export const CategoriesContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: 0rem 0rem 0rem 0rem;
-  padding: 0.5rem 1rem 0rem 1rem;
+  padding: 0rem 1.25rem 1.25rem 1.25rem;
   height: fit-content;
 `;
 
@@ -84,7 +84,7 @@ export const BottomContainer = styled.div`
   flex-wrap: wrap;
   height: fit-content;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0.2rem 1rem 0.2rem 1rem;
+  padding: 0.2rem 1.25rem 0.2rem 1.25rem;
   border-top: 0.5px solid ${grey_2};
 `;
 
@@ -98,6 +98,10 @@ export const TrendIcon = styled.img`
   width: 1.85rem;
   height: 1.85rem;
   margin: 0rem 0rem 0rem 0rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Votes = styled.div`

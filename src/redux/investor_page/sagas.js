@@ -11,7 +11,7 @@ import {
   request_user_articles_success_action,
   request_user_articles_failure_action,
 } from "./actions";
-import { db } from "../../firebase";
+import { db } from "../../firebase/firebase";
 
 function* request_investor_profile_async(action) {
   const investor_profile_ref = db.doc(`investors/${action.payload}`);

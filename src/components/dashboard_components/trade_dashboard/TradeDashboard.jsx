@@ -1,34 +1,23 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
+import ActionButton from "../../action_button_component/ActionButton";
 import {
   Container,
-  SymbolInput,
-  ActionButtonContainer,
+  TitleInput,
+  CloseIcon,
   TopContainer,
   PreviewContainer,
-  CloseIcon,
-  ChangeIcon,
   MiddleContainer,
-  ActionOverlay,
-  Action,
-  ActionChange,
-  ActionContainer,
-  LeftText,
-  RightInput,
-  OptionContainer,
+  ImageInput,
+  AddIcon,
+  TextInput,
   BottomContainer,
-  PublishContainer,
-  DropDownIconContainer,
-  DropDownIcon,
-  PublishButton,
-  DropDownMenu,
+  ActionButtonContainer,
 } from "./TradeDashboard_styles";
 import { create_trade_card_start_action } from "../../../redux/dashboards/actions";
-import ActionButton from "../../action_button_component/ActionButton";
-import ChangeIconSVG from "./media/change_button.svg";
 import CloseIconSVG from "./media/close_button.svg";
-import DropDownSVG from "./media/dropdown_button.svg";
+import AddIconSVG from "./media/add_button.svg";
 
 const TradeDashboard = ({
   create_trade_card,
@@ -41,16 +30,9 @@ const TradeDashboard = ({
   const [company, set_company] = useState("");
   const [number_of_shares, set_number_of_shares] = useState("");
   const [price_per_share, set_price_per_share] = useState("");
-  const [publish_mode, set_publish_mode] = useState("Public");
-  const [dropdown_active, set_dropdown_active] = useState(false);
 
   const display_trade_card_action = () => {
     set_active_dashboard((prev_state) => !prev_state);
-  };
-
-  const handle_trade_card_action = () => {
-    if (action === "buy") set_action("sell");
-    else set_action("buy");
   };
 
   const handle_trade_card_fields = (hook, content) => {
@@ -80,16 +62,6 @@ const TradeDashboard = ({
     set_company("");
     set_number_of_shares("");
     set_price_per_share("");
-    set_publish_mode("Public");
-  };
-
-  const handle_publish_mode = (mode) => {
-    set_publish_mode(mode);
-    set_dropdown_active(false);
-  };
-
-  const handle_dropdown = () => {
-    set_dropdown_active((prev_state) => !prev_state);
   };
 
   return (
@@ -97,7 +69,7 @@ const TradeDashboard = ({
       <Container>
         <TopContainer active_dashboard={active_dashboard}>
           <PreviewContainer active_dashboard={active_dashboard}>
-            <SymbolInput
+            <TitleInput
               placeholder="Artist"
               type="text"
               maxLength="20"
@@ -113,76 +85,24 @@ const TradeDashboard = ({
               {active_dashboard ? (
                 <CloseIcon src={CloseIconSVG} />
               ) : (
-                <ActionButton action={"Open"} />
+                <ActionButton action={"Create"} />
               )}
             </ActionButtonContainer>
           </PreviewContainer>
-          <ActionContainer active_dashboard={active_dashboard}>
-            <ActionOverlay>
-              <Action action={action}>{action.toLowerCase()}</Action>
-            </ActionOverlay>
-            <ActionChange onClick={() => handle_trade_card_action()}>
-              <ChangeIcon src={ChangeIconSVG} />
-            </ActionChange>
-          </ActionContainer>
         </TopContainer>
         <MiddleContainer active_dashboard={active_dashboard}>
-          <OptionContainer first_container={"true"}>
-            <LeftText>Company:</LeftText>
-            <RightInput
-              placeholder="Snowflake"
-              type="text"
-              maxLength="12"
-              value={company}
-              onChange={(e) =>
-                handle_trade_card_fields(set_company, e.target.value)
-              }
-            />
-          </OptionContainer>
-          <OptionContainer>
-            <LeftText>No. of Shares:</LeftText>
-            <RightInput
-              placeholder="1"
-              type="number"
-              value={number_of_shares}
-              onChange={(e) =>
-                handle_trade_card_fields(set_number_of_shares, e.target.value)
-              }
-            />
-          </OptionContainer>
-          <OptionContainer>
-            <LeftText>Price per Share:</LeftText>
-            <RightInput
-              placeholder="$265"
-              type="number"
-              value={price_per_share}
-              onChange={(e) =>
-                handle_trade_card_fields(set_price_per_share, e.target.value)
-              }
-            />
-          </OptionContainer>
+          <ImageInput>
+            <AddIcon src={AddIconSVG} />
+          </ImageInput>
+          <TextInput
+            minRows="1"
+            placeholder="Share your favorite artist/album/song with the community (don't forget to add an image)"
+          />
         </MiddleContainer>
         <BottomContainer active_dashboard={active_dashboard}>
-          <PublishContainer>
-            <PublishButton
-              onClick={() => upload_trade_card_to_firebase(publish_mode)}
-            >
-              {publish_mode}
-            </PublishButton>
-            <DropDownIconContainer onClick={() => handle_dropdown()}>
-              <DropDownIcon src={DropDownSVG} />
-            </DropDownIconContainer>
-            <DropDownMenu
-              dropdown_active={dropdown_active}
-              onClick={() =>
-                handle_publish_mode(
-                  publish_mode === "Public" ? "Premium" : "Public"
-                )
-              }
-            >
-              {publish_mode === "Public" ? "Premium" : "Public"}
-            </DropDownMenu>
-          </PublishContainer>
+          <ActionButtonContainer>
+            <ActionButton action={"Publish"} />
+          </ActionButtonContainer>
         </BottomContainer>
       </Container>
     </>

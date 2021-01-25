@@ -1,7 +1,7 @@
 import { takeLatest, put } from "redux-saga/effects";
 
 import { dashboards_types } from "./types";
-import { db, storage } from "../../firebase";
+import { db, storage } from "../../firebase/firebase";
 import {
   request_latest_trades_action_success,
   request_posts_action_success,
@@ -65,8 +65,7 @@ function* create_post_card_async(action) {
         post_image: image_url ? image_url : null,
         profile_image: post_content.profile_image,
         date: new Date(),
-        up_votes: 0,
-        down_votes: 0,
+        votes: 0,
       })
       .then((doc_ref) => doc_ref.id);
 

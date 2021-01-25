@@ -43,7 +43,6 @@ const ArticleCardPreview = ({ data, id }) => {
           <Trends>
             <TrendIcon src={UpTrend} />
             <Votes>{"12"}</Votes>
-            <TrendIcon src={DownTrend} />
           </Trends>
         </BottomContainer>
       </ArticlePreviewContainer>

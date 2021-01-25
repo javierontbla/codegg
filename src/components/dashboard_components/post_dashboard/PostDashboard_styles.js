@@ -15,7 +15,7 @@ export const PostDashboardContainer = styled.div`
   width: 100%;
   background: ${black};
   border: none;
-  padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  padding: 1rem 1rem 1rem 1rem;
   border-radius: 15px;
 `;
 
@@ -25,7 +25,6 @@ export const TextInput = styled(TextareaAutosize)`
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   color: ${black};
   width: 100%;
-  border: 0.5px solid ${grey};
   border-radius: 20px;
   font-family: ${roboto};
   font-size: 0.9rem;
@@ -43,7 +42,7 @@ export const ButtonsContainer = styled.div`
   height: fit-content;
   width: 100%;
   justify-content: space-between !important;
-  margin: 1rem 0rem 0rem 0rem;
+  margin: 1.25rem 0rem 0rem 0rem;
   padding: 0rem 0.1rem 0rem 0.1rem;
 `;
 

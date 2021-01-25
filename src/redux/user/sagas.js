@@ -1,7 +1,7 @@
 import { takeLatest, put } from "redux-saga/effects";
 
 import { user_types } from "./types";
-import { db } from "../../firebase";
+import { db } from "../../firebase/firebase";
 import {
   log_in_active_user_action_success,
   log_in_active_user_action_failure,

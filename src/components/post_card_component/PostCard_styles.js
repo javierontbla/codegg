@@ -145,7 +145,7 @@ export const CountContainer = styled.div`
   justify-content: center;
   width: fit-content;
   color: ${grey};
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   margin: 0rem 0.4rem 0rem 0.5rem;
   font-family: ${open_sans};
   font-weight: 500;
@@ -168,7 +168,7 @@ export const LoadMoreComments = styled.div`
   line-height: 100%;
   height: 1.65rem;
   width: 100%;
-  margin: -0.5rem 0rem 0.75rem 0rem;
+  margin: -0.75rem 0rem 1.25rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
   border-radius: 15px;
   font-family: ${open_sans};

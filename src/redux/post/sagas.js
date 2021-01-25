@@ -2,7 +2,7 @@ import { takeLatest, put } from "redux-saga/effects";
 import firebase from "firebase/app";
 
 import { post_types } from "./types";
-import { db } from "../../firebase";
+import { db } from "../../firebase/firebase";
 import {
   request_all_comments_success_action,
   request_all_comments_failure_action,
@@ -10,6 +10,7 @@ import {
   upvote_post_success_action,
   upvote_post_failure_action,
 } from "./actions";
+import { request_posts_action_success } from "../home_page/actions";
 
 function* request_all_comments_async(action) {
   const all_comments_ref = db
@@ -74,15 +75,17 @@ function* send_new_comment_async(action) {
 }
 
 function* upvote_post_async(action) {
-  const { post_id, user_id } = action.payload;
+  const { post_id, user_id, posts } = action.payload;
   const post_ref = db.doc(`posts/${post_id}`);
   const upvotes_ref = db.doc(`posts/${post_id}/upvotes/${user_id}`);
   let value = 0;
 
   try {
     yield upvotes_ref.get().then((doc) => {
+      // 1st read
       if (!doc.exists) {
         // adding upvote
+        // 1st write
         upvotes_ref.set({
           date: new Date(),
         });
@@ -95,12 +98,23 @@ function* upvote_post_async(action) {
       }
     });
 
+    // 2nd write
     yield post_ref.update({
       up_votes: firebase.firestore.FieldValue.increment(value),
     });
 
-    //yield put(upvote_post_success_action(value));
+    const updated_post = yield post_ref
+      .get()
+      .then((doc) => [doc.data(), doc.id]);
+
+    const response = yield posts.map((arr) => {
+      if (arr[1] === updated_post[1]) return updated_post;
+      else return arr;
+    });
+
+    yield put(request_posts_action_success(response));
   } catch (error) {
+    yield console.log(error);
     yield put(upvote_post_failure_action(error));
   }
 }

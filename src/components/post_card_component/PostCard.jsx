@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import { connect } from "react-redux";
 
@@ -13,7 +13,6 @@ import {
   ProfileImage,
   NamesContainer,
   Name,
-  NameLink,
   Date,
   MiddleContainer,
   Description,
@@ -28,25 +27,27 @@ import {
   LinkContainer,
 } from "./PostCard_styles";
 import UpIcon from "./media/up_button.svg";
-import DownIcon from "./media/down_button.svg";
 import CommentsIcon from "./media/comments_button.svg";
 import {
   request_all_comments_start_action,
   close_comments_section_action,
   upvote_post_start_action,
 } from "../../redux/post/actions";
+import { votes_async } from "../../firebase/functions/votes";
 
 const PostCard = ({
   data,
   id,
+  posts,
   user_firebase,
   loading_comments,
   current_post_id,
   request_all_comments,
   close_comments_section,
   upvote_post,
-  upvote,
+  update,
 }) => {
+  const [votes, set_votes] = useState(data.votes);
   moment.locale("en");
 
   const display_all_comments = () => {
@@ -54,12 +55,13 @@ const PostCard = ({
     else close_comments_section(); // it's the same so close comments section
   };
 
-  const upvote_post_to_firebase = () => {
+  const vote_post_to_firebase = async () => {
     const { user_id } = user_firebase.user_data;
-    upvote_post({
-      post_id: id,
-      user_id,
+    const response = await votes_async({
+      doc_path: `posts/${id}`,
+      doc_votes_path: `posts/${id}/votes/${user_id}`,
     });
+    set_votes(response[0].votes);
   };
 
   return (
@@ -90,15 +92,10 @@ const PostCard = ({
               <TrendContainer>
                 <TrendIcon
                   src={UpIcon}
-                  onClick={() => upvote_post_to_firebase()}
+                  onClick={() => vote_post_to_firebase()}
                 />
               </TrendContainer>
-              <CountContainer>
-                {data.up_votes - data.down_votes + upvote}
-              </CountContainer>
-              <TrendContainer>
-                <TrendIcon src={DownIcon} />
-              </TrendContainer>
+              <CountContainer>{votes}</CountContainer>
             </TrendsContainer>
             <CommentsIconContainer>
               <TrendIcon
@@ -126,13 +123,15 @@ const PostCard = ({
 
 // redux
 const mapStateToProps = ({
-  post_reducer: { loading_comments, current_post_id, upvote },
+  home_page_reducer: { posts },
+  post_reducer: { loading_comments, current_post_id, update },
   user_reducer: { user_firebase },
 }) => ({
+  posts,
   loading_comments,
   current_post_id,
   user_firebase,
-  upvote,
+  update,
 });
 
 const mapDispatchToProps = (dispatch) => ({
