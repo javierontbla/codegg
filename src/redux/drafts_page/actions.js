@@ -54,6 +54,11 @@ export const create_draft_failure_action = (error) => ({
   payload: error,
 });
 
+export const delete_draft_start_action = (obj) => ({
+  type: drafts_page_types.DELETE_DRAFT_START,
+  payload: obj,
+});
+
 /* REQUEST DRAFT ACTIONS */
 export const request_draft_start_action = (draft_id) => ({
   type: drafts_page_types.REQUEST_DRAFT_START,

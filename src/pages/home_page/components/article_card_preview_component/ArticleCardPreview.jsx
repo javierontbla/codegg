@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
+import { connect } from "react-redux";
 
 import ProfileBox from "../../../../components/profile_box_component/ProfileBox";
-import Premium from "../../../../components/premium_component/Premium";
 import {
   ArticlePreviewContainer,
   LinkContainer,
   ImageContainer,
   TopContainer,
-  PremiumContainer,
   Title,
   MiddleContainer,
   BottomContainer,
@@ -17,10 +16,20 @@ import {
   Votes,
 } from "./ArticleCardPreview_styles";
 import UpTrend from "./media/up_button.svg";
-import DownTrend from "./media/down_button.svg";
+import { votes_async } from "../../../../firebase/functions/votes";
 
-const ArticleCardPreview = ({ data, id }) => {
+const ArticleCardPreview = ({ data, id, user_firebase }) => {
   moment.locale("es");
+  const [votes, set_votes] = useState(data.votes);
+
+  const vote_article_card_preview_to_firebase = async () => {
+    const { user_id } = user_firebase.user_data;
+    const response = await votes_async({
+      doc_path: `articles/${id}`,
+      doc_votes_path: `articles/${id}/votes/${user_id}`,
+    });
+    set_votes(response[0].votes);
+  };
 
   return (
     <>
@@ -41,8 +50,11 @@ const ArticleCardPreview = ({ data, id }) => {
         </LinkContainer>
         <BottomContainer>
           <Trends>
-            <TrendIcon src={UpTrend} />
-            <Votes>{"12"}</Votes>
+            <TrendIcon
+              src={UpTrend}
+              onClick={() => vote_article_card_preview_to_firebase()}
+            />
+            <Votes>{votes}</Votes>
           </Trends>
         </BottomContainer>
       </ArticlePreviewContainer>
@@ -50,4 +62,9 @@ const ArticleCardPreview = ({ data, id }) => {
   );
 };
 
-export default ArticleCardPreview;
+// redux
+const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
+  user_firebase,
+});
+
+export default connect(mapStateToProps, null)(ArticleCardPreview);

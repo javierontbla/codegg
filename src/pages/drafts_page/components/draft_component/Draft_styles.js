@@ -5,7 +5,7 @@ import AutosizeInput from "react-input-autosize";
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
-const { grey, black, grey_2, white } = colors;
+const { grey, black, grey_2, white, orange } = colors;
 const { montserrat, roboto, open_sans } = fonts;
 
 const InputStyles = css`
@@ -220,6 +220,15 @@ export const TagInputContainer = styled.div`
   height: 1.5rem;
   margin: 0.5rem 0rem 0rem 1.25rem;
   padding: 0rem 0rem 0rem 0rem;
+`;
+
+export const Warning = styled.div`
+  font-family: ${roboto};
+  font-size: 0.75rem;
+  color: ${orange};
+  padding: 1rem 1.25rem 0rem 1.25rem;
+  letter-spacing: 1px;
+  text-align: center;
 `;
 
 export const TagInput = styled(AutosizeInput)`

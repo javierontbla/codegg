@@ -18,7 +18,6 @@ import {
   Username,
 } from "./TradeCard_styles";
 import up_button from "./media/up_button.svg";
-import down_button from "./media/down_button.svg";
 import { votes_async } from "../../firebase/functions/votes";
 
 const TradeCard = ({ home_page, data, id, user_firebase }) => {

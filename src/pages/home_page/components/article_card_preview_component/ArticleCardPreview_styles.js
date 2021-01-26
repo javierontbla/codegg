@@ -24,7 +24,7 @@ export const LinkContainer = styled(Link)`
 `;
 
 export const ImageContainer = styled.div`
-  height: 8.75rem;
+  height: 9rem;
   width: 100%;
   border: none;
   border-top-left-radius: 20px;
@@ -85,6 +85,10 @@ export const TrendIcon = styled.img`
   width: 1.85rem;
   height: 1.85rem;
   margin: 0rem 0rem 0rem 0rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Votes = styled.div`

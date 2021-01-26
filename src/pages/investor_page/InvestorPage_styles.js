@@ -4,7 +4,7 @@ import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
 const { grey_2, orange, white, black } = colors;
-const { open_sans } = fonts;
+const { open_sans, montserrat } = fonts;
 
 export const InvestorPageContainer = styled.div`
   display: flex;
@@ -67,6 +67,24 @@ export const ActionButtonContainer = styled.div`
   margin: 0rem 0rem 0.75rem 0rem;
 `;
 export const TopContainer = styled.div``;
+
+export const Title = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  height: fit-content;
+  background: transparent;
+  border-bottom: 0.5px solid ${grey_2};
+  font-family: ${montserrat};
+  font-size: 1.65rem;
+  letter-spacing: 1px;
+  padding: 0rem 0rem 0.45rem 0rem;
+  line-height: 100%;
+  margin: 0rem 0rem 0.75rem 0rem;
+  text-transform: uppercase;
+  color: ${white};
+`;
 
 export const TradesContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;

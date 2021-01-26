@@ -100,6 +100,19 @@ function* save_article_async(action) {
   } catch (error) {}
 }
 
+function* delete_draft_async(action) {
+  const { user_id, draft_id } = action.payload;
+  const draft_ref = db.doc(`investors/${user_id}/drafts/${draft_id}`);
+
+  console.log(user_id, draft_id);
+  return;
+  try {
+    yield draft_ref.delete();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 function* request_draft_async(action) {
   const { user_id, draft_id } = action.payload;
   const draft_ref = db.doc(`investors/${user_id}/drafts/${draft_id}`);
@@ -143,6 +156,10 @@ export function* save_draft_saga() {
 
 export function* save_article_saga() {
   yield takeLatest(drafts_page_types.UPLOAD_ARTICLE_START, save_article_async);
+}
+
+export function* delete_draft_saga() {
+  yield takeLatest(drafts_page_types.DELETE_DRAFT_START, delete_draft_async);
 }
 
 export function* request_drafts_saga() {

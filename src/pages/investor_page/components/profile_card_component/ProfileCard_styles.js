@@ -73,7 +73,7 @@ export const Username = styled.div`
 
 export const MiddleContainer = styled.div`
   height: fit-content;
-  padding: 1.5rem 1rem 1.5rem 1rem;
+  padding: 1.5rem 1.25rem 1.5rem 1.25rem;
 `;
 
 export const Description = styled.div`
@@ -97,7 +97,7 @@ export const BottomContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   height: fit-content;
-  padding: 0.65rem 1rem 0.65rem 1rem;
+  padding: 0.75rem 1.25rem 0.75rem 1.25rem;
   border-top: 0.5px solid ${grey_2};
 `;
 

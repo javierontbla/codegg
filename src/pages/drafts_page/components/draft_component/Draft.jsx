@@ -18,6 +18,7 @@ import {
   AddIcon,
   DeleteIcon,
   TagInputContainer,
+  Warning,
   TagInput,
   InsertTagButton,
   DescriptionInput,
@@ -33,11 +34,18 @@ import {
 import {
   upload_draft_start_action,
   upload_article_start_action,
+  delete_draft_start_action,
 } from "../../../../redux/drafts_page/actions";
 import AddIconSVG from "./media/add_button.svg";
 import DeleteIconSVG from "./media/delete_button.svg";
 
-const Draft = ({ data, user_firebase, save_draft, save_article }) => {
+const Draft = ({
+  data,
+  user_firebase,
+  save_draft,
+  save_article,
+  delete_draft,
+}) => {
   const {
     params: { draft_id },
   } = useRouteMatch();
@@ -45,12 +53,16 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
   const [content, set_content] = useState(data.content);
   const [genres, set_genres] = useState(data.genres);
   const [description, set_description] = useState(data.description);
+  const [warning, set_warning] = useState(false);
+
   useEffect(() => {
     if (data.title.length > 0) {
       document.title = `Codegg - ${data.title}`;
     } else {
       document.title = `Codegg - New draft`;
     }
+
+    set_warning(false);
   }, []);
 
   const handle_input_field = (field, input) => {
@@ -117,6 +129,14 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
 
   const save_article_to_firebase = () => {
     const { user, user_id } = user_firebase.user_data;
+
+    if (!description || !title || content.length === 0 || genres.length === 0) {
+      set_warning(true);
+      return;
+    } else {
+      set_warning(false);
+    }
+
     save_article({
       user,
       user_id,
@@ -124,6 +144,11 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
       description,
       content,
       genres,
+    });
+
+    delete_draft({
+      user_id,
+      draft_id,
     });
   };
 
@@ -290,6 +315,9 @@ const Draft = ({ data, user_firebase, save_draft, save_article }) => {
                 Tag
               </InsertTagButton>
             </TagsContainer>
+            {warning ? (
+              <Warning>Please fill all inputs before uploading</Warning>
+            ) : null}
           </RightContainer>
         </TopContainer>
       </Container>
@@ -305,6 +333,7 @@ const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
 const mapDispatchToProps = (dispatch) => ({
   save_draft: (draft) => dispatch(upload_draft_start_action(draft)),
   save_article: (article) => dispatch(upload_article_start_action(article)),
+  delete_draft: (draft) => dispatch(delete_draft_start_action(draft)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Draft);

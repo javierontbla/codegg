@@ -11,7 +11,7 @@ const InformationStyles = css`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-family: ${open_sans};
   font-weight: 500;
   padding: 0rem 0rem 0rem 0rem;
@@ -49,7 +49,7 @@ export const TopContainer = styled.div`
 
 export const Name = styled.div`
   font-family: ${montserrat};
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: ${white};
   line-height: 100%;
   letter-spacing: 0.5px;
@@ -140,7 +140,7 @@ export const Votes = styled.div`
   justify-content: center;
   width: fit-content;
   color: ${white};
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   margin: 0rem 0.4rem 0rem 0.5rem;
   font-family: ${open_sans};
   font-weight: 500;

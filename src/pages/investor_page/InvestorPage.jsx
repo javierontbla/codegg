@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import Portfolio from "./components/portfolio_component/Portfolio";
 import ProfileCard from "./components/profile_card_component/ProfileCard";
 import TradeCard from "../../components/trade_card_component/TradeCard";
 import PostCard from "../../components/post_card_component/PostCard";
-import ArticlePreviewTitle from "./components/article_preview_title_component/ArticlePreviewTitle";
+import ArticleCardTitle from "./components/article_card_title_component/ArticleCardTitle";
 import {
   InvestorPageContainer,
   LeftContainer,
@@ -14,6 +13,7 @@ import {
   User,
   RightContainer,
   TopContainer,
+  Title,
   TradesContainer,
   Division,
   BottomContainer,
@@ -25,6 +25,10 @@ import {
   request_trades_start_action,
   request_posts_start_action,
   request_user_articles_start_action,
+  request_trades_success_action,
+  request_user_articles_success_action,
+  request_posts_success_action,
+  request_investor_profile_success_action,
 } from "../../redux/investor_page/actions";
 
 const InvestorPage = ({
@@ -39,19 +43,24 @@ const InvestorPage = ({
   trades,
   posts,
   articles,
+  reset_trades,
+  reset_posts,
+  reset_articles,
+  reset_user_profile,
 }) => {
-  const [display_portfolio, set_display_portfolio] = useState(false);
-
   useEffect(() => {
     request_trades(user_id);
     request_posts(user_id);
     request_articles({ user_id });
     request_investor_profile(user_id);
-  }, []);
 
-  const handle_display_portfolio = (display) => {
-    set_display_portfolio(display);
-  };
+    return () => {
+      reset_trades([]);
+      reset_user_profile([]);
+      reset_articles([]);
+      reset_posts([]);
+    };
+  }, []);
 
   return (
     <>
@@ -63,18 +72,16 @@ const InvestorPage = ({
             ) : null}
           </ProfileCardContainer>
           <RequestButton>
-            {investor.length > 0
-              ? `Want to get reviewed by ${investor[0].user}?`
-              : null}
+            {investor.length > 0 ? `Get reviewed by ${investor[0].user}` : null}
           </RequestButton>
         </LeftContainer>
-        {display_portfolio ? (
-          <Portfolio
-            handle_display_portfolio={() => handle_display_portfolio(false)}
-          />
-        ) : null}
-        <RightContainer display_portfolio={display_portfolio}>
+        <RightContainer>
           <TopContainer>
+            {investor.length > 0 ? (
+              <Title>{`${
+                investor[0].user.split(" ")[0]
+              }'s Recommendations`}</Title>
+            ) : null}
             <TradesContainer>
               {trades.map((trade_card) => {
                 return (
@@ -95,8 +102,13 @@ const InvestorPage = ({
               })}
             </PostsContainer>
             <ArticlesContainer>
-              {articles.map((article_preview_title) => {
-                return <ArticlePreviewTitle />;
+              {articles.map((article_card_title) => {
+                return (
+                  <ArticleCardTitle
+                    data={article_card_title[0]}
+                    id={article_card_title[1]}
+                  />
+                );
               })}
             </ArticlesContainer>
           </BottomContainer>
@@ -123,6 +135,11 @@ const mapDispatchToProps = (dispatch) => ({
   request_posts: (user_id) => dispatch(request_posts_start_action(user_id)),
   request_articles: (user_id) =>
     dispatch(request_user_articles_start_action(user_id)),
+  reset_trades: (bool) => dispatch(request_trades_success_action(bool)),
+  reset_articles: (bool) => dispatch(request_posts_success_action(bool)),
+  reset_posts: (bool) => dispatch(request_user_articles_success_action(bool)),
+  reset_user_profile: (bool) =>
+    dispatch(request_investor_profile_success_action(bool)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InvestorPage);

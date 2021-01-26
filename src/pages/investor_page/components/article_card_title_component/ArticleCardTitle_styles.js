@@ -24,7 +24,7 @@ export const ImageContainer = styled.div`
   border-top-right-radius: 15px;
   background-size: cover;
   background-position: center;
-  background-image: url("https://images.unsplash.com/photo-1610047803562-7260ebe516cc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+  background-image: url(${(props) => props.article_image});
   background-repeat: no-repeat;
   padding: 0rem 0rem 0rem 0rem !important;
   overflow: hidden;
@@ -66,7 +66,7 @@ export const TrendIcon = styled.img`
   margin: 0rem 0rem 0rem 0rem;
 
   &:hover {
-    opacity: 0.9;
+    cursor: pointer;
   }
 `;
 
@@ -77,7 +77,7 @@ export const Votes = styled.div`
   justify-content: center;
   width: fit-content;
   color: ${grey};
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   margin: 0rem 0.4rem 0rem 0.5rem;
   font-family: ${open_sans};
   font-weight: 500;
