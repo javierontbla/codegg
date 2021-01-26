@@ -16,6 +16,7 @@ const Category = ({
   name,
   top,
   article_preview,
+  article,
   ...allProps
 }) => {
   const remove_category = (category) => {
@@ -31,6 +32,7 @@ const Category = ({
         {...allProps}
         top={top}
         article_preview={article_preview}
+        article={article}
       >
         #{category}
         <IconContainer active_category={active_category}>

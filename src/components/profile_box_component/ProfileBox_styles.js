@@ -16,8 +16,8 @@ export const ProfileBoxContainer = styled.div`
 `;
 
 export const ProfileImage = styled.div`
-  width: ${(props) => (props.article_card_preview ? "2.15rem" : "2.65rem")};
-  height: ${(props) => (props.article_card_preview ? "2.15rem" : "2.65rem")};
+  width: ${(props) => (props.article_card_preview ? "2.15rem" : "2.5rem")};
+  height: ${(props) => (props.article_card_preview ? "2.15rem" : "2.5rem")};
   border-radius: 50%;
   border: none;
   background-size: cover;

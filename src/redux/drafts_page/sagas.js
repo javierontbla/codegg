@@ -17,24 +17,22 @@ import {
 function* create_draft_async(action) {
   const {
     user_id,
-    user,
-    profile_image,
     title,
     description,
     content,
-    genres,
+    tags,
+    draft_image,
   } = action.payload;
   const drafts_ref = db.collection(`investors/${user_id}/drafts`);
 
   try {
     const response = yield drafts_ref
       .add({
-        user,
-        profile_image,
         title,
         description,
         content,
-        genres,
+        tags,
+        draft_image,
       })
       .then((doc_ref) => doc_ref.id);
 
@@ -44,13 +42,26 @@ function* create_draft_async(action) {
   }
 }
 
+// save draft on firebase
 function* save_draft_async(action) {
-  const { user_id, draft_id, draft } = action.payload;
+  const {
+    user_id,
+    draft_id,
+    title,
+    description,
+    tags,
+    content,
+    draft_image,
+  } = action.payload;
   const user_drafts_ref = db.doc(`investors/${user_id}/drafts/${draft_id}`);
 
   try {
     const response = yield user_drafts_ref.update({
-      ...draft,
+      title,
+      description,
+      tags,
+      content,
+      draft_image,
     });
 
     yield put(upload_draft_success_action(response));
@@ -59,11 +70,25 @@ function* save_draft_async(action) {
   }
 }
 
-function* save_article_async(action) {
-  const { user, user_id, title, description, content, genres } = action.payload;
+// upload article to firebase
+function* upload_article_async(action) {
+  const {
+    user,
+    user_id,
+    title,
+    description,
+    content,
+    tags,
+    profile_image,
+    draft_image,
+  } = action.payload;
   const articles_ref = db.collection(`articles`);
 
-  const reduced_content = yield content.reduce((accum, current) => {
+  const tags_filtered = yield tags.filter((tag) => {
+    return tag !== null;
+  });
+
+  const content_reduced = yield content.reduce((accum, current) => {
     const { html_type, text } = current;
 
     if (html_type === "img") {
@@ -81,21 +106,17 @@ function* save_article_async(action) {
 
   try {
     const response = yield articles_ref.add({
-      article_image:
-        "https://images.unsplash.com/photo-1610620746532-17022962989c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      categories: genres,
-      date: new Date(),
-      description: "this is a description",
-      profile_image:
-        "https://images.unsplash.com/photo-1588731247530-4076fc99173e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+      article_image: draft_image,
+      profile_image,
       title,
       title_link,
       user,
       user_id,
+      date: new Date(),
       description,
-      content: reduced_content,
-      up_trends: 0,
-      down_trends: 0,
+      categories: tags_filtered,
+      content: content_reduced,
+      votes: 0,
     });
   } catch (error) {}
 }
@@ -104,8 +125,6 @@ function* delete_draft_async(action) {
   const { user_id, draft_id } = action.payload;
   const draft_ref = db.doc(`investors/${user_id}/drafts/${draft_id}`);
 
-  console.log(user_id, draft_id);
-  return;
   try {
     yield draft_ref.delete();
   } catch (error) {
@@ -154,8 +173,11 @@ export function* save_draft_saga() {
   yield takeLatest(drafts_page_types.UPLOAD_DRAFT_START, save_draft_async);
 }
 
-export function* save_article_saga() {
-  yield takeLatest(drafts_page_types.UPLOAD_ARTICLE_START, save_article_async);
+export function* upload_article_saga() {
+  yield takeLatest(
+    drafts_page_types.UPLOAD_ARTICLE_START,
+    upload_article_async
+  );
 }
 
 export function* delete_draft_saga() {

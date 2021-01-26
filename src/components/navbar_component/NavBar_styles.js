@@ -80,7 +80,7 @@ export const PageLink = styled.div`
   }
 `;
 
-export const UserContainer = styled.div`
+export const ProfileContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -93,11 +93,22 @@ export const UserContainer = styled.div`
   }
 `;
 
-export const ProfileContainer = styled.div`
+export const UserContainer = styled.div`
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  height: 50%;
+  height: fit-content;
+`;
+
+export const User = styled.div`
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  font-family: ${open_sans};
+  color: ${white};
+`;
+
+export const Icon = styled.img`
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const ProfileIcon = styled.img`

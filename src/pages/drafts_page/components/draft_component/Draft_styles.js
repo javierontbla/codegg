@@ -58,7 +58,53 @@ export const LeftContainer = styled.div`
 export const ContentContainer = styled.div`
   padding: 2rem 2rem 2rem 2rem;
   background: ${black};
-  border-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+`;
+
+export const ArticleImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 22.5rem;
+  width: 100%;
+  border-bottom: ${(props) =>
+    props.draft_image ? "none" : `0.5px solid ${grey_2}`};
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: ${black};
+  background-size: cover;
+  background-position: center;
+  background-image: url(${(props) => props.draft_image});
+  background-repeat: no-repeat;
+`;
+
+export const ArticleImageInput = styled.input`
+  height: 2rem;
+  width: 90%;
+  border: none;
+  border-bottom: 0.5px solid ${grey_2};
+  margin: 4rem 0rem 0rem 0rem;
+  background: transparent;
+  font-size: 0.8rem;
+  color: ${grey};
+  font-family: ${open_sans};
+  letter-spacing: 0.5px;
+
+  &&& {
+    ::placeholder {
+      font-size: 0.8rem;
+      font-family: ${open_sans};
+      color: ${grey};
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  &:focus {
+    outline: none !important;
+  }
 `;
 
 export const TitleInput = styled(TextareaAutosize)`
@@ -124,6 +170,12 @@ export const BodyInput = styled(TextareaAutosize)`
       opacity: 0.9;
     }
   }
+`;
+
+export const ImageIcon = styled.img`
+  width: 6rem;
+  border-radius: 0rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;
 
 export const ImageInput = styled.input`
@@ -222,15 +274,6 @@ export const TagInputContainer = styled.div`
   padding: 0rem 0rem 0rem 0rem;
 `;
 
-export const Warning = styled.div`
-  font-family: ${roboto};
-  font-size: 0.75rem;
-  color: ${orange};
-  padding: 1rem 1.25rem 0rem 1.25rem;
-  letter-spacing: 1px;
-  text-align: center;
-`;
-
 export const TagInput = styled(AutosizeInput)`
   height: 100%;
   font-family: ${open_sans};
@@ -255,6 +298,19 @@ export const InsertTagButton = styled.div`
   padding: 0rem 0rem 0rem 0rem;
   height: 1.5rem;
   font-size: 0.85rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const Warning = styled.div`
+  font-family: ${roboto};
+  font-size: 0.75rem;
+  color: ${orange};
+  padding: 1rem 1.25rem 0rem 1.25rem;
+  letter-spacing: 1px;
+  text-align: center;
 `;
 
 export const InsertButtonsContainer = styled.div`
@@ -277,9 +333,9 @@ export const InsertButton = styled.div`
 `;
 
 export const AddIcon = styled.img`
-  width: 0.65rem;
-  transform: rotate(45deg);
-  margin: 0rem 0.5rem 0rem 0rem;
+  width: ${(props) => (props.article_image ? "3.5rem" : "0.65rem")};
+  transform: ${(props) => (props.article_image ? "" : "rotate(45deg)")};
+  margin: ${(props) => (props.article_image ? "0" : "0rem 0.5rem 0rem 0rem")};
 `;
 
 export const DeleteIcon = styled.img`

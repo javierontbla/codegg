@@ -61,7 +61,7 @@ const ArticlesCollection = ({
     if (categories.length === 0) request_available_categories();
     if (unfiltered_articles.length === 0) request_unfiltered_articles();
 
-    document.title = `Codegg - Discover Your Next Investment`;
+    document.title = `Codegg - Read`;
 
     return () => {
       if (active_category[0]) {

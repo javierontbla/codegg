@@ -24,16 +24,28 @@ export const Container = styled.div`
 export const LeftContainer = styled.div`
   ${ContainerStyles};
   margin: 0rem 2rem 0rem 0rem;
-  padding: 2rem 2rem 2rem 2rem;
-  width: calc(100% - 18.5rem);
+  padding: 0rem 0rem 0rem 0rem;
+  width: calc(100% - 20rem);
+`;
+
+export const ArticleImage = styled.div`
+  width: 100%;
+  height: 22.5rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${(props) => props.article_image});
+  background-repeat: no-repeat;
 `;
 
 export const TitleArticle = styled.div`
   font-family: ${source_sans_pro};
-  font-size: 2.35rem;
+  font-size: 2.5rem;
   line-height: 100%;
   text-align: left;
   color: ${white};
+  padding: 2rem 2rem 0rem 2rem;
 `;
 
 export const Body = styled.div`
@@ -41,10 +53,11 @@ export const Body = styled.div`
   line-height: 120%;
   font-family: ${roboto};
   margin: 4rem 0rem 0rem 0rem;
+  padding: 0rem 2rem 0rem 2rem;
 `;
 
 export const RightContainer = styled.div`
-  width: 18.5rem;
+  width: 20rem;
 `;
 
 export const AuthorContainer = styled.div`
@@ -56,12 +69,12 @@ export const AuthorContainer = styled.div`
 export const ProfileBoxContainer = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+  padding: 1.25rem 1.25rem 0rem 1.25rem;
 `;
 
 export const TrendsContainer = styled.div`
   width: 100%;
-  padding: 0.2rem 1rem 0.2rem 1rem;
+  padding: 0.2rem 1.25rem 0.2rem 1.25rem;
   border-top: 0.5px solid ${grey_2};
 `;
 
@@ -92,7 +105,7 @@ export const Description = styled.div`
   font-size: 1rem;
   line-height: 120%;
   font-family: ${roboto};
-  padding: 0rem 1.25rem 1.5rem 1.25rem;
+  padding: 1.5rem 1.25rem 2rem 1.25rem;
   color: ${white};
   text-align: left;
 `;
@@ -103,5 +116,5 @@ export const CategoriesContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0.5rem 0rem 0.5rem 1rem;
+  padding: 0.5rem 0rem 1.25rem 1.25rem;
 `;

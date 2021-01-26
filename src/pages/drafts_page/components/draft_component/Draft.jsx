@@ -9,7 +9,10 @@ import {
   TopContainer,
   LeftContainer,
   RightContainer,
+  ArticleImageContainer,
+  ArticleImageInput,
   TitleInput,
+  ImageIcon,
   InsertButton,
   BottomContainer,
   ActionButtonContainer,
@@ -38,6 +41,7 @@ import {
 } from "../../../../redux/drafts_page/actions";
 import AddIconSVG from "./media/add_button.svg";
 import DeleteIconSVG from "./media/delete_button.svg";
+import ImageIconSVG from "./media/image_button.svg";
 
 const Draft = ({
   data,
@@ -49,9 +53,10 @@ const Draft = ({
   const {
     params: { draft_id },
   } = useRouteMatch();
+  const [draft_image, set_draft_image] = useState(data.draft_image);
   const [title, set_title] = useState(data.title);
   const [content, set_content] = useState(data.content);
-  const [genres, set_genres] = useState(data.genres);
+  const [tags, set_tags] = useState(data.tags);
   const [description, set_description] = useState(data.description);
   const [warning, set_warning] = useState(false);
 
@@ -79,7 +84,7 @@ const Draft = ({
   };
 
   const handle_tag_input = (input, indx) => {
-    set_genres((prev_state) => {
+    set_tags((prev_state) => {
       prev_state[indx] = input;
       return [...prev_state];
     });
@@ -105,32 +110,32 @@ const Draft = ({
   };
 
   const insert_tag = () => {
-    set_genres((prev_state) => ["", ...prev_state]);
+    set_tags((prev_state) => ["", ...prev_state]);
   };
 
   const remove_tag = (value) => {
-    set_genres((prev_state) => prev_state.filter((tag) => tag !== value));
+    set_tags((prev_state) => prev_state.filter((tag) => tag !== value));
   };
 
   const save_draft_to_firebase = () => {
-    const { user_id, profile_image } = user_firebase.user_data;
+    const { user_id } = user_firebase.user_data;
     save_draft({
       user_id,
       draft_id,
-      draft: {
-        title,
-        description,
-        genres,
-        content,
-        profile_image,
-      },
+      title,
+      description,
+      tags,
+      content,
+      draft_image,
     });
+
+    set_warning(false);
   };
 
   const save_article_to_firebase = () => {
     const { user, user_id } = user_firebase.user_data;
 
-    if (!description || !title || content.length === 0 || genres.length === 0) {
+    if (!description || !title || content.length === 0 || tags.length === 0) {
       set_warning(true);
       return;
     } else {
@@ -143,7 +148,8 @@ const Draft = ({
       title,
       description,
       content,
-      genres,
+      tags,
+      draft_image,
     });
 
     delete_draft({
@@ -157,6 +163,16 @@ const Draft = ({
       <Container className="container">
         <TopContainer>
           <LeftContainer>
+            <ArticleImageContainer draft_image={draft_image}>
+              <ImageIcon src={ImageIconSVG} />
+              <ArticleImageInput
+                value={draft_image}
+                placeholder="www.image-link.com"
+                onChange={(e) =>
+                  handle_input_field(set_draft_image, e.target.value)
+                }
+              />
+            </ArticleImageContainer>
             <ContentContainer>
               <TitleInput
                 value={title}
@@ -270,8 +286,8 @@ const Draft = ({
             <AuthorContainer>
               {user_firebase ? (
                 <ProfileBox
-                  profile_image={data.profile_image}
-                  user={data.user}
+                  profile_image={user_firebase.user_data.profile_image}
+                  user={user_firebase.user_data.user}
                   date={null}
                 />
               ) : null}
@@ -285,7 +301,7 @@ const Draft = ({
               />
             </AuthorContainer>
             <TagsContainer>
-              {genres.map((tag, indx) => {
+              {tags.map((tag, indx) => {
                 return (
                   <TagInputContainer>
                     <DeleteIcon

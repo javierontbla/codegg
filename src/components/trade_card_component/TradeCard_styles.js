@@ -20,7 +20,7 @@ const InformationStyles = css`
   height: fit-content;
   width: fit-content;
   line-height: 100%;
-  color: ${blue};
+  color: ${grey};
 
   &:hover {
     cursor: auto;

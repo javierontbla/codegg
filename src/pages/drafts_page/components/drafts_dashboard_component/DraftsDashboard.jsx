@@ -47,7 +47,8 @@ const DraftsDashboard = ({
       title: "",
       description: "",
       content: [],
-      genres: [],
+      tags: [],
+      draft_image: "",
     });
   };
 

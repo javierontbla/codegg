@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
-const { roboto, source_sans_pro, open_sans } = fonts;
+const { roboto, montserrat, open_sans } = fonts;
 const { grey, grey_2, black, white } = colors;
 
 export const LinkArticle = styled(Link)`
@@ -26,7 +26,7 @@ export const ArticleImage = styled.div`
   border-top-right-radius: 15px;
   background-size: cover;
   background-position: center;
-  background-image: url(${(props) => props.source});
+  background-image: url(${(props) => props.article_image});
   background-repeat: no-repeat;
 `;
 
@@ -39,19 +39,20 @@ export const TopContainer = styled.div`
 export const TagsContainer = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin: 0rem 0rem 0rem 0rem;
   padding: 0.5rem 1.25rem 0rem 1.25rem;
   height: fit-content;
 `;
 
 export const Title = styled.div`
-  font-family: ${source_sans_pro};
-  font-size: 1.5rem;
+  font-family: ${montserrat};
+  font-size: 1.6rem;
   color: ${white};
   letter-spacing: 0.5px;
   line-height: 110%;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 0rem 1.25rem 0rem 1.25rem;
+  padding: 0.5rem 1.25rem 0rem 1.25rem;
 
   @media (max-width: 500px) {
   }
@@ -63,7 +64,7 @@ export const Description = styled.div`
   color: ${white};
   line-height: 120%;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 1rem 1.25rem 1.25rem 1.25rem;
+  padding: 1.25rem 1.25rem 1.5rem 1.25rem;
 
   &::first-letter {
     text-transform: uppercase;

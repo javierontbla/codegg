@@ -46,7 +46,7 @@ export const BottomContainer = styled.div`
 `;
 
 export const LeftContainer = styled.div`
-  width: 25rem;
+  width: 18rem;
 `;
 
 export const CategoriesContainer = styled.div`
@@ -58,7 +58,7 @@ export const CategoriesContainer = styled.div`
   width: 100%;
   height: fit-content;
   justify-content: left;
-  padding: 0.5rem 0rem 0.5rem 1rem;
+  padding: 0.5rem 0rem 1rem 1rem;
   margin: 0rem 0rem 0rem 0rem;
   border-radius: 15px;
 
@@ -67,8 +67,8 @@ export const CategoriesContainer = styled.div`
 `;
 
 export const RightContainer = styled.div`
-  width: 100%;
-  padding: 0rem 0rem 0rem 0.75rem;
+  width: calc(100% - 18rem);
+  padding: 0rem 0rem 0rem 1.25rem;
 `;
 
 export const ActiveCategoryContainer = styled.div`

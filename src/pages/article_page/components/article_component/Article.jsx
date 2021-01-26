@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import parse from "html-react-parser";
 import moment from "moment";
@@ -7,6 +7,7 @@ import "moment/locale/es";
 import {
   Container,
   LeftContainer,
+  ArticleImage,
   TitleArticle,
   Body,
   RightContainer,
@@ -26,9 +27,10 @@ import {
 import ProfileBox from "../../../../components/profile_box_component/ProfileBox";
 import Category from "../../../../components/category_component/Category";
 import UpTrend from "./media/up_button.svg";
-import DownTrend from "./media/down_button.svg";
 
-const Article = ({ data }) => {
+const Article = ({ data, id }) => {
+  const [votes, set_votes] = useState(data.votes);
+
   useEffect(() => {
     moment.locale("en");
     window.scrollTo(0, 0);
@@ -62,6 +64,7 @@ const Article = ({ data }) => {
     <>
       <Container>
         <LeftContainer>
+          <ArticleImage article_image={data.article_image} />
           <TitleArticle>{data.title}</TitleArticle>
           <Body>{parse(data.content)}</Body>
         </LeftContainer>
@@ -78,14 +81,15 @@ const Article = ({ data }) => {
             <TrendsContainer>
               <Trends>
                 <Icon src={UpTrend} />
-                <Votes>{"12"}</Votes>
-                <Icon src={DownTrend} />
+                <Votes>{votes}</Votes>
               </Trends>
             </TrendsContainer>
           </AuthorContainer>
           <CategoriesContainer>
             {data.categories.map((category) => {
-              return <Category category={category} key={category} />;
+              return (
+                <Category article={"true"} category={category} key={category} />
+              );
             })}
           </CategoriesContainer>
         </RightContainer>

@@ -12,10 +12,11 @@ import {
   Img,
   PagesContainer,
   PageLink,
-  UserContainer,
   ActionButtonContainer,
   ProfileContainer,
-  ProfileIcon,
+  UserContainer,
+  User,
+  Icon,
   Menu,
   MenuOption,
 } from "./NavBar_styles";
@@ -57,21 +58,21 @@ const NavBar = ({ user_firebase }) => {
               <PageLink>FAQ</PageLink>
             </LinkContainer>
           </PagesContainer>
-          <UserContainer>
+          <ProfileContainer>
             {user_firebase ? (
               <>
-                <ProfileContainer>
-                  <ProfileIcon
-                    src={UserIcon}
-                    onClick={() => display_profile_menu()}
-                  />
+                <UserContainer>
+                  <User onClick={() => display_profile_menu()}>
+                    {user_firebase.user_data.user}
+                    <Icon />
+                  </User>
                   <Menu menu_active={menu_active}>
                     <MenuOption>Profile</MenuOption>
                     <MenuOption last_child={"true"} onClick={() => log_out()}>
                       Log Out
                     </MenuOption>
                   </Menu>
-                </ProfileContainer>
+                </UserContainer>
               </>
             ) : (
               <ActionButtonContainer onClick={() => log_in()}>
@@ -80,7 +81,7 @@ const NavBar = ({ user_firebase }) => {
                 </ActionButton>
               </ActionButtonContainer>
             )}
-          </UserContainer>
+          </ProfileContainer>
         </NavbarContainer>
       </Container>
     </>

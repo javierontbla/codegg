@@ -48,7 +48,7 @@ const ArticleCard = ({
     <>
       <Container>
         <LinkArticle to={`${url}/${data.title_link}-${id}`}>
-          <ArticleImage source={data.article_image} />
+          <ArticleImage article_image={data.article_image} />
           <TopContainer>
             <TagsContainer>
               {data.categories.map((category) => {
