@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import moment from "moment";
 import { connect } from "react-redux";
 
@@ -21,14 +21,19 @@ import { votes_async } from "../../../../firebase/functions/votes";
 const ArticleCardPreview = ({ data, id, user_firebase }) => {
   moment.locale("es");
   const [votes, set_votes] = useState(data.votes);
+  const vote_ref = useRef(false);
 
   const vote_article_card_preview_to_firebase = async () => {
     const { user_id } = user_firebase.user_data;
+    if (vote_ref.current === true) return;
+
+    vote_ref.current = true; // start
     const response = await votes_async({
       doc_path: `articles/${id}`,
       doc_votes_path: `articles/${id}/votes/${user_id}`,
     });
     set_votes(response[0].votes);
+    vote_ref.current = false; // end
   };
 
   return (

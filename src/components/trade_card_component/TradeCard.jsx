@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 
@@ -21,18 +21,22 @@ import up_button from "./media/up_button.svg";
 import { votes_async } from "../../firebase/functions/votes";
 
 const TradeCard = ({ home_page, data, id, user_firebase }) => {
-  const [votes, set_votes] = useState(data.votes);
-
   moment.locale("en");
+  const [votes, set_votes] = useState(data.votes);
+  const vote_ref = useRef(false);
 
   const vote_recommended_card_to_firebase = async () => {
     const { user_id } = user_firebase.user_data;
+    if (vote_ref.current === true) return;
+
+    vote_ref.current = true; // start
     const response = await votes_async({
       doc_path: `trades/${id}`,
       doc_votes_path: `trades/${id}/votes/${user_id}`,
     });
 
     set_votes(response[0].votes);
+    vote_ref.current = false; // end
   };
 
   return (

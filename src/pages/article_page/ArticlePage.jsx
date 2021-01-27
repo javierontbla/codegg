@@ -28,7 +28,7 @@ const ArticlePage = ({
       ) : loading_article ? (
         console.log("Loading...")
       ) : (
-        <Article data={article} />
+        <Article data={article} id={article_id.split("-").slice(-1)[0]} />
       )}
     </>
   );

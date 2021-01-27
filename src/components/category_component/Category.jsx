@@ -1,5 +1,4 @@
 import React from "react";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 
 import { CategoryContainer, IconContainer, Icon } from "./Category_styles";
@@ -7,6 +6,7 @@ import {
   delete_category_action,
   request_filtered_articles_success_action,
 } from "../../redux/articles_page/actions";
+import CloseIconSVG from "./media/delete_button.svg";
 
 const Category = ({
   clear_filtered_articles,
@@ -34,10 +34,10 @@ const Category = ({
         article_preview={article_preview}
         article={article}
       >
-        #{category}
         <IconContainer active_category={active_category}>
-          <Icon icon={faTimes} onClick={() => remove_category(category)} />
+          <Icon src={CloseIconSVG} onClick={() => remove_category(category)} />
         </IconContainer>
+        #{category}
       </CategoryContainer>
     </>
   );

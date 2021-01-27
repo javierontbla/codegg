@@ -65,7 +65,7 @@ const ArticlesCollection = ({
 
     return () => {
       if (active_category[0]) {
-        delete_category(active_category[0]);
+        delete_category();
         clear_filtered_articles([]);
       }
     };

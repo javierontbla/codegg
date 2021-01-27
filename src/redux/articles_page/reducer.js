@@ -7,9 +7,6 @@ const INITIAL_STATE = {
   filtered_articles: [],
   categories: [],
   active_category: [],
-  drafts: [],
-  draft_id: null,
-  active_draft: null,
   last_unfiltered_article: null,
   last_filtered_article: null,
   error_categories: null,
@@ -139,43 +136,6 @@ export const articles_page_reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         no_more_filtered_articles: true,
-      };
-    case articles_page_types.UPLOAD_DRAFT_START:
-      return {
-        ...state,
-      };
-
-    case articles_page_types.UPLOAD_DRAFT_SUCCESS:
-      return {
-        ...state,
-      };
-
-    case articles_page_types.UPLOAD_DRAFT_FAILURE:
-      return {
-        ...state,
-      };
-
-    case articles_page_types.CREATE_DRAFT_SUCCESS:
-      return {
-        ...state,
-        draft_id: action.payload,
-      };
-
-    case articles_page_types.REQUEST_DRAFT_SUCCESS:
-      return {
-        ...state,
-        active_draft: action.payload,
-      };
-
-    case articles_page_types.REQUEST_DRAFTS_START:
-      return {
-        ...state,
-      };
-
-    case articles_page_types.REQUEST_DRAFTS_SUCCESS:
-      return {
-        ...state,
-        drafts: action.payload,
       };
 
     default:

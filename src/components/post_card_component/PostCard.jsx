@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import moment from "moment";
 import { connect } from "react-redux";
 
@@ -38,30 +38,33 @@ import { votes_async } from "../../firebase/functions/votes";
 const PostCard = ({
   data,
   id,
-  posts,
   user_firebase,
   loading_comments,
   current_post_id,
   request_all_comments,
   close_comments_section,
-  upvote_post,
-  update,
 }) => {
-  const [votes, set_votes] = useState(data.votes);
   moment.locale("en");
+  const [votes, set_votes] = useState(data.votes);
+  const vote_ref = useRef(false);
 
-  const display_all_comments = () => {
+  const display_comments = () => {
     if (current_post_id !== id) request_all_comments(id);
     else close_comments_section(); // it's the same so close comments section
   };
 
-  const vote_post_to_firebase = async () => {
+  const vote_post_card_to_firebase = async () => {
     const { user_id } = user_firebase.user_data;
+    if (vote_ref.current === true) return;
+
+    vote_ref.current = true; // start
     const response = await votes_async({
       doc_path: `posts/${id}`,
       doc_votes_path: `posts/${id}/votes/${user_id}`,
     });
+
     set_votes(response[0].votes);
+    vote_ref.current = false; // end
   };
 
   return (
@@ -92,7 +95,7 @@ const PostCard = ({
               <TrendContainer>
                 <TrendIcon
                   src={UpIcon}
-                  onClick={() => vote_post_to_firebase()}
+                  onClick={() => vote_post_card_to_firebase()}
                 />
               </TrendContainer>
               <CountContainer>{votes}</CountContainer>
@@ -101,7 +104,7 @@ const PostCard = ({
               <TrendIcon
                 src={CommentsIcon}
                 comment={"true"}
-                onClick={() => display_all_comments()}
+                onClick={() => display_comments()}
               />
             </CommentsIconContainer>
           </BottomContainer>

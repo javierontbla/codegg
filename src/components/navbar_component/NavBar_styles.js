@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
@@ -29,6 +28,19 @@ export const NavbarContainer = styled.div`
   }
 `;
 
+export const HyperLink = styled(Link)`
+  &&& {
+    &::after {
+      background-color: transparent;
+      width: calc(100%);
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+`;
+
 // containers
 export const LogoContainer = styled.div`
   display: flex;
@@ -47,7 +59,7 @@ export const LogoContainer = styled.div`
   }
 `;
 
-export const Img = styled.img`
+export const Logo = styled.img`
   width: 3.35rem;
   margin: 0 !important;
 
@@ -60,7 +72,7 @@ export const Img = styled.img`
   }
 `;
 
-export const PagesContainer = styled.div`
+export const PageLinksContainer = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
@@ -80,7 +92,7 @@ export const PageLink = styled.div`
   }
 `;
 
-export const ProfileContainer = styled.div`
+export const UserProfileContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -98,23 +110,29 @@ export const UserContainer = styled.div`
   display: inline-block;
   vertical-align: middle;
   height: fit-content;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
 `;
 
 export const User = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   letter-spacing: 1px;
   font-size: 0.9rem;
   font-family: ${open_sans};
   color: ${white};
 `;
 
-export const Icon = styled.img`
-  margin: 0rem 0rem 0rem 0rem;
-`;
-
-export const ProfileIcon = styled.img`
-  width: 1.6rem;
-  height: 1.6rem;
-  margin: 0rem 0rem 0rem 0rem;
+export const DropDownIcon = styled.div`
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: ${white} transparent transparent transparent;
+  margin: 0rem 0rem 0rem 0.5rem;
 
   &:hover {
     cursor: pointer;
@@ -122,19 +140,20 @@ export const ProfileIcon = styled.img`
   }
 `;
 
-export const Menu = styled.div`
+export const UserMenu = styled.div`
   position: absolute;
   right: 0;
   display: ${(props) => (props.menu_active ? "block" : "none")};
   z-index: 1;
   background: ${black};
   border-radius: 15px;
-  width: 8rem;
+  width: 10rem;
   height: fit-content;
-  margin: 0.5rem 0rem 0rem 0rem;
+  margin: 0.75rem 0rem 0rem 0rem;
+  border: 0.5px solid ${grey_2};
 `;
 
-export const MenuOption = styled.div`
+export const UserMenuOption = styled.div`
   width: 100%;
   height: fit-content;
   font-size: 0.9rem;
@@ -154,33 +173,6 @@ export const MenuOption = styled.div`
 export const ActionButtonContainer = styled.div`
   height: fit-content;
   width: fit-content;
-`;
-
-// buttons
-export const MediaIcon = styled(FontAwesomeIcon)`
-  font-size: 1.6rem;
-  color: ${black};
-  height: 100%;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  @media (max-width: 500px) {
-  }
-`;
-
-export const LinkContainer = styled(Link)`
-  &&& {
-    &::after {
-      background-color: transparent;
-      width: calc(100%);
-    }
-  }
-  &:hover {
-    cursor: pointer;
-    text-decoration: none;
-  }
 `;
 
 export const External = styled.a`

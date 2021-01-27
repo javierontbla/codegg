@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
@@ -18,6 +19,14 @@ export const Container = styled.div`
   flex-direction: row;
 
   @media (max-width: 500px) {
+  }
+`;
+
+export const HyperLink = styled(Link)`
+  color: ${grey};
+  &:hover {
+    color: ${grey};
+    text-decoration: none;
   }
 `;
 
@@ -72,7 +81,16 @@ export const ProfileBoxContainer = styled.div`
   padding: 1.25rem 1.25rem 0rem 1.25rem;
 `;
 
-export const TrendsContainer = styled.div`
+export const Description = styled.div`
+  font-size: 1rem;
+  line-height: 120%;
+  font-family: ${roboto};
+  padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+  color: ${white};
+  text-align: left;
+`;
+
+export const BottomContainer = styled.div`
   width: 100%;
   padding: 0.2rem 1.25rem 0.2rem 1.25rem;
   border-top: 0.5px solid ${grey_2};
@@ -84,10 +102,14 @@ export const Trends = styled.div`
   align-items: center;
 `;
 
-export const Icon = styled.img`
+export const TrendIcon = styled.img`
   width: 1.85rem;
   height: 1.85rem;
   margin: 0rem 0rem 0rem 0rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Votes = styled.div`
@@ -101,16 +123,7 @@ export const Votes = styled.div`
   opacity: 0.85;
 `;
 
-export const Description = styled.div`
-  font-size: 1rem;
-  line-height: 120%;
-  font-family: ${roboto};
-  padding: 1.5rem 1.25rem 2rem 1.25rem;
-  color: ${white};
-  text-align: left;
-`;
-
-export const CategoriesContainer = styled.div`
+export const TagsContainer = styled.div`
   ${ContainerStyles};
   display: flex;
   flex-direction: row;

@@ -74,8 +74,8 @@ export const RightContainer = styled.div`
 export const ActiveCategoryContainer = styled.div`
   display: ${(props) => (props.length > 0 ? "flex" : "none")};
   flex-direction: row;
-  padding: 0rem 0rem 0.5rem 0rem;
-  margin: -0.25rem 0rem 0rem -0.25rem;
+  padding: 0rem 0rem 0rem 0rem;
+  margin: 0.5rem 0rem 1.75rem 0.75rem;
   width: 100%;
   height: fit-content;
 `;

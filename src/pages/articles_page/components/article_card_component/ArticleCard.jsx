@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { connect } from "react-redux";
 import moment from "moment";
@@ -29,19 +29,23 @@ const ArticleCard = ({
   request_filtered_articles_fun,
   user_firebase,
 }) => {
+  moment.locale("en");
   const { url } = useRouteMatch();
   const [votes, set_votes] = useState(data.votes);
-
-  moment.locale("en");
+  const vote_ref = useRef(false);
 
   const vote_article_card_to_firebase = async () => {
     const { user_id } = user_firebase.user_data;
+    if (vote_ref.current === true) return;
+
+    vote_ref.current = true; // start
     const response = await votes_async({
       doc_path: `articles/${id}`,
       doc_votes_path: `articles/${id}/votes/${user_id}`,
     });
 
     set_votes(response[0].votes);
+    vote_ref.current = false; // end
   };
 
   return (
@@ -49,23 +53,25 @@ const ArticleCard = ({
       <Container>
         <LinkArticle to={`${url}/${data.title_link}-${id}`}>
           <ArticleImage article_image={data.article_image} />
-          <TopContainer>
-            <TagsContainer>
-              {data.categories.map((category) => {
-                return (
-                  <Category
-                    onClick={() => request_filtered_articles_fun(category)}
-                    category={category}
-                    name={category}
-                    key={category}
-                  />
-                );
-              })}
-            </TagsContainer>
+        </LinkArticle>
+        <TopContainer>
+          <TagsContainer>
+            {data.categories.map((category) => {
+              return (
+                <Category
+                  onClick={() => request_filtered_articles_fun(category)}
+                  category={category}
+                  name={category}
+                  key={category}
+                />
+              );
+            })}
+          </TagsContainer>
+          <LinkArticle to={`${url}/${data.title_link}-${id}`}>
             <Title>{data.title}</Title>
             <Description>{data.description.toLowerCase()}...</Description>
-          </TopContainer>
-        </LinkArticle>
+          </LinkArticle>
+        </TopContainer>
         <MiddleContainer>
           <ProfileBox
             profile_image={data.profile_image}

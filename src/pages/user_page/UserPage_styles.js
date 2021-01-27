@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
 
-const { grey_2, orange, white, black } = colors;
-const { open_sans, montserrat } = fonts;
+const { grey_2, white } = colors;
+const { montserrat } = fonts;
 
-export const InvestorPageContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -30,30 +30,6 @@ export const ProfileCardContainer = styled.div`
   height: fit-content;
 `;
 
-export const RequestButton = styled.div`
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  height: 2.15rem;
-  color: ${white};
-  font-family: ${open_sans};
-  padding: 0rem 0.85rem 0rem 0.85rem;
-  margin: 1rem 0rem 0rem 0rem;
-  font-size: 0.9rem;
-  border-radius: 20px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  background: ${black};
-  transition: 0.25s color;
-
-  &:hover {
-    cursor: pointer;
-    color: ${orange};
-  }
-`;
-
-export const PortfolioContainer = styled.div``;
-
 export const RightContainer = styled.div`
   display: ${(props) => (props.display_portfolio ? "none" : "flex")};
   flex-direction: column;
@@ -66,7 +42,10 @@ export const RightContainer = styled.div`
 export const ActionButtonContainer = styled.div`
   margin: 0rem 0rem 0.75rem 0rem;
 `;
-export const TopContainer = styled.div``;
+
+export const TopContainer = styled.div`
+  width: 100%;
+`;
 
 export const Title = styled.div`
   display: flex;
@@ -86,7 +65,7 @@ export const Title = styled.div`
   color: ${white};
 `;
 
-export const TradesContainer = styled.div`
+export const RecommendedContainer = styled.div`
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0rem 0.75rem 0rem;
   width: 100%;
@@ -104,7 +83,7 @@ export const TradesContainer = styled.div`
 `;
 
 export const Division = styled.div`
-  border-top: 1px solid ${grey_2};
+  border-top: 0.5px solid ${grey_2};
   height: 0.75rem;
   width: calc(100%);
   margin: 0rem 0rem 0rem 0rem;
@@ -115,10 +94,11 @@ export const BottomContainer = styled.div`
   flex-direction: row;
   height: fit-content;
 `;
+
 export const PostsContainer = styled.div`
   width: calc(100% - 15rem);
   height: 100%;
-  padding: 0rem 1.5rem 0rem 0rem;
+  padding: 0rem 2rem 0rem 0rem;
 `;
 
 export const ArticlesContainer = styled.div`

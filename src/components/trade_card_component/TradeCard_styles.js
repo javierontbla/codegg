@@ -120,6 +120,7 @@ export const TrendsContainer = styled.div`
   flex-direction: row;
   align-items: center;
   height: 100%;
+  width: fit-content;
 `;
 
 export const TrendIcon = styled.img`

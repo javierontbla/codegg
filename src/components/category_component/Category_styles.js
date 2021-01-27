@@ -36,14 +36,14 @@ export const IconContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  margin: 0rem 0rem 0rem 0.35rem;
+  margin: 0rem 0.5rem 0rem 0rem;
 
   &:hover {
     cursor: pointer;
   }
 `;
 
-export const Icon = styled(FontAwesomeIcon)`
-  color: ${white};
-  font-size: 0.8rem;
+export const Icon = styled.img`
+  width: 0.65rem;
+  margin: 0rem 0rem 0rem 0rem;
 `;

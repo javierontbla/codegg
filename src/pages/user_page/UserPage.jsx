@@ -6,20 +6,18 @@ import TradeCard from "../../components/trade_card_component/TradeCard";
 import PostCard from "../../components/post_card_component/PostCard";
 import ArticleCardTitle from "./components/article_card_title_component/ArticleCardTitle";
 import {
-  InvestorPageContainer,
+  Container,
   LeftContainer,
   ProfileCardContainer,
-  RequestButton,
-  User,
   RightContainer,
   TopContainer,
   Title,
-  TradesContainer,
+  RecommendedContainer,
   Division,
   BottomContainer,
   PostsContainer,
   ArticlesContainer,
-} from "./InvestorPage_styles";
+} from "./UserPage_styles";
 import {
   request_investor_profile_start_action,
   request_trades_start_action,
@@ -31,11 +29,11 @@ import {
   request_investor_profile_success_action,
 } from "../../redux/investor_page/actions";
 
-const InvestorPage = ({
+const UserPage = ({
   match: {
     params: { user_id },
   },
-  request_investor_profile,
+  request_user,
   request_trades,
   request_posts,
   request_articles,
@@ -52,7 +50,7 @@ const InvestorPage = ({
     request_trades(user_id);
     request_posts(user_id);
     request_articles({ user_id });
-    request_investor_profile(user_id);
+    request_user(user_id);
 
     return () => {
       reset_trades([]);
@@ -64,25 +62,20 @@ const InvestorPage = ({
 
   return (
     <>
-      <InvestorPageContainer>
+      <Container>
         <LeftContainer>
           <ProfileCardContainer>
             {investor.length > 0 ? (
               <ProfileCard data={investor[0]} id={investor[1]} />
             ) : null}
           </ProfileCardContainer>
-          <RequestButton>
-            {investor.length > 0 ? `Get reviewed by ${investor[0].user}` : null}
-          </RequestButton>
         </LeftContainer>
         <RightContainer>
           <TopContainer>
             {investor.length > 0 ? (
-              <Title>{`${
-                investor[0].user.split(" ")[0]
-              }'s Recommendations`}</Title>
+              <Title>{`${investor[0].user.split(" ")[0]}'s Recommended`}</Title>
             ) : null}
-            <TradesContainer>
+            <RecommendedContainer>
               {trades.map((trade_card) => {
                 return (
                   <TradeCard
@@ -92,7 +85,7 @@ const InvestorPage = ({
                   />
                 );
               })}
-            </TradesContainer>
+            </RecommendedContainer>
           </TopContainer>
           <Division />
           <BottomContainer>
@@ -113,7 +106,7 @@ const InvestorPage = ({
             </ArticlesContainer>
           </BottomContainer>
         </RightContainer>
-      </InvestorPageContainer>
+      </Container>
     </>
   );
 };
@@ -129,7 +122,7 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  request_investor_profile: (user_id) =>
+  request_user: (user_id) =>
     dispatch(request_investor_profile_start_action(user_id)),
   request_trades: (user_id) => dispatch(request_trades_start_action(user_id)),
   request_posts: (user_id) => dispatch(request_posts_start_action(user_id)),
@@ -142,4 +135,4 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(request_investor_profile_success_action(bool)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(InvestorPage);
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage);

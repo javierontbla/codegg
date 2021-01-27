@@ -2,23 +2,22 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import Codegg from "./media/official_logo.svg";
-import UserIcon from "./media/user_button.svg";
 import ActionButton from "../action_button_component/ActionButton";
 import {
   Container,
   NavbarContainer,
-  LinkContainer,
-  LogoContainer,
-  Img,
-  PagesContainer,
-  PageLink,
   ActionButtonContainer,
-  ProfileContainer,
+  HyperLink,
+  LogoContainer,
+  Logo,
+  PageLinksContainer,
+  PageLink,
+  UserProfileContainer,
   UserContainer,
   User,
-  Icon,
-  Menu,
-  MenuOption,
+  DropDownIcon,
+  UserMenu,
+  UserMenuOption,
 } from "./NavBar_styles";
 import { google_provider, auth } from "../../firebase/firebase";
 
@@ -42,36 +41,48 @@ const NavBar = ({ user_firebase }) => {
     <>
       <Container>
         <NavbarContainer className="container">
-          <PagesContainer>
+          <PageLinksContainer>
             <LogoContainer>
-              <LinkContainer to="/">
-                <Img src={Codegg} />
-              </LinkContainer>
+              <HyperLink to="/">
+                <Logo src={Codegg} />
+              </HyperLink>
             </LogoContainer>
-            <LinkContainer to="/">
+            <HyperLink to="/">
               <PageLink>Home</PageLink>
-            </LinkContainer>
-            <LinkContainer to="/articles">
+            </HyperLink>
+            <HyperLink to="/articles">
               <PageLink>Read</PageLink>
-            </LinkContainer>
-            <LinkContainer to="/articles">
+            </HyperLink>
+            <HyperLink to="/faq">
               <PageLink>FAQ</PageLink>
-            </LinkContainer>
-          </PagesContainer>
-          <ProfileContainer>
+            </HyperLink>
+          </PageLinksContainer>
+          <UserProfileContainer>
             {user_firebase ? (
               <>
                 <UserContainer>
                   <User onClick={() => display_profile_menu()}>
                     {user_firebase.user_data.user}
-                    <Icon />
+                    <DropDownIcon />
                   </User>
-                  <Menu menu_active={menu_active}>
-                    <MenuOption>Profile</MenuOption>
-                    <MenuOption last_child={"true"} onClick={() => log_out()}>
+                  <UserMenu menu_active={menu_active}>
+                    <HyperLink
+                      to={`/profile/${user_firebase.user_data.user_id}`}
+                    >
+                      <UserMenuOption>Profile</UserMenuOption>
+                    </HyperLink>
+                    <HyperLink
+                      to={`/articles/dashboard/${user_firebase.user_data.user_id}`}
+                    >
+                      <UserMenuOption>Drafts</UserMenuOption>
+                    </HyperLink>
+                    <UserMenuOption
+                      last_child={"true"}
+                      onClick={() => log_out()}
+                    >
                       Log Out
-                    </MenuOption>
-                  </Menu>
+                    </UserMenuOption>
+                  </UserMenu>
                 </UserContainer>
               </>
             ) : (
@@ -81,7 +92,7 @@ const NavBar = ({ user_firebase }) => {
                 </ActionButton>
               </ActionButtonContainer>
             )}
-          </ProfileContainer>
+          </UserProfileContainer>
         </NavbarContainer>
       </Container>
     </>
@@ -93,6 +104,4 @@ const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
   user_firebase,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, null)(NavBar);
