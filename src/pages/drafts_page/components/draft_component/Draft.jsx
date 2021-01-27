@@ -11,7 +11,9 @@ import {
   RightContainer,
   ArticleImageContainer,
   ArticleImageInput,
+  TopContentContainer,
   TitleInput,
+  ScoreInput,
   ImageIcon,
   InsertButton,
   BottomContainer,
@@ -47,7 +49,7 @@ const Draft = ({
   data,
   user_firebase,
   save_draft,
-  save_article,
+  upload_article,
   delete_draft,
 }) => {
   const {
@@ -58,6 +60,7 @@ const Draft = ({
   const [content, set_content] = useState(data.content);
   const [tags, set_tags] = useState(data.tags);
   const [description, set_description] = useState(data.description);
+  const [score, set_score] = useState(data.score);
   const [warning, set_warning] = useState(false);
 
   useEffect(() => {
@@ -88,6 +91,12 @@ const Draft = ({
       prev_state[indx] = input;
       return [...prev_state];
     });
+  };
+
+  const handle_score_input = (score) => {
+    if (score > 5.0) set_score(5.0);
+    else if (score < 0) set_score(0.1);
+    else set_score(score);
   };
 
   const remove_input = (id) => {
@@ -127,22 +136,30 @@ const Draft = ({
       tags,
       content,
       draft_image,
+      score,
     });
 
     set_warning(false);
   };
 
-  const save_article_to_firebase = () => {
+  const upload_article_to_firebase = () => {
     const { user, user_id } = user_firebase.user_data;
 
-    if (!description || !title || content.length === 0 || tags.length === 0) {
+    if (
+      !description ||
+      !title ||
+      !score ||
+      !draft_image ||
+      content.length === 0 ||
+      tags.length === 0
+    ) {
       set_warning(true);
       return;
     } else {
       set_warning(false);
     }
 
-    save_article({
+    upload_article({
       user,
       user_id,
       title,
@@ -150,6 +167,7 @@ const Draft = ({
       content,
       tags,
       draft_image,
+      score,
     });
 
     delete_draft({
@@ -160,30 +178,42 @@ const Draft = ({
 
   return (
     <>
-      <Container className="container">
+      <Container>
         <TopContainer>
           <LeftContainer>
             <ArticleImageContainer draft_image={draft_image}>
               <ImageIcon src={ImageIconSVG} />
               <ArticleImageInput
                 value={draft_image}
-                placeholder="www.image-link.com"
+                placeholder="www.image-link.com (Unsplash, Pexels, etc.)"
+                spellCheck="false"
                 onChange={(e) =>
                   handle_input_field(set_draft_image, e.target.value)
                 }
               />
             </ArticleImageContainer>
             <ContentContainer>
-              <TitleInput
-                value={title}
-                placeholder="Untitled"
-                onChange={(e) => handle_input_field(set_title, e.target.value)}
-              />
+              <TopContentContainer>
+                <TitleInput
+                  value={title}
+                  placeholder="Untitled"
+                  spellCheck="false"
+                  onChange={(e) =>
+                    handle_input_field(set_title, e.target.value)
+                  }
+                />
+                <ScoreInput
+                  placeholder="5.0"
+                  value={score}
+                  type="number"
+                  onChange={(e) => handle_score_input(e.target.value)}
+                />
+              </TopContentContainer>
               {content.map((content_block) => {
                 switch (content_block.type) {
                   case "header":
                     return (
-                      <InputOverlay>
+                      <InputOverlay key={content_block.id}>
                         <DeleteContainer
                           onClick={() => remove_input(content_block.id)}
                         >
@@ -193,8 +223,8 @@ const Draft = ({
                         <HeaderInput
                           minRows="1"
                           value={content_block.text}
-                          placeholder="Write a header"
-                          key={content_block.id}
+                          placeholder="Header"
+                          spellCheck="false"
                           onChange={(e) =>
                             handle_content_input(
                               e.target.value,
@@ -207,7 +237,7 @@ const Draft = ({
 
                   case "body":
                     return (
-                      <InputOverlay>
+                      <InputOverlay key={content_block.id}>
                         <DeleteContainer
                           onClick={() => remove_input(content_block.id)}
                         >
@@ -217,8 +247,8 @@ const Draft = ({
                         <BodyInput
                           minRows="1"
                           value={content_block.text}
-                          placeholder="Write a paragraph"
-                          key={content_block.id}
+                          placeholder="Paragraph"
+                          spellCheck="false"
                           onChange={(e) =>
                             handle_content_input(
                               e.target.value,
@@ -231,7 +261,7 @@ const Draft = ({
 
                   case "image":
                     return (
-                      <InputOverlay>
+                      <InputOverlay key={content_block.id}>
                         <DeleteContainer
                           onClick={() => remove_input(content_block.id)}
                         >
@@ -241,8 +271,8 @@ const Draft = ({
                         <ImageInput
                           rows="1"
                           value={content_block.text}
-                          placeholder="Insert a Link (Unsplash, Pexels, etc...)"
-                          key={content_block.id}
+                          placeholder="www.image-link.com (Unsplash, Pexels, etc.)"
+                          spellCheck="false"
                           onChange={(e) =>
                             handle_content_input(
                               e.target.value,
@@ -277,7 +307,9 @@ const Draft = ({
               <ActionButtonContainer onClick={() => save_draft_to_firebase()}>
                 <ActionButton action={"Save Draft"} />
               </ActionButtonContainer>
-              <ActionButtonContainer onClick={() => save_article_to_firebase()}>
+              <ActionButtonContainer
+                onClick={() => upload_article_to_firebase()}
+              >
                 <ActionButton action={"Publish"} />
               </ActionButtonContainer>
             </BottomContainer>
@@ -293,8 +325,10 @@ const Draft = ({
               ) : null}
               <DescriptionInput
                 value={description}
-                placeholder="Some description here..."
-                rows="3"
+                placeholder="Add your description here"
+                minRows="1"
+                maxLength="250"
+                spellCheck="false"
                 onChange={(e) =>
                   handle_input_field(set_description, e.target.value)
                 }
@@ -303,7 +337,7 @@ const Draft = ({
             <TagsContainer>
               {tags.map((tag, indx) => {
                 return (
-                  <TagInputContainer>
+                  <TagInputContainer key={indx}>
                     <DeleteIcon
                       src={DeleteIconSVG}
                       tag={"true"}
@@ -311,7 +345,6 @@ const Draft = ({
                     />
                     <TagInput
                       value={tag}
-                      key={indx}
                       placeholder="#genre"
                       onChange={(e) => handle_tag_input(e.target.value, indx)}
                       inputStyle={{
@@ -348,7 +381,7 @@ const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   save_draft: (draft) => dispatch(upload_draft_start_action(draft)),
-  save_article: (article) => dispatch(upload_article_start_action(article)),
+  upload_article: (article) => dispatch(upload_article_start_action(article)),
   delete_draft: (draft) => dispatch(delete_draft_start_action(draft)),
 });
 

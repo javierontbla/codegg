@@ -115,7 +115,7 @@ export const Votes = styled.div`
   justify-content: center;
   width: fit-content;
   color: ${grey};
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   margin: 0rem 0.4rem 0rem 0.5rem;
   font-family: ${open_sans};
   font-weight: 500;

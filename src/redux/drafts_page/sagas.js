@@ -7,6 +7,8 @@ import {
   upload_draft_failure_action,
   create_draft_success_action,
   create_draft_failure_action,
+  upload_article_success_action,
+  upload_article_failure_action,
   request_drafts_success_action,
   request_drafts_failure_action,
   request_draft_success_action,
@@ -52,6 +54,7 @@ function* save_draft_async(action) {
     tags,
     content,
     draft_image,
+    score,
   } = action.payload;
   const user_drafts_ref = db.doc(`investors/${user_id}/drafts/${draft_id}`);
 
@@ -62,6 +65,7 @@ function* save_draft_async(action) {
       tags,
       content,
       draft_image,
+      score,
     });
 
     yield put(upload_draft_success_action(response));
@@ -81,6 +85,7 @@ function* upload_article_async(action) {
     tags,
     profile_image,
     draft_image,
+    score,
   } = action.payload;
   const articles_ref = db.collection(`articles`);
 
@@ -105,20 +110,27 @@ function* upload_article_async(action) {
     .replace(/ /g, "-");
 
   try {
-    const response = yield articles_ref.add({
-      article_image: draft_image,
-      profile_image,
-      title,
-      title_link,
-      user,
-      user_id,
-      date: new Date(),
-      description,
-      categories: tags_filtered,
-      content: content_reduced,
-      votes: 0,
-    });
-  } catch (error) {}
+    const response = yield articles_ref
+      .add({
+        article_image: draft_image,
+        profile_image,
+        title,
+        title_link,
+        user,
+        user_id,
+        date: new Date(),
+        description,
+        categories: tags_filtered,
+        content: content_reduced,
+        score,
+        votes: 0,
+      })
+      .then((doc) => doc.id);
+
+    yield put(upload_article_success_action(response));
+  } catch (error) {
+    yield put(upload_article_failure_action(error));
+  }
 }
 
 function* delete_draft_async(action) {

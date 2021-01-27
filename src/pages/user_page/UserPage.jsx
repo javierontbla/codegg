@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import ProfileCard from "./components/profile_card_component/ProfileCard";
+import UserCard from "./components/user_card_component/UserCard";
 import TradeCard from "../../components/trade_card_component/TradeCard";
 import PostCard from "../../components/post_card_component/PostCard";
 import ArticleCardTitle from "./components/article_card_title_component/ArticleCardTitle";
@@ -66,7 +66,7 @@ const UserPage = ({
         <LeftContainer>
           <ProfileCardContainer>
             {investor.length > 0 ? (
-              <ProfileCard data={investor[0]} id={investor[1]} />
+              <UserCard data={investor[0]} id={investor[1]} />
             ) : null}
           </ProfileCardContainer>
         </LeftContainer>

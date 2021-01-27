@@ -47,7 +47,7 @@ export const CreateButton = styled.div`
 `;
 
 export const Icon = styled.img`
-  width: 3rem;
+  width: 3.5rem;
   transform: rotate(45deg);
   margin: 0rem 0rem 0rem 0rem;
 `;

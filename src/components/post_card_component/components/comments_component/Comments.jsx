@@ -13,6 +13,7 @@ const Comments = ({ comments, post_id }) => {
         {comments.map((individual_comment) => {
           return (
             <IndividualComment
+              post_id={post_id}
               data={individual_comment[0]}
               id={individual_comment[1]}
               key={individual_comment[1]}

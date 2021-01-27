@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-import { colors } from "../../../../colors/colors";
-import { fonts } from "../../../../fonts/fonts";
+import { colors } from "../../../colors/colors";
+import { fonts } from "../../../fonts/fonts";
 
 const { white, grey, grey_2, black } = colors;
 const { source_sans_pro, open_sans, roboto } = fonts;
 
-export const ProfileCardContainer = styled.div`
+export const Container = styled.div`
   width: 100%;
   height: fit-content;
   border-radius: 15px;

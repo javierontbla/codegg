@@ -15,7 +15,7 @@ import { request_posts_action_success } from "../home_page/actions";
 function* request_all_comments_async(action) {
   const all_comments_ref = db
     .collection(`posts/${action.payload}/comments`)
-    .orderBy("date", "desc")
+    .orderBy("votes", "desc")
     .limit(3);
 
   try {
@@ -54,8 +54,7 @@ function* send_new_comment_async(action) {
         profile_image,
         comment,
         date: new Date(),
-        up_trends: 0,
-        down_trends: 0,
+        votes: 0,
       })
       .then((doc_ref) => doc_ref.id);
 
@@ -74,51 +73,6 @@ function* send_new_comment_async(action) {
   }
 }
 
-function* upvote_post_async(action) {
-  const { post_id, user_id, posts } = action.payload;
-  const post_ref = db.doc(`posts/${post_id}`);
-  const upvotes_ref = db.doc(`posts/${post_id}/upvotes/${user_id}`);
-  let value = 0;
-
-  try {
-    yield upvotes_ref.get().then((doc) => {
-      // 1st read
-      if (!doc.exists) {
-        // adding upvote
-        // 1st write
-        upvotes_ref.set({
-          date: new Date(),
-        });
-
-        value = 1;
-      } else {
-        // deleting unvote
-        upvotes_ref.delete();
-        value = -1;
-      }
-    });
-
-    // 2nd write
-    yield post_ref.update({
-      up_votes: firebase.firestore.FieldValue.increment(value),
-    });
-
-    const updated_post = yield post_ref
-      .get()
-      .then((doc) => [doc.data(), doc.id]);
-
-    const response = yield posts.map((arr) => {
-      if (arr[1] === updated_post[1]) return updated_post;
-      else return arr;
-    });
-
-    yield put(request_posts_action_success(response));
-  } catch (error) {
-    yield console.log(error);
-    yield put(upvote_post_failure_action(error));
-  }
-}
-
 export function* request_all_comments_saga() {
   yield takeLatest(
     post_types.REQUEST_ALL_COMMENTS_START,
@@ -128,8 +82,4 @@ export function* request_all_comments_saga() {
 
 export function* send_new_comment_saga() {
   yield takeLatest(post_types.SEND_NEW_COMMENT_START, send_new_comment_async);
-}
-
-export function* upvote_post_saga() {
-  yield takeLatest(post_types.UPVOTE_POST_START, upvote_post_async);
 }

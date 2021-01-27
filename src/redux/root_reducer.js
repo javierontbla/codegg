@@ -9,6 +9,7 @@ import { investor_page_reducer } from "./investor_page/reducer";
 import { post_reducer } from "./post/reducer";
 import { article_page_reducer } from "./article_page/reducer";
 import { drafts_page_reducer } from "./drafts_page/reducer";
+import { profile_page_reducer } from "./profile_page/reducer";
 import { feedbackPageReducer } from "./feedback.page/reducer";
 
 const root_reducer = combineReducers({
@@ -19,6 +20,7 @@ const root_reducer = combineReducers({
   article_page_reducer,
   investors_page_reducer,
   investor_page_reducer,
+  profile_page_reducer,
   post_reducer,
   drafts_page_reducer,
   feedbackPageReducer,

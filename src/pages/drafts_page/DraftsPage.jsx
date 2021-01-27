@@ -10,7 +10,7 @@ const DraftsPage = () => {
 
   return (
     <>
-      <Container>
+      <Container className="container">
         <Switch>
           <Route exact path={`${path}`}>
             <DraftsDashboard />

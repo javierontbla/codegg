@@ -122,7 +122,7 @@ const ArticlesCollection = ({
         <ArticlesPageContainer>
           <TopContainer>
             <ActionButtonContainer onClick={() => push_to_dashboard()}>
-              <ActionButton action={"Write"} />
+              <ActionButton action={"Write a Review"} />
             </ActionButtonContainer>
           </TopContainer>
           <BottomContainer>

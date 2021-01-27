@@ -1,0 +1,55 @@
+import React, { useEffect } from "react";
+
+import Category from "../../../../components/category_component/Category";
+import Rank from "../../../../components/rank_component/Rank";
+import ActionButton from "../../../../components/action_button_component/ActionButton";
+import {
+  Container,
+  TopContainer,
+  CoverImage,
+  ProfileImage,
+  RankContainer,
+  User,
+  Username,
+  MiddleContainer,
+  Description,
+  CategoriesContainer,
+  BottomContainer,
+  Subscribers,
+} from "./UserCard_styles";
+
+const UserCard = ({ data }) => {
+  useEffect(() => {
+    document.title = `Codegg - @${data.username}`;
+  }, []);
+
+  return (
+    <>
+      <Container>
+        <TopContainer>
+          <CoverImage cover_image={data.cover_image} />
+          <ProfileImage profile_image={data.profile_image} />
+        </TopContainer>
+        <MiddleContainer>
+          <RankContainer>
+            <Rank badge={data.rank} />
+          </RankContainer>
+          <User>{data.user}</User>
+          <Username>@{data.username}</Username>
+          <Description>{data.description}</Description>
+          <CategoriesContainer>
+            {data.categories.map((category) => {
+              return <Category category={category} />;
+            })}
+          </CategoriesContainer>
+        </MiddleContainer>
+        <BottomContainer>
+          <Subscribers>{data.subscribers} subscribers</Subscribers>
+          <ActionButton action={"Subscribe"} />
+        </BottomContainer>
+      </Container>
+    </>
+  );
+};
+
+export default UserCard;

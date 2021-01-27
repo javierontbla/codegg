@@ -40,7 +40,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 0rem 0rem 0rem 0rem !important;
 `;
 
 export const TopContainer = styled.div`
@@ -107,8 +106,16 @@ export const ArticleImageInput = styled.input`
   }
 `;
 
-export const TitleInput = styled(TextareaAutosize)`
+export const TopContentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: 100%;
+  height: fit-content;
+`;
+
+export const TitleInput = styled(TextareaAutosize)`
+  width: calc(100% - 6.75rem);
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0rem 0.35rem 0rem;
   font-size: 2.35rem;
@@ -125,12 +132,35 @@ export const TitleInput = styled(TextareaAutosize)`
       font-size: 2.2rem;
       font-family: ${montserrat};
       color: ${grey};
-      opacity: 0.9;
+      opacity: 0.75;
     }
   }
 
   &:focus {
     outline: none !important;
+  }
+`;
+
+export const ScoreInput = styled.input`
+  text-align: center;
+  color: ${white};
+  font-family: ${montserrat};
+  height: 5.25rem;
+  width: 5.25rem;
+  margin: 0rem 0rem 0rem 1.5rem;
+  padding: 0rem 0.25rem 0rem 0.25rem;
+  font-size: 2.2rem;
+  background: none;
+  border: 0.5px solid ${grey_2};
+  border-radius: 50%;
+
+  &&& {
+    ::placeholder {
+      font-size: 2.2rem;
+      font-family: ${montserrat};
+      color: ${grey};
+      opacity: 0.75;
+    }
   }
 `;
 
@@ -234,7 +264,7 @@ export const AuthorContainer = styled.div`
   height: fit-content;
   background: ${black};
   margin: 0rem 0rem 1rem 0rem;
-  padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+  padding: 1.25rem 1.25rem 1.5rem 1.25rem;
   border-radius: 15px;
 `;
 
@@ -305,7 +335,7 @@ export const InsertTagButton = styled.div`
 `;
 
 export const Warning = styled.div`
-  font-family: ${roboto};
+  font-family: ${open_sans};
   font-size: 0.75rem;
   color: ${orange};
   padding: 1rem 1.25rem 0rem 1.25rem;

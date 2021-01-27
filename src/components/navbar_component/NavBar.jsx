@@ -37,6 +37,8 @@ const NavBar = ({ user_firebase }) => {
     set_menu_active(false);
   };
 
+  // ${user_firebase.user_data.user_id}
+
   return (
     <>
       <Container>
@@ -50,8 +52,8 @@ const NavBar = ({ user_firebase }) => {
             <HyperLink to="/">
               <PageLink>Home</PageLink>
             </HyperLink>
-            <HyperLink to="/articles">
-              <PageLink>Read</PageLink>
+            <HyperLink to="/reviews">
+              <PageLink>Reviews</PageLink>
             </HyperLink>
             <HyperLink to="/faq">
               <PageLink>FAQ</PageLink>
@@ -72,7 +74,7 @@ const NavBar = ({ user_firebase }) => {
                       <UserMenuOption>Profile</UserMenuOption>
                     </HyperLink>
                     <HyperLink
-                      to={`/articles/dashboard/${user_firebase.user_data.user_id}`}
+                      to={`/reviews/dashboard/${user_firebase.user_data.user_id}`}
                     >
                       <UserMenuOption>Drafts</UserMenuOption>
                     </HyperLink>

@@ -38,6 +38,16 @@ export const upload_article_start_action = (article) => ({
   payload: article,
 });
 
+export const upload_article_success_action = (article_id) => ({
+  type: drafts_page_types.UPLOAD_ARTICLE_SUCCESS,
+  payload: article_id,
+});
+
+export const upload_article_failure_action = (error) => ({
+  type: drafts_page_types.UPLOAD_ARTICLE_FAILURE,
+  payload: error,
+});
+
 /* CREATE DRAFT ACTIONS */
 export const create_draft_start_action = (user_id) => ({
   type: drafts_page_types.CREATE_DRAFT_START,

@@ -82,7 +82,7 @@ const DraftsDashboard = ({
 
 const mapStateToProps = ({
   user_reducer: { user_firebase },
-  articles_page_reducer: { draft_id, drafts },
+  drafts_page_reducer: { draft_id, drafts },
 }) => ({
   user_firebase,
   drafts,

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import { connect } from "react-redux";
 import moment from "moment";
 
 import {
@@ -15,9 +16,26 @@ import {
   Votes,
 } from "./IndividualComment_styles";
 import UpIcon from "../../media/up_button.svg";
-import DownIcon from "../../media/down_button.svg";
+import { votes_async } from "../../../../firebase/functions/votes";
 
-const IndividualComment = ({ data }) => {
+const IndividualComment = ({ post_id, data, id, user_firebase }) => {
+  const [votes, set_votes] = useState(data.votes);
+  const vote_ref = useRef(false);
+
+  const vote_individual_comment_to_firebase = async () => {
+    const { user_id } = user_firebase.user_data;
+    if (vote_ref.current === true) return;
+
+    vote_ref.current = true; // start
+    const response = await votes_async({
+      doc_path: `posts/${post_id}/comments/${id}`,
+      doc_votes_path: `posts/${post_id}/comments/${id}/votes/${user_id}`,
+    });
+
+    set_votes(response[0].votes);
+    vote_ref.current = false; // end
+  };
+
   return (
     <>
       <IndividualCommentContainer>
@@ -31,9 +49,11 @@ const IndividualComment = ({ data }) => {
         <CommentContainer>
           <Comment>{data.comment}</Comment>
           <Trends>
-            <TrendIcon src={UpIcon} />
-            <Votes>{data.up_trends - data.down_trends}</Votes>
-            <TrendIcon src={DownIcon} />
+            <TrendIcon
+              src={UpIcon}
+              onClick={() => vote_individual_comment_to_firebase()}
+            />
+            <Votes>{votes}</Votes>
           </Trends>
         </CommentContainer>
       </IndividualCommentContainer>
@@ -41,4 +61,9 @@ const IndividualComment = ({ data }) => {
   );
 };
 
-export default IndividualComment;
+// redux
+const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
+  user_firebase,
+});
+
+export default connect(mapStateToProps, null)(IndividualComment);

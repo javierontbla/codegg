@@ -5,7 +5,9 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from "./components/navbar_component/NavBar";
 import HomePage from "./pages/home_page/HomePage";
 import ArticlesPage from "./pages/articles_page/ArticlesPage";
+import FaqPage from "./pages/faq_page/FaqPage";
 import UsersPage from "./pages/users_page/UsersPage";
+import ProfilePage from "./pages/profile_page/ProfilePage";
 import ContactPage from "./pages/contact_page/ContactPage";
 import PrivacyPage from "./pages/privacy_page/PrivacyPage";
 import TermsConditionsPage from "./pages/terms_conditions_page/TermsConditionsPage";
@@ -50,11 +52,17 @@ const App = ({ log_in_active_user, log_out_active_user }) => {
         <PageContainer>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/articles">
+            <Route path="/reviews">
               <ArticlesPage />
+            </Route>
+            <Route path="/faq">
+              <FaqPage />
             </Route>
             <Route path="/users" component={UsersPage} />
             <Route path="/contact" component={ContactPage} />
+            <Route path="/profile">
+              <ProfilePage />
+            </Route>
             <Route path="/privacy" component={PrivacyPage} />
             <Route path="/terms" component={TermsConditionsPage} />
           </Switch>

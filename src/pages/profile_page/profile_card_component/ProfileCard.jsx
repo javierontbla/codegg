@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import Category from "../../../../components/category_component/Category";
-import Rank from "../../../../components/rank_component/Rank";
-import ActionButton from "../../../../components/action_button_component/ActionButton";
+import Category from "../../../components/category_component/Category";
+import Rank from "../../../components/rank_component/Rank";
 import {
-  ProfileCardContainer,
+  Container,
   TopContainer,
   CoverImage,
   ProfileImage,
+  MiddleContainer,
   RankContainer,
   User,
   Username,
-  MiddleContainer,
   Description,
   CategoriesContainer,
   BottomContainer,
@@ -19,13 +18,9 @@ import {
 } from "./ProfileCard_styles";
 
 const ProfileCard = ({ data }) => {
-  useEffect(() => {
-    document.title = `Codegg - @${data.username}`;
-  }, []);
-
   return (
     <>
-      <ProfileCardContainer>
+      <Container>
         <TopContainer>
           <CoverImage cover_image={data.cover_image} />
           <ProfileImage profile_image={data.profile_image} />
@@ -45,9 +40,8 @@ const ProfileCard = ({ data }) => {
         </MiddleContainer>
         <BottomContainer>
           <Subscribers>{data.subscribers} subscribers</Subscribers>
-          <ActionButton action={"Subscribe"} />
         </BottomContainer>
-      </ProfileCardContainer>
+      </Container>
     </>
   );
 };
