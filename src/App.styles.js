@@ -28,7 +28,7 @@ export const GlobalStyles = createGlobalStyle`
 
   img {
     display: block;
-    margin-bottom: 2vh;
+    margin: 0rem 0rem 2rem 0rem;
     border-radius: 15px;
     max-width: 100%;
     opacity: 1;
@@ -44,7 +44,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1.6rem;
     font-family: ${montserrat};
     line-height: 115%;
-    margin: 0rem 0rem 1.5rem 0rem;
+    margin: 0rem 0rem 0.75rem 0rem;
 
     @media (max-width: 500px) {
 
@@ -57,8 +57,9 @@ export const GlobalStyles = createGlobalStyle`
     letter-spacing: 0.5px;
     text-align: left;
     color: ${white};
-    line-height: 100%;
+    line-height: 120%;
     width: 100%;
+    margin: 0rem 0rem 2rem 0rem;
 
     @media (max-width: 500px) {
     }
@@ -81,7 +82,7 @@ export const Container = styled.div`
   }
 `;
 
-export const PageContainer = styled.div`
+export const PagesContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;

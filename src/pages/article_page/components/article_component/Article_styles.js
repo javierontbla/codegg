@@ -5,7 +5,7 @@ import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
 const { black, white, grey, grey_2 } = colors;
-const { source_sans_pro, roboto, open_sans } = fonts;
+const { montserrat, roboto, open_sans } = fonts;
 
 const ContainerStyles = css`
   width: 100%;
@@ -48,21 +48,43 @@ export const ArticleImage = styled.div`
   background-repeat: no-repeat;
 `;
 
-export const TitleArticle = styled.div`
-  font-family: ${source_sans_pro};
-  font-size: 2.5rem;
-  line-height: 100%;
-  text-align: left;
-  color: ${white};
+export const TopContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   padding: 2rem 2rem 0rem 2rem;
 `;
 
+export const TitleArticle = styled.div`
+  font-family: ${montserrat};
+  font-size: 2.5rem;
+  line-height: 110%;
+  text-align: left;
+  color: ${white};
+  padding: 0rem 0rem 0rem 0rem;
+  width: calc(100% - 6.75rem);
+`;
+
+export const Score = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${white};
+  font-family: ${montserrat};
+  height: 5.25rem;
+  width: 5.25rem;
+  margin: 0rem 0rem 0rem 1.5rem;
+  padding: 0rem 0.25rem 0rem 0.25rem;
+  font-size: 2.25rem;
+  background: none;
+  border: 0.5px solid ${grey_2};
+  border-radius: 50%;
+`;
+
 export const Body = styled.div`
-  font-size: 1rem;
-  line-height: 120%;
-  font-family: ${roboto};
   margin: 4rem 0rem 0rem 0rem;
   padding: 0rem 2rem 0rem 2rem;
+  height: fit-content;
 `;
 
 export const RightContainer = styled.div`

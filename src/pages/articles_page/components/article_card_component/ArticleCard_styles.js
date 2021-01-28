@@ -7,16 +7,18 @@ import { fonts } from "../../../../fonts/fonts";
 const { roboto, montserrat, open_sans } = fonts;
 const { grey, grey_2, black, white } = colors;
 
-export const LinkArticle = styled(Link)`
-  &:hover {
-    text-decoration: none;
-  }
-`;
-
 export const Container = styled.div`
   width: 100%;
   border-radius: 15px;
   background: ${black} !important;
+`;
+
+export const HyperLink = styled(Link)`
+  color: ${white};
+  &:hover {
+    color: ${white};
+    text-decoration: none;
+  }
 `;
 
 export const ArticleImage = styled.div`

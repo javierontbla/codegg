@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import ActionButton from "../../action_button_component/ActionButton";
 import Spinner from "../../spinner_component/Spinner";
+import ErrorDashboard from "../../error_components/error_dashboard_component/ErrorDashboard";
 import {
   Container,
   TitleInput,
@@ -26,6 +27,7 @@ const TradeDashboard = ({
   create_recommended_card,
   user_firebase,
   loading_recommended_card,
+  upload_recommended_card_error,
   latest_trades,
 }) => {
   const [active_dashboard, set_active_dashboard] = useState(false); // open-close trade dashboard
@@ -129,6 +131,7 @@ const TradeDashboard = ({
           </ActionButtonContainer>
         </BottomContainer>
       </Container>
+      {upload_recommended_card_error ? <ErrorDashboard /> : null}
     </>
   );
 };
@@ -136,11 +139,15 @@ const TradeDashboard = ({
 // redux
 const mapStateToProps = ({
   home_page_reducer: { latest_trades },
-  dashboards_reducer: { loading_recommended_card },
+  dashboards_reducer: {
+    loading_recommended_card,
+    upload_recommended_card_error,
+  },
   user_reducer: { user_firebase },
 }) => ({
   user_firebase,
   loading_recommended_card,
+  upload_recommended_card_error,
   latest_trades,
 });
 

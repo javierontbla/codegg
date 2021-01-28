@@ -8,7 +8,6 @@ import ArticlesPage from "./pages/articles_page/ArticlesPage";
 import FaqPage from "./pages/faq_page/FaqPage";
 import UsersPage from "./pages/users_page/UsersPage";
 import ProfilePage from "./pages/profile_page/ProfilePage";
-import ContactPage from "./pages/contact_page/ContactPage";
 import PrivacyPage from "./pages/privacy_page/PrivacyPage";
 import TermsConditionsPage from "./pages/terms_conditions_page/TermsConditionsPage";
 import Footer from "./components/footer_component/Footer";
@@ -17,7 +16,7 @@ import {
   log_out_active_user_action_start,
 } from "./redux/user/actions";
 import { auth } from "./firebase/firebase";
-import { GlobalStyles, Container, PageContainer } from "./App.styles.js";
+import { GlobalStyles, Container, PagesContainer } from "./App.styles.js";
 
 const App = ({ log_in_active_user, log_out_active_user }) => {
   let firebase_observer = null;
@@ -49,24 +48,31 @@ const App = ({ log_in_active_user, log_out_active_user }) => {
       <GlobalStyles />
       <Container>
         <NavBar />
-        <PageContainer>
+        <PagesContainer>
           <Switch>
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/">
+              <HomePage />
+            </Route>
             <Route path="/reviews">
               <ArticlesPage />
             </Route>
             <Route path="/faq">
               <FaqPage />
             </Route>
-            <Route path="/users" component={UsersPage} />
-            <Route path="/contact" component={ContactPage} />
+            <Route path="/users">
+              <UsersPage />
+            </Route>
             <Route path="/profile">
               <ProfilePage />
             </Route>
-            <Route path="/privacy" component={PrivacyPage} />
-            <Route path="/terms" component={TermsConditionsPage} />
+            <Route path="/privacy">
+              <PrivacyPage />
+            </Route>
+            <Route path="/terms">
+              <TermsConditionsPage />
+            </Route>
           </Switch>
-        </PageContainer>
+        </PagesContainer>
         <Footer />
       </Container>
     </>

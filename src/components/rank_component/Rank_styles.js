@@ -21,9 +21,4 @@ export const RankContainer = styled.div`
   width: fit-content;
   line-height: 100%;
   color: ${orange};
-
-  &:hover {
-    cursor: pointer;
-    opacity: 0.95;
-  }
 `;

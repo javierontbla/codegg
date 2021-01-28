@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useRouteMatch } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useRouteMatch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Draft from "../draft_component/Draft";
@@ -20,6 +20,7 @@ const DraftContainer = ({
   const {
     params: { user_id, draft_id },
   } = useRouteMatch();
+  const [redirect, set_redirect] = useState(false);
 
   useEffect(() => {
     if (user_firebase) {
@@ -28,7 +29,11 @@ const DraftContainer = ({
           user_id: user_firebase.user_data.user_id,
           draft_id,
         });
+      } else {
+        set_redirect(true);
       }
+    } else {
+      // no user
     }
 
     return () => {
@@ -40,6 +45,7 @@ const DraftContainer = ({
   return (
     <>
       <Container>
+        {redirect ? <Redirect to="/reviews" /> : null}
         {draft ? <Draft data={draft[0]} id={draft[1]} /> : null}
       </Container>
     </>

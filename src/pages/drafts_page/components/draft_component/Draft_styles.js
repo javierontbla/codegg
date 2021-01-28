@@ -118,7 +118,7 @@ export const TitleInput = styled(TextareaAutosize)`
   width: calc(100% - 6.75rem);
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0rem 0.35rem 0rem;
-  font-size: 2.35rem;
+  font-size: 2.5rem;
   border: none;
   border-bottom: 0.5px solid ${grey_2};
   font-family: ${montserrat};
@@ -129,7 +129,7 @@ export const TitleInput = styled(TextareaAutosize)`
 
   &&& {
     ::placeholder {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-family: ${montserrat};
       color: ${grey};
       opacity: 0.75;
@@ -149,14 +149,14 @@ export const ScoreInput = styled.input`
   width: 5.25rem;
   margin: 0rem 0rem 0rem 1.5rem;
   padding: 0rem 0.25rem 0rem 0.25rem;
-  font-size: 2.2rem;
+  font-size: 2.25rem;
   background: none;
   border: 0.5px solid ${grey_2};
   border-radius: 50%;
 
   &&& {
     ::placeholder {
-      font-size: 2.2rem;
+      font-size: 2.25rem;
       font-family: ${montserrat};
       color: ${grey};
       opacity: 0.75;
@@ -172,13 +172,13 @@ export const InputOverlay = styled.div`
 
 export const HeaderInput = styled(TextareaAutosize)`
   ${InputStyles};
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-family: ${montserrat};
   letter-spacing: 0.25px;
 
   &&& {
     ::placeholder {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-family: ${montserrat};
       color: ${grey};
       opacity: 0.9;
@@ -380,6 +380,7 @@ export const DeleteIcon = styled.img`
 export const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: flex-start;
   margin: 2rem 0rem 0rem 0rem;
 `;

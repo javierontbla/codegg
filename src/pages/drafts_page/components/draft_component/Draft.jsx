@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { useRouteMatch } from "react-router-dom";
+import { Redirect, useRouteMatch } from "react-router-dom";
 
 import ProfileBox from "../../../../components/profile_box_component/ProfileBox";
 import ActionButton from "../../../../components/action_button_component/ActionButton";
+import Spinner from "../../../../components/spinner_component/Spinner";
 import {
   Container,
   TopContainer,
@@ -51,6 +52,9 @@ const Draft = ({
   save_draft,
   upload_article,
   delete_draft,
+  loading_uploading_draft,
+  loading_uploading_article,
+  new_article_id,
 }) => {
   const {
     params: { draft_id },
@@ -143,7 +147,7 @@ const Draft = ({
   };
 
   const upload_article_to_firebase = () => {
-    const { user, user_id } = user_firebase.user_data;
+    const { user, user_id, profile_image } = user_firebase.user_data;
 
     if (
       !description ||
@@ -162,6 +166,7 @@ const Draft = ({
     upload_article({
       user,
       user_id,
+      profile_image,
       title,
       description,
       content,
@@ -178,6 +183,7 @@ const Draft = ({
 
   return (
     <>
+      {new_article_id ? <Redirect to={`/reviews/${new_article_id}`} /> : null}
       <Container>
         <TopContainer>
           <LeftContainer>
@@ -312,6 +318,9 @@ const Draft = ({
               >
                 <ActionButton action={"Publish"} />
               </ActionButtonContainer>
+              {loading_uploading_draft || loading_uploading_article ? (
+                <Spinner />
+              ) : null}
             </BottomContainer>
           </LeftContainer>
           <RightContainer>
@@ -375,8 +384,18 @@ const Draft = ({
 };
 
 // redux
-const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
+const mapStateToProps = ({
+  user_reducer: { user_firebase },
+  drafts_page_reducer: {
+    loading_uploading_draft,
+    loading_uploading_article,
+    new_article_id,
+  },
+}) => ({
   user_firebase,
+  loading_uploading_draft,
+  loading_uploading_article,
+  new_article_id,
 });
 
 const mapDispatchToProps = (dispatch) => ({

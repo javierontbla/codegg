@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
@@ -35,6 +36,14 @@ export const Container = styled.div`
   border: none;
   border-radius: 15px;
   transition: box-shadow 0.2s;
+`;
+
+export const HyperLink = styled(Link)`
+  color: ${grey};
+  &:hover {
+    color: ${grey};
+    text-decoration: none;
+  }
 `;
 
 export const TopContainer = styled.div`

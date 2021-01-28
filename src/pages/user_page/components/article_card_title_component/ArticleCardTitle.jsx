@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 
 import {
   Container,
+  HyperLink,
   ImageContainer,
   TitleContainer,
-  TrendsContainer,
+  BottomContainer,
   Trends,
   TrendIcon,
   Votes,
@@ -29,9 +30,11 @@ const ArticleCardTitle = ({ data, id, user_firebase }) => {
   return (
     <>
       <Container>
-        <ImageContainer article_image={data.article_image} />
-        <TitleContainer>{data.title}</TitleContainer>
-        <TrendsContainer>
+        <HyperLink to={`/reviews/${id}`}>
+          <ImageContainer article_image={data.article_image} />
+          <TitleContainer>{data.title}</TitleContainer>
+        </HyperLink>
+        <BottomContainer>
           <Trends>
             <TrendIcon
               src={UpTrendSVG}
@@ -39,7 +42,7 @@ const ArticleCardTitle = ({ data, id, user_firebase }) => {
             />
             <Votes>{votes}</Votes>
           </Trends>
-        </TrendsContainer>
+        </BottomContainer>
       </Container>
     </>
   );

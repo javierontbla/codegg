@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 
-import Category from "../../../../components/category_component/Category";
 import Rank from "../../../../components/rank_component/Rank";
 import ActionButton from "../../../../components/action_button_component/ActionButton";
 import {
@@ -13,7 +12,6 @@ import {
   Username,
   MiddleContainer,
   Description,
-  CategoriesContainer,
   BottomContainer,
   Subscribers,
 } from "./UserCard_styles";
@@ -37,11 +35,6 @@ const UserCard = ({ data }) => {
           <User>{data.user}</User>
           <Username>@{data.username}</Username>
           <Description>{data.description}</Description>
-          <CategoriesContainer>
-            {data.categories.map((category) => {
-              return <Category category={category} />;
-            })}
-          </CategoriesContainer>
         </MiddleContainer>
         <BottomContainer>
           <Subscribers>{data.subscribers} subscribers</Subscribers>

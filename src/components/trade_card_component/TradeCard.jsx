@@ -4,10 +4,9 @@ import moment from "moment";
 
 import {
   Container,
+  HyperLink,
   TopContainer,
   Name,
-  TagsContainer,
-  Tag,
   MiddleContainer,
   Description,
   ArtistImage,
@@ -57,7 +56,9 @@ const TradeCard = ({ home_page, data, id, user_firebase }) => {
             />
             <Votes>{votes}</Votes>
           </TrendsContainer>
-          <Username>@{data.username}</Username>
+          <HyperLink to={`/users/${data.user_id}`}>
+            <Username>@{data.username}</Username>
+          </HyperLink>
         </BottomContainer>
       </Container>
     </>

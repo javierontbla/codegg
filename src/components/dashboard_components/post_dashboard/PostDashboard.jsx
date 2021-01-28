@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import ActionButton from "../../action_button_component/ActionButton";
 import Spinner from "../../spinner_component/Spinner";
+import ErrorDashboard from "../../error_components/error_dashboard_component/ErrorDashboard";
 import {
   Container,
   DescriptionInput,
@@ -25,6 +26,7 @@ const PostDashboard = ({
   posts,
   user_firebase,
   loading_post_card,
+  upload_post_card_error,
 }) => {
   const [description, set_description] = useState("");
   const [image, set_image] = useState(null);
@@ -97,6 +99,7 @@ const PostDashboard = ({
           </RightContainer>
         </BottomContainer>
       </Container>
+      {upload_post_card_error ? <ErrorDashboard post="true" /> : null}
     </>
   );
 };
@@ -105,11 +108,12 @@ const PostDashboard = ({
 const mapStateToProps = ({
   home_page_reducer: { posts },
   user_reducer: { user_firebase },
-  dashboards_reducer: { loading_post_card },
+  dashboards_reducer: { loading_post_card, upload_post_card_error },
 }) => ({
   posts,
   user_firebase,
   loading_post_card,
+  upload_post_card_error,
 });
 
 const mapDispatchToProps = (dispatch) => ({

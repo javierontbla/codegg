@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { colors } from "../../colors/colors";
 import { fonts } from "../../fonts/fonts";
@@ -13,6 +14,14 @@ export const ProfileBoxContainer = styled.div`
   flex-direction: row;
   height: fit-content;
   align-items: center;
+`;
+
+export const HyperLink = styled(Link)`
+  color: ${white};
+  &:hover {
+    color: ${white};
+    text-decoration: none;
+  }
 `;
 
 export const ProfileImage = styled.div`

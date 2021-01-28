@@ -81,14 +81,7 @@ export const Description = styled.div`
   font-size: 0.9rem;
   color: ${white};
   line-height: 120%;
-  margin: 1.5rem 0rem 1.5rem 0rem;
-`;
-
-export const CategoriesContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding: 0rem 0rem 0rem 0rem;
-  margin: 0rem 0rem 0rem 0rem;
+  margin: 1.5rem 0rem 0rem 0rem;
 `;
 
 export const BottomContainer = styled.div`

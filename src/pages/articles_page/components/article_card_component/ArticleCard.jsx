@@ -8,7 +8,7 @@ import ProfileBox from "../../../../components/profile_box_component/ProfileBox"
 import Category from "../../../../components/category_component/Category";
 import {
   Container,
-  LinkArticle,
+  HyperLink,
   ArticleImage,
   TopContainer,
   Title,
@@ -51,9 +51,9 @@ const ArticleCard = ({
   return (
     <>
       <Container>
-        <LinkArticle to={`${url}/${data.title_link}-${id}`}>
+        <HyperLink to={`${url}/${data.title_link}-${id}`}>
           <ArticleImage article_image={data.article_image} />
-        </LinkArticle>
+        </HyperLink>
         <TopContainer>
           <TagsContainer>
             {data.categories.map((category) => {
@@ -67,15 +67,16 @@ const ArticleCard = ({
               );
             })}
           </TagsContainer>
-          <LinkArticle to={`${url}/${data.title_link}-${id}`}>
+          <HyperLink to={`${url}/${data.title_link}-${id}`}>
             <Title>{data.title}</Title>
-            <Description>{data.description.toLowerCase()}...</Description>
-          </LinkArticle>
+            <Description>{data.description.toLowerCase()}</Description>
+          </HyperLink>
         </TopContainer>
         <MiddleContainer>
           <ProfileBox
             profile_image={data.profile_image}
             user={data.user}
+            user_id={data.user_id}
             date={data.date}
           />
         </MiddleContainer>

@@ -89,7 +89,11 @@ function* upload_article_async(action) {
   } = action.payload;
   const articles_ref = db.collection(`articles`);
 
-  const tags_filtered = yield tags.filter((tag) => {
+  const tags_to_string = yield tags.map((tag) => {
+    return tag.replace(/[^a-zA-Z ]/g, "");
+  });
+
+  const tags_filtered = yield tags_to_string.filter((tag) => {
     return tag !== null;
   });
 

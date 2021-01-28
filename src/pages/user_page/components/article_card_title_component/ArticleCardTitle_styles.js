@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
@@ -14,6 +15,14 @@ export const Container = styled.div`
   background: ${black};
   border-radius: 15px;
   margin: 0rem 0rem 1.25rem 0rem;
+`;
+
+export const HyperLink = styled(Link)`
+  color: ${white};
+  &:hover {
+    color: ${white};
+    text-decoration: none;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -42,7 +51,7 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const TrendsContainer = styled.div`
+export const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

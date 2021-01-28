@@ -5,7 +5,7 @@ import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
 const { grey, grey_2, white, black } = colors;
-const { roboto, open_sans, montserrat } = fonts;
+const { roboto, montserrat } = fonts;
 
 export const Container = styled.div`
   display: flex;

@@ -9,7 +9,9 @@ import {
   HyperLink,
   LeftContainer,
   ArticleImage,
+  TopContainer,
   TitleArticle,
+  Score,
   Body,
   RightContainer,
   AuthorContainer,
@@ -88,7 +90,10 @@ const Article = ({
       <Container>
         <LeftContainer>
           <ArticleImage article_image={data.article_image} />
-          <TitleArticle>{data.title}</TitleArticle>
+          <TopContainer>
+            <TitleArticle>{data.title}</TitleArticle>
+            <Score>{data.score}</Score>
+          </TopContainer>
           <Body>{parse(data.content)}</Body>
         </LeftContainer>
         <RightContainer>
@@ -97,6 +102,7 @@ const Article = ({
               <ProfileBox
                 profile_image={data.profile_image}
                 user={data.user}
+                user_id={data.user_id}
                 date={data.date}
               />
             </ProfileBoxContainer>
@@ -114,7 +120,7 @@ const Article = ({
           <TagsContainer>
             {data.categories.map((tag) => {
               return (
-                <HyperLink to="/articles">
+                <HyperLink to="/reviews">
                   <Category
                     onClick={() => request_tag(tag)}
                     article={"true"}

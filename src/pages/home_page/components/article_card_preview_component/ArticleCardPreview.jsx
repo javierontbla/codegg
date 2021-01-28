@@ -48,6 +48,7 @@ const ArticleCardPreview = ({ data, id, user_firebase }) => {
             <ProfileBox
               profile_image={data.profile_image}
               user={data.user}
+              user_id={data.user_id}
               date={data.date}
               article_card_preview={"true"}
             />
