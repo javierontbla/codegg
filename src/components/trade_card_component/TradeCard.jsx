@@ -43,25 +43,11 @@ const TradeCard = ({ home_page, data, id, user_firebase }) => {
     <>
       <Container home_page={home_page}>
         <TopContainer>
-          <Name>{data.symbol}</Name>
-          <TagsContainer>
-            <Tag action={data.action.toLowerCase()}>
-              #{data.action.toLowerCase()}
-            </Tag>
-          </TagsContainer>
+          <Name>{data.title}</Name>
         </TopContainer>
         <MiddleContainer>
-          <ArtistImage
-            profile_image_url={
-              "https://miro.medium.com/max/900/1*qhKdx3DUOo26etSKJhnxWw.jpeg"
-            }
-          />
-          <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Description>
+          <ArtistImage profile_image_url={data.image_url} />
+          <Description>{data.description}</Description>
         </MiddleContainer>
         <BottomContainer>
           <TrendsContainer>

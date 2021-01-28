@@ -4,10 +4,10 @@ import TextareaAutosize from "react-textarea-autosize";
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
-const { white, grey, black } = colors;
+const { grey, black } = colors;
 const { roboto, open_sans } = fonts;
 
-export const PostDashboardContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,7 +19,7 @@ export const PostDashboardContainer = styled.div`
   border-radius: 15px;
 `;
 
-export const TextInput = styled(TextareaAutosize)`
+export const DescriptionInput = styled(TextareaAutosize)`
   display: flex;
   align-items: center;
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
@@ -35,10 +35,10 @@ export const TextInput = styled(TextareaAutosize)`
   }
 `;
 
-export const ButtonsContainer = styled.div`
+export const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   height: fit-content;
   width: 100%;
   justify-content: space-between !important;
@@ -52,7 +52,11 @@ export const LeftContainer = styled.div`
   align-items: center;
 `;
 
-export const ImageContainer = styled.label`
+export const ImageInput = styled.input`
+  display: none !important;
+`;
+
+export const ImageIconContainer = styled.label`
   display: flex;
   flex-direction: row;
   width: fit-content;
@@ -60,6 +64,9 @@ export const ImageContainer = styled.label`
   background: none;
   padding: 0rem 0rem 0rem 0rem;
   margin: 0rem 0rem 0rem 0rem;
+  color: ${grey};
+  font-family: ${open_sans};
+  font-size: 0.85rem;
 
   &:hover {
     cursor: pointer;
@@ -67,14 +74,10 @@ export const ImageContainer = styled.label`
   }
 `;
 
-export const ImageInput = styled.input`
-  display: none;
-`;
-
 export const ImageIcon = styled.img`
   width: 2rem;
-  border-radius: 0.15rem;
   margin: 0rem 0rem 0rem 0rem;
+  border-radius: 3.5px;
 `;
 
 export const ImageActiveContainer = styled.div`
@@ -88,29 +91,10 @@ export const ImageActiveIcon = styled.img`
 
 export const RightContainer = styled.div``;
 
-export const PublishButton = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  line-height: 100%;
-  height: 1.55rem;
-  width: 5.35rem;
-  background: rgb(33, 33, 32);
-  background: linear-gradient(
-    90deg,
-    rgba(33, 33, 32, 1) 5%,
-    rgba(25, 25, 24, 1) 80%
-  );
-  padding: 0rem 0.5rem 0rem 0.5rem;
-  border-radius: 0.15rem;
-  font-family: ${open_sans};
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  color: ${white};
-`;
-
 export const ActionButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: fit-content;
   height: fit-content;
 `;

@@ -44,6 +44,9 @@ export const TitleInput = styled.input`
 `;
 
 export const ActionButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: fit-content;
   height: fit-content;
 `;
@@ -85,7 +88,7 @@ export const MiddleContainer = styled.div`
   min-height: 8rem;
 `;
 
-export const ImageInput = styled.div`
+export const ImageContainer = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,16 +97,20 @@ export const ImageInput = styled.div`
   border-radius: 50%;
   border: none;
   margin: 0rem 0.75rem 0rem 0rem;
-  border: 0.5px solid ${grey};
+  border: 0.5px solid ${grey_2};
 
   &:hover {
     cursor: pointer;
   }
 `;
 
+export const ImageInput = styled.input`
+  display: none !important;
+`;
+
 export const AddIcon = styled.img`
-  width: 0.75rem;
-  transform: rotate(45deg);
+  width: ${(props) => (props.active ? "0.85rem" : "0.75rem")};
+  transform: ${(props) => (props.active ? "" : "rotate(45deg)")};
   margin: 0rem 0rem 0rem 0rem;
 `;
 
@@ -126,6 +133,8 @@ export const TextInput = styled(TextareaAutosize)`
       font-size: 0.85rem;
       color: ${grey};
       letter-spacing: 0.25px;
+      line-height: 115%;
+      opacity: 0.65;
     }
   }
 

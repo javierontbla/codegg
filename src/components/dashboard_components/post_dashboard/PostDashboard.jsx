@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import ActionButton from "../../action_button_component/ActionButton";
+import Spinner from "../../spinner_component/Spinner";
 import {
-  PostDashboardContainer,
-  TextInput,
-  ButtonsContainer,
+  Container,
+  DescriptionInput,
+  BottomContainer,
   LeftContainer,
-  ImageContainer,
+  ImageIconContainer,
   ImageInput,
   ImageIcon,
   ImageActiveContainer,
@@ -15,11 +16,16 @@ import {
   RightContainer,
   ActionButtonContainer,
 } from "./PostDashboard_styles";
-import Image from "./media/image_button.svg";
-import ImageActive from "./media/image_active.svg";
 import { create_post_card_start_action } from "../../../redux/dashboards/actions";
+import ImageIconSVG from "./media/image_button.svg";
+import ImageActiveSVG from "./media/image_active_button.svg";
 
-const PostDashboard = ({ create_post_card, posts, user_firebase }) => {
+const PostDashboard = ({
+  create_post_card,
+  posts,
+  user_firebase,
+  loading_post_card,
+}) => {
   const [description, set_description] = useState("");
   const [image, set_image] = useState(null);
 
@@ -59,14 +65,14 @@ const PostDashboard = ({ create_post_card, posts, user_firebase }) => {
 
   return (
     <>
-      <PostDashboardContainer>
-        <TextInput
+      <Container>
+        <DescriptionInput
           placeholder="Share anything you want!"
           minRows="1"
           value={description}
           onChange={(e) => handle_input_description(e.target.value)}
         />
-        <ButtonsContainer>
+        <BottomContainer>
           <ImageInput
             id="image-input"
             type="file"
@@ -74,22 +80,23 @@ const PostDashboard = ({ create_post_card, posts, user_firebase }) => {
             onChange={(e) => handle_input_image(e.target.files)}
           />
           <LeftContainer>
-            <ImageContainer htmlFor="image-input">
-              <ImageIcon src={Image} />
-            </ImageContainer>
+            <ImageIconContainer htmlFor="image-input">
+              <ImageIcon src={ImageIconSVG} />
+            </ImageIconContainer>
             <ImageActiveContainer image={image}>
-              <ImageActiveIcon src={ImageActive} />
+              <ImageActiveIcon src={ImageActiveSVG} />
             </ImageActiveContainer>
           </LeftContainer>
           <RightContainer>
             <ActionButtonContainer
               onClick={() => upload_post_card_to_firebase()}
             >
+              {loading_post_card ? <Spinner /> : null}
               <ActionButton action={"Publish"} />
             </ActionButtonContainer>
           </RightContainer>
-        </ButtonsContainer>
-      </PostDashboardContainer>
+        </BottomContainer>
+      </Container>
     </>
   );
 };
@@ -98,9 +105,11 @@ const PostDashboard = ({ create_post_card, posts, user_firebase }) => {
 const mapStateToProps = ({
   home_page_reducer: { posts },
   user_reducer: { user_firebase },
+  dashboards_reducer: { loading_post_card },
 }) => ({
   posts,
   user_firebase,
+  loading_post_card,
 });
 
 const mapDispatchToProps = (dispatch) => ({

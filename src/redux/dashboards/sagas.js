@@ -9,19 +9,45 @@ import {
 import {
   create_trade_card_failure_action,
   create_post_card_failure_action,
+  create_trade_card_success_action,
+  create_post_card_success_action,
 } from "./actions";
 
 function* create_trade_card_async(action) {
-  const { trade_content, latest_trades } = action.payload;
+  const {
+    title,
+    username,
+    user_id,
+    image,
+    description,
+    latest_trades,
+  } = action.payload;
   const trade_cards_ref = db.collection(`trades`);
+  let image_url = null;
 
   try {
+    if (image) {
+      const storage_ref = storage.ref(
+        `recommended_cards/${user_id}/${image.name}`
+      );
+      image_url = yield storage_ref.put(image).then(() => {
+        const url = storage
+          .ref(`recommended_cards/${user_id}`)
+          .child(image.name)
+          .getDownloadURL();
+        return url;
+      });
+    }
+
     const new_trade_card_id = yield trade_cards_ref
       .add({
-        ...trade_content,
+        title,
+        username,
+        user_id,
+        image_url,
+        description,
         date: new Date(),
-        up_trends: 0,
-        down_trends: 0,
+        votes: 0,
       })
       .then((doc_ref) => doc_ref.id);
 
@@ -34,6 +60,7 @@ function* create_trade_card_async(action) {
     });
 
     yield put(request_latest_trades_action_success(response));
+    yield put(create_trade_card_success_action());
   } catch (error) {
     yield put(create_trade_card_failure_action(error));
   }
@@ -77,8 +104,8 @@ function* create_post_card_async(action) {
     });
 
     yield put(request_posts_action_success(response));
+    yield put(create_post_card_success_action());
   } catch (error) {
-    console.log(error);
     yield put(create_post_card_failure_action(error));
   }
 }

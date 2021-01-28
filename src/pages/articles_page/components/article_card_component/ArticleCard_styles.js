@@ -64,7 +64,7 @@ export const Description = styled.div`
   color: ${white};
   line-height: 120%;
   margin: 0rem 0rem 0rem 0rem;
-  padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+  padding: 0.75rem 1.25rem 1.25rem 1.25rem;
 
   &::first-letter {
     text-transform: uppercase;
