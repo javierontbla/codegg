@@ -6,8 +6,11 @@ import {
 } from "./user/sagas";
 import {
   request_latest_trades_saga,
+  request_more_recommended_saga,
   request_posts_saga,
+  request_more_posts_saga,
   request_article_previews_saga,
+  request_more_article_previews_saga,
 } from "./home_page/sagas";
 import {
   request_unfiltered_articles_saga,
@@ -44,8 +47,11 @@ export function* root_saga() {
     call(log_in_active_user_saga),
     call(log_out_active_user_saga),
     call(request_latest_trades_saga),
+    call(request_more_recommended_saga),
     call(request_posts_saga),
+    call(request_more_posts_saga),
     call(request_article_previews_saga),
+    call(request_more_article_previews_saga),
     call(request_unfiltered_articles_saga),
     call(request_filtered_articles_saga),
     call(request_more_unfiltered_articles_saga),

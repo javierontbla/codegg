@@ -29,6 +29,17 @@ export const DescriptionInput = styled(TextareaAutosize)`
   font-family: ${roboto};
   font-size: 0.9rem;
   resize: none !important;
+  letter-spacing: 0.25px;
+
+  &&& {
+    ::placeholder {
+      font-size: 0.9rem;
+      font-family: ${roboto};
+      color: ${grey};
+      opacity: 0.9;
+      letter-spacing: 0.25px;
+    }
+  }
 
   &:focus {
     outline: none !important;

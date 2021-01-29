@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import ProfileBox from "../../../../components/profile_box_component/ProfileBox";
 import {
   ArticlePreviewContainer,
-  LinkContainer,
+  HyperLink,
   ImageContainer,
   TopContainer,
   Title,
@@ -39,7 +39,7 @@ const ArticleCardPreview = ({ data, id, user_firebase }) => {
   return (
     <>
       <ArticlePreviewContainer>
-        <LinkContainer to={`/articles/${id}`}>
+        <HyperLink to={`/reviews/${id}`}>
           <ImageContainer article_preview_image={data.article_image} />
           <TopContainer>
             <Title>{data.title}</Title>
@@ -53,7 +53,7 @@ const ArticleCardPreview = ({ data, id, user_firebase }) => {
               article_card_preview={"true"}
             />
           </MiddleContainer>
-        </LinkContainer>
+        </HyperLink>
         <BottomContainer>
           <Trends>
             <TrendIcon

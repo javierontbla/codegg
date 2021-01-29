@@ -17,7 +17,7 @@ export const ArticlePreviewContainer = styled.div`
   border-radius: 20px;
 `;
 
-export const LinkContainer = styled(Link)`
+export const HyperLink = styled(Link)`
   &:hover {
     text-decoration: none;
   }
