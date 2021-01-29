@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import moment from "moment";
 import { connect } from "react-redux";
 
+import Spinner from "../spinner_component/Spinner";
 import Comments from "./components/comments_component/Comments";
 import LoadingComments from "../loading_components/loading_comments/LoadingComments";
 import {
@@ -30,8 +31,8 @@ import UpIcon from "./media/up_button.svg";
 import CommentsIcon from "./media/comments_button.svg";
 import {
   request_all_comments_start_action,
+  request_more_comments_start_action,
   close_comments_section_action,
-  upvote_post_start_action,
 } from "../../redux/post/actions";
 import { votes_async } from "../../firebase/functions/votes";
 
@@ -41,8 +42,13 @@ const PostCard = ({
   user_firebase,
   loading_comments,
   current_post_id,
+  comments,
+  last_comment,
   request_all_comments,
+  request_more_comments,
   close_comments_section,
+  remaining_comments,
+  loading_more_comments,
 }) => {
   moment.locale("en");
   const [votes, set_votes] = useState(data.votes);
@@ -65,6 +71,16 @@ const PostCard = ({
 
     set_votes(response[0].votes);
     vote_ref.current = false; // end
+  };
+
+  const request_more_comments_to_firebase = () => {
+    if (remaining_comments) {
+      request_more_comments({
+        comments,
+        last_comment,
+        post_id: id,
+      });
+    }
   };
 
   return (
@@ -116,8 +132,12 @@ const PostCard = ({
             ) : null}
           </CommentsContainer>
         </PostContainer>
-        <LoadMoreComments display_comments={current_post_id === id}>
-          Show more comments
+        <LoadMoreComments
+          display_comments={current_post_id === id}
+          onClick={() => request_more_comments_to_firebase()}
+        >
+          {remaining_comments ? `Show more comments` : `No more comments`}
+          {loading_more_comments ? <Spinner /> : null}
         </LoadMoreComments>
       </Container>
     </>
@@ -127,7 +147,15 @@ const PostCard = ({
 // redux
 const mapStateToProps = ({
   home_page_reducer: { posts },
-  post_reducer: { loading_comments, current_post_id, update },
+  post_reducer: {
+    loading_comments,
+    current_post_id,
+    update,
+    comments,
+    last_comment,
+    remaining_comments,
+    loading_more_comments,
+  },
   user_reducer: { user_firebase },
 }) => ({
   posts,
@@ -135,13 +163,18 @@ const mapStateToProps = ({
   current_post_id,
   user_firebase,
   update,
+  comments,
+  last_comment,
+  remaining_comments,
+  loading_more_comments,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   request_all_comments: (post_id) =>
     dispatch(request_all_comments_start_action(post_id)),
+  request_more_comments: (comments) =>
+    dispatch(request_more_comments_start_action(comments)),
   close_comments_section: () => dispatch(close_comments_section_action()),
-  upvote_post: (obj) => dispatch(upvote_post_start_action(obj)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostCard);

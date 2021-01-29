@@ -1,37 +1,79 @@
 import { takeLatest, put } from "redux-saga/effects";
-import firebase from "firebase/app";
 
 import { post_types } from "./types";
 import { db } from "../../firebase/firebase";
 import {
   request_all_comments_success_action,
   request_all_comments_failure_action,
+  request_more_comments_success_action,
+  request_more_comments_failure_action,
   send_new_comment_failure_action,
-  upvote_post_success_action,
-  upvote_post_failure_action,
+  send_new_comment_success_action,
+  update_remaining_comments_action,
 } from "./actions";
-import { request_posts_action_success } from "../home_page/actions";
 
 function* request_all_comments_async(action) {
-  const all_comments_ref = db
+  const comments_ref = db
     .collection(`posts/${action.payload}/comments`)
     .orderBy("votes", "desc")
-    .limit(3);
+    .limit(1);
 
   try {
-    const response = yield all_comments_ref.get().then((snapshot) => {
-      const all_comments_arr = [];
+    const comments_arr = [];
+    const last_comment_firebase = yield comments_ref.get().then((snapshot) => {
+      const last_element = snapshot.docs[snapshot.docs.length - 1];
+      snapshot.forEach((doc) => comments_arr.push([doc.data(), doc.id]));
 
-      snapshot.forEach((comment) =>
-        all_comments_arr.push([comment.data(), comment.id])
-      );
-
-      return all_comments_arr;
+      return last_element;
     });
 
-    yield put(request_all_comments_success_action(response));
+    yield put(
+      request_all_comments_success_action({
+        comments: comments_arr,
+        last_comment: last_comment_firebase,
+      })
+    );
   } catch (error) {
     yield put(request_all_comments_failure_action(error));
+  }
+}
+
+function* request_more_comments_async(action) {
+  const { comments, last_comment, post_id } = action.payload;
+
+  if (!last_comment) {
+    // there are no comments yet
+    yield put(update_remaining_comments_action());
+    return;
+  }
+
+  const comments_ref = db
+    .collection(`posts/${post_id}/comments`)
+    .orderBy("votes", "desc")
+    .startAfter(last_comment)
+    .limit(1);
+
+  try {
+    const comments_arr = [...comments];
+    const last_comment_firebase = yield comments_ref.get().then((snapshot) => {
+      const last_element = snapshot.docs[snapshot.docs.length - 1];
+      snapshot.forEach((doc) => comments_arr.push([doc.data(), doc.id]));
+
+      return last_element;
+    });
+
+    if (!last_comment_firebase) {
+      yield put(update_remaining_comments_action());
+    } else {
+      yield put(
+        request_more_comments_success_action({
+          comments: comments_arr,
+          last_comment: last_comment_firebase,
+        })
+      );
+    }
+  } catch (error) {
+    yield put(request_more_comments_failure_action(error));
   }
 }
 
@@ -62,12 +104,16 @@ function* send_new_comment_async(action) {
       `posts/${post_id}/comments/${new_comment_id}`
     );
 
-    const response = yield new_comment_ref.get().then((doc) => {
+    const comments_arr = yield new_comment_ref.get().then((doc) => {
       if (doc.exists) return [[doc.data(), doc.id], ...comments];
       console.log("no doc"); // need to add saga error here
     });
 
-    yield put(request_all_comments_success_action(response));
+    yield put(
+      send_new_comment_success_action({
+        comments: comments_arr,
+      })
+    );
   } catch (error) {
     yield put(send_new_comment_failure_action(error));
   }
@@ -77,6 +123,13 @@ export function* request_all_comments_saga() {
   yield takeLatest(
     post_types.REQUEST_ALL_COMMENTS_START,
     request_all_comments_async
+  );
+}
+
+export function* request_more_comments_saga() {
+  yield takeLatest(
+    post_types.REQUEST_MORE_COMMENTS_START,
+    request_more_comments_async
   );
 }
 

@@ -28,7 +28,8 @@ const TradeDashboard = ({
   user_firebase,
   loading_recommended_card,
   upload_recommended_card_error,
-  latest_trades,
+  recommended,
+  last_recommended,
 }) => {
   const [active_dashboard, set_active_dashboard] = useState(false); // open-close trade dashboard
   const [title, set_title] = useState("");
@@ -62,7 +63,8 @@ const TradeDashboard = ({
         title,
         description,
         image,
-        latest_trades,
+        recommended,
+        last_recommended,
       });
 
       // cleaning inputs
@@ -138,7 +140,7 @@ const TradeDashboard = ({
 
 // redux
 const mapStateToProps = ({
-  home_page_reducer: { latest_trades },
+  home_page_reducer: { recommended, last_recommended },
   dashboards_reducer: {
     loading_recommended_card,
     upload_recommended_card_error,
@@ -148,7 +150,8 @@ const mapStateToProps = ({
   user_firebase,
   loading_recommended_card,
   upload_recommended_card_error,
-  latest_trades,
+  recommended,
+  last_recommended,
 });
 
 const mapDispatchToProps = (dispatch) => ({

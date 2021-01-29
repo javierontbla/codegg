@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
+import Spinner from "../../../spinner_component/Spinner";
 import {
   Container,
   InputContainer,
   ProfileImage,
   TextInput,
+  CommentButtonContainer,
   CommentButton,
 } from "./InputComment_styles";
 import { send_new_comment_start_action } from "../../../../redux/post/actions";
@@ -15,6 +17,7 @@ const InputComment = ({
   post_id,
   user_firebase,
   comments,
+  loading_send_comment,
 }) => {
   const [comment, set_comment] = useState("");
 
@@ -53,9 +56,12 @@ const InputComment = ({
             value={comment}
             onChange={(e) => handle_input_comment(e.target.value)}
           />
-          <CommentButton onClick={() => send_new_comment_to_firebase()}>
-            Comment
-          </CommentButton>
+          <CommentButtonContainer>
+            <CommentButton onClick={() => send_new_comment_to_firebase()}>
+              Comment
+            </CommentButton>
+            {loading_send_comment ? <Spinner /> : null}
+          </CommentButtonContainer>
         </InputContainer>
       </Container>
     </>
@@ -65,10 +71,11 @@ const InputComment = ({
 // redux
 const mapStateToProps = ({
   user_reducer: { user_firebase },
-  post_reducer: { comments },
+  post_reducer: { comments, loading_send_comment },
 }) => ({
   user_firebase,
   comments,
+  loading_send_comment,
 });
 
 const mapDispatchToProps = (dispatch) => ({

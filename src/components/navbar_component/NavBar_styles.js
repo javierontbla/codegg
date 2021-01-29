@@ -174,21 +174,3 @@ export const ActionButtonContainer = styled.div`
   height: fit-content;
   width: fit-content;
 `;
-
-export const External = styled.a`
-  &&& {
-    &::after {
-      background-color: transparent;
-      height: 0%;
-      position: relative;
-      left: 0;
-      top: 0%;
-      width: calc(100%);
-      z-index: -1;
-    }
-  }
-  &:hover {
-    cursor: pointer;
-    text-decoration: none;
-  }
-`;

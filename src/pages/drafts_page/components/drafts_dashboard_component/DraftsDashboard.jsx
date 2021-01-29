@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useRouteMatch, Redirect } from "react-router-dom";
 
@@ -29,12 +29,20 @@ const DraftsDashboard = ({
     url,
     params: { user_id },
   } = useRouteMatch();
+  const [redirect, set_redirect] = useState(false);
 
   useEffect(() => {
     document.title = `Codegg - Dashboard`;
     if (user_firebase) {
-      if (user_firebase.user_id === user_id) request_drafts({ user_id }); // runs twice
+      if (user_firebase.user_id === user_id) request_drafts({ user_id });
+      else set_redirect(true);
+    } else {
+      set_redirect(true);
     }
+
+    return () => {
+      set_redirect(false);
+    };
   }, [user_firebase]);
 
   const create_draft_to_firebase = () => {
@@ -54,6 +62,7 @@ const DraftsDashboard = ({
 
   return (
     <>
+      {redirect ? <Redirect to="/reviews" /> : null}
       {draft_id ? <Redirect to={`${url}/draft/${draft_id}`} /> : null}
       <Container>
         <Title title="Drafts" />

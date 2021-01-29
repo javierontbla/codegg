@@ -75,13 +75,9 @@ export const ImageIconContainer = styled.label`
   background: none;
   padding: 0rem 0rem 0rem 0rem;
   margin: 0rem 0rem 0rem 0rem;
-  color: ${grey};
-  font-family: ${open_sans};
-  font-size: 0.85rem;
 
   &:hover {
     cursor: pointer;
-    opacity: 0.95;
   }
 `;
 

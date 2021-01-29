@@ -55,13 +55,21 @@ export const TextInput = styled(TextareaAutosize)`
   }
 `;
 
+export const CommentButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: fit-content;
+  margin: 0.75rem 0rem 0rem 0rem;
+`;
+
 export const CommentButton = styled.div`
   display: flex;
   align-items: center;
   line-height: 100%;
   height: 1.55rem;
   width: fit-content;
-  margin: 0.75rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0.5rem 0rem 0.5rem;
   border-radius: 20px;
   font-family: ${open_sans};

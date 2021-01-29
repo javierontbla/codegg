@@ -23,5 +23,5 @@ export const Container = styled.div`
   border-top-color: ${white};
   animation: ${Spinner} 1s ease-in-out infinite;
   -webkit-animation: ${Spinner} 1s ease-in-out infinite;
-  margin: 0rem 0.5rem 0rem 0rem;
+  margin: 0rem 0.5rem 0rem 0.5rem;
 `;

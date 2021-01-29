@@ -25,7 +25,6 @@ import {
   CategoriesContainer,
   RightContainer,
   ActiveCategoryContainer,
-  LinkContainer,
   ActionButtonContainer,
   MasonryContainer,
 } from "./ArticlesCollection_styles";
@@ -61,7 +60,7 @@ const ArticlesCollection = ({
     if (categories.length === 0) request_available_categories();
     if (unfiltered_articles.length === 0) request_unfiltered_articles();
 
-    document.title = `Codegg - Read`;
+    document.title = `Codegg - Reviews`;
 
     return () => {
       if (active_category[0]) {
@@ -113,7 +112,9 @@ const ArticlesCollection = ({
   };
 
   const push_to_dashboard = () => {
-    history.push(`${url}/dashboard/${user_firebase.user_id}`);
+    if (user_firebase) {
+      history.push(`${url}/dashboard/${user_firebase.user_id}`);
+    }
   };
 
   return (

@@ -24,7 +24,7 @@ const DraftContainer = ({
 
   useEffect(() => {
     if (user_firebase) {
-      if (user_firebase.user_id == user_id) {
+      if (user_firebase.user_id === user_id) {
         request_draft({
           user_id: user_firebase.user_data.user_id,
           draft_id,
@@ -33,12 +33,13 @@ const DraftContainer = ({
         set_redirect(true);
       }
     } else {
-      // no user
+      set_redirect(true);
     }
 
     return () => {
       reset_draft_id(null);
       reset_draft(null);
+      set_redirect(false);
     };
   }, [user_firebase]);
 

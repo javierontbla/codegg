@@ -9,8 +9,8 @@ import {
   DescriptionInput,
   BottomContainer,
   LeftContainer,
-  ImageIconContainer,
   ImageInput,
+  ImageIconContainer,
   ImageIcon,
   ImageActiveContainer,
   ImageActiveIcon,
@@ -24,6 +24,7 @@ import ImageActiveSVG from "./media/image_active_button.svg";
 const PostDashboard = ({
   create_post_card,
   posts,
+  last_post,
   user_firebase,
   loading_post_card,
   upload_post_card_error,
@@ -46,18 +47,17 @@ const PostDashboard = ({
 
   const upload_post_card_to_firebase = () => {
     if (!description) return; // if there is no description
-
     const { user, username, user_id, profile_image } = user_firebase.user_data;
+
     create_post_card({
-      post_content: {
-        user,
-        username,
-        user_id,
-        profile_image,
-        description,
-        image,
-      },
+      user,
+      username,
+      user_id,
+      profile_image,
+      description,
+      post_image: image,
       posts,
+      last_post,
     });
 
     // clearing fields
@@ -76,13 +76,13 @@ const PostDashboard = ({
         />
         <BottomContainer>
           <ImageInput
-            id="image-input"
+            id="image_id"
             type="file"
-            onClick={(e) => (e.target.value = null)}
             onChange={(e) => handle_input_image(e.target.files)}
+            onClick={(e) => (e.target.value = null)}
           />
           <LeftContainer>
-            <ImageIconContainer htmlFor="image-input">
+            <ImageIconContainer htmlFor="image_id">
               <ImageIcon src={ImageIconSVG} />
             </ImageIconContainer>
             <ImageActiveContainer image={image}>
@@ -106,11 +106,12 @@ const PostDashboard = ({
 
 // redux
 const mapStateToProps = ({
-  home_page_reducer: { posts },
+  home_page_reducer: { posts, last_post },
   user_reducer: { user_firebase },
   dashboards_reducer: { loading_post_card, upload_post_card_error },
 }) => ({
   posts,
+  last_post,
   user_firebase,
   loading_post_card,
   upload_post_card_error,

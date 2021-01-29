@@ -78,7 +78,7 @@ export const MiddleContainer = styled.div`
 
 export const Description = styled.div`
   font-size: ${roboto};
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: ${white};
   line-height: 120%;
   margin: 1.5rem 0rem 1.5rem 0rem;
@@ -97,7 +97,7 @@ export const BottomContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   height: fit-content;
-  padding: 0.75rem 1.25rem 0.75rem 1.25rem;
+  padding: 0.85rem 1.25rem 0.85rem 1.25rem;
   border-top: 0.5px solid ${grey_2};
 `;
 

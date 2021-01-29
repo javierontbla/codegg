@@ -1,5 +1,4 @@
 import styled, { keyframes, css } from "styled-components";
-import TextareaAutosize from "react-textarea-autosize";
 
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";

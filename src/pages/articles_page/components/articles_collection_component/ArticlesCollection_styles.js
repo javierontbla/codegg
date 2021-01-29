@@ -2,9 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { colors } from "../../../../colors/colors";
-import { fonts } from "../../../../fonts/fonts";
-
-const {} = fonts;
 
 const { grey_2, black } = colors;
 
@@ -22,12 +19,6 @@ export const ArticlesPageContainer = styled.div`
 export const TopContainer = styled.div`
   display: flex;
   width: 100%;
-`;
-
-export const LinkContainer = styled(Link)`
-  &:hover {
-    text-decoration: none;
-  }
 `;
 
 export const ActionButtonContainer = styled.div`
