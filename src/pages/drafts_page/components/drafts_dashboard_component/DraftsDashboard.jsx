@@ -57,6 +57,7 @@ const DraftsDashboard = ({
       content: [],
       tags: [],
       draft_image: "",
+      score: "",
     });
   };
 

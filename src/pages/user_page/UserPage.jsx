@@ -28,11 +28,9 @@ import {
   request_posts_success_action,
   request_investor_profile_success_action,
 } from "../../redux/investor_page/actions";
+import { useRouteMatch } from "react-router-dom";
 
 const UserPage = ({
-  match: {
-    params: { user_id },
-  },
   request_user,
   request_trades,
   request_posts,
@@ -46,6 +44,10 @@ const UserPage = ({
   reset_articles,
   reset_user_profile,
 }) => {
+  const {
+    params: { user_id },
+  } = useRouteMatch();
+
   useEffect(() => {
     request_trades(user_id);
     request_posts(user_id);

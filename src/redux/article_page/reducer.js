@@ -1,7 +1,7 @@
 import { article_page_types } from "./types";
 
 const INITIAL_STATE = {
-  loading_article: true,
+  loading_article: false,
   article: null,
   error_article: null,
 };

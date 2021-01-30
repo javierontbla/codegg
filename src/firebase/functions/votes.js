@@ -1,9 +1,7 @@
 import firebase from "firebase/app";
 import { db } from "../firebase";
 
-export const votes_async = async (paths) => {
-  const { doc_path, doc_votes_path } = paths;
-
+export const votes_async = async ({ doc_path, doc_votes_path }) => {
   const doc_ref = db.doc(doc_path);
   const doc_votes_ref = db.doc(doc_votes_path);
 
@@ -32,6 +30,6 @@ export const votes_async = async (paths) => {
     const response = await doc_ref.get().then((doc) => [doc.data(), doc.id]);
     return response;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };

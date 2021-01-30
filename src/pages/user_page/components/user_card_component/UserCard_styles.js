@@ -94,6 +94,11 @@ export const BottomContainer = styled.div`
   border-top: 0.5px solid ${grey_2};
 `;
 
+export const ActionButtonContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
+`;
+
 export const Subscribers = styled.div`
   display: flex;
   flex-direction: row;

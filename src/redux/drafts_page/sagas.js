@@ -24,6 +24,7 @@ function* create_draft_async(action) {
     content,
     tags,
     draft_image,
+    score,
   } = action.payload;
   const drafts_ref = db.collection(`investors/${user_id}/drafts`);
 
@@ -35,6 +36,7 @@ function* create_draft_async(action) {
         content,
         tags,
         draft_image,
+        score,
       })
       .then((doc_ref) => doc_ref.id);
 
@@ -65,7 +67,7 @@ function* save_draft_async(action) {
       tags,
       content,
       draft_image,
-      score,
+      score: parseFloat(score).toFixed(1),
     });
 
     yield put(upload_draft_success_action(response));
@@ -126,7 +128,7 @@ function* upload_article_async(action) {
         description,
         categories: tags_filtered,
         content: content_reduced,
-        score,
+        score: parseFloat(score).toFixed(1),
         votes: 0,
       })
       .then((doc) => doc.id);

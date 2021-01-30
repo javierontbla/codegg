@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { connect } from "react-redux";
 
 import Rank from "../../../../components/rank_component/Rank";
 import ActionButton from "../../../../components/action_button_component/ActionButton";
@@ -13,13 +14,31 @@ import {
   MiddleContainer,
   Description,
   BottomContainer,
+  ActionButtonContainer,
   Subscribers,
 } from "./UserCard_styles";
+import { subscribe_async } from "../../../../firebase/functions/subscribe";
 
-const UserCard = ({ data }) => {
+const UserCard = ({ user_firebase, data, id }) => {
+  const [subscribers, set_subscribers] = useState(data.subscribers);
+  const subscribe_ref = useRef(false);
+
   useEffect(() => {
     document.title = `Codegg - @${data.username}`;
   }, []);
+
+  const subscribe_to_firebase = async () => {
+    if (subscribe_ref.current === true) return;
+
+    subscribe_ref.current = true; // start
+    const updated_subscribers = await subscribe_async({
+      user_id: id,
+      subscriber_id: user_firebase.user_data.user_id,
+    });
+
+    set_subscribers(updated_subscribers);
+    subscribe_ref.current = false; // end
+  };
 
   return (
     <>
@@ -37,12 +56,19 @@ const UserCard = ({ data }) => {
           <Description>{data.description}</Description>
         </MiddleContainer>
         <BottomContainer>
-          <Subscribers>{data.subscribers} subscribers</Subscribers>
-          <ActionButton action={"Subscribe"} />
+          <Subscribers>{subscribers} subscribers</Subscribers>
+          <ActionButtonContainer onClick={() => subscribe_to_firebase()}>
+            <ActionButton action={"Subscribe"} />
+          </ActionButtonContainer>
         </BottomContainer>
       </Container>
     </>
   );
 };
 
-export default UserCard;
+// redux
+const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
+  user_firebase,
+});
+
+export default connect(mapStateToProps, null)(UserCard);

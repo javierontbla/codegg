@@ -132,6 +132,7 @@ const Draft = ({
 
   const save_draft_to_firebase = () => {
     const { user_id } = user_firebase.user_data;
+
     save_draft({
       user_id,
       draft_id,

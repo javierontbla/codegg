@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Article from "./components/article_component/Article";
+import LoadingArticle from "../../components/loading_components/loading_article_page/LoadingArticlePage";
 import { request_article_start_action } from "../../redux/article_page/actions";
 
 const ArticlePage = ({
@@ -19,14 +20,12 @@ const ArticlePage = ({
     const url = article_id.split("-"); // getting id doc from the url, using react router
 
     request_article(url[url.length - 1]);
-  }, [article_id]);
+  }, []);
 
   return (
     <>
-      {error_article ? (
-        console.log("Error!")
-      ) : loading_article ? (
-        console.log("Loading...")
+      {loading_article || !article ? (
+        <LoadingArticle />
       ) : (
         <Article data={article} id={article_id.split("-").slice(-1)[0]} />
       )}
@@ -49,3 +48,5 @@ const mapDispatchToProps = (dispatch) => ({
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(ArticlePage)
 );
+
+//         <Article data={article} id={article_id.split("-").slice(-1)[0]} />

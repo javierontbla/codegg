@@ -10,7 +10,9 @@ const UsersPage = () => {
     <>
       <Container className="container">
         <Switch>
-          <Route path={`${path}/:user_id`} component={UserPage} />
+          <Route path={`${path}/:user_id`}>
+            <UserPage />
+          </Route>
         </Switch>
       </Container>
     </>

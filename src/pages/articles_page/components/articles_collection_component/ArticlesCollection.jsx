@@ -135,12 +135,10 @@ const ArticlesCollection = ({
                   categories.map((category) => {
                     return (
                       <Category
-                        onClick={() =>
-                          request_filtered_articles_fun(category.toLowerCase())
-                        }
+                        onClick={() => request_filtered_articles_fun(category)}
                         key={category}
-                        name={category.toLowerCase()}
-                        category={category.toLowerCase()}
+                        name={category}
+                        category={category}
                       />
                     );
                   })
@@ -151,10 +149,7 @@ const ArticlesCollection = ({
               <ActiveCategoryContainer length={active_category.length}>
                 {active_category.map((category) => {
                   return (
-                    <Category
-                      category={category.toLowerCase()}
-                      active_category={"true"}
-                    />
+                    <Category category={category} active_category={"true"} />
                   );
                 })}
               </ActiveCategoryContainer>
@@ -172,9 +167,7 @@ const ArticlesCollection = ({
                           return (
                             <ArticleCard
                               request_filtered_articles_fun={(category) =>
-                                request_filtered_articles_fun(
-                                  category.toLowerCase()
-                                )
+                                request_filtered_articles_fun(category)
                               }
                               key={article[0]}
                               data={article[0]}

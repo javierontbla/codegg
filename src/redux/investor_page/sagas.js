@@ -31,7 +31,8 @@ function* request_investor_profile_async(action) {
 function* request_investor_trades_async(action) {
   const trades_ref = db
     .collection(`trades`)
-    .where("user_id", "==", action.payload);
+    .where("user_id", "==", action.payload)
+    .limit(1);
 
   try {
     const response = yield trades_ref.get().then((snapshot) => {
@@ -52,7 +53,8 @@ function* request_investor_trades_async(action) {
 function* request_investor_posts_async(action) {
   const posts_ref = db
     .collection(`posts`)
-    .where("user_id", "==", action.payload);
+    .where("user_id", "==", action.payload)
+    .limit(1);
 
   try {
     const response = yield posts_ref.get().then((snapshot) => {
@@ -75,7 +77,8 @@ function* request_user_articles_async(action) {
   const { user_id } = action.payload;
   const user_articles_ref = db
     .collection(`articles`)
-    .where("user_id", "==", user_id);
+    .where("user_id", "==", user_id)
+    .limit(1);
 
   try {
     const response = yield user_articles_ref.get().then((snapshot) => {
