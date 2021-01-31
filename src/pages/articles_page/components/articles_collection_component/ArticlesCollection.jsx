@@ -13,6 +13,7 @@ import {
   request_unfiltered_articles_start_action,
   request_filtered_articles_start_action,
   request_filtered_articles_success_action,
+  request_more_unfiltered_articles_start_action,
   select_category_action,
   delete_category_action,
 } from "../../../../redux/articles_page/actions";
@@ -29,6 +30,7 @@ import {
   MasonryContainer,
 } from "./ArticlesCollection_styles";
 import "./ArticlesCollection.css";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const ArticlesCollection = ({
   match,
@@ -37,20 +39,15 @@ const ArticlesCollection = ({
   request_available_categories,
   request_unfiltered_articles,
   request_filtered_articles,
-  getMoreUnfilteredArticles,
-  getMoreFilteredArticles,
+  request_more_unfiltered_articles,
   unfiltered_articles,
   filtered_articles,
-  lastUnfiltered,
-  lastFiltered,
+  last_unfiltered_article,
   categories,
   active_category,
   select_category,
   delete_category,
-  stopFetching,
-  noMorePosts,
   clear_filtered_articles,
-  create_draft,
   user_firebase,
 }) => {
   const { url } = useRouteMatch();
@@ -76,44 +73,32 @@ const ArticlesCollection = ({
     550: 1,
   };
 
-  const request_filtered_articles_fun = (category) => {
+  const request_filtered_articles_fun = (tag) => {
     // requesting same category
-    if (active_category[0] === category) return;
-    if (active_category[0] !== category) delete_category();
+    if (active_category[0] === tag) return;
+    if (active_category[0] !== tag) delete_category();
 
-    select_category([category]);
+    select_category([tag]);
     request_filtered_articles({
-      category,
+      tag,
       previous_filtered_articles: [],
-    });
-  };
-
-  const loadMoreUnfilteredArticles = () => {
-    if (!lastUnfiltered) {
-      stopFetching();
-      return;
-    }
-    getMoreUnfilteredArticles({
-      previousArticles: unfiltered_articles,
-      lastElement: lastUnfiltered,
-    });
-  };
-
-  const loadMoreFilteredArticles = () => {
-    if (!lastFiltered) {
-      stopFetching();
-      return;
-    }
-    getMoreFilteredArticles({
-      previousArticles: filtered_articles,
-      lastElement: lastFiltered,
-      tag: active_category[0],
     });
   };
 
   const push_to_dashboard = () => {
     if (user_firebase) {
       history.push(`${url}/dashboard/${user_firebase.user_id}`);
+    }
+  };
+
+  const request_more_articles_to_firebase = () => {
+    if (filtered_articles.length > 0) {
+      // request more filtered here
+    } else {
+      request_more_unfiltered_articles({
+        last_unfiltered_article,
+        unfiltered_articles,
+      });
     }
   };
 
@@ -157,39 +142,48 @@ const ArticlesCollection = ({
                 {loading_articles ? (
                   <LoadingArticles />
                 ) : (
-                  <Masonry
-                    breakpointCols={breakpoints}
-                    className="mansonry-grid"
-                    columnClassName="mansonry-grid-column"
+                  <InfiniteScroll
+                    dataLength={unfiltered_articles.length}
+                    next={() => request_more_articles_to_firebase()}
+                    hasMore={last_unfiltered_article}
                   >
-                    {filtered_articles.length > 0
-                      ? filtered_articles.map((article) => {
-                          return (
-                            <ArticleCard
-                              request_filtered_articles_fun={(category) =>
-                                request_filtered_articles_fun(category)
-                              }
-                              key={article[0]}
-                              data={article[0]}
-                              id={article[1]}
-                            />
-                          );
-                        })
-                      : unfiltered_articles.map((article) => {
-                          return (
-                            <ArticleCard
-                              request_filtered_articles_fun={(category) =>
-                                request_filtered_articles_fun(category)
-                              }
-                              key={article[1]}
-                              data={article[0]}
-                              id={article[1]}
-                            />
-                          );
-                        })}
-                  </Masonry>
+                    <Masonry
+                      breakpointCols={breakpoints}
+                      className="mansonry-grid"
+                      columnClassName="mansonry-grid-column"
+                    >
+                      {filtered_articles.length > 0
+                        ? filtered_articles.map((article) => {
+                            return (
+                              <ArticleCard
+                                request_filtered_articles_fun={(category) =>
+                                  request_filtered_articles_fun(category)
+                                }
+                                key={article[0]}
+                                data={article[0]}
+                                id={article[1]}
+                              />
+                            );
+                          })
+                        : unfiltered_articles.map((article) => {
+                            return (
+                              <ArticleCard
+                                request_filtered_articles_fun={(category) =>
+                                  request_filtered_articles_fun(category)
+                                }
+                                key={article[1]}
+                                data={article[0]}
+                                id={article[1]}
+                              />
+                            );
+                          })}
+                    </Masonry>
+                  </InfiniteScroll>
                 )}
               </MasonryContainer>
+              <button onClick={() => request_more_articles_to_firebase()}>
+                Load more
+              </button>
             </RightContainer>
           </BottomContainer>
         </ArticlesPageContainer>
@@ -210,6 +204,8 @@ const mapStateToProps = ({
     categories,
     active_category,
     error,
+
+    last_unfiltered_article,
   },
   user_reducer: { user_firebase },
 }) => ({
@@ -223,6 +219,8 @@ const mapStateToProps = ({
   active_category,
   error,
   user_firebase,
+
+  last_unfiltered_article,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -230,6 +228,10 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(request_available_categories_start_action()),
   request_unfiltered_articles: () =>
     dispatch(request_unfiltered_articles_start_action()),
+
+  request_more_unfiltered_articles: (input) =>
+    dispatch(request_more_unfiltered_articles_start_action(input)),
+
   request_filtered_articles: (category) =>
     dispatch(request_filtered_articles_start_action(category)),
   select_category: (category) => dispatch(select_category_action(category)),

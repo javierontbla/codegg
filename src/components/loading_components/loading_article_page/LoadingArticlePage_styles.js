@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const LeftContainer = styled.div`
   ${LoadingStyles};
-  height: 100vh;
+  height: 80vh;
   background: ${black};
   border-radius: 15px;
   width: calc(100% - 20rem);
@@ -21,7 +21,7 @@ export const LeftContainer = styled.div`
 
 export const RightContainer = styled.div`
   ${LoadingStyles};
-  height: 100vh;
+  height: 80vh;
   background: ${black};
   border-radius: 15px;
   width: 20rem;

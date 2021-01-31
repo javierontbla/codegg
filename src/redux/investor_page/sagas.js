@@ -10,11 +10,14 @@ import {
   request_posts_failure_action,
   request_user_articles_success_action,
   request_user_articles_failure_action,
+  validate_subscriber_success_action,
+  validate_subscriber_failure_action,
 } from "./actions";
 import { db } from "../../firebase/firebase";
 
 function* request_investor_profile_async(action) {
-  const investor_profile_ref = db.doc(`investors/${action.payload}`);
+  const { user_id } = action.payload;
+  const investor_profile_ref = db.doc(`investors/${user_id}`);
 
   try {
     const response = yield investor_profile_ref.get().then((doc) => {
@@ -97,6 +100,24 @@ function* request_user_articles_async(action) {
   }
 }
 
+function* validate_subscriber_async(action) {
+  const { user_id, subscriber_id } = action.payload;
+  const subscriber_ref = db.doc(
+    `investors/${user_id}/subscribers/${subscriber_id}`
+  );
+
+  try {
+    const response = yield subscriber_ref.get().then((doc) => {
+      if (doc.exists) return true;
+      else return false;
+    });
+
+    yield put(validate_subscriber_success_action(response));
+  } catch (error) {
+    yield put(validate_subscriber_failure_action(error));
+  }
+}
+
 export function* request_investor_profile_saga() {
   yield takeLatest(
     investor_page_types.REQUEST_INVESTOR_PROFILE_START,
@@ -122,5 +143,12 @@ export function* request_user_articles_saga() {
   yield takeLatest(
     investor_page_types.REQUEST_USER_ARTICLES_START,
     request_user_articles_async
+  );
+}
+
+export function* validate_subscriber_saga() {
+  yield takeLatest(
+    investor_page_types.VALIDATE_SUBSCRIBER_START,
+    validate_subscriber_async
   );
 }

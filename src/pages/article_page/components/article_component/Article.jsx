@@ -58,14 +58,14 @@ const Article = ({
     } else if (!active_category[0]) {
       select_category([tag]);
       request_filtered_articles({
-        input: tag,
+        tag,
         previous_filtered_articles: filtered_articles,
       });
     } else {
       delete_category();
       select_category([tag]);
       request_filtered_articles({
-        input: tag,
+        tag,
         previous_filtered_articles: [],
       });
     }

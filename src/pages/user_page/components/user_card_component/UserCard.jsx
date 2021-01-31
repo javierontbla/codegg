@@ -18,8 +18,15 @@ import {
   Subscribers,
 } from "./UserCard_styles";
 import { subscribe_async } from "../../../../firebase/functions/subscribe";
+import { validate_subscriber_success_action } from "../../../../redux/investor_page/actions";
 
-const UserCard = ({ user_firebase, data, id }) => {
+const UserCard = ({
+  user_firebase,
+  data,
+  id,
+  subscriber,
+  update_subscribe_button,
+}) => {
   const [subscribers, set_subscribers] = useState(data.subscribers);
   const subscribe_ref = useRef(false);
 
@@ -28,16 +35,24 @@ const UserCard = ({ user_firebase, data, id }) => {
   }, []);
 
   const subscribe_to_firebase = async () => {
-    if (subscribe_ref.current === true) return;
+    if (user_firebase) {
+      if (subscribe_ref.current === true) return;
 
-    subscribe_ref.current = true; // start
-    const updated_subscribers = await subscribe_async({
-      user_id: id,
-      subscriber_id: user_firebase.user_data.user_id,
-    });
+      if (subscriber) update_subscribe_button(false);
+      else update_subscribe_button(true);
 
-    set_subscribers(updated_subscribers);
-    subscribe_ref.current = false; // end
+      subscribe_ref.current = true; // start
+      const updated_subscribers = await subscribe_async({
+        user_id: id,
+        subscriber_id: user_firebase.user_data.user_id,
+      });
+
+      set_subscribers(updated_subscribers);
+      subscribe_ref.current = false; // end
+    } else {
+      // user isn't logged in
+      // fire Modal
+    }
   };
 
   return (
@@ -58,7 +73,7 @@ const UserCard = ({ user_firebase, data, id }) => {
         <BottomContainer>
           <Subscribers>{subscribers} subscribers</Subscribers>
           <ActionButtonContainer onClick={() => subscribe_to_firebase()}>
-            <ActionButton action={"Subscribe"} />
+            <ActionButton action={subscriber ? "Unsubscribe" : "Subscribe"} />
           </ActionButtonContainer>
         </BottomContainer>
       </Container>
@@ -67,8 +82,17 @@ const UserCard = ({ user_firebase, data, id }) => {
 };
 
 // redux
-const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
+const mapStateToProps = ({
+  user_reducer: { user_firebase },
+  investor_page_reducer: { subscriber },
+}) => ({
   user_firebase,
+  subscriber,
 });
 
-export default connect(mapStateToProps, null)(UserCard);
+const mapDispatchToProps = (dispatch) => ({
+  update_subscribe_button: (bool) =>
+    dispatch(validate_subscriber_success_action(bool)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserCard);

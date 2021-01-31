@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   posts: [],
   articles: [],
   investor: [],
+  subscriber: false,
   error_trades: null,
   error_posts: null,
   error_investor: null,
@@ -90,6 +91,13 @@ export const investor_page_reducer = (state = INITIAL_STATE, action) => {
         ...state,
         articles: action.payload,
       };
+
+    case investor_page_types.VALIDATE_SUBSCRIBER_SUCCESS:
+      return {
+        ...state,
+        subscriber: action.payload,
+      };
+
     default:
       return state;
   }

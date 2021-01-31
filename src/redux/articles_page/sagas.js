@@ -6,35 +6,39 @@ import {
   request_available_categories_success_action,
   request_available_categories_failure_action,
   request_unfiltered_articles_success_action,
+  request_more_unfiltered_articles_success_action,
   request_unfiltered_articles_failure_action,
+  request_more_unfiltered_articles_failure_action,
   request_filtered_articles_success_action,
   request_filtered_articles_failure_action,
-  store_last_unfiltered_article_action,
-  store_last_filtered_article_action,
 } from "./actions";
 
 // async functions
 function* request_unfiltered_articles_async() {
-  const articlesRef = db
+  const unfiltered_articles_ref = db
     .collection(`articles`)
     .orderBy("date", "desc")
-    .limit(3);
-  // inital fetch from firebase
+    .limit(1);
+
   try {
-    const res = yield articlesRef.get().then((snapshot) => {
-      // we get the last doc from the collection, for future fetching
-      // in case user wants to load more posts
-      const lastRef = snapshot.docs[snapshot.docs.length - 1];
-      const articles = [];
-      snapshot.forEach((article) =>
-        articles.push([article.data(), article.id])
-      );
-      return [articles, lastRef];
-    });
+    const unfiltered_articles_arr = [];
+    const last_unfiltered_article_firebase = yield unfiltered_articles_ref
+      .get()
+      .then((snapshot) => {
+        const last_element = snapshot.docs[snapshot.docs.length - 1];
+        snapshot.forEach((article) =>
+          unfiltered_articles_arr.push([article.data(), article.id])
+        );
+        return last_element;
+      });
 
     // firing succesful actions to store data on reducer
-    yield put(request_unfiltered_articles_success_action(res[0]));
-    yield put(store_last_unfiltered_article_action(res[1]));
+    yield put(
+      request_unfiltered_articles_success_action({
+        last_unfiltered_article: last_unfiltered_article_firebase,
+        unfiltered_articles: unfiltered_articles_arr,
+      })
+    );
   } catch (error) {
     yield put(request_unfiltered_articles_failure_action(error));
   }
@@ -42,11 +46,12 @@ function* request_unfiltered_articles_async() {
 
 function* request_filtered_articles_async(action) {
   // geting the input from the button the user clicked
-  const { previous_filtered_articles, category } = action.payload;
+  const { previous_filtered_articles, tag } = action.payload;
   const filtered_articles_ref = db
     .collection("articles")
-    .where("categories", "array-contains", `${category}`)
-    .orderBy("date", "desc");
+    .where("categories", "array-contains", `${tag}`)
+    .orderBy("date", "desc")
+    .limit(1);
 
   try {
     const last_filtered_article = yield filtered_articles_ref
@@ -63,7 +68,6 @@ function* request_filtered_articles_async(action) {
         return last_filtered_article_ref;
       });
     // firing succesful actions to store data on reducer
-    yield put(store_last_filtered_article_action(last_filtered_article));
     yield put(
       request_filtered_articles_success_action(previous_filtered_articles)
     );
@@ -73,27 +77,35 @@ function* request_filtered_articles_async(action) {
 }
 
 function* request_more_unfiltered_articles_async(action) {
-  const { previousArticles, lastElement } = action.payload;
-  const articlesRef = db
-    .collection(`articulos`)
-    .orderBy("fecha", "desc")
-    .startAfter(lastElement)
-    .limit(3);
+  const { unfiltered_articles, last_unfiltered_article } = action.payload;
+  const unfiltered_articles_ref = db
+    .collection(`articles`)
+    .orderBy("date", "desc")
+    .startAfter(last_unfiltered_article)
+    .limit(1);
 
+  console.log("FETCHING");
   try {
-    const res = yield articlesRef.get({ source: "server" }).then((snapshot) => {
-      // getting last element again for load more button
-      const lastRef = snapshot.docs[snapshot.docs.length - 1];
-      snapshot.forEach((doc) => previousArticles.push([doc.data(), doc.id]));
-      return lastRef;
-    });
+    const unfiltered_articles_arr = [...unfiltered_articles];
+    const last_unfiltered_article_firebase = yield unfiltered_articles_ref
+      .get()
+      .then((snapshot) => {
+        const last_element = snapshot.docs[snapshot.docs.length - 1];
+        snapshot.forEach((doc) =>
+          unfiltered_articles_arr.push([doc.data(), doc.id])
+        );
+        return last_element;
+      });
 
-    // firing succesful actions to store data on reducer
-    yield put(request_unfiltered_articles_success_action(previousArticles));
-    // storing last element from collection for next fetch
-    yield put(store_last_unfiltered_article_action(res));
+    yield put(
+      request_more_unfiltered_articles_success_action({
+        last_unfiltered_article: last_unfiltered_article_firebase,
+        unfiltered_articles: unfiltered_articles_arr,
+      })
+    );
   } catch (error) {
-    yield put(request_unfiltered_articles_failure_action(error));
+    console.log(error);
+    yield put(request_more_unfiltered_articles_failure_action(error));
   }
 }
 
@@ -102,7 +114,7 @@ function* request_more_filtered_articles_async(action) {
   const { previousArticles, lastElement, tag } = action.payload;
 
   const filteredRef = db
-    .collection(`articulos`)
+    .collection(`articles`)
     .where("categorias", "array-contains", `${tag}`)
     .orderBy("fecha", "desc")
     .startAfter(lastElement)
@@ -117,8 +129,6 @@ function* request_more_filtered_articles_async(action) {
     });
 
     yield put(request_filtered_articles_success_action(previousArticles));
-    // storing last element from collection for next fetch
-    yield put(store_last_filtered_article_action(res));
   } catch (error) {
     yield put(request_filtered_articles_failure_action(error));
   }

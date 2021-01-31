@@ -63,3 +63,19 @@ export const request_user_articles_failure_action = (error) => ({
   type: investor_page_types.REQUEST_USER_ARTICLES_FAILURE,
   payload: error,
 });
+
+/* SUBSCRIBER ACTIONS */
+export const validate_subscriber_start_action = (subscriber_id) => ({
+  type: investor_page_types.VALIDATE_SUBSCRIBER_START,
+  payload: subscriber_id,
+});
+
+export const validate_subscriber_success_action = (bool) => ({
+  type: investor_page_types.VALIDATE_SUBSCRIBER_SUCCESS,
+  payload: bool,
+});
+
+export const validate_subscriber_failure_action = (error) => ({
+  type: investor_page_types.VALIDATE_SUBSCRIBER_FAILURE,
+  payload: error,
+});

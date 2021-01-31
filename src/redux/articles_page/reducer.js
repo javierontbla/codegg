@@ -17,20 +17,6 @@ const INITIAL_STATE = {
 
 export const articles_page_reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case articles_page_types.REQUEST_MORE_UNFILTERED_ARTICLES_START:
-      return {
-        ...state,
-        loading_articles: true,
-        error: null,
-      };
-
-    case articles_page_types.REQUEST_MORE_FILTERED_ARTICLES_START:
-      return {
-        ...state,
-        loading_articles: true,
-        error: null,
-      };
-
     case articles_page_types.REQUEST_CATEGORIES_START:
       return {
         ...state,
@@ -65,9 +51,9 @@ export const articles_page_reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading_articles: false,
-        unfiltered_articles: action.payload,
+        last_unfiltered_article: action.payload.last_unfiltered_article,
+        unfiltered_articles: action.payload.unfiltered_articles,
         error_articles: null,
-        no_more_unfiltered_articles: false,
       };
 
     case articles_page_types.REQUEST_UNFILTERED_ARTICLES_FAILURE:
@@ -102,40 +88,11 @@ export const articles_page_reducer = (state = INITIAL_STATE, action) => {
         error_articles: action.payload,
       };
 
-    case articles_page_types.STORE_LAST_UNFILTERED_ARTICLE:
+    case articles_page_types.REQUEST_MORE_UNFILTERED_ARTICLES_SUCCESS:
       return {
         ...state,
-        last_unfiltered_article: action.payload,
-      };
-
-    case articles_page_types.STORE_LAST_FILTERED_ARTICLE:
-      return {
-        ...state,
-        last_filtered_article: action.payload,
-      };
-
-    case articles_page_types.SELECT_CATEGORY:
-      return {
-        ...state,
-        active_category: action.payload,
-      };
-
-    case articles_page_types.DELETE_CATEGORY:
-      return {
-        ...state,
-        active_category: [],
-      };
-
-    case articles_page_types.NO_MORE_UNFILTERED_ARTICLES:
-      return {
-        ...state,
-        no_more_unfiltered_articles: true,
-      };
-
-    case articles_page_types.NO_MORE_FILTERED_ARTICLES:
-      return {
-        ...state,
-        no_more_filtered_articles: true,
+        last_unfiltered_article: action.payload.last_unfiltered_article,
+        unfiltered_articles: action.payload.unfiltered_articles,
       };
 
     default:

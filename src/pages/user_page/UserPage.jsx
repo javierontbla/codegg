@@ -27,10 +27,12 @@ import {
   request_user_articles_success_action,
   request_posts_success_action,
   request_investor_profile_success_action,
+  validate_subscriber_start_action,
 } from "../../redux/investor_page/actions";
 import { useRouteMatch } from "react-router-dom";
 
 const UserPage = ({
+  user_firebase,
   request_user,
   request_trades,
   request_posts,
@@ -43,6 +45,7 @@ const UserPage = ({
   reset_posts,
   reset_articles,
   reset_user_profile,
+  validate_subscriber,
 }) => {
   const {
     params: { user_id },
@@ -52,7 +55,14 @@ const UserPage = ({
     request_trades(user_id);
     request_posts(user_id);
     request_articles({ user_id });
-    request_user(user_id);
+    request_user({ user_id });
+
+    if (user_firebase) {
+      validate_subscriber({
+        user_id,
+        subscriber_id: user_firebase.user_data.user_id,
+      });
+    }
 
     return () => {
       reset_trades([]);
@@ -60,7 +70,7 @@ const UserPage = ({
       reset_articles([]);
       reset_posts([]);
     };
-  }, []);
+  }, [user_firebase]);
 
   return (
     <>
@@ -115,8 +125,10 @@ const UserPage = ({
 
 // redux
 const mapStateToProps = ({
+  user_reducer: { user_firebase },
   investor_page_reducer: { investor, trades, posts, articles },
 }) => ({
+  user_firebase,
   investor,
   trades,
   posts,
@@ -135,6 +147,8 @@ const mapDispatchToProps = (dispatch) => ({
   reset_posts: (bool) => dispatch(request_user_articles_success_action(bool)),
   reset_user_profile: (bool) =>
     dispatch(request_investor_profile_success_action(bool)),
+  validate_subscriber: (subscriber_id) =>
+    dispatch(validate_subscriber_start_action(subscriber_id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserPage);
