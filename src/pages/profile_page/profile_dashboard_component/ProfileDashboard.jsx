@@ -32,7 +32,7 @@ const ProfileDashboard = ({ request_profile, profile, user_firebase }) => {
           ) : null}
         </LeftContainer>
         <RightContainer>
-          <Title title="Statistics" />
+          <Title title="Edit" />
           <StatisticsContainer></StatisticsContainer>
         </RightContainer>
       </Container>

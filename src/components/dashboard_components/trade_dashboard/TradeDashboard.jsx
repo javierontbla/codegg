@@ -58,6 +58,7 @@ const TradeDashboard = ({
   const upload_recommended_card_to_firebase = () => {
     if (!title || !image || !description) {
       set_warning("MISSING FIELDS");
+      return;
     }
 
     if (user_firebase) {
