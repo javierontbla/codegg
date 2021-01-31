@@ -22,7 +22,9 @@ const Category = ({
   const remove_category = (category) => {
     // function to remove articles from main array when cross is clicked
     delete_category(category);
-    clear_filtered_articles([]);
+    clear_filtered_articles({
+      filtered_articles: [],
+    });
   };
 
   return (

@@ -4,6 +4,7 @@ import moment from "moment";
 
 import {
   IndividualCommentContainer,
+  HyperLink,
   TopContainer,
   ProfileImage,
   UserContainer,
@@ -23,26 +24,34 @@ const IndividualComment = ({ post_id, data, id, user_firebase }) => {
   const vote_ref = useRef(false);
 
   const vote_individual_comment_to_firebase = async () => {
-    const { user_id } = user_firebase.user_data;
-    if (vote_ref.current === true) return;
+    if (user_firebase) {
+      const { user_id } = user_firebase.user_data;
+      if (vote_ref.current === true) return;
 
-    vote_ref.current = true; // start
-    const response = await votes_async({
-      doc_path: `posts/${post_id}/comments/${id}`,
-      doc_votes_path: `posts/${post_id}/comments/${id}/votes/${user_id}`,
-    });
+      vote_ref.current = true; // start
+      const response = await votes_async({
+        doc_path: `posts/${post_id}/comments/${id}`,
+        doc_votes_path: `posts/${post_id}/comments/${id}/votes/${user_id}`,
+      });
 
-    set_votes(response[0].votes);
-    vote_ref.current = false; // end
+      set_votes(response[0].votes);
+      vote_ref.current = false; // end
+    } else {
+      // user isn't logged in
+    }
   };
 
   return (
     <>
       <IndividualCommentContainer>
         <TopContainer>
-          <ProfileImage profile_image_url={data.profile_image} />
+          <HyperLink to={`/users/${data.user_id}`}>
+            <ProfileImage profile_image_url={data.profile_image} />
+          </HyperLink>
           <UserContainer>
-            <User>{data.user}</User>
+            <HyperLink to={`/users/${data.user_id}`}>
+              <User>{data.user}</User>
+            </HyperLink>
             <Date>{moment(data.date.toDate()).startOf("hour").fromNow()}</Date>
           </UserContainer>
         </TopContainer>

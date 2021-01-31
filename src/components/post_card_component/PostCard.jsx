@@ -60,17 +60,21 @@ const PostCard = ({
   };
 
   const vote_post_card_to_firebase = async () => {
-    const { user_id } = user_firebase.user_data;
-    if (vote_ref.current === true) return;
+    if (user_firebase) {
+      const { user_id } = user_firebase.user_data;
+      if (vote_ref.current === true) return;
 
-    vote_ref.current = true; // start
-    const response = await votes_async({
-      doc_path: `posts/${id}`,
-      doc_votes_path: `posts/${id}/votes/${user_id}`,
-    });
+      vote_ref.current = true; // start
+      const response = await votes_async({
+        doc_path: `posts/${id}`,
+        doc_votes_path: `posts/${id}/votes/${user_id}`,
+      });
 
-    set_votes(response[0].votes);
-    vote_ref.current = false; // end
+      set_votes(response[0].votes);
+      vote_ref.current = false; // end
+    } else {
+      // user isn't logged in
+    }
   };
 
   const request_more_comments_to_firebase = () => {

@@ -11,8 +11,8 @@ const INITIAL_STATE = {
   last_filtered_article: null,
   error_categories: null,
   error_articles: null,
-  no_more_unfiltered_articles: false,
-  no_more_filtered_articles: false,
+  remaining_unfiltered_articles: true,
+  remaining_filtered_articles: true,
 };
 
 export const articles_page_reducer = (state = INITIAL_STATE, action) => {
@@ -75,9 +75,9 @@ export const articles_page_reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading_articles: false,
-        filtered_articles: action.payload,
+        filtered_articles: action.payload.filtered_articles,
+        last_filtered_article: action.payload.last_filtered_article,
         error_articles: null,
-        no_more_filtered_articles: false,
       };
 
     case articles_page_types.REQUEST_FILTERED_ARTICLES_FAILURE:
@@ -95,6 +95,35 @@ export const articles_page_reducer = (state = INITIAL_STATE, action) => {
         unfiltered_articles: action.payload.unfiltered_articles,
       };
 
+    case articles_page_types.REQUEST_MORE_FILTERED_ARTICLES_SUCCESS:
+      return {
+        ...state,
+        last_filtered_article: action.payload.last_filtered_article,
+        filtered_articles: action.payload.filtered_articles,
+      };
+
+    case articles_page_types.NO_MORE_UNFILTERED_ARTICLES:
+      return {
+        ...state,
+        remaining_unfiltered_articles: false,
+      };
+
+    case articles_page_types.NO_MORE_FILTERED_ARTICLES:
+      return {
+        ...state,
+        remaining_filtered_articles: false,
+      };
+
+    case articles_page_types.SELECT_CATEGORY:
+      return {
+        ...state,
+        active_category: action.payload,
+      };
+    case articles_page_types.DELETE_CATEGORY:
+      return {
+        ...state,
+        active_category: [],
+      };
     default:
       return state;
   }

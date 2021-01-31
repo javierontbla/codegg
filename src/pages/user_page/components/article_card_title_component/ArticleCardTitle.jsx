@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
 
 import {
@@ -16,15 +16,24 @@ import { votes_async } from "../../../../firebase/functions/votes";
 
 const ArticleCardTitle = ({ data, id, user_firebase }) => {
   const [votes, set_votes] = useState(data.votes);
+  const vote_ref = useRef(false);
 
   const vote_article_card_to_firebase = async () => {
-    const { user_id } = user_firebase.user_data;
-    const response = await votes_async({
-      doc_path: `articles/${id}`,
-      doc_votes_path: `articles/${id}/votes/${user_id}`,
-    });
+    if (user_firebase) {
+      const { user_id } = user_firebase.user_data;
+      if (vote_ref.current === true) return;
 
-    set_votes(response[0].votes);
+      vote_ref.current = true; // start
+      const response = await votes_async({
+        doc_path: `articles/${id}`,
+        doc_votes_path: `articles/${id}/votes/${user_id}`,
+      });
+
+      set_votes(response[0].votes);
+      vote_ref.current = false; // end
+    } else {
+      // user isn't logged in
+    }
   };
 
   return (

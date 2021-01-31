@@ -38,7 +38,6 @@ const Article = ({
   id,
   user_firebase,
   active_category,
-  filtered_articles,
   select_category,
   delete_category,
   request_filtered_articles,
@@ -52,37 +51,38 @@ const Article = ({
     document.title = `Codegg - ${data.title}`;
   }, []);
 
-  const request_tag = (tag) => {
-    if (active_category[0] === tag) {
-      return;
-    } else if (!active_category[0]) {
+  const request_filtered_articles_to_firebase = (tag) => {
+    if (active_category[0] === tag) return;
+    else if (!active_category[0]) {
       select_category([tag]);
       request_filtered_articles({
         tag,
-        previous_filtered_articles: filtered_articles,
       });
     } else {
       delete_category();
       select_category([tag]);
       request_filtered_articles({
         tag,
-        previous_filtered_articles: [],
       });
     }
   };
 
   const vote_article_to_firebase = async () => {
-    const { user_id } = user_firebase.user_data;
-    if (vote_ref.current === true) return;
+    if (user_firebase) {
+      const { user_id } = user_firebase.user_data;
+      if (vote_ref.current === true) return;
 
-    vote_ref.current = true; // start
-    const response = await votes_async({
-      doc_path: `articles/${id}`,
-      doc_votes_path: `articles/${id}/votes/${user_id}`,
-    });
+      vote_ref.current = true; // start
+      const response = await votes_async({
+        doc_path: `articles/${id}`,
+        doc_votes_path: `articles/${id}/votes/${user_id}`,
+      });
 
-    set_votes(response[0].votes);
-    vote_ref.current = false; // end
+      set_votes(response[0].votes);
+      vote_ref.current = false; // end
+    } else {
+      // user isn't logged in
+    }
   };
 
   return (
@@ -122,7 +122,7 @@ const Article = ({
               return (
                 <HyperLink to="/reviews">
                   <Category
-                    onClick={() => request_tag(tag)}
+                    onClick={() => request_filtered_articles_to_firebase(tag)}
                     article={"true"}
                     category={tag}
                     key={tag}
@@ -140,11 +140,10 @@ const Article = ({
 // redux
 const mapStateToProps = ({
   user_reducer: { user_firebase },
-  articles_page_reducer: { active_category, filtered_articles },
+  articles_page_reducer: { active_category },
 }) => ({
   user_firebase,
   active_category,
-  filtered_articles,
 });
 
 const mapDispatchToProps = (dispatch) => ({

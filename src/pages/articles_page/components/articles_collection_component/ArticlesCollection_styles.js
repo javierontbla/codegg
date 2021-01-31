@@ -59,14 +59,14 @@ export const CategoriesContainer = styled.div`
 
 export const RightContainer = styled.div`
   width: calc(100% - 18rem);
-  padding: 0rem 0rem 0rem 1.25rem;
+  padding: 0rem 0rem 0rem 1rem;
 `;
 
 export const ActiveCategoryContainer = styled.div`
   display: ${(props) => (props.length > 0 ? "flex" : "none")};
   flex-direction: row;
   padding: 0rem 0rem 0rem 0rem;
-  margin: 0.5rem 0rem 1.75rem 0.75rem;
+  margin: 0.5rem 0rem 1.75rem 1rem;
   width: 100%;
   height: fit-content;
 `;

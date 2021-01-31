@@ -47,22 +47,30 @@ const PostDashboard = ({
 
   const upload_post_card_to_firebase = () => {
     if (!description) return; // if there is no description
-    const { user, username, user_id, profile_image } = user_firebase.user_data;
+    if (user_firebase) {
+      const {
+        user,
+        username,
+        user_id,
+        profile_image,
+      } = user_firebase.user_data;
+      create_post_card({
+        user,
+        username,
+        user_id,
+        profile_image,
+        description,
+        post_image: image,
+        posts,
+        last_post,
+      });
 
-    create_post_card({
-      user,
-      username,
-      user_id,
-      profile_image,
-      description,
-      post_image: image,
-      posts,
-      last_post,
-    });
-
-    // clearing fields
-    set_description("");
-    set_image(null);
+      // clearing fields
+      set_description("");
+      set_image(null);
+    } else {
+      // user isn't logged in
+    }
   };
 
   return (

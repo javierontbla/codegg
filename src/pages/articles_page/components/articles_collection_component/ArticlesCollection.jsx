@@ -14,6 +14,7 @@ import {
   request_filtered_articles_start_action,
   request_filtered_articles_success_action,
   request_more_unfiltered_articles_start_action,
+  request_more_filtered_articles_start_action,
   select_category_action,
   delete_category_action,
 } from "../../../../redux/articles_page/actions";
@@ -33,16 +34,19 @@ import "./ArticlesCollection.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const ArticlesCollection = ({
-  match,
   loading_articles,
   loading_categories,
   request_available_categories,
   request_unfiltered_articles,
   request_filtered_articles,
   request_more_unfiltered_articles,
+  request_more_filtered_articles,
   unfiltered_articles,
   filtered_articles,
   last_unfiltered_article,
+  last_filtered_article,
+  remaining_unfiltered_articles,
+  remaining_filtered_articles,
   categories,
   active_category,
   select_category,
@@ -73,16 +77,13 @@ const ArticlesCollection = ({
     550: 1,
   };
 
-  const request_filtered_articles_fun = (tag) => {
+  const request_filtered_articles_to_firebase = (tag) => {
     // requesting same category
     if (active_category[0] === tag) return;
     if (active_category[0] !== tag) delete_category();
 
     select_category([tag]);
-    request_filtered_articles({
-      tag,
-      previous_filtered_articles: [],
-    });
+    request_filtered_articles({ tag });
   };
 
   const push_to_dashboard = () => {
@@ -92,14 +93,24 @@ const ArticlesCollection = ({
   };
 
   const request_more_articles_to_firebase = () => {
+    /*
     if (filtered_articles.length > 0) {
-      // request more filtered here
+      if (remaining_filtered_articles) {
+        request_more_filtered_articles({
+          filtered_articles,
+          tag: active_category,
+          last_filtered_article,
+        });
+      }
     } else {
-      request_more_unfiltered_articles({
-        last_unfiltered_article,
-        unfiltered_articles,
-      });
+      if (remaining_unfiltered_articles) {
+        request_more_unfiltered_articles({
+          last_unfiltered_article,
+          unfiltered_articles,
+        });
+      }
     }
+    */
   };
 
   return (
@@ -120,7 +131,9 @@ const ArticlesCollection = ({
                   categories.map((category) => {
                     return (
                       <Category
-                        onClick={() => request_filtered_articles_fun(category)}
+                        onClick={() =>
+                          request_filtered_articles_to_firebase(category)
+                        }
                         key={category}
                         name={category}
                         category={category}
@@ -143,9 +156,14 @@ const ArticlesCollection = ({
                   <LoadingArticles />
                 ) : (
                   <InfiniteScroll
-                    dataLength={unfiltered_articles.length}
+                    dataLength={
+                      unfiltered_articles.length || filtered_articles.length
+                    }
                     next={() => request_more_articles_to_firebase()}
-                    hasMore={last_unfiltered_article}
+                    hasMore={
+                      remaining_unfiltered_articles ||
+                      remaining_filtered_articles
+                    }
                   >
                     <Masonry
                       breakpointCols={breakpoints}
@@ -156,10 +174,14 @@ const ArticlesCollection = ({
                         ? filtered_articles.map((article) => {
                             return (
                               <ArticleCard
-                                request_filtered_articles_fun={(category) =>
-                                  request_filtered_articles_fun(category)
+                                request_filtered_articles_to_firebase={(
+                                  category
+                                ) =>
+                                  request_filtered_articles_to_firebase(
+                                    category
+                                  )
                                 }
-                                key={article[0]}
+                                key={`filtered_${article[1]}`}
                                 data={article[0]}
                                 id={article[1]}
                               />
@@ -168,10 +190,14 @@ const ArticlesCollection = ({
                         : unfiltered_articles.map((article) => {
                             return (
                               <ArticleCard
-                                request_filtered_articles_fun={(category) =>
-                                  request_filtered_articles_fun(category)
+                                request_filtered_articles_to_firebase={(
+                                  category
+                                ) =>
+                                  request_filtered_articles_to_firebase(
+                                    category
+                                  )
                                 }
-                                key={article[1]}
+                                key={`unfiltered_${article[1]}`}
                                 data={article[0]}
                                 id={article[1]}
                               />
@@ -181,9 +207,6 @@ const ArticlesCollection = ({
                   </InfiniteScroll>
                 )}
               </MasonryContainer>
-              <button onClick={() => request_more_articles_to_firebase()}>
-                Load more
-              </button>
             </RightContainer>
           </BottomContainer>
         </ArticlesPageContainer>
@@ -206,6 +229,9 @@ const mapStateToProps = ({
     error,
 
     last_unfiltered_article,
+    last_filtered_article,
+    remaining_unfiltered_articles,
+    remaining_filtered_articles,
   },
   user_reducer: { user_firebase },
 }) => ({
@@ -221,6 +247,9 @@ const mapStateToProps = ({
   user_firebase,
 
   last_unfiltered_article,
+  last_filtered_article,
+  remaining_unfiltered_articles,
+  remaining_filtered_articles,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -232,9 +261,13 @@ const mapDispatchToProps = (dispatch) => ({
   request_more_unfiltered_articles: (input) =>
     dispatch(request_more_unfiltered_articles_start_action(input)),
 
-  request_filtered_articles: (category) =>
-    dispatch(request_filtered_articles_start_action(category)),
-  select_category: (category) => dispatch(select_category_action(category)),
+  request_filtered_articles: (tag) =>
+    dispatch(request_filtered_articles_start_action(tag)),
+
+  request_more_filtered_articles: (articles) =>
+    dispatch(request_more_filtered_articles_start_action(articles)),
+
+  select_category: (tag) => dispatch(select_category_action(tag)),
   delete_category: (category) => dispatch(delete_category_action(category)),
   clear_filtered_articles: (empty_arr) =>
     dispatch(request_filtered_articles_success_action(empty_arr)),

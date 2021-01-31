@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
 const { montserrat, open_sans, roboto } = fonts;
-const { grey, black, white, grey_2 } = colors;
+const { grey, white, grey_2 } = colors;
 
 const IconStyles = css`
   width: 1.35rem;
@@ -14,6 +15,14 @@ const IconStyles = css`
   &:hover {
     cursor: pointer;
     opacity: 0.95;
+  }
+`;
+
+export const HyperLink = styled(Link)`
+  color: ${white};
+  &:hover {
+    color: ${white};
+    text-decoration: none;
   }
 `;
 export const IndividualCommentContainer = styled.div`

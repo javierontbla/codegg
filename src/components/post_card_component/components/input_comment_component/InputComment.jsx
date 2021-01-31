@@ -26,19 +26,22 @@ const InputComment = ({
   };
 
   const send_new_comment_to_firebase = () => {
-    if (!comment) return; // avoid empty comments
+    if (user_firebase) {
+      if (!comment) return; // avoid empty comments
+      const { user, user_id, profile_image } = user_firebase.user_data;
+      send_new_comment({
+        user,
+        user_id,
+        profile_image,
+        comment,
+        post_id,
+        comments, // all comments, to unshift new comment
+      });
 
-    const { user, user_id, profile_image } = user_firebase.user_data;
-    send_new_comment({
-      user,
-      user_id,
-      profile_image,
-      comment,
-      post_id,
-      comments, // all comments, to unshift new comment
-    });
-
-    set_comment("");
+      set_comment("");
+    } else {
+      // user isn't logged in
+    }
   };
 
   return (

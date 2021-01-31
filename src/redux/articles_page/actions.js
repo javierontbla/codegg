@@ -57,9 +57,9 @@ export const request_more_unfiltered_articles_failure_action = (error) => ({
 });
 
 /* FILTERED ARTICLES ACTIONS */
-export const request_filtered_articles_start_action = (obj) => ({
+export const request_filtered_articles_start_action = (tag) => ({
   type: articles_page_types.REQUEST_FILTERED_ARTICLES_START,
-  payload: obj,
+  payload: tag,
 });
 
 export const request_filtered_articles_success_action = (
@@ -72,4 +72,28 @@ export const request_filtered_articles_success_action = (
 export const request_filtered_articles_failure_action = (error) => ({
   type: articles_page_types.REQUEST_FILTERED_ARTICLES_FAILURE,
   payload: error,
+});
+
+export const request_more_filtered_articles_start_action = (articles) => ({
+  type: articles_page_types.REQUEST_MORE_FILTERED_ARTICLES_START,
+  payload: articles,
+});
+
+export const request_more_filtered_articles_success_action = (articles) => ({
+  type: articles_page_types.REQUEST_MORE_FILTERED_ARTICLES_SUCCESS,
+  payload: articles,
+});
+
+export const request_more_filtered_articles_failure_action = (error) => ({
+  type: articles_page_types.REQUEST_MORE_FILTERED_ARTICLES_FAILURE,
+  payload: error,
+});
+
+/* NO MORE STOP REQUESTING ARTICLES */
+export const no_more_unfiltered_articles_action = () => ({
+  type: articles_page_types.NO_MORE_UNFILTERED_ARTICLES,
+});
+
+export const no_more_filtered_articles_action = () => ({
+  type: articles_page_types.NO_MORE_FILTERED_ARTICLES,
 });

@@ -17,6 +17,7 @@ import {
   TextInput,
   BottomContainer,
   ActionButtonContainer,
+  Warning,
 } from "./TradeDashboard_styles";
 import { create_trade_card_start_action } from "../../../redux/dashboards/actions";
 import CloseIconSVG from "./media/close_button.svg";
@@ -35,6 +36,7 @@ const TradeDashboard = ({
   const [title, set_title] = useState("");
   const [image, set_image] = useState(null);
   const [description, set_description] = useState("");
+  const [warning, set_warning] = useState(false);
 
   const display_trade_card_action = () => {
     set_active_dashboard((prev_state) => !prev_state);
@@ -54,7 +56,9 @@ const TradeDashboard = ({
   };
 
   const upload_recommended_card_to_firebase = () => {
-    if (!title || !image || !description) return;
+    if (!title || !image || !description) {
+      set_warning("MISSING FIELDS");
+    }
 
     if (user_firebase) {
       create_recommended_card({
@@ -71,6 +75,7 @@ const TradeDashboard = ({
       set_title("");
       set_image(null);
       set_description("");
+      set_warning(false);
     } else {
       console.log("NO USER");
     }
@@ -124,7 +129,8 @@ const TradeDashboard = ({
             }
           />
         </MiddleContainer>
-        <BottomContainer active_dashboard={active_dashboard}>
+        <BottomContainer active_dashboard={active_dashboard} warning={warning}>
+          {warning ? <Warning>{warning}</Warning> : null}
           <ActionButtonContainer
             onClick={() => upload_recommended_card_to_firebase()}
           >

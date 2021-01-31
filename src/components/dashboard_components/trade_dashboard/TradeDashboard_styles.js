@@ -4,8 +4,8 @@ import TextareaAutosize from "react-textarea-autosize";
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
-const { grey, grey_2, white, black } = colors;
-const { roboto, montserrat } = fonts;
+const { grey, grey_2, white, black, orange } = colors;
+const { roboto, montserrat, open_sans } = fonts;
 
 export const Container = styled.div`
   display: flex;
@@ -146,8 +146,17 @@ export const TextInput = styled(TextareaAutosize)`
 export const BottomContainer = styled.div`
   display: ${(props) => (props.active_dashboard ? "flex" : "none")};
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: ${(props) => (props.warning ? "space-between" : "flex-end")};
   align-items: center;
   border-top: 0.5px solid ${grey_2};
   padding: 0.75rem 1rem 0.75rem 1rem;
+`;
+
+export const Warning = styled.div`
+  width: fit-content;
+  height: fit-content;
+  font-family: ${open_sans};
+  font-size: 0.75rem;
+  color: ${orange};
+  letter-spacing: 1px;
 `;
