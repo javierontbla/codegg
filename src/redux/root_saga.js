@@ -31,12 +31,15 @@ import {
   create_post_card_saga,
 } from "./dashboards/sagas";
 import {
-  request_investor_profile_saga,
-  request_investor_trades_saga,
-  request_investor_posts_saga,
-  request_user_articles_saga,
+  request_user_saga,
+  request_user_recommended_saga,
+  request_user_posts_saga,
+  request_user_reviews_saga,
+  request_more_user_posts_saga,
+  request_more_user_recommended_saga,
+  request_more_user_reviews_saga,
   validate_subscriber_saga,
-} from "./investor_page/sagas";
+} from "./user_page/sagas";
 import {
   save_draft_saga,
   upload_article_saga,
@@ -69,10 +72,16 @@ export function* root_saga() {
     call(request_available_categories_saga),
     call(create_trade_card_saga),
     call(create_post_card_saga),
-    call(request_investor_profile_saga),
-    call(request_investor_trades_saga),
-    call(request_investor_posts_saga),
-    call(request_user_articles_saga),
+
+    call(request_user_saga),
+    call(request_user_recommended_saga),
+    call(request_user_posts_saga),
+    call(request_user_reviews_saga),
+
+    call(request_more_user_recommended_saga),
+    call(request_more_user_posts_saga),
+    call(request_more_user_reviews_saga),
+
     call(validate_subscriber_saga),
     call(save_draft_saga),
     call(upload_article_saga),

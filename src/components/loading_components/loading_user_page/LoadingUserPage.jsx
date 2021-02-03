@@ -3,6 +3,7 @@ import React from "react";
 import {
   Container,
   LeftContainer,
+  ProfileCard,
   RightContainer,
   TopContainer,
   BottomContainer,
@@ -14,7 +15,9 @@ const LoadingUserPage = () => {
   return (
     <>
       <Container>
-        <LeftContainer />
+        <LeftContainer>
+          <ProfileCard />
+        </LeftContainer>
         <RightContainer>
           <TopContainer />
           <BottomContainer>

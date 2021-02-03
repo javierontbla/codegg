@@ -26,7 +26,7 @@ import { votes_async } from "../../../../firebase/functions/votes";
 const ArticleCard = ({
   data,
   id,
-  request_filtered_articles_fun,
+  request_filtered_articles_to_firebase,
   user_firebase,
 }) => {
   moment.locale("en");
@@ -63,7 +63,9 @@ const ArticleCard = ({
             {data.categories.map((category) => {
               return (
                 <Category
-                  onClick={() => request_filtered_articles_fun(category)}
+                  onClick={() =>
+                    request_filtered_articles_to_firebase(category)
+                  }
                   category={category}
                   name={category}
                   key={category}

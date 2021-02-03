@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
+import LoadingUserPage from "../../components/loading_components/loading_user_page/LoadingUserPage";
 import UserCard from "./components/user_card_component/UserCard";
 import TradeCard from "../../components/trade_card_component/TradeCard";
 import PostCard from "../../components/post_card_component/PostCard";
@@ -19,32 +20,48 @@ import {
   ArticlesContainer,
 } from "./UserPage_styles";
 import {
-  request_investor_profile_start_action,
-  request_trades_start_action,
-  request_posts_start_action,
-  request_user_articles_start_action,
-  request_trades_success_action,
-  request_user_articles_success_action,
-  request_posts_success_action,
-  request_investor_profile_success_action,
+  request_user_start_action,
+  request_user_recommended_start_action,
+  request_user_posts_start_action,
+  request_user_reviews_start_action,
+  request_more_user_recommended_start_action,
+  request_more_user_posts_start_action,
+  request_more_user_reviews_start_action,
   validate_subscriber_start_action,
-} from "../../redux/investor_page/actions";
+} from "../../redux/user_page/actions";
 import { useRouteMatch } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const UserPage = ({
   user_firebase,
-  request_user,
-  request_trades,
-  request_posts,
-  request_articles,
-  investor,
-  trades,
-  posts,
-  articles,
-  reset_trades,
-  reset_posts,
-  reset_articles,
-  reset_user_profile,
+
+  loading_user,
+  loading_user_recommended,
+  loading_user_posts,
+  loading_user_reviews,
+
+  user,
+  user_recommended,
+  user_posts,
+  user_reviews,
+
+  request_user_to_firebase,
+  request_user_recommended_to_firebase,
+  request_user_posts_to_firebase,
+  request_user_reviews_to_firebase,
+
+  last_user_recommended,
+  last_user_post,
+  last_user_review,
+
+  request_more_user_recommended_to_firebase,
+  request_more_user_posts_to_firebase,
+  request_more_user_reviews_to_firebase,
+
+  remaining_user_posts,
+  remaining_user_recommended,
+  remaining_user_reviews,
+
   validate_subscriber,
 }) => {
   const {
@@ -52,10 +69,12 @@ const UserPage = ({
   } = useRouteMatch();
 
   useEffect(() => {
-    request_trades(user_id);
-    request_posts(user_id);
-    request_articles({ user_id });
-    request_user({ user_id });
+    if (user.length === 0) request_user_to_firebase({ user_id });
+    if (user_recommended.length === 0)
+      request_user_recommended_to_firebase({ user_id });
+    if (user_posts.length === 0) request_user_posts_to_firebase({ user_id });
+    if (user_reviews.length === 0)
+      request_user_reviews_to_firebase({ user_id });
 
     if (user_firebase) {
       validate_subscriber({
@@ -64,57 +83,93 @@ const UserPage = ({
       });
     }
 
-    return () => {
-      reset_trades([]);
-      reset_user_profile([]);
-      reset_articles([]);
-      reset_posts([]);
-    };
+    return () => {};
   }, [user_firebase]);
+
+  const request_more_user_posts = () => {
+    /*
+    if (remaining_user_posts) {
+      request_more_user_posts({
+        user_posts,
+        last_user_post,
+        user_id,
+      });
+    }
+    */
+  };
+
+  const request_more_user_recommended = () => {
+    /*
+    if (remaining_user_recommended) {
+      request_more_user_recommended_to_firebase({
+        last_user_recommended,
+        user_recommended,
+        user_id,
+      });
+    }
+    */
+  };
+
+  const request_more_user_reviews = () => {
+    /*
+    if (remaining_user_reviews) {
+      request_more_user_reviews_to_firebase({
+        last_user_review,
+        user_reviews,
+        user_id,
+      });
+    }
+    */
+  };
 
   return (
     <>
       <Container>
         <LeftContainer>
           <ProfileCardContainer>
-            {investor.length > 0 ? (
-              <UserCard data={investor[0]} id={investor[1]} />
-            ) : null}
+            {user.length > 0 ? <UserCard data={user[0]} id={user[1]} /> : null}
           </ProfileCardContainer>
         </LeftContainer>
         <RightContainer>
           <TopContainer>
-            {investor.length > 0 ? (
-              <Title>{`${investor[0].user.split(" ")[0]}'s Recommended`}</Title>
+            {user.length > 0 ? (
+              <Title>{`${user[0].user.split(" ")[0]}'s Recommended`}</Title>
             ) : null}
             <RecommendedContainer>
-              {trades.map((trade_card) => {
-                return (
-                  <TradeCard
-                    data={trade_card[0]}
-                    id={trade_card[1]}
-                    key={trade_card[1]}
-                  />
-                );
-              })}
+              <InfiniteScroll
+                dataLength={user_recommended.length}
+                next={() => request_more_user_recommended()}
+                hasMore={remaining_user_recommended}
+              >
+                {user_recommended.map((doc) => {
+                  return <TradeCard data={doc[0]} id={doc[1]} key={doc[1]} />;
+                })}
+              </InfiniteScroll>
             </RecommendedContainer>
           </TopContainer>
           <Division />
           <BottomContainer>
             <PostsContainer>
-              {posts.map((post) => {
-                return <PostCard data={post[0]} id={post[1]} />;
-              })}
+              <InfiniteScroll
+                dataLength={user_posts.length}
+                next={() => request_more_user_posts()}
+                hasMore={remaining_user_posts}
+              >
+                {user_posts.map((doc) => {
+                  return <PostCard data={doc[0]} id={doc[1]} />;
+                })}
+              </InfiniteScroll>
             </PostsContainer>
             <ArticlesContainer>
-              {articles.map((article_card_title) => {
-                return (
-                  <ArticleCardTitle
-                    data={article_card_title[0]}
-                    id={article_card_title[1]}
-                  />
-                );
-              })}
+              <InfiniteScroll
+                dataLength={user_reviews.length}
+                next={() => request_more_user_reviews()}
+                hasMore={remaining_user_reviews}
+              >
+                {user_reviews.map((doc) => {
+                  return <ArticleCardTitle data={doc[0]} id={doc[1]} />;
+                })}
+              </InfiniteScroll>
             </ArticlesContainer>
           </BottomContainer>
         </RightContainer>
@@ -126,27 +181,64 @@ const UserPage = ({
 // redux
 const mapStateToProps = ({
   user_reducer: { user_firebase },
-  investor_page_reducer: { investor, trades, posts, articles },
+  user_page_reducer: {
+    loading_user,
+    loading_user_recommended,
+    loading_user_posts,
+    loading_user_reviews,
+
+    user,
+    user_recommended,
+    user_posts,
+    user_reviews,
+
+    last_user_recommended,
+    last_user_post,
+    last_user_review,
+
+    remaining_user_posts,
+    remaining_user_recommended,
+    remaining_user_reviews,
+  },
 }) => ({
   user_firebase,
-  investor,
-  trades,
-  posts,
-  articles,
+
+  loading_user,
+  loading_user_recommended,
+  loading_user_posts,
+  loading_user_reviews,
+
+  user,
+  user_recommended,
+  user_posts,
+  user_reviews,
+
+  last_user_recommended,
+  last_user_post,
+  last_user_review,
+
+  remaining_user_posts,
+  remaining_user_recommended,
+  remaining_user_reviews,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  request_user: (user_id) =>
-    dispatch(request_investor_profile_start_action(user_id)),
-  request_trades: (user_id) => dispatch(request_trades_start_action(user_id)),
-  request_posts: (user_id) => dispatch(request_posts_start_action(user_id)),
-  request_articles: (user_id) =>
-    dispatch(request_user_articles_start_action(user_id)),
-  reset_trades: (bool) => dispatch(request_trades_success_action(bool)),
-  reset_articles: (bool) => dispatch(request_posts_success_action(bool)),
-  reset_posts: (bool) => dispatch(request_user_articles_success_action(bool)),
-  reset_user_profile: (bool) =>
-    dispatch(request_investor_profile_success_action(bool)),
+  request_user_to_firebase: (user_id) =>
+    dispatch(request_user_start_action(user_id)),
+  request_user_recommended_to_firebase: (user_id) =>
+    dispatch(request_user_recommended_start_action(user_id)),
+  request_user_posts_to_firebase: (user_id) =>
+    dispatch(request_user_posts_start_action(user_id)),
+  request_user_reviews_to_firebase: (user_id) =>
+    dispatch(request_user_reviews_start_action(user_id)),
+
+  request_more_user_posts_to_firebase: (posts) =>
+    dispatch(request_more_user_posts_start_action(posts)),
+  request_more_user_recommended_to_firebase: (recommended) =>
+    dispatch(request_more_user_recommended_start_action(recommended)),
+  request_more_user_reviews_to_firebase: (reviews) =>
+    dispatch(request_more_user_reviews_start_action(reviews)),
+
   validate_subscriber: (subscriber_id) =>
     dispatch(validate_subscriber_start_action(subscriber_id)),
 });

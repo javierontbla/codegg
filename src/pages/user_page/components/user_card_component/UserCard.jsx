@@ -18,7 +18,7 @@ import {
   Subscribers,
 } from "./UserCard_styles";
 import { subscribe_async } from "../../../../firebase/functions/subscribe";
-import { validate_subscriber_success_action } from "../../../../redux/investor_page/actions";
+import { validate_subscriber_success_action } from "../../../../redux/user_page/actions";
 
 const UserCard = ({
   user_firebase,
@@ -84,7 +84,7 @@ const UserCard = ({
 // redux
 const mapStateToProps = ({
   user_reducer: { user_firebase },
-  investor_page_reducer: { subscriber },
+  user_page_reducer: { subscriber },
 }) => ({
   user_firebase,
   subscriber,
