@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
 import NavBar from "./components/navbar_component/NavBar";
+import Modal from "./components/modal_component/Modal";
 import HomePage from "./pages/home_page/HomePage";
 import ArticlesPage from "./pages/articles_page/ArticlesPage";
 import FaqPage from "./pages/faq_page/FaqPage";
@@ -48,6 +49,7 @@ const App = ({ log_in_active_user, log_out_active_user }) => {
       <GlobalStyles />
       <Container>
         <NavBar />
+        <Modal />
         <PagesContainer>
           <Switch>
             <Route exact path="/">

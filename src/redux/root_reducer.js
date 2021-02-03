@@ -11,6 +11,7 @@ import { article_page_reducer } from "./article_page/reducer";
 import { drafts_page_reducer } from "./drafts_page/reducer";
 import { profile_page_reducer } from "./profile_page/reducer";
 import { feedbackPageReducer } from "./feedback.page/reducer";
+import { modal_reducer } from "./modal/reducer";
 
 const root_reducer = combineReducers({
   user_reducer,
@@ -23,6 +24,7 @@ const root_reducer = combineReducers({
   profile_page_reducer,
   post_reducer,
   drafts_page_reducer,
+  modal_reducer,
   feedbackPageReducer,
 });
 
