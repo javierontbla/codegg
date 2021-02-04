@@ -55,6 +55,7 @@ const Draft = ({
   loading_uploading_draft,
   loading_uploading_article,
   new_article_id,
+  categories,
 }) => {
   const {
     params: { draft_id },
@@ -174,6 +175,7 @@ const Draft = ({
       tags,
       draft_image,
       score,
+      categories,
     });
 
     delete_draft({
@@ -190,7 +192,7 @@ const Draft = ({
             .toLowerCase()
             .replace(/[^A-Za-z0-9\s]/g, "")
             .trim()
-            .replace(/ /g, "-")}/${new_article_id}`}
+            .replace(/ /g, "-")}-${new_article_id}`}
         />
       ) : null}
       <Container>
@@ -339,6 +341,7 @@ const Draft = ({
                   profile_image={user_firebase.user_data.profile_image}
                   user={user_firebase.user_data.user}
                   date={null}
+                  user_id={user_firebase.user_data.user_id}
                 />
               ) : null}
               <DescriptionInput
@@ -400,11 +403,13 @@ const mapStateToProps = ({
     loading_uploading_article,
     new_article_id,
   },
+  articles_page_reducer: { categories },
 }) => ({
   user_firebase,
   loading_uploading_draft,
   loading_uploading_article,
   new_article_id,
+  categories,
 });
 
 const mapDispatchToProps = (dispatch) => ({

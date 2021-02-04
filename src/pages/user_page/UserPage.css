@@ -1,0 +1,16 @@
+.recommended-container {
+  margin: 0rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
+  width: 100%;
+  display: grid;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  grid-gap: 0;
+  grid-auto-flow: column;
+  grid-template-columns: minmax(min-content, max-content);
+  align-items: flex-start;
+}
+
+.recommended-container::-webkit-scrollbar {
+  display: none !important;
+}

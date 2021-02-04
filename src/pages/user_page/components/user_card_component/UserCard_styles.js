@@ -29,12 +29,12 @@ export const CoverImage = styled.div`
 `;
 
 export const ProfileImage = styled.div`
-  z-index: 1;
   width: 8.75rem;
   height: 8.75rem;
   border-radius: 50%;
   border: 2.5px solid ${black};
   margin: -6.5rem 0rem 0rem 1rem;
+  background: ${black};
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.profile_image});

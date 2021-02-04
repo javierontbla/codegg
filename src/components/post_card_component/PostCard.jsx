@@ -14,7 +14,7 @@ import {
   ProfileImage,
   NamesContainer,
   Name,
-  Date,
+  DateContainer,
   MiddleContainer,
   Description,
   PostImageContainer,
@@ -103,9 +103,9 @@ const PostCard = ({
                   <Name>{data.user.toLowerCase()}</Name>
                 </NamesContainer>
               </LinkContainer>
-              <Date>
-                {moment(data.date.toDate()).startOf("hour").fromNow()}
-              </Date>
+              <DateContainer>
+                {moment.utc(data.date.toDate()).fromNow()}
+              </DateContainer>
             </UserDataContainer>
           </TopContainer>
           <MiddleContainer>

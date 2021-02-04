@@ -71,7 +71,7 @@ const NavBar = ({ user_firebase }) => {
                     <HyperLink
                       to={`/profile/${user_firebase.user_data.user_id}`}
                     >
-                      <UserMenuOption>Profile</UserMenuOption>
+                      <UserMenuOption>Edit Profile</UserMenuOption>
                     </HyperLink>
                     <HyperLink
                       to={`/reviews/dashboard/${user_firebase.user_data.user_id}`}

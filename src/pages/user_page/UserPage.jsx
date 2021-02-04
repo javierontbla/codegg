@@ -21,6 +21,7 @@ import {
   PostsContainer,
   ArticlesContainer,
 } from "./UserPage_styles";
+import "./UserPage.css";
 import {
   request_user_start_action,
   request_user_recommended_start_action,
@@ -71,6 +72,7 @@ const UserPage = ({
   } = useRouteMatch();
 
   useEffect(() => {
+    console.log("on useEffect", user.length);
     if (user.length === 0) request_user_to_firebase({ user_id });
     if (user_recommended.length === 0)
       request_user_recommended_to_firebase({ user_id });
@@ -86,7 +88,8 @@ const UserPage = ({
     }
 
     return () => {
-      clear_user();
+      console.log("returning");
+      //clear_user();
     };
   }, [user_firebase]);
 
@@ -128,6 +131,7 @@ const UserPage = ({
 
   return (
     <>
+      {console.log(user.length)}
       <Container>
         <LeftContainer>
           <ProfileCardContainer>
@@ -144,6 +148,7 @@ const UserPage = ({
                 dataLength={user_recommended.length}
                 next={() => request_more_user_recommended()}
                 hasMore={remaining_user_recommended}
+                className="recommended-container"
               >
                 {user_recommended.map((doc) => {
                   return <TradeCard data={doc[0]} id={doc[1]} key={doc[1]} />;

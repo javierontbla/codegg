@@ -18,7 +18,7 @@ export const CategoryContainer = styled.div`
   padding: 0rem 0rem 0rem 0rem;
   letter-spacing: 0.75px;
   margin: ${(props) =>
-    props.article ? "0.75rem 1rem 0rem 0rem" : "0.5rem 1rem 0rem 0rem"};
+    props.article ? "0.75rem 1rem 0rem 0rem" : "0.75rem 1rem 0rem 0rem"};
   height: fit-content;
   width: fit-content;
   line-height: 100%;

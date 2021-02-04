@@ -1,4 +1,5 @@
 import { takeLatest, put } from "redux-saga/effects";
+import firebase from "firebase/app";
 
 import { drafts_page_types } from "./types";
 import { db } from "../../firebase/firebase";
@@ -88,11 +89,13 @@ function* upload_article_async(action) {
     profile_image,
     draft_image,
     score,
+    categories,
   } = action.payload;
   const articles_ref = db.collection(`articles`);
+  const tags_ref = db.doc(`categories/oUrt0M5eEN8f7FosGxqW`);
 
   const tags_to_string = yield tags.map((tag) => {
-    return tag.replace(/[^a-zA-Z ]/g, "");
+    return tag.replace(/[^a-zA-Z0-9]/g, "");
   });
 
   const tags_filtered = yield tags_to_string.filter((tag) => {
@@ -133,8 +136,13 @@ function* upload_article_async(action) {
       })
       .then((doc) => doc.id);
 
+    yield tags_ref.update({
+      categories: [...categories, ...tags_filtered],
+    });
+
     yield put(upload_article_success_action(response));
   } catch (error) {
+    console.log(error);
     yield put(upload_article_failure_action(error));
   }
 }

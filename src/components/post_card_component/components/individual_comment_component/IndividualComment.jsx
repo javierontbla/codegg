@@ -52,7 +52,7 @@ const IndividualComment = ({ post_id, data, id, user_firebase }) => {
             <HyperLink to={`/users/${data.user_id}`}>
               <User>{data.user}</User>
             </HyperLink>
-            <Date>{moment(data.date.toDate()).startOf("hour").fromNow()}</Date>
+            <Date>{moment(data.date.toDate()).fromNow()}</Date>
           </UserContainer>
         </TopContainer>
         <CommentContainer>

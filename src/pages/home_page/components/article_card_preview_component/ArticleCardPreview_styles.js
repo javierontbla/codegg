@@ -53,7 +53,7 @@ export const Title = styled.div`
   width: 100%;
   height: fit-content;
   padding: 0rem 1rem 0rem 1rem;
-  margin: 0.75rem 0rem 0rem 0rem;
+  margin: 1rem 0rem 0rem 0rem;
 `;
 
 export const MiddleContainer = styled.div`
@@ -61,7 +61,7 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   height: fit-content;
-  padding: 1.25rem 1rem 1.25rem 1rem;
+  padding: 1.25rem 1rem 1.5rem 1rem;
   margin: 0rem 0rem 0rem 0rem;
 `;
 

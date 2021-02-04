@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
-import moment from "moment";
 
 import {
   Container,
@@ -21,7 +20,6 @@ import up_button from "./media/up_button.svg";
 import { votes_async } from "../../firebase/functions/votes";
 
 const TradeCard = ({ home_page, data, id, user_firebase, open_modal }) => {
-  moment.locale("en");
   const [votes, set_votes] = useState(data.votes);
   const vote_ref = useRef(false);
 

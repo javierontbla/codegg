@@ -67,7 +67,7 @@ export const Name = styled.div`
   color: ${white};
 `;
 
-export const Date = styled.div`
+export const DateContainer = styled.div`
   line-height: 100%;
   font-family: ${roboto};
   font-size: 0.75rem;
