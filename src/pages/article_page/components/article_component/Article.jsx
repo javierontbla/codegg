@@ -32,6 +32,7 @@ import ProfileBox from "../../../../components/profile_box_component/ProfileBox"
 import Category from "../../../../components/category_component/Category";
 import UpTrend from "./media/up_button.svg";
 import { votes_async } from "../../../../firebase/functions/votes";
+import { open_modal_action } from "../../../../redux/modal/actions";
 
 const Article = ({
   data,
@@ -41,6 +42,7 @@ const Article = ({
   select_category,
   delete_category,
   request_filtered_articles,
+  open_modal,
 }) => {
   moment.locale("en");
   const [votes, set_votes] = useState(data.votes);
@@ -81,7 +83,7 @@ const Article = ({
       set_votes(response[0].votes);
       vote_ref.current = false; // end
     } else {
-      // user isn't logged in
+      open_modal();
     }
   };
 
@@ -151,6 +153,7 @@ const mapDispatchToProps = (dispatch) => ({
   delete_category: (category) => dispatch(delete_category_action(category)),
   request_filtered_articles: (input) =>
     dispatch(request_filtered_articles_start_action(input)),
+  open_modal: () => dispatch(open_modal_action()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Article);

@@ -44,6 +44,7 @@ const App = ({ log_in_active_user, log_out_active_user }) => {
       firebase_observer(); // close subscription
     };
   }, []);
+
   return (
     <>
       <GlobalStyles />

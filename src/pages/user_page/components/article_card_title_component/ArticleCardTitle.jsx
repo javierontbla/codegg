@@ -12,9 +12,10 @@ import {
   Votes,
 } from "./ArticleCardTitle_styles";
 import UpTrendSVG from "./media/up_button.svg";
+import { open_modal_action } from "../../../../redux/modal/actions";
 import { votes_async } from "../../../../firebase/functions/votes";
 
-const ArticleCardTitle = ({ data, id, user_firebase }) => {
+const ArticleCardTitle = ({ data, id, user_firebase, open_modal }) => {
   const [votes, set_votes] = useState(data.votes);
   const vote_ref = useRef(false);
 
@@ -32,7 +33,7 @@ const ArticleCardTitle = ({ data, id, user_firebase }) => {
       set_votes(response[0].votes);
       vote_ref.current = false; // end
     } else {
-      // user isn't logged in
+      open_modal();
     }
   };
 
@@ -62,4 +63,8 @@ const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
   user_firebase,
 });
 
-export default connect(mapStateToProps, null)(ArticleCardTitle);
+const mapDispatchToProps = (dispatch) => ({
+  open_modal: () => dispatch(open_modal_action()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleCardTitle);

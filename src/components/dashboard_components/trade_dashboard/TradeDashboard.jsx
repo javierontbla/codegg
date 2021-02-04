@@ -20,6 +20,7 @@ import {
   Warning,
 } from "./TradeDashboard_styles";
 import { create_trade_card_start_action } from "../../../redux/dashboards/actions";
+import { open_modal_action } from "../../../redux/modal/actions";
 import CloseIconSVG from "./media/close_button.svg";
 import AddIconSVG from "./media/add_button.svg";
 import ActiveIconSVG from "./media/image_active.svg";
@@ -31,6 +32,7 @@ const TradeDashboard = ({
   upload_recommended_card_error,
   recommended,
   last_recommended,
+  open_modal,
 }) => {
   const [active_dashboard, set_active_dashboard] = useState(false); // open-close trade dashboard
   const [title, set_title] = useState("");
@@ -56,29 +58,28 @@ const TradeDashboard = ({
   };
 
   const upload_recommended_card_to_firebase = () => {
-    if (!title || !image || !description) {
-      set_warning("MISSING FIELDS");
-      return;
-    }
-
     if (user_firebase) {
-      create_recommended_card({
-        username: user_firebase.user_data.username,
-        user_id: user_firebase.user_data.user_id,
-        title,
-        description,
-        image,
-        recommended,
-        last_recommended,
-      });
+      if (!title || !image || !description) {
+        set_warning("MISSING FIELDS");
+      } else {
+        create_recommended_card({
+          username: user_firebase.user_data.username,
+          user_id: user_firebase.user_data.user_id,
+          title,
+          description,
+          image,
+          recommended,
+          last_recommended,
+        });
 
-      // cleaning inputs
-      set_title("");
-      set_image(null);
-      set_description("");
-      set_warning(false);
+        // cleaning inputs
+        set_title("");
+        set_image(null);
+        set_description("");
+        set_warning(false);
+      }
     } else {
-      console.log("NO USER");
+      open_modal(); // fire modal to log in user
     }
   };
 
@@ -164,6 +165,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = (dispatch) => ({
   create_recommended_card: (trade_card) =>
     dispatch(create_trade_card_start_action(trade_card)),
+  open_modal: () => dispatch(open_modal_action()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TradeDashboard);

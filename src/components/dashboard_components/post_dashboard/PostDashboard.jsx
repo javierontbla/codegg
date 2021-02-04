@@ -18,6 +18,7 @@ import {
   ActionButtonContainer,
 } from "./PostDashboard_styles";
 import { create_post_card_start_action } from "../../../redux/dashboards/actions";
+import { open_modal_action } from "../../../redux/modal/actions";
 import ImageIconSVG from "./media/image_button.svg";
 import ImageActiveSVG from "./media/image_active_button.svg";
 
@@ -28,6 +29,7 @@ const PostDashboard = ({
   user_firebase,
   loading_post_card,
   upload_post_card_error,
+  open_modal,
 }) => {
   const [description, set_description] = useState("");
   const [image, set_image] = useState(null);
@@ -46,8 +48,9 @@ const PostDashboard = ({
   };
 
   const upload_post_card_to_firebase = () => {
-    if (!description) return; // if there is no description
     if (user_firebase) {
+      if (!description) return; // if there is no description
+
       const {
         user,
         username,
@@ -69,7 +72,7 @@ const PostDashboard = ({
       set_description("");
       set_image(null);
     } else {
-      // user isn't logged in
+      open_modal();
     }
   };
 
@@ -128,6 +131,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = (dispatch) => ({
   create_post_card: (post_card) =>
     dispatch(create_post_card_start_action(post_card)),
+  open_modal: () => dispatch(open_modal_action()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostDashboard);

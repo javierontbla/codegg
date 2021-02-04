@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { useRouteMatch } from "react-router-dom";
 
+import InfiniteScroll from "react-infinite-scroll-component";
 import LoadingUserPage from "../../components/loading_components/loading_user_page/LoadingUserPage";
 import UserCard from "./components/user_card_component/UserCard";
 import TradeCard from "../../components/trade_card_component/TradeCard";
@@ -28,9 +30,8 @@ import {
   request_more_user_posts_start_action,
   request_more_user_reviews_start_action,
   validate_subscriber_start_action,
+  clear_user_action,
 } from "../../redux/user_page/actions";
-import { useRouteMatch } from "react-router-dom";
-import InfiniteScroll from "react-infinite-scroll-component";
 
 const UserPage = ({
   user_firebase,
@@ -63,6 +64,7 @@ const UserPage = ({
   remaining_user_reviews,
 
   validate_subscriber,
+  clear_user,
 }) => {
   const {
     params: { user_id },
@@ -83,7 +85,9 @@ const UserPage = ({
       });
     }
 
-    return () => {};
+    return () => {
+      clear_user();
+    };
   }, [user_firebase]);
 
   const request_more_user_posts = () => {
@@ -241,6 +245,7 @@ const mapDispatchToProps = (dispatch) => ({
 
   validate_subscriber: (subscriber_id) =>
     dispatch(validate_subscriber_start_action(subscriber_id)),
+  clear_user: () => dispatch(clear_user_action()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserPage);

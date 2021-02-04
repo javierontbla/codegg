@@ -155,6 +155,30 @@ export const user_page_reducer = (state = INITIAL_STATE, action) => {
         subscriber: action.payload,
       };
 
+    case user_page_types.CLEAR_USER:
+      return {
+        ...state,
+        loading_user: false,
+        loading_user_recommended: false,
+        loading_user_posts: false,
+        loading_user_reviews: false,
+        user: [],
+        user_recommended: [],
+        user_posts: [],
+        user_reviews: [],
+        last_user_recommended: null,
+        last_user_post: null,
+        last_user_review: null,
+        remaining_user_recommended: true,
+        remaining_user_posts: true,
+        remaining_user_reviews: true,
+        error_user: null,
+        error_user_recommended: null,
+        error_user_posts: null,
+        error_user_reviews: null,
+        subscriber: false,
+      };
+
     default:
       return state;
   }

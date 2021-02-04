@@ -16,10 +16,11 @@ import {
   TrendIcon,
   Username,
 } from "./TradeCard_styles";
+import { open_modal_action } from "../../redux/modal/actions";
 import up_button from "./media/up_button.svg";
 import { votes_async } from "../../firebase/functions/votes";
 
-const TradeCard = ({ home_page, data, id, user_firebase }) => {
+const TradeCard = ({ home_page, data, id, user_firebase, open_modal }) => {
   moment.locale("en");
   const [votes, set_votes] = useState(data.votes);
   const vote_ref = useRef(false);
@@ -37,6 +38,8 @@ const TradeCard = ({ home_page, data, id, user_firebase }) => {
 
       set_votes(response[0].votes);
       vote_ref.current = false; // end
+    } else {
+      open_modal();
     }
   };
 
@@ -72,4 +75,8 @@ const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
   user_firebase,
 });
 
-export default connect(mapStateToProps, null)(TradeCard);
+const mapDispatchToProps = (dispatch) => ({
+  open_modal: () => dispatch(open_modal_action()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TradeCard);

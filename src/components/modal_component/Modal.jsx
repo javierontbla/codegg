@@ -11,18 +11,24 @@ import {
   Icon,
 } from "./Modal_styles";
 import { close_modal_action } from "../../redux/modal/actions";
+import { google_provider, auth } from "../../firebase/firebase";
 import CloseIconSVG from "./media/close_button.svg";
 
 const Modal = ({ modal, close_modal }) => {
+  const log_in = () => {
+    auth.signInWithPopup(google_provider);
+    close_modal();
+  };
+
   return (
     <>
       <Container modal={modal}>
         <ModalContainer>
           <Title>
-            Log In
+            LOG IN
             <CloseButton src={CloseIconSVG} onClick={() => close_modal()} />
           </Title>
-          <LogIn>
+          <LogIn onClick={() => log_in()}>
             <Icon icon={faGoogle} />
             Continue with Google
           </LogIn>

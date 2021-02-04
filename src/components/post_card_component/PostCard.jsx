@@ -34,6 +34,7 @@ import {
   request_more_comments_start_action,
   close_comments_section_action,
 } from "../../redux/post/actions";
+import { open_modal_action } from "../../redux/modal/actions";
 import { votes_async } from "../../firebase/functions/votes";
 
 const PostCard = ({
@@ -49,6 +50,7 @@ const PostCard = ({
   close_comments_section,
   remaining_comments,
   loading_more_comments,
+  open_modal,
 }) => {
   moment.locale("en");
   const [votes, set_votes] = useState(data.votes);
@@ -73,7 +75,7 @@ const PostCard = ({
       set_votes(response[0].votes);
       vote_ref.current = false; // end
     } else {
-      // user isn't logged in
+      open_modal();
     }
   };
 
@@ -179,6 +181,7 @@ const mapDispatchToProps = (dispatch) => ({
   request_more_comments: (comments) =>
     dispatch(request_more_comments_start_action(comments)),
   close_comments_section: () => dispatch(close_comments_section_action()),
+  open_modal: () => dispatch(open_modal_action()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostCard);

@@ -32,6 +32,7 @@ import {
 } from "./ArticlesCollection_styles";
 import "./ArticlesCollection.css";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { open_modal_action } from "../../../../redux/modal/actions";
 
 const ArticlesCollection = ({
   loading_articles,
@@ -53,6 +54,7 @@ const ArticlesCollection = ({
   delete_category,
   clear_filtered_articles,
   user_firebase,
+  open_modal,
 }) => {
   const { url } = useRouteMatch();
   const history = useHistory();
@@ -89,6 +91,8 @@ const ArticlesCollection = ({
   const push_to_dashboard = () => {
     if (user_firebase) {
       history.push(`${url}/dashboard/${user_firebase.user_id}`);
+    } else {
+      open_modal();
     }
   };
 
@@ -271,6 +275,8 @@ const mapDispatchToProps = (dispatch) => ({
   delete_category: (category) => dispatch(delete_category_action(category)),
   clear_filtered_articles: (empty_arr) =>
     dispatch(request_filtered_articles_success_action(empty_arr)),
+
+  open_modal: () => dispatch(open_modal_action()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticlesCollection);

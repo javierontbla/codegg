@@ -11,6 +11,7 @@ import {
   CommentButton,
 } from "./InputComment_styles";
 import { send_new_comment_start_action } from "../../../../redux/post/actions";
+import { open_modal_action } from "../../../../redux/modal/actions";
 
 const InputComment = ({
   send_new_comment,
@@ -18,6 +19,7 @@ const InputComment = ({
   user_firebase,
   comments,
   loading_send_comment,
+  open_modal,
 }) => {
   const [comment, set_comment] = useState("");
 
@@ -40,7 +42,7 @@ const InputComment = ({
 
       set_comment("");
     } else {
-      // user isn't logged in
+      open_modal();
     }
   };
 
@@ -49,7 +51,7 @@ const InputComment = ({
       <Container>
         <ProfileImage
           profile_image_url={
-            "https://images.unsplash.com/photo-1541577141970-eebc83ebe30e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+            user_firebase ? user_firebase.user_data.profile_image : null
           }
         />
         <InputContainer>
@@ -84,6 +86,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = (dispatch) => ({
   send_new_comment: (comment) =>
     dispatch(send_new_comment_start_action(comment)),
+  open_modal: () => dispatch(open_modal_action()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InputComment);

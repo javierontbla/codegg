@@ -184,7 +184,15 @@ const Draft = ({
 
   return (
     <>
-      {new_article_id ? <Redirect to={`/reviews/${new_article_id}`} /> : null}
+      {new_article_id ? (
+        <Redirect
+          to={`/reviews/${title
+            .toLowerCase()
+            .replace(/[^A-Za-z0-9\s]/g, "")
+            .trim()
+            .replace(/ /g, "-")}/${new_article_id}`}
+        />
+      ) : null}
       <Container>
         <TopContainer>
           <LeftContainer>

@@ -18,6 +18,7 @@ import {
   Subscribers,
 } from "./UserCard_styles";
 import { subscribe_async } from "../../../../firebase/functions/subscribe";
+import { open_modal_action } from "../../../../redux/modal/actions";
 import { validate_subscriber_success_action } from "../../../../redux/user_page/actions";
 
 const UserCard = ({
@@ -26,6 +27,7 @@ const UserCard = ({
   id,
   subscriber,
   update_subscribe_button,
+  open_modal,
 }) => {
   const [subscribers, set_subscribers] = useState(data.subscribers);
   const subscribe_ref = useRef(false);
@@ -50,8 +52,7 @@ const UserCard = ({
       set_subscribers(updated_subscribers);
       subscribe_ref.current = false; // end
     } else {
-      // user isn't logged in
-      // fire Modal
+      open_modal();
     }
   };
 
@@ -93,6 +94,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = (dispatch) => ({
   update_subscribe_button: (bool) =>
     dispatch(validate_subscriber_success_action(bool)),
+  open_modal: () => dispatch(open_modal_action()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserCard);

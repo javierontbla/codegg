@@ -9,10 +9,13 @@ const { montserrat, open_sans } = fonts;
 
 export const Container = styled.div`
   display: ${(props) => (props.modal ? "flex" : "none")};
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.2);
+  z-index: 1;
 `;
 
 export const ModalContainer = styled.div`
@@ -28,7 +31,6 @@ export const ModalContainer = styled.div`
   width: 25rem;
   height: 20rem;
   background: ${black};
-  z-index: 1;
   border-radius: 15px;
   padding: 2.5rem 2rem 2rem 2rem;
 `;
@@ -40,7 +42,7 @@ export const Title = styled.div`
   font-size: 2.2rem;
   font-family: ${montserrat};
   color: ${white};
-  margin: 0rem 0rem 2rem 0rem;
+  margin: 0rem 0rem 4rem 0rem;
 `;
 
 export const LogIn = styled.div`
