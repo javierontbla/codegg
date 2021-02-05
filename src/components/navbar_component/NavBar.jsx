@@ -34,6 +34,7 @@ const NavBar = ({ user_firebase }) => {
 
   const log_out = () => {
     auth.signOut();
+    window.location.reload();
     set_menu_active(false);
   };
 

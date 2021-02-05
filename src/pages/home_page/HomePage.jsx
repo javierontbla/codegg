@@ -20,7 +20,7 @@ import {
   request_more_article_previews_start_action,
 } from "../../redux/home_page/actions";
 import {
-  HomePageContainer,
+  Container,
   MainContainer,
   LeftContainer,
   TradesContainer,
@@ -30,7 +30,6 @@ import {
   RightContainer,
   UploadDashboardContainer,
   ArticlesPreviewContainer,
-  ScrollEnd,
 } from "./HomePage_styles";
 
 const HomePage = ({
@@ -76,7 +75,7 @@ const HomePage = ({
 
   return (
     <>
-      <HomePageContainer className="container">
+      <Container className="container">
         <MainContainer>
           <LeftContainer>
             <Title title={"Recommended"} />
@@ -154,7 +153,7 @@ const HomePage = ({
             )}
           </RightContainer>
         </MainContainer>
-      </HomePageContainer>
+      </Container>
     </>
   );
 };

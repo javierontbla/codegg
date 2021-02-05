@@ -366,7 +366,7 @@ const Draft = ({
                     />
                     <TagInput
                       value={tag}
-                      placeholder="#genre"
+                      placeholder="#tag"
                       onChange={(e) => handle_tag_input(e.target.value, indx)}
                       inputStyle={{
                         fontSize: "0.85rem",

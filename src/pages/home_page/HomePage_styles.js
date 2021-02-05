@@ -4,7 +4,7 @@ import { colors } from "../../colors/colors";
 
 const { grey, grey_2 } = colors;
 
-export const HomePageContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2rem 0rem 0rem 0rem;

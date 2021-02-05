@@ -1,29 +1,83 @@
 import React from "react";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { connect } from "react-redux";
 
-import Category from "../../../components/category_component/Category";
 import Rank from "../../../components/rank_component/Rank";
 import {
   Container,
   TopContainer,
   CoverImage,
   ProfileImage,
+  CoverImageInput,
+  ProfileImageInput,
+  CoverImageLabel,
+  ProfileImageLabel,
+  Icon,
   MiddleContainer,
   RankContainer,
   User,
   Username,
   Description,
-  CategoriesContainer,
   BottomContainer,
   Subscribers,
 } from "./ProfileCard_styles";
+import { update_profile_image_start_action } from "../../../redux/profile_page/actions";
 
-const ProfileCard = ({ data }) => {
+const ProfileCard = ({ data, udpate_image }) => {
+  const update_image_to_firebase = (image) => {
+    udpate_image(image);
+  };
+
+  const handle_cover_image_input = (image) => {
+    if (image.length !== 1) return; // need to set error message here
+
+    const image_type = image[0].type.split("/")[0];
+    if (image_type !== "image") return; // check if file is an image
+
+    update_image_to_firebase({
+      user_id: data.user_id,
+      field: "cover_image",
+      image: image[0],
+    });
+  };
+
+  const handle_profile_image_input = (image) => {
+    if (image.length !== 1) return; // need to set error message here
+
+    const image_type = image[0].type.split("/")[0];
+    if (image_type !== "image") return; // check if file is an image
+
+    update_image_to_firebase({
+      user_id: data.user_id,
+      field: "profile_image",
+      image: image[0],
+    });
+  };
+
   return (
     <>
       <Container>
         <TopContainer>
-          <CoverImage cover_image={data.cover_image} />
-          <ProfileImage profile_image={data.profile_image} />
+          <CoverImageInput
+            type="file"
+            id="cover-img"
+            onChange={(e) => handle_cover_image_input(e.target.files)}
+          />
+          <ProfileImageInput
+            type="file"
+            id="profile-img"
+            onChange={(e) => handle_profile_image_input(e.target.files)}
+          />
+          <CoverImage cover_image={data.cover_image}>
+            <CoverImageLabel htmlFor="cover-img">
+              <Icon icon={faPen} />
+            </CoverImageLabel>
+          </CoverImage>
+          <ProfileImage profile_image={data.profile_image}>
+            <ProfileImageLabel htmlFor="profile-img">
+              <Icon icon={faPen} />
+            </ProfileImageLabel>
+          </ProfileImage>
         </TopContainer>
         <MiddleContainer>
           <RankContainer>
@@ -32,11 +86,6 @@ const ProfileCard = ({ data }) => {
           <User>{data.user}</User>
           <Username>@{data.username}</Username>
           <Description>{data.description}</Description>
-          <CategoriesContainer>
-            {data.categories.map((category) => {
-              return <Category category={category} />;
-            })}
-          </CategoriesContainer>
         </MiddleContainer>
         <BottomContainer>
           <Subscribers>{data.subscribers} subscribers</Subscribers>
@@ -46,4 +95,8 @@ const ProfileCard = ({ data }) => {
   );
 };
 
-export default ProfileCard;
+const mapDispatchToProps = (dispatch) => ({
+  udpate_image: (image) => dispatch(update_profile_image_start_action(image)),
+});
+
+export default connect(null, mapDispatchToProps)(ProfileCard);

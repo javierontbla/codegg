@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
@@ -11,6 +12,31 @@ export const Container = styled.div`
   height: fit-content;
   border-radius: 15px;
   background: ${black};
+`;
+
+export const CoverImageInput = styled.input`
+  display: none !important;
+`;
+
+export const ProfileImageInput = styled.input`
+  display: none !important;
+`;
+
+export const CoverImageLabel = styled.label`
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  width: 100%;
+  height: 100%;
+`;
+
+export const ProfileImageLabel = styled.label`
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 `;
 
 export const TopContainer = styled.div`
@@ -26,6 +52,11 @@ export const CoverImage = styled.div`
   background-repeat: no-repeat;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+
+  &:hover ${CoverImageLabel} {
+    display: flex;
+    cursor: pointer;
+  }
 `;
 
 export const ProfileImage = styled.div`
@@ -39,6 +70,11 @@ export const ProfileImage = styled.div`
   background-position: center;
   background-image: url(${(props) => props.profile_image});
   background-repeat: no-repeat;
+
+  &:hover ${ProfileImageLabel} {
+    display: flex;
+    cursor: pointer;
+  }
 `;
 
 export const RankContainer = styled.div`
@@ -73,7 +109,7 @@ export const Username = styled.div`
 
 export const MiddleContainer = styled.div`
   height: fit-content;
-  padding: 1.5rem 1.25rem 1.5rem 1.25rem;
+  padding: 1.5rem 1.25rem 2rem 1.25rem;
 `;
 
 export const Description = styled.div`
@@ -81,14 +117,7 @@ export const Description = styled.div`
   font-size: 1rem;
   color: ${white};
   line-height: 120%;
-  margin: 1.5rem 0rem 1.5rem 0rem;
-`;
-
-export const CategoriesContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding: 0rem 0rem 0rem 0rem;
-  margin: 0rem 0rem 0rem 0rem;
+  margin: 1.5rem 0rem 0rem 0rem;
 `;
 
 export const BottomContainer = styled.div`
@@ -115,4 +144,9 @@ export const Subscribers = styled.div`
   width: fit-content;
   line-height: 100%;
   color: ${grey};
+`;
+
+export const Icon = styled(FontAwesomeIcon)`
+  color: ${grey};
+  font-size: 1.75rem;
 `;

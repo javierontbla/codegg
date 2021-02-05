@@ -80,17 +80,21 @@ const UserPage = ({
     if (user_reviews.length === 0)
       request_user_reviews_to_firebase({ user_id });
 
+    return () => {
+      console.log("returning");
+      clear_user();
+    };
+  }, []);
+
+  useEffect(() => {
+    // useEffect only for user_firebase because
+    // it was triggering the return function above
     if (user_firebase) {
       validate_subscriber({
         user_id,
         subscriber_id: user_firebase.user_data.user_id,
       });
     }
-
-    return () => {
-      console.log("returning");
-      //clear_user();
-    };
   }, [user_firebase]);
 
   const request_more_user_posts = () => {
@@ -131,7 +135,6 @@ const UserPage = ({
 
   return (
     <>
-      {console.log(user.length)}
       <Container>
         <LeftContainer>
           <ProfileCardContainer>

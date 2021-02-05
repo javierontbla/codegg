@@ -1,39 +1,90 @@
-import React, { useEffect } from "react";
-import { useRouteMatch } from "react-router-dom";
+import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
 
+import Spinner from "../../../components/spinner_component/Spinner";
+import ActionButton from "../../../components/action_button_component/ActionButton";
 import Title from "../../../components/title_component/Title";
 import ProfileCard from "../profile_card_component/ProfileCard";
 import {
   Container,
   LeftContainer,
   RightContainer,
-  StatisticsContainer,
+  EditContainer,
+  NameContainer,
+  DescriptionContainer,
+  InputContainer,
+  ActionButtonContainer,
 } from "./ProfileDashboard_styles";
-import { request_profile_start_action } from "../../../redux/profile_page/actions";
+import { update_profile_start_action } from "../../../redux/profile_page/actions";
 
-const ProfileDashboard = ({ request_profile, profile, user_firebase }) => {
-  const {
-    params: { user_id },
-  } = useRouteMatch();
-  useEffect(() => {
-    if (user_firebase) {
-      if (user_firebase.user_data.user_id === user_id) {
-        request_profile({ user_id });
-      }
+const ProfileDashboard = ({
+  user_id,
+  data,
+  id,
+  update_profile,
+  loading_profile_update,
+}) => {
+  const [user, set_user] = useState(data.user);
+  const [description, set_description] = useState(data.description);
+
+  const initial_user = useRef(data.user);
+  const initial_description = useRef(data.description);
+
+  const handle_input_field = (value, hook) => {
+    hook(value);
+  };
+
+  const update_profile_to_firebase = () => {
+    if (
+      initial_user.current !== user ||
+      initial_description.current !== description
+    ) {
+      update_profile({
+        user_id,
+        user,
+        description,
+      });
+
+      initial_user.current = user;
+      initial_description.current = description;
     }
-  }, [user_firebase]);
+  };
+
   return (
     <>
       <Container>
         <LeftContainer>
-          {profile.length > 0 ? (
-            <ProfileCard data={profile[0]} id={profile[1]} />
-          ) : null}
+          <ProfileCard data={data} id={id} />
         </LeftContainer>
         <RightContainer>
           <Title title="Edit" />
-          <StatisticsContainer></StatisticsContainer>
+          <EditContainer>
+            <NameContainer>
+              <InputContainer
+                onChange={(e) => handle_input_field(e.target.value, set_user)}
+                value={user}
+                name="true"
+                minRows="1"
+                maxRows="1"
+                spellCheck="false"
+              />
+            </NameContainer>
+            <DescriptionContainer>
+              <InputContainer
+                onChange={(e) =>
+                  handle_input_field(e.target.value, set_description)
+                }
+                value={description}
+                minRows="5"
+                maxRows="5"
+                spellCheck="false"
+              />
+            </DescriptionContainer>
+          </EditContainer>
+          <ActionButtonContainer onClick={() => update_profile_to_firebase()}>
+            <ActionButton action="Save Changes" />
+            {loading_profile_update ? <Spinner /> : null}
+          </ActionButtonContainer>
         </RightContainer>
       </Container>
     </>
@@ -42,15 +93,13 @@ const ProfileDashboard = ({ request_profile, profile, user_firebase }) => {
 
 // redux
 const mapStateToProps = ({
-  user_reducer: { user_firebase },
-  profile_page_reducer: { profile },
+  profile_page_reducer: { loading_profile_update },
 }) => ({
-  profile,
-  user_firebase,
+  loading_profile_update,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  request_profile: (user_id) => dispatch(request_profile_start_action(user_id)),
+  update_profile: (profile) => dispatch(update_profile_start_action(profile)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileDashboard);

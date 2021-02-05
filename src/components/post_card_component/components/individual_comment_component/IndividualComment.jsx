@@ -18,8 +18,15 @@ import {
 } from "./IndividualComment_styles";
 import UpIcon from "../../media/up_button.svg";
 import { votes_async } from "../../../../firebase/functions/votes";
+import { open_modal_action } from "../../../../redux/modal/actions";
 
-const IndividualComment = ({ post_id, data, id, user_firebase }) => {
+const IndividualComment = ({
+  post_id,
+  data,
+  id,
+  user_firebase,
+  open_modal,
+}) => {
   const [votes, set_votes] = useState(data.votes);
   const vote_ref = useRef(false);
 
@@ -37,7 +44,7 @@ const IndividualComment = ({ post_id, data, id, user_firebase }) => {
       set_votes(response[0].votes);
       vote_ref.current = false; // end
     } else {
-      // user isn't logged in
+      open_modal();
     }
   };
 
@@ -75,4 +82,8 @@ const mapStateToProps = ({ user_reducer: { user_firebase } }) => ({
   user_firebase,
 });
 
-export default connect(mapStateToProps, null)(IndividualComment);
+const mapDispatchToProps = (dispatch) => ({
+  open_modal: () => dispatch(open_modal_action()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndividualComment);

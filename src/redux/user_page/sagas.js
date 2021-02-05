@@ -34,10 +34,12 @@ function* request_user_async(action) {
   const investor_profile_ref = db.doc(`investors/${user_id}`);
 
   try {
-    const response = yield investor_profile_ref.get().then((doc) => {
-      if (doc.exists) return [doc.data(), doc.id];
-      console.log("doc error");
-    });
+    const response = yield investor_profile_ref
+      .get({ source: "server" })
+      .then((doc) => {
+        if (doc.exists) return [doc.data(), doc.id];
+        console.log("doc error");
+      });
 
     yield put(request_user_success_action(response));
   } catch (error) {
@@ -55,12 +57,14 @@ function* request_user_posts_async(action) {
 
   try {
     const user_posts = [];
-    const last_user_post_firebase = yield posts_ref.get().then((snapshot) => {
-      const last_element = snapshot.docs[snapshot.docs.length - 1];
-      snapshot.forEach((doc) => user_posts.push([doc.data(), doc.id]));
+    const last_user_post_firebase = yield posts_ref
+      .get({ source: "server" })
+      .then((snapshot) => {
+        const last_element = snapshot.docs[snapshot.docs.length - 1];
+        snapshot.forEach((doc) => user_posts.push([doc.data(), doc.id]));
 
-      return last_element;
-    });
+        return last_element;
+      });
 
     yield put(
       request_user_posts_success_action({
@@ -84,7 +88,7 @@ function* request_user_recommended_async(action) {
   try {
     const user_recommended = [];
     const last_user_recommended_firebase = yield user_recommended_ref
-      .get()
+      .get({ source: "server" })
       .then((snapshot) => {
         const last_element = snapshot.docs[snapshot.docs.length - 1];
         snapshot.forEach((doc) => user_recommended.push([doc.data(), doc.id]));
@@ -114,7 +118,7 @@ function* request_user_reviews_async(action) {
   try {
     const user_reviews = [];
     const last_user_review_firebase = yield user_reviews_ref
-      .get()
+      .get({ source: "server" })
       .then((snapshot) => {
         const last_element = snapshot.docs[snapshot.docs.length - 1];
         snapshot.forEach((doc) => {
@@ -151,7 +155,7 @@ function* request_more_user_recommended_async(action) {
 
   try {
     const last_user_recommended_firebase = yield user_recommended_ref
-      .get()
+      .get({ source: "server" })
       .then((snapshot) => {
         const last_element = snapshot.docs[snapshot.docs.length - 1];
         snapshot.forEach((doc) => user_recommended.push([doc.data(), doc.id]));
@@ -185,7 +189,7 @@ function* request_more_user_posts_async(action) {
 
   try {
     const last_user_post_firebase = yield user_posts_ref
-      .get()
+      .get({ source: "server" })
       .then((snapshot) => {
         const last_element = snapshot.docs[snapshot.docs.length - 1];
         snapshot.forEach((doc) => user_posts.push([doc.data(), doc.id]));
@@ -219,7 +223,7 @@ function* request_more_user_reviews_async(action) {
 
   try {
     const last_user_review_firebase = yield user_reviews_ref
-      .get()
+      .get({ source: "server" })
       .then((snapshot) => {
         const last_element = snapshot.docs[snapshot.docs.length - 1];
         snapshot.forEach((doc) => user_reviews.push([doc.data(), doc.id]));
@@ -254,10 +258,12 @@ function* validate_subscriber_async(action) {
   );
 
   try {
-    const response = yield subscriber_ref.get().then((doc) => {
-      if (doc.exists) return true;
-      else return false;
-    });
+    const response = yield subscriber_ref
+      .get({ source: "server" })
+      .then((doc) => {
+        if (doc.exists) return true;
+        else return false;
+      });
 
     yield put(validate_subscriber_success_action(response));
   } catch (error) {

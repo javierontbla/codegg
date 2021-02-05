@@ -4,7 +4,7 @@ import TextareaAutosize from "react-textarea-autosize";
 import { colors } from "../../../../colors/colors";
 import { fonts } from "../../../../fonts/fonts";
 
-const { blue, black, white } = colors;
+const { blue, black, white, grey_2 } = colors;
 const { roboto, open_sans } = fonts;
 
 export const Container = styled.div`
@@ -30,7 +30,7 @@ export const ProfileImage = styled.div`
   margin: 0rem 0.75rem 0rem 0rem;
   background-size: cover;
   background-position: center;
-  background-image: url(${(props) => props.profile_image_url});
+  background-image: url(${(props) => props.profile_image});
   background-repeat: no-repeat;
 `;
 

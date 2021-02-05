@@ -48,7 +48,11 @@ import {
   request_draft_saga,
   request_drafts_saga,
 } from "./drafts_page/sagas";
-import { request_profile_saga } from "./profile_page/sagas";
+import {
+  request_profile_saga,
+  update_profile_saga,
+  update_profile_image_saga,
+} from "./profile_page/sagas";
 
 export function* root_saga() {
   yield all([
@@ -89,6 +93,9 @@ export function* root_saga() {
     call(delete_draft_saga),
     call(request_draft_saga),
     call(request_drafts_saga),
+
     call(request_profile_saga),
+    call(update_profile_saga),
+    call(update_profile_image_saga),
   ]);
 }

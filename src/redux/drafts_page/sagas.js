@@ -1,5 +1,4 @@
 import { takeLatest, put } from "redux-saga/effects";
-import firebase from "firebase/app";
 
 import { drafts_page_types } from "./types";
 import { db } from "../../firebase/firebase";

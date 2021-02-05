@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 
-import ProfileDashboard from "./profile_dashboard_component/ProfileDashboard";
+import ProfileDashboardContainer from "./profile_dashboard_container_component/ProfileDashboardContainer";
 import { Container } from "./ProfilePage_styles";
 
 const ProfilePage = () => {
@@ -11,7 +11,7 @@ const ProfilePage = () => {
       <Container className="container">
         <Switch>
           <Route path={`${path}/:user_id`}>
-            <ProfileDashboard />
+            <ProfileDashboardContainer />
           </Route>
         </Switch>
       </Container>

@@ -50,8 +50,10 @@ const InputComment = ({
     <>
       <Container>
         <ProfileImage
-          profile_image_url={
-            user_firebase ? user_firebase.user_data.profile_image : null
+          profile_image={
+            user_firebase
+              ? user_firebase.user_data.profile_image
+              : "https://firebasestorage.googleapis.com/v0/b/avgguido.appspot.com/o/default%2Fdefault_profile.png?alt=media&token=7cf456f5-a10b-40cf-a644-9f927bec6535"
           }
         />
         <InputContainer>
