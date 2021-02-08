@@ -100,7 +100,7 @@ export const Comment = styled.div`
   width: 100%;
   margin: 0.15rem 0rem 0.75rem 0rem;
   line-height: 115%;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-family: ${roboto};
   color: ${white};
 `;

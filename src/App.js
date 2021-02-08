@@ -19,7 +19,7 @@ import {
 import { auth } from "./firebase/firebase";
 import { GlobalStyles, Container, PagesContainer } from "./App.styles.js";
 
-const App = ({ log_in_active_user, log_out_active_user }) => {
+const App = ({ log_in_user, log_out_user }) => {
   let firebase_observer = null;
 
   useEffect(() => {
@@ -34,9 +34,9 @@ const App = ({ log_in_active_user, log_out_active_user }) => {
     firebase_observer = auth.onAuthStateChanged((user) => {
       if (user) {
         // when there IS an active user
-        log_in_active_user(user); // redux
+        log_in_user(user); // redux
       } else {
-        log_out_active_user();
+        log_out_user();
       }
     });
 
@@ -83,8 +83,8 @@ const App = ({ log_in_active_user, log_out_active_user }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  log_in_active_user: (user) => dispatch(log_in_active_user_action_start(user)),
-  log_out_active_user: () => dispatch(log_out_active_user_action_start()),
+  log_in_user: (user) => dispatch(log_in_active_user_action_start(user)),
+  log_out_user: () => dispatch(log_out_active_user_action_start()),
 });
 
 export default connect(null, mapDispatchToProps)(App);

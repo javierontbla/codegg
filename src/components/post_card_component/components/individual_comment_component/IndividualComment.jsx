@@ -39,6 +39,7 @@ const IndividualComment = ({
       const response = await votes_async({
         doc_path: `posts/${post_id}/comments/${id}`,
         doc_votes_path: `posts/${post_id}/comments/${id}/votes/${user_id}`,
+        user_id,
       });
 
       set_votes(response[0].votes);

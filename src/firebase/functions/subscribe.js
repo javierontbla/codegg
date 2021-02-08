@@ -14,6 +14,7 @@ export const subscribe_async = async ({ user_id, subscriber_id }) => {
         // adding vote
         subscriber_ref.set({
           date: new Date(),
+          subscriber_id,
         });
 
         value = 1;

@@ -37,11 +37,13 @@ function* create_draft_async(action) {
         tags,
         draft_image,
         score,
+        user_id,
       })
       .then((doc_ref) => doc_ref.id);
 
     yield put(create_draft_success_action(response));
   } catch (error) {
+    console.log("creating", error);
     yield put(create_draft_failure_action(error));
   }
 }
@@ -68,10 +70,12 @@ function* save_draft_async(action) {
       content,
       draft_image,
       score: parseFloat(score).toFixed(1),
+      user_id,
     });
 
     yield put(upload_draft_success_action(response));
   } catch (error) {
+    console.log("saving", error);
     yield put(upload_draft_failure_action(error));
   }
 }

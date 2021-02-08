@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import { db } from "../firebase";
 
-export const votes_async = async ({ doc_path, doc_votes_path }) => {
+export const votes_async = async ({ doc_path, doc_votes_path, user_id }) => {
   const doc_ref = db.doc(doc_path);
   const doc_votes_ref = db.doc(doc_votes_path);
 
@@ -13,6 +13,7 @@ export const votes_async = async ({ doc_path, doc_votes_path }) => {
         // adding vote
         doc_votes_ref.set({
           date: new Date(),
+          user_id,
         });
 
         value = 1;
@@ -30,6 +31,7 @@ export const votes_async = async ({ doc_path, doc_votes_path }) => {
     const response = await doc_ref.get().then((doc) => [doc.data(), doc.id]);
     return response;
   } catch (error) {
+    console.log(error);
     return error;
   }
 };

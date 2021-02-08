@@ -72,7 +72,6 @@ const UserPage = ({
   } = useRouteMatch();
 
   useEffect(() => {
-    console.log("on useEffect", user.length);
     if (user.length === 0) request_user_to_firebase({ user_id });
     if (user_recommended.length === 0)
       request_user_recommended_to_firebase({ user_id });
@@ -81,7 +80,6 @@ const UserPage = ({
       request_user_reviews_to_firebase({ user_id });
 
     return () => {
-      console.log("returning");
       clear_user();
     };
   }, []);

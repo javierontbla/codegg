@@ -70,6 +70,7 @@ const PostCard = ({
       const response = await votes_async({
         doc_path: `posts/${id}`,
         doc_votes_path: `posts/${id}/votes/${user_id}`,
+        user_id,
       });
 
       set_votes(response[0].votes);

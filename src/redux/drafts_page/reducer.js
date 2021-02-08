@@ -61,6 +61,12 @@ export const drafts_page_reducer = (state = INITIAL_STATE, action) => {
         uploading_article_error: action.payload,
       };
 
+    case drafts_page_types.CREATE_DRAFT_START:
+      return {
+        ...state,
+        new_article_id: null,
+      };
+
     case drafts_page_types.CREATE_DRAFT_SUCCESS:
       return {
         ...state,
