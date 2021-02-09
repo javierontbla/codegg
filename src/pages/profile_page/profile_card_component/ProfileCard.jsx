@@ -62,11 +62,13 @@ const ProfileCard = ({ data, udpate_image }) => {
             type="file"
             id="cover-img"
             onChange={(e) => handle_cover_image_input(e.target.files)}
+            onClick={(e) => (e.target.value = null)}
           />
           <ProfileImageInput
             type="file"
             id="profile-img"
             onChange={(e) => handle_profile_image_input(e.target.files)}
+            onClick={(e) => (e.target.value = null)}
           />
           <CoverImage cover_image={data.cover_image}>
             <CoverImageLabel htmlFor="cover-img">

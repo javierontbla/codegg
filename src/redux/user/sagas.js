@@ -25,9 +25,8 @@ function* log_in_active_user_async(action) {
         user_id: payload.uid,
         description: `Hello! I'm ${payload.displayName}`,
         profile_image:
-          "https://firebasestorage.googleapis.com/v0/b/avgguido.appspot.com/o/default%2Fdefault_profile.png?alt=media&token=7cf456f5-a10b-40cf-a644-9f927bec6535",
-        cover_image:
-          "https://firebasestorage.googleapis.com/v0/b/avgguido.appspot.com/o/default%2Fdefault_cover.png?alt=media&token=6f5fc31f-2dad-4dcd-ab71-e24b26c67217",
+          "https://firebasestorage.googleapis.com/v0/b/avgguido.appspot.com/o/default%2Fdefault_profile.png?alt=media&token=b3ec78bd-45bc-4fe3-b340-1d97e1410d89",
+        cover_image: "",
         subscribers: 0,
         rank: "Rookie",
         email: payload.email,

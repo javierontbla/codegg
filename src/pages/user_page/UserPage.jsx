@@ -140,23 +140,25 @@ const UserPage = ({
           </ProfileCardContainer>
         </LeftContainer>
         <RightContainer>
-          <TopContainer>
-            {user.length > 0 ? (
-              <Title>{`${user[0].user.split(" ")[0]}'s Recommended`}</Title>
-            ) : null}
-            <RecommendedContainer>
-              <InfiniteScroll
-                dataLength={user_recommended.length}
-                next={() => request_more_user_recommended()}
-                hasMore={remaining_user_recommended}
-                className="recommended-container"
-              >
-                {user_recommended.map((doc) => {
-                  return <TradeCard data={doc[0]} id={doc[1]} key={doc[1]} />;
-                })}
-              </InfiniteScroll>
-            </RecommendedContainer>
-          </TopContainer>
+          {user_recommended.length === 0 ? null : (
+            <TopContainer>
+              {user.length > 0 ? (
+                <Title>{`${user[0].user.split(" ")[0]}'s Recommended`}</Title>
+              ) : null}
+              <RecommendedContainer>
+                <InfiniteScroll
+                  dataLength={user_recommended.length}
+                  next={() => request_more_user_recommended()}
+                  hasMore={remaining_user_recommended}
+                  className="recommended-container"
+                >
+                  {user_recommended.map((doc) => {
+                    return <TradeCard data={doc[0]} id={doc[1]} key={doc[1]} />;
+                  })}
+                </InfiniteScroll>
+              </RecommendedContainer>
+            </TopContainer>
+          )}
           <Division />
           <BottomContainer>
             <PostsContainer>

@@ -23,6 +23,8 @@ const ProfileDashboardContainer = ({
       } else {
         set_redirect(true);
       }
+    } else {
+      set_redirect(true);
     }
   }, [user_firebase]);
 

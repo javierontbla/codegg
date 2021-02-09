@@ -26,7 +26,7 @@ const Footer = ({ error }) => {
             </Options>
           </OptionsContainer>
           <CompanyName>
-            Copyright © 2020 Codegg. All rights reserved.
+            Copyright © 2020 - 2021 Codegg. All rights reserved.
           </CompanyName>
         </FooterContainer>
       ) : null}

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { colors } from "../../../colors/colors";
 import { fonts } from "../../../fonts/fonts";
 
-const { white, grey, grey_2, black } = colors;
+const { white, grey, grey_2, black, background } = colors;
 const { source_sans_pro, open_sans, roboto } = fonts;
 
 export const Container = styled.div`
@@ -52,6 +52,7 @@ export const CoverImage = styled.div`
   background-repeat: no-repeat;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  border-bottom: 0.5px solid ${background};
 
   &:hover ${CoverImageLabel} {
     display: flex;

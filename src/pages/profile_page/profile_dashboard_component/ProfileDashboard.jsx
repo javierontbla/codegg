@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { connect } from "react-redux";
 
 import Spinner from "../../../components/spinner_component/Spinner";
@@ -29,6 +29,10 @@ const ProfileDashboard = ({
 
   const initial_user = useRef(data.user);
   const initial_description = useRef(data.description);
+
+  useEffect(() => {
+    document.title = `Codegg - Edit @${data.username}`;
+  }, []);
 
   const handle_input_field = (value, hook) => {
     hook(value);
