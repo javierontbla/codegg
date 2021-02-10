@@ -78,6 +78,7 @@ const Article = ({
       const response = await votes_async({
         doc_path: `articles/${id}`,
         doc_votes_path: `articles/${id}/votes/${user_id}`,
+        user_id,
       });
 
       set_votes(response[0].votes);

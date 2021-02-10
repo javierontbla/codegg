@@ -29,8 +29,8 @@ const FaqPage = () => {
           <Answer>
             Codegg is a platform to: <Bold>create</Bold> and <Bold>read</Bold>{" "}
             music reviews without the need of submitting them for inspection
-            before hand. Just write and publish. <br /> Oh, you can also create
-            music recommendations and posts. Everything for free.
+            before hand. Just write and publish. Oh, you can also create music
+            recommendations and posts. Everything for free.
           </Answer>
         </QuestionContainer>
         <QuestionContainer>

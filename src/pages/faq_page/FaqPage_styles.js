@@ -53,7 +53,7 @@ export const Question = styled.div`
 
 export const Answer = styled.div`
   font-family: ${roboto};
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: ${white};
   letter-spacing: 0.25px;
   color: ${white};

@@ -20,6 +20,7 @@ export const Container = styled.div`
 
   @media (max-width: 500px) {
     flex-direction: column;
+    margin: -2rem 0rem 0rem 0rem;
   }
 `;
 
@@ -82,7 +83,7 @@ export const TitleArticle = styled.div`
   width: calc(100% - 6.75rem);
 
   @media (max-width: 500px) {
-    font-size: 2rem;
+    font-size: 2.15rem;
   }
 `;
 
@@ -108,7 +109,7 @@ export const Score = styled.div`
 
 export const Body = styled.div`
   margin: 4rem 0rem 0rem 0rem;
-  padding: 0rem 2rem 0rem 2rem;
+  padding: 0rem 2rem 1.25rem 2rem;
   height: fit-content;
 
   @media (max-width: 500px) {

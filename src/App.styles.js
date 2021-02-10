@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import { colors } from "./colors/colors";
 import { fonts } from "./fonts/fonts";
 
-const { white, grey, background } = colors;
+const { white, grey, background, blue } = colors;
 const { montserrat } = fonts;
 
 export const GlobalStyles = createGlobalStyle`
@@ -45,11 +45,31 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${montserrat};
     line-height: 115%;
     margin: 0rem 0rem 0.75rem 0rem;
+
+    @media (max-width: 500px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  h2 {
+    color: ${white};
+    font-size: 1.3rem;
+    font-family: ${montserrat};
+    line-height: 115%;
+    margin: 0rem 0rem 0.75rem 0rem;
+  }
+
+  h3 {
+    color: ${white};
+    font-size: 1.15rem;
+    font-family: ${montserrat};
+    line-height: 115%;
+    margin: 0rem 0rem 0.75rem 0rem;
   }
 
   p {
     font-family: "Roboto", sans-serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     letter-spacing: 0.5px;
     text-align: left;
     color: ${white};
@@ -61,6 +81,19 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  li { 
+    color: ${white};
+  }
+
+  a {
+    color: ${blue};
+
+    &:hover {
+      color: ${blue};
+      text-decoration: none;
+      opacity: 0.9;
+    }
+  } 
   input {
     &:focus {
       outline: none !important;
