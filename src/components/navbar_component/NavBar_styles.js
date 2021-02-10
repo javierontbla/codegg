@@ -12,6 +12,10 @@ export const Container = styled.div`
   height: 3.65rem;
   background: ${background} !important;
   border-bottom: 0.5px solid ${grey_2};
+
+  @media (max-width: 500px) {
+    height: 4rem;
+  }
 `;
 
 export const NavbarContainer = styled.div`
@@ -23,9 +27,6 @@ export const NavbarContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 0 !important;
-
-  @media (max-width: 500px) {
-  }
 `;
 
 export const HyperLink = styled(Link)`
@@ -56,6 +57,7 @@ export const LogoContainer = styled.div`
   }
 
   @media (max-width: 500px) {
+    margin: 0rem 0rem 0rem 1rem;
   }
 `;
 
@@ -65,10 +67,6 @@ export const Logo = styled.img`
 
   &:hover {
     text-decoration: none;
-  }
-
-  @media (max-width: 500px) {
-    display: none;
   }
 `;
 
@@ -90,6 +88,10 @@ export const PageLink = styled.div`
   &:hover {
     cursor: pointer;
   }
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export const UserProfileContainer = styled.div`
@@ -102,6 +104,7 @@ export const UserProfileContainer = styled.div`
   width: fit-content;
 
   @media (max-width: 500px) {
+    margin: 0rem 1rem 0rem 0rem;
   }
 `;
 
@@ -154,6 +157,7 @@ export const UserMenu = styled.div`
 `;
 
 export const UserMenuOption = styled.div`
+  display: ${(props) => (props.responsive ? "none" : "flex")};
   width: 100%;
   height: fit-content;
   font-size: 0.9rem;
@@ -167,6 +171,10 @@ export const UserMenuOption = styled.div`
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 500px) {
+    display: ${(props) => (props.responsive ? "flex" : "")};
   }
 `;
 

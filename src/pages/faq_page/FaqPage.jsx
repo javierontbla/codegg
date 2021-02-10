@@ -37,7 +37,7 @@ const FaqPage = () => {
           <Question>How much do I have pay to use Codegg?</Question>
           <Answer>
             Absolutely nothing. Every single feature in Codegg is completely{" "}
-            <Bold>free</Bold>. For everyone, you only need a Google account to
+            <Bold>free</Bold>. For everyone. You only need a Google account to
             log in.
           </Answer>
         </QuestionContainer>

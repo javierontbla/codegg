@@ -9,6 +9,7 @@ const { open_sans } = fonts;
 
 export const FooterContainer = styled.footer`
   display: flex;
+  flex-direction: row;
   width: 100%;
   position: relative;
   justify-content: space-between;
@@ -20,6 +21,11 @@ export const FooterContainer = styled.footer`
   font-family: ${open_sans};
   padding: 0rem 0rem 1rem 0rem;
   background: ${background};
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 `;
 
 export const CompanyName = styled.div`
@@ -27,12 +33,19 @@ export const CompanyName = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   width: fit-content;
-  height: 100%;
+  height: fit-content;
   font-size: 0.55rem;
   margin: 0rem 2rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
   color: ${white};
   letter-spacing: 1px;
+
+  @media (max-width: 500px) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0rem 0rem 0rem 0rem;
+  }
 `;
 
 export const OptionsContainer = styled.div`
@@ -42,6 +55,15 @@ export const OptionsContainer = styled.div`
   align-items: flex-end;
   width: fit-content;
   height: 100%;
+
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    margin: 0rem 0rem 0.75rem 0rem;
+  }
 `;
 
 export const Options = styled.div`
@@ -53,6 +75,11 @@ export const Options = styled.div`
   padding: 0rem 0rem 0rem 0rem;
 
   @media (max-width: 500px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 75%;
+    margin: 0rem 0rem 0rem 0rem;
   }
 `;
 
@@ -64,6 +91,10 @@ export const Option = styled.div`
   padding: 0rem 1rem 0rem 1rem;
   height: fit-content;
   letter-spacing: 1px;
+
+  @media (max-width: 500px) {
+    padding: 0rem 0rem 0rem 0rem;
+  }
 `;
 
 export const LinkContainer = styled(Link)`

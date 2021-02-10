@@ -22,7 +22,7 @@ function* request_unfiltered_articles_async() {
   const unfiltered_articles_ref = db
     .collection(`articles`)
     .orderBy("date", "desc")
-    .limit(1);
+    .limit(3);
 
   try {
     const unfiltered_articles_arr = [];

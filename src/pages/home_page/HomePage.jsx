@@ -87,7 +87,6 @@ const HomePage = ({
                 dataLength={recommended.length}
                 next={() => request_more_recommended_to_firebase()}
                 hasMore={last_recommended}
-                style={{ height: "100vh" }}
               >
                 <TradesContainer>
                   {recommended.map((recommended) => {

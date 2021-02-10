@@ -9,6 +9,10 @@ const { montserrat } = fonts;
 
 export const Container = styled.div`
   width: 100%;
+
+  @media (max-width: 500px) {
+    padding: 0rem 1.25rem 0rem 1.25rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -29,6 +33,12 @@ export const DraftsContainer = styled.div`
   row-gap: 1.5rem;
   width: 100%;
   height: fit-content;
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.75rem;
+    row-gap: 0.75rem;
+  }
 `;
 
 export const CreateButton = styled.div`
@@ -44,12 +54,20 @@ export const CreateButton = styled.div`
     cursor: pointer;
     opacity: 0.95;
   }
+
+  @media (max-width: 500px) {
+    height: 10rem;
+  }
 `;
 
 export const Icon = styled.img`
   width: 3.5rem;
   transform: rotate(45deg);
   margin: 0rem 0rem 0rem 0rem;
+
+  @media (max-width: 500px) {
+    width: 3rem;
+  }
 `;
 
 export const DraftCard = styled.div`
@@ -60,6 +78,10 @@ export const DraftCard = styled.div`
   background: ${black};
   border-radius: 15px;
   padding: 0rem 1.25rem 1.25rem 1.25rem;
+
+  @media (max-width: 500px) {
+    height: 10rem;
+  }
 `;
 
 export const DraftTitle = styled.div`

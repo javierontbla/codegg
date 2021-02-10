@@ -69,6 +69,12 @@ const NavBar = ({ user_firebase }) => {
                     <DropDownIcon />
                   </User>
                   <UserMenu menu_active={menu_active}>
+                    <HyperLink to={`/reviews`}>
+                      <UserMenuOption responsive="true">Reviews</UserMenuOption>
+                    </HyperLink>
+                    <HyperLink to={`/faq`}>
+                      <UserMenuOption responsive="true">FAQ</UserMenuOption>
+                    </HyperLink>
                     <HyperLink
                       to={`/profile/${user_firebase.user_data.user_id}`}
                     >

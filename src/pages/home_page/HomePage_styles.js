@@ -24,6 +24,10 @@ export const MainContainer = styled.div`
   flex-direction: row;
   margin: 0rem 0rem 0rem 0rem;
   width: 100%;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 export const LeftContainer = styled.div`
@@ -31,6 +35,12 @@ export const LeftContainer = styled.div`
   flex-direction: column;
   width: 18.75rem;
   height: 100vh;
+
+  @media (max-width: 500px) {
+    height: fit-content;
+    width: 100%;
+    padding: 0rem 1.25rem 0rem 1.25rem;
+  }
 `;
 
 export const TradesContainer = styled.div`
@@ -41,6 +51,19 @@ export const TradesContainer = styled.div`
   width: 100%;
   margin: 0rem 0rem 0rem 0rem;
 
+  @media (max-width: 500px) {
+    margin: 0rem 0rem 0rem 0rem;
+    padding: 0rem 0rem 0rem 0rem;
+    width: 100%;
+    display: grid;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    grid-gap: 0;
+    grid-auto-flow: column;
+    grid-template-columns: minmax(min-content, max-content);
+    align-items: flex-start;
+  }
+
   &::-webkit-scrollbar {
     display: none !important;
   }
@@ -49,6 +72,12 @@ export const TradesContainer = styled.div`
 export const MiddleContainer = styled.div`
   width: calc(100% - 37.5rem);
   margin: 0rem 2rem 0rem 2rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    margin: 2rem 0rem 0rem 0rem;
+    padding: 0rem 1.25rem 0rem 1.25rem;
+  }
 `;
 
 export const Division = styled.div`
@@ -57,6 +86,7 @@ export const Division = styled.div`
   border-bottom: 0.5px solid ${grey_2};
   margin: 0rem 0rem 0.75rem 0rem;
 `;
+
 export const PostsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -74,6 +104,10 @@ export const RightContainer = styled.div`
   width: 18.75rem;
   height: 100vh;
   margin: 0rem 0rem 0rem 0rem;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export const ArticlesPreviewContainer = styled.div`

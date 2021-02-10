@@ -36,6 +36,11 @@ export const Container = styled.div`
   border: none;
   border-radius: 15px;
   transition: box-shadow 0.2s;
+
+  @media (max-width: 500px) {
+    width: 18rem;
+    margin: 0rem 1rem 0rem 0rem;
+  }
 `;
 
 export const HyperLink = styled(Link)`

@@ -9,9 +9,13 @@ const { montserrat, roboto } = fonts;
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 0rem 0rem 0rem 0rem;
   margin: 2rem 0rem 0rem 0rem;
+
+  @media (max-width: 500px) {
+    padding: 0rem 1.25rem 0rem 1.25rem;
+  }
 `;
 
 export const HyperLink = styled(Link)`

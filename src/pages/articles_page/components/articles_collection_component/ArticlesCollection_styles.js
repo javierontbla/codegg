@@ -28,6 +28,10 @@ export const ActionButtonContainer = styled.div`
   height: fit-content;
   padding: 0rem 0rem 0.75rem 0rem;
   margin: 0rem 0rem 0.75rem 0rem;
+
+  @media (max-width: 500px) {
+    margin: 0rem 1.25rem 1rem 1.25rem;
+  }
 `;
 
 export const BottomContainer = styled.div`
@@ -37,6 +41,9 @@ export const BottomContainer = styled.div`
 
 export const LeftContainer = styled.div`
   width: 18rem;
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export const CategoriesContainer = styled.div`
@@ -53,12 +60,18 @@ export const CategoriesContainer = styled.div`
   border-radius: 15px;
 
   @media (max-width: 500px) {
+    display: none;
   }
 `;
 
 export const RightContainer = styled.div`
   width: calc(100% - 18rem);
   padding: 0rem 0rem 0rem 1rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 0rem 0rem 0rem 0rem;
+  }
 `;
 
 export const ActiveCategoryContainer = styled.div`
@@ -68,6 +81,11 @@ export const ActiveCategoryContainer = styled.div`
   margin: 0.5rem 0rem 1.75rem 1rem;
   width: 100%;
   height: fit-content;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    margin: -0.75rem 0rem 1.25rem 1.25rem;
+  }
 `;
 
 export const MasonryContainer = styled.div``;

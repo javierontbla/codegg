@@ -45,10 +45,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${montserrat};
     line-height: 115%;
     margin: 0rem 0rem 0.75rem 0rem;
-
-    @media (max-width: 500px) {
-
-    }
   }
 
   p {

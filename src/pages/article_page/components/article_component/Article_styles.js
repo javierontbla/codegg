@@ -19,6 +19,7 @@ export const Container = styled.div`
   flex-direction: row;
 
   @media (max-width: 500px) {
+    flex-direction: column;
   }
 `;
 
@@ -35,6 +36,12 @@ export const LeftContainer = styled.div`
   margin: 0rem 2rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
   width: calc(100% - 20rem);
+
+  @media (max-width: 500px) {
+    width: 100%;
+    margin: 0rem 0rem 1rem 0rem;
+    border-radius: 0;
+  }
 `;
 
 export const ArticleImage = styled.div`
@@ -46,6 +53,12 @@ export const ArticleImage = styled.div`
   background-position: center;
   background-image: url(${(props) => props.article_image});
   background-repeat: no-repeat;
+
+  @media (max-width: 500px) {
+    height: 15rem;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
 `;
 
 export const TopContainer = styled.div`
@@ -53,6 +66,10 @@ export const TopContainer = styled.div`
   flex-direction: row;
   align-items: flex-start;
   padding: 2rem 2rem 0rem 2rem;
+
+  @media (max-width: 500px) {
+    padding: 1rem 1rem 0rem 1rem;
+  }
 `;
 
 export const TitleArticle = styled.div`
@@ -63,6 +80,10 @@ export const TitleArticle = styled.div`
   color: ${white};
   padding: 0rem 0rem 0rem 0rem;
   width: calc(100% - 6.75rem);
+
+  @media (max-width: 500px) {
+    font-size: 2rem;
+  }
 `;
 
 export const Score = styled.div`
@@ -79,22 +100,38 @@ export const Score = styled.div`
   background: none;
   border: 0.5px solid ${grey_2};
   border-radius: 50%;
+
+  @media (max-width: 500px) {
+    font-size: 1.85rem;
+  }
 `;
 
 export const Body = styled.div`
   margin: 4rem 0rem 0rem 0rem;
   padding: 0rem 2rem 0rem 2rem;
   height: fit-content;
+
+  @media (max-width: 500px) {
+    padding: 0rem 1rem 0rem 1rem;
+  }
 `;
 
 export const RightContainer = styled.div`
   width: 20rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 export const AuthorContainer = styled.div`
   ${ContainerStyles};
   padding: 0rem 0rem 0rem 0rem;
   margin: 0rem 0rem 1rem 0rem;
+
+  @media (max-width: 500px) {
+    border-radius: 0;
+  }
 `;
 
 export const ProfileBoxContainer = styled.div`
@@ -152,4 +189,8 @@ export const TagsContainer = styled.div`
   flex-wrap: wrap;
   margin: 0rem 0rem 0rem 0rem;
   padding: 0.5rem 0rem 1.25rem 1.25rem;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
