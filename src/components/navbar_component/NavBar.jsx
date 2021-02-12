@@ -13,7 +13,7 @@ import {
   PageLinksContainer,
   PageLink,
   UserProfileContainer,
-  UserContainer,
+  UserMenuContainer,
   User,
   DropDownIcon,
   UserMenu,
@@ -28,14 +28,19 @@ const NavBar = ({ user_firebase }) => {
     set_menu_active((prev_state) => !prev_state);
   };
 
+  const close_user_menu = () => {
+    set_menu_active(false);
+  };
+
   const log_in = () => {
     auth.signInWithPopup(google_provider);
+    close_user_menu();
   };
 
   const log_out = () => {
     auth.signOut();
     window.location.reload();
-    set_menu_active(false);
+    close_user_menu();
   };
 
   // ${user_firebase.user_data.user_id}
@@ -61,46 +66,63 @@ const NavBar = ({ user_firebase }) => {
             </HyperLink>
           </PageLinksContainer>
           <UserProfileContainer>
-            {user_firebase ? (
-              <>
-                <UserContainer>
-                  <User onClick={() => display_profile_menu()}>
-                    {user_firebase.user_data.user}
-                    <DropDownIcon />
-                  </User>
-                  <UserMenu menu_active={menu_active}>
-                    <HyperLink to={`/reviews`}>
-                      <UserMenuOption responsive="true">Reviews</UserMenuOption>
-                    </HyperLink>
-                    <HyperLink to={`/faq`}>
-                      <UserMenuOption responsive="true">FAQ</UserMenuOption>
+            <ActionButtonContainer onClick={() => display_profile_menu()}>
+              <ActionButton
+                navbar={"true"}
+                action={
+                  user_firebase ? `${user_firebase.user_data.user}` : "Menu"
+                }
+              />
+            </ActionButtonContainer>
+            <DropDownIcon onClick={() => display_profile_menu()} />
+            <UserMenuContainer>
+              <UserMenu menu_active={menu_active}>
+                {!user_firebase ? (
+                  <UserMenuOption responsive="true" onClick={() => log_in()}>
+                    Log In
+                  </UserMenuOption>
+                ) : null}
+                <HyperLink to={`/reviews`}>
+                  <UserMenuOption
+                    responsive="true"
+                    onClick={() => close_user_menu()}
+                  >
+                    Reviews
+                  </UserMenuOption>
+                </HyperLink>
+                <HyperLink to={`/faq`}>
+                  <UserMenuOption
+                    responsive="true"
+                    onClick={() => close_user_menu()}
+                  >
+                    FAQ
+                  </UserMenuOption>
+                </HyperLink>
+                {user_firebase ? (
+                  <>
+                    <HyperLink
+                      to={`/reviews/dashboard/${user_firebase.user_data.user_id}`}
+                    >
+                      <UserMenuOption onClick={() => close_user_menu()}>
+                        Drafts
+                      </UserMenuOption>
                     </HyperLink>
                     <HyperLink
                       to={`/profile/${user_firebase.user_data.user_id}`}
                     >
-                      <UserMenuOption>Edit Profile</UserMenuOption>
+                      <UserMenuOption onClick={() => close_user_menu()}>
+                        Edit Profile
+                      </UserMenuOption>
                     </HyperLink>
-                    <HyperLink
-                      to={`/reviews/dashboard/${user_firebase.user_data.user_id}`}
-                    >
-                      <UserMenuOption>Drafts</UserMenuOption>
-                    </HyperLink>
-                    <UserMenuOption
-                      last_child={"true"}
-                      onClick={() => log_out()}
-                    >
-                      Log Out
-                    </UserMenuOption>
-                  </UserMenu>
-                </UserContainer>
-              </>
-            ) : (
-              <ActionButtonContainer onClick={() => log_in()}>
-                <ActionButton navbar={"true"} action={"Log In"}>
-                  Ingresar
-                </ActionButton>
-              </ActionButtonContainer>
-            )}
+                  </>
+                ) : null}
+                {user_firebase ? (
+                  <UserMenuOption last_child={"true"} onClick={() => log_out()}>
+                    Log Out
+                  </UserMenuOption>
+                ) : null}
+              </UserMenu>
+            </UserMenuContainer>
           </UserProfileContainer>
         </NavbarContainer>
       </Container>

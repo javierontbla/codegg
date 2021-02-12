@@ -23,15 +23,23 @@ export const ActionButtonContainer = styled.div`
   border-radius: 20px;
   font-family: ${open_sans};
   font-size: ${(props) =>
-    props.action === "Write a Review" || props.action === "Log In"
-      ? "0.9rem"
-      : "0.8rem"};
+    props.action === "Write a Review" ||
+    props.action === "Log In" ||
+    props.navbar
+      ? "0.95rem"
+      : "0.85rem"};
   font-weight: 500;
   letter-spacing: 0.5px;
   color: ${white};
-  background: ${blue};
+  background: ${(props) => (props.navbar ? "transparent" : `${blue}`)};
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 500px) {
+    padding: ${(props) =>
+      props.navbar ? "0rem 0.5rem 0rem 0.5rem" : "0rem 0.65rem 0rem 0.65rem"};
+    font-size: ${(props) => (props.navbar ? "1rem" : "")};
   }
 `;

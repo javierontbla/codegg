@@ -108,11 +108,12 @@ export const UserProfileContainer = styled.div`
   }
 `;
 
-export const UserContainer = styled.div`
+export const UserMenuContainer = styled.div`
   position: relative;
   display: inline-block;
   vertical-align: middle;
   height: fit-content;
+
   &:hover {
     cursor: pointer;
     text-decoration: none;
@@ -152,12 +153,12 @@ export const UserMenu = styled.div`
   border-radius: 15px;
   width: 10rem;
   height: fit-content;
-  margin: 0.75rem 0rem 0rem 0rem;
+  margin: 1.25rem 0rem 0rem 0rem;
   border: 0.5px solid ${grey_2};
 `;
 
 export const UserMenuOption = styled.div`
-  display: ${(props) => (props.responsive ? "none" : "flex")};
+  display: ${(props) => (props.responsive ? "flex" : "")};
   width: 100%;
   height: fit-content;
   font-size: 0.9rem;
@@ -171,10 +172,6 @@ export const UserMenuOption = styled.div`
 
   &:hover {
     cursor: pointer;
-  }
-
-  @media (max-width: 500px) {
-    display: ${(props) => (props.responsive ? "flex" : "")};
   }
 `;
 
