@@ -1,4 +1,4 @@
-.recommended-container {
+.horizontal-container {
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem;
   width: 100%;
@@ -11,6 +11,6 @@
   align-items: flex-start;
 }
 
-.recommended-container::-webkit-scrollbar {
+.horizontal-container::-webkit-scrollbar {
   display: none !important;
 }

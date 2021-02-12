@@ -10,17 +10,32 @@ const { montserrat, roboto } = fonts;
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    padding: 0rem 1rem 0rem 1rem;
+  }
 `;
 
 export const LeftContainer = styled.div`
-  width: 24.5rem !important;
+  width: 24.5rem;
   padding: 0rem 2rem 0rem 0rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    margin: 0rem 0rem 2rem 0rem;
+    padding: 0rem 0rem 0rem 0rem;
+  }
 `;
 
 export const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: calc(100% - 24.5rem);
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 export const EditContainer = styled.div`
@@ -31,11 +46,19 @@ export const EditContainer = styled.div`
   flex-direction: column;
   padding: 2rem 2rem 2.5rem 2rem;
   margin: 0rem 0rem 1rem 0rem;
+
+  @media (max-width: 500px) {
+    padding: 1rem 1rem 1.5rem 1rem;
+  }
 `;
 
 export const NameContainer = styled.div`
   width: 75%;
   margin: 0rem 0rem 1rem 0rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 export const DescriptionContainer = styled.div`

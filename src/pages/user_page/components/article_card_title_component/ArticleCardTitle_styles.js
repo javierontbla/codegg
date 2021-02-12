@@ -15,6 +15,11 @@ export const Container = styled.div`
   background: ${black};
   border-radius: 15px;
   margin: 0rem 0rem 1.25rem 0rem;
+
+  @media (max-width: 500px) {
+    width: 19rem;
+    margin: 0rem 1.25rem 0rem 0rem;
+  }
 `;
 
 export const HyperLink = styled(Link)`
@@ -37,6 +42,10 @@ export const ImageContainer = styled.div`
   background-repeat: no-repeat;
   padding: 0rem 0rem 0rem 0rem !important;
   overflow: hidden;
+
+  @media (max-width: 500px) {
+    height: 12.75rem;
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -48,6 +57,10 @@ export const TitleContainer = styled.div`
 
   &::first-letter {
     text-transform: capitalize;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.4rem;
   }
 `;
 

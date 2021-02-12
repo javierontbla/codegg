@@ -29,6 +29,11 @@ export const CoverImageLabel = styled.label`
   height: fit-content;
   width: 100%;
   height: 100%;
+
+  @media (max-width: 500px) {
+    display: flex;
+    opacity: 0.75;
+  }
 `;
 
 export const ProfileImageLabel = styled.label`
@@ -37,6 +42,11 @@ export const ProfileImageLabel = styled.label`
   justify-content: center;
   height: 100%;
   width: 100%;
+
+  @media (max-width: 500px) {
+    display: flex;
+    opacity: 0.75;
+  }
 `;
 
 export const TopContainer = styled.div`

@@ -18,6 +18,10 @@ export const LoadingPostsContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: fit-content;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export const Post = styled.div`

@@ -9,6 +9,10 @@ const { montserrat } = fonts;
 export const Container = styled.div`
   margin: 2rem 0rem 0rem 0rem;
   padding: 0rem 12.5rem 0rem 12.5rem !important;
+
+  @media (max-width: 500px) {
+    padding: 0rem 1rem 0rem 1rem !important;
+  }
 `;
 
 export const Title = styled.div`

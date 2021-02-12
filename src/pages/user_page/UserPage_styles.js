@@ -13,16 +13,25 @@ export const Container = styled.div`
   min-height: 100vh;
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0rem 0rem 0rem !important;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 export const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 24.5rem !important;
+  width: 24.5rem;
   height: fit-content;
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 2rem 0rem 0rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 0rem 1rem 0rem 1rem;
+  }
 `;
 
 export const ProfileCardContainer = styled.div`
@@ -37,6 +46,12 @@ export const RightContainer = styled.div`
   height: fit-content;
   padding: 0rem 0rem 0rem 0rem;
   margin: 0rem 0rem 0rem 0rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 0rem 1rem 0rem 1rem;
+    margin: 4rem 0rem 0rem 0rem;
+  }
 `;
 
 export const ActionButtonContainer = styled.div`
@@ -54,15 +69,20 @@ export const Title = styled.div`
   width: 100%;
   height: fit-content;
   background: transparent;
-  border-bottom: 0.5px solid ${grey_2};
   font-family: ${montserrat};
   font-size: 1.65rem;
   letter-spacing: 1px;
-  padding: 0rem 0rem 0.45rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
   line-height: 100%;
   margin: 0rem 0rem 0.75rem 0rem;
   text-transform: uppercase;
   color: ${white};
+
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+    line-height: 115%;
+    margin: 0rem 0rem 0.5rem 0rem;
+  }
 `;
 
 export const RecommendedContainer = styled.div`
@@ -93,12 +113,21 @@ export const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: fit-content;
+
+  @media (max-width: 500px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const PostsContainer = styled.div`
   width: calc(100% - 15rem);
   height: 100%;
   padding: 0rem 2rem 0rem 0rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 0rem 0rem 0rem 0rem;
+  }
 `;
 
 export const ArticlesContainer = styled.div`
@@ -112,5 +141,13 @@ export const ArticlesContainer = styled.div`
 
   &::-webkit-scrollbar {
     display: none !important;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    height: fit-content;
+    margin: 0rem 0rem 1rem 0rem;
+    padding: 0rem 0rem 1rem 0rem;
+    border-bottom: 0.5px solid ${grey_2};
   }
 `;

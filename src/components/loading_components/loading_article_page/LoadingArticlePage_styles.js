@@ -8,6 +8,10 @@ const { black } = colors;
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 500px) {
+    margin: -2rem 0rem 0rem 0rem;
+  }
 `;
 
 export const LeftContainer = styled.div`
@@ -17,6 +21,10 @@ export const LeftContainer = styled.div`
   border-radius: 15px;
   width: calc(100% - 20rem);
   margin: 0rem 2rem 0rem 0rem;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export const RightContainer = styled.div`
@@ -25,4 +33,10 @@ export const RightContainer = styled.div`
   background: ${black};
   border-radius: 15px;
   width: 20rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    border-radius: 0;
+    height: 100vh;
+  }
 `;

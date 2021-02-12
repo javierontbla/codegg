@@ -40,18 +40,31 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  @media (max-width: 500px) {
+    margin: -2rem 0rem 0rem 0rem;
+  }
 `;
 
 export const TopContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 export const LeftContainer = styled.div`
   width: calc(100% - 18.5rem);
   margin: 0rem 2rem 0rem 0rem;
   height: fit-content;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    margin: 0rem 0rem 0rem 0rem;
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -59,6 +72,12 @@ export const ContentContainer = styled.div`
   background: ${black};
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+
+  @media (max-width: 500px) {
+    border-radius: 0;
+    margin: 0rem 0rem 1rem 0rem;
+    padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  }
 `;
 
 export const ArticleImageContainer = styled.div`
@@ -77,6 +96,10 @@ export const ArticleImageContainer = styled.div`
   background-position: center;
   background-image: url(${(props) => props.draft_image});
   background-repeat: no-repeat;
+
+  @media (max-width: 500px) {
+    border-radius: 0;
+  }
 `;
 
 export const ArticleImageInput = styled.input`
@@ -258,6 +281,10 @@ export const DeleteButton = styled.div`
 
 export const RightContainer = styled.div`
   width: 18.5rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 export const AuthorContainer = styled.div`
@@ -266,6 +293,10 @@ export const AuthorContainer = styled.div`
   margin: 0rem 0rem 1rem 0rem;
   padding: 1.25rem 1.25rem 1.5rem 1.25rem;
   border-radius: 15px;
+
+  @media (max-width: 500px) {
+    border-radius: 0;
+  }
 `;
 
 export const DescriptionInput = styled(TextareaAutosize)`
@@ -293,6 +324,10 @@ export const TagsContainer = styled.div`
   background: ${black};
   padding: 0.75rem 1.25rem 1.25rem 0rem;
   border-radius: 15px;
+
+  @media (max-width: 500px) {
+    border-radius: 0;
+  }
 `;
 
 export const TagInputContainer = styled.div`
@@ -383,6 +418,11 @@ export const BottomContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   margin: 2rem 0rem 0rem 0rem;
+
+  @media (max-width: 500px) {
+    margin: 1rem 0rem 0rem 0rem;
+    padding: 0rem 1rem 0rem 1rem;
+  }
 `;
 
 export const ActionButtonContainer = styled.div`

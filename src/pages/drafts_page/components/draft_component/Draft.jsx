@@ -320,19 +320,6 @@ const Draft = ({
                 </InsertButton>
               </InsertButtonsContainer>
             </ContentContainer>
-            <BottomContainer>
-              <ActionButtonContainer onClick={() => save_draft_to_firebase()}>
-                <ActionButton action={"Save Draft"} />
-              </ActionButtonContainer>
-              <ActionButtonContainer
-                onClick={() => upload_article_to_firebase()}
-              >
-                <ActionButton action={"Publish"} />
-              </ActionButtonContainer>
-              {loading_uploading_draft || loading_uploading_article ? (
-                <Spinner />
-              ) : null}
-            </BottomContainer>
           </LeftContainer>
           <RightContainer>
             <AuthorContainer>
@@ -390,6 +377,17 @@ const Draft = ({
             ) : null}
           </RightContainer>
         </TopContainer>
+        <BottomContainer>
+          <ActionButtonContainer onClick={() => save_draft_to_firebase()}>
+            <ActionButton action={"Save Draft"} />
+          </ActionButtonContainer>
+          <ActionButtonContainer onClick={() => upload_article_to_firebase()}>
+            <ActionButton action={"Publish"} />
+          </ActionButtonContainer>
+          {loading_uploading_draft || loading_uploading_article ? (
+            <Spinner />
+          ) : null}
+        </BottomContainer>
       </Container>
     </>
   );

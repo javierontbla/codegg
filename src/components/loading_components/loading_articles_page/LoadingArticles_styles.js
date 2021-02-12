@@ -17,10 +17,15 @@ export const LoadingArticlesContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 2rem;
-  row-gap: 1.5rem;
+  row-gap: 2rem;
   width: 100%;
   margin: 0rem 0rem 0rem 0rem;
   padding: 0rem 0.75rem 0rem 0.75rem;
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+    padding: 0rem 1rem 0rem 1rem;
+  }
 `;
 
 export const Article = styled.div`

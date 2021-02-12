@@ -35,7 +35,6 @@ export const Container = styled.div`
   background: ${black};
   border: none;
   border-radius: 15px;
-  transition: box-shadow 0.2s;
 
   @media (max-width: 500px) {
     width: 18rem;

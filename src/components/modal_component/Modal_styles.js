@@ -16,6 +16,14 @@ export const Container = styled.div`
   height: 100%;
   background: rgba(255, 255, 255, 0.2);
   z-index: 1;
+
+  @media (max-width: 500px) {
+    display: ${(props) => (props.modal ? "flex" : "none")};
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem 1rem 0rem 1rem;
+  }
 `;
 
 export const ModalContainer = styled.div`
@@ -33,6 +41,12 @@ export const ModalContainer = styled.div`
   background: ${black};
   border-radius: 15px;
   padding: 2.5rem 2rem 2rem 2rem;
+
+  @media (max-width: 500px) {
+    position: relative;
+    width: 100%;
+    height: 20rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -61,6 +75,10 @@ export const LogIn = styled.div`
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 500px) {
+    text-align: left;
   }
 `;
 

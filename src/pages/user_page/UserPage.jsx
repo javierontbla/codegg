@@ -72,6 +72,7 @@ const UserPage = ({
   } = useRouteMatch();
 
   useEffect(() => {
+    console.log(window.screen.width);
     if (user.length === 0) request_user_to_firebase({ user_id });
     if (user_recommended.length === 0)
       request_user_recommended_to_firebase({ user_id });
@@ -140,17 +141,21 @@ const UserPage = ({
           </ProfileCardContainer>
         </LeftContainer>
         <RightContainer>
+          {user.length > 0 ? (
+            <Title>
+              {window.screen.width < 500
+                ? `${user[0].user.split(" ")[0]}'s Recommendations & Reviews`
+                : `${user[0].user.split(" ")[0]}'s Recommendations`}
+            </Title>
+          ) : null}
           {user_recommended.length === 0 ? null : (
             <TopContainer>
-              {user.length > 0 ? (
-                <Title>{`${user[0].user.split(" ")[0]}'s Recommended`}</Title>
-              ) : null}
               <RecommendedContainer>
                 <InfiniteScroll
                   dataLength={user_recommended.length}
                   next={() => request_more_user_recommended()}
                   hasMore={remaining_user_recommended}
-                  className="recommended-container"
+                  className="horizontal-container"
                 >
                   {user_recommended.map((doc) => {
                     return <TradeCard data={doc[0]} id={doc[1]} key={doc[1]} />;
@@ -177,6 +182,9 @@ const UserPage = ({
                 dataLength={user_reviews.length}
                 next={() => request_more_user_reviews()}
                 hasMore={remaining_user_reviews}
+                className={
+                  window.screen.width < 500 ? "horizontal-container" : ""
+                }
               >
                 {user_reviews.map((doc) => {
                   return <ArticleCardTitle data={doc[0]} id={doc[1]} />;
