@@ -43,8 +43,6 @@ const NavBar = ({ user_firebase }) => {
     close_user_menu();
   };
 
-  // ${user_firebase.user_data.user_id}
-
   return (
     <>
       <Container>
@@ -93,6 +91,8 @@ const NavBar = ({ user_firebase }) => {
                 <HyperLink to={`/faq`}>
                   <UserMenuOption
                     responsive="true"
+                    faq="true"
+                    user={user_firebase}
                     onClick={() => close_user_menu()}
                   >
                     FAQ
@@ -104,7 +104,7 @@ const NavBar = ({ user_firebase }) => {
                       to={`/reviews/dashboard/${user_firebase.user_data.user_id}`}
                     >
                       <UserMenuOption onClick={() => close_user_menu()}>
-                        Drafts
+                        Write
                       </UserMenuOption>
                     </HyperLink>
                     <HyperLink

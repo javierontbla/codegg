@@ -53,7 +53,7 @@ function* request_user_posts_async(action) {
     .collection(`posts`)
     .orderBy("date", "desc")
     .where("user_id", "==", user_id)
-    .limit(1);
+    .limit(4);
 
   try {
     const user_posts = [];
@@ -83,7 +83,7 @@ function* request_user_recommended_async(action) {
     .collection(`trades`)
     .orderBy("date", "desc")
     .where("user_id", "==", user_id)
-    .limit(1);
+    .limit(4);
 
   try {
     const user_recommended = [];
@@ -113,7 +113,7 @@ function* request_user_reviews_async(action) {
     .collection(`articles`)
     .orderBy("date", "desc")
     .where("user_id", "==", user_id)
-    .limit(1);
+    .limit(4);
 
   try {
     const user_reviews = [];
@@ -151,7 +151,7 @@ function* request_more_user_recommended_async(action) {
     .orderBy("date", "desc")
     .where("user_id", "==", user_id)
     .startAfter(last_user_recommended)
-    .limit(1);
+    .limit(4);
 
   try {
     const last_user_recommended_firebase = yield user_recommended_ref
@@ -185,7 +185,7 @@ function* request_more_user_posts_async(action) {
     .orderBy("date", "desc")
     .where("user_id", "==", user_id)
     .startAfter(last_user_post)
-    .limit(1);
+    .limit(4);
 
   try {
     const last_user_post_firebase = yield user_posts_ref
@@ -219,7 +219,7 @@ function* request_more_user_reviews_async(action) {
     .orderBy("date", "desc")
     .where("user_id", "==", user_id)
     .startAfter(last_user_review)
-    .limit(1);
+    .limit(4);
 
   try {
     const last_user_review_firebase = yield user_reviews_ref

@@ -168,7 +168,11 @@ export const UserMenuOption = styled.div`
   padding: 0.75rem 0.75rem 0.75rem 0.75rem;
   letter-spacing: 1px;
   border-bottom: ${(props) =>
-    props.last_child ? "none" : `0.5px solid ${grey_2}`};
+    props.last_child
+      ? "none"
+      : props.faq && !props.user
+      ? "none"
+      : `0.5px solid ${grey_2}`};
 
   &:hover {
     cursor: pointer;

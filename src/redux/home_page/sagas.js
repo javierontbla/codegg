@@ -22,7 +22,7 @@ import { db } from "../../firebase/firebase";
 
 /* ASYNC FUNCTIONS */
 function* request_latest_trades_async() {
-  const trades_ref = db.collection(`trades`).orderBy("date", "desc").limit(1);
+  const trades_ref = db.collection(`trades`).orderBy("date", "desc").limit(4);
   try {
     const trades_arr = [];
     const last_recommended = yield trades_ref.get().then((snapshot) => {
@@ -48,7 +48,7 @@ function* request_more_recommended_async(action) {
     .collection(`trades`)
     .orderBy("date", "desc")
     .startAfter(last_recommended)
-    .limit(1);
+    .limit(4);
 
   try {
     const recommended_arr = [...recommended];
@@ -79,7 +79,7 @@ function* request_more_recommended_async(action) {
 }
 
 function* request_posts_async() {
-  const posts_ref = db.collection(`posts`).orderBy("date", "desc").limit(1);
+  const posts_ref = db.collection(`posts`).orderBy("date", "desc").limit(4);
 
   try {
     const posts_arr = [];
@@ -107,7 +107,7 @@ function* request_more_posts_async(action) {
     .collection(`posts`)
     .orderBy("date", "desc")
     .startAfter(last_post)
-    .limit(1);
+    .limit(4);
 
   try {
     const posts_arr = [...posts];
@@ -139,7 +139,7 @@ function* request_article_previews_async() {
   const article_previews_ref = db
     .collection(`articles`)
     .orderBy("date", "desc")
-    .limit(1);
+    .limit(4);
 
   try {
     const article_previews_arr = [];
@@ -170,7 +170,7 @@ function* request_more_article_previews_async(action) {
     .collection(`articles`)
     .orderBy("date", "desc")
     .startAfter(last_article_preview)
-    .limit(1);
+    .limit(4);
 
   try {
     const article_previews_arr = [...article_previews];

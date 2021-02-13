@@ -22,7 +22,7 @@ function* request_unfiltered_articles_async() {
   const unfiltered_articles_ref = db
     .collection(`articles`)
     .orderBy("date", "desc")
-    .limit(3);
+    .limit(4);
 
   try {
     const unfiltered_articles_arr = [];
@@ -55,7 +55,7 @@ function* request_filtered_articles_async(action) {
     .collection("articles")
     .where("categories", "array-contains", `${tag}`)
     .orderBy("date", "desc")
-    .limit(1);
+    .limit(4);
 
   try {
     const filtered_articles_arr = [];
@@ -86,7 +86,7 @@ function* request_more_unfiltered_articles_async(action) {
     .collection(`articles`)
     .orderBy("date", "desc")
     .startAfter(last_unfiltered_article)
-    .limit(1);
+    .limit(4);
 
   try {
     const unfiltered_articles_arr = [...unfiltered_articles];
@@ -122,7 +122,7 @@ function* request_more_filtered_articles_async(action) {
     .where("categories", "array-contains", `${tag}`)
     .orderBy("date", "desc")
     .startAfter(last_filtered_article)
-    .limit(1);
+    .limit(4);
 
   try {
     const last_filtered_article_firebase = yield filteredRef
