@@ -1,0 +1,91 @@
+import styled from "styled-components";
+
+import { colors } from "../../../../colors/colors";
+
+const { grey_2, black } = colors;
+
+export const Container = styled.div`
+  padding: 0rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 0rem 0rem;
+  min-height: 100vh;
+`;
+
+export const ArticlesPageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const TopContainer = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+export const ActionButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 0.5px solid ${grey_2};
+  height: fit-content;
+  padding: 0rem 0rem 0.75rem 0rem;
+  margin: 0rem 0rem 0.75rem 0rem;
+
+  @media (max-width: 500px) {
+    margin: 0rem 1.25rem 1rem 1.25rem;
+  }
+`;
+
+export const BottomContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const LeftContainer = styled.div`
+  width: 18rem;
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
+export const CategoriesContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  background: ${black};
+  width: 100%;
+  height: fit-content;
+  justify-content: left;
+  padding: 0.25rem 0rem 1rem 1rem;
+  margin: 0rem 0rem 0rem 0rem;
+  border-radius: 15px;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
+export const RightContainer = styled.div`
+  width: calc(100% - 18rem);
+  padding: 0rem 0rem 0rem 1rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 0rem 0rem 0rem 0rem;
+  }
+`;
+
+export const ActiveCategoryContainer = styled.div`
+  display: ${(props) => (props.length > 0 ? "flex" : "none")};
+  flex-direction: row;
+  padding: 0rem 0rem 0rem 0rem;
+  margin: 0.5rem 0rem 1.75rem 1rem;
+  width: 100%;
+  height: fit-content;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    margin: -0.75rem 0rem 1.25rem 1.25rem;
+  }
+`;
+
+export const MasonryContainer = styled.div``;

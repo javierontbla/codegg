@@ -2,7 +2,7 @@ import { takeLatest, put } from "redux-saga/effects";
 
 import { feedbackPageTypes } from "./types";
 import { sendFormFailure } from "./actions";
-import { db } from "../../firebase";
+import { db } from "../../firebase/firebase";
 
 function* sendFormAsync(action) {
   const { email, comment } = action.payload;

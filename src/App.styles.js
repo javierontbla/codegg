@@ -1,60 +1,35 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-export const Global = createGlobalStyle`
+import { colors } from "./colors/colors";
+import { fonts } from "./fonts/fonts";
+
+const { white, grey, background, blue } = colors;
+const { montserrat } = fonts;
+
+export const GlobalStyles = createGlobalStyle`
   body {
-    background-color: #1e232b;
+    background-color: ${white};
     margin: 0;
     padding: 0;
     height: 100vh;
   }
 
-  b {
-    color: #faf9f9;
-    font-family: "Roboto", sans-serif;
-    letter-spacing: 0.5px;
+  ::placeholder { 
+   color: ${grey};
+   font-family: 'Roboto', sans-serif;
+   letter-spacing: 0.25px;
+   font-size: 0.9rem;
   }
 
-  i {
-    color: #faf9f9;
-    font-family: "Roboto", sans-serif;
-    letter-spacing: 0.5px;
-  }
-
-  sub {
-    color: #faf9f9;
-    font-family: "Roboto", sans-serif;
-    letter-spacing: 0.5px;
-  }
-  
-  sup {
-    color: #faf9f9;
-    font-family: "Roboto", sans-serif;
-    letter-spacing: 0.5px;
-  }
-  
-  blockquote {
-    color: #faf9f9;
-    padding: 0.8rem;
-    font-family: "Roboto", sans-serif;
-    font-size: 1.3rem;
-    border-top-right-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    border-top-left-radius: 0.2rem;
-    border-bottom-right-radius: 0.2rem;
-    letter-spacing: 0.5px;
-    background: #000000; 
-    width: 100%;
-    margin-bottom: 2vh;
-
-    @media (max-width: 500px) {
-      font-size: 1.1rem;
-    }
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
   }
 
   img {
     display: block;
-    margin-bottom: 2vh;
-    border-radius: 0.2rem;
+    margin: 0rem 0rem 2rem 0rem;
+    border-radius: 15px;
     max-width: 100%;
     opacity: 1;
 
@@ -65,178 +40,82 @@ export const Global = createGlobalStyle`
   }
 
   h1 {
-    color: #faf9f9;
-    font-family: "Space Mono", monospace;
+    color: ${white};
     font-size: 1.6rem;
-    letter-spacing: 0.5px;
-    margin-bottom: 2vh;
-    text-align: left;
-    width: 100%;
-    line-height: 150%;
+    font-family: ${montserrat};
+    line-height: 115%;
+    margin: 0rem 0rem 0.75rem 0rem;
 
     @media (max-width: 500px) {
       font-size: 1.4rem;
     }
   }
 
+  h2 {
+    color: ${white};
+    font-size: 1.3rem;
+    font-family: ${montserrat};
+    line-height: 115%;
+    margin: 0rem 0rem 0.75rem 0rem;
+  }
+
+  h3 {
+    color: ${white};
+    font-size: 1.15rem;
+    font-family: ${montserrat};
+    line-height: 115%;
+    margin: 0rem 0rem 0.75rem 0rem;
+  }
+
   p {
     font-family: "Roboto", sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     letter-spacing: 0.5px;
     text-align: left;
-    color: #faf9f9;
-    margin-bottom: 2vh;
-    line-height: 180%;
+    color: ${white};
+    line-height: 120%;
     width: 100%;
+    margin: 0rem 0rem 2rem 0rem;
 
     @media (max-width: 500px) {
-      font-size: 1.1rem;
     }
   }
 
-  strong {
-    background: #ffd933;
-    border-radius: 0.2rem;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-    color: #000000;
-    font-weight: normal;
-    font-size: 1.3rem;
-    line-height: 180%;
-
-    @media (max-width: 500px) {
-      font-size: 1.1rem;
-    }
-  }
-
-  li {
-    color: #faf9f9;
-    font-family: "Roboto", sans-serif;
-    font-size: 1.3rem;
-    margin-bottom: 0.5vh;
-    letter-spacing: 0.5px;
-
-    @media (max-width: 500px) {
-      font-size: 1.1rem;
-    }
-  }
-
-  ul {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 2vh;
-    line-height: 200%;
-  }
-
-  pre {
-    color: #faf9f9;
-    padding: 0.6rem;
-    padding-left: 0.8rem;
-    padding-right: 0.8rem;
-    font-size: 1.1rem;
-    border-radius: 0.2rem;
-    letter-spacing: 0.5px;
-    background: #000000; 
-    margin-bottom: 2vh;
-    width: 100%;
-    
-    @media (max-width: 500px) {
-      font-size: 1rem;
-    }
-  }
-
-  code {
-    font-family: Consolas, monaco, monospace; 
+  li { 
+    color: ${white};
   }
 
   a {
-    position: relative;
-    color: #faf9f9;
-    font-size: 1.3rem;
-
-    &::after {
-      background: #fad530;
-      content: ' ';
-      height: 30%;
-      position: absolute;
-      left: 0;
-      top: 90%;
-      width: calc(100%);
-      z-index:-1;
-      transition: top 0.25s, height 0.25s;
-    }
+    color: ${blue};
 
     &:hover {
-      color: #000000;
+      color: ${blue};
       text-decoration: none;
-      
-      &::after {
-      background-color: #fad530;
-      content: ' ';
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0%;
-      width: calc(100%);
-      z-index: -1;
-      }
+      opacity: 0.9;
     }
-
-    @media (max-width: 500px) {
-      font-size: 1.1rem;
+  } 
+  input {
+    &:focus {
+      outline: none !important;
     }
-  }
-
-  table {
-    width: fit-content;
-    color: #faf9f9;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 1rem;
-    margin-bottom: 2vh;
-
-    @media (max-width: 500px) {
-      margin: 0 auto;
-    }
-  }
-
-  table, th, td {
-      border: 2px solid #faf9f9;
-      border-radius: 0.2rem;
-      padding: 1rem;
-  }
-`;
-
-export const NavBarContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 7vw;
-
-  @media (max-width: 500px) {
-    width: 100vw;
-    height: 9vh;
-  }
-`;
-
-export const FullContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-
-  @media (max-width: 500px) {
-    flex-direction: column;
   }
 `;
 
 export const Container = styled.div`
-  width: 93vw;
-  padding-top: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: ${background};
 
   @media (max-width: 500px) {
-    width: 100vw;
-    padding-top: 0rem;
-    padding-left: 0.6rem;
-    padding-right: 0.6rem;
+  }
+`;
+
+export const PagesContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  @media (max-width: 500px) {
   }
 `;

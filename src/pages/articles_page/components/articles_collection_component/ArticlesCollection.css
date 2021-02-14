@@ -1,0 +1,20 @@
+.mansonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 0rem 0rem 0rem 0rem;
+}
+.mansonry-grid-column {
+  background-clip: padding-box;
+  margin: 0rem 1rem 0rem 1rem;
+}
+
+.mansonry-grid-column > div {
+  background: transparent;
+  width: 100%;
+  margin: 0rem 0rem 2rem 0rem;
+}
+
+@media (max-width: 500px) {
+}

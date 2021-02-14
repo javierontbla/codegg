@@ -2,21 +2,26 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
+import NavBar from "./components/navbar_component/NavBar";
+import Modal from "./components/modal_component/Modal";
+import HomePage from "./pages/home_page/HomePage";
+import ArticlesPage from "./pages/articles_page/ArticlesPage";
+import FaqPage from "./pages/faq_page/FaqPage";
+import UsersPage from "./pages/users_page/UsersPage";
+import ProfilePage from "./pages/profile_page/ProfilePage";
+import PrivacyPage from "./pages/privacy_page/PrivacyPage";
+import TermsConditionsPage from "./pages/terms_conditions_page/TermsConditionsPage";
+import Footer from "./components/footer_component/Footer";
 import {
-  NavBarContainer,
-  Global,
-  FullContainer,
-  Container,
-} from "./App.styles.js";
-import NavBar from "./components/navbar.component/NavBar";
-import HomePage from "./pages/home.page/Home.Page";
-import ArticlePage from "./pages/article.page/Article.Page";
-import PrivacyPolicy from "./pages/privacy.policy.page/PrivacyPolicy";
-import FeedbackPage from "./pages/feedback.page/FeedbackPage";
-import Footer from "./components/footer.component/Footer";
-import { storeAvailableTagsStart } from "./redux/home.page/actions";
+  log_in_active_user_action_start,
+  log_out_active_user_action_start,
+} from "./redux/user/actions";
+import { auth } from "./firebase/firebase";
+import { GlobalStyles, Container, PagesContainer } from "./App.styles.js";
 
-const App = ({ storeAvailableTags }) => {
+const App = ({ log_in_user, log_out_user }) => {
+  let firebase_observer = null;
+
   useEffect(() => {
     if (
       window.location.hostname === "avgguido.web.app" ||
@@ -24,31 +29,62 @@ const App = ({ storeAvailableTags }) => {
     ) {
       window.location.href = "https://codegg.tech/";
     }
-    storeAvailableTags();
+
+    // sign in user
+    firebase_observer = auth.onAuthStateChanged((user) => {
+      if (user) {
+        // when there IS an active user
+        log_in_user(user); // redux
+      } else {
+        log_out_user();
+      }
+    });
+
+    return () => {
+      firebase_observer(); // close subscription
+    };
   }, []);
+
   return (
     <>
-      <Global />
-      <FullContainer>
-        <NavBarContainer>
-          <NavBar />
-        </NavBarContainer>
-        <Container>
+      <GlobalStyles />
+      <Container>
+        <NavBar />
+        <Modal />
+        <PagesContainer>
           <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/privacidad" component={PrivacyPolicy} />
-            <Route path="/feedback" component={FeedbackPage} />
-            <Route path="/:articleId" component={ArticlePage} />
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route path="/reviews">
+              <ArticlesPage />
+            </Route>
+            <Route path="/faq">
+              <FaqPage />
+            </Route>
+            <Route path="/users">
+              <UsersPage />
+            </Route>
+            <Route path="/profile">
+              <ProfilePage />
+            </Route>
+            <Route path="/privacy">
+              <PrivacyPage />
+            </Route>
+            <Route path="/terms">
+              <TermsConditionsPage />
+            </Route>
           </Switch>
-          <Footer />
-        </Container>
-      </FullContainer>
+        </PagesContainer>
+        <Footer />
+      </Container>
     </>
   );
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  storeAvailableTags: () => dispatch(storeAvailableTagsStart()),
+  log_in_user: (user) => dispatch(log_in_active_user_action_start(user)),
+  log_out_user: () => dispatch(log_out_active_user_action_start()),
 });
 
 export default connect(null, mapDispatchToProps)(App);
