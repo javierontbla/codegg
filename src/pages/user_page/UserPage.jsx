@@ -72,7 +72,6 @@ const UserPage = ({
   } = useRouteMatch();
 
   useEffect(() => {
-    console.log(window.screen.width);
     if (user.length === 0) request_user_to_firebase({ user_id });
     if (user_recommended.length === 0)
       request_user_recommended_to_firebase({ user_id });
@@ -97,19 +96,18 @@ const UserPage = ({
   }, [user_firebase]);
 
   const request_more_user_posts = () => {
-    /*
+    console.log("posts CALLS");
     if (remaining_user_posts) {
-      request_more_user_posts({
+      request_more_user_posts_to_firebase({
         user_posts,
         last_user_post,
         user_id,
       });
     }
-    */
   };
 
   const request_more_user_recommended = () => {
-    /*
+    console.log("recommended calls");
     if (remaining_user_recommended) {
       request_more_user_recommended_to_firebase({
         last_user_recommended,
@@ -117,11 +115,10 @@ const UserPage = ({
         user_id,
       });
     }
-    */
   };
 
   const request_more_user_reviews = () => {
-    /*
+    console.log("REVIEWS CALLS");
     if (remaining_user_reviews) {
       request_more_user_reviews_to_firebase({
         last_user_review,
@@ -129,70 +126,87 @@ const UserPage = ({
         user_id,
       });
     }
-    */
   };
 
   return (
     <>
       <Container>
-        <LeftContainer>
-          <ProfileCardContainer>
-            {user.length > 0 ? <UserCard data={user[0]} id={user[1]} /> : null}
-          </ProfileCardContainer>
-        </LeftContainer>
-        <RightContainer>
-          {user.length > 0 ? (
-            <Title>
-              {window.screen.width < 500
-                ? `${user[0].user.split(" ")[0]}'s Recommendations & Reviews`
-                : `${user[0].user.split(" ")[0]}'s Recommendations`}
-            </Title>
-          ) : null}
-          {user_recommended.length === 0 ? null : (
-            <TopContainer>
-              <RecommendedContainer>
-                <InfiniteScroll
-                  dataLength={user_recommended.length}
-                  next={() => request_more_user_recommended()}
-                  hasMore={remaining_user_recommended}
-                  className="horizontal-container"
-                >
-                  {user_recommended.map((doc) => {
-                    return <TradeCard data={doc[0]} id={doc[1]} key={doc[1]} />;
-                  })}
-                </InfiniteScroll>
-              </RecommendedContainer>
-            </TopContainer>
-          )}
-          <Division />
-          <BottomContainer>
-            <PostsContainer>
-              <InfiniteScroll
-                dataLength={user_posts.length}
-                next={() => request_more_user_posts()}
-                hasMore={remaining_user_posts}
-              >
-                {user_posts.map((doc) => {
-                  return <PostCard data={doc[0]} id={doc[1]} />;
-                })}
-              </InfiniteScroll>
-            </PostsContainer>
-            <ArticlesContainer>
-              <InfiniteScroll
-                dataLength={user_reviews.length}
-                next={() => request_more_user_reviews()}
-                hasMore={remaining_user_reviews}
-                className={
-                  window.screen.width < 500 ? "horizontal-container" : ""
-                }
-              >
-                {user_reviews.map((doc) => {
-                  return <ArticleCardTitle data={doc[0]} id={doc[1]} />;
-                })}
-              </InfiniteScroll>
-            </ArticlesContainer>
-          </BottomContainer>
-        </RightContainer>
+        {loading_user ? (
+          <LoadingUserPage />
+        ) : (
+          <>
+            <LeftContainer>
+              <ProfileCardContainer>
+                {user.length > 0 ? (
+                  <UserCard data={user[0]} id={user[1]} />
+                ) : null}
+              </ProfileCardContainer>
+            </LeftContainer>
+            <RightContainer>
+              {user.length > 0 ? (
+                <Title>
+                  {window.screen.width < 500
+                    ? `${
+                        user[0].user.split(" ")[0]
+                      }'s Recommendations & Reviews`
+                    : user_recommended.length !== 0
+                    ? `${user[0].user.split(" ")[0]}'s Recommendations`
+                    : null}
+                </Title>
+              ) : null}
+              {user_recommended.length === 0 ? null : (
+                <TopContainer>
+                  <RecommendedContainer id="recommended-horizontal">
+                    <InfiniteScroll
+                      dataLength={user_recommended.length}
+                      next={() => request_more_user_recommended()}
+                      hasMore={remaining_user_recommended}
+                      className="horizontal-container"
+                      scrollableTarget="recommended-horizontal"
+                    >
+                      {user_recommended.map((doc) => {
+                        return (
+                          <TradeCard data={doc[0]} id={doc[1]} key={doc[1]} />
+                        );
+                      })}
+                    </InfiniteScroll>
+                  </RecommendedContainer>
+                </TopContainer>
+              )}
+              <Division />
+              <BottomContainer>
+                <PostsContainer>
+                  <InfiniteScroll
+                    dataLength={user_posts.length}
+                    next={() => request_more_user_posts()}
+                    hasMore={remaining_user_posts}
+                  >
+                    {user_posts.map((doc) => {
+                      return <PostCard data={doc[0]} id={doc[1]} />;
+                    })}
+                  </InfiniteScroll>
+                </PostsContainer>
+                <ArticlesContainer id="reviews-horizontal">
+                  <InfiniteScroll
+                    dataLength={user_reviews.length}
+                    next={() => request_more_user_reviews()}
+                    hasMore={remaining_user_reviews}
+                    className={
+                      window.screen.width < 500 ? "horizontal-container" : ""
+                    }
+                    scrollableTarget={
+                      window.screen.width < 500 ? "reviews-horizontal" : ""
+                    }
+                  >
+                    {user_reviews.map((doc) => {
+                      return <ArticleCardTitle data={doc[0]} id={doc[1]} />;
+                    })}
+                  </InfiniteScroll>
+                </ArticlesContainer>
+              </BottomContainer>
+            </RightContainer>
+          </>
+        )}
       </Container>
     </>
   );

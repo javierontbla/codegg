@@ -40,7 +40,7 @@ export const ProfileCardContainer = styled.div`
 `;
 
 export const RightContainer = styled.div`
-  display: ${(props) => (props.display_portfolio ? "none" : "flex")};
+  display: flex;
   flex-direction: column;
   width: calc(100% - 24.5rem);
   height: fit-content;
@@ -149,5 +149,12 @@ export const ArticlesContainer = styled.div`
     margin: 0rem 0rem 1rem 0rem;
     padding: 0rem 0rem 1rem 0rem;
     border-bottom: 0.5px solid ${grey_2};
+    display: grid;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    grid-gap: 0;
+    grid-auto-flow: column;
+    grid-template-columns: minmax(min-content, max-content);
+    align-items: flex-start;
   }
 `;

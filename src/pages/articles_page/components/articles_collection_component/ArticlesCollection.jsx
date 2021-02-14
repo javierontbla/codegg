@@ -97,7 +97,6 @@ const ArticlesCollection = ({
   };
 
   const request_more_articles_to_firebase = () => {
-    /*
     if (filtered_articles.length > 0) {
       if (remaining_filtered_articles) {
         request_more_filtered_articles({
@@ -114,7 +113,6 @@ const ArticlesCollection = ({
         });
       }
     }
-    */
   };
 
   return (

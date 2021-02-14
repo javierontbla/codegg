@@ -20,6 +20,7 @@ export const ArticlePreviewContainer = styled.div`
 export const HyperLink = styled(Link)`
   &:hover {
     text-decoration: none;
+    opacity: 0.95;
   }
 `;
 

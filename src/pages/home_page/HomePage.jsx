@@ -61,16 +61,22 @@ const HomePage = ({
 
   const request_more_recommended_to_firebase = () => {
     // only if there are remaining recommended
-    //request_more_recommended({ recommended, last_recommended });
+    if (remaining_recommended) {
+      request_more_recommended({ recommended, last_recommended });
+    }
   };
 
   const request_more_posts_to_firebase = () => {
     // only if there are remaining posts
-    //request_more_posts({ posts, last_post });
+    if (remaining_posts) {
+      request_more_posts({ posts, last_post });
+    }
   };
 
   const request_more_articles_to_firebase = () => {
-    //request_more_article_previews({ article_previews, last_article_preview });
+    if (remaining_article_previews) {
+      request_more_article_previews({ article_previews, last_article_preview });
+    }
   };
 
   return (
@@ -87,8 +93,11 @@ const HomePage = ({
                 dataLength={recommended.length}
                 next={() => request_more_recommended_to_firebase()}
                 hasMore={last_recommended}
+                scrollableTarget={
+                  window.screen.width < 500 ? "recommended-horizontal" : ""
+                }
               >
-                <TradesContainer>
+                <TradesContainer id="recommended-horizontal">
                   {recommended.map((recommended) => {
                     return (
                       <TradeCard

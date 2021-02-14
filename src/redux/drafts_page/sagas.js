@@ -139,8 +139,11 @@ function* upload_article_async(action) {
       })
       .then((doc) => doc.id);
 
+    const new_categories = yield [
+      ...new Set([...categories, ...tags_filtered]),
+    ];
     yield tags_ref.update({
-      categories: [...categories, ...tags_filtered],
+      categories: new_categories,
     });
 
     yield put(upload_article_success_action(response));
@@ -178,7 +181,7 @@ function* request_draft_async(action) {
 
 function* request_drafts_async(action) {
   const { user_id } = action.payload;
-  const drafts_ref = db.collection(`investors/${user_id}/drafts`);
+  const drafts_ref = db.collection(`investors/${user_id}/drafts`).limit(10);
 
   try {
     const response = yield drafts_ref.get().then((snapshot) => {
