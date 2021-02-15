@@ -16,7 +16,7 @@ function* request_all_comments_async(action) {
   const comments_ref = db
     .collection(`posts/${action.payload}/comments`)
     .orderBy("votes", "desc")
-    .limit(1);
+    .limit(4);
 
   try {
     const comments_arr = [];
@@ -51,7 +51,7 @@ function* request_more_comments_async(action) {
     .collection(`posts/${post_id}/comments`)
     .orderBy("votes", "desc")
     .startAfter(last_comment)
-    .limit(1);
+    .limit(4);
 
   try {
     const comments_arr = [...comments];
