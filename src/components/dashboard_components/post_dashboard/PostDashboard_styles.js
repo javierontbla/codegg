@@ -11,7 +11,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  height: fit-content;
   width: 100%;
   background: ${black};
   border: none;

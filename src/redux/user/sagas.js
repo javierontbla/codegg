@@ -28,7 +28,7 @@ function* log_in_active_user_async(action) {
           "https://firebasestorage.googleapis.com/v0/b/avgguido.appspot.com/o/default%2Fdefault_profile.png?alt=media&token=b3ec78bd-45bc-4fe3-b340-1d97e1410d89",
         cover_image: "",
         subscribers: 0,
-        rank: "Rookie",
+        rank: "rookie",
         email: payload.email,
       });
 
